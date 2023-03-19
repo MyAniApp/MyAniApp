@@ -322,9 +322,6 @@ class Medias extends StatelessWidget {
                 return CharacterMedia(edge: edge);
               },
               itemCount: item.medias.length,
-              // children: [
-              //   for (var edge in item.medias) CharacterMedia(edge: edge),
-              // ],
             ),
           ],
         );
