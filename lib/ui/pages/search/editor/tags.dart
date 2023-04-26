@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/search/editor/genre.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/search/search.graphql.dart';
-import 'package:myaniapp_v2/ui/pages/search/provider.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/search/editor/genre.graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/search/search.graphql.dart';
+import 'package:myaniapp/ui/pages/search/provider.dart';
 
 class Tags extends ConsumerWidget {
   const Tags({super.key, required this.tags});

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/providers/graphql.dart';
+import 'package:myaniapp/providers/graphql.dart';
 
 @RoutePage()
 class EmptyPage extends StatelessWidget {

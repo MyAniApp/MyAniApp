@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/constants.dart';
-import 'package:myaniapp_v2/extentions.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/media/media.graphql.dart';
-import 'package:myaniapp_v2/ui/common/image.dart';
-import 'package:myaniapp_v2/ui/common/markdown/markdown.dart';
+import 'package:myaniapp/constants.dart';
+import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/media/media.graphql.dart';
+import 'package:myaniapp/ui/common/image.dart';
+import 'package:myaniapp/ui/common/markdown/markdown.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 

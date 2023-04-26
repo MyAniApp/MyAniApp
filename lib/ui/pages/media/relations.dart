@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/extentions.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/media/media.graphql.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
-import 'package:myaniapp_v2/ui/common/cards/media_cards.dart';
+import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/media/media.graphql.dart';
+import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/cards/media_cards.dart';
 
 class Relations extends StatelessWidget {
   const Relations({super.key, required this.relations});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/fragments.graphql.dart';
+import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 
 class Pagination extends StatelessWidget {
   const Pagination({

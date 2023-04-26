@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/providers/settings.dart';
-import 'package:myaniapp_v2/providers/user.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
-import 'package:myaniapp_v2/ui/common/image.dart';
+import 'package:myaniapp/providers/settings.dart';
+import 'package:myaniapp/providers/user.dart';
+import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/image.dart';
 
 class AppDrawer extends ConsumerWidget {
   const AppDrawer({super.key});

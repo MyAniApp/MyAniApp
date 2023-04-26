@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/constants.dart';
-import 'package:myaniapp_v2/providers/shared_preferrences.dart';
-import 'package:myaniapp_v2/ui/root.dart';
+import 'package:myaniapp/constants.dart';
+import 'package:myaniapp/providers/shared_preferrences.dart';
+import 'package:myaniapp/ui/root.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {

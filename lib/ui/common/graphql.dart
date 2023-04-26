@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
+import 'package:myaniapp/routes.gr.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Graphql<T> extends StatelessWidget {

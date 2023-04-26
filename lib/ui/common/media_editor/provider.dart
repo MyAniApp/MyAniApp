@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/fragments.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/schema.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
-import 'package:myaniapp_v2/providers/graphql.dart';
-import 'package:myaniapp_v2/providers/user.dart';
+import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
+import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
+import 'package:myaniapp/providers/graphql.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'provider.g.dart';

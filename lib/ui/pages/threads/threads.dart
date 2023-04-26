@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:myaniapp_v2/extentions.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/schema.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/threads/threads.graphql.dart';
-import 'package:myaniapp_v2/ui/common/graphql.dart';
-import 'package:myaniapp_v2/ui/common/scroll_to_top.dart';
-import 'package:myaniapp_v2/ui/common/thread.dart';
+import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/threads/threads.graphql.dart';
+import 'package:myaniapp/ui/common/graphql.dart';
+import 'package:myaniapp/ui/common/scroll_to_top.dart';
+import 'package:myaniapp/ui/common/thread.dart';
 
 enum ThreadFeed { recent, latest, subscribed, search }
 

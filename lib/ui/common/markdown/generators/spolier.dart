@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:markdown_widget/markdown_widget.dart';
-import 'package:myaniapp_v2/routes.dart';
-import 'package:myaniapp_v2/ui/common/markdown/markdown.dart';
+import 'package:myaniapp/routes.dart';
+import 'package:myaniapp/ui/common/markdown/markdown.dart';
 
 String _tag = 'spoiler';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/constants.dart';
-import 'package:myaniapp_v2/ui/common/image.dart';
+import 'package:myaniapp/constants.dart';
+import 'package:myaniapp/ui/common/image.dart';
 
 class GridCards extends StatelessWidget {
   const GridCards({

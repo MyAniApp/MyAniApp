@@ -10,7 +10,7 @@ targets:
               type: DateTime
               fromJsonFunctionName: dateTimeFromJson
               toJsonFunctionName: dateTimeToJson
-              import: package:myaniapp_v2/graphql/scalars.dart
+              import: package:myaniapp/graphql/scalars.dart
             Json:
               type: dynamic
           clients:

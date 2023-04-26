@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/constants.dart';
-import 'package:myaniapp_v2/extentions.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/fragments.graphql.dart';
-import 'package:myaniapp_v2/ui/common/image.dart';
-import 'package:myaniapp_v2/ui/common/markdown/markdown.dart';
+import 'package:myaniapp/constants.dart';
+import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
+import 'package:myaniapp/ui/common/image.dart';
+import 'package:myaniapp/ui/common/markdown/markdown.dart';
 
 class CardSheet extends StatelessWidget {
   const CardSheet({super.key, required this.media});

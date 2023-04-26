@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/fragments.graphql.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
-import 'package:myaniapp_v2/ui/common/cards/grid_cards.dart';
-import 'package:myaniapp_v2/ui/common/cards/media_cards.dart';
-import 'package:myaniapp_v2/ui/common/media_editor/media_editor.dart';
+import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
+import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/cards/grid_cards.dart';
+import 'package:myaniapp/ui/common/cards/media_cards.dart';
+import 'package:myaniapp/ui/common/media_editor/media_editor.dart';
 
 import '../../graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
 

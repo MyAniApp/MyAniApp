@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/providers/shared_preferrences.dart';
+import 'package:myaniapp/providers/shared_preferrences.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'settings.g.dart';

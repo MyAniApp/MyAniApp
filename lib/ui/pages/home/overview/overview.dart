@@ -1,17 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/fragments.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/schema.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/home/overview/overview.graphql.dart';
-import 'package:myaniapp_v2/providers/user.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
-import 'package:myaniapp_v2/ui/common/cards/card_sheet.dart';
-import 'package:myaniapp_v2/ui/common/cards/grid_cards.dart';
-import 'package:myaniapp_v2/ui/common/graphql.dart';
-import 'package:myaniapp_v2/ui/common/media_list_group.dart';
-import 'package:myaniapp_v2/ui/pages/home/app_bar.dart';
-import 'package:myaniapp_v2/utils/utils.dart';
+import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
+import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/home/overview/overview.graphql.dart';
+import 'package:myaniapp/providers/user.dart';
+import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/cards/card_sheet.dart';
+import 'package:myaniapp/ui/common/cards/grid_cards.dart';
+import 'package:myaniapp/ui/common/graphql.dart';
+import 'package:myaniapp/ui/common/media_list_group.dart';
+import 'package:myaniapp/ui/pages/home/app_bar.dart';
+import 'package:myaniapp/utils/utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 @RoutePage()

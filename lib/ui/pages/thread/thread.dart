@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/thread/comments.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/thread/thread.graphql.dart';
-import 'package:myaniapp_v2/ui/common/comment.dart';
-import 'package:myaniapp_v2/ui/common/graphql.dart';
-import 'package:myaniapp_v2/ui/common/markdown/markdown.dart';
-import 'package:myaniapp_v2/ui/common/pagination.dart';
-import 'package:myaniapp_v2/ui/common/scroll_to_top.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/thread/comments.graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/thread/thread.graphql.dart';
+import 'package:myaniapp/ui/common/comment.dart';
+import 'package:myaniapp/ui/common/graphql.dart';
+import 'package:myaniapp/ui/common/markdown/markdown.dart';
+import 'package:myaniapp/ui/common/pagination.dart';
+import 'package:myaniapp/ui/common/scroll_to_top.dart';
 
 @RoutePage()
 class ThreadPage extends HookWidget {

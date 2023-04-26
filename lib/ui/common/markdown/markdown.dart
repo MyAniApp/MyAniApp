@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:markdown_widget/markdown_widget.dart' as md2;
-import 'package:myaniapp_v2/ui/common/image.dart';
-import 'package:myaniapp_v2/ui/common/markdown/custom_node.dart';
-import 'package:myaniapp_v2/ui/common/markdown/generators/br.dart';
-import 'package:myaniapp_v2/ui/common/markdown/generators/i.dart';
-import 'package:myaniapp_v2/ui/common/markdown/generators/img.dart';
-import 'package:myaniapp_v2/ui/common/markdown/generators/spolier.dart';
+import 'package:myaniapp/ui/common/image.dart';
+import 'package:myaniapp/ui/common/markdown/custom_node.dart';
+import 'package:myaniapp/ui/common/markdown/generators/br.dart';
+import 'package:myaniapp/ui/common/markdown/generators/i.dart';
+import 'package:myaniapp/ui/common/markdown/generators/img.dart';
+import 'package:myaniapp/ui/common/markdown/generators/spolier.dart';
 
 var removeRegex = RegExp(r'~{3}([\s\S]*?)~{3}', dotAll: true);
 

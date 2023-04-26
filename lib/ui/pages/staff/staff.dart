@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:myaniapp_v2/constants.dart';
-import 'package:myaniapp_v2/extentions.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/staff/staff.graphql.dart';
-import 'package:myaniapp_v2/ui/common/graphql.dart';
-import 'package:myaniapp_v2/ui/common/image.dart';
-import 'package:myaniapp_v2/ui/common/markdown/markdown.dart';
-import 'package:myaniapp_v2/ui/common/persistent_header.dart';
-import 'package:myaniapp_v2/ui/pages/staff/production.dart';
-import 'package:myaniapp_v2/ui/pages/staff/voice.dart';
+import 'package:myaniapp/constants.dart';
+import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/staff/staff.graphql.dart';
+import 'package:myaniapp/ui/common/graphql.dart';
+import 'package:myaniapp/ui/common/image.dart';
+import 'package:myaniapp/ui/common/markdown/markdown.dart';
+import 'package:myaniapp/ui/common/persistent_header.dart';
+import 'package:myaniapp/ui/pages/staff/production.dart';
+import 'package:myaniapp/ui/pages/staff/voice.dart';
 
 @RoutePage()
 class StaffPage extends StatefulHookWidget {

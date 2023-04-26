@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
-import 'package:myaniapp_v2/utils/utils.dart';
+import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/utils/utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class Comment extends StatelessWidget {

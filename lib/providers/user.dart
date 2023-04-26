@@ -1,5 +1,5 @@
-import 'package:myaniapp_v2/graphql/__generated/graphql/viewer.graphql.dart';
-import 'package:myaniapp_v2/providers/graphql.dart';
+import 'package:myaniapp/graphql/__generated/graphql/viewer.graphql.dart';
+import 'package:myaniapp/providers/graphql.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'user.g.dart';

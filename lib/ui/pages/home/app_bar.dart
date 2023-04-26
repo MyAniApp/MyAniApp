@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/providers/user.dart';
-import 'package:myaniapp_v2/ui/common/image.dart';
+import 'package:myaniapp/providers/user.dart';
+import 'package:myaniapp/ui/common/image.dart';
 
 class Appbar extends ConsumerWidget implements PreferredSizeWidget {
   const Appbar({

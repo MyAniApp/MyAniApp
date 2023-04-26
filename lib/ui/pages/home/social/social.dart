@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/ui/common/persistent_header.dart';
-import 'package:myaniapp_v2/ui/pages/home/app_bar.dart';
-import 'package:myaniapp_v2/ui/pages/home/social/activities.dart';
-import 'package:myaniapp_v2/ui/pages/home/social/forum.dart';
+import 'package:myaniapp/ui/common/persistent_header.dart';
+import 'package:myaniapp/ui/pages/home/app_bar.dart';
+import 'package:myaniapp/ui/pages/home/social/activities.dart';
+import 'package:myaniapp/ui/pages/home/social/forum.dart';
 
 @RoutePage()
 class SocialPage extends StatelessWidget {

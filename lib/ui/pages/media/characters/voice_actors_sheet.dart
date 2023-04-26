@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/media/characters/characters.graphql.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
-import 'package:myaniapp_v2/ui/common/image.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/media/characters/characters.graphql.dart';
+import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/image.dart';
 
 class VoiceActorsSheet extends StatelessWidget {
   const VoiceActorsSheet({super.key, required this.voiceActors});

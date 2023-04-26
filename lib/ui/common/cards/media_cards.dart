@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/fragments.graphql.dart';
-import 'package:myaniapp_v2/providers/settings.dart';
-import 'package:myaniapp_v2/ui/common/cards/card_sheet.dart';
-import 'package:myaniapp_v2/ui/common/cards/grid_cards.dart';
+import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
+import 'package:myaniapp/providers/settings.dart';
+import 'package:myaniapp/ui/common/cards/card_sheet.dart';
+import 'package:myaniapp/ui/common/cards/grid_cards.dart';
 
 class MediaCards extends ConsumerWidget {
   const MediaCards({

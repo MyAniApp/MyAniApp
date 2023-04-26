@@ -2,13 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/schema.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/search/editor/genre.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/search/search.graphql.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
-import 'package:myaniapp_v2/ui/common/cards/media_cards.dart';
-import 'package:myaniapp_v2/ui/pages/search/editor/editor.dart';
-import 'package:myaniapp_v2/ui/pages/search/provider.dart';
+import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/search/editor/genre.graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/search/search.graphql.dart';
+import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/cards/media_cards.dart';
+import 'package:myaniapp/ui/pages/search/editor/editor.dart';
+import 'package:myaniapp/ui/pages/search/provider.dart';
 
 @RoutePage()
 class SearchPage extends HookConsumerWidget {

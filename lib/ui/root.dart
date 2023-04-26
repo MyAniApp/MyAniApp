@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/providers/settings.dart';
-import 'package:myaniapp_v2/routes.dart';
-import 'package:myaniapp_v2/ui/theme.dart';
+import 'package:myaniapp/providers/settings.dart';
+import 'package:myaniapp/routes.dart';
+import 'package:myaniapp/ui/theme.dart';
 import 'package:uni_links/uni_links.dart';
 
 class MyApp extends ConsumerStatefulWidget {

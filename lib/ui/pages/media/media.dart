@@ -2,21 +2,21 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/constants.dart';
-import 'package:myaniapp_v2/extentions.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/media/media.graphql.dart';
-import 'package:myaniapp_v2/ui/common/image.dart';
-import 'package:myaniapp_v2/ui/common/media_editor/media_editor.dart';
-import 'package:myaniapp_v2/ui/common/persistent_header.dart';
-import 'package:myaniapp_v2/ui/common/scroll_to_top.dart';
-import 'package:myaniapp_v2/ui/pages/media/characters/characters.dart';
-import 'package:myaniapp_v2/ui/pages/media/overview.dart';
-import 'package:myaniapp_v2/ui/pages/media/provider.dart';
-import 'package:myaniapp_v2/ui/pages/media/recommendations/recommendations.dart';
-import 'package:myaniapp_v2/ui/pages/media/relations.dart';
-import 'package:myaniapp_v2/ui/pages/media/reviews/reviews.dart';
-import 'package:myaniapp_v2/ui/pages/media/social/social.dart';
-import 'package:myaniapp_v2/ui/pages/media/staff/staff.dart';
+import 'package:myaniapp/constants.dart';
+import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/media/media.graphql.dart';
+import 'package:myaniapp/ui/common/image.dart';
+import 'package:myaniapp/ui/common/media_editor/media_editor.dart';
+import 'package:myaniapp/ui/common/persistent_header.dart';
+import 'package:myaniapp/ui/common/scroll_to_top.dart';
+import 'package:myaniapp/ui/pages/media/characters/characters.dart';
+import 'package:myaniapp/ui/pages/media/overview.dart';
+import 'package:myaniapp/ui/pages/media/provider.dart';
+import 'package:myaniapp/ui/pages/media/recommendations/recommendations.dart';
+import 'package:myaniapp/ui/pages/media/relations.dart';
+import 'package:myaniapp/ui/pages/media/reviews/reviews.dart';
+import 'package:myaniapp/ui/pages/media/social/social.dart';
+import 'package:myaniapp/ui/pages/media/staff/staff.dart';
 
 @RoutePage()
 class MediaPage extends ConsumerWidget {

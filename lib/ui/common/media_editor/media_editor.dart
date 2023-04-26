@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/fragments.graphql.dart';
-import 'package:myaniapp_v2/graphql/__generated/graphql/schema.graphql.dart';
-import 'package:myaniapp_v2/providers/user.dart';
-import 'package:myaniapp_v2/ui/common/media_editor/provider.dart';
-import 'package:myaniapp_v2/ui/common/number_picker.dart';
+import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
+import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
+import 'package:myaniapp/providers/user.dart';
+import 'package:myaniapp/ui/common/media_editor/provider.dart';
+import 'package:myaniapp/ui/common/number_picker.dart';
 
 class MediaEditor extends ConsumerStatefulWidget {
   const MediaEditor({

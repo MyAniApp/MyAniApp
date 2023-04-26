@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:myaniapp_v2/providers/settings.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
+import 'package:myaniapp/providers/settings.dart';
+import 'package:myaniapp/routes.gr.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @AutoRouterConfig()

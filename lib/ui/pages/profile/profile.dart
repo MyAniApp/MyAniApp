@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:myaniapp_v2/constants.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/profile/profile.graphql.dart';
-import 'package:myaniapp_v2/routes.gr.dart';
-import 'package:myaniapp_v2/ui/common/graphql.dart';
-import 'package:myaniapp_v2/ui/common/image.dart';
-import 'package:myaniapp_v2/ui/common/markdown/markdown.dart';
+import 'package:myaniapp/constants.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/profile/profile.graphql.dart';
+import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/graphql.dart';
+import 'package:myaniapp/ui/common/image.dart';
+import 'package:myaniapp/ui/common/markdown/markdown.dart';
 
 @RoutePage()
 class ProfilePage extends HookWidget {

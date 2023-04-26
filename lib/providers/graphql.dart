@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp_v2/providers/settings.dart';
+import 'package:myaniapp/providers/settings.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'graphql.g.dart';

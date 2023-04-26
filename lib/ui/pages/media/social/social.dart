@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:myaniapp_v2/graphql/__generated/ui/pages/media/social/social.graphql.dart';
-import 'package:myaniapp_v2/ui/common/graphql.dart';
-import 'package:myaniapp_v2/ui/common/pagination.dart';
-import 'package:myaniapp_v2/ui/common/thread.dart';
+import 'package:myaniapp/graphql/__generated/ui/pages/media/social/social.graphql.dart';
+import 'package:myaniapp/ui/common/graphql.dart';
+import 'package:myaniapp/ui/common/pagination.dart';
+import 'package:myaniapp/ui/common/thread.dart';
 
 class Social extends HookWidget {
   const Social({super.key, required this.mediaId});
