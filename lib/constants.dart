@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
 
-bool isDevmode = false;
-
 BorderRadius imageRadius = BorderRadius.circular(10);
+const Color linkColor = Color(0xff0969da);

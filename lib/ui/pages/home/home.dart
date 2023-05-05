@@ -19,6 +19,9 @@ class HomePage extends ConsumerWidget {
       );
     }
 
+    var route = ModalRoute.of(context);
+    print(route?.animation?.isCompleted);
+
     return AutoTabsScaffold(
       routes: const [
         OverviewRoute(),

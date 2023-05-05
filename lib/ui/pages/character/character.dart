@@ -2,9 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:myaniapp/constants.dart';
-import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/ui/pages/character/character.graphql.dart';
 import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/back_button.dart';
 import 'package:myaniapp/ui/common/cards/grid_cards.dart';
 import 'package:myaniapp/ui/common/cards/media_cards.dart';
 import 'package:myaniapp/ui/common/graphql.dart';
@@ -139,19 +140,7 @@ class _Character extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SafeArea(
-          child: IconButton(
-            icon: Container(
-              padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.transparent.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: const Icon(Icons.arrow_back),
-            ),
-            onPressed: () => context.router.pop(),
-          ),
-        ),
+        const AppBackButton(),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -182,7 +171,7 @@ class _Character extends StatelessWidget {
                     ),
                   ),
                   if (character.dateOfBirth != null &&
-                      character.dateOfBirth!.getDate() != null)
+                      character.dateOfBirth!.toDateString() != null)
                     Text.rich(
                       TextSpan(
                         children: [
@@ -193,7 +182,7 @@ class _Character extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: character.dateOfBirth!.getDate()!,
+                            text: character.dateOfBirth!.toDateString()!,
                           )
                         ],
                       ),
@@ -303,7 +292,6 @@ class _Appearances extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
             child: MediaCards(
-              primary: false,
               list: character.media!.edges!.map((e) => e!.node!).toList(),
               chips: (index) {
                 var item = character.media!.edges![index];

@@ -132,7 +132,7 @@ class _Appearances extends StatelessWidget {
                           imageUrl: item.characters!.first!.image!.large!,
                           index: cardIndex,
                           title: item.characters!.first!.name!.userPreferred!,
-                          underTitle: (index) =>
+                          underTitle: (index, style) =>
                               Text(item.node!.title!.userPreferred!),
                           onTap: (index) => context.router.push(
                               CharacterRoute(id: item.characters!.first!.id)),

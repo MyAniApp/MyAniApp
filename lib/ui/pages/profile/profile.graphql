@@ -25,17 +25,13 @@ query User($name: String) {
     }
     favourites {
       anime(perPage: 4) {
-        edges {
-          node {
-            ...Media
-          }
+        nodes {
+          ...Media
         }
       }
       manga(perPage: 4) {
-        edges {
-          node {
-            ...Media
-          }
+        nodes {
+          ...Media
         }
       }
     }

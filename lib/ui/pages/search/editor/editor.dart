@@ -3,7 +3,7 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/pages/search/editor/genre.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/pages/search/search.graphql.dart';

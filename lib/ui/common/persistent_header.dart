@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 
 class SliverPersistentHeaderTabBarDelegate
     extends SliverPersistentHeaderDelegate {
-  SliverPersistentHeaderTabBarDelegate(
-    this._tabBar, {
-    this.addHeight = 0,
-  });
-
-  final double addHeight;
+  SliverPersistentHeaderTabBarDelegate(this._tabBar);
 
   final TabBar _tabBar;
 
   @override
-  double get maxExtent => _tabBar.preferredSize.height + addHeight;
+  double get maxExtent => _tabBar.preferredSize.height;
 
   @override
-  double get minExtent => _tabBar.preferredSize.height + addHeight;
+  double get minExtent => _tabBar.preferredSize.height;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderTabBarDelegate oldDelegate) {
@@ -28,8 +23,6 @@ class SliverPersistentHeaderTabBarDelegate
     return Material(
       elevation: 1,
       child: Container(
-        margin: EdgeInsets.only(top: addHeight),
-        // height: _tabBar.preferredSize.height + addHeight,
         child: _tabBar,
       ),
     );

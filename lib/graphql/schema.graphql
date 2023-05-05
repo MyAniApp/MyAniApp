@@ -809,6 +809,9 @@ type Page {
     rating_lesser: Int
     sort: [RecommendationSort]
   ): [Recommendation]
+  reviews(id: Int, mediaId: Int, userId: Int, mediaType: MediaType, sort: [ReviewSort]): [Review]
+  followers(userId: Int!, sort: [UserSort]): [User]
+  following(userId: Int!, sort: [UserSort]): [User]
   # likes(likeableId: LikeableType): [User]
 }
 

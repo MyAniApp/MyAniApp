@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:holding_gesture/holding_gesture.dart';
 
-class NumberPicker extends StatelessWidget {
+class NumberPicker extends HookWidget {
   const NumberPicker({
     super.key,
     required this.current,
@@ -9,50 +11,93 @@ class NumberPicker extends StatelessWidget {
     this.max,
     this.increment = 1,
     this.min,
+    this.holdEnabled = true,
+    this.decimals = false,
   });
 
-  final double current;
-  final double increment;
-  final double? max;
-  final double? min;
-  final void Function(double value) onChange;
+  final num current;
+  final num increment;
+  final num? max;
+  final num? min;
+  final bool holdEnabled;
+  final bool decimals;
+  final void Function(num value) onChange;
 
-  void incrementNum() {
+  void incrementNum(TextEditingController controller) {
     if (max != null && current >= max!) return;
+
+    controller.text = (current + increment).toString();
 
     onChange(current + increment);
   }
 
-  void decrementNum() {
+  void decrementNum(TextEditingController controller) {
     if (min != null && current <= min!) return;
+
+    controller.text = (current - increment).toString();
 
     onChange(current - increment);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        HoldDetector(
-          onHold: decrementNum,
-          enableHapticFeedback: true,
-          holdTimeout: const Duration(milliseconds: 200),
-          child: IconButton(
-            onPressed: decrementNum,
-            icon: const Icon(Icons.remove),
-          ),
+    var controller = useTextEditingController(text: current.toString());
+
+    return TextField(
+      controller: controller,
+      keyboardType: TextInputType.number,
+      inputFormatters: decimals
+          ? [FilteringTextInputFormatter.allow(RegExp(r'[0-9]\.?'))]
+          : [FilteringTextInputFormatter.digitsOnly],
+      // textAlignVertical: TextAlignVertical.bottom,
+      decoration: InputDecoration(
+        border: const OutlineInputBorder(),
+        contentPadding: const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+        suffixIcon: Row(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            holdEnabled
+                ? HoldDetector(
+                    onHold: () => incrementNum(controller),
+                    enableHapticFeedback: true,
+                    holdTimeout: const Duration(milliseconds: 200),
+                    child: IconButton(
+                      onPressed: () => incrementNum(controller),
+                      icon: const Icon(Icons.keyboard_arrow_up),
+                    ),
+                  )
+                : IconButton(
+                    onPressed: () => incrementNum(controller),
+                    icon: const Icon(Icons.keyboard_arrow_up),
+                  ),
+            holdEnabled
+                ? HoldDetector(
+                    onHold: () => decrementNum(controller),
+                    enableHapticFeedback: true,
+                    holdTimeout: const Duration(milliseconds: 200),
+                    child: IconButton(
+                      onPressed: () => decrementNum(controller),
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                    ),
+                  )
+                : IconButton(
+                    onPressed: () => decrementNum(controller),
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                  ),
+          ],
         ),
-        Text((current % 1 == 0 ? current.toInt() : current).toString()),
-        HoldDetector(
-          onHold: incrementNum,
-          enableHapticFeedback: true,
-          holdTimeout: const Duration(milliseconds: 200),
-          child: IconButton(
-            onPressed: incrementNum,
-            icon: const Icon(Icons.add),
-          ),
-        ),
-      ],
+      ),
+      onChanged: (value) {
+        var i = num.tryParse(value);
+        if (i == null) return;
+        onChange(i);
+      },
+      onSubmitted: (value) {
+        var i = num.tryParse(value);
+        if (i == null) return;
+        onChange(i);
+      },
     );
   }
 }

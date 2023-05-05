@@ -32,7 +32,13 @@ extension HexColor on Color {
 }
 
 extension Date on Fragment$FuzzyDate {
-  String? getDate() {
+  DateTime? toDate() {
+    if (year == null) return null;
+
+    return DateTime(year!, month ?? 0, day ?? 0);
+  }
+
+  String? toDateString() {
     if (day == null && month == null && year == null) return null;
     var str = '';
     if (month != null) str += DateFormat('MMMM').format(DateTime(0, month!));

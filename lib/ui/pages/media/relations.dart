@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/ui/pages/media/media.graphql.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/cards/media_cards.dart';
@@ -21,7 +21,7 @@ class Relations extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
       child: MediaCards(
         list: sorted.map((e) => e.node).toList(),
-        underTitle: (index) {
+        underTitle: (index, style) {
           var item = sorted[index];
 
           return Text(item.relationType!.name.capitalize());

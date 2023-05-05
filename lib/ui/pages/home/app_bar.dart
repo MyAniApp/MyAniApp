@@ -23,14 +23,13 @@ class Appbar extends ConsumerWidget implements PreferredSizeWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var user = ref.watch(userProvider);
 
-    return AppBar(
+    return SliverAppBar(
       leading: user.when(
         data: (data) {
           return Padding(
             padding: const EdgeInsets.all(6),
             child: GestureDetector(
-              onTap: () =>
-                  Scaffold.of(Scaffold.of(context).context).openDrawer(),
+              onTap: () => Scaffold.of(context).openDrawer(),
               child: CImage(
                 imageUrl: data!.avatar!.large!,
                 imageBuilder: (context, imageProvider) => CircleAvatar(

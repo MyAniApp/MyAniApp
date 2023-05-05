@@ -541,6 +541,7 @@ const documentNodeQueryHome = DocumentNode(definitions: [
   fragmentDefinitionMedia,
   fragmentDefinitionListGroup,
   fragmentDefinitionMediaListEntry,
+  fragmentDefinitionFuzzyDate,
 ]);
 Query$Home _parserFn$Query$Home(Map<String, dynamic> data) =>
     Query$Home.fromJson(data);

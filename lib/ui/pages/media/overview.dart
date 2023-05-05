@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:myaniapp/constants.dart';
-import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/ui/pages/media/media.graphql.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/markdown/markdown.dart';
@@ -87,9 +87,14 @@ class _PlayerState extends State<_Player> {
 
   @override
   Widget build(BuildContext context) {
-    return YoutubePlayer(
-      controller: _controller,
-      aspectRatio: 16 / 9,
+    return MediaQuery.removePadding(
+      context: context,
+      removeLeft: true,
+      removeRight: true,
+      child: YoutubePlayer(
+        controller: _controller,
+        aspectRatio: 16 / 9,
+      ),
     );
   }
 }
@@ -165,11 +170,11 @@ class _InfoSection extends StatelessWidget {
           ),
           _InfoCard(
             title: 'Start Date',
-            info: media.startDate?.getDate() ?? 'Unknown',
+            info: media.startDate?.toDateString() ?? 'Unknown',
           ),
           _InfoCard(
             title: 'End Date',
-            info: media.endDate?.getDate() ?? 'Unknown',
+            info: media.endDate?.toDateString() ?? 'Unknown',
           ),
           if (media.season != null)
             _InfoCard(

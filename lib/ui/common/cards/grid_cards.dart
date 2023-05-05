@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myaniapp/constants.dart';
+import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/ui/common/image.dart';
 
 class GridCards extends StatelessWidget {
@@ -16,19 +17,23 @@ class GridCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: size.width ~/ (size.width > 800 ? 140 : 110),
-        childAspectRatio: 10 / 16,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
-      ),
-      primary: primary,
-      padding: EdgeInsets.zero,
-      itemBuilder: (context, index) => card(index),
-      shrinkWrap: true,
-      itemCount: itemCount,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: constraints.maxWidth ~/
+                (constraints.maxWidth > 700 ? 140 : 110),
+            childAspectRatio: 10 / 16,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+          ),
+          primary: primary,
+          padding: EdgeInsets.zero,
+          itemBuilder: (context, index) => card(index),
+          shrinkWrap: true,
+          itemCount: itemCount,
+        );
+      },
     );
   }
 }
@@ -36,7 +41,6 @@ class GridCards extends StatelessWidget {
 class GridCard extends StatelessWidget {
   const GridCard({
     super.key,
-    // required this.media,
     required this.imageUrl,
     this.chips,
     this.index,
@@ -47,14 +51,12 @@ class GridCard extends StatelessWidget {
     this.onLongPress,
   });
 
-  final Widget Function(int index)? underTitle;
+  final Widget Function(int index, ListStyle style)? underTitle;
   final List<Widget> Function(int index)? chips;
   final void Function(int index)? onDoubleTap;
   final void Function(int index)? onTap;
   final void Function(int index)? onLongPress;
-  // final Fragment$Media media;
   final String imageUrl;
-
   final int? index;
   final String? title;
 
@@ -106,7 +108,7 @@ class GridCard extends StatelessWidget {
             DefaultTextStyle(
               style: Theme.of(context).textTheme.bodySmall!,
               overflow: TextOverflow.ellipsis,
-              child: underTitle!(index!),
+              child: underTitle!(index!, ListStyle.grid),
             )
         ],
       ),

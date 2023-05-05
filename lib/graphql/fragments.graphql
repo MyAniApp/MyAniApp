@@ -63,14 +63,10 @@ fragment MediaListEntry on MediaList {
   repeat
   score(format: POINT_100)
   startedAt {
-    year
-    month
-    day
+    ...FuzzyDate
   }
   completedAt {
-    year
-    month
-    day
+    ...FuzzyDate
   }
   media {
     ...Media

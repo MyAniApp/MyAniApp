@@ -45,7 +45,10 @@ class ProfileMangaListPage extends HookWidget {
               appBar: AppBar(
                 bottom: groups.tabBar,
               ),
-              body: groups.tabView,
+              body: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: groups.tabView,
+              ),
             ),
           );
         },

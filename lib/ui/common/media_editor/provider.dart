@@ -24,8 +24,8 @@ class MediaEditor extends _$MediaEditor {
     bool? private,
     int? repeat,
     double? score,
-    Fragment$MediaListEntry$startedAt? startedAt,
-    Fragment$MediaListEntry$completedAt? completedAt,
+    Fragment$FuzzyDate? startedAt,
+    Fragment$FuzzyDate? completedAt,
   }) {
     state = state?.copyWith(
       status: status ?? state?.status,
@@ -49,6 +49,7 @@ class MediaEditor extends _$MediaEditor {
 
     if (state == null) return;
 
+    print(state?.score);
     if (_og == state) return;
 
     graphql.value!.value.mutate$SaveMediaListEntry(
@@ -70,7 +71,7 @@ class MediaEditor extends _$MediaEditor {
                   year: state!.startedAt!.year,
                 )
               : null,
-          score: state!.score,
+          scoreRaw: state!.score?.toInt(),
           hiddenFromStatusLists: state!.hiddenFromStatusLists,
           notes: state!.notes,
           priority: state!.priority,
@@ -101,6 +102,14 @@ class MediaEditor extends _$MediaEditor {
           userId: user.value!.id,
           mediaId: media.id,
         ),
+        onComplete: (p0, p1) {
+          state = p1?.MediaList ??
+              Fragment$MediaListEntry(
+                id: media.id,
+                media: Fragment$MediaListEntry$media.fromJson(media.toJson()),
+                mediaId: media.id,
+              );
+        },
       ),
     )
         .then((value) {

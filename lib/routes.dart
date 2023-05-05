@@ -36,13 +36,18 @@ class Router extends $Router {
         AutoRoute(page: CharacterRoute.page, path: 'character'),
         AutoRoute(page: StaffRoute.page, path: 'staff'),
         AutoRoute(page: SearchRoute.page, path: 'search'),
-        AutoRoute(page: Review.page, path: 'review'),
+        AutoRoute(page: ReviewRoute.page, path: 'review'),
         AutoRoute(page: ThreadRoute.page, path: 'thread'),
         AutoRoute(page: ActivityRoute.page, path: 'activity'),
         AutoRoute(page: ThreadsRoute.page, path: 'threads'),
         AutoRoute(page: ProfileRoute.page, path: 'profile'),
         AutoRoute(page: ProfileAnimeListRoute.page, path: 'profile/list/anime'),
         AutoRoute(page: ProfileMangaListRoute.page, path: 'profile/list/manga'),
+        AutoRoute(
+            page: FavoriteAnimeRoute.page, path: 'profile/favorite/anime'),
+        AutoRoute(
+            page: FavoriteMangaRoute.page, path: 'profile/favorite/manga'),
+        AutoRoute(page: NotificationsRoute.page, path: 'notifications')
       ],
     ),
     AutoRoute(page: LoginRoute.page, path: '/login'),

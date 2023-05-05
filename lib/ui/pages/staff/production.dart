@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/ui/pages/staff/staff.graphql.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/cards/card_sheet.dart';
@@ -80,7 +80,7 @@ class Production extends StatelessWidget {
                     imageUrl: item.node!.coverImage!.large!,
                     index: index,
                     title: item.node!.title!.userPreferred,
-                    underTitle: (index) => Text(item.staffRole ?? ''),
+                    underTitle: (index, style) => Text(item.staffRole ?? ''),
                     onLongPress: (index) => showCardSheet(context, item.node!),
                     onTap: (index) =>
                         context.router.push(MediaRoute(id: item.node!.id)),

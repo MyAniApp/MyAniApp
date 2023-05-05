@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/constants.dart';
-import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/ui/pages/media/media.graphql.dart';
+import 'package:myaniapp/ui/common/back_button.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/media_editor/media_editor.dart';
 import 'package:myaniapp/ui/common/persistent_header.dart';
@@ -116,17 +117,8 @@ class MediaPage extends ConsumerWidget {
                             SliverAppBar(
                               flexibleSpace: _Banner(id: id),
                               expandedHeight: 205,
-                              leading: IconButton(
-                                icon: Container(
-                                  padding: const EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    color: Colors.transparent.withOpacity(0.5),
-                                    borderRadius: BorderRadius.circular(100),
-                                  ),
-                                  child: const Icon(Icons.arrow_back),
-                                ),
-                                onPressed: () => context.router.pop(),
-                              ),
+                              toolbarHeight: 0,
+                              pinned: true,
                               automaticallyImplyLeading: false,
                             ),
                             SliverPersistentHeader(
@@ -135,8 +127,6 @@ class MediaPage extends ConsumerWidget {
                                   isScrollable: true,
                                   tabs: tabs.map((e) => e[0]).toList(),
                                 ),
-                                addHeight:
-                                    MediaQuery.of(context).viewPadding.top,
                               ),
                               pinned: true,
                             ),
@@ -283,7 +273,7 @@ class _Banner extends ConsumerWidget {
               child: CImage(
                 imageUrl: media.coverImage!.large!,
                 height: 130,
-                width: 85,
+                width: 90,
                 viewer: true,
                 viewerUrl: media.coverImage!.extraLarge!,
               ),
@@ -323,6 +313,7 @@ class _Banner extends ConsumerWidget {
               ],
             ),
           ),
+          const AppBackButton()
         ],
       ),
     );

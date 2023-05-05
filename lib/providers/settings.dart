@@ -31,6 +31,22 @@ class Settings extends _$Settings {
     state = state..theme = theme;
   }
 
+  void changeListStyle(Setting setting, ListStyle style) {
+    switch (setting) {
+      case Setting.animeList:
+        state = state..animeList = style;
+        break;
+      case Setting.mangaList:
+        state = state..mangaList = style;
+        break;
+      case Setting.fallbackList:
+        state = state..fallbackList = style;
+        break;
+      default:
+        break;
+    }
+  }
+
   void syncToStorage() {
     var settings = ref.read(sharedPrefProvider);
     settings.setString(Setting.animeList.setting, state.animeList.name);
@@ -62,7 +78,7 @@ class Settings extends _$Settings {
 enum ListStyle {
   grid,
   detailedList,
-  simpleList,
+  // simpleList,
 }
 
 enum Setting {

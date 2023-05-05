@@ -114,25 +114,29 @@ class CommentHeader extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        Text(username),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(username),
+              if (createdAt != null)
+                Text(
+                  timeago.format(
+                    dateFromTimestamp(createdAt!),
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.hintColor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+            ],
+          ),
+        ),
         const SizedBox(
           width: 5,
         ),
-        if (createdAt != null)
-          Expanded(
-            child: Text(
-              timeago.format(
-                dateFromTimestamp(createdAt!),
-              ),
-              // overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.bodySmall?.copyWith(
-                color: theme.hintColor,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-        const Spacer(),
-        if (leading != null) leading!,
+        if (leading != null) ...[const Spacer(), leading!],
       ],
     );
   }

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql/__generated/ui/pages/home/social/activities.graphql.dart';
@@ -21,8 +22,11 @@ class Activities extends HookWidget {
   @override
   Widget build(BuildContext context) {
     useAutomaticKeepAlive();
+    var route = ModalRoute.of(context);
+    print(route);
     var hook = useQuery$Activities(
       Options$Query$Activities(
+        fetchPolicy: FetchPolicy.noCache,
         variables: Variables$Query$Activities(
           isFollowing: false,
           hasReplies: true,
@@ -130,7 +134,7 @@ class Activities extends HookWidget {
                                 TextSpan(
                                   text: ' ${item.media?.title?.userPreferred}',
                                   style: const TextStyle(
-                                    color: Color(0xff0969da),
+                                    color: linkColor,
                                   ),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () => context.router.push(

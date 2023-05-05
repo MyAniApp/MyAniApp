@@ -11,37 +11,32 @@ class SocialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: DefaultTabController(
-        length: 2,
-        child: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            const SliverToBoxAdapter(
-              child: Appbar(),
-            ),
-            SliverPersistentHeader(
-              delegate: SliverPersistentHeaderTabBarDelegate(
-                const TabBar(
-                  tabs: [
-                    Tab(
-                      text: 'Activities',
-                    ),
-                    Tab(
-                      text: 'Forums',
-                    )
-                  ],
-                ),
-                addHeight: MediaQuery.of(context).viewPadding.top,
+    return DefaultTabController(
+      length: 2,
+      child: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          const Appbar(),
+          SliverPersistentHeader(
+            delegate: SliverPersistentHeaderTabBarDelegate(
+              const TabBar(
+                tabs: [
+                  Tab(
+                    text: 'Activities',
+                  ),
+                  Tab(
+                    text: 'Forums',
+                  )
+                ],
               ),
-              pinned: true,
-            )
+            ),
+            pinned: true,
+          )
+        ],
+        body: const TabBarView(
+          children: [
+            Activities(),
+            Forums(),
           ],
-          body: const TabBarView(
-            children: [
-              Activities(),
-              Forums(),
-            ],
-          ),
         ),
       ),
     );

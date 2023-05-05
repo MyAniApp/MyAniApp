@@ -37,9 +37,23 @@ class OverviewPage extends HookConsumerWidget {
     );
 
     return RefreshIndicator(
+      notificationPredicate: (notification) {
+        print(notification.depth);
+        return notification.depth == 1;
+      },
       onRefresh: hook.refetch,
-      child: Scaffold(
-        appBar: const Appbar(),
+      child: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          Appbar(
+            actions: [
+              IconButton(
+                onPressed: () =>
+                    context.router.push(const NotificationsRoute()),
+                icon: const Icon(Icons.notifications),
+              ),
+            ],
+          ),
+        ],
         body: Graphql(
           hook: hook,
           builder: (result) {
@@ -89,11 +103,14 @@ class _Watching extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
-        ListGroup(
-          group: list,
-          primary: false,
-          isEditable: true,
-          onSave: onSave,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListGroup(
+            group: list,
+            primary: false,
+            isEditable: true,
+            onSave: onSave,
+          ),
         ),
       ],
     );

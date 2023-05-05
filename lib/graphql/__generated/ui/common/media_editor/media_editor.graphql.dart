@@ -347,6 +347,7 @@ const documentNodeQueryMediaListEntry = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionMediaListEntry,
+  fragmentDefinitionFuzzyDate,
   fragmentDefinitionMedia,
 ]);
 Query$MediaListEntry _parserFn$Query$MediaListEntry(
@@ -1448,6 +1449,7 @@ const documentNodeMutationSaveMediaListEntry = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionMediaListEntry,
+  fragmentDefinitionFuzzyDate,
   fragmentDefinitionMedia,
 ]);
 Mutation$SaveMediaListEntry _parserFn$Mutation$SaveMediaListEntry(

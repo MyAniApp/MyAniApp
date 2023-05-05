@@ -9,8 +9,8 @@ import 'package:myaniapp/utils/utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 @RoutePage()
-class Review extends HookWidget {
-  const Review({super.key, required this.id});
+class ReviewPage extends HookWidget {
+  const ReviewPage({super.key, required this.id});
 
   final int id;
 

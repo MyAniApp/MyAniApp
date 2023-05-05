@@ -47,12 +47,16 @@ class Reviews extends HookWidget {
               var item = result.Media!.reviews!.nodes![index]!;
 
               return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage:
-                      CachedNetworkImageProvider(item.user!.avatar!.large!),
-                  backgroundColor: Colors.transparent,
+                leading: GestureDetector(
+                  onTap: () =>
+                      context.router.push(ProfileRoute(name: item.user!.name)),
+                  child: CircleAvatar(
+                    backgroundImage:
+                        CachedNetworkImageProvider(item.user!.avatar!.large!),
+                    backgroundColor: Colors.transparent,
+                  ),
                 ),
-                onTap: () => context.router.push(Review(id: item.id)),
+                onTap: () => context.router.push(ReviewRoute(id: item.id)),
                 title: Text(item.summary!),
                 subtitle: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,

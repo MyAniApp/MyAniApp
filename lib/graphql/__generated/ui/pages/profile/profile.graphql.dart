@@ -671,29 +671,14 @@ const documentNodeQueryUser = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FieldNode(
-                    name: NameNode(value: 'edges'),
+                    name: NameNode(value: 'nodes'),
                     alias: null,
                     arguments: [],
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'node'),
-                        alias: null,
-                        arguments: [],
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'Media'),
                         directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                            name: NameNode(value: 'Media'),
-                            directives: [],
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -725,29 +710,14 @@ const documentNodeQueryUser = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FieldNode(
-                    name: NameNode(value: 'edges'),
+                    name: NameNode(value: 'nodes'),
                     alias: null,
                     arguments: [],
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'node'),
-                        alias: null,
-                        arguments: [],
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'Media'),
                         directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                            name: NameNode(value: 'Media'),
-                            directives: [],
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -2242,32 +2212,31 @@ class _CopyWithStubImpl$Query$User$User$favourites<TRes>
 
 class Query$User$User$favourites$anime {
   Query$User$User$favourites$anime({
-    this.edges,
+    this.nodes,
     this.$__typename = 'MediaConnection',
   });
 
   factory Query$User$User$favourites$anime.fromJson(Map<String, dynamic> json) {
-    final l$edges = json['edges'];
+    final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
     return Query$User$User$favourites$anime(
-      edges: (l$edges as List<dynamic>?)
+      nodes: (l$nodes as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : Query$User$User$favourites$anime$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+              : Fragment$Media.fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Query$User$User$favourites$anime$edges?>? edges;
+  final List<Fragment$Media?>? nodes;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$edges = edges;
-    _resultData['edges'] = l$edges?.map((e) => e?.toJson()).toList();
+    final l$nodes = nodes;
+    _resultData['nodes'] = l$nodes?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -2275,10 +2244,10 @@ class Query$User$User$favourites$anime {
 
   @override
   int get hashCode {
-    final l$edges = edges;
+    final l$nodes = nodes;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$edges == null ? null : Object.hashAll(l$edges.map((v) => v)),
+      l$nodes == null ? null : Object.hashAll(l$nodes.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -2292,20 +2261,20 @@ class Query$User$User$favourites$anime {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$edges = edges;
-    final lOther$edges = other.edges;
-    if (l$edges != null && lOther$edges != null) {
-      if (l$edges.length != lOther$edges.length) {
+    final l$nodes = nodes;
+    final lOther$nodes = other.nodes;
+    if (l$nodes != null && lOther$nodes != null) {
+      if (l$nodes.length != lOther$nodes.length) {
         return false;
       }
-      for (int i = 0; i < l$edges.length; i++) {
-        final l$edges$entry = l$edges[i];
-        final lOther$edges$entry = lOther$edges[i];
-        if (l$edges$entry != lOther$edges$entry) {
+      for (int i = 0; i < l$nodes.length; i++) {
+        final l$nodes$entry = l$nodes[i];
+        final lOther$nodes$entry = lOther$nodes[i];
+        if (l$nodes$entry != lOther$nodes$entry) {
           return false;
         }
       }
-    } else if (l$edges != lOther$edges) {
+    } else if (l$nodes != lOther$nodes) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -2336,14 +2305,12 @@ abstract class CopyWith$Query$User$User$favourites$anime<TRes> {
       _CopyWithStubImpl$Query$User$User$favourites$anime;
 
   TRes call({
-    List<Query$User$User$favourites$anime$edges?>? edges,
+    List<Fragment$Media?>? nodes,
     String? $__typename,
   });
-  TRes edges(
-      Iterable<Query$User$User$favourites$anime$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$User$User$favourites$anime$edges<
-                      Query$User$User$favourites$anime$edges>?>?)
+  TRes nodes(
+      Iterable<Fragment$Media?>? Function(
+              Iterable<CopyWith$Fragment$Media<Fragment$Media>?>?)
           _fn);
 }
 
@@ -2361,27 +2328,25 @@ class _CopyWithImpl$Query$User$User$favourites$anime<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? edges = _undefined,
+    Object? nodes = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$User$User$favourites$anime(
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges as List<Query$User$User$favourites$anime$edges?>?),
+        nodes: nodes == _undefined
+            ? _instance.nodes
+            : (nodes as List<Fragment$Media?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  TRes edges(
-          Iterable<Query$User$User$favourites$anime$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$User$User$favourites$anime$edges<
-                          Query$User$User$favourites$anime$edges>?>?)
+  TRes nodes(
+          Iterable<Fragment$Media?>? Function(
+                  Iterable<CopyWith$Fragment$Media<Fragment$Media>?>?)
               _fn) =>
       call(
-          edges: _fn(_instance.edges?.map((e) => e == null
+          nodes: _fn(_instance.nodes?.map((e) => e == null
               ? null
-              : CopyWith$Query$User$User$favourites$anime$edges(
+              : CopyWith$Fragment$Media(
                   e,
                   (i) => i,
                 )))?.toList());
@@ -2394,176 +2359,40 @@ class _CopyWithStubImpl$Query$User$User$favourites$anime<TRes>
   TRes _res;
 
   call({
-    List<Query$User$User$favourites$anime$edges?>? edges,
+    List<Fragment$Media?>? nodes,
     String? $__typename,
   }) =>
       _res;
-  edges(_fn) => _res;
-}
-
-class Query$User$User$favourites$anime$edges {
-  Query$User$User$favourites$anime$edges({
-    this.node,
-    this.$__typename = 'MediaEdge',
-  });
-
-  factory Query$User$User$favourites$anime$edges.fromJson(
-      Map<String, dynamic> json) {
-    final l$node = json['node'];
-    final l$$__typename = json['__typename'];
-    return Query$User$User$favourites$anime$edges(
-      node: l$node == null
-          ? null
-          : Fragment$Media.fromJson((l$node as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final Fragment$Media? node;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$node = node;
-    _resultData['node'] = l$node?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$node = node;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$node,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$User$User$favourites$anime$edges) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$node = node;
-    final lOther$node = other.node;
-    if (l$node != lOther$node) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$User$User$favourites$anime$edges
-    on Query$User$User$favourites$anime$edges {
-  CopyWith$Query$User$User$favourites$anime$edges<
-          Query$User$User$favourites$anime$edges>
-      get copyWith => CopyWith$Query$User$User$favourites$anime$edges(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$User$User$favourites$anime$edges<TRes> {
-  factory CopyWith$Query$User$User$favourites$anime$edges(
-    Query$User$User$favourites$anime$edges instance,
-    TRes Function(Query$User$User$favourites$anime$edges) then,
-  ) = _CopyWithImpl$Query$User$User$favourites$anime$edges;
-
-  factory CopyWith$Query$User$User$favourites$anime$edges.stub(TRes res) =
-      _CopyWithStubImpl$Query$User$User$favourites$anime$edges;
-
-  TRes call({
-    Fragment$Media? node,
-    String? $__typename,
-  });
-  CopyWith$Fragment$Media<TRes> get node;
-}
-
-class _CopyWithImpl$Query$User$User$favourites$anime$edges<TRes>
-    implements CopyWith$Query$User$User$favourites$anime$edges<TRes> {
-  _CopyWithImpl$Query$User$User$favourites$anime$edges(
-    this._instance,
-    this._then,
-  );
-
-  final Query$User$User$favourites$anime$edges _instance;
-
-  final TRes Function(Query$User$User$favourites$anime$edges) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? node = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$favourites$anime$edges(
-        node: node == _undefined ? _instance.node : (node as Fragment$Media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Fragment$Media<TRes> get node {
-    final local$node = _instance.node;
-    return local$node == null
-        ? CopyWith$Fragment$Media.stub(_then(_instance))
-        : CopyWith$Fragment$Media(local$node, (e) => call(node: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$User$User$favourites$anime$edges<TRes>
-    implements CopyWith$Query$User$User$favourites$anime$edges<TRes> {
-  _CopyWithStubImpl$Query$User$User$favourites$anime$edges(this._res);
-
-  TRes _res;
-
-  call({
-    Fragment$Media? node,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Fragment$Media<TRes> get node => CopyWith$Fragment$Media.stub(_res);
+  nodes(_fn) => _res;
 }
 
 class Query$User$User$favourites$manga {
   Query$User$User$favourites$manga({
-    this.edges,
+    this.nodes,
     this.$__typename = 'MediaConnection',
   });
 
   factory Query$User$User$favourites$manga.fromJson(Map<String, dynamic> json) {
-    final l$edges = json['edges'];
+    final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
     return Query$User$User$favourites$manga(
-      edges: (l$edges as List<dynamic>?)
+      nodes: (l$nodes as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : Query$User$User$favourites$manga$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+              : Fragment$Media.fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Query$User$User$favourites$manga$edges?>? edges;
+  final List<Fragment$Media?>? nodes;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$edges = edges;
-    _resultData['edges'] = l$edges?.map((e) => e?.toJson()).toList();
+    final l$nodes = nodes;
+    _resultData['nodes'] = l$nodes?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -2571,10 +2400,10 @@ class Query$User$User$favourites$manga {
 
   @override
   int get hashCode {
-    final l$edges = edges;
+    final l$nodes = nodes;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$edges == null ? null : Object.hashAll(l$edges.map((v) => v)),
+      l$nodes == null ? null : Object.hashAll(l$nodes.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -2588,20 +2417,20 @@ class Query$User$User$favourites$manga {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$edges = edges;
-    final lOther$edges = other.edges;
-    if (l$edges != null && lOther$edges != null) {
-      if (l$edges.length != lOther$edges.length) {
+    final l$nodes = nodes;
+    final lOther$nodes = other.nodes;
+    if (l$nodes != null && lOther$nodes != null) {
+      if (l$nodes.length != lOther$nodes.length) {
         return false;
       }
-      for (int i = 0; i < l$edges.length; i++) {
-        final l$edges$entry = l$edges[i];
-        final lOther$edges$entry = lOther$edges[i];
-        if (l$edges$entry != lOther$edges$entry) {
+      for (int i = 0; i < l$nodes.length; i++) {
+        final l$nodes$entry = l$nodes[i];
+        final lOther$nodes$entry = lOther$nodes[i];
+        if (l$nodes$entry != lOther$nodes$entry) {
           return false;
         }
       }
-    } else if (l$edges != lOther$edges) {
+    } else if (l$nodes != lOther$nodes) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -2632,14 +2461,12 @@ abstract class CopyWith$Query$User$User$favourites$manga<TRes> {
       _CopyWithStubImpl$Query$User$User$favourites$manga;
 
   TRes call({
-    List<Query$User$User$favourites$manga$edges?>? edges,
+    List<Fragment$Media?>? nodes,
     String? $__typename,
   });
-  TRes edges(
-      Iterable<Query$User$User$favourites$manga$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$User$User$favourites$manga$edges<
-                      Query$User$User$favourites$manga$edges>?>?)
+  TRes nodes(
+      Iterable<Fragment$Media?>? Function(
+              Iterable<CopyWith$Fragment$Media<Fragment$Media>?>?)
           _fn);
 }
 
@@ -2657,27 +2484,25 @@ class _CopyWithImpl$Query$User$User$favourites$manga<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? edges = _undefined,
+    Object? nodes = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$User$User$favourites$manga(
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges as List<Query$User$User$favourites$manga$edges?>?),
+        nodes: nodes == _undefined
+            ? _instance.nodes
+            : (nodes as List<Fragment$Media?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  TRes edges(
-          Iterable<Query$User$User$favourites$manga$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$User$User$favourites$manga$edges<
-                          Query$User$User$favourites$manga$edges>?>?)
+  TRes nodes(
+          Iterable<Fragment$Media?>? Function(
+                  Iterable<CopyWith$Fragment$Media<Fragment$Media>?>?)
               _fn) =>
       call(
-          edges: _fn(_instance.edges?.map((e) => e == null
+          nodes: _fn(_instance.nodes?.map((e) => e == null
               ? null
-              : CopyWith$Query$User$User$favourites$manga$edges(
+              : CopyWith$Fragment$Media(
                   e,
                   (i) => i,
                 )))?.toList());
@@ -2690,144 +2515,9 @@ class _CopyWithStubImpl$Query$User$User$favourites$manga<TRes>
   TRes _res;
 
   call({
-    List<Query$User$User$favourites$manga$edges?>? edges,
+    List<Fragment$Media?>? nodes,
     String? $__typename,
   }) =>
       _res;
-  edges(_fn) => _res;
-}
-
-class Query$User$User$favourites$manga$edges {
-  Query$User$User$favourites$manga$edges({
-    this.node,
-    this.$__typename = 'MediaEdge',
-  });
-
-  factory Query$User$User$favourites$manga$edges.fromJson(
-      Map<String, dynamic> json) {
-    final l$node = json['node'];
-    final l$$__typename = json['__typename'];
-    return Query$User$User$favourites$manga$edges(
-      node: l$node == null
-          ? null
-          : Fragment$Media.fromJson((l$node as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final Fragment$Media? node;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$node = node;
-    _resultData['node'] = l$node?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$node = node;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$node,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$User$User$favourites$manga$edges) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$node = node;
-    final lOther$node = other.node;
-    if (l$node != lOther$node) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$User$User$favourites$manga$edges
-    on Query$User$User$favourites$manga$edges {
-  CopyWith$Query$User$User$favourites$manga$edges<
-          Query$User$User$favourites$manga$edges>
-      get copyWith => CopyWith$Query$User$User$favourites$manga$edges(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$User$User$favourites$manga$edges<TRes> {
-  factory CopyWith$Query$User$User$favourites$manga$edges(
-    Query$User$User$favourites$manga$edges instance,
-    TRes Function(Query$User$User$favourites$manga$edges) then,
-  ) = _CopyWithImpl$Query$User$User$favourites$manga$edges;
-
-  factory CopyWith$Query$User$User$favourites$manga$edges.stub(TRes res) =
-      _CopyWithStubImpl$Query$User$User$favourites$manga$edges;
-
-  TRes call({
-    Fragment$Media? node,
-    String? $__typename,
-  });
-  CopyWith$Fragment$Media<TRes> get node;
-}
-
-class _CopyWithImpl$Query$User$User$favourites$manga$edges<TRes>
-    implements CopyWith$Query$User$User$favourites$manga$edges<TRes> {
-  _CopyWithImpl$Query$User$User$favourites$manga$edges(
-    this._instance,
-    this._then,
-  );
-
-  final Query$User$User$favourites$manga$edges _instance;
-
-  final TRes Function(Query$User$User$favourites$manga$edges) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? node = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$favourites$manga$edges(
-        node: node == _undefined ? _instance.node : (node as Fragment$Media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Fragment$Media<TRes> get node {
-    final local$node = _instance.node;
-    return local$node == null
-        ? CopyWith$Fragment$Media.stub(_then(_instance))
-        : CopyWith$Fragment$Media(local$node, (e) => call(node: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$User$User$favourites$manga$edges<TRes>
-    implements CopyWith$Query$User$User$favourites$manga$edges<TRes> {
-  _CopyWithStubImpl$Query$User$User$favourites$manga$edges(this._res);
-
-  TRes _res;
-
-  call({
-    Fragment$Media? node,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Fragment$Media<TRes> get node => CopyWith$Fragment$Media.stub(_res);
+  nodes(_fn) => _res;
 }

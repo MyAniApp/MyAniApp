@@ -7,6 +7,7 @@ import 'package:myaniapp/graphql/__generated/ui/pages/home/animelist/animelist.g
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/ui/common/graphql.dart';
 import 'package:myaniapp/ui/common/media_list_group.dart';
+import 'package:myaniapp/ui/common/persistent_header.dart';
 import 'package:myaniapp/ui/pages/home/app_bar.dart';
 
 @RoutePage()
@@ -31,7 +32,7 @@ class MangaListPage extends HookConsumerWidget {
 
     return RefreshIndicator(
       onRefresh: hook.refetch,
-      notificationPredicate: (notification) => notification.depth == 1,
+      notificationPredicate: (notification) => notification.depth == 2,
       child: Graphql(
         hook: hook,
         builder: (result) {
@@ -44,11 +45,21 @@ class MangaListPage extends HookConsumerWidget {
 
           return DefaultTabController(
             length: groups.groups.length,
-            child: Scaffold(
-              appBar: Appbar(
-                bottom: groups.tabBar,
+            child: NestedScrollView(
+              headerSliverBuilder: (context, innerBoxIsScrolled) => [
+                const Appbar(),
+                SliverPersistentHeader(
+                  delegate: SliverPersistentHeaderTabBarDelegate(groups.tabBar),
+                  pinned: true,
+                )
+              ],
+              // appBar: Appbar(
+              //   bottom: groups.tabBar,
+              // ),
+              body: Padding(
+                padding: const EdgeInsets.all(8),
+                child: groups.tabView,
               ),
-              body: groups.tabView,
             ),
           );
         },

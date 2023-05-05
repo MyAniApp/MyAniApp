@@ -2,8 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:myaniapp/constants.dart';
-import 'package:myaniapp/extentions.dart';
+import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/ui/pages/staff/staff.graphql.dart';
+import 'package:myaniapp/ui/common/back_button.dart';
 import 'package:myaniapp/ui/common/graphql.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/markdown/markdown.dart';
@@ -91,7 +92,6 @@ class _CharacterPageState extends State<StaffPage> {
                             Tab(text: 'Production'),
                           ],
                         ),
-                        addHeight: MediaQuery.of(context).viewPadding.top,
                       ),
                       pinned: true,
                     ),
@@ -179,19 +179,7 @@ class _Staff extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        SafeArea(
-          child: IconButton(
-            icon: Container(
-              padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.transparent.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: const Icon(Icons.arrow_back),
-            ),
-            onPressed: () => context.router.pop(),
-          ),
-        ),
+        const AppBackButton(),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -222,7 +210,7 @@ class _Staff extends StatelessWidget {
                     ),
                   ),
                   if (staff.dateOfBirth != null &&
-                      staff.dateOfBirth!.getDate() != null)
+                      staff.dateOfBirth!.toDateString() != null)
                     Text.rich(
                       TextSpan(
                         children: [
@@ -233,13 +221,13 @@ class _Staff extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: staff.dateOfBirth!.getDate()!,
+                            text: staff.dateOfBirth!.toDateString()!,
                           )
                         ],
                       ),
                     ),
                   if (staff.dateOfDeath != null &&
-                      staff.dateOfDeath!.getDate() != null)
+                      staff.dateOfDeath!.toDateString() != null)
                     Text.rich(
                       TextSpan(
                         children: [
@@ -250,7 +238,7 @@ class _Staff extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: staff.dateOfDeath!.getDate()!,
+                            text: staff.dateOfDeath!.toDateString()!,
                           )
                         ],
                       ),

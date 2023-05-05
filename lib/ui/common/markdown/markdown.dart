@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:markdown_widget/markdown_widget.dart' as md2;
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/markdown/custom_node.dart';
 import 'package:myaniapp/ui/common/markdown/generators/br.dart';
@@ -43,7 +44,7 @@ class Markdown extends StatelessWidget {
               textStyle: TextStyle(),
             ),
             const md2.LinkConfig(
-              style: TextStyle(color: Color(0xff0969da)),
+              style: TextStyle(color: linkColor),
             ),
             md2.ImgConfig(
               builder: (url, attributes) {

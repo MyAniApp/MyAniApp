@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            if (isDevmode)
+            if (kDebugMode)
               ElevatedButton(
                 onPressed: () {
                   _launchUrl(authUri);

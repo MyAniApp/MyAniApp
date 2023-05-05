@@ -1,14 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/ui/common/media_editor/provider.dart';
 import 'package:myaniapp/ui/common/number_picker.dart';
 
-class MediaEditor extends ConsumerStatefulWidget {
+class MediaEditor extends StatefulHookConsumerWidget {
   const MediaEditor({
     super.key,
     required this.media,
@@ -31,6 +33,21 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
     // if (widget.media.notes?.isNotEmpty == true) {
     //   controller.text = widget.media.notes!;
     // }
+    controller.addListener(updateNotes);
+  }
+
+  void updateNotes() {
+    var r = ref.read(MediaEditorProvider(widget.media).notifier);
+    if (ref.read(MediaEditorProvider(widget.media))?.notes ==
+        controller.value.text) return;
+    r.modify(notes: controller.value.text);
+    print(controller.text);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
   }
 
   @override
@@ -38,6 +55,11 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
     var user = ref.watch(userProvider);
     var entry = ref.watch(MediaEditorProvider(widget.media));
     var theme = Theme.of(context).textTheme;
+
+    useEffect(() {
+      if (entry?.notes != null) controller.text = entry!.notes!;
+      return null;
+    }, [entry?.notes]);
 
     return Scaffold(
       appBar: AppBar(
@@ -96,58 +118,25 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
                     'Score',
                     style: theme.titleMedium,
                   ),
-                  Builder(
-                    builder: (context) {
-                      late double max;
-                      late double min;
-                      double increment = 1;
-
-                      switch (user.value!.mediaListOptions!.scoreFormat!) {
-                        case Enum$ScoreFormat.POINT_100:
-                          max = 100;
-                          min = 0;
-                          break;
-                        case Enum$ScoreFormat.POINT_10_DECIMAL:
-                          max = 10;
-                          min = 0;
-                          increment = 0.5;
-                          break;
-                        case Enum$ScoreFormat.POINT_10:
-                          max = 10;
-                          min = 0;
-                          break;
-                        case Enum$ScoreFormat.POINT_5:
-                          max = 5;
-                          min = 0;
-                          break;
-                        case Enum$ScoreFormat.POINT_3:
-                          max = 3;
-                          min = 0;
-                          break;
-                        case Enum$ScoreFormat.$unknown:
-                          break;
-                      }
-
-                      return NumberPicker(
-                        current: entry.score ?? 0,
-                        onChange: (value) => ref
-                            .read(mediaEditorProvider(widget.media).notifier)
-                            .modify(score: value),
-                        // max: user.value!.options!.,
-                        increment: increment,
-                        min: min,
-                        max: max,
-                      );
-                    },
+                  NumberPicker(
+                    current: (entry.score ?? 0).toInt(),
+                    // decimals: true,
+                    onChange: (value) => ref
+                        .read(mediaEditorProvider(widget.media).notifier)
+                        .modify(score: value.toDouble()),
+                    // max: user.value!.options!.,
+                    increment: 1,
+                    min: 0,
+                    max: 100,
                   ),
                   Text(
                     '${entry.media!.type == Enum$MediaType.ANIME ? 'Episode' : 'Chapter'} Progress',
                     style: theme.titleMedium,
                   ),
                   NumberPicker(
-                    current: (entry.progress ?? 0).toDouble(),
-                    max: (entry.media!.episodes ?? entry.media!.chapters ?? 0)
-                        .toDouble(),
+                    current: (entry.progress ?? 0).toInt(),
+                    max: (entry.media!.episodes ?? entry.media!.chapters)
+                        ?.toInt(),
                     min: 0,
                     onChange: (value) => ref
                         .read(mediaEditorProvider(widget.media).notifier)
@@ -158,7 +147,7 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
                     style: theme.titleMedium,
                   ),
                   NumberPicker(
-                    current: (entry.repeat ?? 0).toDouble(),
+                    current: (entry.repeat ?? 0).toInt(),
                     min: 0,
                     onChange: (value) => ref
                         .read(mediaEditorProvider(widget.media).notifier)
@@ -170,6 +159,55 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
                     onChanged: (value) => ref
                         .read(mediaEditorProvider(widget.media).notifier)
                         .modify(private: value),
+                  ),
+                  Text(
+                    'Start Date',
+                    style: theme.titleMedium,
+                  ),
+                  ElevatedButton(
+                    onPressed: () => _showDatePicker(
+                        entry.startedAt?.toDate() ?? DateTime.now(), (date) {
+                      var fuzzy = Fragment$FuzzyDate(
+                          day: date.day, month: date.month, year: date.year);
+                      ref
+                          .read(mediaEditorProvider(widget.media).notifier)
+                          .modify(startedAt: fuzzy);
+                    }),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(entry.startedAt?.toDateString() ?? 'Select Date'),
+                        const Icon(
+                          Icons.edit,
+                          size: 20,
+                        )
+                      ],
+                    ),
+                  ),
+                  Text(
+                    'Completed Date',
+                    style: theme.titleMedium,
+                  ),
+                  ElevatedButton(
+                    onPressed: () => _showDatePicker(
+                        entry.completedAt?.toDate() ?? DateTime.now(), (date) {
+                      var fuzzy = Fragment$FuzzyDate(
+                          day: date.day, month: date.month, year: date.year);
+                      ref
+                          .read(mediaEditorProvider(widget.media).notifier)
+                          .modify(completedAt: fuzzy);
+                    }),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                            entry.completedAt?.toDateString() ?? 'Select Date'),
+                        const Icon(
+                          Icons.edit,
+                          size: 20,
+                        )
+                      ],
+                    ),
                   ),
                   Text(
                     'Notes',
@@ -185,6 +223,17 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
               ),
             ),
     );
+  }
+
+  void _showDatePicker(DateTime date, Function(DateTime date) onChange) async {
+    var d = await showDatePicker(
+      context: context,
+      initialDate: date,
+      firstDate: DateTime(1940),
+      lastDate: DateTime(2100),
+    );
+
+    if (d != null) onChange(d);
   }
 }
 

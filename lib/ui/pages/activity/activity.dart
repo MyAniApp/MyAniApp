@@ -165,7 +165,7 @@ class Activity extends StatelessWidget {
                   TextSpan(
                       text: ' ${item.media?.title?.userPreferred}',
                       style: const TextStyle(
-                        color: Color(0xff0969da),
+                        color: linkColor,
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => context.router
