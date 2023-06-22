@@ -1,6 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:myaniapp/graphql.dart';
-import 'package:myaniapp/graphql/__generated/providers/user/user.graphql.dart';
+import 'package:myaniapp/graphql/__generated/graphql/Viewer.graphql.dart';
 import 'package:myaniapp/providers/settings.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
