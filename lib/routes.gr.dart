@@ -273,7 +273,9 @@ abstract class $AppRouter extends _i25.RootStackRouter {
       );
     },
     StaffRoute.name: (routeData) {
-      final args = routeData.argsAs<StaffRouteArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<StaffRouteArgs>(
+          orElse: () => StaffRouteArgs(id: pathParams.getInt('id')));
       return _i25.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i24.StaffPage(
@@ -915,6 +917,7 @@ class StaffRoute extends _i25.PageRouteInfo<StaffRouteArgs> {
             key: key,
             id: id,
           ),
+          rawPathParams: {'id': id},
           initialChildren: children,
         );
 

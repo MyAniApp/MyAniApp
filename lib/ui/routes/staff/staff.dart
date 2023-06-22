@@ -11,7 +11,7 @@ import 'package:myaniapp/ui/routes/staff/voice.dart';
 
 @RoutePage()
 class StaffPage extends StatelessWidget {
-  const StaffPage({super.key, required this.id});
+  const StaffPage({super.key, @PathParam('id') required this.id});
 
   final int id;
 
