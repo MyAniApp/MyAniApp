@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/list/list.graphql.dart';
 import 'package:myaniapp/providers/user/user.dart';
+import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/routes/home/app_bar.dart';
 import 'package:myaniapp/ui/routes/home/list/anime.dart';
@@ -28,7 +29,7 @@ class HomeMangaPage extends ConsumerWidget {
         ),
       ),
       builder: (result, {fetchMore, refetch}) {
-        if (result.isLoading) {
+        if (result.isLoading && result.data == null) {
           return const Center(
             child: CircularProgressIndicator.adaptive(),
           );
@@ -38,29 +39,60 @@ class HomeMangaPage extends ConsumerWidget {
 
         var lists = result.parsedData!.MediaListCollection!.lists!;
 
-        return DefaultTabController(
-          length: lists.length,
-          child: Scaffold(
-            appBar: HomeAppBar(
-              bottom: TabBar(
-                isScrollable: true,
-                tabs: lists
+        if (lists.isEmpty) {
+          return RefreshIndicator.adaptive(
+            onRefresh: refetch!,
+            child: Scaffold(
+              appBar: const HomeAppBar(),
+              body: LayoutBuilder(
+                builder: (context, constraints) => ListView(
+                  children: [
+                    Container(
+                      constraints:
+                          BoxConstraints(minHeight: constraints.maxHeight),
+                      child: Center(
+                        child: ElevatedButton(
+                          onPressed: () => context.pushRoute(
+                              SearchRoute(type: Enum$MediaType.MANGA.name)),
+                          child: const Text('Browse mangas to add'),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+
+        return RefreshIndicator.adaptive(
+          onRefresh: refetch!,
+          notificationPredicate: (notification) => notification.depth == 1,
+          child: DefaultTabController(
+            length: lists.length,
+            child: Scaffold(
+              appBar: HomeAppBar(
+                bottom: TabBar(
+                  isScrollable: true,
+                  tabs: lists
+                      .map(
+                        (e) => Tab(
+                          text: '${e!.name} (${e.entries!.length})',
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+              body: TabBarView(
+                children: lists
                     .map(
-                      (e) => Tab(
-                        text: '${e!.name} (${e.entries!.length})',
+                      (list) => Media(
+                        list: list!,
+                        refresh: refetch,
                       ),
                     )
                     .toList(),
               ),
-            ),
-            body: TabBarView(
-              children: lists
-                  .map(
-                    (list) => Media(
-                      list: list!,
-                    ),
-                  )
-                  .toList(),
             ),
           ),
         );

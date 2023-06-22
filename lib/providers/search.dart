@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/search/search.graphql.dart';
-import 'package:myaniapp/main.dart';
 
 class SearchNotifier extends AutoDisposeNotifier<AsyncValue<Query$Search>> {
   late ObservableQuery<Query$Search> query;
@@ -37,15 +36,13 @@ class SearchNotifier extends AutoDisposeNotifier<AsyncValue<Query$Search>> {
     ref.notifyListeners();
 
     if (fetch) {
-      query
-          .fetchMore(
-            FetchMoreOptions$Query$Search(
-              updateQuery: (previousResultData, fetchMoreResultData) =>
-                  fetchMoreResultData,
-              variables: variables,
-            ),
-          )
-          .then((value) => logger.e(variables?.toJson()));
+      query.fetchMore(
+        FetchMoreOptions$Query$Search(
+          updateQuery: (previousResultData, fetchMoreResultData) =>
+              fetchMoreResultData,
+          variables: variables,
+        ),
+      );
     }
   }
 

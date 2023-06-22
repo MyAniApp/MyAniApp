@@ -15,7 +15,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       // backgroundColor: Theme.of(context).colorScheme.onSecondary,
       leading: IconButton(
-        icon: const Icon(Icons.abc),
+        icon: const Icon(Icons.account_circle),
         onPressed: () =>
             Scaffold.maybeOf(Scaffold.of(context).context)?.openDrawer(),
       ),

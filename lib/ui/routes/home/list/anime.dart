@@ -34,7 +34,7 @@ class HomeAnimePage extends ConsumerWidget {
         ),
       ),
       builder: (result, {fetchMore, refetch}) {
-        if (result.isLoading) {
+        if (result.isLoading && result.data == null) {
           return const Center(
             child: CircularProgressIndicator.adaptive(),
           );
@@ -44,29 +44,60 @@ class HomeAnimePage extends ConsumerWidget {
 
         var lists = result.parsedData!.MediaListCollection!.lists!;
 
-        return DefaultTabController(
-          length: lists.length,
-          child: Scaffold(
-            appBar: HomeAppBar(
-              bottom: TabBar(
-                isScrollable: true,
-                tabs: lists
+        if (lists.isEmpty) {
+          return RefreshIndicator.adaptive(
+            onRefresh: refetch!,
+            child: Scaffold(
+              appBar: const HomeAppBar(),
+              body: LayoutBuilder(
+                builder: (context, constraints) => ListView(
+                  children: [
+                    Container(
+                      constraints:
+                          BoxConstraints(minHeight: constraints.maxHeight),
+                      child: Center(
+                        child: ElevatedButton(
+                          onPressed: () => context.pushRoute(
+                              SearchRoute(type: Enum$MediaType.ANIME.name)),
+                          child: const Text('Browse animes to add'),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+
+        return RefreshIndicator.adaptive(
+          onRefresh: refetch!,
+          notificationPredicate: (notification) => notification.depth == 1,
+          child: DefaultTabController(
+            length: lists.length,
+            child: Scaffold(
+              appBar: HomeAppBar(
+                bottom: TabBar(
+                  isScrollable: true,
+                  tabs: lists
+                      .map(
+                        (e) => Tab(
+                          text: '${e!.name} (${e.entries!.length})',
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+              body: TabBarView(
+                children: lists
                     .map(
-                      (e) => Tab(
-                        text: '${e!.name} (${e.entries!.length})',
+                      (list) => Media(
+                        list: list!,
+                        refresh: refetch,
                       ),
                     )
                     .toList(),
               ),
-            ),
-            body: TabBarView(
-              children: lists
-                  .map(
-                    (list) => Media(
-                      list: list!,
-                    ),
-                  )
-                  .toList(),
             ),
           ),
         );
@@ -79,9 +110,11 @@ class Media extends StatefulWidget {
   const Media({
     super.key,
     required this.list,
+    required this.refresh,
   });
 
   final Fragment$ListGroup list;
+  final void Function() refresh;
 
   @override
   State<Media> createState() => _MediaState();
@@ -93,6 +126,7 @@ class _MediaState extends State<Media> with AutomaticKeepAliveClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return GridCards(
       // primary: false,
       padding: const EdgeInsets.all(8),
@@ -106,7 +140,12 @@ class _MediaState extends State<Media> with AutomaticKeepAliveClientMixin {
           index: index,
           onTap: (index) => context.pushRoute(MediaRoute(id: media.mediaId)),
           onLongPress: (index) => showMediaCard(context, media.media!),
-          onDoubleTap: (index) => showMediaEditor(context, media.media!),
+          onDoubleTap: (index) => showMediaEditor(
+            context,
+            media.media!,
+            onDelete: widget.refresh,
+            onSave: widget.refresh,
+          ),
         );
       },
       itemCount: widget.list.entries!.length,

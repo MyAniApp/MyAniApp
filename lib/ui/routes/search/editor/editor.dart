@@ -46,8 +46,17 @@ class _SearchEditorState extends ConsumerState<SearchEditor> {
         return Scaffold(
           appBar: AppBar(
             actions: [
-              IconButton(
-                icon: const Icon(Icons.save),
+              TextButton(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Apply',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge
+                        ?.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                ),
                 onPressed: () {
                   if (ref.read(searchProvider.notifier).variables != options) {
                     ref.read(searchProvider.notifier).setVariables(
@@ -348,14 +357,14 @@ class _SearchEditorState extends ConsumerState<SearchEditor> {
                   },
                   title: const Text('Only From My List'),
                 ),
-                if (result.parsedData != null)
+                if (result.parsedData != null) ...[
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
                           Text(
-                            'Tags',
+                            'Included Tags',
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           const SizedBox(
@@ -365,12 +374,13 @@ class _SearchEditorState extends ConsumerState<SearchEditor> {
                             onPressed: () => showTags(
                               context,
                               result.parsedData!.tags!.cast(),
-                              selected: options.tags?.cast(),
-                              onAdd: (tags) => setState(
-                                  () => options = options.copyWith(tags: tags)),
-                              onRemove: (tags) => setState(() => options =
-                                  options.copyWith(
-                                      tags: tags.isNotEmpty ? tags : null)),
+                              selected: options.with_tags?.cast(),
+                              onAdd: (tags) => setState(() =>
+                                  options = options.copyWith(with_tags: tags)),
+                              onRemove: (tags) => setState(
+                                () => options = options.copyWith(
+                                    with_tags: tags.isNotEmpty ? tags : null),
+                              ),
                             ),
                             icon: const Icon(Icons.add),
                           ),
@@ -383,14 +393,14 @@ class _SearchEditorState extends ConsumerState<SearchEditor> {
                         runSpacing: 5,
                         spacing: 5,
                         children: [
-                          for (String tag in options.tags?.cast() ?? [])
+                          for (String tag in options.with_tags?.cast() ?? [])
                             Chip(
                               label: Text(tag),
                               onDeleted: () => setState(
                                 () => options = options.copyWith(
-                                  tags: options.tags!.length == 1
+                                  with_tags: options.with_tags!.length == 1
                                       ? null
-                                      : options.tags
+                                      : options.with_tags
                                     ?..remove(tag),
                                 ),
                               ),
@@ -399,6 +409,60 @@ class _SearchEditorState extends ConsumerState<SearchEditor> {
                       ),
                     ],
                   ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Excluded Tags',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          IconButton(
+                            onPressed: () => showTags(
+                              context,
+                              result.parsedData!.tags!.cast(),
+                              selected: options.without_tags?.cast(),
+                              onAdd: (tags) => setState(() => options =
+                                  options.copyWith(without_tags: tags)),
+                              onRemove: (tags) => setState(
+                                () => options = options.copyWith(
+                                    without_tags:
+                                        tags.isNotEmpty ? tags : null),
+                              ),
+                            ),
+                            icon: const Icon(Icons.add),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Wrap(
+                        runSpacing: 5,
+                        spacing: 5,
+                        children: [
+                          for (String tag in options.without_tags?.cast() ?? [])
+                            Chip(
+                              label: Text(tag),
+                              onDeleted: () => setState(
+                                () => options = options.copyWith(
+                                  without_tags:
+                                      options.without_tags!.length == 1
+                                          ? null
+                                          : options.without_tags
+                                        ?..remove(tag),
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ],
             ),
           ),

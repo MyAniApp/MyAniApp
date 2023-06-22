@@ -106,9 +106,19 @@ class _HomeActivitiesPageState extends ConsumerState<HomeActivitiesPage> {
                 variables: Variables$Query$Activities(
                     page: result.parsedData!.Page!.pageInfo!.currentPage! + 1),
                 updateQuery: (previousResultData, fetchMoreResultData) {
+                  var has = <dynamic>{};
+
+                  has.addAll(previousResultData!['Page']['activities']
+                      .map((a) => a['id']));
+                  // list.addAll(fetchMoreResultData!['Page']['activities']);
+
+                  fetchMoreResultData!['Page']['activities']
+                      .removeWhere((a) => has.contains(a['id']));
+                  print(fetchMoreResultData['Page']['activities'].length);
+
                   var list = [
-                    ...previousResultData!['Page']['activities'],
-                    ...fetchMoreResultData!['Page']['activities']
+                    ...previousResultData['Page']['activities'],
+                    ...fetchMoreResultData['Page']['activities']
                   ];
 
                   fetchMoreResultData['Page']['activities'] = list;

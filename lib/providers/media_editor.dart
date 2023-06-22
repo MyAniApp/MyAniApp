@@ -54,8 +54,8 @@ class MediaEditorNotifier extends AutoDisposeFamilyStreamNotifier<
     }
   }
 
-  Future<void> save(Variables$Mutation$SaveMediaListEntry options) {
-    print([state.value?.id, state.value?.id == -1 ? arg.id : null]);
+  Future<QueryResult<Mutation$SaveMediaListEntry>> save(
+      Variables$Mutation$SaveMediaListEntry options) {
     // print(ref.exists(mediaEditorProvider(arg)));
     var opts = options;
 

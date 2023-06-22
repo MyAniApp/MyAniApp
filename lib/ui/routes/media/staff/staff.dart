@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/media/staff/staff.graphql.dart';
+import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/pagination.dart';
@@ -80,6 +81,7 @@ class StaffCard extends StatelessWidget {
       elevation: 1,
       surfaceTintColor: Theme.of(context).colorScheme.surfaceVariant,
       child: InkWell(
+        onTap: () => context.pushRoute(StaffRoute(id: staff.node!.id)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

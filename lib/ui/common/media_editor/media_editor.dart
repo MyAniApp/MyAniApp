@@ -4,25 +4,38 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:myaniapp/extensions.dart';
+import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
 import 'package:myaniapp/providers/media_editor.dart';
 import 'package:myaniapp/ui/common/custom_dropdown.dart';
+import 'package:myaniapp/ui/common/delete.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/numer_picker.dart';
 
 class MediaEditorDialog extends ConsumerWidget {
-  const MediaEditorDialog({super.key, required this.media});
+  const MediaEditorDialog({
+    super.key,
+    required this.media,
+    this.onDelete,
+    this.onSave,
+  });
 
   final Fragment$MediaFragment media;
+  final void Function()? onDelete;
+  final void Function()? onSave;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var mediaEditor = ref.watch(mediaEditorProvider(media));
 
     return mediaEditor.when(
-      data: (data) => MediaEditor(entry: data),
+      data: (data) => MediaEditor(
+        entry: data,
+        onDelete: onDelete,
+        onSave: onSave,
+      ),
       error: (error, stackTrace) => Scaffold(
         appBar: AppBar(),
         body: GraphqlError(exception: error as OperationException),
@@ -38,9 +51,16 @@ class MediaEditorDialog extends ConsumerWidget {
 }
 
 class MediaEditor extends ConsumerStatefulWidget {
-  const MediaEditor({super.key, required this.entry});
+  const MediaEditor({
+    super.key,
+    required this.entry,
+    this.onDelete,
+    this.onSave,
+  });
 
   final Fragment$MediaListEntry entry;
+  final void Function()? onDelete;
+  final void Function()? onSave;
 
   @override
   ConsumerState<MediaEditor> createState() => _MediaEditorState();
@@ -102,13 +122,39 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          if (widget.entry.id != -1 && widget.onDelete != null)
+            IconButton(
+              padding: const EdgeInsets.all(16),
+              onPressed: () async {
+                var shouldDelete = await showDeleteDialog(context);
+
+                if (shouldDelete == true) {
+                  context.popRoute();
+                  client.value
+                      .mutate$DeleteMediaListEntry(
+                        Options$Mutation$DeleteMediaListEntry(
+                          variables: Variables$Mutation$DeleteMediaListEntry(
+                            id: widget.entry.id,
+                          ),
+                        ),
+                      )
+                      .then((value) => widget.onDelete!());
+                }
+              },
+              icon: const Icon(Icons.delete),
+              color: Colors.red,
+            ),
           IconButton(
             padding: const EdgeInsets.all(16),
             onPressed: () {
               if (options != og) {
                 ref
                     .read(mediaEditorProvider(widget.entry.media!).notifier)
-                    .save(options);
+                    .save(options)
+                    .then((_) {
+                  widget.onSave?.call();
+                  return;
+                });
               }
               context.popRoute();
             },
@@ -238,12 +284,19 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
   }
 }
 
-void showMediaEditor(BuildContext context, Fragment$MediaFragment media) {
+void showMediaEditor(
+  BuildContext context,
+  Fragment$MediaFragment media, {
+  final void Function()? onDelete,
+  final void Function()? onSave,
+}) {
   showDialog(
     context: context,
     builder: (context) => Dialog.fullscreen(
       child: MediaEditorDialog(
         media: media,
+        onDelete: onDelete,
+        onSave: onSave,
       ),
     ),
   );

@@ -601,7 +601,8 @@ class Variables$Query$Search {
     String? search,
     String? year,
     List<String?>? genres,
-    List<String?>? tags,
+    List<String?>? with_tags,
+    List<String?>? without_tags,
     bool? isAdult,
     bool? onList,
   }) =>
@@ -616,7 +617,8 @@ class Variables$Query$Search {
         if (search != null) r'search': search,
         if (year != null) r'year': year,
         if (genres != null) r'genres': genres,
-        if (tags != null) r'tags': tags,
+        if (with_tags != null) r'with_tags': with_tags,
+        if (without_tags != null) r'without_tags': without_tags,
         if (isAdult != null) r'isAdult': isAdult,
         if (onList != null) r'onList': onList,
       });
@@ -674,10 +676,16 @@ class Variables$Query$Search {
       result$data['genres'] =
           (l$genres as List<dynamic>?)?.map((e) => (e as String?)).toList();
     }
-    if (data.containsKey('tags')) {
-      final l$tags = data['tags'];
-      result$data['tags'] =
-          (l$tags as List<dynamic>?)?.map((e) => (e as String?)).toList();
+    if (data.containsKey('with_tags')) {
+      final l$with_tags = data['with_tags'];
+      result$data['with_tags'] =
+          (l$with_tags as List<dynamic>?)?.map((e) => (e as String?)).toList();
+    }
+    if (data.containsKey('without_tags')) {
+      final l$without_tags = data['without_tags'];
+      result$data['without_tags'] = (l$without_tags as List<dynamic>?)
+          ?.map((e) => (e as String?))
+          .toList();
     }
     if (data.containsKey('isAdult')) {
       final l$isAdult = data['isAdult'];
@@ -702,7 +710,8 @@ class Variables$Query$Search {
   String? get search => (_$data['search'] as String?);
   String? get year => (_$data['year'] as String?);
   List<String?>? get genres => (_$data['genres'] as List<String?>?);
-  List<String?>? get tags => (_$data['tags'] as List<String?>?);
+  List<String?>? get with_tags => (_$data['with_tags'] as List<String?>?);
+  List<String?>? get without_tags => (_$data['without_tags'] as List<String?>?);
   bool? get isAdult => (_$data['isAdult'] as bool?);
   bool? get onList => (_$data['onList'] as bool?);
   Map<String, dynamic> toJson() {
@@ -752,9 +761,13 @@ class Variables$Query$Search {
       final l$genres = genres;
       result$data['genres'] = l$genres?.map((e) => e).toList();
     }
-    if (_$data.containsKey('tags')) {
-      final l$tags = tags;
-      result$data['tags'] = l$tags?.map((e) => e).toList();
+    if (_$data.containsKey('with_tags')) {
+      final l$with_tags = with_tags;
+      result$data['with_tags'] = l$with_tags?.map((e) => e).toList();
+    }
+    if (_$data.containsKey('without_tags')) {
+      final l$without_tags = without_tags;
+      result$data['without_tags'] = l$without_tags?.map((e) => e).toList();
     }
     if (_$data.containsKey('isAdult')) {
       final l$isAdult = isAdult;
@@ -884,23 +897,44 @@ class Variables$Query$Search {
     } else if (l$genres != lOther$genres) {
       return false;
     }
-    final l$tags = tags;
-    final lOther$tags = other.tags;
-    if (_$data.containsKey('tags') != other._$data.containsKey('tags')) {
+    final l$with_tags = with_tags;
+    final lOther$with_tags = other.with_tags;
+    if (_$data.containsKey('with_tags') !=
+        other._$data.containsKey('with_tags')) {
       return false;
     }
-    if (l$tags != null && lOther$tags != null) {
-      if (l$tags.length != lOther$tags.length) {
+    if (l$with_tags != null && lOther$with_tags != null) {
+      if (l$with_tags.length != lOther$with_tags.length) {
         return false;
       }
-      for (int i = 0; i < l$tags.length; i++) {
-        final l$tags$entry = l$tags[i];
-        final lOther$tags$entry = lOther$tags[i];
-        if (l$tags$entry != lOther$tags$entry) {
+      for (int i = 0; i < l$with_tags.length; i++) {
+        final l$with_tags$entry = l$with_tags[i];
+        final lOther$with_tags$entry = lOther$with_tags[i];
+        if (l$with_tags$entry != lOther$with_tags$entry) {
           return false;
         }
       }
-    } else if (l$tags != lOther$tags) {
+    } else if (l$with_tags != lOther$with_tags) {
+      return false;
+    }
+    final l$without_tags = without_tags;
+    final lOther$without_tags = other.without_tags;
+    if (_$data.containsKey('without_tags') !=
+        other._$data.containsKey('without_tags')) {
+      return false;
+    }
+    if (l$without_tags != null && lOther$without_tags != null) {
+      if (l$without_tags.length != lOther$without_tags.length) {
+        return false;
+      }
+      for (int i = 0; i < l$without_tags.length; i++) {
+        final l$without_tags$entry = l$without_tags[i];
+        final lOther$without_tags$entry = lOther$without_tags[i];
+        if (l$without_tags$entry != lOther$without_tags$entry) {
+          return false;
+        }
+      }
+    } else if (l$without_tags != lOther$without_tags) {
       return false;
     }
     final l$isAdult = isAdult;
@@ -934,7 +968,8 @@ class Variables$Query$Search {
     final l$search = search;
     final l$year = year;
     final l$genres = genres;
-    final l$tags = tags;
+    final l$with_tags = with_tags;
+    final l$without_tags = without_tags;
     final l$isAdult = isAdult;
     final l$onList = onList;
     return Object.hashAll([
@@ -956,10 +991,15 @@ class Variables$Query$Search {
               ? null
               : Object.hashAll(l$genres.map((v) => v))
           : const {},
-      _$data.containsKey('tags')
-          ? l$tags == null
+      _$data.containsKey('with_tags')
+          ? l$with_tags == null
               ? null
-              : Object.hashAll(l$tags.map((v) => v))
+              : Object.hashAll(l$with_tags.map((v) => v))
+          : const {},
+      _$data.containsKey('without_tags')
+          ? l$without_tags == null
+              ? null
+              : Object.hashAll(l$without_tags.map((v) => v))
           : const {},
       _$data.containsKey('isAdult') ? l$isAdult : const {},
       _$data.containsKey('onList') ? l$onList : const {},
@@ -987,7 +1027,8 @@ abstract class CopyWith$Variables$Query$Search<TRes> {
     String? search,
     String? year,
     List<String?>? genres,
-    List<String?>? tags,
+    List<String?>? with_tags,
+    List<String?>? without_tags,
     bool? isAdult,
     bool? onList,
   });
@@ -1017,7 +1058,8 @@ class _CopyWithImpl$Variables$Query$Search<TRes>
     Object? search = _undefined,
     Object? year = _undefined,
     Object? genres = _undefined,
-    Object? tags = _undefined,
+    Object? with_tags = _undefined,
+    Object? without_tags = _undefined,
     Object? isAdult = _undefined,
     Object? onList = _undefined,
   }) =>
@@ -1033,7 +1075,9 @@ class _CopyWithImpl$Variables$Query$Search<TRes>
         if (search != _undefined) 'search': (search as String?),
         if (year != _undefined) 'year': (year as String?),
         if (genres != _undefined) 'genres': (genres as List<String?>?),
-        if (tags != _undefined) 'tags': (tags as List<String?>?),
+        if (with_tags != _undefined) 'with_tags': (with_tags as List<String?>?),
+        if (without_tags != _undefined)
+          'without_tags': (without_tags as List<String?>?),
         if (isAdult != _undefined) 'isAdult': (isAdult as bool?),
         if (onList != _undefined) 'onList': (onList as bool?),
       }));
@@ -1056,7 +1100,8 @@ class _CopyWithStubImpl$Variables$Query$Search<TRes>
     String? search,
     String? year,
     List<String?>? genres,
-    List<String?>? tags,
+    List<String?>? with_tags,
+    List<String?>? without_tags,
     bool? isAdult,
     bool? onList,
   }) =>
@@ -1299,7 +1344,19 @@ const documentNodeQuerySearch = DocumentNode(definitions: [
         directives: [],
       ),
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'tags')),
+        variable: VariableNode(name: NameNode(value: 'with_tags')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'without_tags')),
         type: ListTypeNode(
           type: NamedTypeNode(
             name: NameNode(value: 'String'),
@@ -1407,7 +1464,11 @@ const documentNodeQuerySearch = DocumentNode(definitions: [
               ),
               ArgumentNode(
                 name: NameNode(value: 'tag_in'),
-                value: VariableNode(name: NameNode(value: 'tags')),
+                value: VariableNode(name: NameNode(value: 'with_tags')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'tag_not_in'),
+                value: VariableNode(name: NameNode(value: 'without_tags')),
               ),
               ArgumentNode(
                 name: NameNode(value: 'onList'),

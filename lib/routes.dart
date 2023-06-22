@@ -43,7 +43,9 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: LoginRoute.page, path: '/login'),
         AutoRoute(page: AniLoginRoute.page, path: '/login/anilist'),
         AutoRoute(page: TokenLoginRoute.page, path: '/login/token'),
-        AutoRoute(page: ActivityRoute.page, path: '/activity/:id')
+        AutoRoute(page: ActivityRoute.page, path: '/activity/:id'),
+        AutoRoute(page: CharacterRoute.page, path: '/character/:id'),
+        AutoRoute(page: StaffRoute.page, path: '/staff/:id')
       ];
 }
 

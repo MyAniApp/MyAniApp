@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/user/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
@@ -15,7 +14,6 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var user = ref.watch(userProvider);
-    logger.d([context.routeData.breadcrumbs, context.routeData.pathParams]);
 
     return user.when(
       data: (data) => AutoTabsRouter(

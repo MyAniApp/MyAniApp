@@ -19,7 +19,8 @@ query Search(
   $search: String
   $year: String
   $genres: [String]
-  $tags: [String]
+  $with_tags: [String]
+  $without_tags: [String]
   $isAdult: Boolean = false
   $onList: Boolean
 ) {
@@ -37,7 +38,8 @@ query Search(
       startDate_like: $year
       search: $search
       genre_in: $genres
-      tag_in: $tags
+      tag_in: $with_tags
+      tag_not_in: $without_tags
       onList: $onList
     ) {
       ...MediaFragment
