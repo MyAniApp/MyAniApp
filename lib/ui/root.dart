@@ -1,21 +1,21 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp/providers/settings.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:myaniapp/ui/theme.dart';
 import 'package:uni_links/uni_links.dart';
 
-class MyApp extends ConsumerStatefulWidget {
-  const MyApp({super.key});
+class App extends ConsumerStatefulWidget {
+  const App({super.key});
 
   @override
-  ConsumerState<MyApp> createState() => _MyAppState();
+  ConsumerState<App> createState() => _AppState();
 }
 
-class _MyAppState extends ConsumerState<MyApp> {
+class _AppState extends ConsumerState<App> {
   StreamSubscription? _sub;
 
   @override
@@ -27,11 +27,12 @@ class _MyAppState extends ConsumerState<MyApp> {
   @override
   void initState() {
     super.initState();
+    appRouter = AppRouter(ref);
   }
 
   Future<void> initUniLinks() async {
     // ... check initialUri
-
+    if (kIsWeb) return;
     // Attach a listener to the stream
     _sub = uriLinkStream.listen((Uri? uri) {
       // Use the uri and warn the user, if it is not correct
@@ -44,16 +45,18 @@ class _MyAppState extends ConsumerState<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var themeMode = ref.watch(settingsProvider.select((value) => value.theme));
-
     return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
       title: 'MyAniApp',
+      routerConfig: appRouter.config(
+        navigatorObservers: () => [
+          MyObserver(ref),
+        ],
+      ),
       scrollBehavior: _ScrollBehavior(),
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: themeMode,
-      routerConfig: appRouter.config(),
+      themeMode: ThemeMode.dark,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

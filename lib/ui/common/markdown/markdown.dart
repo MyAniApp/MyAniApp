@@ -8,18 +8,27 @@ import 'package:myaniapp/ui/common/markdown/generators/i.dart';
 import 'package:myaniapp/ui/common/markdown/generators/img.dart';
 import 'package:myaniapp/ui/common/markdown/generators/spolier.dart';
 
-var removeRegex = RegExp(r'~{3}([\s\S]*?)~{3}', dotAll: true);
+var removeRegex = RegExp(r'~{3}([\s\S]*?)~{3}|(<br>)(?:<br>)?', dotAll: true);
 
 class Markdown extends StatelessWidget {
-  const Markdown({super.key, required this.data});
+  const Markdown({
+    super.key,
+    required this.data,
+    this.selectable = true,
+  });
 
   final String data;
+  final bool selectable;
 
   @override
   Widget build(BuildContext context) {
     // print(data);
-    var markdown =
-        data.replaceAllMapped(removeRegex, (match) => match.group(1)!);
+    var markdown = data.replaceAllMapped(removeRegex, (match) {
+      // logger.i(match.groups([1, 2]));
+      return match.group(1) ?? '';
+    });
+
+    // logger.i(data);
 
     return MediaQuery.removePadding(
       context: context,
@@ -27,6 +36,7 @@ class Markdown extends StatelessWidget {
       child: md2.MarkdownWidget(
         data: markdown,
         shrinkWrap: true,
+        selectable: selectable,
         markdownGeneratorConfig: md2.MarkdownGeneratorConfig(
           generators: [iWithTag, spoilerWithTag],
           inlineSyntaxList: [
@@ -51,17 +61,19 @@ class Markdown extends StatelessWidget {
                 double? width;
                 double? height;
                 if (attributes['width'] != null) {
-                  width = double.parse(attributes['width']!);
+                  width = double.tryParse(attributes['width']!);
                 }
                 if (attributes['height'] != null) {
-                  height = double.parse(attributes['height']!);
+                  height = double.tryParse(attributes['height']!);
                 }
 
-                return CImage(
-                  imageUrl: url,
-                  width: width,
+                return SizedBox(
                   height: height,
-                  viewer: true,
+                  width: width,
+                  child: CImage(
+                    imageUrl: url,
+                    viewer: true,
+                  ),
                 );
               },
             ),

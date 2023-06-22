@@ -9,7 +9,9 @@ class ImgSyntax extends md.InlineSyntax {
   bool onMatch(md.InlineParser parser, Match match) {
     md.Element el = md.Element.withTag(_tag)
       ..attributes['src'] = match.group(2)!;
+    // print(el.attributes);
     if (match.group(1) != null && !match.group(1).toString().contains('%')) {
+      // print(match.group(1));
       el.attributes['width'] = match.group(1)!;
     }
     parser.addNode(el);

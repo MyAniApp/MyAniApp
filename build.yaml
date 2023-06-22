@@ -17,3 +17,15 @@ targets:
             - graphql_flutter
           outputDirectory: '/lib/graphql/__generated'
           generatedFileHeader: "// GENERATED FILE\n// DO NOT MODIFY\n// ignore_for_file: type=lint\n"
+      auto_route_generator:auto_route_generator:
+        # configs for @RoutePage() generator ...
+        options:
+          enable_cached_builds: true
+        generate_for:
+          - lib/ui/routes/**.dart
+      auto_route_generator:auto_router_generator:
+        options:
+          enable_cached_builds: true
+        generate_for:
+          - lib/routes.dart
+      # configs for @AutoRouterConfig() generator ...

@@ -348,7 +348,7 @@ const documentNodeQueryMediaListEntry = DocumentNode(definitions: [
   ),
   fragmentDefinitionMediaListEntry,
   fragmentDefinitionFuzzyDate,
-  fragmentDefinitionMedia,
+  fragmentDefinitionMediaFragment,
 ]);
 Query$MediaListEntry _parserFn$Query$MediaListEntry(
         Map<String, dynamic> data) =>
@@ -1450,7 +1450,7 @@ const documentNodeMutationSaveMediaListEntry = DocumentNode(definitions: [
   ),
   fragmentDefinitionMediaListEntry,
   fragmentDefinitionFuzzyDate,
-  fragmentDefinitionMedia,
+  fragmentDefinitionMediaFragment,
 ]);
 Mutation$SaveMediaListEntry _parserFn$Mutation$SaveMediaListEntry(
         Map<String, dynamic> data) =>

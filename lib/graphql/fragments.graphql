@@ -9,7 +9,7 @@ fragment PageInfo on PageInfo {
   hasNextPage
 }
 
-fragment User on User {
+fragment UserFragment on User {
   id
   name
   donatorTier
@@ -21,7 +21,7 @@ fragment User on User {
 }
 
 fragment ReleasingMedia on Media {
-  ...Media
+  ...MediaFragment
   nextAiringEpisode {
     airingAt
     timeUntilAiring
@@ -69,30 +69,28 @@ fragment MediaListEntry on MediaList {
     ...FuzzyDate
   }
   media {
-    ...Media
+    ...MediaFragment
     episodes
     chapters
   }
 }
 
-fragment Media on Media {
+fragment MediaFragment on Media {
   id
   type
   isAdult
   genres
-  episodes
   format
-  chapters
-  description
+  description(asHtml: false)
   title {
     userPreferred
   }
   coverImage {
-    large
+    extraLarge
   }
 }
 
-fragment Thread on Thread {
+fragment ThreadFragment on Thread {
   id
   title
   replyCount

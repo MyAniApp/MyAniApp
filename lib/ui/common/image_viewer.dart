@@ -62,7 +62,6 @@ void showImage(BuildContext context, String url, {Object? tag}) {
         tag: tag,
         child: CImage(
           imageUrl: url,
-          hasMenu: true,
         ),
       ),
     ),

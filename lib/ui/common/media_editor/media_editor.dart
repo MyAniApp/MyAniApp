@@ -1,253 +1,249 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
-import 'package:myaniapp/providers/user.dart';
-import 'package:myaniapp/ui/common/media_editor/provider.dart';
-import 'package:myaniapp/ui/common/number_picker.dart';
+import 'package:myaniapp/graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
+import 'package:myaniapp/providers/media_editor.dart';
+import 'package:myaniapp/ui/common/custom_dropdown.dart';
+import 'package:myaniapp/ui/common/graphql_error.dart';
+import 'package:myaniapp/ui/common/numer_picker.dart';
 
-class MediaEditor extends StatefulHookConsumerWidget {
-  const MediaEditor({
-    super.key,
-    required this.media,
-    this.onSave,
-  });
+class MediaEditorDialog extends ConsumerWidget {
+  const MediaEditorDialog({super.key, required this.media});
 
-  final Fragment$Media media;
-  final VoidCallback? onSave;
+  final Fragment$MediaFragment media;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    var mediaEditor = ref.watch(mediaEditorProvider(media));
+
+    return mediaEditor.when(
+      data: (data) => MediaEditor(entry: data),
+      error: (error, stackTrace) => Scaffold(
+        appBar: AppBar(),
+        body: GraphqlError(exception: error as OperationException),
+      ),
+      loading: () => Scaffold(
+        appBar: AppBar(),
+        body: const Center(
+          child: CircularProgressIndicator.adaptive(),
+        ),
+      ),
+    );
+  }
+}
+
+class MediaEditor extends ConsumerStatefulWidget {
+  const MediaEditor({super.key, required this.entry});
+
+  final Fragment$MediaListEntry entry;
 
   @override
   ConsumerState<MediaEditor> createState() => _MediaEditorState();
 }
 
 class _MediaEditorState extends ConsumerState<MediaEditor> {
-  TextEditingController controller = TextEditingController();
+  late Variables$Mutation$SaveMediaListEntry options;
+  late Variables$Mutation$SaveMediaListEntry og;
+  late TextEditingController textController;
 
   @override
   void initState() {
     super.initState();
-    // if (widget.media.notes?.isNotEmpty == true) {
-    //   controller.text = widget.media.notes!;
-    // }
-    controller.addListener(updateNotes);
-  }
+    options = Variables$Mutation$SaveMediaListEntry(
+      completedAt: widget.entry.completedAt != null
+          ? Input$FuzzyDateInput(
+              day: widget.entry.completedAt!.day,
+              month: widget.entry.completedAt!.month,
+              year: widget.entry.completedAt!.year)
+          : null,
+      startedAt: widget.entry.startedAt != null
+          ? Input$FuzzyDateInput(
+              day: widget.entry.startedAt!.day,
+              month: widget.entry.startedAt!.month,
+              year: widget.entry.startedAt!.year)
+          : null,
+      hiddenFromStatusLists: widget.entry.hiddenFromStatusLists,
+      notes: widget.entry.notes,
+      priority: widget.entry.priority,
+      private: widget.entry.private,
+      progress: widget.entry.progress,
+      progressVolumes: widget.entry.progressVolumes,
+      repeat: widget.entry.repeat,
+      score: widget.entry.score,
+      status: widget.entry.status,
+    );
 
-  void updateNotes() {
-    var r = ref.read(MediaEditorProvider(widget.media).notifier);
-    if (ref.read(MediaEditorProvider(widget.media))?.notes ==
-        controller.value.text) return;
-    r.modify(notes: controller.value.text);
-    print(controller.text);
+    og = Variables$Mutation$SaveMediaListEntry.fromJson(options.toJson());
+    textController = TextEditingController.fromValue(
+        TextEditingValue(text: options.notes ?? ''));
+
+    textController.addListener(textListener);
   }
 
   @override
   void dispose() {
     super.dispose();
-    controller.dispose();
+    textController.dispose();
+  }
+
+  void textListener() {
+    if (options.notes != textController.text) {
+      setState(() => options = options.copyWith(notes: textController.text));
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    var user = ref.watch(userProvider);
-    var entry = ref.watch(MediaEditorProvider(widget.media));
-    var theme = Theme.of(context).textTheme;
-
-    useEffect(() {
-      if (entry?.notes != null) controller.text = entry!.notes!;
-      return null;
-    }, [entry?.notes]);
-
     return Scaffold(
       appBar: AppBar(
         actions: [
           IconButton(
+            padding: const EdgeInsets.all(16),
             onPressed: () {
-              ref
-                  .read(MediaEditorProvider(widget.media).notifier)
-                  .update(widget.onSave);
-              context.router.pop();
-              // entry.
+              if (options != og) {
+                ref
+                    .read(mediaEditorProvider(widget.entry.media!).notifier)
+                    .save(options);
+              }
+              context.popRoute();
             },
             icon: const Icon(Icons.save),
           ),
         ],
       ),
-      body: entry == null
-          ? const Center(
-              child: CircularProgressIndicator.adaptive(),
-            )
-          : Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ListView(
-                children: [
-                  Text(
-                    'Status',
-                    style: theme.titleMedium,
-                  ),
-                  DropdownSearch<Enum$MediaListStatus>(
-                    items: Enum$MediaListStatus.values
-                        .take(Enum$MediaListStatus.values.length - 1)
-                        .toList(),
-                    itemAsString: (item) {
-                      if (item == Enum$MediaListStatus.CURRENT) {
-                        return 'Watching';
-                      } else if (item == Enum$MediaListStatus.PLANNING) {
-                        return 'Planning';
-                      } else if (item == Enum$MediaListStatus.COMPLETED) {
-                        return 'Completed';
-                      } else if (item == Enum$MediaListStatus.PAUSED) {
-                        return 'Paused';
-                      } else if (item == Enum$MediaListStatus.DROPPED) {
-                        return 'Dropped';
-                      } else if (item == Enum$MediaListStatus.REPEATING) {
-                        return 'Repeating';
-                      }
-
-                      return item.name;
-                    },
-                    selectedItem: entry.status,
-                    onChanged: (value) => ref
-                        .read(mediaEditorProvider(widget.media).notifier)
-                        .modify(status: value),
-                  ),
-                  Text(
-                    'Score',
-                    style: theme.titleMedium,
-                  ),
-                  NumberPicker(
-                    current: (entry.score ?? 0).toInt(),
-                    // decimals: true,
-                    onChange: (value) => ref
-                        .read(mediaEditorProvider(widget.media).notifier)
-                        .modify(score: value.toDouble()),
-                    // max: user.value!.options!.,
-                    increment: 1,
-                    min: 0,
-                    max: 100,
-                  ),
-                  Text(
-                    '${entry.media!.type == Enum$MediaType.ANIME ? 'Episode' : 'Chapter'} Progress',
-                    style: theme.titleMedium,
-                  ),
-                  NumberPicker(
-                    current: (entry.progress ?? 0).toInt(),
-                    max: (entry.media!.episodes ?? entry.media!.chapters)
-                        ?.toInt(),
-                    min: 0,
-                    onChange: (value) => ref
-                        .read(mediaEditorProvider(widget.media).notifier)
-                        .modify(progress: value.toInt()),
-                  ),
-                  Text(
-                    'Total ${entry.media!.type == Enum$MediaType.ANIME ? 'Rewatches' : 'Rereads'}',
-                    style: theme.titleMedium,
-                  ),
-                  NumberPicker(
-                    current: (entry.repeat ?? 0).toInt(),
-                    min: 0,
-                    onChange: (value) => ref
-                        .read(mediaEditorProvider(widget.media).notifier)
-                        .modify(repeat: value.toInt()),
-                  ),
-                  CheckboxListTile(
-                    title: const Text('Private'),
-                    value: entry.private ?? false,
-                    onChanged: (value) => ref
-                        .read(mediaEditorProvider(widget.media).notifier)
-                        .modify(private: value),
-                  ),
-                  Text(
-                    'Start Date',
-                    style: theme.titleMedium,
-                  ),
-                  ElevatedButton(
-                    onPressed: () => _showDatePicker(
-                        entry.startedAt?.toDate() ?? DateTime.now(), (date) {
-                      var fuzzy = Fragment$FuzzyDate(
-                          day: date.day, month: date.month, year: date.year);
-                      ref
-                          .read(mediaEditorProvider(widget.media).notifier)
-                          .modify(startedAt: fuzzy);
-                    }),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(entry.startedAt?.toDateString() ?? 'Select Date'),
-                        const Icon(
-                          Icons.edit,
-                          size: 20,
-                        )
-                      ],
-                    ),
-                  ),
-                  Text(
-                    'Completed Date',
-                    style: theme.titleMedium,
-                  ),
-                  ElevatedButton(
-                    onPressed: () => _showDatePicker(
-                        entry.completedAt?.toDate() ?? DateTime.now(), (date) {
-                      var fuzzy = Fragment$FuzzyDate(
-                          day: date.day, month: date.month, year: date.year);
-                      ref
-                          .read(mediaEditorProvider(widget.media).notifier)
-                          .modify(completedAt: fuzzy);
-                    }),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                            entry.completedAt?.toDateString() ?? 'Select Date'),
-                        const Icon(
-                          Icons.edit,
-                          size: 20,
-                        )
-                      ],
-                    ),
-                  ),
-                  Text(
-                    'Notes',
-                    style: theme.titleMedium,
-                  ),
-                  TextField(
-                    controller: controller,
-                    decoration:
-                        const InputDecoration(border: OutlineInputBorder()),
-                    maxLines: null,
-                  ),
-                ],
-              ),
+      body: ListView(
+        padding: const EdgeInsets.all(8),
+        children: [
+          MasonryGridView.custom(
+            gridDelegate: const SliverSimpleGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 250,
             ),
-    );
-  }
+            shrinkWrap: true,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childrenDelegate: SliverChildListDelegate(
+              [
+                CustomDropdown(
+                  hint: 'Status',
+                  value: options.status,
+                  onChanged: (value) =>
+                      setState(() => options = options.copyWith(status: value)),
+                  dropdownItems: Enum$MediaListStatus.values
+                      .takeWhile(
+                          (value) => value != Enum$MediaListStatus.$unknown)
+                      .map(
+                        (e) => DropdownMenuItem(
+                          value: e,
+                          child: Text(e.name.capitalize()),
+                        ),
+                      )
+                      .toList(),
+                ),
+                NumberPicker(
+                  number:
+                      (options.progress ?? 0) == 0 ? null : options.progress,
+                  hint:
+                      '${widget.entry.media!.type == Enum$MediaType.ANIME ? 'Episode' : 'Chapter'} Progress',
+                  onIncrement: () {
+                    var number = (options.progress ?? 0) + 1;
 
-  void _showDatePicker(DateTime date, Function(DateTime date) onChange) async {
-    var d = await showDatePicker(
-      context: context,
-      initialDate: date,
-      firstDate: DateTime(1940),
-      lastDate: DateTime(2100),
-    );
+                    if (widget.entry.media!.episodes != null &&
+                        number >= widget.entry.media!.episodes!) {
+                      if (options.status != Enum$MediaListStatus.COMPLETED) {
+                        setState(
+                          () => options = options.copyWith(
+                            progress: number,
+                            status: Enum$MediaListStatus.COMPLETED,
+                          ),
+                        );
+                      }
+                      return;
+                    }
 
-    if (d != null) onChange(d);
+                    setState(
+                      () => options = options.copyWith(
+                          progress: (options.progress ?? 0) + 1),
+                    );
+                  },
+                  onDecrement: () {
+                    var number = (options.progress ?? 0) - 1;
+
+                    if (number < 0) return;
+                    if (widget.entry.media!.episodes != null &&
+                        options.progress! >= widget.entry.media!.episodes! &&
+                        options.status == Enum$MediaListStatus.COMPLETED) {
+                      return setState(
+                        () => options = options.copyWith(
+                            progress: number, status: og.status),
+                      );
+                    }
+
+                    setState(
+                      () => options = options.copyWith(progress: number),
+                    );
+                  },
+                ),
+                NumberPicker(
+                  number: (options.repeat ?? 0) == 0 ? null : options.repeat,
+                  hint: widget.entry.media!.type == Enum$MediaType.ANIME
+                      ? 'Rewatches'
+                      : 'Rereads',
+                  onIncrement: () => setState(
+                    () => options =
+                        options.copyWith(repeat: (options.repeat ?? 0) + 1),
+                  ),
+                  onDecrement: () {
+                    var number = (options.repeat ?? 0) - 1;
+
+                    if (number < 0) return;
+
+                    setState(
+                      () => options = options.copyWith(repeat: number),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          RadioListTile.adaptive(
+            value: true,
+            groupValue: options.private,
+            toggleable: true,
+            controlAffinity: ListTileControlAffinity.trailing,
+            title: const Text('Private'),
+            onChanged: (value) =>
+                setState(() => options = options.copyWith(private: value)),
+          ),
+          TextField(
+            maxLines: null,
+            controller: textController,
+            // onChanged: (value) => setState(() => ),
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(14),
+                ),
+              ),
+              labelText: 'Notes',
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
-Future<bool?> showMediaEditor(
-  BuildContext context,
-  Fragment$Media entry, {
-  VoidCallback? onSave,
-}) {
-  return showDialog(
+void showMediaEditor(BuildContext context, Fragment$MediaFragment media) {
+  showDialog(
     context: context,
     builder: (context) => Dialog.fullscreen(
-      child: MediaEditor(
-        media: entry,
-        onSave: onSave,
+      child: MediaEditorDialog(
+        media: media,
       ),
     ),
   );

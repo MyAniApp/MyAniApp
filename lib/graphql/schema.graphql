@@ -215,6 +215,7 @@ type Mutation {
   SaveActivityReply(id: Int, activityId: Int, text: String, asMod: Boolean): ActivityReply
   DeleteActivityReply(id: Int): Deleted
   DeleteActivity(id: Int): Deleted
+  SaveTextActivity(id: Int, text: String, locked: Boolean): TextActivity
 }
 
 scalar ISODateTime
@@ -1390,22 +1391,6 @@ type NotificationOption {
 
 enum NotificationType {
   ACTIVITY_MESSAGE
-  ACTIVITY_REPLY
-  FOLLOWING
-  ACTIVITY_MENTION
-  THREAD_COMMENT_MENTION
-  THREAD_SUBSCRIBED
-  THREAD_COMMENT_REPLY
-  AIRING
-  ACTIVITY_LIKE
-  ACTIVITY_REPLY_LIKE
-  THREAD_LIKE
-  THREAD_COMMENT_LIKE
-  ACTIVITY_REPLY_SUBSCRIBED
-  RELATED_MEDIA_ADDITION
-  MEDIA_DATA_CHANGE
-  MEDIA_MERGE
-  MEDIA_DELETIONACTIVITY_MESSAGE
   ACTIVITY_REPLY
   FOLLOWING
   ACTIVITY_MENTION

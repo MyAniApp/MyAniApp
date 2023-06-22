@@ -1,27 +1,31 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/utils/utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class Comment extends StatelessWidget {
   const Comment({
     super.key,
-    required this.header,
     required this.body,
+    this.avatarUrl,
+    this.username,
     this.isReply = false,
     this.footer,
     this.replies,
     this.onTap,
+    this.createdAt,
+    this.leading,
   });
 
+  final String? avatarUrl;
   final Widget body;
+  final int? createdAt;
   final Widget? footer;
-  final CommentHeader header;
   final bool isReply;
+  final Widget? leading;
   final VoidCallback? onTap;
   final List<Widget>? replies;
+  final String? username;
 
   @override
   Widget build(BuildContext context) {
@@ -54,11 +58,17 @@ class Comment extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(5, 15, 0, 15),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(right: 15, left: 10),
-                      child: header,
+                      child: CommentHeader(
+                        avatarUrl: avatarUrl,
+                        username: username,
+                        createdAt: createdAt,
+                        leading: leading,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
@@ -72,7 +82,13 @@ class Comment extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 15, left: 10),
                         child: footer!,
                       ),
-                    ...?replies,
+                    if (replies != null)
+                      ListView.builder(
+                        shrinkWrap: true,
+                        primary: false,
+                        itemBuilder: (context, index) => replies![index],
+                        itemCount: replies!.length,
+                      )
                   ],
                 ),
               ),
@@ -93,10 +109,10 @@ class CommentHeader extends StatelessWidget {
     this.leading,
   });
 
-  final String avatarUrl;
+  final String? avatarUrl;
   final int? createdAt;
   final Widget? leading;
-  final String username;
+  final String? username;
 
   @override
   Widget build(BuildContext context) {
@@ -104,13 +120,16 @@ class CommentHeader extends StatelessWidget {
 
     return Row(
       children: [
-        GestureDetector(
-          onTap: () => context.router.push(ProfileRoute(name: username)),
-          child: CircleAvatar(
-            backgroundImage: CachedNetworkImageProvider(avatarUrl),
-            backgroundColor: Colors.transparent,
+        if (avatarUrl != null)
+          GestureDetector(
+            child: CImage(
+              imageUrl: avatarUrl!,
+              imageBuilder: (context, imageProvider) => CircleAvatar(
+                backgroundImage: imageProvider,
+                backgroundColor: Colors.transparent,
+              ),
+            ),
           ),
-        ),
         const SizedBox(
           width: 10,
         ),
@@ -118,7 +137,7 @@ class CommentHeader extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(username),
+              if (username != null) Text(username!),
               if (createdAt != null)
                 Text(
                   timeago.format(

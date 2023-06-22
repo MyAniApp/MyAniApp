@@ -1,0 +1,64 @@
+query Thread($id: Int, $page: Int) {
+  thread: Thread(id: $id) {
+    id
+    title
+    body
+    userId
+    replyCount
+    viewCount
+    isLocked
+    isSticky
+    isSubscribed
+    isLiked
+    likeCount
+    repliedAt
+    createdAt
+    user {
+      id
+      name
+      avatar {
+        large
+      }
+    }
+    categories {
+      id
+      name
+    }
+    mediaCategories {
+      id
+      title {
+        userPreferred
+      }
+      coverImage {
+        large
+      }
+      type
+      format
+    }
+  }
+  comments: Page(page: $page, perPage: 15) {
+    pageInfo {
+      ...PageInfo
+    }
+    threadComments(threadId: $id) {
+      id
+      threadId
+      comment
+      isLiked
+      likeCount
+      createdAt
+      user {
+        id
+        name
+        donatorTier
+        donatorBadge
+        moderatorRoles
+        avatar {
+          large
+        }
+      }
+      childComments
+      isLocked
+    }
+  }
+}

@@ -7,7 +7,7 @@
    <application
         android:label="MyAniApp"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -35,7 +35,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- Accepts URIs that begin with YOUR_SCHEME://YOUR_HOST -->
                 <data
-                android:scheme="myaniapp"
+                android:scheme="myaniapp2"
                 android:host="ani"
                 android:pathPrefix="/auth" />
             </intent-filter>

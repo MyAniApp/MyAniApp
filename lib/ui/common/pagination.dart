@@ -7,24 +7,23 @@ class Pagination extends StatelessWidget {
     super.key,
     required this.child,
     required this.pageInfo,
-    required this.hook,
     required this.opts,
+    required this.fetchMore,
   });
 
   final Widget child;
-  final QueryHookResult hook;
   final FetchMoreOptions opts;
   final Fragment$PageInfo pageInfo;
+  final FetchMore fetchMore;
 
   @override
   Widget build(BuildContext context) {
     return NotificationListener<ScrollUpdateNotification>(
       onNotification: (notification) {
-        if (!hook.result.isLoading &&
-            notification.metrics.pixels >
+        if (notification.metrics.pixels >
                 notification.metrics.maxScrollExtent - 100 &&
             pageInfo.hasNextPage == true) {
-          hook.fetchMore(opts);
+          fetchMore(opts);
         }
         return false;
       },
