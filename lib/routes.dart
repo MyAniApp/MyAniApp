@@ -36,9 +36,9 @@ class AppRouter extends $AppRouter {
             AutoRoute(page: MediaSocialRoute.page, path: 'social')
           ],
         ),
-        AutoRoute(page: ReviewRoute.page, path: '/review'),
+        AutoRoute(page: ReviewRoute.page, path: '/review/:id'),
         AutoRoute(page: SearchRoute.page, path: '/search'),
-        AutoRoute(page: ThreadRoute.page, path: '/thread'),
+        AutoRoute(page: ThreadRoute.page, path: '/thread/:id'),
         AutoRoute(page: ExploreRoute.page, path: '/explore'),
         AutoRoute(page: LoginRoute.page, path: '/login'),
         AutoRoute(page: AniLoginRoute.page, path: '/login/anilist'),
