@@ -81,8 +81,10 @@ class MyHomePage extends ConsumerWidget {
       ),
       error: (error, stackTrace) =>
           GraphqlError(exception: error as OperationException),
-      loading: () => const Center(
-        child: CircularProgressIndicator.adaptive(),
+      loading: () => const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator.adaptive(),
+        ),
       ),
     );
   }

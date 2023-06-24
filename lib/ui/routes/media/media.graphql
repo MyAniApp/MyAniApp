@@ -3,6 +3,8 @@ query Media($id: Int) {
     ...MediaFragment
     bannerImage
     favourites
+    isFavourite
+    isFavouriteBlocked
     averageScore
     duration
     status(version: 2)
@@ -80,6 +82,16 @@ query Media($id: Int) {
     }
     mediaListEntry {
       status
+    }
+  }
+}
+
+mutation ToggleFavorite($animeId: Int) {
+  ToggleFavourite(animeId: $animeId) {
+    anime {
+      pageInfo {
+        total
+      }
     }
   }
 }

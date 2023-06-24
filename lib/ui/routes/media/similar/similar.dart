@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/media/similar/similar.graphql.dart';
-import 'package:myaniapp/main.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/cards/grid_cards.dart';
 import 'package:myaniapp/ui/common/cards/sheet_card.dart';
@@ -38,7 +37,6 @@ class MediaSimilarPage extends StatelessWidget {
                         .currentPage! +
                     1),
             updateQuery: (previousResultData, fetchMoreResultData) {
-              logger.i(previousResultData, fetchMoreResultData);
               var list = [
                 ...previousResultData!['Media']!['recommendations']['nodes'],
                 ...fetchMoreResultData!['Media']!['recommendations']['nodes'],

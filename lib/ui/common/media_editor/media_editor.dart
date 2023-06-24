@@ -30,8 +30,11 @@ class MediaEditorDialog extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var mediaEditor = ref.watch(mediaEditorProvider(media));
 
+    // print(mediaEditor.isLoading);
+
     return mediaEditor.when(
       data: (data) => MediaEditor(
+        media: media,
         entry: data,
         onDelete: onDelete,
         onSave: onSave,
@@ -54,6 +57,7 @@ class MediaEditor extends ConsumerStatefulWidget {
   const MediaEditor({
     super.key,
     required this.entry,
+    required this.media,
     this.onDelete,
     this.onSave,
   });
@@ -61,6 +65,7 @@ class MediaEditor extends ConsumerStatefulWidget {
   final Fragment$MediaListEntry entry;
   final void Function()? onDelete;
   final void Function()? onSave;
+  final Fragment$MediaFragment media;
 
   @override
   ConsumerState<MediaEditor> createState() => _MediaEditorState();
@@ -122,7 +127,7 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          if (widget.entry.id != -1 && widget.onDelete != null)
+          if (widget.entry.id != -1)
             IconButton(
               padding: const EdgeInsets.all(16),
               onPressed: () async {
@@ -138,7 +143,7 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
                           ),
                         ),
                       )
-                      .then((value) => widget.onDelete!());
+                      .then((value) => widget.onDelete?.call());
                 }
               },
               icon: const Icon(Icons.delete),
@@ -147,14 +152,12 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
           IconButton(
             padding: const EdgeInsets.all(16),
             onPressed: () {
+              // widget.entry.
               if (options != og) {
                 ref
-                    .read(mediaEditorProvider(widget.entry.media!).notifier)
+                    .read(mediaEditorProvider(widget.media).notifier)
                     .save(options)
-                    .then((_) {
-                  widget.onSave?.call();
-                  return;
-                });
+                    .then((_) => widget.onSave?.call());
               }
               context.popRoute();
             },

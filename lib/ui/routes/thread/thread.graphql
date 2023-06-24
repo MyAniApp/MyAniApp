@@ -62,3 +62,32 @@ query Thread($id: Int, $page: Int) {
     }
   }
 }
+
+mutation SaveComment($id: Int, $threadId: Int, $parentCommentId: Int, $comment: String) {
+  SaveThreadComment(id: $id, threadId: $threadId, parentCommentId: $parentCommentId, comment: $comment) {
+    id
+    threadId
+    comment
+    isLiked
+    likeCount
+    createdAt
+    user {
+      id
+      name
+      donatorTier
+      donatorBadge
+      moderatorRoles
+      avatar {
+        large
+      }
+    }
+    childComments
+    isLocked
+  }
+}
+
+mutation DeleteComment($id: Int) {
+  DeleteThreadComment(id: $id) {
+    deleted
+  }
+}

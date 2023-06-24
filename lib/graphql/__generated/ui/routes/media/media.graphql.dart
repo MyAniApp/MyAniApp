@@ -286,6 +286,20 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'isFavourite'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isFavouriteBlocked'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'averageScore'),
             alias: null,
             arguments: [],
@@ -1040,6 +1054,8 @@ class Query$Media$Media implements Fragment$MediaFragment {
     this.$__typename = 'Media',
     this.bannerImage,
     this.favourites,
+    required this.isFavourite,
+    required this.isFavouriteBlocked,
     this.averageScore,
     this.duration,
     this.status,
@@ -1076,6 +1092,8 @@ class Query$Media$Media implements Fragment$MediaFragment {
     final l$$__typename = json['__typename'];
     final l$bannerImage = json['bannerImage'];
     final l$favourites = json['favourites'];
+    final l$isFavourite = json['isFavourite'];
+    final l$isFavouriteBlocked = json['isFavouriteBlocked'];
     final l$averageScore = json['averageScore'];
     final l$duration = json['duration'];
     final l$status = json['status'];
@@ -1117,6 +1135,8 @@ class Query$Media$Media implements Fragment$MediaFragment {
       $__typename: (l$$__typename as String),
       bannerImage: (l$bannerImage as String?),
       favourites: (l$favourites as int?),
+      isFavourite: (l$isFavourite as bool),
+      isFavouriteBlocked: (l$isFavouriteBlocked as bool),
       averageScore: (l$averageScore as int?),
       duration: (l$duration as int?),
       status: l$status == null
@@ -1206,6 +1226,10 @@ class Query$Media$Media implements Fragment$MediaFragment {
 
   final int? favourites;
 
+  final bool isFavourite;
+
+  final bool isFavouriteBlocked;
+
   final int? averageScore;
 
   final int? duration;
@@ -1275,6 +1299,10 @@ class Query$Media$Media implements Fragment$MediaFragment {
     _resultData['bannerImage'] = l$bannerImage;
     final l$favourites = favourites;
     _resultData['favourites'] = l$favourites;
+    final l$isFavourite = isFavourite;
+    _resultData['isFavourite'] = l$isFavourite;
+    final l$isFavouriteBlocked = isFavouriteBlocked;
+    _resultData['isFavouriteBlocked'] = l$isFavouriteBlocked;
     final l$averageScore = averageScore;
     _resultData['averageScore'] = l$averageScore;
     final l$duration = duration;
@@ -1339,6 +1367,8 @@ class Query$Media$Media implements Fragment$MediaFragment {
     final l$$__typename = $__typename;
     final l$bannerImage = bannerImage;
     final l$favourites = favourites;
+    final l$isFavourite = isFavourite;
+    final l$isFavouriteBlocked = isFavouriteBlocked;
     final l$averageScore = averageScore;
     final l$duration = duration;
     final l$status = status;
@@ -1373,6 +1403,8 @@ class Query$Media$Media implements Fragment$MediaFragment {
       l$$__typename,
       l$bannerImage,
       l$favourites,
+      l$isFavourite,
+      l$isFavouriteBlocked,
       l$averageScore,
       l$duration,
       l$status,
@@ -1472,6 +1504,16 @@ class Query$Media$Media implements Fragment$MediaFragment {
     final l$favourites = favourites;
     final lOther$favourites = other.favourites;
     if (l$favourites != lOther$favourites) {
+      return false;
+    }
+    final l$isFavourite = isFavourite;
+    final lOther$isFavourite = other.isFavourite;
+    if (l$isFavourite != lOther$isFavourite) {
+      return false;
+    }
+    final l$isFavouriteBlocked = isFavouriteBlocked;
+    final lOther$isFavouriteBlocked = other.isFavouriteBlocked;
+    if (l$isFavouriteBlocked != lOther$isFavouriteBlocked) {
       return false;
     }
     final l$averageScore = averageScore;
@@ -1639,6 +1681,8 @@ abstract class CopyWith$Query$Media$Media<TRes> {
     String? $__typename,
     String? bannerImage,
     int? favourites,
+    bool? isFavourite,
+    bool? isFavouriteBlocked,
     int? averageScore,
     int? duration,
     Enum$MediaStatus? status,
@@ -1712,6 +1756,8 @@ class _CopyWithImpl$Query$Media$Media<TRes>
     Object? $__typename = _undefined,
     Object? bannerImage = _undefined,
     Object? favourites = _undefined,
+    Object? isFavourite = _undefined,
+    Object? isFavouriteBlocked = _undefined,
     Object? averageScore = _undefined,
     Object? duration = _undefined,
     Object? status = _undefined,
@@ -1763,6 +1809,13 @@ class _CopyWithImpl$Query$Media$Media<TRes>
         favourites: favourites == _undefined
             ? _instance.favourites
             : (favourites as int?),
+        isFavourite: isFavourite == _undefined || isFavourite == null
+            ? _instance.isFavourite
+            : (isFavourite as bool),
+        isFavouriteBlocked:
+            isFavouriteBlocked == _undefined || isFavouriteBlocked == null
+                ? _instance.isFavouriteBlocked
+                : (isFavouriteBlocked as bool),
         averageScore: averageScore == _undefined
             ? _instance.averageScore
             : (averageScore as int?),
@@ -1962,6 +2015,8 @@ class _CopyWithStubImpl$Query$Media$Media<TRes>
     String? $__typename,
     String? bannerImage,
     int? favourites,
+    bool? isFavourite,
+    bool? isFavouriteBlocked,
     int? averageScore,
     int? duration,
     Enum$MediaStatus? status,
@@ -4710,6 +4765,967 @@ class _CopyWithStubImpl$Query$Media$Media$mediaListEntry<TRes>
 
   call({
     Enum$MediaListStatus? status,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Variables$Mutation$ToggleFavorite {
+  factory Variables$Mutation$ToggleFavorite({int? animeId}) =>
+      Variables$Mutation$ToggleFavorite._({
+        if (animeId != null) r'animeId': animeId,
+      });
+
+  Variables$Mutation$ToggleFavorite._(this._$data);
+
+  factory Variables$Mutation$ToggleFavorite.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('animeId')) {
+      final l$animeId = data['animeId'];
+      result$data['animeId'] = (l$animeId as int?);
+    }
+    return Variables$Mutation$ToggleFavorite._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get animeId => (_$data['animeId'] as int?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('animeId')) {
+      final l$animeId = animeId;
+      result$data['animeId'] = l$animeId;
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$ToggleFavorite<Variables$Mutation$ToggleFavorite>
+      get copyWith => CopyWith$Variables$Mutation$ToggleFavorite(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$ToggleFavorite) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$animeId = animeId;
+    final lOther$animeId = other.animeId;
+    if (_$data.containsKey('animeId') != other._$data.containsKey('animeId')) {
+      return false;
+    }
+    if (l$animeId != lOther$animeId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$animeId = animeId;
+    return Object.hashAll(
+        [_$data.containsKey('animeId') ? l$animeId : const {}]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$ToggleFavorite<TRes> {
+  factory CopyWith$Variables$Mutation$ToggleFavorite(
+    Variables$Mutation$ToggleFavorite instance,
+    TRes Function(Variables$Mutation$ToggleFavorite) then,
+  ) = _CopyWithImpl$Variables$Mutation$ToggleFavorite;
+
+  factory CopyWith$Variables$Mutation$ToggleFavorite.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$ToggleFavorite;
+
+  TRes call({int? animeId});
+}
+
+class _CopyWithImpl$Variables$Mutation$ToggleFavorite<TRes>
+    implements CopyWith$Variables$Mutation$ToggleFavorite<TRes> {
+  _CopyWithImpl$Variables$Mutation$ToggleFavorite(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$ToggleFavorite _instance;
+
+  final TRes Function(Variables$Mutation$ToggleFavorite) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? animeId = _undefined}) =>
+      _then(Variables$Mutation$ToggleFavorite._({
+        ..._instance._$data,
+        if (animeId != _undefined) 'animeId': (animeId as int?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$ToggleFavorite<TRes>
+    implements CopyWith$Variables$Mutation$ToggleFavorite<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$ToggleFavorite(this._res);
+
+  TRes _res;
+
+  call({int? animeId}) => _res;
+}
+
+class Mutation$ToggleFavorite {
+  Mutation$ToggleFavorite({
+    this.ToggleFavourite,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$ToggleFavorite.fromJson(Map<String, dynamic> json) {
+    final l$ToggleFavourite = json['ToggleFavourite'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite(
+      ToggleFavourite: l$ToggleFavourite == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite.fromJson(
+              (l$ToggleFavourite as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$ToggleFavorite$ToggleFavourite? ToggleFavourite;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$ToggleFavourite = ToggleFavourite;
+    _resultData['ToggleFavourite'] = l$ToggleFavourite?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$ToggleFavourite = ToggleFavourite;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$ToggleFavourite,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$ToggleFavourite = ToggleFavourite;
+    final lOther$ToggleFavourite = other.ToggleFavourite;
+    if (l$ToggleFavourite != lOther$ToggleFavourite) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite on Mutation$ToggleFavorite {
+  CopyWith$Mutation$ToggleFavorite<Mutation$ToggleFavorite> get copyWith =>
+      CopyWith$Mutation$ToggleFavorite(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite<TRes> {
+  factory CopyWith$Mutation$ToggleFavorite(
+    Mutation$ToggleFavorite instance,
+    TRes Function(Mutation$ToggleFavorite) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite;
+
+  factory CopyWith$Mutation$ToggleFavorite.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite;
+
+  TRes call({
+    Mutation$ToggleFavorite$ToggleFavourite? ToggleFavourite,
+    String? $__typename,
+  });
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite<TRes> get ToggleFavourite;
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite<TRes>
+    implements CopyWith$Mutation$ToggleFavorite<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite _instance;
+
+  final TRes Function(Mutation$ToggleFavorite) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? ToggleFavourite = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite(
+        ToggleFavourite: ToggleFavourite == _undefined
+            ? _instance.ToggleFavourite
+            : (ToggleFavourite as Mutation$ToggleFavorite$ToggleFavourite?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite<TRes> get ToggleFavourite {
+    final local$ToggleFavourite = _instance.ToggleFavourite;
+    return local$ToggleFavourite == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite.stub(
+            _then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite(
+            local$ToggleFavourite, (e) => call(ToggleFavourite: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite<TRes>
+    implements CopyWith$Mutation$ToggleFavorite<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$ToggleFavorite$ToggleFavourite? ToggleFavourite,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite<TRes> get ToggleFavourite =>
+      CopyWith$Mutation$ToggleFavorite$ToggleFavourite.stub(_res);
+}
+
+const documentNodeMutationToggleFavorite = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'ToggleFavorite'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'animeId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'ToggleFavourite'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'animeId'),
+            value: VariableNode(name: NameNode(value: 'animeId')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'anime'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'total'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Mutation$ToggleFavorite _parserFn$Mutation$ToggleFavorite(
+        Map<String, dynamic> data) =>
+    Mutation$ToggleFavorite.fromJson(data);
+typedef OnMutationCompleted$Mutation$ToggleFavorite = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Mutation$ToggleFavorite?,
+);
+
+class Options$Mutation$ToggleFavorite
+    extends graphql.MutationOptions<Mutation$ToggleFavorite> {
+  Options$Mutation$ToggleFavorite({
+    String? operationName,
+    Variables$Mutation$ToggleFavorite? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$ToggleFavorite? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$ToggleFavorite? onCompleted,
+    graphql.OnMutationUpdate<Mutation$ToggleFavorite>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$ToggleFavorite(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationToggleFavorite,
+          parserFn: _parserFn$Mutation$ToggleFavorite,
+        );
+
+  final OnMutationCompleted$Mutation$ToggleFavorite? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$ToggleFavorite
+    extends graphql.WatchQueryOptions<Mutation$ToggleFavorite> {
+  WatchOptions$Mutation$ToggleFavorite({
+    String? operationName,
+    Variables$Mutation$ToggleFavorite? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$ToggleFavorite? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationToggleFavorite,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$ToggleFavorite,
+        );
+}
+
+extension ClientExtension$Mutation$ToggleFavorite on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$ToggleFavorite>> mutate$ToggleFavorite(
+          [Options$Mutation$ToggleFavorite? options]) async =>
+      await this.mutate(options ?? Options$Mutation$ToggleFavorite());
+  graphql.ObservableQuery<Mutation$ToggleFavorite> watchMutation$ToggleFavorite(
+          [WatchOptions$Mutation$ToggleFavorite? options]) =>
+      this.watchMutation(options ?? WatchOptions$Mutation$ToggleFavorite());
+}
+
+class Mutation$ToggleFavorite$HookResult {
+  Mutation$ToggleFavorite$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$ToggleFavorite runMutation;
+
+  final graphql.QueryResult<Mutation$ToggleFavorite> result;
+}
+
+Mutation$ToggleFavorite$HookResult useMutation$ToggleFavorite(
+    [WidgetOptions$Mutation$ToggleFavorite? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$ToggleFavorite());
+  return Mutation$ToggleFavorite$HookResult(
+    ({variables, optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables?.toJson() ?? const {},
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$ToggleFavorite>
+    useWatchMutation$ToggleFavorite(
+            [WatchOptions$Mutation$ToggleFavorite? options]) =>
+        graphql_flutter.useWatchMutation(
+            options ?? WatchOptions$Mutation$ToggleFavorite());
+
+class WidgetOptions$Mutation$ToggleFavorite
+    extends graphql.MutationOptions<Mutation$ToggleFavorite> {
+  WidgetOptions$Mutation$ToggleFavorite({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$ToggleFavorite? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$ToggleFavorite? onCompleted,
+    graphql.OnMutationUpdate<Mutation$ToggleFavorite>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$ToggleFavorite(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationToggleFavorite,
+          parserFn: _parserFn$Mutation$ToggleFavorite,
+        );
+
+  final OnMutationCompleted$Mutation$ToggleFavorite? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$ToggleFavorite
+    = graphql.MultiSourceResult<Mutation$ToggleFavorite> Function({
+  Variables$Mutation$ToggleFavorite? variables,
+  Object? optimisticResult,
+  Mutation$ToggleFavorite? typedOptimisticResult,
+});
+typedef Builder$Mutation$ToggleFavorite = widgets.Widget Function(
+  RunMutation$Mutation$ToggleFavorite,
+  graphql.QueryResult<Mutation$ToggleFavorite>?,
+);
+
+class Mutation$ToggleFavorite$Widget
+    extends graphql_flutter.Mutation<Mutation$ToggleFavorite> {
+  Mutation$ToggleFavorite$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$ToggleFavorite? options,
+    required Builder$Mutation$ToggleFavorite builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$ToggleFavorite(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            ({
+              variables,
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables?.toJson() ?? const {},
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite {
+  Mutation$ToggleFavorite$ToggleFavourite({
+    this.anime,
+    this.$__typename = 'Favourites',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite.fromJson(
+      Map<String, dynamic> json) {
+    final l$anime = json['anime'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite(
+      anime: l$anime == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$anime.fromJson(
+              (l$anime as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$ToggleFavorite$ToggleFavourite$anime? anime;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$anime = anime;
+    _resultData['anime'] = l$anime?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$anime = anime;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$anime,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$anime = anime;
+    final lOther$anime = other.anime;
+    if (l$anime != lOther$anime) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite
+    on Mutation$ToggleFavorite$ToggleFavourite {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite<
+          Mutation$ToggleFavorite$ToggleFavourite>
+      get copyWith => CopyWith$Mutation$ToggleFavorite$ToggleFavourite(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite<TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite(
+    Mutation$ToggleFavorite$ToggleFavourite instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite;
+
+  TRes call({
+    Mutation$ToggleFavorite$ToggleFavourite$anime? anime,
+    String? $__typename,
+  });
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes> get anime;
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? anime = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite(
+        anime: anime == _undefined
+            ? _instance.anime
+            : (anime as Mutation$ToggleFavorite$ToggleFavourite$anime?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes> get anime {
+    final local$anime = _instance.anime;
+    return local$anime == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime.stub(
+            _then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime(
+            local$anime, (e) => call(anime: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$ToggleFavorite$ToggleFavourite$anime? anime,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes> get anime =>
+      CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime.stub(_res);
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$anime {
+  Mutation$ToggleFavorite$ToggleFavourite$anime({
+    this.pageInfo,
+    this.$__typename = 'MediaConnection',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$anime.fromJson(
+      Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$anime(
+      pageInfo: l$pageInfo == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo? pageInfo;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$pageInfo = pageInfo;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$pageInfo,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite$anime) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$anime
+    on Mutation$ToggleFavorite$ToggleFavourite$anime {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime<
+          Mutation$ToggleFavorite$ToggleFavourite$anime>
+      get copyWith => CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime(
+    Mutation$ToggleFavorite$ToggleFavourite$anime instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$anime) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$anime;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$anime;
+
+  TRes call({
+    Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo? pageInfo,
+    String? $__typename,
+  });
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<TRes>
+      get pageInfo;
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$anime(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$anime _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite$anime) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? pageInfo = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$anime(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo
+                as Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<TRes>
+      get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo.stub(
+            _then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$anime(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo? pageInfo,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<TRes>
+      get pageInfo =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo.stub(
+              _res);
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo {
+  Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo({
+    this.total,
+    this.$__typename = 'PageInfo',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo.fromJson(
+      Map<String, dynamic> json) {
+    final l$total = json['total'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo(
+      total: (l$total as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? total;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$total = total;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$total,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo
+    on Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<
+          Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo>
+      get copyWith =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<
+    TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo(
+    Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo;
+
+  TRes call({
+    int? total,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? total = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo(
+        total: total == _undefined ? _instance.total : (total as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? total,
     String? $__typename,
   }) =>
       _res;

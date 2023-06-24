@@ -1,13 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:myaniapp/constants.dart';
+import 'package:myaniapp/extensions.dart';
+import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/media/media.graphql.dart';
 import 'package:myaniapp/providers/media.dart';
+import 'package:myaniapp/providers/user/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/image.dart';
+import 'package:myaniapp/ui/common/media_editor/media_editor.dart';
 
 @RoutePage()
 class MediaPage extends ConsumerWidget {
@@ -21,6 +26,8 @@ class MediaPage extends ConsumerWidget {
     // return AutoTabsScaffold(routes: routes)
 
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingButtons(media: media.value),
       body: AutoTabsRouter.tabBar(
         routes: [
           MediaOverviewRoute(),
@@ -38,7 +45,11 @@ class MediaPage extends ConsumerWidget {
         builder: (context, child, tabController) => media.when(
           data: (media) => NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
-              MediaAppBar(media: media, controller: tabController),
+              MediaAppBar(
+                media: media,
+                controller: tabController,
+                forceElevated: innerBoxIsScrolled,
+              ),
             ],
             body: child,
           ),
@@ -58,15 +69,137 @@ class MediaPage extends ConsumerWidget {
   }
 }
 
+class FloatingButtons extends ConsumerStatefulWidget {
+  const FloatingButtons({
+    super.key,
+    required this.media,
+  });
+
+  final Query$Media$Media? media;
+
+  @override
+  ConsumerState<FloatingButtons> createState() => _FloatingButtonsState();
+}
+
+class _FloatingButtonsState extends ConsumerState<FloatingButtons>
+    with SingleTickerProviderStateMixin {
+  ScrollController? scrollController;
+  late final AnimationController _controller = AnimationController(
+    duration: kThemeAnimationDuration,
+    vsync: this,
+  );
+  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
+    begin: Offset.zero,
+    end: const Offset(0, 3),
+  ).animate(CurvedAnimation(
+    parent: _controller,
+    curve: Curves.easeOut,
+  ));
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    scrollController?.removeListener(listener);
+    scrollController = PrimaryScrollController.maybeOf(context);
+    scrollController?.addListener(listener);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  void listener() {
+    print(scrollController?.position.userScrollDirection);
+    var direction = scrollController!.position.userScrollDirection;
+    if (direction == ScrollDirection.reverse) {
+      _controller.forward();
+    } else if (direction == ScrollDirection.forward) {
+      _controller.reverse();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var user = ref.watch(userProvider);
+
+    if (widget.media == null || user.value == null) return const SizedBox();
+
+    return SlideTransition(
+      position: _offsetAnimation,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: FloatingActionButton(
+                heroTag: 'add-to-list',
+                onPressed: () => showMediaEditor(
+                  context,
+                  widget.media!,
+                  onDelete: () => ref
+                      .read(mediaProvider(widget.media!.id).notifier)
+                      .refresh(),
+                  onSave: () => ref
+                      .read(mediaProvider(widget.media!.id).notifier)
+                      .refresh(),
+                ),
+                child: Text(
+                  widget.media?.mediaListEntry?.status?.name.capitalize() ??
+                      'Add To List',
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            FloatingActionButton(
+              onPressed: widget.media!.isFavouriteBlocked == true
+                  ? null
+                  : () => client.value
+                      .mutate$ToggleFavorite(
+                        Options$Mutation$ToggleFavorite(
+                          variables: Variables$Mutation$ToggleFavorite(
+                            animeId: widget.media!.id,
+                          ),
+                        ),
+                      )
+                      .then(
+                        (value) => ref
+                            .read(mediaProvider(widget.media!.id).notifier)
+                            .refresh(),
+                      ),
+              heroTag: 'fav',
+              backgroundColor: widget.media!.isFavouriteBlocked == true
+                  ? Colors.grey[800]
+                  : Colors.red,
+              child: Icon(
+                Icons.favorite,
+                color:
+                    widget.media!.isFavourite == true ? Colors.red[200] : null,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class MediaAppBar extends StatelessWidget {
   const MediaAppBar({
     super.key,
     required this.media,
     required this.controller,
+    required this.forceElevated,
   });
 
   final Query$Media$Media media;
   final TabController controller;
+  final bool forceElevated;
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +207,7 @@ class MediaAppBar extends StatelessWidget {
 
     return SliverAppBar(
       expandedHeight: 255,
+      forceElevated: forceElevated,
       bottom: TabBar(
         isScrollable: true,
         tabs: [

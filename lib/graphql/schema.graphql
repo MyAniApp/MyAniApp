@@ -216,6 +216,8 @@ type Mutation {
   DeleteActivityReply(id: Int): Deleted
   DeleteActivity(id: Int): Deleted
   SaveTextActivity(id: Int, text: String, locked: Boolean): TextActivity
+  SaveThreadComment(id: Int, threadId: Int, parentCommentId: Int, comment: String, locked: Boolean): ThreadComment
+  DeleteThreadComment(id: Int): Deleted
 }
 
 scalar ISODateTime

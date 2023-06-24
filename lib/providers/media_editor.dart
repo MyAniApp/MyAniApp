@@ -37,11 +37,10 @@ class MediaEditorNotifier extends AutoDisposeFamilyStreamNotifier<
 
     query.fetchResults();
 
+    ref.onDispose(query.close);
+
     await for (final data in query.stream) {
-      if (data.hasException) {
-        state = AsyncValue.error(data.exception!, StackTrace.current);
-        return;
-      } else if (data.isLoading && data.parsedData == null) {
+      if (data.isLoading) {
         state = const AsyncValue.loading();
         return;
       }
@@ -56,7 +55,6 @@ class MediaEditorNotifier extends AutoDisposeFamilyStreamNotifier<
 
   Future<QueryResult<Mutation$SaveMediaListEntry>> save(
       Variables$Mutation$SaveMediaListEntry options) {
-    // print(ref.exists(mediaEditorProvider(arg)));
     var opts = options;
 
     if (state.value?.id == -1) {
@@ -68,11 +66,6 @@ class MediaEditorNotifier extends AutoDisposeFamilyStreamNotifier<
     return client.value.mutate$SaveMediaListEntry(
       Options$Mutation$SaveMediaListEntry(
         variables: opts,
-        onCompleted: (p0, p1) {
-          print(p1);
-          // onSave?.call();
-          // state = p1!.SaveMediaListEntry!;
-        },
         onError: (error) => print(error),
       ),
     );

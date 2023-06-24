@@ -13,11 +13,11 @@ import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/comment.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/image.dart';
-import 'package:myaniapp/ui/common/login.dart';
 import 'package:myaniapp/ui/common/markdown/markdown.dart';
 import 'package:myaniapp/ui/common/markdown_editor.dart';
 import 'package:myaniapp/ui/common/pagination.dart';
 import 'package:myaniapp/ui/routes/home/app_bar.dart';
+import 'package:myaniapp/utils/require_login.dart';
 
 @RoutePage()
 class HomeActivitiesPage extends ConsumerStatefulWidget {
@@ -73,28 +73,27 @@ class _HomeActivitiesPageState extends ConsumerState<HomeActivitiesPage> {
             ],
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              if (user.value != null) {
-                showMarkdownEditor(
-                  context,
-                  onSave: (text) {
-                    if (text.isNotEmpty) {
-                      client.value.mutate$SaveTextActivity(
-                        Options$Mutation$SaveTextActivity(
-                          variables:
-                              Variables$Mutation$SaveTextActivity(text: text),
-                          onCompleted: (p0, p1) {
-                            setState(() => isFollowing = true);
-                          },
-                        ),
-                      );
-                    }
-                  },
-                );
-              } else {
-                showLoginDialog(context, 'post an activity');
-              }
-            },
+            onPressed: requireLogin(
+              ref,
+              'post an activity',
+              () => showMarkdownEditor(
+                context,
+                onSave: (text) {
+                  if (text.isNotEmpty) {
+                    client.value.mutate$SaveTextActivity(
+                      Options$Mutation$SaveTextActivity(
+                        variables:
+                            Variables$Mutation$SaveTextActivity(text: text),
+                        onCompleted: (p0, p1) {
+                          setState(() => isFollowing = true);
+                          refetch!();
+                        },
+                      ),
+                    );
+                  }
+                },
+              ),
+            ),
             child: const Icon(Icons.edit),
           ),
           body: RefreshIndicator.adaptive(
@@ -114,7 +113,6 @@ class _HomeActivitiesPageState extends ConsumerState<HomeActivitiesPage> {
 
                   fetchMoreResultData!['Page']['activities']
                       .removeWhere((a) => has.contains(a['id']));
-                  print(fetchMoreResultData['Page']['activities'].length);
 
                   var list = [
                     ...previousResultData['Page']['activities'],

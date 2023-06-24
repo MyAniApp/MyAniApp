@@ -3258,3 +3258,2072 @@ class _CopyWithStubImpl$Query$Thread$comments$threadComments$user$avatar<TRes>
   }) =>
       _res;
 }
+
+class Variables$Mutation$SaveComment {
+  factory Variables$Mutation$SaveComment({
+    int? id,
+    int? threadId,
+    int? parentCommentId,
+    String? comment,
+  }) =>
+      Variables$Mutation$SaveComment._({
+        if (id != null) r'id': id,
+        if (threadId != null) r'threadId': threadId,
+        if (parentCommentId != null) r'parentCommentId': parentCommentId,
+        if (comment != null) r'comment': comment,
+      });
+
+  Variables$Mutation$SaveComment._(this._$data);
+
+  factory Variables$Mutation$SaveComment.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = (l$id as int?);
+    }
+    if (data.containsKey('threadId')) {
+      final l$threadId = data['threadId'];
+      result$data['threadId'] = (l$threadId as int?);
+    }
+    if (data.containsKey('parentCommentId')) {
+      final l$parentCommentId = data['parentCommentId'];
+      result$data['parentCommentId'] = (l$parentCommentId as int?);
+    }
+    if (data.containsKey('comment')) {
+      final l$comment = data['comment'];
+      result$data['comment'] = (l$comment as String?);
+    }
+    return Variables$Mutation$SaveComment._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get id => (_$data['id'] as int?);
+  int? get threadId => (_$data['threadId'] as int?);
+  int? get parentCommentId => (_$data['parentCommentId'] as int?);
+  String? get comment => (_$data['comment'] as String?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id;
+    }
+    if (_$data.containsKey('threadId')) {
+      final l$threadId = threadId;
+      result$data['threadId'] = l$threadId;
+    }
+    if (_$data.containsKey('parentCommentId')) {
+      final l$parentCommentId = parentCommentId;
+      result$data['parentCommentId'] = l$parentCommentId;
+    }
+    if (_$data.containsKey('comment')) {
+      final l$comment = comment;
+      result$data['comment'] = l$comment;
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$SaveComment<Variables$Mutation$SaveComment>
+      get copyWith => CopyWith$Variables$Mutation$SaveComment(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$SaveComment) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$threadId = threadId;
+    final lOther$threadId = other.threadId;
+    if (_$data.containsKey('threadId') !=
+        other._$data.containsKey('threadId')) {
+      return false;
+    }
+    if (l$threadId != lOther$threadId) {
+      return false;
+    }
+    final l$parentCommentId = parentCommentId;
+    final lOther$parentCommentId = other.parentCommentId;
+    if (_$data.containsKey('parentCommentId') !=
+        other._$data.containsKey('parentCommentId')) {
+      return false;
+    }
+    if (l$parentCommentId != lOther$parentCommentId) {
+      return false;
+    }
+    final l$comment = comment;
+    final lOther$comment = other.comment;
+    if (_$data.containsKey('comment') != other._$data.containsKey('comment')) {
+      return false;
+    }
+    if (l$comment != lOther$comment) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$threadId = threadId;
+    final l$parentCommentId = parentCommentId;
+    final l$comment = comment;
+    return Object.hashAll([
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('threadId') ? l$threadId : const {},
+      _$data.containsKey('parentCommentId') ? l$parentCommentId : const {},
+      _$data.containsKey('comment') ? l$comment : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$SaveComment<TRes> {
+  factory CopyWith$Variables$Mutation$SaveComment(
+    Variables$Mutation$SaveComment instance,
+    TRes Function(Variables$Mutation$SaveComment) then,
+  ) = _CopyWithImpl$Variables$Mutation$SaveComment;
+
+  factory CopyWith$Variables$Mutation$SaveComment.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$SaveComment;
+
+  TRes call({
+    int? id,
+    int? threadId,
+    int? parentCommentId,
+    String? comment,
+  });
+}
+
+class _CopyWithImpl$Variables$Mutation$SaveComment<TRes>
+    implements CopyWith$Variables$Mutation$SaveComment<TRes> {
+  _CopyWithImpl$Variables$Mutation$SaveComment(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$SaveComment _instance;
+
+  final TRes Function(Variables$Mutation$SaveComment) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? threadId = _undefined,
+    Object? parentCommentId = _undefined,
+    Object? comment = _undefined,
+  }) =>
+      _then(Variables$Mutation$SaveComment._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as int?),
+        if (threadId != _undefined) 'threadId': (threadId as int?),
+        if (parentCommentId != _undefined)
+          'parentCommentId': (parentCommentId as int?),
+        if (comment != _undefined) 'comment': (comment as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$SaveComment<TRes>
+    implements CopyWith$Variables$Mutation$SaveComment<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$SaveComment(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    int? threadId,
+    int? parentCommentId,
+    String? comment,
+  }) =>
+      _res;
+}
+
+class Mutation$SaveComment {
+  Mutation$SaveComment({
+    this.SaveThreadComment,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$SaveComment.fromJson(Map<String, dynamic> json) {
+    final l$SaveThreadComment = json['SaveThreadComment'];
+    final l$$__typename = json['__typename'];
+    return Mutation$SaveComment(
+      SaveThreadComment: l$SaveThreadComment == null
+          ? null
+          : Mutation$SaveComment$SaveThreadComment.fromJson(
+              (l$SaveThreadComment as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$SaveComment$SaveThreadComment? SaveThreadComment;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$SaveThreadComment = SaveThreadComment;
+    _resultData['SaveThreadComment'] = l$SaveThreadComment?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$SaveThreadComment = SaveThreadComment;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$SaveThreadComment,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$SaveComment) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$SaveThreadComment = SaveThreadComment;
+    final lOther$SaveThreadComment = other.SaveThreadComment;
+    if (l$SaveThreadComment != lOther$SaveThreadComment) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$SaveComment on Mutation$SaveComment {
+  CopyWith$Mutation$SaveComment<Mutation$SaveComment> get copyWith =>
+      CopyWith$Mutation$SaveComment(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Mutation$SaveComment<TRes> {
+  factory CopyWith$Mutation$SaveComment(
+    Mutation$SaveComment instance,
+    TRes Function(Mutation$SaveComment) then,
+  ) = _CopyWithImpl$Mutation$SaveComment;
+
+  factory CopyWith$Mutation$SaveComment.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$SaveComment;
+
+  TRes call({
+    Mutation$SaveComment$SaveThreadComment? SaveThreadComment,
+    String? $__typename,
+  });
+  CopyWith$Mutation$SaveComment$SaveThreadComment<TRes> get SaveThreadComment;
+}
+
+class _CopyWithImpl$Mutation$SaveComment<TRes>
+    implements CopyWith$Mutation$SaveComment<TRes> {
+  _CopyWithImpl$Mutation$SaveComment(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$SaveComment _instance;
+
+  final TRes Function(Mutation$SaveComment) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? SaveThreadComment = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$SaveComment(
+        SaveThreadComment: SaveThreadComment == _undefined
+            ? _instance.SaveThreadComment
+            : (SaveThreadComment as Mutation$SaveComment$SaveThreadComment?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$SaveComment$SaveThreadComment<TRes> get SaveThreadComment {
+    final local$SaveThreadComment = _instance.SaveThreadComment;
+    return local$SaveThreadComment == null
+        ? CopyWith$Mutation$SaveComment$SaveThreadComment.stub(_then(_instance))
+        : CopyWith$Mutation$SaveComment$SaveThreadComment(
+            local$SaveThreadComment, (e) => call(SaveThreadComment: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$SaveComment<TRes>
+    implements CopyWith$Mutation$SaveComment<TRes> {
+  _CopyWithStubImpl$Mutation$SaveComment(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$SaveComment$SaveThreadComment? SaveThreadComment,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$SaveComment$SaveThreadComment<TRes> get SaveThreadComment =>
+      CopyWith$Mutation$SaveComment$SaveThreadComment.stub(_res);
+}
+
+const documentNodeMutationSaveComment = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'SaveComment'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'threadId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'parentCommentId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'comment')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'SaveThreadComment'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'id'),
+            value: VariableNode(name: NameNode(value: 'id')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'threadId'),
+            value: VariableNode(name: NameNode(value: 'threadId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'parentCommentId'),
+            value: VariableNode(name: NameNode(value: 'parentCommentId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'comment'),
+            value: VariableNode(name: NameNode(value: 'comment')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'threadId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'comment'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isLiked'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'likeCount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'createdAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'donatorTier'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'donatorBadge'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'moderatorRoles'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'avatar'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'large'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'childComments'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isLocked'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Mutation$SaveComment _parserFn$Mutation$SaveComment(
+        Map<String, dynamic> data) =>
+    Mutation$SaveComment.fromJson(data);
+typedef OnMutationCompleted$Mutation$SaveComment = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Mutation$SaveComment?,
+);
+
+class Options$Mutation$SaveComment
+    extends graphql.MutationOptions<Mutation$SaveComment> {
+  Options$Mutation$SaveComment({
+    String? operationName,
+    Variables$Mutation$SaveComment? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$SaveComment? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$SaveComment? onCompleted,
+    graphql.OnMutationUpdate<Mutation$SaveComment>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null ? null : _parserFn$Mutation$SaveComment(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationSaveComment,
+          parserFn: _parserFn$Mutation$SaveComment,
+        );
+
+  final OnMutationCompleted$Mutation$SaveComment? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$SaveComment
+    extends graphql.WatchQueryOptions<Mutation$SaveComment> {
+  WatchOptions$Mutation$SaveComment({
+    String? operationName,
+    Variables$Mutation$SaveComment? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$SaveComment? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationSaveComment,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$SaveComment,
+        );
+}
+
+extension ClientExtension$Mutation$SaveComment on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$SaveComment>> mutate$SaveComment(
+          [Options$Mutation$SaveComment? options]) async =>
+      await this.mutate(options ?? Options$Mutation$SaveComment());
+  graphql.ObservableQuery<Mutation$SaveComment> watchMutation$SaveComment(
+          [WatchOptions$Mutation$SaveComment? options]) =>
+      this.watchMutation(options ?? WatchOptions$Mutation$SaveComment());
+}
+
+class Mutation$SaveComment$HookResult {
+  Mutation$SaveComment$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$SaveComment runMutation;
+
+  final graphql.QueryResult<Mutation$SaveComment> result;
+}
+
+Mutation$SaveComment$HookResult useMutation$SaveComment(
+    [WidgetOptions$Mutation$SaveComment? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$SaveComment());
+  return Mutation$SaveComment$HookResult(
+    ({variables, optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables?.toJson() ?? const {},
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$SaveComment> useWatchMutation$SaveComment(
+        [WatchOptions$Mutation$SaveComment? options]) =>
+    graphql_flutter
+        .useWatchMutation(options ?? WatchOptions$Mutation$SaveComment());
+
+class WidgetOptions$Mutation$SaveComment
+    extends graphql.MutationOptions<Mutation$SaveComment> {
+  WidgetOptions$Mutation$SaveComment({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$SaveComment? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$SaveComment? onCompleted,
+    graphql.OnMutationUpdate<Mutation$SaveComment>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null ? null : _parserFn$Mutation$SaveComment(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationSaveComment,
+          parserFn: _parserFn$Mutation$SaveComment,
+        );
+
+  final OnMutationCompleted$Mutation$SaveComment? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$SaveComment
+    = graphql.MultiSourceResult<Mutation$SaveComment> Function({
+  Variables$Mutation$SaveComment? variables,
+  Object? optimisticResult,
+  Mutation$SaveComment? typedOptimisticResult,
+});
+typedef Builder$Mutation$SaveComment = widgets.Widget Function(
+  RunMutation$Mutation$SaveComment,
+  graphql.QueryResult<Mutation$SaveComment>?,
+);
+
+class Mutation$SaveComment$Widget
+    extends graphql_flutter.Mutation<Mutation$SaveComment> {
+  Mutation$SaveComment$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$SaveComment? options,
+    required Builder$Mutation$SaveComment builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$SaveComment(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            ({
+              variables,
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables?.toJson() ?? const {},
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
+}
+
+class Mutation$SaveComment$SaveThreadComment {
+  Mutation$SaveComment$SaveThreadComment({
+    required this.id,
+    this.threadId,
+    this.comment,
+    this.isLiked,
+    required this.likeCount,
+    required this.createdAt,
+    this.user,
+    this.childComments,
+    this.isLocked,
+    this.$__typename = 'ThreadComment',
+  });
+
+  factory Mutation$SaveComment$SaveThreadComment.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$threadId = json['threadId'];
+    final l$comment = json['comment'];
+    final l$isLiked = json['isLiked'];
+    final l$likeCount = json['likeCount'];
+    final l$createdAt = json['createdAt'];
+    final l$user = json['user'];
+    final l$childComments = json['childComments'];
+    final l$isLocked = json['isLocked'];
+    final l$$__typename = json['__typename'];
+    return Mutation$SaveComment$SaveThreadComment(
+      id: (l$id as int),
+      threadId: (l$threadId as int?),
+      comment: (l$comment as String?),
+      isLiked: (l$isLiked as bool?),
+      likeCount: (l$likeCount as int),
+      createdAt: (l$createdAt as int),
+      user: l$user == null
+          ? null
+          : Mutation$SaveComment$SaveThreadComment$user.fromJson(
+              (l$user as Map<String, dynamic>)),
+      childComments: (l$childComments as dynamic?),
+      isLocked: (l$isLocked as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final int? threadId;
+
+  final String? comment;
+
+  final bool? isLiked;
+
+  final int likeCount;
+
+  final int createdAt;
+
+  final Mutation$SaveComment$SaveThreadComment$user? user;
+
+  final dynamic? childComments;
+
+  final bool? isLocked;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$threadId = threadId;
+    _resultData['threadId'] = l$threadId;
+    final l$comment = comment;
+    _resultData['comment'] = l$comment;
+    final l$isLiked = isLiked;
+    _resultData['isLiked'] = l$isLiked;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
+    final l$childComments = childComments;
+    _resultData['childComments'] = l$childComments;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$threadId = threadId;
+    final l$comment = comment;
+    final l$isLiked = isLiked;
+    final l$likeCount = likeCount;
+    final l$createdAt = createdAt;
+    final l$user = user;
+    final l$childComments = childComments;
+    final l$isLocked = isLocked;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$threadId,
+      l$comment,
+      l$isLiked,
+      l$likeCount,
+      l$createdAt,
+      l$user,
+      l$childComments,
+      l$isLocked,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$SaveComment$SaveThreadComment) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$threadId = threadId;
+    final lOther$threadId = other.threadId;
+    if (l$threadId != lOther$threadId) {
+      return false;
+    }
+    final l$comment = comment;
+    final lOther$comment = other.comment;
+    if (l$comment != lOther$comment) {
+      return false;
+    }
+    final l$isLiked = isLiked;
+    final lOther$isLiked = other.isLiked;
+    if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
+      return false;
+    }
+    final l$childComments = childComments;
+    final lOther$childComments = other.childComments;
+    if (l$childComments != lOther$childComments) {
+      return false;
+    }
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$SaveComment$SaveThreadComment
+    on Mutation$SaveComment$SaveThreadComment {
+  CopyWith$Mutation$SaveComment$SaveThreadComment<
+          Mutation$SaveComment$SaveThreadComment>
+      get copyWith => CopyWith$Mutation$SaveComment$SaveThreadComment(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$SaveComment$SaveThreadComment<TRes> {
+  factory CopyWith$Mutation$SaveComment$SaveThreadComment(
+    Mutation$SaveComment$SaveThreadComment instance,
+    TRes Function(Mutation$SaveComment$SaveThreadComment) then,
+  ) = _CopyWithImpl$Mutation$SaveComment$SaveThreadComment;
+
+  factory CopyWith$Mutation$SaveComment$SaveThreadComment.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$SaveComment$SaveThreadComment;
+
+  TRes call({
+    int? id,
+    int? threadId,
+    String? comment,
+    bool? isLiked,
+    int? likeCount,
+    int? createdAt,
+    Mutation$SaveComment$SaveThreadComment$user? user,
+    dynamic? childComments,
+    bool? isLocked,
+    String? $__typename,
+  });
+  CopyWith$Mutation$SaveComment$SaveThreadComment$user<TRes> get user;
+}
+
+class _CopyWithImpl$Mutation$SaveComment$SaveThreadComment<TRes>
+    implements CopyWith$Mutation$SaveComment$SaveThreadComment<TRes> {
+  _CopyWithImpl$Mutation$SaveComment$SaveThreadComment(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$SaveComment$SaveThreadComment _instance;
+
+  final TRes Function(Mutation$SaveComment$SaveThreadComment) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? threadId = _undefined,
+    Object? comment = _undefined,
+    Object? isLiked = _undefined,
+    Object? likeCount = _undefined,
+    Object? createdAt = _undefined,
+    Object? user = _undefined,
+    Object? childComments = _undefined,
+    Object? isLocked = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$SaveComment$SaveThreadComment(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        threadId:
+            threadId == _undefined ? _instance.threadId : (threadId as int?),
+        comment:
+            comment == _undefined ? _instance.comment : (comment as String?),
+        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        user: user == _undefined
+            ? _instance.user
+            : (user as Mutation$SaveComment$SaveThreadComment$user?),
+        childComments: childComments == _undefined
+            ? _instance.childComments
+            : (childComments as dynamic?),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$SaveComment$SaveThreadComment$user<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWith$Mutation$SaveComment$SaveThreadComment$user.stub(
+            _then(_instance))
+        : CopyWith$Mutation$SaveComment$SaveThreadComment$user(
+            local$user, (e) => call(user: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$SaveComment$SaveThreadComment<TRes>
+    implements CopyWith$Mutation$SaveComment$SaveThreadComment<TRes> {
+  _CopyWithStubImpl$Mutation$SaveComment$SaveThreadComment(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    int? threadId,
+    String? comment,
+    bool? isLiked,
+    int? likeCount,
+    int? createdAt,
+    Mutation$SaveComment$SaveThreadComment$user? user,
+    dynamic? childComments,
+    bool? isLocked,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$SaveComment$SaveThreadComment$user<TRes> get user =>
+      CopyWith$Mutation$SaveComment$SaveThreadComment$user.stub(_res);
+}
+
+class Mutation$SaveComment$SaveThreadComment$user {
+  Mutation$SaveComment$SaveThreadComment$user({
+    required this.id,
+    required this.name,
+    this.donatorTier,
+    this.donatorBadge,
+    this.moderatorRoles,
+    this.avatar,
+    this.$__typename = 'User',
+  });
+
+  factory Mutation$SaveComment$SaveThreadComment$user.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$donatorTier = json['donatorTier'];
+    final l$donatorBadge = json['donatorBadge'];
+    final l$moderatorRoles = json['moderatorRoles'];
+    final l$avatar = json['avatar'];
+    final l$$__typename = json['__typename'];
+    return Mutation$SaveComment$SaveThreadComment$user(
+      id: (l$id as int),
+      name: (l$name as String),
+      donatorTier: (l$donatorTier as int?),
+      donatorBadge: (l$donatorBadge as String?),
+      moderatorRoles: (l$moderatorRoles as List<dynamic>?)
+          ?.map((e) => e == null ? null : fromJson$Enum$ModRole((e as String)))
+          .toList(),
+      avatar: l$avatar == null
+          ? null
+          : Mutation$SaveComment$SaveThreadComment$user$avatar.fromJson(
+              (l$avatar as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final int? donatorTier;
+
+  final String? donatorBadge;
+
+  final List<Enum$ModRole?>? moderatorRoles;
+
+  final Mutation$SaveComment$SaveThreadComment$user$avatar? avatar;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$donatorTier = donatorTier;
+    _resultData['donatorTier'] = l$donatorTier;
+    final l$donatorBadge = donatorBadge;
+    _resultData['donatorBadge'] = l$donatorBadge;
+    final l$moderatorRoles = moderatorRoles;
+    _resultData['moderatorRoles'] = l$moderatorRoles
+        ?.map((e) => e == null ? null : toJson$Enum$ModRole(e))
+        .toList();
+    final l$avatar = avatar;
+    _resultData['avatar'] = l$avatar?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$donatorTier = donatorTier;
+    final l$donatorBadge = donatorBadge;
+    final l$moderatorRoles = moderatorRoles;
+    final l$avatar = avatar;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$donatorTier,
+      l$donatorBadge,
+      l$moderatorRoles == null
+          ? null
+          : Object.hashAll(l$moderatorRoles.map((v) => v)),
+      l$avatar,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$SaveComment$SaveThreadComment$user) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$donatorTier = donatorTier;
+    final lOther$donatorTier = other.donatorTier;
+    if (l$donatorTier != lOther$donatorTier) {
+      return false;
+    }
+    final l$donatorBadge = donatorBadge;
+    final lOther$donatorBadge = other.donatorBadge;
+    if (l$donatorBadge != lOther$donatorBadge) {
+      return false;
+    }
+    final l$moderatorRoles = moderatorRoles;
+    final lOther$moderatorRoles = other.moderatorRoles;
+    if (l$moderatorRoles != null && lOther$moderatorRoles != null) {
+      if (l$moderatorRoles.length != lOther$moderatorRoles.length) {
+        return false;
+      }
+      for (int i = 0; i < l$moderatorRoles.length; i++) {
+        final l$moderatorRoles$entry = l$moderatorRoles[i];
+        final lOther$moderatorRoles$entry = lOther$moderatorRoles[i];
+        if (l$moderatorRoles$entry != lOther$moderatorRoles$entry) {
+          return false;
+        }
+      }
+    } else if (l$moderatorRoles != lOther$moderatorRoles) {
+      return false;
+    }
+    final l$avatar = avatar;
+    final lOther$avatar = other.avatar;
+    if (l$avatar != lOther$avatar) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$SaveComment$SaveThreadComment$user
+    on Mutation$SaveComment$SaveThreadComment$user {
+  CopyWith$Mutation$SaveComment$SaveThreadComment$user<
+          Mutation$SaveComment$SaveThreadComment$user>
+      get copyWith => CopyWith$Mutation$SaveComment$SaveThreadComment$user(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$SaveComment$SaveThreadComment$user<TRes> {
+  factory CopyWith$Mutation$SaveComment$SaveThreadComment$user(
+    Mutation$SaveComment$SaveThreadComment$user instance,
+    TRes Function(Mutation$SaveComment$SaveThreadComment$user) then,
+  ) = _CopyWithImpl$Mutation$SaveComment$SaveThreadComment$user;
+
+  factory CopyWith$Mutation$SaveComment$SaveThreadComment$user.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$SaveComment$SaveThreadComment$user;
+
+  TRes call({
+    int? id,
+    String? name,
+    int? donatorTier,
+    String? donatorBadge,
+    List<Enum$ModRole?>? moderatorRoles,
+    Mutation$SaveComment$SaveThreadComment$user$avatar? avatar,
+    String? $__typename,
+  });
+  CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar<TRes> get avatar;
+}
+
+class _CopyWithImpl$Mutation$SaveComment$SaveThreadComment$user<TRes>
+    implements CopyWith$Mutation$SaveComment$SaveThreadComment$user<TRes> {
+  _CopyWithImpl$Mutation$SaveComment$SaveThreadComment$user(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$SaveComment$SaveThreadComment$user _instance;
+
+  final TRes Function(Mutation$SaveComment$SaveThreadComment$user) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? donatorTier = _undefined,
+    Object? donatorBadge = _undefined,
+    Object? moderatorRoles = _undefined,
+    Object? avatar = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$SaveComment$SaveThreadComment$user(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        donatorTier: donatorTier == _undefined
+            ? _instance.donatorTier
+            : (donatorTier as int?),
+        donatorBadge: donatorBadge == _undefined
+            ? _instance.donatorBadge
+            : (donatorBadge as String?),
+        moderatorRoles: moderatorRoles == _undefined
+            ? _instance.moderatorRoles
+            : (moderatorRoles as List<Enum$ModRole?>?),
+        avatar: avatar == _undefined
+            ? _instance.avatar
+            : (avatar as Mutation$SaveComment$SaveThreadComment$user$avatar?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar<TRes> get avatar {
+    final local$avatar = _instance.avatar;
+    return local$avatar == null
+        ? CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar.stub(
+            _then(_instance))
+        : CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar(
+            local$avatar, (e) => call(avatar: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$SaveComment$SaveThreadComment$user<TRes>
+    implements CopyWith$Mutation$SaveComment$SaveThreadComment$user<TRes> {
+  _CopyWithStubImpl$Mutation$SaveComment$SaveThreadComment$user(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    int? donatorTier,
+    String? donatorBadge,
+    List<Enum$ModRole?>? moderatorRoles,
+    Mutation$SaveComment$SaveThreadComment$user$avatar? avatar,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar<TRes>
+      get avatar =>
+          CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar.stub(
+              _res);
+}
+
+class Mutation$SaveComment$SaveThreadComment$user$avatar {
+  Mutation$SaveComment$SaveThreadComment$user$avatar({
+    this.large,
+    this.$__typename = 'UserAvatar',
+  });
+
+  factory Mutation$SaveComment$SaveThreadComment$user$avatar.fromJson(
+      Map<String, dynamic> json) {
+    final l$large = json['large'];
+    final l$$__typename = json['__typename'];
+    return Mutation$SaveComment$SaveThreadComment$user$avatar(
+      large: (l$large as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? large;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$large = large;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$large,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$SaveComment$SaveThreadComment$user$avatar) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$SaveComment$SaveThreadComment$user$avatar
+    on Mutation$SaveComment$SaveThreadComment$user$avatar {
+  CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar<
+          Mutation$SaveComment$SaveThreadComment$user$avatar>
+      get copyWith =>
+          CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar<
+    TRes> {
+  factory CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar(
+    Mutation$SaveComment$SaveThreadComment$user$avatar instance,
+    TRes Function(Mutation$SaveComment$SaveThreadComment$user$avatar) then,
+  ) = _CopyWithImpl$Mutation$SaveComment$SaveThreadComment$user$avatar;
+
+  factory CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$SaveComment$SaveThreadComment$user$avatar;
+
+  TRes call({
+    String? large,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$SaveComment$SaveThreadComment$user$avatar<TRes>
+    implements
+        CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar<TRes> {
+  _CopyWithImpl$Mutation$SaveComment$SaveThreadComment$user$avatar(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$SaveComment$SaveThreadComment$user$avatar _instance;
+
+  final TRes Function(Mutation$SaveComment$SaveThreadComment$user$avatar) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? large = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$SaveComment$SaveThreadComment$user$avatar(
+        large: large == _undefined ? _instance.large : (large as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$SaveComment$SaveThreadComment$user$avatar<TRes>
+    implements
+        CopyWith$Mutation$SaveComment$SaveThreadComment$user$avatar<TRes> {
+  _CopyWithStubImpl$Mutation$SaveComment$SaveThreadComment$user$avatar(
+      this._res);
+
+  TRes _res;
+
+  call({
+    String? large,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Variables$Mutation$DeleteComment {
+  factory Variables$Mutation$DeleteComment({int? id}) =>
+      Variables$Mutation$DeleteComment._({
+        if (id != null) r'id': id,
+      });
+
+  Variables$Mutation$DeleteComment._(this._$data);
+
+  factory Variables$Mutation$DeleteComment.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = (l$id as int?);
+    }
+    return Variables$Mutation$DeleteComment._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get id => (_$data['id'] as int?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id;
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$DeleteComment<Variables$Mutation$DeleteComment>
+      get copyWith => CopyWith$Variables$Mutation$DeleteComment(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$DeleteComment) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    return Object.hashAll([_$data.containsKey('id') ? l$id : const {}]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$DeleteComment<TRes> {
+  factory CopyWith$Variables$Mutation$DeleteComment(
+    Variables$Mutation$DeleteComment instance,
+    TRes Function(Variables$Mutation$DeleteComment) then,
+  ) = _CopyWithImpl$Variables$Mutation$DeleteComment;
+
+  factory CopyWith$Variables$Mutation$DeleteComment.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$DeleteComment;
+
+  TRes call({int? id});
+}
+
+class _CopyWithImpl$Variables$Mutation$DeleteComment<TRes>
+    implements CopyWith$Variables$Mutation$DeleteComment<TRes> {
+  _CopyWithImpl$Variables$Mutation$DeleteComment(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$DeleteComment _instance;
+
+  final TRes Function(Variables$Mutation$DeleteComment) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? id = _undefined}) =>
+      _then(Variables$Mutation$DeleteComment._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as int?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$DeleteComment<TRes>
+    implements CopyWith$Variables$Mutation$DeleteComment<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$DeleteComment(this._res);
+
+  TRes _res;
+
+  call({int? id}) => _res;
+}
+
+class Mutation$DeleteComment {
+  Mutation$DeleteComment({
+    this.DeleteThreadComment,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$DeleteComment.fromJson(Map<String, dynamic> json) {
+    final l$DeleteThreadComment = json['DeleteThreadComment'];
+    final l$$__typename = json['__typename'];
+    return Mutation$DeleteComment(
+      DeleteThreadComment: l$DeleteThreadComment == null
+          ? null
+          : Mutation$DeleteComment$DeleteThreadComment.fromJson(
+              (l$DeleteThreadComment as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$DeleteComment$DeleteThreadComment? DeleteThreadComment;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$DeleteThreadComment = DeleteThreadComment;
+    _resultData['DeleteThreadComment'] = l$DeleteThreadComment?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$DeleteThreadComment = DeleteThreadComment;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$DeleteThreadComment,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$DeleteComment) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$DeleteThreadComment = DeleteThreadComment;
+    final lOther$DeleteThreadComment = other.DeleteThreadComment;
+    if (l$DeleteThreadComment != lOther$DeleteThreadComment) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$DeleteComment on Mutation$DeleteComment {
+  CopyWith$Mutation$DeleteComment<Mutation$DeleteComment> get copyWith =>
+      CopyWith$Mutation$DeleteComment(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Mutation$DeleteComment<TRes> {
+  factory CopyWith$Mutation$DeleteComment(
+    Mutation$DeleteComment instance,
+    TRes Function(Mutation$DeleteComment) then,
+  ) = _CopyWithImpl$Mutation$DeleteComment;
+
+  factory CopyWith$Mutation$DeleteComment.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$DeleteComment;
+
+  TRes call({
+    Mutation$DeleteComment$DeleteThreadComment? DeleteThreadComment,
+    String? $__typename,
+  });
+  CopyWith$Mutation$DeleteComment$DeleteThreadComment<TRes>
+      get DeleteThreadComment;
+}
+
+class _CopyWithImpl$Mutation$DeleteComment<TRes>
+    implements CopyWith$Mutation$DeleteComment<TRes> {
+  _CopyWithImpl$Mutation$DeleteComment(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$DeleteComment _instance;
+
+  final TRes Function(Mutation$DeleteComment) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? DeleteThreadComment = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$DeleteComment(
+        DeleteThreadComment: DeleteThreadComment == _undefined
+            ? _instance.DeleteThreadComment
+            : (DeleteThreadComment
+                as Mutation$DeleteComment$DeleteThreadComment?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$DeleteComment$DeleteThreadComment<TRes>
+      get DeleteThreadComment {
+    final local$DeleteThreadComment = _instance.DeleteThreadComment;
+    return local$DeleteThreadComment == null
+        ? CopyWith$Mutation$DeleteComment$DeleteThreadComment.stub(
+            _then(_instance))
+        : CopyWith$Mutation$DeleteComment$DeleteThreadComment(
+            local$DeleteThreadComment, (e) => call(DeleteThreadComment: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$DeleteComment<TRes>
+    implements CopyWith$Mutation$DeleteComment<TRes> {
+  _CopyWithStubImpl$Mutation$DeleteComment(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$DeleteComment$DeleteThreadComment? DeleteThreadComment,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$DeleteComment$DeleteThreadComment<TRes>
+      get DeleteThreadComment =>
+          CopyWith$Mutation$DeleteComment$DeleteThreadComment.stub(_res);
+}
+
+const documentNodeMutationDeleteComment = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'DeleteComment'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'DeleteThreadComment'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'id'),
+            value: VariableNode(name: NameNode(value: 'id')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'deleted'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Mutation$DeleteComment _parserFn$Mutation$DeleteComment(
+        Map<String, dynamic> data) =>
+    Mutation$DeleteComment.fromJson(data);
+typedef OnMutationCompleted$Mutation$DeleteComment = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Mutation$DeleteComment?,
+);
+
+class Options$Mutation$DeleteComment
+    extends graphql.MutationOptions<Mutation$DeleteComment> {
+  Options$Mutation$DeleteComment({
+    String? operationName,
+    Variables$Mutation$DeleteComment? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteComment? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$DeleteComment? onCompleted,
+    graphql.OnMutationUpdate<Mutation$DeleteComment>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$DeleteComment(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationDeleteComment,
+          parserFn: _parserFn$Mutation$DeleteComment,
+        );
+
+  final OnMutationCompleted$Mutation$DeleteComment? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$DeleteComment
+    extends graphql.WatchQueryOptions<Mutation$DeleteComment> {
+  WatchOptions$Mutation$DeleteComment({
+    String? operationName,
+    Variables$Mutation$DeleteComment? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteComment? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationDeleteComment,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$DeleteComment,
+        );
+}
+
+extension ClientExtension$Mutation$DeleteComment on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$DeleteComment>> mutate$DeleteComment(
+          [Options$Mutation$DeleteComment? options]) async =>
+      await this.mutate(options ?? Options$Mutation$DeleteComment());
+  graphql.ObservableQuery<Mutation$DeleteComment> watchMutation$DeleteComment(
+          [WatchOptions$Mutation$DeleteComment? options]) =>
+      this.watchMutation(options ?? WatchOptions$Mutation$DeleteComment());
+}
+
+class Mutation$DeleteComment$HookResult {
+  Mutation$DeleteComment$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$DeleteComment runMutation;
+
+  final graphql.QueryResult<Mutation$DeleteComment> result;
+}
+
+Mutation$DeleteComment$HookResult useMutation$DeleteComment(
+    [WidgetOptions$Mutation$DeleteComment? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$DeleteComment());
+  return Mutation$DeleteComment$HookResult(
+    ({variables, optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables?.toJson() ?? const {},
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$DeleteComment> useWatchMutation$DeleteComment(
+        [WatchOptions$Mutation$DeleteComment? options]) =>
+    graphql_flutter
+        .useWatchMutation(options ?? WatchOptions$Mutation$DeleteComment());
+
+class WidgetOptions$Mutation$DeleteComment
+    extends graphql.MutationOptions<Mutation$DeleteComment> {
+  WidgetOptions$Mutation$DeleteComment({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteComment? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$DeleteComment? onCompleted,
+    graphql.OnMutationUpdate<Mutation$DeleteComment>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$DeleteComment(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationDeleteComment,
+          parserFn: _parserFn$Mutation$DeleteComment,
+        );
+
+  final OnMutationCompleted$Mutation$DeleteComment? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$DeleteComment
+    = graphql.MultiSourceResult<Mutation$DeleteComment> Function({
+  Variables$Mutation$DeleteComment? variables,
+  Object? optimisticResult,
+  Mutation$DeleteComment? typedOptimisticResult,
+});
+typedef Builder$Mutation$DeleteComment = widgets.Widget Function(
+  RunMutation$Mutation$DeleteComment,
+  graphql.QueryResult<Mutation$DeleteComment>?,
+);
+
+class Mutation$DeleteComment$Widget
+    extends graphql_flutter.Mutation<Mutation$DeleteComment> {
+  Mutation$DeleteComment$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$DeleteComment? options,
+    required Builder$Mutation$DeleteComment builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$DeleteComment(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            ({
+              variables,
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables?.toJson() ?? const {},
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
+}
+
+class Mutation$DeleteComment$DeleteThreadComment {
+  Mutation$DeleteComment$DeleteThreadComment({
+    this.deleted,
+    this.$__typename = 'Deleted',
+  });
+
+  factory Mutation$DeleteComment$DeleteThreadComment.fromJson(
+      Map<String, dynamic> json) {
+    final l$deleted = json['deleted'];
+    final l$$__typename = json['__typename'];
+    return Mutation$DeleteComment$DeleteThreadComment(
+      deleted: (l$deleted as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final bool? deleted;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$deleted = deleted;
+    _resultData['deleted'] = l$deleted;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$deleted = deleted;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$deleted,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$DeleteComment$DeleteThreadComment) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$deleted = deleted;
+    final lOther$deleted = other.deleted;
+    if (l$deleted != lOther$deleted) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$DeleteComment$DeleteThreadComment
+    on Mutation$DeleteComment$DeleteThreadComment {
+  CopyWith$Mutation$DeleteComment$DeleteThreadComment<
+          Mutation$DeleteComment$DeleteThreadComment>
+      get copyWith => CopyWith$Mutation$DeleteComment$DeleteThreadComment(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$DeleteComment$DeleteThreadComment<TRes> {
+  factory CopyWith$Mutation$DeleteComment$DeleteThreadComment(
+    Mutation$DeleteComment$DeleteThreadComment instance,
+    TRes Function(Mutation$DeleteComment$DeleteThreadComment) then,
+  ) = _CopyWithImpl$Mutation$DeleteComment$DeleteThreadComment;
+
+  factory CopyWith$Mutation$DeleteComment$DeleteThreadComment.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$DeleteComment$DeleteThreadComment;
+
+  TRes call({
+    bool? deleted,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$DeleteComment$DeleteThreadComment<TRes>
+    implements CopyWith$Mutation$DeleteComment$DeleteThreadComment<TRes> {
+  _CopyWithImpl$Mutation$DeleteComment$DeleteThreadComment(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$DeleteComment$DeleteThreadComment _instance;
+
+  final TRes Function(Mutation$DeleteComment$DeleteThreadComment) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? deleted = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$DeleteComment$DeleteThreadComment(
+        deleted: deleted == _undefined ? _instance.deleted : (deleted as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$DeleteComment$DeleteThreadComment<TRes>
+    implements CopyWith$Mutation$DeleteComment$DeleteThreadComment<TRes> {
+  _CopyWithStubImpl$Mutation$DeleteComment$DeleteThreadComment(this._res);
+
+  TRes _res;
+
+  call({
+    bool? deleted,
+    String? $__typename,
+  }) =>
+      _res;
+}

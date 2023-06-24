@@ -83,16 +83,25 @@ class UserNotifier extends AutoDisposeStreamNotifier<Fragment$ThisUser?> {
       ),
     );
 
-    stream.stream.listen((event) {
-      if (event.isLoading && event.parsedData != null) {
-        state = const AsyncValue.loading();
-      }
-      state = AsyncData(event.parsedData?.Viewer);
-    });
+    // stream.stream.listen((event) {
+    //   if (event.isLoading && event.parsedData == null) {
+    //     state = const AsyncValue.loading();
+    //     return;
+    //   }
+    //   yield event.parsedData?.Viewer;
+    // });
 
     state = const AsyncValue.loading();
     stream.fetchResults();
     ref.keepAlive();
+
+    await for (final data in stream.stream) {
+      if (data.isLoading) {
+        state = const AsyncValue.loading();
+        return;
+      }
+      yield data.parsedData?.Viewer;
+    }
   }
 
   void resetNotifCount() {

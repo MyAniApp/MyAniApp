@@ -137,7 +137,12 @@ class CommentHeader extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (username != null) Text(username!),
+              if (username != null)
+                Text(
+                  username!,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
               if (createdAt != null)
                 Text(
                   timeago.format(
@@ -155,7 +160,7 @@ class CommentHeader extends StatelessWidget {
         const SizedBox(
           width: 5,
         ),
-        if (leading != null) ...[const Spacer(), leading!],
+        if (leading != null) leading!,
       ],
     );
   }
