@@ -31,11 +31,63 @@ class ExplorePage extends StatelessWidget {
           onRefresh: () => refetch?.call().then((value) {}) ?? Future.value(),
           child: ListView(
             children: [
-              ElevatedButton(
-                onPressed: () => context.pushRoute(
-                  SearchRoute(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(30),
+                  onTap: () => context.pushRoute(SearchRoute(autofocus: true)),
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(
+                        color: theme.hintColor,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 14),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Search...',
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              color: theme.hintColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-                child: const Text('Search'),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8, left: 8),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: FilterChip(
+                    label: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.thumb_up,
+                          size: 17,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text('Recommendations'),
+                      ],
+                    ),
+                    onSelected: (value) => context.pushRoute(
+                      const RecommendationsRoute(),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10),

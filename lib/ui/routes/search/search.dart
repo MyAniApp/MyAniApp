@@ -18,11 +18,13 @@ class SearchPage extends ConsumerStatefulWidget {
     @QueryParam('sort') this.sort = '',
     @QueryParam('search') this.search,
     @queryParam this.type,
+    this.autofocus,
   });
 
   final dynamic sort;
   final String? search;
   final String? type;
+  final bool? autofocus;
 
   @override
   ConsumerState<SearchPage> createState() => _SearchPageState();
@@ -127,9 +129,11 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                               .copyWith(search: value),
                         ),
                 focusNode: FocusNode(canRequestFocus: false),
+                autofocus: widget.autofocus ?? false,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30)),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                   prefixIcon: const Padding(
                     padding: EdgeInsets.only(left: 8),
                     child: AutoLeadingButton(),
