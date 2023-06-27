@@ -1,13 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/home.graphql.dart';
 import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/cards/grid_cards.dart';
 import 'package:myaniapp/ui/common/cards/sheet_card.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
-import 'package:myaniapp/ui/common/image.dart';
 
 @RoutePage()
 class ExplorePage extends StatelessWidget {
@@ -109,7 +108,7 @@ class ExplorePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 230,
+                height: 190,
                 child: _List(
                   medias: result.parsedData!.trending!.media!.cast(),
                 ),
@@ -134,7 +133,7 @@ class ExplorePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 230,
+                height: 190,
                 child: _List(
                   medias: result.parsedData!.popular!.media!.cast(),
                 ),
@@ -159,7 +158,7 @@ class ExplorePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 230,
+                height: 190,
                 child: _List(
                   medias: result.parsedData!.recent!.media!.cast(),
                 ),
@@ -187,35 +186,15 @@ class _List extends StatelessWidget {
       itemBuilder: (context, index) {
         var media = medias[index];
 
-        return SizedBox(
-          // height: imageHeight + 30,
-          width: 140,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: GestureDetector(
-              onTap: () => context.pushRoute(MediaRoute(id: media.id)),
-              onLongPress: () => showMediaCard(context, media),
-              child: Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: imageRadius,
-                    child: AspectRatio(
-                      aspectRatio: 2 / 3,
-                      child: CImage(
-                        imageUrl: media.coverImage!.extraLarge!,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Text(
-                      media.title!.userPreferred!,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  )
-                ],
-              ),
-            ),
+        return Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: GridCard(
+            imageUrl: media.coverImage!.extraLarge!,
+            title: media.title!.userPreferred,
+            aspectRatio: 1.9 / 3,
+            index: index,
+            onTap: (index) => context.pushRoute(MediaRoute(id: media.id)),
+            onLongPress: (index) => showMediaCard(context, media),
           ),
         );
       },

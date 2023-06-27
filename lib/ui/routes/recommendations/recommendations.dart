@@ -31,49 +31,53 @@ class _RecommendationsPageState extends ConsumerState<RecommendationsPage> {
       appBar: AppBar(
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(40),
-          child: SizedBox(
-            height: 40,
-            child: ListView(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Padding(
               padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8),
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              children: [
-                SegmentedButton<bool>(
-                  segments: const [
-                    ButtonSegment(
-                      value: false,
-                      label: Text('All'),
-                    ),
-                    ButtonSegment(
-                      value: true,
-                      label: Text('My List'),
-                    )
-                  ],
-                  selected: {onList},
-                  onSelectionChanged: (p0) => setState(() => onList = p0.first),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                SegmentedButton<Enum$RecommendationSort>(
-                  segments: const [
-                    ButtonSegment(
-                      value: Enum$RecommendationSort.ID_DESC,
-                      label: Text('Recent'),
-                    ),
-                    ButtonSegment(
-                      value: Enum$RecommendationSort.RATING_DESC,
-                      label: Text('Highest Rated'),
-                    ),
-                    ButtonSegment(
-                      value: Enum$RecommendationSort.RATING,
-                      label: Text('Lowest Rated'),
-                    )
-                  ],
-                  selected: {sort},
-                  onSelectionChanged: (p0) => setState(() => sort = p0.first),
-                ),
-              ],
+              child: Row(
+                // padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8),
+                // shrinkWrap: true,
+                // scrollDirection: Axis.horizontal,
+                children: [
+                  SegmentedButton<bool>(
+                    segments: const [
+                      ButtonSegment(
+                        value: false,
+                        label: Text('All'),
+                      ),
+                      ButtonSegment(
+                        value: true,
+                        label: Text('My List'),
+                      )
+                    ],
+                    selected: {onList},
+                    onSelectionChanged: (p0) =>
+                        setState(() => onList = p0.first),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  SegmentedButton<Enum$RecommendationSort>(
+                    segments: const [
+                      ButtonSegment(
+                        value: Enum$RecommendationSort.ID_DESC,
+                        label: Text('Recent'),
+                      ),
+                      ButtonSegment(
+                        value: Enum$RecommendationSort.RATING_DESC,
+                        label: Text('Highest Rated'),
+                      ),
+                      ButtonSegment(
+                        value: Enum$RecommendationSort.RATING,
+                        label: Text('Lowest Rated'),
+                      )
+                    ],
+                    selected: {sort},
+                    onSelectionChanged: (p0) => setState(() => sort = p0.first),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -6,6 +6,7 @@ import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/media/media.graphql.dart';
 import 'package:myaniapp/providers/media.dart';
+import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/markdown/markdown.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -210,25 +211,26 @@ class _Tag extends StatelessWidget {
                 : null,
           ),
       overflow: TextOverflow.ellipsis,
-      child: UnconstrainedBox(
+      child: InkWell(
+        onTap: () => context.pushRoute(
+          SearchRoute(tag: tag.name),
+        ),
         child: Container(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surfaceVariant.withAlpha(150),
             borderRadius: imageRadius,
           ),
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-                maxWidth: (MediaQuery.of(context).size.width - 26) / 2),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(tag.name),
-                  ),
-                  Text('${tag.rank}%')
-                ],
-              ),
+          constraints: BoxConstraints(
+              maxWidth: (MediaQuery.of(context).size.width - 26) / 2),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(tag.name),
+                ),
+                Text('${tag.rank}%')
+              ],
             ),
           ),
         ),
@@ -287,16 +289,18 @@ class Description extends StatelessWidget {
   const Description(
     this.description, {
     super.key,
+    this.height = 150,
   });
 
   final String? description;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
 
     return Container(
-      constraints: const BoxConstraints(maxHeight: 200),
+      constraints: BoxConstraints(maxHeight: height),
       decoration: BoxDecoration(
         color: theme.colorScheme.surfaceVariant.withAlpha(150),
         borderRadius: imageRadius,

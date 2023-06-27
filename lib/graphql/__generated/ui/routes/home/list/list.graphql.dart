@@ -11,12 +11,12 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
 class Variables$Query$MediaList {
   factory Variables$Query$MediaList({
-    int? userId,
+    String? userName,
     Enum$MediaType? type,
     List<Enum$MediaListSort?>? sort,
   }) =>
       Variables$Query$MediaList._({
-        if (userId != null) r'userId': userId,
+        if (userName != null) r'userName': userName,
         if (type != null) r'type': type,
         if (sort != null) r'sort': sort,
       });
@@ -25,9 +25,9 @@ class Variables$Query$MediaList {
 
   factory Variables$Query$MediaList.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('userId')) {
-      final l$userId = data['userId'];
-      result$data['userId'] = (l$userId as int?);
+    if (data.containsKey('userName')) {
+      final l$userName = data['userName'];
+      result$data['userName'] = (l$userName as String?);
     }
     if (data.containsKey('type')) {
       final l$type = data['type'];
@@ -46,15 +46,15 @@ class Variables$Query$MediaList {
 
   Map<String, dynamic> _$data;
 
-  int? get userId => (_$data['userId'] as int?);
+  String? get userName => (_$data['userName'] as String?);
   Enum$MediaType? get type => (_$data['type'] as Enum$MediaType?);
   List<Enum$MediaListSort?>? get sort =>
       (_$data['sort'] as List<Enum$MediaListSort?>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('userId')) {
-      final l$userId = userId;
-      result$data['userId'] = l$userId;
+    if (_$data.containsKey('userName')) {
+      final l$userName = userName;
+      result$data['userName'] = l$userName;
     }
     if (_$data.containsKey('type')) {
       final l$type = type;
@@ -84,12 +84,13 @@ class Variables$Query$MediaList {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$userId = userId;
-    final lOther$userId = other.userId;
-    if (_$data.containsKey('userId') != other._$data.containsKey('userId')) {
+    final l$userName = userName;
+    final lOther$userName = other.userName;
+    if (_$data.containsKey('userName') !=
+        other._$data.containsKey('userName')) {
       return false;
     }
-    if (l$userId != lOther$userId) {
+    if (l$userName != lOther$userName) {
       return false;
     }
     final l$type = type;
@@ -124,11 +125,11 @@ class Variables$Query$MediaList {
 
   @override
   int get hashCode {
-    final l$userId = userId;
+    final l$userName = userName;
     final l$type = type;
     final l$sort = sort;
     return Object.hashAll([
-      _$data.containsKey('userId') ? l$userId : const {},
+      _$data.containsKey('userName') ? l$userName : const {},
       _$data.containsKey('type') ? l$type : const {},
       _$data.containsKey('sort')
           ? l$sort == null
@@ -149,7 +150,7 @@ abstract class CopyWith$Variables$Query$MediaList<TRes> {
       _CopyWithStubImpl$Variables$Query$MediaList;
 
   TRes call({
-    int? userId,
+    String? userName,
     Enum$MediaType? type,
     List<Enum$MediaListSort?>? sort,
   });
@@ -169,13 +170,13 @@ class _CopyWithImpl$Variables$Query$MediaList<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? userId = _undefined,
+    Object? userName = _undefined,
     Object? type = _undefined,
     Object? sort = _undefined,
   }) =>
       _then(Variables$Query$MediaList._({
         ..._instance._$data,
-        if (userId != _undefined) 'userId': (userId as int?),
+        if (userName != _undefined) 'userName': (userName as String?),
         if (type != _undefined) 'type': (type as Enum$MediaType?),
         if (sort != _undefined) 'sort': (sort as List<Enum$MediaListSort?>?),
       }));
@@ -188,7 +189,7 @@ class _CopyWithStubImpl$Variables$Query$MediaList<TRes>
   TRes _res;
 
   call({
-    int? userId,
+    String? userName,
     Enum$MediaType? type,
     List<Enum$MediaListSort?>? sort,
   }) =>
@@ -337,9 +338,9 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
     name: NameNode(value: 'MediaList'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
+        variable: VariableNode(name: NameNode(value: 'userName')),
         type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
+          name: NameNode(value: 'String'),
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -374,8 +375,8 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'userId'),
-            value: VariableNode(name: NameNode(value: 'userId')),
+            name: NameNode(value: 'userName'),
+            value: VariableNode(name: NameNode(value: 'userName')),
           ),
           ArgumentNode(
             name: NameNode(value: 'type'),

@@ -149,7 +149,7 @@ class GridChip extends StatelessWidget {
           color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.9),
           borderRadius: BorderRadius.circular(10),
         ),
-        constraints: const BoxConstraints(maxWidth: 95),
+        constraints: const BoxConstraints(maxWidth: 90),
         child: DefaultTextStyle(
           style: Theme.of(context)
               .textTheme

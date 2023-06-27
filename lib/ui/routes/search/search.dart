@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/search/search.graphql.dart';
 import 'package:myaniapp/providers/search.dart';
@@ -18,10 +19,14 @@ class SearchPage extends ConsumerStatefulWidget {
     @QueryParam('sort') this.sort = '',
     @QueryParam('search') this.search,
     @queryParam this.type,
+    @QueryParam('genre') this.genre = '',
+    @QueryParam('tag') this.tag = '',
     this.autofocus,
   });
 
   final dynamic sort;
+  final dynamic genre;
+  final dynamic tag;
   final String? search;
   final String? type;
   final bool? autofocus;
@@ -34,10 +39,14 @@ class _SearchPageState extends ConsumerState<SearchPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       bool setVars = false;
 
-      if (widget.sort != '' || widget.search != null || widget.type != null) {
+      if (widget.sort != '' ||
+          widget.genre != '' ||
+          widget.tag != '' ||
+          widget.search != null ||
+          widget.type != null) {
         ref
             .read(searchProvider.notifier)
             .setVariables(Variables$Query$Search(), fetch: false);
@@ -55,6 +64,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                         .read(searchProvider.notifier)
                         .variables!
                         .copyWith(sort: sort.toList()),
+                    fetch: false,
                   );
             }
             break;
@@ -67,7 +77,85 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                         .read(searchProvider.notifier)
                         .variables!
                         .copyWith(sort: sort.toList()),
+                    fetch: false,
                   );
+            }
+            break;
+        }
+      }
+
+      if (widget.genre != '') {
+        var genres = (
+          await client.value.query$GenreCollection(
+            Options$Query$GenreCollection(
+              fetchPolicy: FetchPolicy.cacheFirst,
+            ),
+          ),
+        ).$1.parsedData!.genres!;
+
+        switch (widget.genre.runtimeType) {
+          case (String):
+            var genre = genres.where((element) => element == widget.genre);
+            if (genre.isNotEmpty) {
+              ref.read(searchProvider.notifier).setVariables(
+                    ref
+                        .read(searchProvider.notifier)
+                        .variables!
+                        .copyWith(genres: genre.toList()),
+                    fetch: false,
+                  );
+            }
+            break;
+          case const (List<String>):
+            var genre =
+                genres.where((element) => widget.genre.contains(element));
+            if (genre.isNotEmpty) {
+              ref.read(searchProvider.notifier).setVariables(
+                  ref
+                      .read(searchProvider.notifier)
+                      .variables!
+                      .copyWith(genres: genre.toList()),
+                  fetch: false);
+            }
+            break;
+        }
+      }
+
+      if (widget.tag != '') {
+        var tags = (
+          await client.value.query$GenreCollection(
+            Options$Query$GenreCollection(
+              fetchPolicy: FetchPolicy.cacheFirst,
+            ),
+          ),
+        ).$1.parsedData!.tags!;
+
+        switch (widget.tag.runtimeType) {
+          case (String):
+            var tag = tags
+                .where((element) => element!.name == widget.tag)
+                .map((e) => e!.name);
+            if (tag.isNotEmpty) {
+              ref.read(searchProvider.notifier).setVariables(
+                    ref
+                        .read(searchProvider.notifier)
+                        .variables!
+                        .copyWith(with_tags: tag.toList()),
+                    fetch: false,
+                  );
+            }
+            break;
+          case const (List<String>):
+            var tag = tags
+                .where((element) => widget.tag.contains(element))
+                .map((e) => e!.name);
+            if (tag.isNotEmpty) {
+              ref.read(searchProvider.notifier).setVariables(
+                  ref
+                      .read(searchProvider.notifier)
+                      .variables!
+                      .copyWith(with_tags: tag.toList()),
+                  fetch: false);
             }
             break;
         }

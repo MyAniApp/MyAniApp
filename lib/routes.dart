@@ -18,6 +18,7 @@ class AppRouter extends $AppRouter {
           children: [
             AutoRoute(page: HomeOverviewRoute.page, path: ''),
             AutoRoute(page: HomeAnimeRoute.page, path: 'anime'),
+            AutoRoute(page: ExploreRoute.page, path: 'explore'),
             AutoRoute(page: HomeMangaRoute.page, path: 'manga'),
             AutoRoute(page: HomeActivitiesRoute.page, path: 'activities'),
           ],
@@ -46,7 +47,17 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: ActivityRoute.page, path: '/activity/:id'),
         AutoRoute(page: CharacterRoute.page, path: '/character/:id'),
         AutoRoute(page: StaffRoute.page, path: '/staff/:id'),
-        AutoRoute(page: RecommendationsRoute.page, path: '/recommendations')
+        AutoRoute(page: RecommendationsRoute.page, path: '/recommendations'),
+        AutoRoute(
+          page: UserRoute.page,
+          path: '/user/:name',
+          children: [
+            AutoRoute(page: UserOverviewRoute.page, path: 'overview'),
+            AutoRoute(page: UserReviewsRoute.page, path: 'reviews'),
+          ],
+        ),
+        AutoRoute(page: UserAnimeListRoute.page, path: '/user/:name/anime'),
+        AutoRoute(page: UserMangaListRoute.page, path: '/user/:name/manga')
       ];
 }
 

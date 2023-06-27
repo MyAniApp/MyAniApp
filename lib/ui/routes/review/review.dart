@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/review/review.graphql.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/image.dart';
@@ -20,6 +21,8 @@ class ReviewPage extends StatelessWidget {
     return Query$Review$Widget(
       options: Options$Query$Review(
         variables: Variables$Query$Review(id: id),
+        // dunno why this is needed
+        cacheRereadPolicy: CacheRereadPolicy.ignoreOptimisitic,
       ),
       builder: (result, {fetchMore, refetch}) {
         if (result.isLoading) {
@@ -30,7 +33,10 @@ class ReviewPage extends StatelessWidget {
             ),
           );
         } else if (result.hasException) {
-          return GraphqlError(exception: result.exception!);
+          return Scaffold(
+            appBar: AppBar(),
+            body: GraphqlError(exception: result.exception!),
+          );
         }
 
         return Scaffold(

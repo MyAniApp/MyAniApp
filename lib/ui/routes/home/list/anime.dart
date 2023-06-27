@@ -30,7 +30,7 @@ class HomeAnimePage extends ConsumerWidget {
             Enum$MediaListSort.UPDATED_TIME_DESC,
           ],
           type: Enum$MediaType.ANIME,
-          userId: user.value!.id,
+          userName: user.value!.name,
         ),
       ),
       builder: (result, {fetchMore, refetch}) {
@@ -111,10 +111,12 @@ class Media extends StatefulWidget {
     super.key,
     required this.list,
     required this.refresh,
+    this.canEdit = true,
   });
 
   final Fragment$ListGroup list;
   final void Function() refresh;
+  final bool canEdit;
 
   @override
   State<Media> createState() => _MediaState();
@@ -140,12 +142,14 @@ class _MediaState extends State<Media> with AutomaticKeepAliveClientMixin {
           index: index,
           onTap: (index) => context.pushRoute(MediaRoute(id: media.mediaId)),
           onLongPress: (index) => showMediaCard(context, media.media!),
-          onDoubleTap: (index) => showMediaEditor(
-            context,
-            media.media!,
-            onDelete: widget.refresh,
-            onSave: widget.refresh,
-          ),
+          onDoubleTap: widget.canEdit
+              ? (index) => showMediaEditor(
+                    context,
+                    media.media!,
+                    onDelete: widget.refresh,
+                    onSave: widget.refresh,
+                  )
+              : null,
         );
       },
       itemCount: widget.list.entries!.length,

@@ -20,6 +20,7 @@ class MyHomePage extends ConsumerWidget {
         routes: [
           const HomeOverviewRoute(),
           if (data != null) const HomeAnimeRoute(),
+          if (data != null) const ExploreRoute(),
           if (data != null) const HomeMangaRoute(),
           const HomeActivitiesRoute(),
         ],
@@ -28,25 +29,7 @@ class MyHomePage extends ConsumerWidget {
 
           return Scaffold(
             body: child,
-            drawer: Drawer(
-              child: ListView(
-                children: [
-                  if (data == null)
-                    ElevatedButton(
-                      onPressed: () => context.pushRoute(const LoginRoute()),
-                      child: const Text('Login'),
-                    )
-                  else
-                    ElevatedButton(
-                      onPressed: () => showDialog(
-                        context: context,
-                        builder: (context) => const LogoutDialog(),
-                      ),
-                      child: const Text('Logout'),
-                    ),
-                ],
-              ),
-            ),
+            drawer: const HomeDrawer(),
             // appBar: AppBar(),
             bottomNavigationBar: BottomNavigationBar(
               onTap: router.setActiveIndex,
@@ -65,6 +48,9 @@ class MyHomePage extends ConsumerWidget {
                     icon: Icon(Icons.local_movies),
                     label: "Anime",
                   ),
+                if (data != null)
+                  const BottomNavigationBarItem(
+                      icon: Icon(Icons.explore), label: 'Explore'),
                 if (data != null)
                   const BottomNavigationBarItem(
                     icon: Icon(Icons.book),

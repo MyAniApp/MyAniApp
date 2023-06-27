@@ -19,6 +19,8 @@ class ImageViewer extends StatelessWidget {
           children: [
             InteractiveViewer(
               maxScale: 10,
+              minScale: 0.3,
+              boundaryMargin: const EdgeInsets.all(100),
               child: Center(
                 child: Hero(
                   tag: tag ?? child.hashCode,

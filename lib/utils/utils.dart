@@ -1,34 +1,4 @@
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
-import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
-
-class Season {
-  Season() {
-    var date = DateTime.now();
-    var month = date.month;
-
-    year = date.year;
-    nextYear = DateTime(date.year, month + 3).year;
-    season = getSeason(month);
-    nextSeason = getSeason(month + 3);
-  }
-
-  late final Enum$MediaSeason nextSeason;
-  late final int nextYear;
-  late final Enum$MediaSeason season;
-  late final int year;
-
-  Enum$MediaSeason getSeason(int month) {
-    return month >= 0 && month <= 2
-        ? Enum$MediaSeason.WINTER
-        : month >= 3 && month <= 5
-            ? Enum$MediaSeason.SPRING
-            : month >= 6 && month <= 8
-                ? Enum$MediaSeason.SUMMER
-                : month >= 9 && month <= 11
-                    ? Enum$MediaSeason.FALL
-                    : Enum$MediaSeason.FALL;
-  }
-}
 
 DateTime dateFromTimestamp(int timestamp) {
   return DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
