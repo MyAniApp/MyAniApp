@@ -26,11 +26,17 @@ class UserMangaListPage extends StatelessWidget {
       ),
       builder: (result, {fetchMore, refetch}) {
         if (result.isLoading && result.data == null) {
-          return const Center(
-            child: CircularProgressIndicator.adaptive(),
+          return Scaffold(
+            appBar: AppBar(),
+            body: const Center(
+              child: CircularProgressIndicator.adaptive(),
+            ),
           );
         } else if (result.hasException) {
-          return GraphqlError(exception: result.exception!);
+          return Scaffold(
+            appBar: AppBar(),
+            body: GraphqlError(exception: result.exception!),
+          );
         }
 
         var lists = result.parsedData!.MediaListCollection!.lists!;
