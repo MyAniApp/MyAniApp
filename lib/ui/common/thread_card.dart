@@ -16,7 +16,7 @@ class ThreadCard extends StatelessWidget {
   Widget build(BuildContext context) {
     if (thread.isSticky == true) {
       return ListTile(
-        // onTap: () => context.router.push(ThreadRoute(id: thread.id)),
+        onTap: () => context.router.push(ThreadRoute(id: thread.id)),
         title: Text(
           thread.title!,
           maxLines: 3,

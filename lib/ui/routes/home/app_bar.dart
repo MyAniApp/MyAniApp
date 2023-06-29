@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:myaniapp/providers/user/user.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/ui/common/image.dart';
 
 class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {

@@ -10,7 +10,7 @@ import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
 import 'package:myaniapp/providers/media_editor.dart';
 import 'package:myaniapp/ui/common/custom_dropdown.dart';
-import 'package:myaniapp/ui/common/delete.dart';
+import 'package:myaniapp/ui/common/dialogs/delete.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/numer_picker.dart';
 
@@ -101,6 +101,11 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
       repeat: widget.entry.repeat,
       score: widget.entry.score,
       status: widget.entry.status,
+      customLists: widget.entry.customLists
+          ?.where((e) => e['enabled'] == true)
+          ?.map((e) => e['name'])
+          .toList()
+          .cast<String?>(),
     );
 
     og = Variables$Mutation$SaveMediaListEntry.fromJson(options.toJson());
@@ -267,6 +272,42 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
             title: const Text('Private'),
             onChanged: (value) =>
                 setState(() => options = options.copyWith(private: value)),
+          ),
+          if (widget.entry.customLists?.isNotEmpty == true) ...[
+            Text(
+              'Custom Lists',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            ...widget.entry.customLists!.map(
+              (e) => RadioListTile.adaptive(
+                value: true,
+                groupValue: options.customLists?.contains(e['name']),
+                title: Text(e['name']),
+                controlAffinity: ListTileControlAffinity.trailing,
+                toggleable: true,
+                onChanged: (value) {
+                  if (value == true) {
+                    setState(
+                      () => options = options.copyWith(
+                        customLists: (options.customLists ?? [])
+                          ..add(e['name']),
+                      ),
+                    );
+                  } else {
+                    setState(
+                      () => options = options.copyWith(
+                        customLists: (options.customLists ?? [])
+                          ..remove(e['name']),
+                      ),
+                    );
+                  }
+                  // setState(() => options = options.copyWith(private: value))
+                },
+              ),
+            ),
+          ],
+          const SizedBox(
+            height: 10,
           ),
           TextField(
             maxLines: null,

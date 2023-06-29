@@ -62,6 +62,7 @@ fragment MediaListEntry on MediaList {
   private
   repeat
   score(format: POINT_100)
+  customLists(asArray: true)
   startedAt {
     ...FuzzyDate
   }
@@ -73,6 +74,11 @@ fragment MediaListEntry on MediaList {
     episodes
     chapters
   }
+}
+
+fragment CustomList on CustomList {
+  name
+  enabled
 }
 
 fragment MediaFragment on Media {
@@ -113,6 +119,66 @@ fragment ThreadFragment on Thread {
   replyUser {
     id
     name
+    avatar {
+      large
+    }
+  }
+}
+
+fragment TextActivity on TextActivity {
+  id
+  userId
+  type
+  replyCount
+  text
+  isLocked
+  isSubscribed
+  isLiked
+  likeCount
+  createdAt
+  user {
+    ...UserFragment
+  }
+}
+
+fragment ListActivity on ListActivity {
+  id
+  userId
+  type
+  status
+  progress
+  replyCount
+  isLocked
+  isSubscribed
+  isLiked
+  likeCount
+  createdAt
+  user {
+    ...UserFragment
+  }
+  media {
+    ...MediaFragment
+  }
+}
+
+fragment MessageActivity on MessageActivity {
+  id
+  type
+  message
+  replyCount
+  isPrivate
+  isLocked
+  isSubscribed
+  isLiked
+  likeCount
+  createdAt
+  userId: messengerId
+  messenger {
+    id
+    name
+    donatorTier
+    donatorBadge
+    moderatorRoles
     avatar {
       large
     }

@@ -2740,6 +2740,7 @@ class Fragment$MediaListEntry {
     this.private,
     this.repeat,
     this.score,
+    this.customLists,
     this.startedAt,
     this.completedAt,
     this.media,
@@ -2759,6 +2760,7 @@ class Fragment$MediaListEntry {
     final l$private = json['private'];
     final l$repeat = json['repeat'];
     final l$score = json['score'];
+    final l$customLists = json['customLists'];
     final l$startedAt = json['startedAt'];
     final l$completedAt = json['completedAt'];
     final l$media = json['media'];
@@ -2778,6 +2780,7 @@ class Fragment$MediaListEntry {
       private: (l$private as bool?),
       repeat: (l$repeat as int?),
       score: (l$score as num?)?.toDouble(),
+      customLists: (l$customLists as dynamic?),
       startedAt: l$startedAt == null
           ? null
           : Fragment$FuzzyDate.fromJson((l$startedAt as Map<String, dynamic>)),
@@ -2817,6 +2820,8 @@ class Fragment$MediaListEntry {
 
   final double? score;
 
+  final dynamic? customLists;
+
   final Fragment$FuzzyDate? startedAt;
 
   final Fragment$FuzzyDate? completedAt;
@@ -2852,6 +2857,8 @@ class Fragment$MediaListEntry {
     _resultData['repeat'] = l$repeat;
     final l$score = score;
     _resultData['score'] = l$score;
+    final l$customLists = customLists;
+    _resultData['customLists'] = l$customLists;
     final l$startedAt = startedAt;
     _resultData['startedAt'] = l$startedAt?.toJson();
     final l$completedAt = completedAt;
@@ -2877,6 +2884,7 @@ class Fragment$MediaListEntry {
     final l$private = private;
     final l$repeat = repeat;
     final l$score = score;
+    final l$customLists = customLists;
     final l$startedAt = startedAt;
     final l$completedAt = completedAt;
     final l$media = media;
@@ -2894,6 +2902,7 @@ class Fragment$MediaListEntry {
       l$private,
       l$repeat,
       l$score,
+      l$customLists,
       l$startedAt,
       l$completedAt,
       l$media,
@@ -2970,6 +2979,11 @@ class Fragment$MediaListEntry {
     if (l$score != lOther$score) {
       return false;
     }
+    final l$customLists = customLists;
+    final lOther$customLists = other.customLists;
+    if (l$customLists != lOther$customLists) {
+      return false;
+    }
     final l$startedAt = startedAt;
     final lOther$startedAt = other.startedAt;
     if (l$startedAt != lOther$startedAt) {
@@ -3024,6 +3038,7 @@ abstract class CopyWith$Fragment$MediaListEntry<TRes> {
     bool? private,
     int? repeat,
     double? score,
+    dynamic? customLists,
     Fragment$FuzzyDate? startedAt,
     Fragment$FuzzyDate? completedAt,
     Fragment$MediaListEntry$media? media,
@@ -3060,6 +3075,7 @@ class _CopyWithImpl$Fragment$MediaListEntry<TRes>
     Object? private = _undefined,
     Object? repeat = _undefined,
     Object? score = _undefined,
+    Object? customLists = _undefined,
     Object? startedAt = _undefined,
     Object? completedAt = _undefined,
     Object? media = _undefined,
@@ -3089,6 +3105,9 @@ class _CopyWithImpl$Fragment$MediaListEntry<TRes>
         private: private == _undefined ? _instance.private : (private as bool?),
         repeat: repeat == _undefined ? _instance.repeat : (repeat as int?),
         score: score == _undefined ? _instance.score : (score as double?),
+        customLists: customLists == _undefined
+            ? _instance.customLists
+            : (customLists as dynamic?),
         startedAt: startedAt == _undefined
             ? _instance.startedAt
             : (startedAt as Fragment$FuzzyDate?),
@@ -3146,6 +3165,7 @@ class _CopyWithStubImpl$Fragment$MediaListEntry<TRes>
     bool? private,
     int? repeat,
     double? score,
+    dynamic? customLists,
     Fragment$FuzzyDate? startedAt,
     Fragment$FuzzyDate? completedAt,
     Fragment$MediaListEntry$media? media,
@@ -3260,6 +3280,18 @@ const fragmentDefinitionMediaListEntry = FragmentDefinitionNode(
         ArgumentNode(
           name: NameNode(value: 'format'),
           value: EnumValueNode(name: NameNode(value: 'POINT_100')),
+        )
+      ],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'customLists'),
+      alias: null,
+      arguments: [
+        ArgumentNode(
+          name: NameNode(value: 'asArray'),
+          value: BooleanValueNode(value: true),
         )
       ],
       directives: [],
@@ -3979,6 +4011,216 @@ class _CopyWithStubImpl$Fragment$MediaListEntry$media$coverImage<TRes>
     String? $__typename,
   }) =>
       _res;
+}
+
+class Fragment$CustomList {
+  Fragment$CustomList({
+    this.name,
+    this.enabled,
+    this.$__typename = 'CustomList',
+  });
+
+  factory Fragment$CustomList.fromJson(Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$enabled = json['enabled'];
+    final l$$__typename = json['__typename'];
+    return Fragment$CustomList(
+      name: (l$name as String?),
+      enabled: (l$enabled as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? name;
+
+  final bool? enabled;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$enabled = enabled;
+    _resultData['enabled'] = l$enabled;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    final l$enabled = enabled;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$name,
+      l$enabled,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$CustomList) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$enabled = enabled;
+    final lOther$enabled = other.enabled;
+    if (l$enabled != lOther$enabled) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$CustomList on Fragment$CustomList {
+  CopyWith$Fragment$CustomList<Fragment$CustomList> get copyWith =>
+      CopyWith$Fragment$CustomList(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$CustomList<TRes> {
+  factory CopyWith$Fragment$CustomList(
+    Fragment$CustomList instance,
+    TRes Function(Fragment$CustomList) then,
+  ) = _CopyWithImpl$Fragment$CustomList;
+
+  factory CopyWith$Fragment$CustomList.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$CustomList;
+
+  TRes call({
+    String? name,
+    bool? enabled,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$CustomList<TRes>
+    implements CopyWith$Fragment$CustomList<TRes> {
+  _CopyWithImpl$Fragment$CustomList(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$CustomList _instance;
+
+  final TRes Function(Fragment$CustomList) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? enabled = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$CustomList(
+        name: name == _undefined ? _instance.name : (name as String?),
+        enabled: enabled == _undefined ? _instance.enabled : (enabled as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$CustomList<TRes>
+    implements CopyWith$Fragment$CustomList<TRes> {
+  _CopyWithStubImpl$Fragment$CustomList(this._res);
+
+  TRes _res;
+
+  call({
+    String? name,
+    bool? enabled,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+const fragmentDefinitionCustomList = FragmentDefinitionNode(
+  name: NameNode(value: 'CustomList'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'CustomList'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'name'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'enabled'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentCustomList = DocumentNode(definitions: [
+  fragmentDefinitionCustomList,
+]);
+
+extension ClientExtension$Fragment$CustomList on graphql.GraphQLClient {
+  void writeFragment$CustomList({
+    required Fragment$CustomList data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
+      this.writeFragment(
+        graphql.FragmentRequest(
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'CustomList',
+            document: documentNodeFragmentCustomList,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$CustomList? readFragment$CustomList({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'CustomList',
+          document: documentNodeFragmentCustomList,
+        ),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Fragment$CustomList.fromJson(result);
+  }
 }
 
 class Fragment$MediaFragment {
@@ -6042,6 +6284,1971 @@ class _CopyWithImpl$Fragment$ThreadFragment$replyUser$avatar<TRes>
 class _CopyWithStubImpl$Fragment$ThreadFragment$replyUser$avatar<TRes>
     implements CopyWith$Fragment$ThreadFragment$replyUser$avatar<TRes> {
   _CopyWithStubImpl$Fragment$ThreadFragment$replyUser$avatar(this._res);
+
+  TRes _res;
+
+  call({
+    String? large,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Fragment$TextActivity {
+  Fragment$TextActivity({
+    required this.id,
+    this.userId,
+    this.type,
+    required this.replyCount,
+    this.text,
+    this.isLocked,
+    this.isSubscribed,
+    this.isLiked,
+    required this.likeCount,
+    required this.createdAt,
+    this.user,
+    this.$__typename = 'TextActivity',
+  });
+
+  factory Fragment$TextActivity.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$userId = json['userId'];
+    final l$type = json['type'];
+    final l$replyCount = json['replyCount'];
+    final l$text = json['text'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$isLiked = json['isLiked'];
+    final l$likeCount = json['likeCount'];
+    final l$createdAt = json['createdAt'];
+    final l$user = json['user'];
+    final l$$__typename = json['__typename'];
+    return Fragment$TextActivity(
+      id: (l$id as int),
+      userId: (l$userId as int?),
+      type: l$type == null
+          ? null
+          : fromJson$Enum$ActivityType((l$type as String)),
+      replyCount: (l$replyCount as int),
+      text: (l$text as String?),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      isLiked: (l$isLiked as bool?),
+      likeCount: (l$likeCount as int),
+      createdAt: (l$createdAt as int),
+      user: l$user == null
+          ? null
+          : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final int? userId;
+
+  final Enum$ActivityType? type;
+
+  final int replyCount;
+
+  final String? text;
+
+  final bool? isLocked;
+
+  final bool? isSubscribed;
+
+  final bool? isLiked;
+
+  final int likeCount;
+
+  final int createdAt;
+
+  final Fragment$UserFragment? user;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$userId = userId;
+    _resultData['userId'] = l$userId;
+    final l$type = type;
+    _resultData['type'] =
+        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    final l$replyCount = replyCount;
+    _resultData['replyCount'] = l$replyCount;
+    final l$text = text;
+    _resultData['text'] = l$text;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$isLiked = isLiked;
+    _resultData['isLiked'] = l$isLiked;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$userId = userId;
+    final l$type = type;
+    final l$replyCount = replyCount;
+    final l$text = text;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
+    final l$isLiked = isLiked;
+    final l$likeCount = likeCount;
+    final l$createdAt = createdAt;
+    final l$user = user;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$userId,
+      l$type,
+      l$replyCount,
+      l$text,
+      l$isLocked,
+      l$isSubscribed,
+      l$isLiked,
+      l$likeCount,
+      l$createdAt,
+      l$user,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$TextActivity) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$replyCount = replyCount;
+    final lOther$replyCount = other.replyCount;
+    if (l$replyCount != lOther$replyCount) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
+      return false;
+    }
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$isLiked = isLiked;
+    final lOther$isLiked = other.isLiked;
+    if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$TextActivity on Fragment$TextActivity {
+  CopyWith$Fragment$TextActivity<Fragment$TextActivity> get copyWith =>
+      CopyWith$Fragment$TextActivity(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$TextActivity<TRes> {
+  factory CopyWith$Fragment$TextActivity(
+    Fragment$TextActivity instance,
+    TRes Function(Fragment$TextActivity) then,
+  ) = _CopyWithImpl$Fragment$TextActivity;
+
+  factory CopyWith$Fragment$TextActivity.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$TextActivity;
+
+  TRes call({
+    int? id,
+    int? userId,
+    Enum$ActivityType? type,
+    int? replyCount,
+    String? text,
+    bool? isLocked,
+    bool? isSubscribed,
+    bool? isLiked,
+    int? likeCount,
+    int? createdAt,
+    Fragment$UserFragment? user,
+    String? $__typename,
+  });
+  CopyWith$Fragment$UserFragment<TRes> get user;
+}
+
+class _CopyWithImpl$Fragment$TextActivity<TRes>
+    implements CopyWith$Fragment$TextActivity<TRes> {
+  _CopyWithImpl$Fragment$TextActivity(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$TextActivity _instance;
+
+  final TRes Function(Fragment$TextActivity) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? userId = _undefined,
+    Object? type = _undefined,
+    Object? replyCount = _undefined,
+    Object? text = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? isLiked = _undefined,
+    Object? likeCount = _undefined,
+    Object? createdAt = _undefined,
+    Object? user = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$TextActivity(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        userId: userId == _undefined ? _instance.userId : (userId as int?),
+        type:
+            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+        replyCount: replyCount == _undefined || replyCount == null
+            ? _instance.replyCount
+            : (replyCount as int),
+        text: text == _undefined ? _instance.text : (text as String?),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        user: user == _undefined
+            ? _instance.user
+            : (user as Fragment$UserFragment?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$UserFragment<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
+        : CopyWith$Fragment$UserFragment(local$user, (e) => call(user: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$TextActivity<TRes>
+    implements CopyWith$Fragment$TextActivity<TRes> {
+  _CopyWithStubImpl$Fragment$TextActivity(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    int? userId,
+    Enum$ActivityType? type,
+    int? replyCount,
+    String? text,
+    bool? isLocked,
+    bool? isSubscribed,
+    bool? isLiked,
+    int? likeCount,
+    int? createdAt,
+    Fragment$UserFragment? user,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$UserFragment<TRes> get user =>
+      CopyWith$Fragment$UserFragment.stub(_res);
+}
+
+const fragmentDefinitionTextActivity = FragmentDefinitionNode(
+  name: NameNode(value: 'TextActivity'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'TextActivity'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'userId'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'type'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'replyCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'text'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLocked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isSubscribed'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLiked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'likeCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'createdAt'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'user'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'UserFragment'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentTextActivity = DocumentNode(definitions: [
+  fragmentDefinitionTextActivity,
+  fragmentDefinitionUserFragment,
+]);
+
+extension ClientExtension$Fragment$TextActivity on graphql.GraphQLClient {
+  void writeFragment$TextActivity({
+    required Fragment$TextActivity data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
+      this.writeFragment(
+        graphql.FragmentRequest(
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'TextActivity',
+            document: documentNodeFragmentTextActivity,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$TextActivity? readFragment$TextActivity({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'TextActivity',
+          document: documentNodeFragmentTextActivity,
+        ),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Fragment$TextActivity.fromJson(result);
+  }
+}
+
+class Fragment$ListActivity {
+  Fragment$ListActivity({
+    required this.id,
+    this.userId,
+    this.type,
+    this.status,
+    this.progress,
+    required this.replyCount,
+    this.isLocked,
+    this.isSubscribed,
+    this.isLiked,
+    required this.likeCount,
+    required this.createdAt,
+    this.user,
+    this.media,
+    this.$__typename = 'ListActivity',
+  });
+
+  factory Fragment$ListActivity.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$userId = json['userId'];
+    final l$type = json['type'];
+    final l$status = json['status'];
+    final l$progress = json['progress'];
+    final l$replyCount = json['replyCount'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$isLiked = json['isLiked'];
+    final l$likeCount = json['likeCount'];
+    final l$createdAt = json['createdAt'];
+    final l$user = json['user'];
+    final l$media = json['media'];
+    final l$$__typename = json['__typename'];
+    return Fragment$ListActivity(
+      id: (l$id as int),
+      userId: (l$userId as int?),
+      type: l$type == null
+          ? null
+          : fromJson$Enum$ActivityType((l$type as String)),
+      status: (l$status as String?),
+      progress: (l$progress as String?),
+      replyCount: (l$replyCount as int),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      isLiked: (l$isLiked as bool?),
+      likeCount: (l$likeCount as int),
+      createdAt: (l$createdAt as int),
+      user: l$user == null
+          ? null
+          : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
+      media: l$media == null
+          ? null
+          : Fragment$MediaFragment.fromJson((l$media as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final int? userId;
+
+  final Enum$ActivityType? type;
+
+  final String? status;
+
+  final String? progress;
+
+  final int replyCount;
+
+  final bool? isLocked;
+
+  final bool? isSubscribed;
+
+  final bool? isLiked;
+
+  final int likeCount;
+
+  final int createdAt;
+
+  final Fragment$UserFragment? user;
+
+  final Fragment$MediaFragment? media;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$userId = userId;
+    _resultData['userId'] = l$userId;
+    final l$type = type;
+    _resultData['type'] =
+        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    final l$status = status;
+    _resultData['status'] = l$status;
+    final l$progress = progress;
+    _resultData['progress'] = l$progress;
+    final l$replyCount = replyCount;
+    _resultData['replyCount'] = l$replyCount;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$isLiked = isLiked;
+    _resultData['isLiked'] = l$isLiked;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
+    final l$media = media;
+    _resultData['media'] = l$media?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$userId = userId;
+    final l$type = type;
+    final l$status = status;
+    final l$progress = progress;
+    final l$replyCount = replyCount;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
+    final l$isLiked = isLiked;
+    final l$likeCount = likeCount;
+    final l$createdAt = createdAt;
+    final l$user = user;
+    final l$media = media;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$userId,
+      l$type,
+      l$status,
+      l$progress,
+      l$replyCount,
+      l$isLocked,
+      l$isSubscribed,
+      l$isLiked,
+      l$likeCount,
+      l$createdAt,
+      l$user,
+      l$media,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$ListActivity) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$progress = progress;
+    final lOther$progress = other.progress;
+    if (l$progress != lOther$progress) {
+      return false;
+    }
+    final l$replyCount = replyCount;
+    final lOther$replyCount = other.replyCount;
+    if (l$replyCount != lOther$replyCount) {
+      return false;
+    }
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$isLiked = isLiked;
+    final lOther$isLiked = other.isLiked;
+    if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
+      return false;
+    }
+    final l$media = media;
+    final lOther$media = other.media;
+    if (l$media != lOther$media) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$ListActivity on Fragment$ListActivity {
+  CopyWith$Fragment$ListActivity<Fragment$ListActivity> get copyWith =>
+      CopyWith$Fragment$ListActivity(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$ListActivity<TRes> {
+  factory CopyWith$Fragment$ListActivity(
+    Fragment$ListActivity instance,
+    TRes Function(Fragment$ListActivity) then,
+  ) = _CopyWithImpl$Fragment$ListActivity;
+
+  factory CopyWith$Fragment$ListActivity.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$ListActivity;
+
+  TRes call({
+    int? id,
+    int? userId,
+    Enum$ActivityType? type,
+    String? status,
+    String? progress,
+    int? replyCount,
+    bool? isLocked,
+    bool? isSubscribed,
+    bool? isLiked,
+    int? likeCount,
+    int? createdAt,
+    Fragment$UserFragment? user,
+    Fragment$MediaFragment? media,
+    String? $__typename,
+  });
+  CopyWith$Fragment$UserFragment<TRes> get user;
+  CopyWith$Fragment$MediaFragment<TRes> get media;
+}
+
+class _CopyWithImpl$Fragment$ListActivity<TRes>
+    implements CopyWith$Fragment$ListActivity<TRes> {
+  _CopyWithImpl$Fragment$ListActivity(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$ListActivity _instance;
+
+  final TRes Function(Fragment$ListActivity) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? userId = _undefined,
+    Object? type = _undefined,
+    Object? status = _undefined,
+    Object? progress = _undefined,
+    Object? replyCount = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? isLiked = _undefined,
+    Object? likeCount = _undefined,
+    Object? createdAt = _undefined,
+    Object? user = _undefined,
+    Object? media = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$ListActivity(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        userId: userId == _undefined ? _instance.userId : (userId as int?),
+        type:
+            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+        status: status == _undefined ? _instance.status : (status as String?),
+        progress:
+            progress == _undefined ? _instance.progress : (progress as String?),
+        replyCount: replyCount == _undefined || replyCount == null
+            ? _instance.replyCount
+            : (replyCount as int),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        user: user == _undefined
+            ? _instance.user
+            : (user as Fragment$UserFragment?),
+        media: media == _undefined
+            ? _instance.media
+            : (media as Fragment$MediaFragment?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$UserFragment<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
+        : CopyWith$Fragment$UserFragment(local$user, (e) => call(user: e));
+  }
+
+  CopyWith$Fragment$MediaFragment<TRes> get media {
+    final local$media = _instance.media;
+    return local$media == null
+        ? CopyWith$Fragment$MediaFragment.stub(_then(_instance))
+        : CopyWith$Fragment$MediaFragment(local$media, (e) => call(media: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$ListActivity<TRes>
+    implements CopyWith$Fragment$ListActivity<TRes> {
+  _CopyWithStubImpl$Fragment$ListActivity(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    int? userId,
+    Enum$ActivityType? type,
+    String? status,
+    String? progress,
+    int? replyCount,
+    bool? isLocked,
+    bool? isSubscribed,
+    bool? isLiked,
+    int? likeCount,
+    int? createdAt,
+    Fragment$UserFragment? user,
+    Fragment$MediaFragment? media,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$UserFragment<TRes> get user =>
+      CopyWith$Fragment$UserFragment.stub(_res);
+  CopyWith$Fragment$MediaFragment<TRes> get media =>
+      CopyWith$Fragment$MediaFragment.stub(_res);
+}
+
+const fragmentDefinitionListActivity = FragmentDefinitionNode(
+  name: NameNode(value: 'ListActivity'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'ListActivity'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'userId'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'type'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'status'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'progress'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'replyCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLocked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isSubscribed'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLiked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'likeCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'createdAt'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'user'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'UserFragment'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: 'media'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'MediaFragment'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentListActivity = DocumentNode(definitions: [
+  fragmentDefinitionListActivity,
+  fragmentDefinitionUserFragment,
+  fragmentDefinitionMediaFragment,
+]);
+
+extension ClientExtension$Fragment$ListActivity on graphql.GraphQLClient {
+  void writeFragment$ListActivity({
+    required Fragment$ListActivity data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
+      this.writeFragment(
+        graphql.FragmentRequest(
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'ListActivity',
+            document: documentNodeFragmentListActivity,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$ListActivity? readFragment$ListActivity({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'ListActivity',
+          document: documentNodeFragmentListActivity,
+        ),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Fragment$ListActivity.fromJson(result);
+  }
+}
+
+class Fragment$MessageActivity {
+  Fragment$MessageActivity({
+    required this.id,
+    this.type,
+    this.message,
+    required this.replyCount,
+    this.isPrivate,
+    this.isLocked,
+    this.isSubscribed,
+    this.isLiked,
+    required this.likeCount,
+    required this.createdAt,
+    this.userId,
+    this.messenger,
+    this.$__typename = 'MessageActivity',
+  });
+
+  factory Fragment$MessageActivity.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$type = json['type'];
+    final l$message = json['message'];
+    final l$replyCount = json['replyCount'];
+    final l$isPrivate = json['isPrivate'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$isLiked = json['isLiked'];
+    final l$likeCount = json['likeCount'];
+    final l$createdAt = json['createdAt'];
+    final l$userId = json['userId'];
+    final l$messenger = json['messenger'];
+    final l$$__typename = json['__typename'];
+    return Fragment$MessageActivity(
+      id: (l$id as int),
+      type: l$type == null
+          ? null
+          : fromJson$Enum$ActivityType((l$type as String)),
+      message: (l$message as String?),
+      replyCount: (l$replyCount as int),
+      isPrivate: (l$isPrivate as bool?),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      isLiked: (l$isLiked as bool?),
+      likeCount: (l$likeCount as int),
+      createdAt: (l$createdAt as int),
+      userId: (l$userId as int?),
+      messenger: l$messenger == null
+          ? null
+          : Fragment$MessageActivity$messenger.fromJson(
+              (l$messenger as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final Enum$ActivityType? type;
+
+  final String? message;
+
+  final int replyCount;
+
+  final bool? isPrivate;
+
+  final bool? isLocked;
+
+  final bool? isSubscribed;
+
+  final bool? isLiked;
+
+  final int likeCount;
+
+  final int createdAt;
+
+  final int? userId;
+
+  final Fragment$MessageActivity$messenger? messenger;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$type = type;
+    _resultData['type'] =
+        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    final l$message = message;
+    _resultData['message'] = l$message;
+    final l$replyCount = replyCount;
+    _resultData['replyCount'] = l$replyCount;
+    final l$isPrivate = isPrivate;
+    _resultData['isPrivate'] = l$isPrivate;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$isLiked = isLiked;
+    _resultData['isLiked'] = l$isLiked;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$userId = userId;
+    _resultData['userId'] = l$userId;
+    final l$messenger = messenger;
+    _resultData['messenger'] = l$messenger?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$type = type;
+    final l$message = message;
+    final l$replyCount = replyCount;
+    final l$isPrivate = isPrivate;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
+    final l$isLiked = isLiked;
+    final l$likeCount = likeCount;
+    final l$createdAt = createdAt;
+    final l$userId = userId;
+    final l$messenger = messenger;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$type,
+      l$message,
+      l$replyCount,
+      l$isPrivate,
+      l$isLocked,
+      l$isSubscribed,
+      l$isLiked,
+      l$likeCount,
+      l$createdAt,
+      l$userId,
+      l$messenger,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$MessageActivity) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$message = message;
+    final lOther$message = other.message;
+    if (l$message != lOther$message) {
+      return false;
+    }
+    final l$replyCount = replyCount;
+    final lOther$replyCount = other.replyCount;
+    if (l$replyCount != lOther$replyCount) {
+      return false;
+    }
+    final l$isPrivate = isPrivate;
+    final lOther$isPrivate = other.isPrivate;
+    if (l$isPrivate != lOther$isPrivate) {
+      return false;
+    }
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$isLiked = isLiked;
+    final lOther$isLiked = other.isLiked;
+    if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    final l$messenger = messenger;
+    final lOther$messenger = other.messenger;
+    if (l$messenger != lOther$messenger) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$MessageActivity
+    on Fragment$MessageActivity {
+  CopyWith$Fragment$MessageActivity<Fragment$MessageActivity> get copyWith =>
+      CopyWith$Fragment$MessageActivity(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$MessageActivity<TRes> {
+  factory CopyWith$Fragment$MessageActivity(
+    Fragment$MessageActivity instance,
+    TRes Function(Fragment$MessageActivity) then,
+  ) = _CopyWithImpl$Fragment$MessageActivity;
+
+  factory CopyWith$Fragment$MessageActivity.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$MessageActivity;
+
+  TRes call({
+    int? id,
+    Enum$ActivityType? type,
+    String? message,
+    int? replyCount,
+    bool? isPrivate,
+    bool? isLocked,
+    bool? isSubscribed,
+    bool? isLiked,
+    int? likeCount,
+    int? createdAt,
+    int? userId,
+    Fragment$MessageActivity$messenger? messenger,
+    String? $__typename,
+  });
+  CopyWith$Fragment$MessageActivity$messenger<TRes> get messenger;
+}
+
+class _CopyWithImpl$Fragment$MessageActivity<TRes>
+    implements CopyWith$Fragment$MessageActivity<TRes> {
+  _CopyWithImpl$Fragment$MessageActivity(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$MessageActivity _instance;
+
+  final TRes Function(Fragment$MessageActivity) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? type = _undefined,
+    Object? message = _undefined,
+    Object? replyCount = _undefined,
+    Object? isPrivate = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? isLiked = _undefined,
+    Object? likeCount = _undefined,
+    Object? createdAt = _undefined,
+    Object? userId = _undefined,
+    Object? messenger = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$MessageActivity(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        type:
+            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+        message:
+            message == _undefined ? _instance.message : (message as String?),
+        replyCount: replyCount == _undefined || replyCount == null
+            ? _instance.replyCount
+            : (replyCount as int),
+        isPrivate: isPrivate == _undefined
+            ? _instance.isPrivate
+            : (isPrivate as bool?),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        userId: userId == _undefined ? _instance.userId : (userId as int?),
+        messenger: messenger == _undefined
+            ? _instance.messenger
+            : (messenger as Fragment$MessageActivity$messenger?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$MessageActivity$messenger<TRes> get messenger {
+    final local$messenger = _instance.messenger;
+    return local$messenger == null
+        ? CopyWith$Fragment$MessageActivity$messenger.stub(_then(_instance))
+        : CopyWith$Fragment$MessageActivity$messenger(
+            local$messenger, (e) => call(messenger: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$MessageActivity<TRes>
+    implements CopyWith$Fragment$MessageActivity<TRes> {
+  _CopyWithStubImpl$Fragment$MessageActivity(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    Enum$ActivityType? type,
+    String? message,
+    int? replyCount,
+    bool? isPrivate,
+    bool? isLocked,
+    bool? isSubscribed,
+    bool? isLiked,
+    int? likeCount,
+    int? createdAt,
+    int? userId,
+    Fragment$MessageActivity$messenger? messenger,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$MessageActivity$messenger<TRes> get messenger =>
+      CopyWith$Fragment$MessageActivity$messenger.stub(_res);
+}
+
+const fragmentDefinitionMessageActivity = FragmentDefinitionNode(
+  name: NameNode(value: 'MessageActivity'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'MessageActivity'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'type'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'message'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'replyCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isPrivate'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLocked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isSubscribed'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLiked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'likeCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'createdAt'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'messengerId'),
+      alias: NameNode(value: 'userId'),
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'messenger'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'id'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'name'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'donatorTier'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'donatorBadge'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'moderatorRoles'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'avatar'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'large'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentMessageActivity = DocumentNode(definitions: [
+  fragmentDefinitionMessageActivity,
+]);
+
+extension ClientExtension$Fragment$MessageActivity on graphql.GraphQLClient {
+  void writeFragment$MessageActivity({
+    required Fragment$MessageActivity data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
+      this.writeFragment(
+        graphql.FragmentRequest(
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'MessageActivity',
+            document: documentNodeFragmentMessageActivity,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$MessageActivity? readFragment$MessageActivity({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'MessageActivity',
+          document: documentNodeFragmentMessageActivity,
+        ),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Fragment$MessageActivity.fromJson(result);
+  }
+}
+
+class Fragment$MessageActivity$messenger {
+  Fragment$MessageActivity$messenger({
+    required this.id,
+    required this.name,
+    this.donatorTier,
+    this.donatorBadge,
+    this.moderatorRoles,
+    this.avatar,
+    this.$__typename = 'User',
+  });
+
+  factory Fragment$MessageActivity$messenger.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$donatorTier = json['donatorTier'];
+    final l$donatorBadge = json['donatorBadge'];
+    final l$moderatorRoles = json['moderatorRoles'];
+    final l$avatar = json['avatar'];
+    final l$$__typename = json['__typename'];
+    return Fragment$MessageActivity$messenger(
+      id: (l$id as int),
+      name: (l$name as String),
+      donatorTier: (l$donatorTier as int?),
+      donatorBadge: (l$donatorBadge as String?),
+      moderatorRoles: (l$moderatorRoles as List<dynamic>?)
+          ?.map((e) => e == null ? null : fromJson$Enum$ModRole((e as String)))
+          .toList(),
+      avatar: l$avatar == null
+          ? null
+          : Fragment$MessageActivity$messenger$avatar.fromJson(
+              (l$avatar as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final int? donatorTier;
+
+  final String? donatorBadge;
+
+  final List<Enum$ModRole?>? moderatorRoles;
+
+  final Fragment$MessageActivity$messenger$avatar? avatar;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$donatorTier = donatorTier;
+    _resultData['donatorTier'] = l$donatorTier;
+    final l$donatorBadge = donatorBadge;
+    _resultData['donatorBadge'] = l$donatorBadge;
+    final l$moderatorRoles = moderatorRoles;
+    _resultData['moderatorRoles'] = l$moderatorRoles
+        ?.map((e) => e == null ? null : toJson$Enum$ModRole(e))
+        .toList();
+    final l$avatar = avatar;
+    _resultData['avatar'] = l$avatar?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$donatorTier = donatorTier;
+    final l$donatorBadge = donatorBadge;
+    final l$moderatorRoles = moderatorRoles;
+    final l$avatar = avatar;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$donatorTier,
+      l$donatorBadge,
+      l$moderatorRoles == null
+          ? null
+          : Object.hashAll(l$moderatorRoles.map((v) => v)),
+      l$avatar,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$MessageActivity$messenger) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$donatorTier = donatorTier;
+    final lOther$donatorTier = other.donatorTier;
+    if (l$donatorTier != lOther$donatorTier) {
+      return false;
+    }
+    final l$donatorBadge = donatorBadge;
+    final lOther$donatorBadge = other.donatorBadge;
+    if (l$donatorBadge != lOther$donatorBadge) {
+      return false;
+    }
+    final l$moderatorRoles = moderatorRoles;
+    final lOther$moderatorRoles = other.moderatorRoles;
+    if (l$moderatorRoles != null && lOther$moderatorRoles != null) {
+      if (l$moderatorRoles.length != lOther$moderatorRoles.length) {
+        return false;
+      }
+      for (int i = 0; i < l$moderatorRoles.length; i++) {
+        final l$moderatorRoles$entry = l$moderatorRoles[i];
+        final lOther$moderatorRoles$entry = lOther$moderatorRoles[i];
+        if (l$moderatorRoles$entry != lOther$moderatorRoles$entry) {
+          return false;
+        }
+      }
+    } else if (l$moderatorRoles != lOther$moderatorRoles) {
+      return false;
+    }
+    final l$avatar = avatar;
+    final lOther$avatar = other.avatar;
+    if (l$avatar != lOther$avatar) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$MessageActivity$messenger
+    on Fragment$MessageActivity$messenger {
+  CopyWith$Fragment$MessageActivity$messenger<
+          Fragment$MessageActivity$messenger>
+      get copyWith => CopyWith$Fragment$MessageActivity$messenger(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$MessageActivity$messenger<TRes> {
+  factory CopyWith$Fragment$MessageActivity$messenger(
+    Fragment$MessageActivity$messenger instance,
+    TRes Function(Fragment$MessageActivity$messenger) then,
+  ) = _CopyWithImpl$Fragment$MessageActivity$messenger;
+
+  factory CopyWith$Fragment$MessageActivity$messenger.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$MessageActivity$messenger;
+
+  TRes call({
+    int? id,
+    String? name,
+    int? donatorTier,
+    String? donatorBadge,
+    List<Enum$ModRole?>? moderatorRoles,
+    Fragment$MessageActivity$messenger$avatar? avatar,
+    String? $__typename,
+  });
+  CopyWith$Fragment$MessageActivity$messenger$avatar<TRes> get avatar;
+}
+
+class _CopyWithImpl$Fragment$MessageActivity$messenger<TRes>
+    implements CopyWith$Fragment$MessageActivity$messenger<TRes> {
+  _CopyWithImpl$Fragment$MessageActivity$messenger(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$MessageActivity$messenger _instance;
+
+  final TRes Function(Fragment$MessageActivity$messenger) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? donatorTier = _undefined,
+    Object? donatorBadge = _undefined,
+    Object? moderatorRoles = _undefined,
+    Object? avatar = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$MessageActivity$messenger(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        donatorTier: donatorTier == _undefined
+            ? _instance.donatorTier
+            : (donatorTier as int?),
+        donatorBadge: donatorBadge == _undefined
+            ? _instance.donatorBadge
+            : (donatorBadge as String?),
+        moderatorRoles: moderatorRoles == _undefined
+            ? _instance.moderatorRoles
+            : (moderatorRoles as List<Enum$ModRole?>?),
+        avatar: avatar == _undefined
+            ? _instance.avatar
+            : (avatar as Fragment$MessageActivity$messenger$avatar?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$MessageActivity$messenger$avatar<TRes> get avatar {
+    final local$avatar = _instance.avatar;
+    return local$avatar == null
+        ? CopyWith$Fragment$MessageActivity$messenger$avatar.stub(
+            _then(_instance))
+        : CopyWith$Fragment$MessageActivity$messenger$avatar(
+            local$avatar, (e) => call(avatar: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$MessageActivity$messenger<TRes>
+    implements CopyWith$Fragment$MessageActivity$messenger<TRes> {
+  _CopyWithStubImpl$Fragment$MessageActivity$messenger(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    int? donatorTier,
+    String? donatorBadge,
+    List<Enum$ModRole?>? moderatorRoles,
+    Fragment$MessageActivity$messenger$avatar? avatar,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$MessageActivity$messenger$avatar<TRes> get avatar =>
+      CopyWith$Fragment$MessageActivity$messenger$avatar.stub(_res);
+}
+
+class Fragment$MessageActivity$messenger$avatar {
+  Fragment$MessageActivity$messenger$avatar({
+    this.large,
+    this.$__typename = 'UserAvatar',
+  });
+
+  factory Fragment$MessageActivity$messenger$avatar.fromJson(
+      Map<String, dynamic> json) {
+    final l$large = json['large'];
+    final l$$__typename = json['__typename'];
+    return Fragment$MessageActivity$messenger$avatar(
+      large: (l$large as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? large;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$large = large;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$large,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$MessageActivity$messenger$avatar) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$MessageActivity$messenger$avatar
+    on Fragment$MessageActivity$messenger$avatar {
+  CopyWith$Fragment$MessageActivity$messenger$avatar<
+          Fragment$MessageActivity$messenger$avatar>
+      get copyWith => CopyWith$Fragment$MessageActivity$messenger$avatar(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$MessageActivity$messenger$avatar<TRes> {
+  factory CopyWith$Fragment$MessageActivity$messenger$avatar(
+    Fragment$MessageActivity$messenger$avatar instance,
+    TRes Function(Fragment$MessageActivity$messenger$avatar) then,
+  ) = _CopyWithImpl$Fragment$MessageActivity$messenger$avatar;
+
+  factory CopyWith$Fragment$MessageActivity$messenger$avatar.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$MessageActivity$messenger$avatar;
+
+  TRes call({
+    String? large,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$MessageActivity$messenger$avatar<TRes>
+    implements CopyWith$Fragment$MessageActivity$messenger$avatar<TRes> {
+  _CopyWithImpl$Fragment$MessageActivity$messenger$avatar(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$MessageActivity$messenger$avatar _instance;
+
+  final TRes Function(Fragment$MessageActivity$messenger$avatar) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? large = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$MessageActivity$messenger$avatar(
+        large: large == _undefined ? _instance.large : (large as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$MessageActivity$messenger$avatar<TRes>
+    implements CopyWith$Fragment$MessageActivity$messenger$avatar<TRes> {
+  _CopyWithStubImpl$Fragment$MessageActivity$messenger$avatar(this._res);
 
   TRes _res;
 

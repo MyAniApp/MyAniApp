@@ -25,6 +25,8 @@ class MediaOverviewPage extends ConsumerWidget {
     return ListView(
       padding: const EdgeInsets.all(8),
       children: [
+        if (media.value!.genres?.isNotEmpty == true)
+          Genres(genres: media.value!.genres!.cast()),
         if (media.value!.description != null)
           Description(media.value!.description),
         const SizedBox(
@@ -42,6 +44,40 @@ class MediaOverviewPage extends ConsumerWidget {
         ),
         _Links(media: media.value!),
       ],
+    );
+  }
+}
+
+class Genres extends StatelessWidget {
+  const Genres({
+    super.key,
+    required this.genres,
+  });
+
+  final List<String> genres;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: genres
+              .map(
+                (e) => Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: ActionChip(
+                    label: Text(e),
+                    onPressed: () => context.pushRoute(
+                      SearchRoute(genre: e),
+                    ),
+                  ),
+                ),
+              )
+              .toList(),
+        ),
+      ),
     );
   }
 }
@@ -132,7 +168,6 @@ class _InfoSection extends StatelessWidget {
               onTap: () => launchUrlString(
                   'https://twitter.com/search?q=${Uri.encodeComponent(media.hashtag!)}&src=typd'),
             ),
-          InfoCard(title: 'Genres', info: media.genres!.join(', '))
         ],
       ),
     );

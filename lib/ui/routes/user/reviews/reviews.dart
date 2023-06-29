@@ -1,23 +1,28 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/user/reviews/reviews.graphql.dart';
+import 'package:myaniapp/providers/userProfile.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/pagination.dart';
 
 @RoutePage()
-class UserReviewsPage extends StatelessWidget {
-  const UserReviewsPage({super.key, required this.userId});
+class UserReviewsPage extends ConsumerWidget {
+  const UserReviewsPage(
+      {super.key, @PathParam.inherit('name') required this.name});
 
-  final int userId;
+  final String name;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var user = ref.watch(userProfileProvider(name));
+
     return Query$Reviews$Widget(
       options: Options$Query$Reviews(
-        variables: Variables$Query$Reviews(userId: userId),
+        variables: Variables$Query$Reviews(userId: user.value!.id),
       ),
       builder: (result, {fetchMore, refetch}) {
         if (result.isLoading && result.parsedData == null) {

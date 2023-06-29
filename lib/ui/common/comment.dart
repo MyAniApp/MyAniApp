@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/utils/utils.dart';
@@ -17,6 +18,7 @@ class Comment extends StatelessWidget {
     this.onTap,
     this.createdAt,
     this.leading,
+    this.badge,
   });
 
   final String? avatarUrl;
@@ -28,6 +30,7 @@ class Comment extends StatelessWidget {
   final VoidCallback? onTap;
   final List<Widget>? replies;
   final String? username;
+  final CommentBadge? badge;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +41,7 @@ class Comment extends StatelessWidget {
         shadowColor: Colors.transparent,
         margin: isReply ? const EdgeInsets.fromLTRB(5, 5, 0, 5) : null,
         child: InkWell(
+          borderRadius: imageRadius,
           onTap: onTap,
           child: ClipPath(
             clipper: ShapeBorderClipper(
@@ -70,6 +74,7 @@ class Comment extends StatelessWidget {
                         username: username,
                         createdAt: createdAt,
                         leading: leading,
+                        badge: badge,
                       ),
                     ),
                     const SizedBox(
@@ -102,6 +107,39 @@ class Comment extends StatelessWidget {
   }
 }
 
+class CommentBadge extends StatelessWidget {
+  const CommentBadge({
+    super.key,
+    required this.label,
+    this.icon,
+  });
+
+  final String label;
+  final Widget? icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.secondaryContainer,
+          borderRadius: imageRadius,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+          child: Row(
+            children: [
+              if (icon != null) icon!,
+              Text(label),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class CommentHeader extends StatelessWidget {
   const CommentHeader({
     super.key,
@@ -109,12 +147,14 @@ class CommentHeader extends StatelessWidget {
     required this.avatarUrl,
     this.createdAt,
     this.leading,
+    this.badge,
   });
 
   final String? avatarUrl;
   final int? createdAt;
   final Widget? leading;
   final String? username;
+  final CommentBadge? badge;
 
   @override
   Widget build(BuildContext context) {
@@ -143,26 +183,32 @@ class CommentHeader extends StatelessWidget {
           width: 10,
         ),
         Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              if (username != null)
-                Text(
-                  username!,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                ),
-              if (createdAt != null)
-                Text(
-                  timeago.format(
-                    dateFromTimestamp(createdAt!),
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.hintColor,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (username != null)
+                    Text(
+                      username!,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                  if (createdAt != null)
+                    Text(
+                      timeago.format(
+                        dateFromTimestamp(createdAt!),
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.hintColor,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                ],
+              ),
+              if (badge != null) badge!,
             ],
           ),
         ),

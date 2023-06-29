@@ -4,11 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/overview/overview.graphql.dart';
-import 'package:myaniapp/providers/user/user.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/cards/grid_cards.dart';
 import 'package:myaniapp/ui/common/cards/sheet_card.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
+import 'package:myaniapp/ui/common/media_editor/media_editor.dart';
 import 'package:myaniapp/ui/routes/home/app_bar.dart';
 import 'package:myaniapp/ui/routes/home/overview/guest.dart';
 import 'package:myaniapp/utils/utils.dart';
@@ -53,6 +54,7 @@ class HomeOverviewPage extends ConsumerWidget {
                 if (result.parsedData?.list?.mediaList?.isNotEmpty == true)
                   _Watching(
                     entries: result.parsedData!.list!.mediaList!.cast(),
+                    refetch: refetch,
                   ),
               ],
             ),
@@ -66,9 +68,11 @@ class HomeOverviewPage extends ConsumerWidget {
 class _Watching extends StatelessWidget {
   const _Watching({
     required this.entries,
+    required this.refetch,
   });
 
   final List<Fragment$MediaListEntry> entries;
+  final VoidCallback refetch;
 
   @override
   Widget build(BuildContext context) {
@@ -97,6 +101,8 @@ class _Watching extends StatelessWidget {
                 MediaRoute(id: entry.mediaId),
               ),
               onLongPress: (index) => showMediaCard(context, entry.media!),
+              onDoubleTap: (index) => showMediaEditor(context, entry.media!,
+                  onDelete: refetch, onSave: refetch),
             );
           },
           itemCount: entries.length,
@@ -178,52 +184,6 @@ class _Releases extends StatelessWidget {
                 ),
               );
             },
-            // // children: [
-            // //   for (final media in sortReleases(releases))
-            // //     Padding(
-            // //       padding: const EdgeInsets.only(left: 10),
-            // //       child: GridCard(
-            // //         imageUrl: media.coverImage!.extraLarge!,
-            // //         title: media.title!.userPreferred,
-            // //         index: media.id,
-            // //         aspectRatio: 1.9 / 3,
-            // //         onTap: (index) => context.pushRoute(
-            // //           MediaRoute(id: media.id),
-            // //         ),
-            // //         onLongPress: (index) => showMediaCard(context, media),
-            // //         chips: (index) {
-            // //           var next = media.nextAiringEpisode;
-            // //           var passed = media.airingSchedule?.edges
-            // //               ?.firstWhere(
-            // //                 (a) => a?.node?.episode == next!.episode - 1,
-            // //                 orElse: () => null,
-            // //               )
-            // //               ?.node;
-            // //           late dynamic use;
-            // //           bool hasPassed = false;
-
-            // //           if (isTodayFromTimestamp(passed?.airingAt) &&
-            // //               hasTimestampPassed(passed?.airingAt)) {
-            // //             use = passed;
-            // //             hasPassed = true;
-            // //           } else {
-            // //             use = next;
-            // //           }
-
-            // //           return [
-            // //             GridChip(
-            // //               top: 2,
-            // //               right: 2,
-            // //               child: Text(
-            // //                 'Episode ${use.episode.toString()} ${hasPassed ? '(' : 'in '}${timeago.format(dateFromTimestamp(use.airingAt), allowFromNow: true)}${hasPassed ? ')' : ''}'
-            // //                     .replaceAll('from now', ''),
-            // //               ),
-            // //             ),
-            // //           ];
-            // //         },
-            // //       ),
-            // //     ),
-            // ],
           ),
         ),
       ],

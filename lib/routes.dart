@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:myaniapp/providers/user/user.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 
 @AutoRouterConfig()
@@ -52,8 +52,10 @@ class AppRouter extends $AppRouter {
           page: UserRoute.page,
           path: '/user/:name',
           children: [
-            AutoRoute(page: UserOverviewRoute.page, path: 'overview'),
+            AutoRoute(page: UserOverviewRoute.page, path: ''),
             AutoRoute(page: UserReviewsRoute.page, path: 'reviews'),
+            AutoRoute(page: UserSocialRoute.page, path: 'social'),
+            AutoRoute(page: UserActivityRoute.page, path: 'activity')
           ],
         ),
         AutoRoute(page: UserAnimeListRoute.page, path: '/user/:name/anime'),

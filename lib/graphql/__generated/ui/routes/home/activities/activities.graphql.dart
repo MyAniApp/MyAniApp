@@ -457,94 +457,9 @@ const documentNodeQueryActivities = DocumentNode(definitions: [
                 )),
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'TextActivity'),
                     directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'userId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'replyCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'text'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'isLocked'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'isSubscribed'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'isLiked'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'likeCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -563,120 +478,9 @@ const documentNodeQueryActivities = DocumentNode(definitions: [
                 )),
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'ListActivity'),
                     directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'userId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'status'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'progress'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'replyCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'isLocked'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'isSubscribed'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'isLiked'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'likeCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'media'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -715,7 +519,9 @@ const documentNodeQueryActivities = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionPageInfo,
+  fragmentDefinitionTextActivity,
   fragmentDefinitionUserFragment,
+  fragmentDefinitionListActivity,
   fragmentDefinitionMediaFragment,
 ]);
 Query$Activities _parserFn$Query$Activities(Map<String, dynamic> data) =>
@@ -1226,7 +1032,7 @@ class _CopyWithStubImpl$Query$Activities$Page$activities<TRes>
 }
 
 class Query$Activities$Page$activities$$TextActivity
-    implements Query$Activities$Page$activities {
+    implements Fragment$TextActivity, Query$Activities$Page$activities {
   Query$Activities$Page$activities$$TextActivity({
     required this.id,
     this.userId,
@@ -1559,7 +1365,7 @@ class _CopyWithStubImpl$Query$Activities$Page$activities$$TextActivity<TRes>
 }
 
 class Query$Activities$Page$activities$$ListActivity
-    implements Query$Activities$Page$activities {
+    implements Fragment$ListActivity, Query$Activities$Page$activities {
   Query$Activities$Page$activities$$ListActivity({
     required this.id,
     this.userId,

@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build APK
     runs-on: ubuntu-latest
     if: contains(github.event.head_commit.message, '[build]')
     permissions:

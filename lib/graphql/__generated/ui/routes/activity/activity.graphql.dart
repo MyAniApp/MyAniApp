@@ -362,94 +362,9 @@ const documentNodeQueryActivity = DocumentNode(definitions: [
             )),
             directives: [],
             selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
+              FragmentSpreadNode(
+                name: NameNode(value: 'TextActivity'),
                 directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'userId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'type'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'replyCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'text'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLocked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isSubscribed'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'createdAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'user'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'UserFragment'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -468,120 +383,9 @@ const documentNodeQueryActivity = DocumentNode(definitions: [
             )),
             directives: [],
             selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
+              FragmentSpreadNode(
+                name: NameNode(value: 'ListActivity'),
                 directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'userId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'type'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'status'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'progress'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'replyCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLocked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isSubscribed'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'createdAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'user'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'UserFragment'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'media'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'MediaFragment'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -600,116 +404,9 @@ const documentNodeQueryActivity = DocumentNode(definitions: [
             )),
             directives: [],
             selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
+              FragmentSpreadNode(
+                name: NameNode(value: 'MessageActivity'),
                 directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'type'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'message'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'replyCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isPrivate'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLocked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isSubscribed'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'createdAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'recipient'),
-                alias: NameNode(value: 'user'),
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'messenger'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'UserFragment'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -865,8 +562,11 @@ const documentNodeQueryActivity = DocumentNode(definitions: [
       ),
     ]),
   ),
+  fragmentDefinitionTextActivity,
   fragmentDefinitionUserFragment,
+  fragmentDefinitionListActivity,
   fragmentDefinitionMediaFragment,
+  fragmentDefinitionMessageActivity,
   fragmentDefinitionPageInfo,
 ]);
 Query$Activity _parserFn$Query$Activity(Map<String, dynamic> data) =>
@@ -1176,7 +876,8 @@ class _CopyWithStubImpl$Query$Activity$activity<TRes>
   call({String? $__typename}) => _res;
 }
 
-class Query$Activity$activity$$TextActivity implements Query$Activity$activity {
+class Query$Activity$activity$$TextActivity
+    implements Fragment$TextActivity, Query$Activity$activity {
   Query$Activity$activity$$TextActivity({
     required this.id,
     this.userId,
@@ -1507,7 +1208,8 @@ class _CopyWithStubImpl$Query$Activity$activity$$TextActivity<TRes>
       CopyWith$Fragment$UserFragment.stub(_res);
 }
 
-class Query$Activity$activity$$ListActivity implements Query$Activity$activity {
+class Query$Activity$activity$$ListActivity
+    implements Fragment$ListActivity, Query$Activity$activity {
   Query$Activity$activity$$ListActivity({
     required this.id,
     this.userId,
@@ -1890,7 +1592,7 @@ class _CopyWithStubImpl$Query$Activity$activity$$ListActivity<TRes>
 }
 
 class Query$Activity$activity$$MessageActivity
-    implements Query$Activity$activity {
+    implements Fragment$MessageActivity, Query$Activity$activity {
   Query$Activity$activity$$MessageActivity({
     required this.id,
     this.type,
@@ -1902,7 +1604,7 @@ class Query$Activity$activity$$MessageActivity
     this.isLiked,
     required this.likeCount,
     required this.createdAt,
-    this.user,
+    this.userId,
     this.messenger,
     this.$__typename = 'MessageActivity',
   });
@@ -1919,7 +1621,7 @@ class Query$Activity$activity$$MessageActivity
     final l$isLiked = json['isLiked'];
     final l$likeCount = json['likeCount'];
     final l$createdAt = json['createdAt'];
-    final l$user = json['user'];
+    final l$userId = json['userId'];
     final l$messenger = json['messenger'];
     final l$$__typename = json['__typename'];
     return Query$Activity$activity$$MessageActivity(
@@ -1935,13 +1637,10 @@ class Query$Activity$activity$$MessageActivity
       isLiked: (l$isLiked as bool?),
       likeCount: (l$likeCount as int),
       createdAt: (l$createdAt as int),
-      user: l$user == null
-          ? null
-          : Query$Activity$activity$$MessageActivity$user.fromJson(
-              (l$user as Map<String, dynamic>)),
+      userId: (l$userId as int?),
       messenger: l$messenger == null
           ? null
-          : Fragment$UserFragment.fromJson(
+          : Query$Activity$activity$$MessageActivity$messenger.fromJson(
               (l$messenger as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -1967,9 +1666,9 @@ class Query$Activity$activity$$MessageActivity
 
   final int createdAt;
 
-  final Query$Activity$activity$$MessageActivity$user? user;
+  final int? userId;
 
-  final Fragment$UserFragment? messenger;
+  final Query$Activity$activity$$MessageActivity$messenger? messenger;
 
   final String $__typename;
 
@@ -1996,8 +1695,8 @@ class Query$Activity$activity$$MessageActivity
     _resultData['likeCount'] = l$likeCount;
     final l$createdAt = createdAt;
     _resultData['createdAt'] = l$createdAt;
-    final l$user = user;
-    _resultData['user'] = l$user?.toJson();
+    final l$userId = userId;
+    _resultData['userId'] = l$userId;
     final l$messenger = messenger;
     _resultData['messenger'] = l$messenger?.toJson();
     final l$$__typename = $__typename;
@@ -2017,7 +1716,7 @@ class Query$Activity$activity$$MessageActivity
     final l$isLiked = isLiked;
     final l$likeCount = likeCount;
     final l$createdAt = createdAt;
-    final l$user = user;
+    final l$userId = userId;
     final l$messenger = messenger;
     final l$$__typename = $__typename;
     return Object.hashAll([
@@ -2031,7 +1730,7 @@ class Query$Activity$activity$$MessageActivity
       l$isLiked,
       l$likeCount,
       l$createdAt,
-      l$user,
+      l$userId,
       l$messenger,
       l$$__typename,
     ]);
@@ -2096,9 +1795,9 @@ class Query$Activity$activity$$MessageActivity
     if (l$createdAt != lOther$createdAt) {
       return false;
     }
-    final l$user = user;
-    final lOther$user = other.user;
-    if (l$user != lOther$user) {
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
       return false;
     }
     final l$messenger = messenger;
@@ -2145,12 +1844,12 @@ abstract class CopyWith$Query$Activity$activity$$MessageActivity<TRes> {
     bool? isLiked,
     int? likeCount,
     int? createdAt,
-    Query$Activity$activity$$MessageActivity$user? user,
-    Fragment$UserFragment? messenger,
+    int? userId,
+    Query$Activity$activity$$MessageActivity$messenger? messenger,
     String? $__typename,
   });
-  CopyWith$Query$Activity$activity$$MessageActivity$user<TRes> get user;
-  CopyWith$Fragment$UserFragment<TRes> get messenger;
+  CopyWith$Query$Activity$activity$$MessageActivity$messenger<TRes>
+      get messenger;
 }
 
 class _CopyWithImpl$Query$Activity$activity$$MessageActivity<TRes>
@@ -2177,7 +1876,7 @@ class _CopyWithImpl$Query$Activity$activity$$MessageActivity<TRes>
     Object? isLiked = _undefined,
     Object? likeCount = _undefined,
     Object? createdAt = _undefined,
-    Object? user = _undefined,
+    Object? userId = _undefined,
     Object? messenger = _undefined,
     Object? $__typename = _undefined,
   }) =>
@@ -2205,30 +1904,22 @@ class _CopyWithImpl$Query$Activity$activity$$MessageActivity<TRes>
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Query$Activity$activity$$MessageActivity$user?),
+        userId: userId == _undefined ? _instance.userId : (userId as int?),
         messenger: messenger == _undefined
             ? _instance.messenger
-            : (messenger as Fragment$UserFragment?),
+            : (messenger
+                as Query$Activity$activity$$MessageActivity$messenger?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$Activity$activity$$MessageActivity$user<TRes> get user {
-    final local$user = _instance.user;
-    return local$user == null
-        ? CopyWith$Query$Activity$activity$$MessageActivity$user.stub(
-            _then(_instance))
-        : CopyWith$Query$Activity$activity$$MessageActivity$user(
-            local$user, (e) => call(user: e));
-  }
-
-  CopyWith$Fragment$UserFragment<TRes> get messenger {
+  CopyWith$Query$Activity$activity$$MessageActivity$messenger<TRes>
+      get messenger {
     final local$messenger = _instance.messenger;
     return local$messenger == null
-        ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
-        : CopyWith$Fragment$UserFragment(
+        ? CopyWith$Query$Activity$activity$$MessageActivity$messenger.stub(
+            _then(_instance))
+        : CopyWith$Query$Activity$activity$$MessageActivity$messenger(
             local$messenger, (e) => call(messenger: e));
   }
 }
@@ -2250,34 +1941,65 @@ class _CopyWithStubImpl$Query$Activity$activity$$MessageActivity<TRes>
     bool? isLiked,
     int? likeCount,
     int? createdAt,
-    Query$Activity$activity$$MessageActivity$user? user,
-    Fragment$UserFragment? messenger,
+    int? userId,
+    Query$Activity$activity$$MessageActivity$messenger? messenger,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$Activity$activity$$MessageActivity$user<TRes> get user =>
-      CopyWith$Query$Activity$activity$$MessageActivity$user.stub(_res);
-  CopyWith$Fragment$UserFragment<TRes> get messenger =>
-      CopyWith$Fragment$UserFragment.stub(_res);
+  CopyWith$Query$Activity$activity$$MessageActivity$messenger<TRes>
+      get messenger =>
+          CopyWith$Query$Activity$activity$$MessageActivity$messenger.stub(
+              _res);
 }
 
-class Query$Activity$activity$$MessageActivity$user {
-  Query$Activity$activity$$MessageActivity$user({
+class Query$Activity$activity$$MessageActivity$messenger
+    implements Fragment$MessageActivity$messenger {
+  Query$Activity$activity$$MessageActivity$messenger({
     required this.id,
+    required this.name,
+    this.donatorTier,
+    this.donatorBadge,
+    this.moderatorRoles,
+    this.avatar,
     this.$__typename = 'User',
   });
 
-  factory Query$Activity$activity$$MessageActivity$user.fromJson(
+  factory Query$Activity$activity$$MessageActivity$messenger.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
+    final l$name = json['name'];
+    final l$donatorTier = json['donatorTier'];
+    final l$donatorBadge = json['donatorBadge'];
+    final l$moderatorRoles = json['moderatorRoles'];
+    final l$avatar = json['avatar'];
     final l$$__typename = json['__typename'];
-    return Query$Activity$activity$$MessageActivity$user(
+    return Query$Activity$activity$$MessageActivity$messenger(
       id: (l$id as int),
+      name: (l$name as String),
+      donatorTier: (l$donatorTier as int?),
+      donatorBadge: (l$donatorBadge as String?),
+      moderatorRoles: (l$moderatorRoles as List<dynamic>?)
+          ?.map((e) => e == null ? null : fromJson$Enum$ModRole((e as String)))
+          .toList(),
+      avatar: l$avatar == null
+          ? null
+          : Query$Activity$activity$$MessageActivity$messenger$avatar.fromJson(
+              (l$avatar as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
   final int id;
+
+  final String name;
+
+  final int? donatorTier;
+
+  final String? donatorBadge;
+
+  final List<Enum$ModRole?>? moderatorRoles;
+
+  final Query$Activity$activity$$MessageActivity$messenger$avatar? avatar;
 
   final String $__typename;
 
@@ -2285,6 +2007,18 @@ class Query$Activity$activity$$MessageActivity$user {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$donatorTier = donatorTier;
+    _resultData['donatorTier'] = l$donatorTier;
+    final l$donatorBadge = donatorBadge;
+    _resultData['donatorBadge'] = l$donatorBadge;
+    final l$moderatorRoles = moderatorRoles;
+    _resultData['moderatorRoles'] = l$moderatorRoles
+        ?.map((e) => e == null ? null : toJson$Enum$ModRole(e))
+        .toList();
+    final l$avatar = avatar;
+    _resultData['avatar'] = l$avatar?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -2293,9 +2027,21 @@ class Query$Activity$activity$$MessageActivity$user {
   @override
   int get hashCode {
     final l$id = id;
+    final l$name = name;
+    final l$donatorTier = donatorTier;
+    final l$donatorBadge = donatorBadge;
+    final l$moderatorRoles = moderatorRoles;
+    final l$avatar = avatar;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
+      l$name,
+      l$donatorTier,
+      l$donatorBadge,
+      l$moderatorRoles == null
+          ? null
+          : Object.hashAll(l$moderatorRoles.map((v) => v)),
+      l$avatar,
       l$$__typename,
     ]);
   }
@@ -2305,13 +2051,49 @@ class Query$Activity$activity$$MessageActivity$user {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$Activity$activity$$MessageActivity$user) ||
+    if (!(other is Query$Activity$activity$$MessageActivity$messenger) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
     final lOther$id = other.id;
     if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$donatorTier = donatorTier;
+    final lOther$donatorTier = other.donatorTier;
+    if (l$donatorTier != lOther$donatorTier) {
+      return false;
+    }
+    final l$donatorBadge = donatorBadge;
+    final lOther$donatorBadge = other.donatorBadge;
+    if (l$donatorBadge != lOther$donatorBadge) {
+      return false;
+    }
+    final l$moderatorRoles = moderatorRoles;
+    final lOther$moderatorRoles = other.moderatorRoles;
+    if (l$moderatorRoles != null && lOther$moderatorRoles != null) {
+      if (l$moderatorRoles.length != lOther$moderatorRoles.length) {
+        return false;
+      }
+      for (int i = 0; i < l$moderatorRoles.length; i++) {
+        final l$moderatorRoles$entry = l$moderatorRoles[i];
+        final lOther$moderatorRoles$entry = lOther$moderatorRoles[i];
+        if (l$moderatorRoles$entry != lOther$moderatorRoles$entry) {
+          return false;
+        }
+      }
+    } else if (l$moderatorRoles != lOther$moderatorRoles) {
+      return false;
+    }
+    final l$avatar = avatar;
+    final lOther$avatar = other.avatar;
+    if (l$avatar != lOther$avatar) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -2323,65 +2105,254 @@ class Query$Activity$activity$$MessageActivity$user {
   }
 }
 
-extension UtilityExtension$Query$Activity$activity$$MessageActivity$user
-    on Query$Activity$activity$$MessageActivity$user {
-  CopyWith$Query$Activity$activity$$MessageActivity$user<
-          Query$Activity$activity$$MessageActivity$user>
-      get copyWith => CopyWith$Query$Activity$activity$$MessageActivity$user(
+extension UtilityExtension$Query$Activity$activity$$MessageActivity$messenger
+    on Query$Activity$activity$$MessageActivity$messenger {
+  CopyWith$Query$Activity$activity$$MessageActivity$messenger<
+          Query$Activity$activity$$MessageActivity$messenger>
+      get copyWith =>
+          CopyWith$Query$Activity$activity$$MessageActivity$messenger(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$Activity$activity$$MessageActivity$user<TRes> {
-  factory CopyWith$Query$Activity$activity$$MessageActivity$user(
-    Query$Activity$activity$$MessageActivity$user instance,
-    TRes Function(Query$Activity$activity$$MessageActivity$user) then,
-  ) = _CopyWithImpl$Query$Activity$activity$$MessageActivity$user;
+abstract class CopyWith$Query$Activity$activity$$MessageActivity$messenger<
+    TRes> {
+  factory CopyWith$Query$Activity$activity$$MessageActivity$messenger(
+    Query$Activity$activity$$MessageActivity$messenger instance,
+    TRes Function(Query$Activity$activity$$MessageActivity$messenger) then,
+  ) = _CopyWithImpl$Query$Activity$activity$$MessageActivity$messenger;
 
-  factory CopyWith$Query$Activity$activity$$MessageActivity$user.stub(
+  factory CopyWith$Query$Activity$activity$$MessageActivity$messenger.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$Activity$activity$$MessageActivity$user;
+      _CopyWithStubImpl$Query$Activity$activity$$MessageActivity$messenger;
 
   TRes call({
     int? id,
+    String? name,
+    int? donatorTier,
+    String? donatorBadge,
+    List<Enum$ModRole?>? moderatorRoles,
+    Query$Activity$activity$$MessageActivity$messenger$avatar? avatar,
     String? $__typename,
   });
+  CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar<TRes>
+      get avatar;
 }
 
-class _CopyWithImpl$Query$Activity$activity$$MessageActivity$user<TRes>
-    implements CopyWith$Query$Activity$activity$$MessageActivity$user<TRes> {
-  _CopyWithImpl$Query$Activity$activity$$MessageActivity$user(
+class _CopyWithImpl$Query$Activity$activity$$MessageActivity$messenger<TRes>
+    implements
+        CopyWith$Query$Activity$activity$$MessageActivity$messenger<TRes> {
+  _CopyWithImpl$Query$Activity$activity$$MessageActivity$messenger(
     this._instance,
     this._then,
   );
 
-  final Query$Activity$activity$$MessageActivity$user _instance;
+  final Query$Activity$activity$$MessageActivity$messenger _instance;
 
-  final TRes Function(Query$Activity$activity$$MessageActivity$user) _then;
+  final TRes Function(Query$Activity$activity$$MessageActivity$messenger) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
+    Object? name = _undefined,
+    Object? donatorTier = _undefined,
+    Object? donatorBadge = _undefined,
+    Object? moderatorRoles = _undefined,
+    Object? avatar = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$Activity$activity$$MessageActivity$user(
+      _then(Query$Activity$activity$$MessageActivity$messenger(
         id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        donatorTier: donatorTier == _undefined
+            ? _instance.donatorTier
+            : (donatorTier as int?),
+        donatorBadge: donatorBadge == _undefined
+            ? _instance.donatorBadge
+            : (donatorBadge as String?),
+        moderatorRoles: moderatorRoles == _undefined
+            ? _instance.moderatorRoles
+            : (moderatorRoles as List<Enum$ModRole?>?),
+        avatar: avatar == _undefined
+            ? _instance.avatar
+            : (avatar
+                as Query$Activity$activity$$MessageActivity$messenger$avatar?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar<TRes>
+      get avatar {
+    final local$avatar = _instance.avatar;
+    return local$avatar == null
+        ? CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar
+            .stub(_then(_instance))
+        : CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar(
+            local$avatar, (e) => call(avatar: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Activity$activity$$MessageActivity$messenger<TRes>
+    implements
+        CopyWith$Query$Activity$activity$$MessageActivity$messenger<TRes> {
+  _CopyWithStubImpl$Query$Activity$activity$$MessageActivity$messenger(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    int? donatorTier,
+    String? donatorBadge,
+    List<Enum$ModRole?>? moderatorRoles,
+    Query$Activity$activity$$MessageActivity$messenger$avatar? avatar,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar<TRes>
+      get avatar =>
+          CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar
+              .stub(_res);
+}
+
+class Query$Activity$activity$$MessageActivity$messenger$avatar
+    implements Fragment$MessageActivity$messenger$avatar {
+  Query$Activity$activity$$MessageActivity$messenger$avatar({
+    this.large,
+    this.$__typename = 'UserAvatar',
+  });
+
+  factory Query$Activity$activity$$MessageActivity$messenger$avatar.fromJson(
+      Map<String, dynamic> json) {
+    final l$large = json['large'];
+    final l$$__typename = json['__typename'];
+    return Query$Activity$activity$$MessageActivity$messenger$avatar(
+      large: (l$large as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? large;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$large = large;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$large,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Activity$activity$$MessageActivity$messenger$avatar) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$Activity$activity$$MessageActivity$messenger$avatar
+    on Query$Activity$activity$$MessageActivity$messenger$avatar {
+  CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar<
+          Query$Activity$activity$$MessageActivity$messenger$avatar>
+      get copyWith =>
+          CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar<
+    TRes> {
+  factory CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar(
+    Query$Activity$activity$$MessageActivity$messenger$avatar instance,
+    TRes Function(Query$Activity$activity$$MessageActivity$messenger$avatar)
+        then,
+  ) = _CopyWithImpl$Query$Activity$activity$$MessageActivity$messenger$avatar;
+
+  factory CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$Activity$activity$$MessageActivity$messenger$avatar;
+
+  TRes call({
+    String? large,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$Activity$activity$$MessageActivity$messenger$avatar<
+        TRes>
+    implements
+        CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar<
+            TRes> {
+  _CopyWithImpl$Query$Activity$activity$$MessageActivity$messenger$avatar(
+    this._instance,
+    this._then,
+  );
+
+  final Query$Activity$activity$$MessageActivity$messenger$avatar _instance;
+
+  final TRes Function(Query$Activity$activity$$MessageActivity$messenger$avatar)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? large = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$Activity$activity$$MessageActivity$messenger$avatar(
+        large: large == _undefined ? _instance.large : (large as String?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Query$Activity$activity$$MessageActivity$user<TRes>
-    implements CopyWith$Query$Activity$activity$$MessageActivity$user<TRes> {
-  _CopyWithStubImpl$Query$Activity$activity$$MessageActivity$user(this._res);
+class _CopyWithStubImpl$Query$Activity$activity$$MessageActivity$messenger$avatar<
+        TRes>
+    implements
+        CopyWith$Query$Activity$activity$$MessageActivity$messenger$avatar<
+            TRes> {
+  _CopyWithStubImpl$Query$Activity$activity$$MessageActivity$messenger$avatar(
+      this._res);
 
   TRes _res;
 
   call({
-    int? id,
+    String? large,
     String? $__typename,
   }) =>
       _res;
@@ -3216,73 +3187,9 @@ const documentNodeMutationSaveActivityReply = DocumentNode(definitions: [
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
+          FragmentSpreadNode(
+            name: NameNode(value: 'TextActivity'),
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'userId'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'text'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'createdAt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'activityId'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'isLiked'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'likeCount'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'user'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'UserFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -3302,7 +3209,7 @@ const documentNodeMutationSaveActivityReply = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserFragment,
+  fragmentDefinitionTextActivity,
 ]);
 Mutation$SaveActivityReply _parserFn$Mutation$SaveActivityReply(
         Map<String, dynamic> data) =>
@@ -3522,80 +3429,20 @@ class Mutation$SaveActivityReply$Widget
 }
 
 class Mutation$SaveActivityReply$SaveActivityReply {
-  Mutation$SaveActivityReply$SaveActivityReply({
-    required this.id,
-    this.userId,
-    this.text,
-    required this.createdAt,
-    this.activityId,
-    this.isLiked,
-    required this.likeCount,
-    this.user,
-    this.$__typename = 'ActivityReply',
-  });
+  Mutation$SaveActivityReply$SaveActivityReply(
+      {this.$__typename = 'ActivityReply'});
 
   factory Mutation$SaveActivityReply$SaveActivityReply.fromJson(
       Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$userId = json['userId'];
-    final l$text = json['text'];
-    final l$createdAt = json['createdAt'];
-    final l$activityId = json['activityId'];
-    final l$isLiked = json['isLiked'];
-    final l$likeCount = json['likeCount'];
-    final l$user = json['user'];
     final l$$__typename = json['__typename'];
     return Mutation$SaveActivityReply$SaveActivityReply(
-      id: (l$id as int),
-      userId: (l$userId as int?),
-      text: (l$text as String?),
-      createdAt: (l$createdAt as int),
-      activityId: (l$activityId as int?),
-      isLiked: (l$isLiked as bool?),
-      likeCount: (l$likeCount as int),
-      user: l$user == null
-          ? null
-          : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
+        $__typename: (l$$__typename as String));
   }
-
-  final int id;
-
-  final int? userId;
-
-  final String? text;
-
-  final int createdAt;
-
-  final int? activityId;
-
-  final bool? isLiked;
-
-  final int likeCount;
-
-  final Fragment$UserFragment? user;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$userId = userId;
-    _resultData['userId'] = l$userId;
-    final l$text = text;
-    _resultData['text'] = l$text;
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
-    final l$activityId = activityId;
-    _resultData['activityId'] = l$activityId;
-    final l$isLiked = isLiked;
-    _resultData['isLiked'] = l$isLiked;
-    final l$likeCount = likeCount;
-    _resultData['likeCount'] = l$likeCount;
-    final l$user = user;
-    _resultData['user'] = l$user?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -3603,26 +3450,8 @@ class Mutation$SaveActivityReply$SaveActivityReply {
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$userId = userId;
-    final l$text = text;
-    final l$createdAt = createdAt;
-    final l$activityId = activityId;
-    final l$isLiked = isLiked;
-    final l$likeCount = likeCount;
-    final l$user = user;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$userId,
-      l$text,
-      l$createdAt,
-      l$activityId,
-      l$isLiked,
-      l$likeCount,
-      l$user,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$$__typename]);
   }
 
   @override
@@ -3632,46 +3461,6 @@ class Mutation$SaveActivityReply$SaveActivityReply {
     }
     if (!(other is Mutation$SaveActivityReply$SaveActivityReply) ||
         runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$userId = userId;
-    final lOther$userId = other.userId;
-    if (l$userId != lOther$userId) {
-      return false;
-    }
-    final l$text = text;
-    final lOther$text = other.text;
-    if (l$text != lOther$text) {
-      return false;
-    }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
-      return false;
-    }
-    final l$activityId = activityId;
-    final lOther$activityId = other.activityId;
-    if (l$activityId != lOther$activityId) {
-      return false;
-    }
-    final l$isLiked = isLiked;
-    final lOther$isLiked = other.isLiked;
-    if (l$isLiked != lOther$isLiked) {
-      return false;
-    }
-    final l$likeCount = likeCount;
-    final lOther$likeCount = other.likeCount;
-    if (l$likeCount != lOther$likeCount) {
-      return false;
-    }
-    final l$user = user;
-    final lOther$user = other.user;
-    if (l$user != lOther$user) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -3702,18 +3491,7 @@ abstract class CopyWith$Mutation$SaveActivityReply$SaveActivityReply<TRes> {
   factory CopyWith$Mutation$SaveActivityReply$SaveActivityReply.stub(TRes res) =
       _CopyWithStubImpl$Mutation$SaveActivityReply$SaveActivityReply;
 
-  TRes call({
-    int? id,
-    int? userId,
-    String? text,
-    int? createdAt,
-    int? activityId,
-    bool? isLiked,
-    int? likeCount,
-    Fragment$UserFragment? user,
-    String? $__typename,
-  });
-  CopyWith$Fragment$UserFragment<TRes> get user;
+  TRes call({String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$SaveActivityReply$SaveActivityReply<TRes>
@@ -3729,44 +3507,11 @@ class _CopyWithImpl$Mutation$SaveActivityReply$SaveActivityReply<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? userId = _undefined,
-    Object? text = _undefined,
-    Object? createdAt = _undefined,
-    Object? activityId = _undefined,
-    Object? isLiked = _undefined,
-    Object? likeCount = _undefined,
-    Object? user = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
+  TRes call({Object? $__typename = _undefined}) =>
       _then(Mutation$SaveActivityReply$SaveActivityReply(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        text: text == _undefined ? _instance.text : (text as String?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        activityId: activityId == _undefined
-            ? _instance.activityId
-            : (activityId as int?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Fragment$UserFragment<TRes> get user {
-    final local$user = _instance.user;
-    return local$user == null
-        ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
-        : CopyWith$Fragment$UserFragment(local$user, (e) => call(user: e));
-  }
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
 }
 
 class _CopyWithStubImpl$Mutation$SaveActivityReply$SaveActivityReply<TRes>
@@ -3775,20 +3520,2006 @@ class _CopyWithStubImpl$Mutation$SaveActivityReply$SaveActivityReply<TRes>
 
   TRes _res;
 
+  call({String? $__typename}) => _res;
+}
+
+class Variables$Mutation$SaveMessageActivity {
+  factory Variables$Mutation$SaveMessageActivity({
+    int? id,
+    int? recipientId,
+    String? message,
+    bool? private,
+  }) =>
+      Variables$Mutation$SaveMessageActivity._({
+        if (id != null) r'id': id,
+        if (recipientId != null) r'recipientId': recipientId,
+        if (message != null) r'message': message,
+        if (private != null) r'private': private,
+      });
+
+  Variables$Mutation$SaveMessageActivity._(this._$data);
+
+  factory Variables$Mutation$SaveMessageActivity.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = (l$id as int?);
+    }
+    if (data.containsKey('recipientId')) {
+      final l$recipientId = data['recipientId'];
+      result$data['recipientId'] = (l$recipientId as int?);
+    }
+    if (data.containsKey('message')) {
+      final l$message = data['message'];
+      result$data['message'] = (l$message as String?);
+    }
+    if (data.containsKey('private')) {
+      final l$private = data['private'];
+      result$data['private'] = (l$private as bool?);
+    }
+    return Variables$Mutation$SaveMessageActivity._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get id => (_$data['id'] as int?);
+  int? get recipientId => (_$data['recipientId'] as int?);
+  String? get message => (_$data['message'] as String?);
+  bool? get private => (_$data['private'] as bool?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id;
+    }
+    if (_$data.containsKey('recipientId')) {
+      final l$recipientId = recipientId;
+      result$data['recipientId'] = l$recipientId;
+    }
+    if (_$data.containsKey('message')) {
+      final l$message = message;
+      result$data['message'] = l$message;
+    }
+    if (_$data.containsKey('private')) {
+      final l$private = private;
+      result$data['private'] = l$private;
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$SaveMessageActivity<
+          Variables$Mutation$SaveMessageActivity>
+      get copyWith => CopyWith$Variables$Mutation$SaveMessageActivity(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$SaveMessageActivity) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$recipientId = recipientId;
+    final lOther$recipientId = other.recipientId;
+    if (_$data.containsKey('recipientId') !=
+        other._$data.containsKey('recipientId')) {
+      return false;
+    }
+    if (l$recipientId != lOther$recipientId) {
+      return false;
+    }
+    final l$message = message;
+    final lOther$message = other.message;
+    if (_$data.containsKey('message') != other._$data.containsKey('message')) {
+      return false;
+    }
+    if (l$message != lOther$message) {
+      return false;
+    }
+    final l$private = private;
+    final lOther$private = other.private;
+    if (_$data.containsKey('private') != other._$data.containsKey('private')) {
+      return false;
+    }
+    if (l$private != lOther$private) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$recipientId = recipientId;
+    final l$message = message;
+    final l$private = private;
+    return Object.hashAll([
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('recipientId') ? l$recipientId : const {},
+      _$data.containsKey('message') ? l$message : const {},
+      _$data.containsKey('private') ? l$private : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$SaveMessageActivity<TRes> {
+  factory CopyWith$Variables$Mutation$SaveMessageActivity(
+    Variables$Mutation$SaveMessageActivity instance,
+    TRes Function(Variables$Mutation$SaveMessageActivity) then,
+  ) = _CopyWithImpl$Variables$Mutation$SaveMessageActivity;
+
+  factory CopyWith$Variables$Mutation$SaveMessageActivity.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$SaveMessageActivity;
+
+  TRes call({
+    int? id,
+    int? recipientId,
+    String? message,
+    bool? private,
+  });
+}
+
+class _CopyWithImpl$Variables$Mutation$SaveMessageActivity<TRes>
+    implements CopyWith$Variables$Mutation$SaveMessageActivity<TRes> {
+  _CopyWithImpl$Variables$Mutation$SaveMessageActivity(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$SaveMessageActivity _instance;
+
+  final TRes Function(Variables$Mutation$SaveMessageActivity) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? recipientId = _undefined,
+    Object? message = _undefined,
+    Object? private = _undefined,
+  }) =>
+      _then(Variables$Mutation$SaveMessageActivity._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as int?),
+        if (recipientId != _undefined) 'recipientId': (recipientId as int?),
+        if (message != _undefined) 'message': (message as String?),
+        if (private != _undefined) 'private': (private as bool?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$SaveMessageActivity<TRes>
+    implements CopyWith$Variables$Mutation$SaveMessageActivity<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$SaveMessageActivity(this._res);
+
+  TRes _res;
+
   call({
     int? id,
-    int? userId,
-    String? text,
-    int? createdAt,
-    int? activityId,
-    bool? isLiked,
-    int? likeCount,
-    Fragment$UserFragment? user,
+    int? recipientId,
+    String? message,
+    bool? private,
+  }) =>
+      _res;
+}
+
+class Mutation$SaveMessageActivity {
+  Mutation$SaveMessageActivity({
+    this.SaveMessageActivity,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$SaveMessageActivity.fromJson(Map<String, dynamic> json) {
+    final l$SaveMessageActivity = json['SaveMessageActivity'];
+    final l$$__typename = json['__typename'];
+    return Mutation$SaveMessageActivity(
+      SaveMessageActivity: l$SaveMessageActivity == null
+          ? null
+          : Fragment$MessageActivity.fromJson(
+              (l$SaveMessageActivity as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Fragment$MessageActivity? SaveMessageActivity;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$SaveMessageActivity = SaveMessageActivity;
+    _resultData['SaveMessageActivity'] = l$SaveMessageActivity?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$SaveMessageActivity = SaveMessageActivity;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$SaveMessageActivity,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$SaveMessageActivity) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$SaveMessageActivity = SaveMessageActivity;
+    final lOther$SaveMessageActivity = other.SaveMessageActivity;
+    if (l$SaveMessageActivity != lOther$SaveMessageActivity) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$SaveMessageActivity
+    on Mutation$SaveMessageActivity {
+  CopyWith$Mutation$SaveMessageActivity<Mutation$SaveMessageActivity>
+      get copyWith => CopyWith$Mutation$SaveMessageActivity(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$SaveMessageActivity<TRes> {
+  factory CopyWith$Mutation$SaveMessageActivity(
+    Mutation$SaveMessageActivity instance,
+    TRes Function(Mutation$SaveMessageActivity) then,
+  ) = _CopyWithImpl$Mutation$SaveMessageActivity;
+
+  factory CopyWith$Mutation$SaveMessageActivity.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$SaveMessageActivity;
+
+  TRes call({
+    Fragment$MessageActivity? SaveMessageActivity,
+    String? $__typename,
+  });
+  CopyWith$Fragment$MessageActivity<TRes> get SaveMessageActivity;
+}
+
+class _CopyWithImpl$Mutation$SaveMessageActivity<TRes>
+    implements CopyWith$Mutation$SaveMessageActivity<TRes> {
+  _CopyWithImpl$Mutation$SaveMessageActivity(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$SaveMessageActivity _instance;
+
+  final TRes Function(Mutation$SaveMessageActivity) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? SaveMessageActivity = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$SaveMessageActivity(
+        SaveMessageActivity: SaveMessageActivity == _undefined
+            ? _instance.SaveMessageActivity
+            : (SaveMessageActivity as Fragment$MessageActivity?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$MessageActivity<TRes> get SaveMessageActivity {
+    final local$SaveMessageActivity = _instance.SaveMessageActivity;
+    return local$SaveMessageActivity == null
+        ? CopyWith$Fragment$MessageActivity.stub(_then(_instance))
+        : CopyWith$Fragment$MessageActivity(
+            local$SaveMessageActivity, (e) => call(SaveMessageActivity: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$SaveMessageActivity<TRes>
+    implements CopyWith$Mutation$SaveMessageActivity<TRes> {
+  _CopyWithStubImpl$Mutation$SaveMessageActivity(this._res);
+
+  TRes _res;
+
+  call({
+    Fragment$MessageActivity? SaveMessageActivity,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Fragment$UserFragment<TRes> get user =>
-      CopyWith$Fragment$UserFragment.stub(_res);
+  CopyWith$Fragment$MessageActivity<TRes> get SaveMessageActivity =>
+      CopyWith$Fragment$MessageActivity.stub(_res);
+}
+
+const documentNodeMutationSaveMessageActivity = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'SaveMessageActivity'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'recipientId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'message')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'private')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Boolean'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'SaveMessageActivity'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'id'),
+            value: VariableNode(name: NameNode(value: 'id')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'recipientId'),
+            value: VariableNode(name: NameNode(value: 'recipientId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'message'),
+            value: VariableNode(name: NameNode(value: 'message')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'private'),
+            value: VariableNode(name: NameNode(value: 'private')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'MessageActivity'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionMessageActivity,
+]);
+Mutation$SaveMessageActivity _parserFn$Mutation$SaveMessageActivity(
+        Map<String, dynamic> data) =>
+    Mutation$SaveMessageActivity.fromJson(data);
+typedef OnMutationCompleted$Mutation$SaveMessageActivity = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Mutation$SaveMessageActivity?,
+);
+
+class Options$Mutation$SaveMessageActivity
+    extends graphql.MutationOptions<Mutation$SaveMessageActivity> {
+  Options$Mutation$SaveMessageActivity({
+    String? operationName,
+    Variables$Mutation$SaveMessageActivity? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$SaveMessageActivity? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$SaveMessageActivity? onCompleted,
+    graphql.OnMutationUpdate<Mutation$SaveMessageActivity>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$SaveMessageActivity(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationSaveMessageActivity,
+          parserFn: _parserFn$Mutation$SaveMessageActivity,
+        );
+
+  final OnMutationCompleted$Mutation$SaveMessageActivity? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$SaveMessageActivity
+    extends graphql.WatchQueryOptions<Mutation$SaveMessageActivity> {
+  WatchOptions$Mutation$SaveMessageActivity({
+    String? operationName,
+    Variables$Mutation$SaveMessageActivity? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$SaveMessageActivity? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationSaveMessageActivity,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$SaveMessageActivity,
+        );
+}
+
+extension ClientExtension$Mutation$SaveMessageActivity
+    on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$SaveMessageActivity>>
+      mutate$SaveMessageActivity(
+              [Options$Mutation$SaveMessageActivity? options]) async =>
+          await this.mutate(options ?? Options$Mutation$SaveMessageActivity());
+  graphql.ObservableQuery<Mutation$SaveMessageActivity>
+      watchMutation$SaveMessageActivity(
+              [WatchOptions$Mutation$SaveMessageActivity? options]) =>
+          this.watchMutation(
+              options ?? WatchOptions$Mutation$SaveMessageActivity());
+}
+
+class Mutation$SaveMessageActivity$HookResult {
+  Mutation$SaveMessageActivity$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$SaveMessageActivity runMutation;
+
+  final graphql.QueryResult<Mutation$SaveMessageActivity> result;
+}
+
+Mutation$SaveMessageActivity$HookResult useMutation$SaveMessageActivity(
+    [WidgetOptions$Mutation$SaveMessageActivity? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$SaveMessageActivity());
+  return Mutation$SaveMessageActivity$HookResult(
+    ({variables, optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables?.toJson() ?? const {},
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$SaveMessageActivity>
+    useWatchMutation$SaveMessageActivity(
+            [WatchOptions$Mutation$SaveMessageActivity? options]) =>
+        graphql_flutter.useWatchMutation(
+            options ?? WatchOptions$Mutation$SaveMessageActivity());
+
+class WidgetOptions$Mutation$SaveMessageActivity
+    extends graphql.MutationOptions<Mutation$SaveMessageActivity> {
+  WidgetOptions$Mutation$SaveMessageActivity({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$SaveMessageActivity? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$SaveMessageActivity? onCompleted,
+    graphql.OnMutationUpdate<Mutation$SaveMessageActivity>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$SaveMessageActivity(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationSaveMessageActivity,
+          parserFn: _parserFn$Mutation$SaveMessageActivity,
+        );
+
+  final OnMutationCompleted$Mutation$SaveMessageActivity? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$SaveMessageActivity
+    = graphql.MultiSourceResult<Mutation$SaveMessageActivity> Function({
+  Variables$Mutation$SaveMessageActivity? variables,
+  Object? optimisticResult,
+  Mutation$SaveMessageActivity? typedOptimisticResult,
+});
+typedef Builder$Mutation$SaveMessageActivity = widgets.Widget Function(
+  RunMutation$Mutation$SaveMessageActivity,
+  graphql.QueryResult<Mutation$SaveMessageActivity>?,
+);
+
+class Mutation$SaveMessageActivity$Widget
+    extends graphql_flutter.Mutation<Mutation$SaveMessageActivity> {
+  Mutation$SaveMessageActivity$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$SaveMessageActivity? options,
+    required Builder$Mutation$SaveMessageActivity builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$SaveMessageActivity(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            ({
+              variables,
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables?.toJson() ?? const {},
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
+}
+
+class Variables$Mutation$ToggleActivitySubscription {
+  factory Variables$Mutation$ToggleActivitySubscription({
+    int? id,
+    bool? subscribe,
+  }) =>
+      Variables$Mutation$ToggleActivitySubscription._({
+        if (id != null) r'id': id,
+        if (subscribe != null) r'subscribe': subscribe,
+      });
+
+  Variables$Mutation$ToggleActivitySubscription._(this._$data);
+
+  factory Variables$Mutation$ToggleActivitySubscription.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = (l$id as int?);
+    }
+    if (data.containsKey('subscribe')) {
+      final l$subscribe = data['subscribe'];
+      result$data['subscribe'] = (l$subscribe as bool?);
+    }
+    return Variables$Mutation$ToggleActivitySubscription._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get id => (_$data['id'] as int?);
+  bool? get subscribe => (_$data['subscribe'] as bool?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id;
+    }
+    if (_$data.containsKey('subscribe')) {
+      final l$subscribe = subscribe;
+      result$data['subscribe'] = l$subscribe;
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$ToggleActivitySubscription<
+          Variables$Mutation$ToggleActivitySubscription>
+      get copyWith => CopyWith$Variables$Mutation$ToggleActivitySubscription(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$ToggleActivitySubscription) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$subscribe = subscribe;
+    final lOther$subscribe = other.subscribe;
+    if (_$data.containsKey('subscribe') !=
+        other._$data.containsKey('subscribe')) {
+      return false;
+    }
+    if (l$subscribe != lOther$subscribe) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$subscribe = subscribe;
+    return Object.hashAll([
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('subscribe') ? l$subscribe : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$ToggleActivitySubscription<TRes> {
+  factory CopyWith$Variables$Mutation$ToggleActivitySubscription(
+    Variables$Mutation$ToggleActivitySubscription instance,
+    TRes Function(Variables$Mutation$ToggleActivitySubscription) then,
+  ) = _CopyWithImpl$Variables$Mutation$ToggleActivitySubscription;
+
+  factory CopyWith$Variables$Mutation$ToggleActivitySubscription.stub(
+          TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$ToggleActivitySubscription;
+
+  TRes call({
+    int? id,
+    bool? subscribe,
+  });
+}
+
+class _CopyWithImpl$Variables$Mutation$ToggleActivitySubscription<TRes>
+    implements CopyWith$Variables$Mutation$ToggleActivitySubscription<TRes> {
+  _CopyWithImpl$Variables$Mutation$ToggleActivitySubscription(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$ToggleActivitySubscription _instance;
+
+  final TRes Function(Variables$Mutation$ToggleActivitySubscription) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? subscribe = _undefined,
+  }) =>
+      _then(Variables$Mutation$ToggleActivitySubscription._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as int?),
+        if (subscribe != _undefined) 'subscribe': (subscribe as bool?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$ToggleActivitySubscription<TRes>
+    implements CopyWith$Variables$Mutation$ToggleActivitySubscription<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$ToggleActivitySubscription(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    bool? subscribe,
+  }) =>
+      _res;
+}
+
+class Mutation$ToggleActivitySubscription {
+  Mutation$ToggleActivitySubscription({
+    this.ToggleActivitySubscription,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$ToggleActivitySubscription.fromJson(
+      Map<String, dynamic> json) {
+    final l$ToggleActivitySubscription = json['ToggleActivitySubscription'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleActivitySubscription(
+      ToggleActivitySubscription: l$ToggleActivitySubscription == null
+          ? null
+          : Mutation$ToggleActivitySubscription$ToggleActivitySubscription
+              .fromJson((l$ToggleActivitySubscription as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$ToggleActivitySubscription$ToggleActivitySubscription?
+      ToggleActivitySubscription;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$ToggleActivitySubscription = ToggleActivitySubscription;
+    _resultData['ToggleActivitySubscription'] =
+        l$ToggleActivitySubscription?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$ToggleActivitySubscription = ToggleActivitySubscription;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$ToggleActivitySubscription,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleActivitySubscription) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$ToggleActivitySubscription = ToggleActivitySubscription;
+    final lOther$ToggleActivitySubscription = other.ToggleActivitySubscription;
+    if (l$ToggleActivitySubscription != lOther$ToggleActivitySubscription) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleActivitySubscription
+    on Mutation$ToggleActivitySubscription {
+  CopyWith$Mutation$ToggleActivitySubscription<
+          Mutation$ToggleActivitySubscription>
+      get copyWith => CopyWith$Mutation$ToggleActivitySubscription(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleActivitySubscription<TRes> {
+  factory CopyWith$Mutation$ToggleActivitySubscription(
+    Mutation$ToggleActivitySubscription instance,
+    TRes Function(Mutation$ToggleActivitySubscription) then,
+  ) = _CopyWithImpl$Mutation$ToggleActivitySubscription;
+
+  factory CopyWith$Mutation$ToggleActivitySubscription.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleActivitySubscription;
+
+  TRes call({
+    Mutation$ToggleActivitySubscription$ToggleActivitySubscription?
+        ToggleActivitySubscription,
+    String? $__typename,
+  });
+  CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription<TRes>
+      get ToggleActivitySubscription;
+}
+
+class _CopyWithImpl$Mutation$ToggleActivitySubscription<TRes>
+    implements CopyWith$Mutation$ToggleActivitySubscription<TRes> {
+  _CopyWithImpl$Mutation$ToggleActivitySubscription(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleActivitySubscription _instance;
+
+  final TRes Function(Mutation$ToggleActivitySubscription) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? ToggleActivitySubscription = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleActivitySubscription(
+        ToggleActivitySubscription: ToggleActivitySubscription == _undefined
+            ? _instance.ToggleActivitySubscription
+            : (ToggleActivitySubscription
+                as Mutation$ToggleActivitySubscription$ToggleActivitySubscription?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription<TRes>
+      get ToggleActivitySubscription {
+    final local$ToggleActivitySubscription =
+        _instance.ToggleActivitySubscription;
+    return local$ToggleActivitySubscription == null
+        ? CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription
+            .stub(_then(_instance))
+        : CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription(
+            local$ToggleActivitySubscription,
+            (e) => call(ToggleActivitySubscription: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$ToggleActivitySubscription<TRes>
+    implements CopyWith$Mutation$ToggleActivitySubscription<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleActivitySubscription(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$ToggleActivitySubscription$ToggleActivitySubscription?
+        ToggleActivitySubscription,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription<TRes>
+      get ToggleActivitySubscription =>
+          CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription
+              .stub(_res);
+}
+
+const documentNodeMutationToggleActivitySubscription =
+    DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'ToggleActivitySubscription'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'subscribe')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Boolean'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'ToggleActivitySubscription'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'activityId'),
+            value: VariableNode(name: NameNode(value: 'id')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'subscribe'),
+            value: VariableNode(name: NameNode(value: 'subscribe')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          InlineFragmentNode(
+            typeCondition: TypeConditionNode(
+                on: NamedTypeNode(
+              name: NameNode(value: 'ListActivity'),
+              isNonNull: false,
+            )),
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isSubscribed'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          InlineFragmentNode(
+            typeCondition: TypeConditionNode(
+                on: NamedTypeNode(
+              name: NameNode(value: 'TextActivity'),
+              isNonNull: false,
+            )),
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isSubscribed'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          InlineFragmentNode(
+            typeCondition: TypeConditionNode(
+                on: NamedTypeNode(
+              name: NameNode(value: 'MessageActivity'),
+              isNonNull: false,
+            )),
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isSubscribed'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Mutation$ToggleActivitySubscription
+    _parserFn$Mutation$ToggleActivitySubscription(Map<String, dynamic> data) =>
+        Mutation$ToggleActivitySubscription.fromJson(data);
+typedef OnMutationCompleted$Mutation$ToggleActivitySubscription = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Mutation$ToggleActivitySubscription?,
+);
+
+class Options$Mutation$ToggleActivitySubscription
+    extends graphql.MutationOptions<Mutation$ToggleActivitySubscription> {
+  Options$Mutation$ToggleActivitySubscription({
+    String? operationName,
+    Variables$Mutation$ToggleActivitySubscription? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$ToggleActivitySubscription? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$ToggleActivitySubscription? onCompleted,
+    graphql.OnMutationUpdate<Mutation$ToggleActivitySubscription>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$ToggleActivitySubscription(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationToggleActivitySubscription,
+          parserFn: _parserFn$Mutation$ToggleActivitySubscription,
+        );
+
+  final OnMutationCompleted$Mutation$ToggleActivitySubscription?
+      onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$ToggleActivitySubscription
+    extends graphql.WatchQueryOptions<Mutation$ToggleActivitySubscription> {
+  WatchOptions$Mutation$ToggleActivitySubscription({
+    String? operationName,
+    Variables$Mutation$ToggleActivitySubscription? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$ToggleActivitySubscription? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationToggleActivitySubscription,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$ToggleActivitySubscription,
+        );
+}
+
+extension ClientExtension$Mutation$ToggleActivitySubscription
+    on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$ToggleActivitySubscription>>
+      mutate$ToggleActivitySubscription(
+              [Options$Mutation$ToggleActivitySubscription? options]) async =>
+          await this
+              .mutate(options ?? Options$Mutation$ToggleActivitySubscription());
+  graphql.ObservableQuery<Mutation$ToggleActivitySubscription>
+      watchMutation$ToggleActivitySubscription(
+              [WatchOptions$Mutation$ToggleActivitySubscription? options]) =>
+          this.watchMutation(
+              options ?? WatchOptions$Mutation$ToggleActivitySubscription());
+}
+
+class Mutation$ToggleActivitySubscription$HookResult {
+  Mutation$ToggleActivitySubscription$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$ToggleActivitySubscription runMutation;
+
+  final graphql.QueryResult<Mutation$ToggleActivitySubscription> result;
+}
+
+Mutation$ToggleActivitySubscription$HookResult
+    useMutation$ToggleActivitySubscription(
+        [WidgetOptions$Mutation$ToggleActivitySubscription? options]) {
+  final result = graphql_flutter.useMutation(
+      options ?? WidgetOptions$Mutation$ToggleActivitySubscription());
+  return Mutation$ToggleActivitySubscription$HookResult(
+    ({variables, optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables?.toJson() ?? const {},
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$ToggleActivitySubscription>
+    useWatchMutation$ToggleActivitySubscription(
+            [WatchOptions$Mutation$ToggleActivitySubscription? options]) =>
+        graphql_flutter.useWatchMutation(
+            options ?? WatchOptions$Mutation$ToggleActivitySubscription());
+
+class WidgetOptions$Mutation$ToggleActivitySubscription
+    extends graphql.MutationOptions<Mutation$ToggleActivitySubscription> {
+  WidgetOptions$Mutation$ToggleActivitySubscription({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$ToggleActivitySubscription? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$ToggleActivitySubscription? onCompleted,
+    graphql.OnMutationUpdate<Mutation$ToggleActivitySubscription>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$ToggleActivitySubscription(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationToggleActivitySubscription,
+          parserFn: _parserFn$Mutation$ToggleActivitySubscription,
+        );
+
+  final OnMutationCompleted$Mutation$ToggleActivitySubscription?
+      onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$ToggleActivitySubscription
+    = graphql.MultiSourceResult<Mutation$ToggleActivitySubscription> Function({
+  Variables$Mutation$ToggleActivitySubscription? variables,
+  Object? optimisticResult,
+  Mutation$ToggleActivitySubscription? typedOptimisticResult,
+});
+typedef Builder$Mutation$ToggleActivitySubscription = widgets.Widget Function(
+  RunMutation$Mutation$ToggleActivitySubscription,
+  graphql.QueryResult<Mutation$ToggleActivitySubscription>?,
+);
+
+class Mutation$ToggleActivitySubscription$Widget
+    extends graphql_flutter.Mutation<Mutation$ToggleActivitySubscription> {
+  Mutation$ToggleActivitySubscription$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$ToggleActivitySubscription? options,
+    required Builder$Mutation$ToggleActivitySubscription builder,
+  }) : super(
+          key: key,
+          options:
+              options ?? WidgetOptions$Mutation$ToggleActivitySubscription(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            ({
+              variables,
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables?.toJson() ?? const {},
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
+}
+
+class Mutation$ToggleActivitySubscription$ToggleActivitySubscription {
+  Mutation$ToggleActivitySubscription$ToggleActivitySubscription(
+      {required this.$__typename});
+
+  factory Mutation$ToggleActivitySubscription$ToggleActivitySubscription.fromJson(
+      Map<String, dynamic> json) {
+    switch (json["__typename"] as String) {
+      case "ListActivity":
+        return Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity
+            .fromJson(json);
+
+      case "TextActivity":
+        return Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity
+            .fromJson(json);
+
+      case "MessageActivity":
+        return Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity
+            .fromJson(json);
+
+      default:
+        final l$$__typename = json['__typename'];
+        return Mutation$ToggleActivitySubscription$ToggleActivitySubscription(
+            $__typename: (l$$__typename as String));
+    }
+  }
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Mutation$ToggleActivitySubscription$ToggleActivitySubscription) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleActivitySubscription$ToggleActivitySubscription
+    on Mutation$ToggleActivitySubscription$ToggleActivitySubscription {
+  CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription<
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription>
+      get copyWith =>
+          CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription(
+            this,
+            (i) => i,
+          );
+  _T when<_T>({
+    required _T Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity)
+        listActivity,
+    required _T Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity)
+        textActivity,
+    required _T Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity)
+        messageActivity,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "ListActivity":
+        return listActivity(this
+            as Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity);
+
+      case "TextActivity":
+        return textActivity(this
+            as Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity);
+
+      case "MessageActivity":
+        return messageActivity(this
+            as Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity);
+
+      default:
+        return orElse();
+    }
+  }
+
+  _T maybeWhen<_T>({
+    _T Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity)?
+        listActivity,
+    _T Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity)?
+        textActivity,
+    _T Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity)?
+        messageActivity,
+    required _T Function() orElse,
+  }) {
+    switch ($__typename) {
+      case "ListActivity":
+        if (listActivity != null) {
+          return listActivity(this
+              as Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity);
+        } else {
+          return orElse();
+        }
+
+      case "TextActivity":
+        if (textActivity != null) {
+          return textActivity(this
+              as Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity);
+        } else {
+          return orElse();
+        }
+
+      case "MessageActivity":
+        if (messageActivity != null) {
+          return messageActivity(this
+              as Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity);
+        } else {
+          return orElse();
+        }
+
+      default:
+        return orElse();
+    }
+  }
+}
+
+abstract class CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription<
+    TRes> {
+  factory CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription(
+    Mutation$ToggleActivitySubscription$ToggleActivitySubscription instance,
+    TRes Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription)
+        then,
+  ) = _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription;
+
+  factory CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription;
+
+  TRes call({String? $__typename});
+}
+
+class _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription<
+            TRes> {
+  _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleActivitySubscription$ToggleActivitySubscription
+      _instance;
+
+  final TRes Function(
+      Mutation$ToggleActivitySubscription$ToggleActivitySubscription) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? $__typename = _undefined}) =>
+      _then(Mutation$ToggleActivitySubscription$ToggleActivitySubscription(
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+}
+
+class _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription<
+            TRes> {
+  _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription(
+      this._res);
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
+}
+
+class Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity
+    implements Mutation$ToggleActivitySubscription$ToggleActivitySubscription {
+  Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity({
+    required this.id,
+    this.isSubscribed,
+    this.$__typename = 'ListActivity',
+  });
+
+  factory Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity(
+      id: (l$id as int),
+      isSubscribed: (l$isSubscribed as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final bool? isSubscribed;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$isSubscribed = isSubscribed;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$isSubscribed,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity
+    on Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity {
+  CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity<
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity>
+      get copyWith =>
+          CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity<
+    TRes> {
+  factory CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity(
+    Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity
+        instance,
+    TRes Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity)
+        then,
+  ) = _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity;
+
+  factory CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity;
+
+  TRes call({
+    int? id,
+    bool? isSubscribed,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity<
+            TRes> {
+  _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity
+      _instance;
+
+  final TRes Function(
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity<
+            TRes> {
+  _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$ListActivity(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    bool? isSubscribed,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity
+    implements Mutation$ToggleActivitySubscription$ToggleActivitySubscription {
+  Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity({
+    required this.id,
+    this.isSubscribed,
+    this.$__typename = 'TextActivity',
+  });
+
+  factory Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity(
+      id: (l$id as int),
+      isSubscribed: (l$isSubscribed as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final bool? isSubscribed;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$isSubscribed = isSubscribed;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$isSubscribed,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity
+    on Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity {
+  CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity<
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity>
+      get copyWith =>
+          CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity<
+    TRes> {
+  factory CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity(
+    Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity
+        instance,
+    TRes Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity)
+        then,
+  ) = _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity;
+
+  factory CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity;
+
+  TRes call({
+    int? id,
+    bool? isSubscribed,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity<
+            TRes> {
+  _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity
+      _instance;
+
+  final TRes Function(
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity<
+            TRes> {
+  _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$TextActivity(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    bool? isSubscribed,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity
+    implements Mutation$ToggleActivitySubscription$ToggleActivitySubscription {
+  Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity({
+    required this.id,
+    this.isSubscribed,
+    this.$__typename = 'MessageActivity',
+  });
+
+  factory Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity(
+      id: (l$id as int),
+      isSubscribed: (l$isSubscribed as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final bool? isSubscribed;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$isSubscribed = isSubscribed;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$isSubscribed,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity
+    on Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity {
+  CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity<
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity>
+      get copyWith =>
+          CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity<
+    TRes> {
+  factory CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity(
+    Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity
+        instance,
+    TRes Function(
+            Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity)
+        then,
+  ) = _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity;
+
+  factory CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity;
+
+  TRes call({
+    int? id,
+    bool? isSubscribed,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity<
+            TRes> {
+  _CopyWithImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity
+      _instance;
+
+  final TRes Function(
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity<
+            TRes> {
+  _CopyWithStubImpl$Mutation$ToggleActivitySubscription$ToggleActivitySubscription$$MessageActivity(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    bool? isSubscribed,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Mutation$DeleteActivityReply {

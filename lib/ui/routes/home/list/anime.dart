@@ -5,7 +5,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/list/list.graphql.dart';
-import 'package:myaniapp/providers/user/user.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/cards/grid_cards.dart';
 import 'package:myaniapp/ui/common/cards/sheet_card.dart';

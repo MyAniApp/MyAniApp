@@ -8,7 +8,7 @@ import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/media/media.graphql.dart';
 import 'package:myaniapp/providers/media.dart';
-import 'package:myaniapp/providers/user/user.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/image.dart';

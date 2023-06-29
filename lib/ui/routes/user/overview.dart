@@ -1,61 +1,66 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/user/user.graphql.dart';
+import 'package:myaniapp/providers/userProfile.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/cards/grid_cards.dart';
 import 'package:myaniapp/ui/common/cards/sheet_card.dart';
 import 'package:myaniapp/ui/routes/media/overview.dart';
 
 @RoutePage()
-class UserOverviewPage extends StatelessWidget {
-  const UserOverviewPage({super.key, required this.user});
+class UserOverviewPage extends ConsumerWidget {
+  const UserOverviewPage(
+      {super.key, @PathParam.inherit('name') required this.name});
 
-  final Query$User$User user;
+  final String name;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var user = ref.watch(userProfileProvider(name));
+
     return ListView(
       padding: const EdgeInsets.all(8),
       children: [
-        if (user.about?.isNotEmpty == true) ...[
+        if (user.value!.about?.isNotEmpty == true) ...[
           Description(
-            user.about,
+            user.value!.about,
             height: 250,
           ),
           const SizedBox(
             height: 10,
           ),
         ],
-        if (user.statistics?.anime != null) ...[
+        if (user.value!.statistics?.anime != null) ...[
           Stats(
-            stats: user.statistics!.anime,
+            stats: user.value!.statistics!.anime,
             onTap: () =>
-                context.router.push(UserAnimeListRoute(name: user.name)),
+                context.router.push(UserAnimeListRoute(name: user.value!.name)),
           ),
           const SizedBox(
             height: 10,
           ),
         ],
-        if (user.statistics?.manga != null) ...[
+        if (user.value!.statistics?.manga != null) ...[
           Stats(
-            stats: user.statistics!.manga,
+            stats: user.value!.statistics!.manga,
             onTap: () =>
-                context.router.push(UserMangaListRoute(name: user.name)),
+                context.router.push(UserMangaListRoute(name: user.value!.name)),
           ),
           const SizedBox(
             height: 10,
           ),
         ],
-        if (user.statistics!.anime?.genres?.isNotEmpty == true ||
-            user.statistics!.manga?.genres?.isNotEmpty == true) ...[
-          Genres(stats: user.statistics!),
+        if (user.value!.statistics!.anime?.genres?.isNotEmpty == true ||
+            user.value!.statistics!.manga?.genres?.isNotEmpty == true) ...[
+          Genres(stats: user.value!.statistics!),
           const SizedBox(
             height: 10,
           ),
         ],
-        if (user.favourites?.anime?.nodes?.isNotEmpty == true)
+        if (user.value!.favourites?.anime?.nodes?.isNotEmpty == true)
           Column(
             children: [
               Text(
@@ -65,10 +70,10 @@ class UserOverviewPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              FavoriteList(list: user.favourites!.anime!.nodes!.cast()),
+              FavoriteList(list: user.value!.favourites!.anime!.nodes!.cast()),
             ],
           ),
-        if (user.favourites?.manga?.nodes?.isNotEmpty == true)
+        if (user.value!.favourites?.manga?.nodes?.isNotEmpty == true)
           Column(
             children: [
               Text(
@@ -78,7 +83,7 @@ class UserOverviewPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              FavoriteList(list: user.favourites!.manga!.nodes!.cast()),
+              FavoriteList(list: user.value!.favourites!.manga!.nodes!.cast()),
             ],
           )
       ],

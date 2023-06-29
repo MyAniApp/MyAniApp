@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:myaniapp/providers/user/user.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/routes/home/drawer.dart';
@@ -31,6 +31,27 @@ class MyHomePage extends ConsumerWidget {
             body: child,
             drawer: const HomeDrawer(),
             // appBar: AppBar(),
+            // bottomNavigationBar: NavigationBar(
+            //   elevation: 0,
+            //   onDestinationSelected: router.setActiveIndex,
+            //   selectedIndex: router.activeIndex,
+            //   destinations: const [
+            //     NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            //     NavigationDestination(
+            //       icon: Icon(Icons.local_movies),
+            //       label: 'Anime',
+            //     ),
+            //     NavigationDestination(
+            //       icon: Icon(Icons.explore),
+            //       label: 'Explore',
+            //     ),
+            //     NavigationDestination(icon: Icon(Icons.book), label: 'Manga'),
+            //     NavigationDestination(
+            //       icon: Icon(Icons.chat_bubble),
+            //       label: 'Activity',
+            //     )
+            //   ],
+            // ),
             bottomNavigationBar: BottomNavigationBar(
               onTap: router.setActiveIndex,
               currentIndex: router.activeIndex,

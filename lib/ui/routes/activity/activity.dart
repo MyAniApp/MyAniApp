@@ -1,19 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
-import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/activity/activity.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/activities/activities.graphql.dart';
-import 'package:myaniapp/providers/user/user.dart';
-import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/activity_card.dart';
 import 'package:myaniapp/ui/common/comment.dart';
-import 'package:myaniapp/ui/common/delete.dart';
+import 'package:myaniapp/ui/common/dialogs/delete.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
-import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/markdown/markdown.dart';
 import 'package:myaniapp/ui/common/markdown_editor.dart';
 import 'package:myaniapp/ui/common/pagination.dart';
@@ -27,8 +22,6 @@ class ActivityPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var user = ref.watch(userProvider);
-
     return Query$Activity$Widget(
       options: Options$Query$Activity(
         variables: Variables$Query$Activity(id: id),
@@ -99,8 +92,9 @@ class ActivityPage extends ConsumerWidget {
                   SliverToBoxAdapter(
                     child: Column(
                       children: [
-                        ActivityEntry(
+                        ActivityCard(
                           activity: result.parsedData!.activity!,
+                          onDelete: () => context.popRoute(true),
                         ),
                         const SizedBox(
                           height: 10,
@@ -155,38 +149,38 @@ class ActivityPage extends ConsumerWidget {
                                 ),
                               ),
                             ),
-                            if (reply.userId == user.value?.id)
-                              PopupMenu(
-                                text: reply.text,
-                                onDelete: () => showDeleteDialog(context).then(
-                                  (value) {
-                                    if (value == true) {
-                                      client.value.mutate$DeleteActivityReply(
-                                        Options$Mutation$DeleteActivityReply(
-                                          variables:
-                                              Variables$Mutation$DeleteActivityReply(
-                                            id: reply.id,
-                                          ),
-                                          onCompleted: (p0, p1) => refetch(),
-                                        ),
-                                      );
-                                    }
-                                  },
-                                ),
-                                onEdit: (text) {
-                                  if (text.length > 2) {
-                                    client.value.mutate$SaveActivityReply(
-                                      Options$Mutation$SaveActivityReply(
+                            ActivityPopupMenu(
+                              text: reply.text,
+                              userId: reply.userId,
+                              onDelete: () => showDeleteDialog(context).then(
+                                (value) {
+                                  if (value == true) {
+                                    client.value.mutate$DeleteActivityReply(
+                                      Options$Mutation$DeleteActivityReply(
                                         variables:
-                                            Variables$Mutation$SaveActivityReply(
+                                            Variables$Mutation$DeleteActivityReply(
                                           id: reply.id,
-                                          text: text,
                                         ),
+                                        onCompleted: (p0, p1) => refetch(),
                                       ),
                                     );
                                   }
                                 },
                               ),
+                              onEdit: (text) {
+                                if (text.length > 2) {
+                                  client.value.mutate$SaveActivityReply(
+                                    Options$Mutation$SaveActivityReply(
+                                      variables:
+                                          Variables$Mutation$SaveActivityReply(
+                                        id: reply.id,
+                                        text: text,
+                                      ),
+                                    ),
+                                  );
+                                }
+                              },
+                            ),
                           ],
                         ),
                       );
@@ -200,267 +194,6 @@ class ActivityPage extends ConsumerWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class ActivityEntry extends ConsumerWidget {
-  const ActivityEntry({
-    super.key,
-    required this.activity,
-  });
-
-  final Query$Activity$activity activity;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    var user = ref.watch(userProvider);
-
-    if (activity is Query$Activity$activity$$ListActivity) {
-      // typings
-      var e = activity as Query$Activity$activity$$ListActivity;
-      return Comment(
-        avatarUrl: e.user?.avatar?.large,
-        username: e.user?.name,
-        createdAt: e.createdAt,
-        leading: Row(
-          children: [
-            if (e.userId == user.value?.id)
-              IconButton(
-                onPressed: () async {
-                  var shouldDelete = await showDeleteDialog(context);
-                  if (shouldDelete == true) {
-                    client.value.mutate$DeleteActivity(
-                      Options$Mutation$DeleteActivity(
-                        variables: Variables$Mutation$DeleteActivity(
-                          id: e.id,
-                        ),
-                        onCompleted: (p0, p1) => context.popRoute(),
-                      ),
-                    );
-                  }
-                },
-                icon: const Icon(Icons.delete),
-              ),
-            IconButton(
-              icon: Row(
-                children: [
-                  Icon(
-                    Icons.favorite,
-                    color: (e.isLiked ?? false) ? Colors.red : null,
-                  ),
-                  if (e.likeCount > 0) Text(e.likeCount.toString()),
-                ],
-              ),
-              onPressed: requireLogin(
-                ref,
-                'like',
-                () => client.value.mutate$ToggleLike(
-                  Options$Mutation$ToggleLike(
-                    variables: Variables$Mutation$ToggleLike(
-                      id: e.id,
-                      type: Enum$LikeableType.ACTIVITY,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        body: Row(
-          children: [
-            GestureDetector(
-              onTap: () => context.router.push(MediaRoute(id: e.media!.id)),
-              child: ClipRRect(
-                borderRadius: imageRadius,
-                child: CImage(
-                  imageUrl: e.media!.coverImage!.extraLarge!,
-                  height: 130,
-                  width: 85,
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: toBeginningOfSentenceCase(e.status),
-                    ),
-                    if (e.progress != null) TextSpan(text: ' ${e.progress} of'),
-                    TextSpan(
-                      text: ' ${e.media?.title?.userPreferred}',
-                      style: const TextStyle(
-                        color: linkColor,
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () => context.router.push(
-                              MediaRoute(id: e.media!.id),
-                            ),
-                    ),
-                  ],
-                ),
-                overflow: TextOverflow.clip,
-              ),
-            ),
-          ],
-        ),
-      );
-    } else if (activity is Query$Activity$activity$$TextActivity) {
-      var e = activity as Query$Activity$activity$$TextActivity;
-      return Comment(
-        body: Markdown(
-          data: e.text!,
-        ),
-        leading: Row(
-          children: [
-            IconButton(
-              icon: Row(
-                children: [
-                  Icon(
-                    Icons.favorite,
-                    color: (e.isLiked ?? false) ? Colors.red : null,
-                  ),
-                  if (e.likeCount > 0) Text(e.likeCount.toString()),
-                ],
-              ),
-              onPressed: requireLogin(
-                ref,
-                'like',
-                () => client.value.mutate$ToggleLike(
-                  Options$Mutation$ToggleLike(
-                    variables: Variables$Mutation$ToggleLike(
-                      id: e.id,
-                      type: Enum$LikeableType.ACTIVITY,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            if (e.userId == user.value?.id)
-              PopupMenu(
-                text: e.text,
-                onDelete: () => showDeleteDialog(context).then((value) {
-                  if (value == true) {
-                    client.value.mutate$DeleteActivity(
-                      Options$Mutation$DeleteActivity(
-                        variables: Variables$Mutation$DeleteActivity(
-                          id: e.id,
-                        ),
-                        onCompleted: (p0, p1) => context.popRoute(),
-                      ),
-                    );
-                  }
-                }),
-                onEdit: (text) {
-                  if (text.length > 2) {
-                    client.value.mutate$SaveTextActivity(
-                      Options$Mutation$SaveTextActivity(
-                        variables: Variables$Mutation$SaveTextActivity(
-                          id: e.id,
-                          text: text,
-                        ),
-                      ),
-                    );
-                  }
-                },
-              ),
-          ],
-        ),
-        avatarUrl: e.user?.avatar?.large,
-        username: e.user?.name,
-        createdAt: e.createdAt,
-      );
-    } else if (activity is Query$Activity$activity$$MessageActivity) {
-      var e = activity as Query$Activity$activity$$MessageActivity;
-      return Comment(
-        body: Markdown(
-          data: e.message!,
-          selectable: false,
-        ),
-        avatarUrl: e.messenger?.avatar?.large,
-        username: e.messenger?.name,
-        createdAt: e.createdAt,
-        leading: IconButton(
-          icon: Row(
-            children: [
-              Icon(
-                Icons.favorite,
-                color: (e.isLiked ?? false) ? Colors.red : null,
-              ),
-              if (e.likeCount > 0) Text(e.likeCount.toString()),
-            ],
-          ),
-          onPressed: requireLogin(
-            ref,
-            'like',
-            () => client.value.mutate$ToggleLike(
-              Options$Mutation$ToggleLike(
-                variables: Variables$Mutation$ToggleLike(
-                  id: e.id,
-                  type: Enum$LikeableType.ACTIVITY,
-                ),
-              ),
-            ),
-          ),
-        ),
-      );
-    }
-
-    return const SizedBox();
-  }
-}
-
-class PopupMenu extends StatelessWidget {
-  const PopupMenu({
-    super.key,
-    required this.onEdit,
-    required this.onDelete,
-    this.text,
-  });
-
-  final void Function(String text) onEdit;
-  final void Function() onDelete;
-  final String? text;
-
-  @override
-  Widget build(BuildContext context) {
-    return PopupMenuButton(
-      onSelected: (value) {
-        switch (value) {
-          case 0:
-            showMarkdownEditor(context, onSave: onEdit, text: text);
-            break;
-          case 1:
-            onDelete();
-            break;
-        }
-      },
-      itemBuilder: (context) => [
-        const PopupMenuItem(
-          value: 0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Icon(Icons.edit),
-              Text('Edit'),
-            ],
-          ),
-        ),
-        const PopupMenuItem(
-          value: 1,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Icon(Icons.delete),
-              Text('Delete'),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
