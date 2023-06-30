@@ -132,7 +132,7 @@ class _Releases extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 190,
+          height: 180,
           child: ListView.builder(
             padding: const EdgeInsets.only(right: 10),
             scrollDirection: Axis.horizontal,

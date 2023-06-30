@@ -108,7 +108,7 @@ class ExplorePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 190,
+                height: 180,
                 child: _List(
                   medias: result.parsedData!.trending!.media!.cast(),
                 ),
@@ -133,7 +133,7 @@ class ExplorePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 190,
+                height: 180,
                 child: _List(
                   medias: result.parsedData!.popular!.media!.cast(),
                 ),
@@ -158,7 +158,7 @@ class ExplorePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 190,
+                height: 180,
                 child: _List(
                   medias: result.parsedData!.recent!.media!.cast(),
                 ),
@@ -179,7 +179,7 @@ class _List extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.only(top: 10, right: 10),
+      padding: const EdgeInsets.only(right: 10),
       scrollDirection: Axis.horizontal,
       // shrinkWrap: true,
       itemCount: 10,
