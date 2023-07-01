@@ -5,20 +5,20 @@ import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/cards/grid_cards.dart';
 import 'package:myaniapp/ui/common/image.dart';
 
-class Voice extends StatelessWidget {
-  const Voice({super.key, required this.staff});
+@RoutePage()
+class StaffVoicePage extends StatelessWidget {
+  const StaffVoicePage({super.key, required this.medias});
 
-  final Query$Staff$Staff staff;
+  final Query$Staff$Staff$characterMedia medias;
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    var years = _Media.sort(staff.characterMedia!.edges!.cast());
+    var years = _Media.sort(medias.edges!.cast());
 
     return ListView.builder(
       padding: const EdgeInsets.all(8),
       shrinkWrap: true,
-      primary: false,
       itemBuilder: (context, index) {
         var year = years[index];
 
@@ -31,6 +31,8 @@ class Voice extends StatelessWidget {
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
             GridCards(
+              primary: false,
+              padding: const EdgeInsets.symmetric(vertical: 8),
               card: (index) {
                 var media = year.medias[index];
 
@@ -38,7 +40,8 @@ class Voice extends StatelessWidget {
                   imageUrl: media.characters!.first!.image!.large!,
                   index: index,
                   onTap: (index) => context.pushRoute(
-                      CharacterRoute(id: media.characters!.first!.id)),
+                    CharacterRoute(id: media.characters!.first!.id),
+                  ),
                   aspectRatio: 1.7 / 3,
                   title: media.characters!.first!.name!.userPreferred,
                   underTitle: (index, style) =>

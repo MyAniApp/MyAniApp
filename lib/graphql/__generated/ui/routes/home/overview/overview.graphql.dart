@@ -12,13 +12,11 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 class Variables$Query$Overview {
   factory Variables$Query$Overview({
     int? page,
-    int? perPage,
     required int userId,
     Enum$MediaType? type,
   }) =>
       Variables$Query$Overview._({
         if (page != null) r'page': page,
-        if (perPage != null) r'perPage': perPage,
         r'userId': userId,
         if (type != null) r'type': type,
       });
@@ -30,10 +28,6 @@ class Variables$Query$Overview {
     if (data.containsKey('page')) {
       final l$page = data['page'];
       result$data['page'] = (l$page as int?);
-    }
-    if (data.containsKey('perPage')) {
-      final l$perPage = data['perPage'];
-      result$data['perPage'] = (l$perPage as int?);
     }
     final l$userId = data['userId'];
     result$data['userId'] = (l$userId as int);
@@ -48,7 +42,6 @@ class Variables$Query$Overview {
   Map<String, dynamic> _$data;
 
   int? get page => (_$data['page'] as int?);
-  int? get perPage => (_$data['perPage'] as int?);
   int get userId => (_$data['userId'] as int);
   Enum$MediaType? get type => (_$data['type'] as Enum$MediaType?);
   Map<String, dynamic> toJson() {
@@ -56,10 +49,6 @@ class Variables$Query$Overview {
     if (_$data.containsKey('page')) {
       final l$page = page;
       result$data['page'] = l$page;
-    }
-    if (_$data.containsKey('perPage')) {
-      final l$perPage = perPage;
-      result$data['perPage'] = l$perPage;
     }
     final l$userId = userId;
     result$data['userId'] = l$userId;
@@ -93,14 +82,6 @@ class Variables$Query$Overview {
     if (l$page != lOther$page) {
       return false;
     }
-    final l$perPage = perPage;
-    final lOther$perPage = other.perPage;
-    if (_$data.containsKey('perPage') != other._$data.containsKey('perPage')) {
-      return false;
-    }
-    if (l$perPage != lOther$perPage) {
-      return false;
-    }
     final l$userId = userId;
     final lOther$userId = other.userId;
     if (l$userId != lOther$userId) {
@@ -120,12 +101,10 @@ class Variables$Query$Overview {
   @override
   int get hashCode {
     final l$page = page;
-    final l$perPage = perPage;
     final l$userId = userId;
     final l$type = type;
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('perPage') ? l$perPage : const {},
       l$userId,
       _$data.containsKey('type') ? l$type : const {},
     ]);
@@ -143,7 +122,6 @@ abstract class CopyWith$Variables$Query$Overview<TRes> {
 
   TRes call({
     int? page,
-    int? perPage,
     int? userId,
     Enum$MediaType? type,
   });
@@ -164,14 +142,12 @@ class _CopyWithImpl$Variables$Query$Overview<TRes>
 
   TRes call({
     Object? page = _undefined,
-    Object? perPage = _undefined,
     Object? userId = _undefined,
     Object? type = _undefined,
   }) =>
       _then(Variables$Query$Overview._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
-        if (perPage != _undefined) 'perPage': (perPage as int?),
         if (userId != _undefined && userId != null) 'userId': (userId as int),
         if (type != _undefined) 'type': (type as Enum$MediaType?),
       }));
@@ -185,7 +161,6 @@ class _CopyWithStubImpl$Variables$Query$Overview<TRes>
 
   call({
     int? page,
-    int? perPage,
     int? userId,
     Enum$MediaType? type,
   }) =>
@@ -196,12 +171,14 @@ class Query$Overview {
   Query$Overview({
     this.releasing,
     this.list,
+    this.forums,
     this.$__typename = 'Query',
   });
 
   factory Query$Overview.fromJson(Map<String, dynamic> json) {
     final l$releasing = json['releasing'];
     final l$list = json['list'];
+    final l$forums = json['forums'];
     final l$$__typename = json['__typename'];
     return Query$Overview(
       releasing: l$releasing == null
@@ -211,6 +188,9 @@ class Query$Overview {
       list: l$list == null
           ? null
           : Query$Overview$list.fromJson((l$list as Map<String, dynamic>)),
+      forums: l$forums == null
+          ? null
+          : Query$Overview$forums.fromJson((l$forums as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -218,6 +198,8 @@ class Query$Overview {
   final Query$Overview$releasing? releasing;
 
   final Query$Overview$list? list;
+
+  final Query$Overview$forums? forums;
 
   final String $__typename;
 
@@ -227,6 +209,8 @@ class Query$Overview {
     _resultData['releasing'] = l$releasing?.toJson();
     final l$list = list;
     _resultData['list'] = l$list?.toJson();
+    final l$forums = forums;
+    _resultData['forums'] = l$forums?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -236,10 +220,12 @@ class Query$Overview {
   int get hashCode {
     final l$releasing = releasing;
     final l$list = list;
+    final l$forums = forums;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$releasing,
       l$list,
+      l$forums,
       l$$__typename,
     ]);
   }
@@ -260,6 +246,11 @@ class Query$Overview {
     final l$list = list;
     final lOther$list = other.list;
     if (l$list != lOther$list) {
+      return false;
+    }
+    final l$forums = forums;
+    final lOther$forums = other.forums;
+    if (l$forums != lOther$forums) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -291,10 +282,12 @@ abstract class CopyWith$Query$Overview<TRes> {
   TRes call({
     Query$Overview$releasing? releasing,
     Query$Overview$list? list,
+    Query$Overview$forums? forums,
     String? $__typename,
   });
   CopyWith$Query$Overview$releasing<TRes> get releasing;
   CopyWith$Query$Overview$list<TRes> get list;
+  CopyWith$Query$Overview$forums<TRes> get forums;
 }
 
 class _CopyWithImpl$Query$Overview<TRes>
@@ -313,6 +306,7 @@ class _CopyWithImpl$Query$Overview<TRes>
   TRes call({
     Object? releasing = _undefined,
     Object? list = _undefined,
+    Object? forums = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$Overview(
@@ -322,6 +316,9 @@ class _CopyWithImpl$Query$Overview<TRes>
         list: list == _undefined
             ? _instance.list
             : (list as Query$Overview$list?),
+        forums: forums == _undefined
+            ? _instance.forums
+            : (forums as Query$Overview$forums?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -340,6 +337,13 @@ class _CopyWithImpl$Query$Overview<TRes>
         ? CopyWith$Query$Overview$list.stub(_then(_instance))
         : CopyWith$Query$Overview$list(local$list, (e) => call(list: e));
   }
+
+  CopyWith$Query$Overview$forums<TRes> get forums {
+    final local$forums = _instance.forums;
+    return local$forums == null
+        ? CopyWith$Query$Overview$forums.stub(_then(_instance))
+        : CopyWith$Query$Overview$forums(local$forums, (e) => call(forums: e));
+  }
 }
 
 class _CopyWithStubImpl$Query$Overview<TRes>
@@ -351,6 +355,7 @@ class _CopyWithStubImpl$Query$Overview<TRes>
   call({
     Query$Overview$releasing? releasing,
     Query$Overview$list? list,
+    Query$Overview$forums? forums,
     String? $__typename,
   }) =>
       _res;
@@ -358,6 +363,8 @@ class _CopyWithStubImpl$Query$Overview<TRes>
       CopyWith$Query$Overview$releasing.stub(_res);
   CopyWith$Query$Overview$list<TRes> get list =>
       CopyWith$Query$Overview$list.stub(_res);
+  CopyWith$Query$Overview$forums<TRes> get forums =>
+      CopyWith$Query$Overview$forums.stub(_res);
 }
 
 const documentNodeQueryOverview = DocumentNode(definitions: [
@@ -372,15 +379,6 @@ const documentNodeQueryOverview = DocumentNode(definitions: [
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: IntValueNode(value: '1')),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'perPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
         directives: [],
       ),
       VariableDefinitionNode(
@@ -411,11 +409,7 @@ const documentNodeQueryOverview = DocumentNode(definitions: [
           ArgumentNode(
             name: NameNode(value: 'page'),
             value: VariableNode(name: NameNode(value: 'page')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: VariableNode(name: NameNode(value: 'perPage')),
-          ),
+          )
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -537,6 +531,50 @@ const documentNodeQueryOverview = DocumentNode(definitions: [
         ]),
       ),
       FieldNode(
+        name: NameNode(value: 'Page'),
+        alias: NameNode(value: 'forums'),
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'perPage'),
+            value: IntValueNode(value: '5'),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'threads'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'sort'),
+                value: EnumValueNode(name: NameNode(value: 'REPLIED_AT_DESC')),
+              )
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FragmentSpreadNode(
+                name: NameNode(value: 'ThreadFragment'),
+                directives: [],
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
         name: NameNode(value: '__typename'),
         alias: null,
         arguments: [],
@@ -549,6 +587,7 @@ const documentNodeQueryOverview = DocumentNode(definitions: [
   fragmentDefinitionMediaFragment,
   fragmentDefinitionMediaListEntry,
   fragmentDefinitionFuzzyDate,
+  fragmentDefinitionThreadFragment,
 ]);
 Query$Overview _parserFn$Query$Overview(Map<String, dynamic> data) =>
     Query$Overview.fromJson(data);
@@ -1173,4 +1212,161 @@ class _CopyWithStubImpl$Query$Overview$list<TRes>
   }) =>
       _res;
   mediaList(_fn) => _res;
+}
+
+class Query$Overview$forums {
+  Query$Overview$forums({
+    this.threads,
+    this.$__typename = 'Page',
+  });
+
+  factory Query$Overview$forums.fromJson(Map<String, dynamic> json) {
+    final l$threads = json['threads'];
+    final l$$__typename = json['__typename'];
+    return Query$Overview$forums(
+      threads: (l$threads as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Fragment$ThreadFragment?>? threads;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$threads = threads;
+    _resultData['threads'] = l$threads?.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$threads = threads;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$threads == null ? null : Object.hashAll(l$threads.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Overview$forums) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$threads = threads;
+    final lOther$threads = other.threads;
+    if (l$threads != null && lOther$threads != null) {
+      if (l$threads.length != lOther$threads.length) {
+        return false;
+      }
+      for (int i = 0; i < l$threads.length; i++) {
+        final l$threads$entry = l$threads[i];
+        final lOther$threads$entry = lOther$threads[i];
+        if (l$threads$entry != lOther$threads$entry) {
+          return false;
+        }
+      }
+    } else if (l$threads != lOther$threads) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$Overview$forums on Query$Overview$forums {
+  CopyWith$Query$Overview$forums<Query$Overview$forums> get copyWith =>
+      CopyWith$Query$Overview$forums(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$Overview$forums<TRes> {
+  factory CopyWith$Query$Overview$forums(
+    Query$Overview$forums instance,
+    TRes Function(Query$Overview$forums) then,
+  ) = _CopyWithImpl$Query$Overview$forums;
+
+  factory CopyWith$Query$Overview$forums.stub(TRes res) =
+      _CopyWithStubImpl$Query$Overview$forums;
+
+  TRes call({
+    List<Fragment$ThreadFragment?>? threads,
+    String? $__typename,
+  });
+  TRes threads(
+      Iterable<Fragment$ThreadFragment?>? Function(
+              Iterable<
+                  CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?)
+          _fn);
+}
+
+class _CopyWithImpl$Query$Overview$forums<TRes>
+    implements CopyWith$Query$Overview$forums<TRes> {
+  _CopyWithImpl$Query$Overview$forums(
+    this._instance,
+    this._then,
+  );
+
+  final Query$Overview$forums _instance;
+
+  final TRes Function(Query$Overview$forums) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? threads = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$Overview$forums(
+        threads: threads == _undefined
+            ? _instance.threads
+            : (threads as List<Fragment$ThreadFragment?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes threads(
+          Iterable<Fragment$ThreadFragment?>? Function(
+                  Iterable<
+                      CopyWith$Fragment$ThreadFragment<
+                          Fragment$ThreadFragment>?>?)
+              _fn) =>
+      call(
+          threads: _fn(_instance.threads?.map((e) => e == null
+              ? null
+              : CopyWith$Fragment$ThreadFragment(
+                  e,
+                  (i) => i,
+                )))?.toList());
+}
+
+class _CopyWithStubImpl$Query$Overview$forums<TRes>
+    implements CopyWith$Query$Overview$forums<TRes> {
+  _CopyWithStubImpl$Query$Overview$forums(this._res);
+
+  TRes _res;
+
+  call({
+    List<Fragment$ThreadFragment?>? threads,
+    String? $__typename,
+  }) =>
+      _res;
+  threads(_fn) => _res;
 }

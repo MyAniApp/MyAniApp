@@ -25,11 +25,13 @@ class ActivityCard extends ConsumerWidget {
     required this.activity,
     this.showReplyCount,
     this.onDelete,
+    this.inActivity,
   });
 
   final dynamic activity;
   final bool? showReplyCount;
   final VoidCallback? onDelete;
+  final bool? inActivity;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,9 +41,11 @@ class ActivityCard extends ConsumerWidget {
         avatarUrl: a.user?.avatar?.large,
         username: a.user?.name,
         createdAt: a.createdAt,
-        onTap: () => context.pushRoute(ActivityRoute(id: a.id)).then((value) {
-          if (value == true) onDelete?.call();
-        }),
+        onTap: inActivity == true
+            ? () => context.pushRoute(ActivityRoute(id: a.id)).then((value) {
+                  if (value == true) onDelete?.call();
+                })
+            : null,
         leading: Row(
           children: [
             IconButton(
@@ -189,7 +193,7 @@ class ActivityCard extends ConsumerWidget {
                       variables: Variables$Mutation$DeleteActivity(
                         id: a.id,
                       ),
-                      onCompleted: (p0, p1) => context.popRoute(),
+                      onCompleted: (p0, p1) => onDelete?.call(),
                     ),
                   );
                 }
@@ -306,7 +310,7 @@ class ActivityCard extends ConsumerWidget {
                       variables: Variables$Mutation$DeleteActivity(
                         id: a.id,
                       ),
-                      onCompleted: (p0, p1) => context.popRoute(),
+                      onCompleted: (p0, p1) => onDelete?.call(),
                     ),
                   );
                 }

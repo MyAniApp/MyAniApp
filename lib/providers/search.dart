@@ -51,6 +51,8 @@ class SearchNotifier extends AutoDisposeNotifier<AsyncValue<Query$Search>> {
   }
 
   void nextPage() {
+    if (query.latestResult?.isLoading == true) return;
+
     variables = variables!.copyWith(page: (variables!.page ?? 1) + 1);
     query.fetchMore(
       FetchMoreOptions$Query$Search(

@@ -2,8 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/list/list.graphql.dart';
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
@@ -133,23 +135,66 @@ class _MediaState extends State<Media> with AutomaticKeepAliveClientMixin {
       // primary: false,
       padding: const EdgeInsets.all(8),
       card: (index) {
-        var media = widget.list.entries![index]!;
+        var entry = widget.list.entries![index]!;
 
         return GridCard(
-          imageUrl: media.media!.coverImage!.extraLarge!,
-          title: media.media!.title!.userPreferred,
+          imageUrl: entry.media!.coverImage!.extraLarge!,
+          title: entry.media!.title!.userPreferred,
           aspectRatio: 1.9 / 3,
           index: index,
-          onTap: (index) => context.pushRoute(MediaRoute(id: media.mediaId)),
-          onLongPress: (index) => showMediaCard(context, media.media!),
+          onTap: (index) => context.pushRoute(MediaRoute(id: entry.mediaId)),
+          onLongPress: (index) => showMediaCard(context, entry.media!),
           onDoubleTap: widget.canEdit
               ? (index) => showMediaEditor(
                     context,
-                    media.media!,
+                    entry.media!,
                     onDelete: widget.refresh,
                     onSave: widget.refresh,
                   )
               : null,
+          chips: (index) {
+            if (entry.status != Enum$MediaListStatus.CURRENT) return [];
+
+            if ((entry.media!.episodes ?? entry.media!.chapters) != null &&
+                entry.progress! >=
+                    (entry.media!.episodes ?? entry.media!.chapters!)) {
+              return [];
+            }
+
+            return [
+              GridChip(
+                bottom: 5,
+                right: 5,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 25,
+                      width: 30,
+                      child: IconButton(
+                        onPressed: () => client.value.mutate$SaveMediaListEntry(
+                          Options$Mutation$SaveMediaListEntry(
+                            variables: Variables$Mutation$SaveMediaListEntry(
+                              id: entry.id,
+                              progress: (entry.progress ?? 0) + 1,
+                            ),
+                          ),
+                        ),
+                        icon: const Icon(Icons.add),
+                        padding: EdgeInsets.zero,
+                        iconSize: 15,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '${entry.progress ?? '0'} / ${entry.media!.episodes ?? entry.media!.chapters ?? '??'}',
+                    )
+                  ],
+                ),
+              ),
+            ];
+          },
         );
       },
       itemCount: widget.list.entries!.length,

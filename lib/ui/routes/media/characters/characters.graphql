@@ -1,6 +1,7 @@
 query Characters($mediaId: Int, $page: Int) {
   Media(id: $mediaId) {
     id
+    countryOfOrigin
     characters(page: $page, sort: [ROLE, RELEVANCE, ID]) {
       pageInfo {
         ...PageInfo

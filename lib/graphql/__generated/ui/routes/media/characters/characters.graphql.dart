@@ -326,6 +326,13 @@ const documentNodeQueryCharacters = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'countryOfOrigin'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'characters'),
             alias: null,
             arguments: [
@@ -763,16 +770,19 @@ class Query$Characters$Widget extends graphql_flutter.Query<Query$Characters> {
 class Query$Characters$Media {
   Query$Characters$Media({
     required this.id,
+    this.countryOfOrigin,
     this.characters,
     this.$__typename = 'Media',
   });
 
   factory Query$Characters$Media.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
+    final l$countryOfOrigin = json['countryOfOrigin'];
     final l$characters = json['characters'];
     final l$$__typename = json['__typename'];
     return Query$Characters$Media(
       id: (l$id as int),
+      countryOfOrigin: (l$countryOfOrigin as String?),
       characters: l$characters == null
           ? null
           : Query$Characters$Media$characters.fromJson(
@@ -783,6 +793,8 @@ class Query$Characters$Media {
 
   final int id;
 
+  final String? countryOfOrigin;
+
   final Query$Characters$Media$characters? characters;
 
   final String $__typename;
@@ -791,6 +803,8 @@ class Query$Characters$Media {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
+    final l$countryOfOrigin = countryOfOrigin;
+    _resultData['countryOfOrigin'] = l$countryOfOrigin;
     final l$characters = characters;
     _resultData['characters'] = l$characters?.toJson();
     final l$$__typename = $__typename;
@@ -801,10 +815,12 @@ class Query$Characters$Media {
   @override
   int get hashCode {
     final l$id = id;
+    final l$countryOfOrigin = countryOfOrigin;
     final l$characters = characters;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
+      l$countryOfOrigin,
       l$characters,
       l$$__typename,
     ]);
@@ -822,6 +838,11 @@ class Query$Characters$Media {
     final l$id = id;
     final lOther$id = other.id;
     if (l$id != lOther$id) {
+      return false;
+    }
+    final l$countryOfOrigin = countryOfOrigin;
+    final lOther$countryOfOrigin = other.countryOfOrigin;
+    if (l$countryOfOrigin != lOther$countryOfOrigin) {
       return false;
     }
     final l$characters = characters;
@@ -857,6 +878,7 @@ abstract class CopyWith$Query$Characters$Media<TRes> {
 
   TRes call({
     int? id,
+    String? countryOfOrigin,
     Query$Characters$Media$characters? characters,
     String? $__typename,
   });
@@ -878,11 +900,15 @@ class _CopyWithImpl$Query$Characters$Media<TRes>
 
   TRes call({
     Object? id = _undefined,
+    Object? countryOfOrigin = _undefined,
     Object? characters = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$Characters$Media(
         id: id == _undefined || id == null ? _instance.id : (id as int),
+        countryOfOrigin: countryOfOrigin == _undefined
+            ? _instance.countryOfOrigin
+            : (countryOfOrigin as String?),
         characters: characters == _undefined
             ? _instance.characters
             : (characters as Query$Characters$Media$characters?),
@@ -907,6 +933,7 @@ class _CopyWithStubImpl$Query$Characters$Media<TRes>
 
   call({
     int? id,
+    String? countryOfOrigin,
     Query$Characters$Media$characters? characters,
     String? $__typename,
   }) =>

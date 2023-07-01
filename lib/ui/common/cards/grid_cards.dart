@@ -128,6 +128,7 @@ class GridChip extends StatelessWidget {
     this.bottom,
     this.right,
     this.left,
+    this.maxWidth = 90,
   });
 
   final double? bottom;
@@ -135,6 +136,7 @@ class GridChip extends StatelessWidget {
   final double? left;
   final double? right;
   final double? top;
+  final double maxWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +151,7 @@ class GridChip extends StatelessWidget {
           color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.9),
           borderRadius: BorderRadius.circular(10),
         ),
-        constraints: const BoxConstraints(maxWidth: 90),
+        constraints: BoxConstraints(maxWidth: maxWidth),
         child: DefaultTextStyle(
           style: Theme.of(context)
               .textTheme

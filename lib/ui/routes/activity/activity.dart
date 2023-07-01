@@ -95,6 +95,7 @@ class ActivityPage extends ConsumerWidget {
                         ActivityCard(
                           activity: result.parsedData!.activity!,
                           onDelete: () => context.popRoute(true),
+                          inActivity: true,
                         ),
                         const SizedBox(
                           height: 10,

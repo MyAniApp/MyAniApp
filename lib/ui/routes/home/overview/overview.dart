@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/overview/overview.graphql.dart';
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
@@ -10,6 +12,7 @@ import 'package:myaniapp/ui/common/cards/grid_cards.dart';
 import 'package:myaniapp/ui/common/cards/sheet_card.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/media_editor/media_editor.dart';
+import 'package:myaniapp/ui/common/thread_card.dart';
 import 'package:myaniapp/ui/routes/home/app_bar.dart';
 import 'package:myaniapp/ui/routes/home/overview/guest.dart';
 import 'package:myaniapp/utils/utils.dart';
@@ -26,7 +29,24 @@ class HomeOverviewPage extends ConsumerWidget {
     if (user.value == null) return const Guest();
 
     return Scaffold(
-      appBar: const HomeAppBar(),
+      appBar: HomeAppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Badge(
+              label: (user.value!.unreadNotificationCount ?? 0) > 0
+                  ? Text(user.value!.unreadNotificationCount!.toString())
+                  : null,
+              isLabelVisible: (user.value!.unreadNotificationCount ?? 0) > 0,
+              offset: const Offset(-2, 2),
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.notifications),
+              ),
+            ),
+          )
+        ],
+      ),
       body: Query$Overview$Widget(
         options: Options$Query$Overview(
           variables: Variables$Query$Overview(
@@ -56,6 +76,27 @@ class HomeOverviewPage extends ConsumerWidget {
                     entries: result.parsedData!.list!.mediaList!.cast(),
                     refetch: refetch,
                   ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Recent Activity',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
+                ListView.separated(
+                  padding: const EdgeInsets.all(8),
+                  shrinkWrap: true,
+                  primary: false,
+                  itemBuilder: (context, index) {
+                    var thread = result.parsedData!.forums!.threads![index]!;
+
+                    return ThreadCard(thread: thread);
+                  },
+                  separatorBuilder: (context, index) => const SizedBox(
+                    height: 10,
+                  ),
+                  itemCount: result.parsedData!.forums!.threads!.length,
+                )
               ],
             ),
           );
@@ -101,8 +142,55 @@ class _Watching extends StatelessWidget {
                 MediaRoute(id: entry.mediaId),
               ),
               onLongPress: (index) => showMediaCard(context, entry.media!),
-              onDoubleTap: (index) => showMediaEditor(context, entry.media!,
-                  onDelete: refetch, onSave: refetch),
+              onDoubleTap: (index) => showMediaEditor(
+                context,
+                entry.media!,
+                onDelete: refetch,
+                onSave: refetch,
+              ),
+              chips: (index) {
+                if ((entry.media!.episodes ?? entry.media!.chapters) != null &&
+                    entry.progress! >=
+                        (entry.media!.episodes ?? entry.media!.chapters!)) {
+                  return [];
+                }
+
+                return [
+                  GridChip(
+                    bottom: 5,
+                    right: 5,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: 25,
+                          width: 30,
+                          child: IconButton(
+                            onPressed: () =>
+                                client.value.mutate$SaveMediaListEntry(
+                              Options$Mutation$SaveMediaListEntry(
+                                variables:
+                                    Variables$Mutation$SaveMediaListEntry(
+                                  id: entry.id,
+                                  progress: (entry.progress ?? 0) + 1,
+                                ),
+                              ),
+                            ),
+                            icon: const Icon(Icons.add),
+                            padding: EdgeInsets.zero,
+                            iconSize: 15,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          '${entry.progress ?? '0'} / ${entry.media!.episodes ?? entry.media!.chapters ?? '??'}',
+                        )
+                      ],
+                    ),
+                  ),
+                ];
+              },
             );
           },
           itemCount: entries.length,
