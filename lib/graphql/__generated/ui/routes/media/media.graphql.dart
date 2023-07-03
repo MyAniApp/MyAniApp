@@ -4771,9 +4771,19 @@ class _CopyWithStubImpl$Query$Media$Media$mediaListEntry<TRes>
 }
 
 class Variables$Mutation$ToggleFavorite {
-  factory Variables$Mutation$ToggleFavorite({int? animeId}) =>
+  factory Variables$Mutation$ToggleFavorite({
+    int? animeId,
+    int? mangaId,
+    int? characterId,
+    int? staffId,
+    int? studioId,
+  }) =>
       Variables$Mutation$ToggleFavorite._({
         if (animeId != null) r'animeId': animeId,
+        if (mangaId != null) r'mangaId': mangaId,
+        if (characterId != null) r'characterId': characterId,
+        if (staffId != null) r'staffId': staffId,
+        if (studioId != null) r'studioId': studioId,
       });
 
   Variables$Mutation$ToggleFavorite._(this._$data);
@@ -4785,17 +4795,53 @@ class Variables$Mutation$ToggleFavorite {
       final l$animeId = data['animeId'];
       result$data['animeId'] = (l$animeId as int?);
     }
+    if (data.containsKey('mangaId')) {
+      final l$mangaId = data['mangaId'];
+      result$data['mangaId'] = (l$mangaId as int?);
+    }
+    if (data.containsKey('characterId')) {
+      final l$characterId = data['characterId'];
+      result$data['characterId'] = (l$characterId as int?);
+    }
+    if (data.containsKey('staffId')) {
+      final l$staffId = data['staffId'];
+      result$data['staffId'] = (l$staffId as int?);
+    }
+    if (data.containsKey('studioId')) {
+      final l$studioId = data['studioId'];
+      result$data['studioId'] = (l$studioId as int?);
+    }
     return Variables$Mutation$ToggleFavorite._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
   int? get animeId => (_$data['animeId'] as int?);
+  int? get mangaId => (_$data['mangaId'] as int?);
+  int? get characterId => (_$data['characterId'] as int?);
+  int? get staffId => (_$data['staffId'] as int?);
+  int? get studioId => (_$data['studioId'] as int?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('animeId')) {
       final l$animeId = animeId;
       result$data['animeId'] = l$animeId;
+    }
+    if (_$data.containsKey('mangaId')) {
+      final l$mangaId = mangaId;
+      result$data['mangaId'] = l$mangaId;
+    }
+    if (_$data.containsKey('characterId')) {
+      final l$characterId = characterId;
+      result$data['characterId'] = l$characterId;
+    }
+    if (_$data.containsKey('staffId')) {
+      final l$staffId = staffId;
+      result$data['staffId'] = l$staffId;
+    }
+    if (_$data.containsKey('studioId')) {
+      final l$studioId = studioId;
+      result$data['studioId'] = l$studioId;
     }
     return result$data;
   }
@@ -4822,14 +4868,57 @@ class Variables$Mutation$ToggleFavorite {
     if (l$animeId != lOther$animeId) {
       return false;
     }
+    final l$mangaId = mangaId;
+    final lOther$mangaId = other.mangaId;
+    if (_$data.containsKey('mangaId') != other._$data.containsKey('mangaId')) {
+      return false;
+    }
+    if (l$mangaId != lOther$mangaId) {
+      return false;
+    }
+    final l$characterId = characterId;
+    final lOther$characterId = other.characterId;
+    if (_$data.containsKey('characterId') !=
+        other._$data.containsKey('characterId')) {
+      return false;
+    }
+    if (l$characterId != lOther$characterId) {
+      return false;
+    }
+    final l$staffId = staffId;
+    final lOther$staffId = other.staffId;
+    if (_$data.containsKey('staffId') != other._$data.containsKey('staffId')) {
+      return false;
+    }
+    if (l$staffId != lOther$staffId) {
+      return false;
+    }
+    final l$studioId = studioId;
+    final lOther$studioId = other.studioId;
+    if (_$data.containsKey('studioId') !=
+        other._$data.containsKey('studioId')) {
+      return false;
+    }
+    if (l$studioId != lOther$studioId) {
+      return false;
+    }
     return true;
   }
 
   @override
   int get hashCode {
     final l$animeId = animeId;
-    return Object.hashAll(
-        [_$data.containsKey('animeId') ? l$animeId : const {}]);
+    final l$mangaId = mangaId;
+    final l$characterId = characterId;
+    final l$staffId = staffId;
+    final l$studioId = studioId;
+    return Object.hashAll([
+      _$data.containsKey('animeId') ? l$animeId : const {},
+      _$data.containsKey('mangaId') ? l$mangaId : const {},
+      _$data.containsKey('characterId') ? l$characterId : const {},
+      _$data.containsKey('staffId') ? l$staffId : const {},
+      _$data.containsKey('studioId') ? l$studioId : const {},
+    ]);
   }
 }
 
@@ -4842,7 +4931,13 @@ abstract class CopyWith$Variables$Mutation$ToggleFavorite<TRes> {
   factory CopyWith$Variables$Mutation$ToggleFavorite.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$ToggleFavorite;
 
-  TRes call({int? animeId});
+  TRes call({
+    int? animeId,
+    int? mangaId,
+    int? characterId,
+    int? staffId,
+    int? studioId,
+  });
 }
 
 class _CopyWithImpl$Variables$Mutation$ToggleFavorite<TRes>
@@ -4858,10 +4953,20 @@ class _CopyWithImpl$Variables$Mutation$ToggleFavorite<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? animeId = _undefined}) =>
+  TRes call({
+    Object? animeId = _undefined,
+    Object? mangaId = _undefined,
+    Object? characterId = _undefined,
+    Object? staffId = _undefined,
+    Object? studioId = _undefined,
+  }) =>
       _then(Variables$Mutation$ToggleFavorite._({
         ..._instance._$data,
         if (animeId != _undefined) 'animeId': (animeId as int?),
+        if (mangaId != _undefined) 'mangaId': (mangaId as int?),
+        if (characterId != _undefined) 'characterId': (characterId as int?),
+        if (staffId != _undefined) 'staffId': (staffId as int?),
+        if (studioId != _undefined) 'studioId': (studioId as int?),
       }));
 }
 
@@ -4871,7 +4976,14 @@ class _CopyWithStubImpl$Variables$Mutation$ToggleFavorite<TRes>
 
   TRes _res;
 
-  call({int? animeId}) => _res;
+  call({
+    int? animeId,
+    int? mangaId,
+    int? characterId,
+    int? staffId,
+    int? studioId,
+  }) =>
+      _res;
 }
 
 class Mutation$ToggleFavorite {
@@ -5025,7 +5137,43 @@ const documentNodeMutationToggleFavorite = DocumentNode(definitions: [
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'mangaId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'characterId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'staffId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'studioId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -5036,12 +5184,176 @@ const documentNodeMutationToggleFavorite = DocumentNode(definitions: [
           ArgumentNode(
             name: NameNode(value: 'animeId'),
             value: VariableNode(name: NameNode(value: 'animeId')),
-          )
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'mangaId'),
+            value: VariableNode(name: NameNode(value: 'mangaId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'characterId'),
+            value: VariableNode(name: NameNode(value: 'characterId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'staffId'),
+            value: VariableNode(name: NameNode(value: 'staffId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'studioId'),
+            value: VariableNode(name: NameNode(value: 'studioId')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
             name: NameNode(value: 'anime'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'total'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'manga'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'total'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'characters'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'total'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'staff'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'total'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'studios'),
             alias: null,
             arguments: [],
             directives: [],
@@ -5313,23 +5625,55 @@ class Mutation$ToggleFavorite$Widget
 class Mutation$ToggleFavorite$ToggleFavourite {
   Mutation$ToggleFavorite$ToggleFavourite({
     this.anime,
+    this.manga,
+    this.characters,
+    this.staff,
+    this.studios,
     this.$__typename = 'Favourites',
   });
 
   factory Mutation$ToggleFavorite$ToggleFavourite.fromJson(
       Map<String, dynamic> json) {
     final l$anime = json['anime'];
+    final l$manga = json['manga'];
+    final l$characters = json['characters'];
+    final l$staff = json['staff'];
+    final l$studios = json['studios'];
     final l$$__typename = json['__typename'];
     return Mutation$ToggleFavorite$ToggleFavourite(
       anime: l$anime == null
           ? null
           : Mutation$ToggleFavorite$ToggleFavourite$anime.fromJson(
               (l$anime as Map<String, dynamic>)),
+      manga: l$manga == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$manga.fromJson(
+              (l$manga as Map<String, dynamic>)),
+      characters: l$characters == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$characters.fromJson(
+              (l$characters as Map<String, dynamic>)),
+      staff: l$staff == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$staff.fromJson(
+              (l$staff as Map<String, dynamic>)),
+      studios: l$studios == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$studios.fromJson(
+              (l$studios as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Mutation$ToggleFavorite$ToggleFavourite$anime? anime;
+
+  final Mutation$ToggleFavorite$ToggleFavourite$manga? manga;
+
+  final Mutation$ToggleFavorite$ToggleFavourite$characters? characters;
+
+  final Mutation$ToggleFavorite$ToggleFavourite$staff? staff;
+
+  final Mutation$ToggleFavorite$ToggleFavourite$studios? studios;
 
   final String $__typename;
 
@@ -5337,6 +5681,14 @@ class Mutation$ToggleFavorite$ToggleFavourite {
     final _resultData = <String, dynamic>{};
     final l$anime = anime;
     _resultData['anime'] = l$anime?.toJson();
+    final l$manga = manga;
+    _resultData['manga'] = l$manga?.toJson();
+    final l$characters = characters;
+    _resultData['characters'] = l$characters?.toJson();
+    final l$staff = staff;
+    _resultData['staff'] = l$staff?.toJson();
+    final l$studios = studios;
+    _resultData['studios'] = l$studios?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -5345,9 +5697,17 @@ class Mutation$ToggleFavorite$ToggleFavourite {
   @override
   int get hashCode {
     final l$anime = anime;
+    final l$manga = manga;
+    final l$characters = characters;
+    final l$staff = staff;
+    final l$studios = studios;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$anime,
+      l$manga,
+      l$characters,
+      l$staff,
+      l$studios,
       l$$__typename,
     ]);
   }
@@ -5364,6 +5724,26 @@ class Mutation$ToggleFavorite$ToggleFavourite {
     final l$anime = anime;
     final lOther$anime = other.anime;
     if (l$anime != lOther$anime) {
+      return false;
+    }
+    final l$manga = manga;
+    final lOther$manga = other.manga;
+    if (l$manga != lOther$manga) {
+      return false;
+    }
+    final l$characters = characters;
+    final lOther$characters = other.characters;
+    if (l$characters != lOther$characters) {
+      return false;
+    }
+    final l$staff = staff;
+    final lOther$staff = other.staff;
+    if (l$staff != lOther$staff) {
+      return false;
+    }
+    final l$studios = studios;
+    final lOther$studios = other.studios;
+    if (l$studios != lOther$studios) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -5396,9 +5776,18 @@ abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite<TRes> {
 
   TRes call({
     Mutation$ToggleFavorite$ToggleFavourite$anime? anime,
+    Mutation$ToggleFavorite$ToggleFavourite$manga? manga,
+    Mutation$ToggleFavorite$ToggleFavourite$characters? characters,
+    Mutation$ToggleFavorite$ToggleFavourite$staff? staff,
+    Mutation$ToggleFavorite$ToggleFavourite$studios? studios,
     String? $__typename,
   });
   CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes> get anime;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga<TRes> get manga;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters<TRes>
+      get characters;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff<TRes> get staff;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios<TRes> get studios;
 }
 
 class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite<TRes>
@@ -5416,12 +5805,29 @@ class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite<TRes>
 
   TRes call({
     Object? anime = _undefined,
+    Object? manga = _undefined,
+    Object? characters = _undefined,
+    Object? staff = _undefined,
+    Object? studios = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$ToggleFavorite$ToggleFavourite(
         anime: anime == _undefined
             ? _instance.anime
             : (anime as Mutation$ToggleFavorite$ToggleFavourite$anime?),
+        manga: manga == _undefined
+            ? _instance.manga
+            : (manga as Mutation$ToggleFavorite$ToggleFavourite$manga?),
+        characters: characters == _undefined
+            ? _instance.characters
+            : (characters
+                as Mutation$ToggleFavorite$ToggleFavourite$characters?),
+        staff: staff == _undefined
+            ? _instance.staff
+            : (staff as Mutation$ToggleFavorite$ToggleFavourite$staff?),
+        studios: studios == _undefined
+            ? _instance.studios
+            : (studios as Mutation$ToggleFavorite$ToggleFavourite$studios?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -5434,6 +5840,43 @@ class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite<TRes>
         : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime(
             local$anime, (e) => call(anime: e));
   }
+
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga<TRes> get manga {
+    final local$manga = _instance.manga;
+    return local$manga == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga.stub(
+            _then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga(
+            local$manga, (e) => call(manga: e));
+  }
+
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters<TRes>
+      get characters {
+    final local$characters = _instance.characters;
+    return local$characters == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters.stub(
+            _then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters(
+            local$characters, (e) => call(characters: e));
+  }
+
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff<TRes> get staff {
+    final local$staff = _instance.staff;
+    return local$staff == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff.stub(
+            _then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff(
+            local$staff, (e) => call(staff: e));
+  }
+
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios<TRes> get studios {
+    final local$studios = _instance.studios;
+    return local$studios == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios.stub(
+            _then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios(
+            local$studios, (e) => call(studios: e));
+  }
 }
 
 class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite<TRes>
@@ -5444,11 +5887,25 @@ class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite<TRes>
 
   call({
     Mutation$ToggleFavorite$ToggleFavourite$anime? anime,
+    Mutation$ToggleFavorite$ToggleFavourite$manga? manga,
+    Mutation$ToggleFavorite$ToggleFavourite$characters? characters,
+    Mutation$ToggleFavorite$ToggleFavourite$staff? staff,
+    Mutation$ToggleFavorite$ToggleFavourite$studios? studios,
     String? $__typename,
   }) =>
       _res;
   CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime<TRes> get anime =>
       CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime.stub(_res);
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga<TRes> get manga =>
+      CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga.stub(_res);
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters<TRes>
+      get characters =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters.stub(
+              _res);
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff<TRes> get staff =>
+      CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff.stub(_res);
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios<TRes> get studios =>
+      CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios.stub(_res);
 }
 
 class Mutation$ToggleFavorite$ToggleFavourite$anime {
@@ -5720,6 +6177,1140 @@ class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<
     implements
         CopyWith$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo<TRes> {
   _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$anime$pageInfo(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? total,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$manga {
+  Mutation$ToggleFavorite$ToggleFavourite$manga({
+    this.pageInfo,
+    this.$__typename = 'MediaConnection',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$manga.fromJson(
+      Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$manga(
+      pageInfo: l$pageInfo == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo? pageInfo;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$pageInfo = pageInfo;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$pageInfo,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite$manga) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$manga
+    on Mutation$ToggleFavorite$ToggleFavourite$manga {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga<
+          Mutation$ToggleFavorite$ToggleFavourite$manga>
+      get copyWith => CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga<TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga(
+    Mutation$ToggleFavorite$ToggleFavourite$manga instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$manga) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$manga;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$manga;
+
+  TRes call({
+    Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo? pageInfo,
+    String? $__typename,
+  });
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo<TRes>
+      get pageInfo;
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$manga<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$manga(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$manga _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite$manga) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? pageInfo = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$manga(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo
+                as Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo<TRes>
+      get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo.stub(
+            _then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$manga<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$manga(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo? pageInfo,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo<TRes>
+      get pageInfo =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo.stub(
+              _res);
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo {
+  Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo({
+    this.total,
+    this.$__typename = 'PageInfo',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo.fromJson(
+      Map<String, dynamic> json) {
+    final l$total = json['total'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo(
+      total: (l$total as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? total;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$total = total;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$total,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo
+    on Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo<
+          Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo>
+      get copyWith =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo<
+    TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo(
+    Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo;
+
+  TRes call({
+    int? total,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo<TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? total = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo(
+        total: total == _undefined ? _instance.total : (total as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$manga$pageInfo(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? total,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$characters {
+  Mutation$ToggleFavorite$ToggleFavourite$characters({
+    this.pageInfo,
+    this.$__typename = 'CharacterConnection',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$characters.fromJson(
+      Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$characters(
+      pageInfo: l$pageInfo == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo
+              .fromJson((l$pageInfo as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo? pageInfo;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$pageInfo = pageInfo;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$pageInfo,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite$characters) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$characters
+    on Mutation$ToggleFavorite$ToggleFavourite$characters {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters<
+          Mutation$ToggleFavorite$ToggleFavourite$characters>
+      get copyWith =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters<
+    TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters(
+    Mutation$ToggleFavorite$ToggleFavourite$characters instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$characters) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$characters;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$characters;
+
+  TRes call({
+    Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo? pageInfo,
+    String? $__typename,
+  });
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo<TRes>
+      get pageInfo;
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$characters<TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$characters(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$characters _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite$characters) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? pageInfo = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$characters(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo
+                as Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo<TRes>
+      get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo
+            .stub(_then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$characters<TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$characters(
+      this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo? pageInfo,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo<TRes>
+      get pageInfo =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo
+              .stub(_res);
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo {
+  Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo({
+    this.total,
+    this.$__typename = 'PageInfo',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo.fromJson(
+      Map<String, dynamic> json) {
+    final l$total = json['total'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo(
+      total: (l$total as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? total;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$total = total;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$total,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo
+    on Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo<
+          Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo>
+      get copyWith =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo<
+    TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo(
+    Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo)
+        then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo;
+
+  TRes call({
+    int? total,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo<
+            TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo _instance;
+
+  final TRes Function(
+      Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? total = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo(
+        total: total == _undefined ? _instance.total : (total as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo<
+            TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$characters$pageInfo(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? total,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$staff {
+  Mutation$ToggleFavorite$ToggleFavourite$staff({
+    this.pageInfo,
+    this.$__typename = 'StaffConnection',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$staff.fromJson(
+      Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$staff(
+      pageInfo: l$pageInfo == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo? pageInfo;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$pageInfo = pageInfo;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$pageInfo,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite$staff) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$staff
+    on Mutation$ToggleFavorite$ToggleFavourite$staff {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff<
+          Mutation$ToggleFavorite$ToggleFavourite$staff>
+      get copyWith => CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff<TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff(
+    Mutation$ToggleFavorite$ToggleFavourite$staff instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$staff) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$staff;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$staff;
+
+  TRes call({
+    Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo? pageInfo,
+    String? $__typename,
+  });
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo<TRes>
+      get pageInfo;
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$staff<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$staff(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$staff _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite$staff) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? pageInfo = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$staff(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo
+                as Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo<TRes>
+      get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo.stub(
+            _then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$staff<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$staff(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo? pageInfo,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo<TRes>
+      get pageInfo =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo.stub(
+              _res);
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo {
+  Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo({
+    this.total,
+    this.$__typename = 'PageInfo',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo.fromJson(
+      Map<String, dynamic> json) {
+    final l$total = json['total'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo(
+      total: (l$total as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? total;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$total = total;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$total,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo
+    on Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo<
+          Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo>
+      get copyWith =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo<
+    TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo(
+    Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo;
+
+  TRes call({
+    int? total,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo<TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? total = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo(
+        total: total == _undefined ? _instance.total : (total as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$staff$pageInfo(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? total,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$studios {
+  Mutation$ToggleFavorite$ToggleFavourite$studios({
+    this.pageInfo,
+    this.$__typename = 'StudioConnection',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$studios.fromJson(
+      Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$studios(
+      pageInfo: l$pageInfo == null
+          ? null
+          : Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo? pageInfo;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$pageInfo = pageInfo;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$pageInfo,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite$studios) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$studios
+    on Mutation$ToggleFavorite$ToggleFavourite$studios {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios<
+          Mutation$ToggleFavorite$ToggleFavourite$studios>
+      get copyWith => CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios<TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios(
+    Mutation$ToggleFavorite$ToggleFavourite$studios instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$studios) then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$studios;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$studios;
+
+  TRes call({
+    Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo? pageInfo,
+    String? $__typename,
+  });
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo<TRes>
+      get pageInfo;
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$studios<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios<TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$studios(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$studios _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite$studios) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? pageInfo = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$studios(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo
+                as Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo<TRes>
+      get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo
+            .stub(_then(_instance))
+        : CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$studios<TRes>
+    implements CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios<TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$studios(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo? pageInfo,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo<TRes>
+      get pageInfo =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo
+              .stub(_res);
+}
+
+class Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo {
+  Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo({
+    this.total,
+    this.$__typename = 'PageInfo',
+  });
+
+  factory Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo.fromJson(
+      Map<String, dynamic> json) {
+    final l$total = json['total'];
+    final l$$__typename = json['__typename'];
+    return Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo(
+      total: (l$total as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? total;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$total = total;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$total,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo
+    on Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo {
+  CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo<
+          Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo>
+      get copyWith =>
+          CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo<
+    TRes> {
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo(
+    Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo instance,
+    TRes Function(Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo)
+        then,
+  ) = _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo;
+
+  factory CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo;
+
+  TRes call({
+    int? total,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo<
+            TRes> {
+  _CopyWithImpl$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo _instance;
+
+  final TRes Function(Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? total = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo(
+        total: total == _undefined ? _instance.total : (total as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo<
+        TRes>
+    implements
+        CopyWith$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo<
+            TRes> {
+  _CopyWithStubImpl$Mutation$ToggleFavorite$ToggleFavourite$studios$pageInfo(
       this._res);
 
   TRes _res;

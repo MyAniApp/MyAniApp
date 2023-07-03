@@ -40,7 +40,7 @@ class HomeOverviewPage extends ConsumerWidget {
               isLabelVisible: (user.value!.unreadNotificationCount ?? 0) > 0,
               offset: const Offset(-2, 2),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () => context.pushRoute(const NotificationsRoute()),
                 icon: const Icon(Icons.notifications),
               ),
             ),

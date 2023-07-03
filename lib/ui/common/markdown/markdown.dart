@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:markdown_widget/markdown_widget.dart' as md2;
 import 'package:myaniapp/constants.dart';
@@ -7,6 +8,7 @@ import 'package:myaniapp/ui/common/markdown/generators/br.dart';
 import 'package:myaniapp/ui/common/markdown/generators/i.dart';
 import 'package:myaniapp/ui/common/markdown/generators/img.dart';
 import 'package:myaniapp/ui/common/markdown/generators/spolier.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 var removeRegex = RegExp(r'~{3}([\s\S]*?)~{3}|(<br>)(?:<br>)?', dotAll: true);
 
@@ -28,8 +30,6 @@ class Markdown extends StatelessWidget {
       return match.group(1) ?? '';
     });
 
-    // logger.i(data);
-
     return MediaQuery.removePadding(
       context: context,
       removeTop: true,
@@ -38,7 +38,7 @@ class Markdown extends StatelessWidget {
         shrinkWrap: true,
         selectable: selectable,
         markdownGeneratorConfig: md2.MarkdownGeneratorConfig(
-          generators: [iWithTag, spoilerWithTag],
+          generators: [iWithTag, spoilerWithTag, imgWithTag],
           inlineSyntaxList: [
             ISyntax(),
             ImgSyntax(),
@@ -53,8 +53,25 @@ class Markdown extends StatelessWidget {
             const md2.PConfig(
               textStyle: TextStyle(),
             ),
-            const md2.LinkConfig(
-              style: TextStyle(color: linkColor),
+            md2.LinkConfig(
+              style: const TextStyle(color: linkColor),
+              onTap: (value) {
+                var uri = Uri.tryParse(value);
+                // print(uri?.host);
+                if (uri?.host == 'anilist.co') {
+                  print(uri!.path);
+                  if (['anime', 'manga'].contains(uri.pathSegments.first)) {
+                    context.router.pushNamed('/media/${uri.pathSegments[1]}');
+                    return;
+                  } else if (['character', 'staff']
+                      .contains(uri.pathSegments.first)) {
+                    context.router
+                        .pushNamed('/${uri.pathSegments.take(2).join('/')}');
+                    return;
+                  }
+                }
+                if (uri != null) launchUrl(uri, webOnlyWindowName: uri.host);
+              },
             ),
             md2.ImgConfig(
               builder: (url, attributes) {
@@ -78,6 +95,12 @@ class Markdown extends StatelessWidget {
               },
             ),
             const md2.CodeConfig(style: TextStyle()),
+            md2.PreConfig(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Theme.of(context).canvasColor,
+              ),
+            )
           ],
         ),
       ),

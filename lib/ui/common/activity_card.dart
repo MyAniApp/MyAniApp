@@ -42,10 +42,10 @@ class ActivityCard extends ConsumerWidget {
         username: a.user?.name,
         createdAt: a.createdAt,
         onTap: inActivity == true
-            ? () => context.pushRoute(ActivityRoute(id: a.id)).then((value) {
+            ? null
+            : () => context.pushRoute(ActivityRoute(id: a.id)).then((value) {
                   if (value == true) onDelete?.call();
-                })
-            : null,
+                }),
         leading: Row(
           children: [
             IconButton(
@@ -135,7 +135,11 @@ class ActivityCard extends ConsumerWidget {
         avatarUrl: a.user?.avatar?.large,
         username: a.user?.name,
         createdAt: a.createdAt,
-        onTap: () => context.pushRoute(ActivityRoute(id: a.id)),
+        onTap: inActivity == true
+            ? null
+            : () => context.pushRoute(ActivityRoute(id: a.id)).then((value) {
+                  if (value == true) onDelete?.call();
+                }),
         leading: Row(
           children: [
             IconButton(
@@ -249,7 +253,11 @@ class ActivityCard extends ConsumerWidget {
         avatarUrl: a.messenger?.avatar?.large,
         username: a.messenger?.name,
         createdAt: a.createdAt,
-        onTap: () => context.pushRoute(ActivityRoute(id: a.id)),
+        onTap: inActivity == true
+            ? null
+            : () => context.pushRoute(ActivityRoute(id: a.id)).then((value) {
+                  if (value == true) onDelete?.call();
+                }),
         badge:
             a.isPrivate == true ? const CommentBadge(label: 'Private') : null,
         leading: Row(

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
+import 'package:myaniapp/graphql.dart';
+import 'package:myaniapp/graphql/__generated/ui/routes/media/media.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/staff/staff.graphql.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/image.dart';
@@ -41,6 +43,7 @@ class StaffPage extends StatelessWidget {
         return StaffView(
           staff: result.parsedData!.Staff!,
           fetchMore: fetchMore!,
+          refetch: refetch!,
         );
       },
     );
@@ -53,10 +56,15 @@ class StaffPage extends StatelessWidget {
 }
 
 class StaffView extends StatefulWidget {
-  const StaffView({super.key, required this.staff, required this.fetchMore});
+  const StaffView(
+      {super.key,
+      required this.staff,
+      required this.fetchMore,
+      required this.refetch});
 
   final Query$Staff$Staff staff;
   final FetchMore fetchMore;
+  final VoidCallback refetch;
 
   @override
   State<StaffView> createState() => _StaffViewState();
@@ -96,6 +104,40 @@ class _StaffViewState extends State<StaffView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          children: [
+            Expanded(
+              child: FloatingActionButton(
+                onPressed: widget.staff.isFavouriteBlocked == true
+                    ? null
+                    : () => client.value
+                        .mutate$ToggleFavorite(
+                          Options$Mutation$ToggleFavorite(
+                            variables: Variables$Mutation$ToggleFavorite(
+                              staffId: widget.staff.id,
+                            ),
+                          ),
+                        )
+                        .then((value) => widget.refetch()),
+                backgroundColor: widget.staff.isFavouriteBlocked == true
+                    ? Colors.grey[800]
+                    : Colors.red,
+                child: Icon(
+                  Icons.favorite,
+                  color:
+                      widget.staff.isFavourite == true ? Colors.red[200] : null,
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 65,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           StaffAppBar(

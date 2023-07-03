@@ -67,6 +67,7 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(page: UserAnimeListRoute.page, path: '/user/:name/anime'),
         AutoRoute(page: UserMangaListRoute.page, path: '/user/:name/manga'),
+        AutoRoute(page: NotificationsRoute.page, path: '/notifications')
       ];
 }
 

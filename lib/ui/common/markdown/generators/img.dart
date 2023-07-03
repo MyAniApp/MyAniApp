@@ -1,6 +1,17 @@
 import 'package:markdown/markdown.dart' as md;
+import 'package:markdown_widget/markdown_widget.dart';
 
 String _tag = 'img';
+
+SpanNodeGeneratorWithTag imgWithTag = SpanNodeGeneratorWithTag(
+  tag: _tag,
+  generator: (e, config, visitor) {
+    if (e.attributes['width']?.contains('%') == true) {
+      e.attributes['width'] = '';
+    }
+    return ImageNode(e.attributes, config);
+  },
+);
 
 class ImgSyntax extends md.InlineSyntax {
   ImgSyntax() : super(r'(?:i|I)mg\s?(\d+%?)?\s?\((.[\S]+)\)');
@@ -9,9 +20,7 @@ class ImgSyntax extends md.InlineSyntax {
   bool onMatch(md.InlineParser parser, Match match) {
     md.Element el = md.Element.withTag(_tag)
       ..attributes['src'] = match.group(2)!;
-    // print(el.attributes);
     if (match.group(1) != null && !match.group(1).toString().contains('%')) {
-      // print(match.group(1));
       el.attributes['width'] = match.group(1)!;
     }
     parser.addNode(el);

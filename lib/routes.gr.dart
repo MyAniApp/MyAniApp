@@ -8,10 +8,10 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i35;
-import 'package:flutter/material.dart' as _i36;
+import 'package:auto_route/auto_route.dart' as _i36;
+import 'package:flutter/material.dart' as _i37;
 import 'package:myaniapp/graphql/__generated/ui/routes/staff/staff.graphql.dart'
-    as _i37;
+    as _i38;
 import 'package:myaniapp/ui/routes/activity/activity.dart' as _i1;
 import 'package:myaniapp/ui/routes/auth/auth.dart' as _i2;
 import 'package:myaniapp/ui/routes/character/character.dart' as _i3;
@@ -32,11 +32,12 @@ import 'package:myaniapp/ui/routes/media/reviews/reviews.dart' as _i17;
 import 'package:myaniapp/ui/routes/media/similar/similar.dart' as _i18;
 import 'package:myaniapp/ui/routes/media/social/social.dart' as _i19;
 import 'package:myaniapp/ui/routes/media/staff/staff.dart' as _i20;
+import 'package:myaniapp/ui/routes/notifications/notifications.dart' as _i34;
 import 'package:myaniapp/ui/routes/recommendations/recommendations.dart'
     as _i21;
 import 'package:myaniapp/ui/routes/review/review.dart' as _i22;
 import 'package:myaniapp/ui/routes/search/search.dart' as _i23;
-import 'package:myaniapp/ui/routes/staff/production.dart' as _i34;
+import 'package:myaniapp/ui/routes/staff/production.dart' as _i35;
 import 'package:myaniapp/ui/routes/staff/staff.dart' as _i24;
 import 'package:myaniapp/ui/routes/staff/voice.dart' as _i25;
 import 'package:myaniapp/ui/routes/thread/thread.dart' as _i26;
@@ -48,16 +49,16 @@ import 'package:myaniapp/ui/routes/user/reviews/reviews.dart' as _i31;
 import 'package:myaniapp/ui/routes/user/social/social.dart' as _i32;
 import 'package:myaniapp/ui/routes/user/user.dart' as _i33;
 
-abstract class $AppRouter extends _i35.RootStackRouter {
+abstract class $AppRouter extends _i36.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i35.PageFactory> pagesMap = {
+  final Map<String, _i36.PageFactory> pagesMap = {
     ActivityRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<ActivityRouteArgs>(
           orElse: () => ActivityRouteArgs(id: pathParams.getInt('id')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i1.ActivityPage(
           key: args.key,
@@ -70,7 +71,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final args = routeData.argsAs<AuthRouteArgs>(
           orElse: () => AuthRouteArgs(
               accessToken: queryParams.optString('access_token')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i2.AuthPage(
           key: args.key,
@@ -82,7 +83,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<CharacterRouteArgs>(
           orElse: () => CharacterRouteArgs(id: pathParams.getInt('id')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i3.CharacterPage(
           key: args.key,
@@ -91,55 +92,55 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       );
     },
     ExploreRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i4.ExplorePage(),
       );
     },
     HomeActivitiesRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i5.HomeActivitiesPage(),
       );
     },
     MyHomeRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i6.MyHomePage(),
       );
     },
     HomeAnimeRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i7.HomeAnimePage(),
       );
     },
     HomeMangaRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i8.HomeMangaPage(),
       );
     },
     HomeOverviewRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i9.HomeOverviewPage(),
       );
     },
     AniLoginRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i10.AniLoginPage(),
       );
     },
     LoginRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i11.LoginPage(),
       );
     },
     TokenLoginRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i12.TokenLoginPage(),
       );
@@ -148,7 +149,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<MediaCharactersRouteArgs>(
           orElse: () => MediaCharactersRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i13.MediaCharactersPage(
           key: args.key,
@@ -160,7 +161,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<MediaRouteArgs>(
           orElse: () => MediaRouteArgs(id: pathParams.getInt('id')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i14.MediaPage(
           key: args.key,
@@ -172,7 +173,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<MediaOverviewRouteArgs>(
           orElse: () => MediaOverviewRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i15.MediaOverviewPage(
           key: args.key,
@@ -184,7 +185,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<MediaRelationsRouteArgs>(
           orElse: () => MediaRelationsRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i16.MediaRelationsPage(
           key: args.key,
@@ -196,7 +197,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<MediaReviewsRouteArgs>(
           orElse: () => MediaReviewsRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i17.MediaReviewsPage(
           key: args.key,
@@ -208,7 +209,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<MediaSimilarRouteArgs>(
           orElse: () => MediaSimilarRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i18.MediaSimilarPage(
           key: args.key,
@@ -220,7 +221,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<MediaSocialRouteArgs>(
           orElse: () => MediaSocialRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i19.MediaSocialPage(
           key: args.key,
@@ -232,7 +233,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<MediaStaffRouteArgs>(
           orElse: () => MediaStaffRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i20.MediaStaffPage(
           key: args.key,
@@ -241,7 +242,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       );
     },
     RecommendationsRoute.name: (routeData) {
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i21.RecommendationsPage(),
       );
@@ -250,7 +251,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<ReviewRouteArgs>(
           orElse: () => ReviewRouteArgs(id: pathParams.getInt('id')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i22.ReviewPage(
           key: args.key,
@@ -277,7 +278,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
                   '',
                 ),
               ));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i23.SearchPage(
           key: args.key,
@@ -294,7 +295,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<StaffRouteArgs>(
           orElse: () => StaffRouteArgs(id: pathParams.getInt('id')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i24.StaffPage(
           key: args.key,
@@ -304,7 +305,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
     },
     StaffVoiceRoute.name: (routeData) {
       final args = routeData.argsAs<StaffVoiceRouteArgs>();
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i25.StaffVoicePage(
           key: args.key,
@@ -316,7 +317,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<ThreadRouteArgs>(
           orElse: () => ThreadRouteArgs(id: pathParams.getInt('id')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i26.ThreadPage(
           key: args.key,
@@ -328,7 +329,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<UserActivityRouteArgs>(
           orElse: () => UserActivityRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i27.UserActivityPage(
           key: args.key,
@@ -341,7 +342,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final args = routeData.argsAs<UserAnimeListRouteArgs>(
           orElse: () =>
               UserAnimeListRouteArgs(name: pathParams.getString('name')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i28.UserAnimeListPage(
           key: args.key,
@@ -354,7 +355,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final args = routeData.argsAs<UserMangaListRouteArgs>(
           orElse: () =>
               UserMangaListRouteArgs(name: pathParams.getString('name')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i29.UserMangaListPage(
           key: args.key,
@@ -366,7 +367,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<UserOverviewRouteArgs>(
           orElse: () => UserOverviewRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i30.UserOverviewPage(
           key: args.key,
@@ -378,7 +379,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<UserReviewsRouteArgs>(
           orElse: () => UserReviewsRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i31.UserReviewsPage(
           key: args.key,
@@ -390,7 +391,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<UserSocialRouteArgs>(
           orElse: () => UserSocialRouteArgs());
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i32.UserSocialPage(
           key: args.key,
@@ -402,7 +403,7 @@ abstract class $AppRouter extends _i35.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<UserRouteArgs>(
           orElse: () => UserRouteArgs(name: pathParams.getString('name')));
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i33.UserPage(
           key: args.key,
@@ -410,11 +411,17 @@ abstract class $AppRouter extends _i35.RootStackRouter {
         ),
       );
     },
+    NotificationsRoute.name: (routeData) {
+      return _i36.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i34.NotificationsPage(),
+      );
+    },
     StaffProductionRoute.name: (routeData) {
       final args = routeData.argsAs<StaffProductionRouteArgs>();
-      return _i35.AutoRoutePage<dynamic>(
+      return _i36.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i34.StaffProductionPage(
+        child: _i35.StaffProductionPage(
           key: args.key,
           medias: args.medias,
         ),
@@ -425,11 +432,11 @@ abstract class $AppRouter extends _i35.RootStackRouter {
 
 /// generated route for
 /// [_i1.ActivityPage]
-class ActivityRoute extends _i35.PageRouteInfo<ActivityRouteArgs> {
+class ActivityRoute extends _i36.PageRouteInfo<ActivityRouteArgs> {
   ActivityRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     required int id,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           ActivityRoute.name,
           args: ActivityRouteArgs(
@@ -442,8 +449,8 @@ class ActivityRoute extends _i35.PageRouteInfo<ActivityRouteArgs> {
 
   static const String name = 'ActivityRoute';
 
-  static const _i35.PageInfo<ActivityRouteArgs> page =
-      _i35.PageInfo<ActivityRouteArgs>(name);
+  static const _i36.PageInfo<ActivityRouteArgs> page =
+      _i36.PageInfo<ActivityRouteArgs>(name);
 }
 
 class ActivityRouteArgs {
@@ -452,7 +459,7 @@ class ActivityRouteArgs {
     required this.id,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final int id;
 
@@ -464,11 +471,11 @@ class ActivityRouteArgs {
 
 /// generated route for
 /// [_i2.AuthPage]
-class AuthRoute extends _i35.PageRouteInfo<AuthRouteArgs> {
+class AuthRoute extends _i36.PageRouteInfo<AuthRouteArgs> {
   AuthRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     String? accessToken,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           AuthRoute.name,
           args: AuthRouteArgs(
@@ -481,8 +488,8 @@ class AuthRoute extends _i35.PageRouteInfo<AuthRouteArgs> {
 
   static const String name = 'AuthRoute';
 
-  static const _i35.PageInfo<AuthRouteArgs> page =
-      _i35.PageInfo<AuthRouteArgs>(name);
+  static const _i36.PageInfo<AuthRouteArgs> page =
+      _i36.PageInfo<AuthRouteArgs>(name);
 }
 
 class AuthRouteArgs {
@@ -491,7 +498,7 @@ class AuthRouteArgs {
     this.accessToken,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final String? accessToken;
 
@@ -503,11 +510,11 @@ class AuthRouteArgs {
 
 /// generated route for
 /// [_i3.CharacterPage]
-class CharacterRoute extends _i35.PageRouteInfo<CharacterRouteArgs> {
+class CharacterRoute extends _i36.PageRouteInfo<CharacterRouteArgs> {
   CharacterRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     required int id,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           CharacterRoute.name,
           args: CharacterRouteArgs(
@@ -520,8 +527,8 @@ class CharacterRoute extends _i35.PageRouteInfo<CharacterRouteArgs> {
 
   static const String name = 'CharacterRoute';
 
-  static const _i35.PageInfo<CharacterRouteArgs> page =
-      _i35.PageInfo<CharacterRouteArgs>(name);
+  static const _i36.PageInfo<CharacterRouteArgs> page =
+      _i36.PageInfo<CharacterRouteArgs>(name);
 }
 
 class CharacterRouteArgs {
@@ -530,7 +537,7 @@ class CharacterRouteArgs {
     required this.id,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final int id;
 
@@ -542,8 +549,8 @@ class CharacterRouteArgs {
 
 /// generated route for
 /// [_i4.ExplorePage]
-class ExploreRoute extends _i35.PageRouteInfo<void> {
-  const ExploreRoute({List<_i35.PageRouteInfo>? children})
+class ExploreRoute extends _i36.PageRouteInfo<void> {
+  const ExploreRoute({List<_i36.PageRouteInfo>? children})
       : super(
           ExploreRoute.name,
           initialChildren: children,
@@ -551,13 +558,13 @@ class ExploreRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'ExploreRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i5.HomeActivitiesPage]
-class HomeActivitiesRoute extends _i35.PageRouteInfo<void> {
-  const HomeActivitiesRoute({List<_i35.PageRouteInfo>? children})
+class HomeActivitiesRoute extends _i36.PageRouteInfo<void> {
+  const HomeActivitiesRoute({List<_i36.PageRouteInfo>? children})
       : super(
           HomeActivitiesRoute.name,
           initialChildren: children,
@@ -565,13 +572,13 @@ class HomeActivitiesRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'HomeActivitiesRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i6.MyHomePage]
-class MyHomeRoute extends _i35.PageRouteInfo<void> {
-  const MyHomeRoute({List<_i35.PageRouteInfo>? children})
+class MyHomeRoute extends _i36.PageRouteInfo<void> {
+  const MyHomeRoute({List<_i36.PageRouteInfo>? children})
       : super(
           MyHomeRoute.name,
           initialChildren: children,
@@ -579,13 +586,13 @@ class MyHomeRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'MyHomeRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i7.HomeAnimePage]
-class HomeAnimeRoute extends _i35.PageRouteInfo<void> {
-  const HomeAnimeRoute({List<_i35.PageRouteInfo>? children})
+class HomeAnimeRoute extends _i36.PageRouteInfo<void> {
+  const HomeAnimeRoute({List<_i36.PageRouteInfo>? children})
       : super(
           HomeAnimeRoute.name,
           initialChildren: children,
@@ -593,13 +600,13 @@ class HomeAnimeRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'HomeAnimeRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i8.HomeMangaPage]
-class HomeMangaRoute extends _i35.PageRouteInfo<void> {
-  const HomeMangaRoute({List<_i35.PageRouteInfo>? children})
+class HomeMangaRoute extends _i36.PageRouteInfo<void> {
+  const HomeMangaRoute({List<_i36.PageRouteInfo>? children})
       : super(
           HomeMangaRoute.name,
           initialChildren: children,
@@ -607,13 +614,13 @@ class HomeMangaRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'HomeMangaRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i9.HomeOverviewPage]
-class HomeOverviewRoute extends _i35.PageRouteInfo<void> {
-  const HomeOverviewRoute({List<_i35.PageRouteInfo>? children})
+class HomeOverviewRoute extends _i36.PageRouteInfo<void> {
+  const HomeOverviewRoute({List<_i36.PageRouteInfo>? children})
       : super(
           HomeOverviewRoute.name,
           initialChildren: children,
@@ -621,13 +628,13 @@ class HomeOverviewRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'HomeOverviewRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i10.AniLoginPage]
-class AniLoginRoute extends _i35.PageRouteInfo<void> {
-  const AniLoginRoute({List<_i35.PageRouteInfo>? children})
+class AniLoginRoute extends _i36.PageRouteInfo<void> {
+  const AniLoginRoute({List<_i36.PageRouteInfo>? children})
       : super(
           AniLoginRoute.name,
           initialChildren: children,
@@ -635,13 +642,13 @@ class AniLoginRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'AniLoginRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i11.LoginPage]
-class LoginRoute extends _i35.PageRouteInfo<void> {
-  const LoginRoute({List<_i35.PageRouteInfo>? children})
+class LoginRoute extends _i36.PageRouteInfo<void> {
+  const LoginRoute({List<_i36.PageRouteInfo>? children})
       : super(
           LoginRoute.name,
           initialChildren: children,
@@ -649,13 +656,13 @@ class LoginRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'LoginRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i12.TokenLoginPage]
-class TokenLoginRoute extends _i35.PageRouteInfo<void> {
-  const TokenLoginRoute({List<_i35.PageRouteInfo>? children})
+class TokenLoginRoute extends _i36.PageRouteInfo<void> {
+  const TokenLoginRoute({List<_i36.PageRouteInfo>? children})
       : super(
           TokenLoginRoute.name,
           initialChildren: children,
@@ -663,16 +670,16 @@ class TokenLoginRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'TokenLoginRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i13.MediaCharactersPage]
 class MediaCharactersRoute
-    extends _i35.PageRouteInfo<MediaCharactersRouteArgs> {
+    extends _i36.PageRouteInfo<MediaCharactersRouteArgs> {
   MediaCharactersRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           MediaCharactersRoute.name,
           args: MediaCharactersRouteArgs(key: key),
@@ -681,14 +688,14 @@ class MediaCharactersRoute
 
   static const String name = 'MediaCharactersRoute';
 
-  static const _i35.PageInfo<MediaCharactersRouteArgs> page =
-      _i35.PageInfo<MediaCharactersRouteArgs>(name);
+  static const _i36.PageInfo<MediaCharactersRouteArgs> page =
+      _i36.PageInfo<MediaCharactersRouteArgs>(name);
 }
 
 class MediaCharactersRouteArgs {
   const MediaCharactersRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -698,11 +705,11 @@ class MediaCharactersRouteArgs {
 
 /// generated route for
 /// [_i14.MediaPage]
-class MediaRoute extends _i35.PageRouteInfo<MediaRouteArgs> {
+class MediaRoute extends _i36.PageRouteInfo<MediaRouteArgs> {
   MediaRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     required int id,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           MediaRoute.name,
           args: MediaRouteArgs(
@@ -715,8 +722,8 @@ class MediaRoute extends _i35.PageRouteInfo<MediaRouteArgs> {
 
   static const String name = 'MediaRoute';
 
-  static const _i35.PageInfo<MediaRouteArgs> page =
-      _i35.PageInfo<MediaRouteArgs>(name);
+  static const _i36.PageInfo<MediaRouteArgs> page =
+      _i36.PageInfo<MediaRouteArgs>(name);
 }
 
 class MediaRouteArgs {
@@ -725,7 +732,7 @@ class MediaRouteArgs {
     required this.id,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final int id;
 
@@ -737,10 +744,10 @@ class MediaRouteArgs {
 
 /// generated route for
 /// [_i15.MediaOverviewPage]
-class MediaOverviewRoute extends _i35.PageRouteInfo<MediaOverviewRouteArgs> {
+class MediaOverviewRoute extends _i36.PageRouteInfo<MediaOverviewRouteArgs> {
   MediaOverviewRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           MediaOverviewRoute.name,
           args: MediaOverviewRouteArgs(key: key),
@@ -749,14 +756,14 @@ class MediaOverviewRoute extends _i35.PageRouteInfo<MediaOverviewRouteArgs> {
 
   static const String name = 'MediaOverviewRoute';
 
-  static const _i35.PageInfo<MediaOverviewRouteArgs> page =
-      _i35.PageInfo<MediaOverviewRouteArgs>(name);
+  static const _i36.PageInfo<MediaOverviewRouteArgs> page =
+      _i36.PageInfo<MediaOverviewRouteArgs>(name);
 }
 
 class MediaOverviewRouteArgs {
   const MediaOverviewRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -766,10 +773,10 @@ class MediaOverviewRouteArgs {
 
 /// generated route for
 /// [_i16.MediaRelationsPage]
-class MediaRelationsRoute extends _i35.PageRouteInfo<MediaRelationsRouteArgs> {
+class MediaRelationsRoute extends _i36.PageRouteInfo<MediaRelationsRouteArgs> {
   MediaRelationsRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           MediaRelationsRoute.name,
           args: MediaRelationsRouteArgs(key: key),
@@ -778,14 +785,14 @@ class MediaRelationsRoute extends _i35.PageRouteInfo<MediaRelationsRouteArgs> {
 
   static const String name = 'MediaRelationsRoute';
 
-  static const _i35.PageInfo<MediaRelationsRouteArgs> page =
-      _i35.PageInfo<MediaRelationsRouteArgs>(name);
+  static const _i36.PageInfo<MediaRelationsRouteArgs> page =
+      _i36.PageInfo<MediaRelationsRouteArgs>(name);
 }
 
 class MediaRelationsRouteArgs {
   const MediaRelationsRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -795,10 +802,10 @@ class MediaRelationsRouteArgs {
 
 /// generated route for
 /// [_i17.MediaReviewsPage]
-class MediaReviewsRoute extends _i35.PageRouteInfo<MediaReviewsRouteArgs> {
+class MediaReviewsRoute extends _i36.PageRouteInfo<MediaReviewsRouteArgs> {
   MediaReviewsRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           MediaReviewsRoute.name,
           args: MediaReviewsRouteArgs(key: key),
@@ -807,14 +814,14 @@ class MediaReviewsRoute extends _i35.PageRouteInfo<MediaReviewsRouteArgs> {
 
   static const String name = 'MediaReviewsRoute';
 
-  static const _i35.PageInfo<MediaReviewsRouteArgs> page =
-      _i35.PageInfo<MediaReviewsRouteArgs>(name);
+  static const _i36.PageInfo<MediaReviewsRouteArgs> page =
+      _i36.PageInfo<MediaReviewsRouteArgs>(name);
 }
 
 class MediaReviewsRouteArgs {
   const MediaReviewsRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -824,10 +831,10 @@ class MediaReviewsRouteArgs {
 
 /// generated route for
 /// [_i18.MediaSimilarPage]
-class MediaSimilarRoute extends _i35.PageRouteInfo<MediaSimilarRouteArgs> {
+class MediaSimilarRoute extends _i36.PageRouteInfo<MediaSimilarRouteArgs> {
   MediaSimilarRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           MediaSimilarRoute.name,
           args: MediaSimilarRouteArgs(key: key),
@@ -836,14 +843,14 @@ class MediaSimilarRoute extends _i35.PageRouteInfo<MediaSimilarRouteArgs> {
 
   static const String name = 'MediaSimilarRoute';
 
-  static const _i35.PageInfo<MediaSimilarRouteArgs> page =
-      _i35.PageInfo<MediaSimilarRouteArgs>(name);
+  static const _i36.PageInfo<MediaSimilarRouteArgs> page =
+      _i36.PageInfo<MediaSimilarRouteArgs>(name);
 }
 
 class MediaSimilarRouteArgs {
   const MediaSimilarRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -853,10 +860,10 @@ class MediaSimilarRouteArgs {
 
 /// generated route for
 /// [_i19.MediaSocialPage]
-class MediaSocialRoute extends _i35.PageRouteInfo<MediaSocialRouteArgs> {
+class MediaSocialRoute extends _i36.PageRouteInfo<MediaSocialRouteArgs> {
   MediaSocialRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           MediaSocialRoute.name,
           args: MediaSocialRouteArgs(key: key),
@@ -865,14 +872,14 @@ class MediaSocialRoute extends _i35.PageRouteInfo<MediaSocialRouteArgs> {
 
   static const String name = 'MediaSocialRoute';
 
-  static const _i35.PageInfo<MediaSocialRouteArgs> page =
-      _i35.PageInfo<MediaSocialRouteArgs>(name);
+  static const _i36.PageInfo<MediaSocialRouteArgs> page =
+      _i36.PageInfo<MediaSocialRouteArgs>(name);
 }
 
 class MediaSocialRouteArgs {
   const MediaSocialRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -882,10 +889,10 @@ class MediaSocialRouteArgs {
 
 /// generated route for
 /// [_i20.MediaStaffPage]
-class MediaStaffRoute extends _i35.PageRouteInfo<MediaStaffRouteArgs> {
+class MediaStaffRoute extends _i36.PageRouteInfo<MediaStaffRouteArgs> {
   MediaStaffRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           MediaStaffRoute.name,
           args: MediaStaffRouteArgs(key: key),
@@ -894,14 +901,14 @@ class MediaStaffRoute extends _i35.PageRouteInfo<MediaStaffRouteArgs> {
 
   static const String name = 'MediaStaffRoute';
 
-  static const _i35.PageInfo<MediaStaffRouteArgs> page =
-      _i35.PageInfo<MediaStaffRouteArgs>(name);
+  static const _i36.PageInfo<MediaStaffRouteArgs> page =
+      _i36.PageInfo<MediaStaffRouteArgs>(name);
 }
 
 class MediaStaffRouteArgs {
   const MediaStaffRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -911,8 +918,8 @@ class MediaStaffRouteArgs {
 
 /// generated route for
 /// [_i21.RecommendationsPage]
-class RecommendationsRoute extends _i35.PageRouteInfo<void> {
-  const RecommendationsRoute({List<_i35.PageRouteInfo>? children})
+class RecommendationsRoute extends _i36.PageRouteInfo<void> {
+  const RecommendationsRoute({List<_i36.PageRouteInfo>? children})
       : super(
           RecommendationsRoute.name,
           initialChildren: children,
@@ -920,16 +927,16 @@ class RecommendationsRoute extends _i35.PageRouteInfo<void> {
 
   static const String name = 'RecommendationsRoute';
 
-  static const _i35.PageInfo<void> page = _i35.PageInfo<void>(name);
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i22.ReviewPage]
-class ReviewRoute extends _i35.PageRouteInfo<ReviewRouteArgs> {
+class ReviewRoute extends _i36.PageRouteInfo<ReviewRouteArgs> {
   ReviewRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     required int id,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           ReviewRoute.name,
           args: ReviewRouteArgs(
@@ -942,8 +949,8 @@ class ReviewRoute extends _i35.PageRouteInfo<ReviewRouteArgs> {
 
   static const String name = 'ReviewRoute';
 
-  static const _i35.PageInfo<ReviewRouteArgs> page =
-      _i35.PageInfo<ReviewRouteArgs>(name);
+  static const _i36.PageInfo<ReviewRouteArgs> page =
+      _i36.PageInfo<ReviewRouteArgs>(name);
 }
 
 class ReviewRouteArgs {
@@ -952,7 +959,7 @@ class ReviewRouteArgs {
     required this.id,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final int id;
 
@@ -964,16 +971,16 @@ class ReviewRouteArgs {
 
 /// generated route for
 /// [_i23.SearchPage]
-class SearchRoute extends _i35.PageRouteInfo<SearchRouteArgs> {
+class SearchRoute extends _i36.PageRouteInfo<SearchRouteArgs> {
   SearchRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     dynamic sort = '',
     String? search,
     String? type,
     dynamic genre = '',
     dynamic tag = '',
     bool? autofocus,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           SearchRoute.name,
           args: SearchRouteArgs(
@@ -997,8 +1004,8 @@ class SearchRoute extends _i35.PageRouteInfo<SearchRouteArgs> {
 
   static const String name = 'SearchRoute';
 
-  static const _i35.PageInfo<SearchRouteArgs> page =
-      _i35.PageInfo<SearchRouteArgs>(name);
+  static const _i36.PageInfo<SearchRouteArgs> page =
+      _i36.PageInfo<SearchRouteArgs>(name);
 }
 
 class SearchRouteArgs {
@@ -1012,7 +1019,7 @@ class SearchRouteArgs {
     this.autofocus,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final dynamic sort;
 
@@ -1034,11 +1041,11 @@ class SearchRouteArgs {
 
 /// generated route for
 /// [_i24.StaffPage]
-class StaffRoute extends _i35.PageRouteInfo<StaffRouteArgs> {
+class StaffRoute extends _i36.PageRouteInfo<StaffRouteArgs> {
   StaffRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     required int id,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           StaffRoute.name,
           args: StaffRouteArgs(
@@ -1051,8 +1058,8 @@ class StaffRoute extends _i35.PageRouteInfo<StaffRouteArgs> {
 
   static const String name = 'StaffRoute';
 
-  static const _i35.PageInfo<StaffRouteArgs> page =
-      _i35.PageInfo<StaffRouteArgs>(name);
+  static const _i36.PageInfo<StaffRouteArgs> page =
+      _i36.PageInfo<StaffRouteArgs>(name);
 }
 
 class StaffRouteArgs {
@@ -1061,7 +1068,7 @@ class StaffRouteArgs {
     required this.id,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final int id;
 
@@ -1073,11 +1080,11 @@ class StaffRouteArgs {
 
 /// generated route for
 /// [_i25.StaffVoicePage]
-class StaffVoiceRoute extends _i35.PageRouteInfo<StaffVoiceRouteArgs> {
+class StaffVoiceRoute extends _i36.PageRouteInfo<StaffVoiceRouteArgs> {
   StaffVoiceRoute({
-    _i36.Key? key,
-    required _i37.Query$Staff$Staff$characterMedia medias,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    required _i38.Query$Staff$Staff$characterMedia medias,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           StaffVoiceRoute.name,
           args: StaffVoiceRouteArgs(
@@ -1089,8 +1096,8 @@ class StaffVoiceRoute extends _i35.PageRouteInfo<StaffVoiceRouteArgs> {
 
   static const String name = 'StaffVoiceRoute';
 
-  static const _i35.PageInfo<StaffVoiceRouteArgs> page =
-      _i35.PageInfo<StaffVoiceRouteArgs>(name);
+  static const _i36.PageInfo<StaffVoiceRouteArgs> page =
+      _i36.PageInfo<StaffVoiceRouteArgs>(name);
 }
 
 class StaffVoiceRouteArgs {
@@ -1099,9 +1106,9 @@ class StaffVoiceRouteArgs {
     required this.medias,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
-  final _i37.Query$Staff$Staff$characterMedia medias;
+  final _i38.Query$Staff$Staff$characterMedia medias;
 
   @override
   String toString() {
@@ -1111,11 +1118,11 @@ class StaffVoiceRouteArgs {
 
 /// generated route for
 /// [_i26.ThreadPage]
-class ThreadRoute extends _i35.PageRouteInfo<ThreadRouteArgs> {
+class ThreadRoute extends _i36.PageRouteInfo<ThreadRouteArgs> {
   ThreadRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     required int id,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           ThreadRoute.name,
           args: ThreadRouteArgs(
@@ -1128,8 +1135,8 @@ class ThreadRoute extends _i35.PageRouteInfo<ThreadRouteArgs> {
 
   static const String name = 'ThreadRoute';
 
-  static const _i35.PageInfo<ThreadRouteArgs> page =
-      _i35.PageInfo<ThreadRouteArgs>(name);
+  static const _i36.PageInfo<ThreadRouteArgs> page =
+      _i36.PageInfo<ThreadRouteArgs>(name);
 }
 
 class ThreadRouteArgs {
@@ -1138,7 +1145,7 @@ class ThreadRouteArgs {
     required this.id,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final int id;
 
@@ -1150,10 +1157,10 @@ class ThreadRouteArgs {
 
 /// generated route for
 /// [_i27.UserActivityPage]
-class UserActivityRoute extends _i35.PageRouteInfo<UserActivityRouteArgs> {
+class UserActivityRoute extends _i36.PageRouteInfo<UserActivityRouteArgs> {
   UserActivityRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           UserActivityRoute.name,
           args: UserActivityRouteArgs(key: key),
@@ -1162,14 +1169,14 @@ class UserActivityRoute extends _i35.PageRouteInfo<UserActivityRouteArgs> {
 
   static const String name = 'UserActivityRoute';
 
-  static const _i35.PageInfo<UserActivityRouteArgs> page =
-      _i35.PageInfo<UserActivityRouteArgs>(name);
+  static const _i36.PageInfo<UserActivityRouteArgs> page =
+      _i36.PageInfo<UserActivityRouteArgs>(name);
 }
 
 class UserActivityRouteArgs {
   const UserActivityRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -1179,11 +1186,11 @@ class UserActivityRouteArgs {
 
 /// generated route for
 /// [_i28.UserAnimeListPage]
-class UserAnimeListRoute extends _i35.PageRouteInfo<UserAnimeListRouteArgs> {
+class UserAnimeListRoute extends _i36.PageRouteInfo<UserAnimeListRouteArgs> {
   UserAnimeListRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     required String name,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           UserAnimeListRoute.name,
           args: UserAnimeListRouteArgs(
@@ -1196,8 +1203,8 @@ class UserAnimeListRoute extends _i35.PageRouteInfo<UserAnimeListRouteArgs> {
 
   static const String name = 'UserAnimeListRoute';
 
-  static const _i35.PageInfo<UserAnimeListRouteArgs> page =
-      _i35.PageInfo<UserAnimeListRouteArgs>(name);
+  static const _i36.PageInfo<UserAnimeListRouteArgs> page =
+      _i36.PageInfo<UserAnimeListRouteArgs>(name);
 }
 
 class UserAnimeListRouteArgs {
@@ -1206,7 +1213,7 @@ class UserAnimeListRouteArgs {
     required this.name,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final String name;
 
@@ -1218,11 +1225,11 @@ class UserAnimeListRouteArgs {
 
 /// generated route for
 /// [_i29.UserMangaListPage]
-class UserMangaListRoute extends _i35.PageRouteInfo<UserMangaListRouteArgs> {
+class UserMangaListRoute extends _i36.PageRouteInfo<UserMangaListRouteArgs> {
   UserMangaListRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     required String name,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           UserMangaListRoute.name,
           args: UserMangaListRouteArgs(
@@ -1235,8 +1242,8 @@ class UserMangaListRoute extends _i35.PageRouteInfo<UserMangaListRouteArgs> {
 
   static const String name = 'UserMangaListRoute';
 
-  static const _i35.PageInfo<UserMangaListRouteArgs> page =
-      _i35.PageInfo<UserMangaListRouteArgs>(name);
+  static const _i36.PageInfo<UserMangaListRouteArgs> page =
+      _i36.PageInfo<UserMangaListRouteArgs>(name);
 }
 
 class UserMangaListRouteArgs {
@@ -1245,7 +1252,7 @@ class UserMangaListRouteArgs {
     required this.name,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final String name;
 
@@ -1257,10 +1264,10 @@ class UserMangaListRouteArgs {
 
 /// generated route for
 /// [_i30.UserOverviewPage]
-class UserOverviewRoute extends _i35.PageRouteInfo<UserOverviewRouteArgs> {
+class UserOverviewRoute extends _i36.PageRouteInfo<UserOverviewRouteArgs> {
   UserOverviewRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           UserOverviewRoute.name,
           args: UserOverviewRouteArgs(key: key),
@@ -1269,14 +1276,14 @@ class UserOverviewRoute extends _i35.PageRouteInfo<UserOverviewRouteArgs> {
 
   static const String name = 'UserOverviewRoute';
 
-  static const _i35.PageInfo<UserOverviewRouteArgs> page =
-      _i35.PageInfo<UserOverviewRouteArgs>(name);
+  static const _i36.PageInfo<UserOverviewRouteArgs> page =
+      _i36.PageInfo<UserOverviewRouteArgs>(name);
 }
 
 class UserOverviewRouteArgs {
   const UserOverviewRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -1286,10 +1293,10 @@ class UserOverviewRouteArgs {
 
 /// generated route for
 /// [_i31.UserReviewsPage]
-class UserReviewsRoute extends _i35.PageRouteInfo<UserReviewsRouteArgs> {
+class UserReviewsRoute extends _i36.PageRouteInfo<UserReviewsRouteArgs> {
   UserReviewsRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           UserReviewsRoute.name,
           args: UserReviewsRouteArgs(key: key),
@@ -1298,14 +1305,14 @@ class UserReviewsRoute extends _i35.PageRouteInfo<UserReviewsRouteArgs> {
 
   static const String name = 'UserReviewsRoute';
 
-  static const _i35.PageInfo<UserReviewsRouteArgs> page =
-      _i35.PageInfo<UserReviewsRouteArgs>(name);
+  static const _i36.PageInfo<UserReviewsRouteArgs> page =
+      _i36.PageInfo<UserReviewsRouteArgs>(name);
 }
 
 class UserReviewsRouteArgs {
   const UserReviewsRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -1315,10 +1322,10 @@ class UserReviewsRouteArgs {
 
 /// generated route for
 /// [_i32.UserSocialPage]
-class UserSocialRoute extends _i35.PageRouteInfo<UserSocialRouteArgs> {
+class UserSocialRoute extends _i36.PageRouteInfo<UserSocialRouteArgs> {
   UserSocialRoute({
-    _i36.Key? key,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           UserSocialRoute.name,
           args: UserSocialRouteArgs(key: key),
@@ -1327,14 +1334,14 @@ class UserSocialRoute extends _i35.PageRouteInfo<UserSocialRouteArgs> {
 
   static const String name = 'UserSocialRoute';
 
-  static const _i35.PageInfo<UserSocialRouteArgs> page =
-      _i35.PageInfo<UserSocialRouteArgs>(name);
+  static const _i36.PageInfo<UserSocialRouteArgs> page =
+      _i36.PageInfo<UserSocialRouteArgs>(name);
 }
 
 class UserSocialRouteArgs {
   const UserSocialRouteArgs({this.key});
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   @override
   String toString() {
@@ -1344,11 +1351,11 @@ class UserSocialRouteArgs {
 
 /// generated route for
 /// [_i33.UserPage]
-class UserRoute extends _i35.PageRouteInfo<UserRouteArgs> {
+class UserRoute extends _i36.PageRouteInfo<UserRouteArgs> {
   UserRoute({
-    _i36.Key? key,
+    _i37.Key? key,
     required String name,
-    List<_i35.PageRouteInfo>? children,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           UserRoute.name,
           args: UserRouteArgs(
@@ -1361,8 +1368,8 @@ class UserRoute extends _i35.PageRouteInfo<UserRouteArgs> {
 
   static const String name = 'UserRoute';
 
-  static const _i35.PageInfo<UserRouteArgs> page =
-      _i35.PageInfo<UserRouteArgs>(name);
+  static const _i36.PageInfo<UserRouteArgs> page =
+      _i36.PageInfo<UserRouteArgs>(name);
 }
 
 class UserRouteArgs {
@@ -1371,7 +1378,7 @@ class UserRouteArgs {
     required this.name,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
   final String name;
 
@@ -1382,13 +1389,27 @@ class UserRouteArgs {
 }
 
 /// generated route for
-/// [_i34.StaffProductionPage]
+/// [_i34.NotificationsPage]
+class NotificationsRoute extends _i36.PageRouteInfo<void> {
+  const NotificationsRoute({List<_i36.PageRouteInfo>? children})
+      : super(
+          NotificationsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NotificationsRoute';
+
+  static const _i36.PageInfo<void> page = _i36.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i35.StaffProductionPage]
 class StaffProductionRoute
-    extends _i35.PageRouteInfo<StaffProductionRouteArgs> {
+    extends _i36.PageRouteInfo<StaffProductionRouteArgs> {
   StaffProductionRoute({
-    _i36.Key? key,
-    required _i37.Query$Staff$Staff$staffMedia medias,
-    List<_i35.PageRouteInfo>? children,
+    _i37.Key? key,
+    required _i38.Query$Staff$Staff$staffMedia medias,
+    List<_i36.PageRouteInfo>? children,
   }) : super(
           StaffProductionRoute.name,
           args: StaffProductionRouteArgs(
@@ -1400,8 +1421,8 @@ class StaffProductionRoute
 
   static const String name = 'StaffProductionRoute';
 
-  static const _i35.PageInfo<StaffProductionRouteArgs> page =
-      _i35.PageInfo<StaffProductionRouteArgs>(name);
+  static const _i36.PageInfo<StaffProductionRouteArgs> page =
+      _i36.PageInfo<StaffProductionRouteArgs>(name);
 }
 
 class StaffProductionRouteArgs {
@@ -1410,9 +1431,9 @@ class StaffProductionRouteArgs {
     required this.medias,
   });
 
-  final _i36.Key? key;
+  final _i37.Key? key;
 
-  final _i37.Query$Staff$Staff$staffMedia medias;
+  final _i38.Query$Staff$Staff$staffMedia medias;
 
   @override
   String toString() {
