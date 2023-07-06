@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/providers/media.dart';
 import 'package:myaniapp/routes.gr.dart';
@@ -26,8 +27,13 @@ class MediaRelationsPage extends ConsumerWidget {
       list: sorted.map((e) => e!.node!).toList(),
       aspectRatio: 1.8 / 3,
       onTap: (media, index) => context.pushRoute(MediaRoute(id: media.id)),
-      underTitle: (media, style, index) => Text(
-        sorted[index]!.relationType!.name.capitalize(),
+      underTitle: (media, style, index) => Padding(
+        padding: style == ListStyle.detailedList
+            ? const EdgeInsets.all(8)
+            : EdgeInsets.zero,
+        child: Text(
+          sorted[index]!.relationType!.name.capitalize(),
+        ),
       ),
     );
   }

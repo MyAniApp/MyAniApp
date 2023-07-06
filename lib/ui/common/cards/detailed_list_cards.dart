@@ -77,7 +77,7 @@ class DetailedListCard extends StatelessWidget {
                 children: [
                   if (title != null)
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                       child: Text(
                         title!,
                         overflow: TextOverflow.ellipsis,
