@@ -1,10 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/staff/staff.graphql.dart';
-import 'package:myaniapp/routes.gr.dart';
-import 'package:myaniapp/ui/common/cards/grid_cards.dart';
-import 'package:myaniapp/ui/common/cards/sheet_card.dart';
+import 'package:myaniapp/ui/common/cards/media_cards.dart';
 
 @RoutePage()
 class StaffProductionPage extends StatelessWidget {
@@ -35,36 +32,11 @@ class StaffProductionPage extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-            child: GridCards(
-              // primary: false,
-              card: (index) {
-                var item = medias.edges![index]!;
-
-                return GridCard(
-                  imageUrl: item.node!.coverImage!.extraLarge!,
-                  index: index,
-                  aspectRatio: 1.7 / 3,
-                  title: item.node!.title!.userPreferred,
-                  underTitle: (index, style) => Text(item.staffRole ?? ''),
-                  onLongPress: (index) => showMediaCard(context, item.node!),
-                  onTap: (index) =>
-                      context.router.push(MediaRoute(id: item.node!.id)),
-                  chips: (index) {
-                    return [
-                      GridChip(
-                        bottom: 5,
-                        right: 5,
-                        child: Text(
-                          item.node!.type!.name.capitalize(),
-                        ),
-                      ),
-                    ];
-                  },
-                );
-              },
-              itemCount: medias.edges!.length,
+          child: MediaCards(
+            list: medias.edges!.map((e) => e!.node!).toList(),
+            aspectRatio: 1.8 / 3,
+            underTitle: (media, style, index) => Text(
+              medias.edges![index]!.staffRole ?? '',
             ),
           ),
         ),

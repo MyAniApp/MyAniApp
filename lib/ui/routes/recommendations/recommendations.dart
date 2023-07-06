@@ -140,13 +140,12 @@ class _RecommendationsPageState extends ConsumerState<RecommendationsPage> {
                                     .media!.coverImage!.extraLarge!,
                                 title:
                                     recommendation.media!.title!.userPreferred,
-                                index: index,
-                                onTap: (index) => context.pushRoute(
+                                onTap: () => context.pushRoute(
                                   MediaRoute(
                                     id: recommendation.media!.id,
                                   ),
                                 ),
-                                onLongPress: (index) => showMediaCard(
+                                onLongPress: () => showMediaCard(
                                   context,
                                   recommendation.media!,
                                 ),
@@ -160,13 +159,12 @@ class _RecommendationsPageState extends ConsumerState<RecommendationsPage> {
                                     .coverImage!.extraLarge!,
                                 title: recommendation
                                     .mediaRecommendation!.title!.userPreferred,
-                                index: index,
-                                onTap: (index) => context.pushRoute(
+                                onTap: () => context.pushRoute(
                                   MediaRoute(
                                     id: recommendation.mediaRecommendation!.id,
                                   ),
                                 ),
-                                onLongPress: (index) => showMediaCard(
+                                onLongPress: () => showMediaCard(
                                   context,
                                   recommendation.mediaRecommendation!,
                                 ),

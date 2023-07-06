@@ -1,17 +1,21 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/overview/overview.graphql.dart';
+import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/cards/grid_cards.dart';
+import 'package:myaniapp/ui/common/cards/media_cards.dart';
 import 'package:myaniapp/ui/common/cards/sheet_card.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/media_editor/media_editor.dart';
+import 'package:myaniapp/ui/common/numer_picker.dart';
 import 'package:myaniapp/ui/common/thread_card.dart';
 import 'package:myaniapp/ui/routes/home/app_bar.dart';
 import 'package:myaniapp/ui/routes/home/overview/guest.dart';
@@ -127,73 +131,99 @@ class _Watching extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
-        GridCards(
+        MediaCards(
           primary: false,
           padding: const EdgeInsets.symmetric(horizontal: 8),
-          card: (index) {
+          list: entries.map((e) => e.media!).toList(),
+          setting: Setting.animeList,
+          onTap: (media, index) => context.pushRoute(MediaRoute(id: media.id)),
+          onDoubleTap: (media, _) => showMediaEditor(
+            context,
+            media,
+            onDelete: refetch,
+            onSave: refetch,
+          ),
+          underTitle: (media, style, index) {
+            if (style != ListStyle.detailedList) return null;
             var entry = entries[index];
 
-            return GridCard(
-              imageUrl: entry.media!.coverImage!.extraLarge!,
-              title: entry.media!.title!.userPreferred,
-              aspectRatio: 1.9 / 3,
-              index: index,
-              onTap: (index) => context.pushRoute(
-                MediaRoute(id: entry.mediaId),
-              ),
-              onLongPress: (index) => showMediaCard(context, entry.media!),
-              onDoubleTap: (index) => showMediaEditor(
-                context,
-                entry.media!,
-                onDelete: refetch,
-                onSave: refetch,
-              ),
-              chips: (index) {
-                if ((entry.media!.episodes ?? entry.media!.chapters) != null &&
-                    entry.progress! >=
-                        (entry.media!.episodes ?? entry.media!.chapters!)) {
-                  return [];
-                }
-
-                return [
-                  GridChip(
-                    bottom: 5,
-                    right: 5,
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          height: 25,
-                          width: 30,
-                          child: IconButton(
-                            onPressed: () =>
-                                client.value.mutate$SaveMediaListEntry(
-                              Options$Mutation$SaveMediaListEntry(
-                                variables:
-                                    Variables$Mutation$SaveMediaListEntry(
-                                  id: entry.id,
-                                  progress: (entry.progress ?? 0) + 1,
-                                ),
-                              ),
-                            ),
-                            icon: const Icon(Icons.add),
-                            padding: EdgeInsets.zero,
-                            iconSize: 15,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          '${entry.progress ?? '0'} / ${entry.media!.episodes ?? entry.media!.chapters ?? '??'}',
-                        )
-                      ],
+            return Column(
+              children: [
+                if ((media.episodes ?? media.chapters ?? 0) > 0)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: LinearProgressIndicator(
+                      value: (entry.progress ?? 0) /
+                          (media.episodes ?? media.chapters)!,
                     ),
                   ),
-                ];
-              },
+                // const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: NumberPicker(
+                    hint: 'Episode count',
+                    number: entry.progress,
+                    onIncrement: () => client.value.mutate$SaveMediaListEntry(
+                      Options$Mutation$SaveMediaListEntry(
+                        variables: Variables$Mutation$SaveMediaListEntry(
+                            id: entry.id, progress: (entry.progress ?? 0) + 1),
+                      ),
+                    ),
+                    onDecrement: () => client.value.mutate$SaveMediaListEntry(
+                      Options$Mutation$SaveMediaListEntry(
+                        variables: Variables$Mutation$SaveMediaListEntry(
+                            id: entry.id, progress: (entry.progress ?? 0) - 1),
+                      ),
+                    ),
+                  ),
+                )
+              ],
             );
           },
-          itemCount: entries.length,
+          chips: (_, index) {
+            var entry = entries[index];
+
+            if ((entry.media!.episodes ?? entry.media!.chapters) != null &&
+                entry.progress! >=
+                    (entry.media!.episodes ?? entry.media!.chapters!)) {
+              return [];
+            }
+
+            return [
+              GridChip(
+                bottom: 5,
+                right: 5,
+                maxWidth: 100,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 25,
+                      width: 30,
+                      child: IconButton(
+                        onPressed: () => client.value.mutate$SaveMediaListEntry(
+                          Options$Mutation$SaveMediaListEntry(
+                            variables: Variables$Mutation$SaveMediaListEntry(
+                              id: entry.id,
+                              progress: (entry.progress ?? 0) + 1,
+                            ),
+                          ),
+                        ),
+                        icon: const Icon(Icons.add),
+                        padding: EdgeInsets.zero,
+                        iconSize: 15,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '${entry.progress ?? '0'} / ${entry.media!.episodes ?? entry.media!.chapters ?? '??'}',
+                    )
+                  ],
+                ),
+              ),
+            ];
+          },
         ),
       ],
     );
@@ -228,47 +258,44 @@ class _Releases extends StatelessWidget {
             itemBuilder: (context, index) {
               var media = sorted[index];
 
+              var next = media.nextAiringEpisode;
+              var passed = media.airingSchedule?.edges
+                  ?.firstWhere(
+                    (a) => a?.node?.episode == next!.episode - 1,
+                    orElse: () => null,
+                  )
+                  ?.node;
+              late dynamic use;
+              bool hasPassed = false;
+
+              if (isTodayFromTimestamp(passed?.airingAt) &&
+                  hasTimestampPassed(passed?.airingAt)) {
+                use = passed;
+                hasPassed = true;
+              } else {
+                use = next;
+              }
+
               return Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: GridCard(
                   imageUrl: media.coverImage!.extraLarge!,
                   title: media.title!.userPreferred,
-                  index: media.id,
                   aspectRatio: 1.9 / 3,
-                  onTap: (index) => context.pushRoute(
+                  onTap: () => context.pushRoute(
                     MediaRoute(id: media.id),
                   ),
-                  onLongPress: (index) => showMediaCard(context, media),
-                  chips: (index) {
-                    var next = media.nextAiringEpisode;
-                    var passed = media.airingSchedule?.edges
-                        ?.firstWhere(
-                          (a) => a?.node?.episode == next!.episode - 1,
-                          orElse: () => null,
-                        )
-                        ?.node;
-                    late dynamic use;
-                    bool hasPassed = false;
-
-                    if (isTodayFromTimestamp(passed?.airingAt) &&
-                        hasTimestampPassed(passed?.airingAt)) {
-                      use = passed;
-                      hasPassed = true;
-                    } else {
-                      use = next;
-                    }
-
-                    return [
-                      GridChip(
-                        top: 2,
-                        right: 2,
-                        child: Text(
-                          'Episode ${use.episode.toString()} ${hasPassed ? '(' : 'in '}${timeago.format(dateFromTimestamp(use.airingAt), allowFromNow: true)}${hasPassed ? ')' : ''}'
-                              .replaceAll('from now', ''),
-                        ),
+                  onLongPress: () => showMediaCard(context, media),
+                  chips: [
+                    GridChip(
+                      top: 2,
+                      right: 2,
+                      child: Text(
+                        'Episode ${use.episode.toString()} ${hasPassed ? '(' : 'in '}${timeago.format(dateFromTimestamp(use.airingAt), allowFromNow: true)}${hasPassed ? ')' : ''}'
+                            .replaceAll('from now', ''),
                       ),
-                    ];
-                  },
+                    ),
+                  ],
                 ),
               );
             },

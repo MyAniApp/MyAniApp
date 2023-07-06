@@ -2,17 +2,20 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/common/media_editor/media_editor.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/list/list.graphql.dart';
+import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/cards/grid_cards.dart';
-import 'package:myaniapp/ui/common/cards/sheet_card.dart';
+import 'package:myaniapp/ui/common/cards/media_cards.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/media_editor/media_editor.dart';
+import 'package:myaniapp/ui/common/numer_picker.dart';
 import 'package:myaniapp/ui/routes/home/app_bar.dart';
 
 @RoutePage()
@@ -96,6 +99,7 @@ class HomeAnimePage extends ConsumerWidget {
                       (list) => Media(
                         list: list!,
                         refresh: refetch,
+                        setting: Setting.animeList,
                       ),
                     )
                     .toList(),
@@ -114,11 +118,13 @@ class Media extends StatefulWidget {
     required this.list,
     required this.refresh,
     this.canEdit = true,
+    required this.setting,
   });
 
   final Fragment$ListGroup list;
   final void Function() refresh;
   final bool canEdit;
+  final Setting setting;
 
   @override
   State<Media> createState() => _MediaState();
@@ -131,73 +137,104 @@ class _MediaState extends State<Media> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return GridCards(
-      // primary: false,
-      padding: const EdgeInsets.all(8),
-      card: (index) {
+
+    return MediaCards(
+      list: widget.list.entries!.map((e) => e!.media!).toList(),
+      aspectRatio: 1.9 / 3,
+      setting: widget.setting,
+      onTap: (media, index) => context.pushRoute(MediaRoute(id: media.id)),
+      onDoubleTap: widget.canEdit
+          ? (media, index) => showMediaEditor(
+                context,
+                media as Fragment$MediaFragment,
+                onDelete: widget.refresh,
+                onSave: widget.refresh,
+              )
+          : null,
+      chips: (_, index) {
+        if (!widget.canEdit) return [];
         var entry = widget.list.entries![index]!;
+        if (entry.status != Enum$MediaListStatus.CURRENT) return [];
 
-        return GridCard(
-          imageUrl: entry.media!.coverImage!.extraLarge!,
-          title: entry.media!.title!.userPreferred,
-          aspectRatio: 1.9 / 3,
-          index: index,
-          onTap: (index) => context.pushRoute(MediaRoute(id: entry.mediaId)),
-          onLongPress: (index) => showMediaCard(context, entry.media!),
-          onDoubleTap: widget.canEdit
-              ? (index) => showMediaEditor(
-                    context,
-                    entry.media!,
-                    onDelete: widget.refresh,
-                    onSave: widget.refresh,
-                  )
-              : null,
-          chips: (index) {
-            if (entry.status != Enum$MediaListStatus.CURRENT) return [];
+        if ((entry.media!.episodes ?? entry.media!.chapters) != null &&
+            entry.progress! >=
+                (entry.media!.episodes ?? entry.media!.chapters!)) {
+          return [];
+        }
 
-            if ((entry.media!.episodes ?? entry.media!.chapters) != null &&
-                entry.progress! >=
-                    (entry.media!.episodes ?? entry.media!.chapters!)) {
-              return [];
-            }
-
-            return [
-              GridChip(
-                bottom: 5,
-                right: 5,
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 25,
-                      width: 30,
-                      child: IconButton(
-                        onPressed: () => client.value.mutate$SaveMediaListEntry(
-                          Options$Mutation$SaveMediaListEntry(
-                            variables: Variables$Mutation$SaveMediaListEntry(
-                              id: entry.id,
-                              progress: (entry.progress ?? 0) + 1,
-                            ),
-                          ),
+        return [
+          GridChip(
+            maxWidth: 100,
+            bottom: 5,
+            right: 5,
+            child: Row(
+              children: [
+                SizedBox(
+                  height: 25,
+                  width: 30,
+                  child: IconButton(
+                    onPressed: () => client.value.mutate$SaveMediaListEntry(
+                      Options$Mutation$SaveMediaListEntry(
+                        variables: Variables$Mutation$SaveMediaListEntry(
+                          id: entry.id,
+                          progress: (entry.progress ?? 0) + 1,
                         ),
-                        icon: const Icon(Icons.add),
-                        padding: EdgeInsets.zero,
-                        iconSize: 15,
                       ),
                     ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      '${entry.progress ?? '0'} / ${entry.media!.episodes ?? entry.media!.chapters ?? '??'}',
-                    )
-                  ],
+                    icon: const Icon(Icons.add),
+                    padding: EdgeInsets.zero,
+                    iconSize: 15,
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  '${entry.progress ?? '0'} / ${entry.media!.episodes ?? entry.media!.chapters ?? '??'}',
+                )
+              ],
+            ),
+          ),
+        ];
+      },
+      underTitle: (media, style, index) {
+        if (style != ListStyle.detailedList) return null;
+        var entry = widget.list.entries![index]!;
+
+        return Column(
+          children: [
+            if ((media.episodes ?? media.chapters ?? 0) > 0)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: LinearProgressIndicator(
+                  value: (entry.progress ?? 0) /
+                      (media.episodes ?? media.chapters)!,
                 ),
               ),
-            ];
-          },
+            // const Spacer(),
+            if (widget.canEdit)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: NumberPicker(
+                  hint: 'Episode count',
+                  number: entry.progress,
+                  onIncrement: () => client.value.mutate$SaveMediaListEntry(
+                    Options$Mutation$SaveMediaListEntry(
+                      variables: Variables$Mutation$SaveMediaListEntry(
+                          id: entry.id, progress: (entry.progress ?? 0) + 1),
+                    ),
+                  ),
+                  onDecrement: () => client.value.mutate$SaveMediaListEntry(
+                    Options$Mutation$SaveMediaListEntry(
+                      variables: Variables$Mutation$SaveMediaListEntry(
+                          id: entry.id, progress: (entry.progress ?? 0) - 1),
+                    ),
+                  ),
+                ),
+              )
+          ],
         );
       },
-      itemCount: widget.list.entries!.length,
     );
   }
 }

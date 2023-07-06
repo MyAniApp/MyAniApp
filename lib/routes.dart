@@ -67,7 +67,22 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(page: UserAnimeListRoute.page, path: '/user/:name/anime'),
         AutoRoute(page: UserMangaListRoute.page, path: '/user/:name/manga'),
-        AutoRoute(page: NotificationsRoute.page, path: '/notifications')
+        AutoRoute(page: NotificationsRoute.page, path: '/notifications'),
+        AutoRoute(
+          page: SettingsRoute.page,
+          path: '/settings',
+          children: [
+            AutoRoute(page: GeneralSettingsRoute.page, path: ''),
+            AutoRoute(page: AppSettingsRoute.page, path: 'app'),
+            AutoRoute.guarded(
+              page: AnilistSettingsRoute.page,
+              path: 'anilist',
+              onNavigation: (resolver, router) {
+                if (ref.read(userProvider).value != null) resolver.next();
+              },
+            )
+          ],
+        )
       ];
 }
 

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:myaniapp/ui/theme.dart';
 import 'package:uni_links/uni_links.dart';
@@ -45,6 +46,8 @@ class _AppState extends ConsumerState<App> {
 
   @override
   Widget build(BuildContext context) {
+    var themeMode = ref.watch(settingsProvider.select((value) => value.theme));
+
     return MaterialApp.router(
       title: 'MyAniApp',
       routerConfig: appRouter.config(
@@ -55,7 +58,7 @@ class _AppState extends ConsumerState<App> {
       scrollBehavior: _ScrollBehavior(),
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.dark,
+      themeMode: themeMode,
       debugShowCheckedModeBanner: false,
     );
   }

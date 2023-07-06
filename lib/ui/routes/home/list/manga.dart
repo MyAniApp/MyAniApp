@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/list/list.graphql.dart';
+import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
@@ -89,6 +90,7 @@ class HomeMangaPage extends ConsumerWidget {
                       (list) => Media(
                         list: list!,
                         refresh: refetch,
+                        setting: Setting.mangaList,
                       ),
                     )
                     .toList(),

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,19 +16,40 @@ import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/media_editor/media_editor.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 @RoutePage()
-class MediaPage extends ConsumerWidget {
+class MediaPage extends ConsumerStatefulWidget {
   const MediaPage({super.key, @PathParam('id') required this.id});
 
   final int id;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    var media = ref.watch(mediaProvider(id));
-    // return AutoTabsScaffold(routes: routes)
+  ConsumerState<ConsumerStatefulWidget> createState() => _MediaPageState();
+}
 
-    return Scaffold(
+class _MediaPageState extends ConsumerState<MediaPage> {
+  final ytController = (kIsWeb || Platform.isAndroid)
+      ? YoutubePlayerController(
+          params: const YoutubePlayerParams(
+            enableCaption: true,
+            showFullscreenButton: true,
+            strictRelatedVideos: true,
+          ),
+        )
+      : null;
+
+  @override
+  void dispose() {
+    super.dispose();
+    ytController?.close();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var media = ref.watch(mediaProvider(widget.id));
+
+    var root = Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingButtons(media: media.value),
       body: AutoTabsRouter.tabBar(
@@ -42,27 +66,55 @@ class MediaPage extends ConsumerWidget {
           if ((media.value?.staff?.nodes?.length ?? 0) > 0) MediaStaffRoute(),
           MediaSocialRoute()
         ],
-        builder: (context, child, tabController) => media.when(
-          data: (media) => NestedScrollView(
+        builder: (context, child, tabController) {
+          if (media.value!.trailer?.site == 'youtube') {
+            ytController?.loadVideoById(videoId: media.value!.trailer!.id!);
+          }
+
+          return NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
               MediaAppBar(
-                media: media,
+                media: media.value!,
                 controller: tabController,
                 forceElevated: innerBoxIsScrolled,
               ),
             ],
             body: child,
+          );
+        },
+      ),
+    );
+
+    if (kIsWeb || Platform.isAndroid) {
+      return media.when(
+        data: (data) => YoutubePlayerScaffold(
+          controller: ytController!,
+          aspectRatio: 9 / 16,
+          builder: (context, player) => root,
+        ),
+        error: (error, stackTrace) => Scaffold(
+          appBar: AppBar(),
+          body: GraphqlError(exception: error as OperationException),
+        ),
+        loading: () => Scaffold(
+          appBar: AppBar(),
+          body: const Center(
+            child: CircularProgressIndicator.adaptive(),
           ),
-          error: (error, stackTrace) => Scaffold(
-            appBar: AppBar(),
-            body: GraphqlError(exception: error as OperationException),
-          ),
-          loading: () => Scaffold(
-            appBar: AppBar(),
-            body: const Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
-          ),
+        ),
+      );
+    }
+
+    return media.when(
+      data: (data) => root,
+      error: (error, stackTrace) => Scaffold(
+        appBar: AppBar(),
+        body: GraphqlError(exception: error as OperationException),
+      ),
+      loading: () => Scaffold(
+        appBar: AppBar(),
+        body: const Center(
+          child: CircularProgressIndicator.adaptive(),
         ),
       ),
     );

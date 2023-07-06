@@ -35,25 +35,24 @@ class GridCards extends StatelessWidget {
 }
 
 class GridCard extends StatelessWidget {
-  const GridCard(
-      {super.key,
-      required this.imageUrl,
-      this.chips,
-      this.index,
-      this.onDoubleTap,
-      this.onTap,
-      this.underTitle,
-      this.title,
-      this.onLongPress,
-      this.aspectRatio = 2 / 3});
+  const GridCard({
+    super.key,
+    required this.imageUrl,
+    this.chips,
+    this.onDoubleTap,
+    this.onTap,
+    this.underTitle,
+    this.title,
+    this.onLongPress,
+    this.aspectRatio = 2 / 3,
+  });
 
-  final Widget Function(int index, ListStyle style)? underTitle;
-  final List<Widget> Function(int index)? chips;
-  final void Function(int index)? onDoubleTap;
-  final void Function(int index)? onTap;
-  final void Function(int index)? onLongPress;
+  final Widget? underTitle;
+  final List<Widget>? chips;
+  final void Function()? onDoubleTap;
+  final void Function()? onTap;
+  final void Function()? onLongPress;
   final String imageUrl;
-  final int? index;
   final String? title;
   final double aspectRatio;
 
@@ -62,14 +61,9 @@ class GridCard extends StatelessWidget {
     return AspectRatio(
       aspectRatio: aspectRatio,
       child: GestureDetector(
-        onLongPress: onLongPress != null && index != null
-            ? () => onLongPress!(index!)
-            : null,
-        // onLongPress: () => showCardSheet(context, media),
-        onDoubleTap: onDoubleTap != null && index != null
-            ? () => onDoubleTap!(index!)
-            : null,
-        onTap: onTap != null && index != null ? () => onTap!(index!) : null,
+        onLongPress: onLongPress,
+        onDoubleTap: onDoubleTap,
+        onTap: onTap,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -90,7 +84,7 @@ class GridCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  if (chips != null && index != null) ...chips!(index!),
+                  if (chips != null) ...chips!,
                 ],
               ),
             ),
@@ -101,17 +95,15 @@ class GridCard extends StatelessWidget {
                   title!,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        fontWeight: underTitle != null && index != null
-                            ? FontWeight.bold
-                            : null,
+                        fontWeight: underTitle != null ? FontWeight.bold : null,
                       ),
                 ),
               ),
-            if (underTitle != null && index != null)
+            if (underTitle != null)
               DefaultTextStyle(
                 style: Theme.of(context).textTheme.bodySmall!,
                 overflow: TextOverflow.ellipsis,
-                child: underTitle!(index!, ListStyle.grid),
+                child: underTitle!,
               )
           ],
         ),

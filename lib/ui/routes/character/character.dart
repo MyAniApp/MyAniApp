@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql.dart';
+import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/character/character.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/media/media.graphql.dart';
 import 'package:myaniapp/routes.gr.dart';
-import 'package:myaniapp/ui/common/cards/grid_cards.dart';
-import 'package:myaniapp/ui/common/cards/sheet_card.dart';
+import 'package:myaniapp/ui/common/cards/media_cards.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/pagination.dart';
@@ -277,27 +277,38 @@ class _CharacterPageState extends State<CharacterPage> {
                       ),
                     ),
                     SliverToBoxAdapter(
-                      child: GridCards(
+                      child: MediaCards(
+                        list: result.parsedData!.Character!.media!.edges!
+                            .map((e) => e!.node!)
+                            .toList()
+                            .cast<Fragment$MediaFragment>(),
+                        aspectRatio: 1.9 / 3,
                         primary: false,
                         padding: const EdgeInsets.all(8),
-                        card: (index) {
-                          var media = result
-                              .parsedData!.Character!.media!.edges![index]!;
-
-                          return GridCard(
-                            imageUrl: media.node!.coverImage!.extraLarge!,
-                            title: media.node!.title!.userPreferred,
-                            aspectRatio: 1.9 / 3,
-                            index: index,
-                            onTap: (index) => context
-                                .pushRoute(MediaRoute(id: media.node!.id)),
-                            onLongPress: (index) =>
-                                showMediaCard(context, media.node!),
-                          );
-                        },
-                        itemCount:
-                            result.parsedData!.Character!.media!.edges!.length,
+                        onTap: (media, index) => context.pushRoute(
+                          MediaRoute(id: media.id),
+                        ),
                       ),
+                      // child: GridCards(
+                      //   primary: false,
+                      //   padding: const EdgeInsets.all(8),
+                      //   card: (index) {
+                      //     var media = result
+                      //         .parsedData!.Character!.media!.edges![index]!;
+
+                      //     return GridCard(
+                      //       imageUrl: media.node!.coverImage!.extraLarge!,
+                      //       title: media.node!.title!.userPreferred,
+                      //       aspectRatio: 1.9 / 3,
+                      //       onTap: (index) => context
+                      //           .pushRoute(MediaRoute(id: media.node!.id)),
+                      //       onLongPress: (index) =>
+                      //           showMediaCard(context, media.node!),
+                      //     );
+                      //   },
+                      //   itemCount:
+                      //       result.parsedData!.Character!.media!.edges!.length,
+                      // ),
                     ),
                     if (result.isLoading)
                       const SliverToBoxAdapter(

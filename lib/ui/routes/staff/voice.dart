@@ -38,15 +38,13 @@ class StaffVoicePage extends StatelessWidget {
 
                 return GridCard(
                   imageUrl: media.characters!.first!.image!.large!,
-                  index: index,
-                  onTap: (index) => context.pushRoute(
+                  onTap: () => context.pushRoute(
                     CharacterRoute(id: media.characters!.first!.id),
                   ),
                   aspectRatio: 1.7 / 3,
                   title: media.characters!.first!.name!.userPreferred,
-                  underTitle: (index, style) =>
-                      Text(media.node!.title!.userPreferred!),
-                  chips: (index) => [
+                  underTitle: Text(media.node!.title!.userPreferred!),
+                  chips: [
                     SizedBox(
                       width: 50,
                       child: AspectRatio(

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/constants.dart';
@@ -10,6 +13,7 @@ import 'package:myaniapp/routes.gr.dart';
 import 'package:myaniapp/ui/common/image.dart';
 import 'package:myaniapp/ui/common/markdown/markdown.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 @RoutePage()
 class MediaOverviewPage extends ConsumerWidget {
@@ -39,10 +43,32 @@ class MediaOverviewPage extends ConsumerWidget {
           height: 10,
         ),
         _Tags(tags: media.value!.tags!.cast()),
+        if (media.value!.trailer?.site == 'youtube') const Player(),
         const SizedBox(
           height: 10,
         ),
         _Links(media: media.value!),
+      ],
+    );
+  }
+}
+
+class Player extends StatelessWidget {
+  const Player({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    print((kIsWeb || Platform.isAndroid));
+    if (!(kIsWeb || Platform.isAndroid)) return const SizedBox();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Trailer', style: Theme.of(context).textTheme.titleMedium),
+        const SizedBox(
+          height: 10,
+        ),
+        YoutubePlayer(controller: context.ytController),
       ],
     );
   }

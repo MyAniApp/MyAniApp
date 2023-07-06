@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:myaniapp/graphql.dart';
+import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/search/search.graphql.dart';
 import 'package:myaniapp/providers/search.dart';
-import 'package:myaniapp/routes.gr.dart';
-import 'package:myaniapp/ui/common/cards/grid_cards.dart';
-import 'package:myaniapp/ui/common/cards/sheet_card.dart';
+import 'package:myaniapp/ui/common/cards/media_cards.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
 import 'package:myaniapp/ui/routes/search/editor/editor.dart';
 
@@ -268,22 +267,11 @@ class _SearchPageState extends ConsumerState<SearchPage> {
               }
               return false;
             },
-            child: GridCards(
+            child: MediaCards(
               padding: const EdgeInsets.all(8),
-              card: (index) {
-                var media = data.Page!.media![index]!;
-
-                return GridCard(
-                  imageUrl: media.coverImage!.extraLarge!,
-                  aspectRatio: 1.9 / 3,
-                  index: index,
-                  underTitle: (index, style) =>
-                      Text(media.title!.userPreferred!),
-                  onTap: (index) => context.pushRoute(MediaRoute(id: media.id)),
-                  onLongPress: (index) => showMediaCard(context, media),
-                );
-              },
-              itemCount: data.Page!.media!.length,
+              list: data.Page!.media!.cast<Fragment$MediaFragment>(),
+              aspectRatio: 1.9 / 3,
+              underTitle: (media, _, __) => Text(media.title!.userPreferred!),
             ),
           );
         },

@@ -4,8 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/providers/media.dart';
 import 'package:myaniapp/routes.gr.dart';
-import 'package:myaniapp/ui/common/cards/grid_cards.dart';
-import 'package:myaniapp/ui/common/cards/sheet_card.dart';
+import 'package:myaniapp/ui/common/cards/media_cards.dart';
 
 @RoutePage()
 class MediaRelationsPage extends ConsumerWidget {
@@ -23,24 +22,12 @@ class MediaRelationsPage extends ConsumerWidget {
         (a, b) => a!.relationType!.index.compareTo(b!.relationType!.index),
       );
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: GridCards(
-        // childAspectRatio: 1.7 / 3,
-        card: (index) {
-          var item = sorted[index]!;
-
-          return GridCard(
-            aspectRatio: 1.8 / 3,
-            imageUrl: item.node!.coverImage!.extraLarge!,
-            index: index,
-            onTap: (_) => context.pushRoute(MediaRoute(id: item.node!.id)),
-            onLongPress: (_) => showMediaCard(context, item.node!),
-            title: item.node!.title!.userPreferred,
-            underTitle: (_, __) => Text(item.relationType!.name.capitalize()),
-          );
-        },
-        itemCount: sorted.length,
+    return MediaCards(
+      list: sorted.map((e) => e!.node!).toList(),
+      aspectRatio: 1.8 / 3,
+      onTap: (media, index) => context.pushRoute(MediaRoute(id: media.id)),
+      underTitle: (media, style, index) => Text(
+        sorted[index]!.relationType!.name.capitalize(),
       ),
     );
   }

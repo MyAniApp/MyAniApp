@@ -35,13 +35,12 @@ class NotificationsPage extends HookWidget {
 
               var notif = AnilistNotification(item);
               return DetailedListCard(
-                index: index,
                 onTap: (notif.isMedia &&
                         item.$__typename != 'MediaDeletionNotification')
-                    ? (_) => context
+                    ? () => context
                         .pushRoute(MediaRoute(id: (item as dynamic).media.id))
                     : notif.isActivity
-                        ? (_) => context.pushRoute(
+                        ? () => context.pushRoute(
                             ActivityRoute(id: (item as dynamic).activityId))
                         : null,
                 imageUrl: (notif.isMedia &&
@@ -51,7 +50,7 @@ class NotificationsPage extends HookWidget {
                             item.$__typename == 'FollowingNotification')
                         ? (item as dynamic).user.avatar.large
                         : 'https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg',
-                underTitle: (index, style) => Padding(
+                underTitle: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

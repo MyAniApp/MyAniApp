@@ -32,22 +32,18 @@ class DetailedListCard extends StatelessWidget {
   const DetailedListCard({
     super.key,
     this.underTitle,
-    this.chips,
     this.onDoubleTap,
     this.onTap,
     this.onLongPress,
     required this.imageUrl,
-    this.index,
     this.title,
   });
 
-  final Widget Function(int index, ListStyle style)? underTitle;
-  final List<Widget> Function(int index)? chips;
-  final void Function(int index)? onDoubleTap;
-  final void Function(int index)? onTap;
-  final void Function(int index)? onLongPress;
+  final Widget? underTitle;
+  final void Function()? onDoubleTap;
+  final void Function()? onTap;
+  final void Function()? onLongPress;
   final String imageUrl;
-  final int? index;
   final String? title;
 
   @override
@@ -56,13 +52,9 @@ class DetailedListCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 4),
       child: InkWell(
         borderRadius: imageRadius,
-        onLongPress: onLongPress != null && index != null
-            ? () => onLongPress!(index!)
-            : null,
-        onTap: onTap != null && index != null ? () => onTap!(index!) : null,
-        onDoubleTap: onDoubleTap != null && index != null
-            ? () => onDoubleTap!(index!)
-            : null,
+        onLongPress: onLongPress,
+        onDoubleTap: onDoubleTap,
+        onTap: onTap,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -93,8 +85,7 @@ class DetailedListCard extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ),
-                  if (underTitle != null && index != null)
-                    underTitle!(index!, ListStyle.detailedList),
+                  if (underTitle != null) underTitle!,
                 ],
               ),
             ),

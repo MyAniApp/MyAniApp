@@ -12,6 +12,7 @@ class HomeDrawer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var user = ref.watch(userProvider);
+    var theme = Theme.of(context);
 
     return Drawer(
       child: ListView(
@@ -29,7 +30,10 @@ class HomeDrawer extends ConsumerWidget {
                 ),
               ),
               child: UserAccountsDrawerHeader(
-                accountName: Text(user.value!.name),
+                accountName: Text(
+                  user.value!.name,
+                  style: TextStyle(color: theme.colorScheme.onBackground),
+                ),
                 currentAccountPicture:
                     CImage(imageUrl: user.value!.avatar!.large!),
                 accountEmail: null,
@@ -38,11 +42,20 @@ class HomeDrawer extends ConsumerWidget {
               ),
             ),
             ListTile(
+              onTap: () => context.pushRoute(const SettingsRoute()),
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+            ),
+            ListTile(
               onTap: () => showDialog(
                 context: context,
                 builder: (context) => const LogoutDialog(),
               ),
-              textColor: Theme.of(context).colorScheme.error,
+              leading: Icon(
+                Icons.logout,
+                color: theme.colorScheme.error,
+              ),
+              textColor: theme.colorScheme.error,
               title: const Text('Logout'),
             ),
           ]

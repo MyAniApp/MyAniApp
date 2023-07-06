@@ -192,9 +192,8 @@ class _List extends StatelessWidget {
             imageUrl: media.coverImage!.extraLarge!,
             title: media.title!.userPreferred,
             aspectRatio: 1.9 / 3,
-            index: index,
-            onTap: (index) => context.pushRoute(MediaRoute(id: media.id)),
-            onLongPress: (index) => showMediaCard(context, media),
+            onTap: () => context.pushRoute(MediaRoute(id: media.id)),
+            onLongPress: () => showMediaCard(context, media),
           ),
         );
       },
