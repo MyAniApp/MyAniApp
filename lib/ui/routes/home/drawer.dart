@@ -17,12 +17,18 @@ class HomeDrawer extends ConsumerWidget {
     return Drawer(
       child: ListView(
         children: [
-          if (user.value == null)
+          if (user.value == null) ...[
+            ListTile(
+              onTap: () => context.pushRoute(const SettingsRoute()),
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+            ),
             ListTile(
               onTap: () => context.pushRoute(const LoginRoute()),
+              leading: const Icon(Icons.login),
               title: const Text('Login'),
-            )
-          else ...[
+            ),
+          ] else ...[
             InkWell(
               onTap: () => context.pushRoute(
                 UserRoute(

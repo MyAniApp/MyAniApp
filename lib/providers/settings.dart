@@ -25,7 +25,7 @@ class Settings extends _$Settings {
   }
 
   Future<bool> logout() async {
-    await ref.read(sharedPrefProvider).clear();
+    await ref.read(sharedPrefProvider).remove('token');
     state = build();
     client.value.cache.store.reset();
     return true;
