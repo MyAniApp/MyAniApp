@@ -49,11 +49,12 @@ class PushNotifications {
     NotificationDetails details,
     String? body, {
     Map<String, String>? payload,
+    int? id,
   }) {
     if (!Platform.isAndroid) return Future.value();
 
     return _flutterLocalNotificationsPlugin.show(
-      Random.secure().nextInt(999),
+      id ?? Random.secure().nextInt(999),
       title,
       body,
       details,

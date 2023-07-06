@@ -168,6 +168,7 @@ class _MediaState extends State<Media> with AutomaticKeepAliveClientMixin {
             bottom: 5,
             right: 5,
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
                   height: 25,

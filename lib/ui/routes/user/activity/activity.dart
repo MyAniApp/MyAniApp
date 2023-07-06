@@ -33,6 +33,7 @@ class UserActivityPage extends ConsumerWidget {
         }
 
         return ListView.builder(
+          padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
             var activity = result.parsedData!.Page!.activities![index]!;
 

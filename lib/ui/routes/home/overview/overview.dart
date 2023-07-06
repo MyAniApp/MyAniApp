@@ -195,6 +195,7 @@ class _Watching extends StatelessWidget {
                 right: 5,
                 maxWidth: 100,
                 child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(
                       height: 25,
