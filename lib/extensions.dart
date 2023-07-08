@@ -35,7 +35,7 @@ extension Date on Fragment$FuzzyDate {
   DateTime? toDate() {
     if (year == null) return null;
 
-    return DateTime(year!, month ?? 0, day ?? 0);
+    return DateTime(year!, month ?? 1, day ?? 1);
   }
 
   String? toDateString() {

@@ -3276,12 +3276,7 @@ const fragmentDefinitionMediaListEntry = FragmentDefinitionNode(
     FieldNode(
       name: NameNode(value: 'score'),
       alias: null,
-      arguments: [
-        ArgumentNode(
-          name: NameNode(value: 'format'),
-          value: EnumValueNode(name: NameNode(value: 'POINT_100')),
-        )
-      ],
+      arguments: [],
       directives: [],
       selectionSet: null,
     ),
@@ -3360,6 +3355,51 @@ const fragmentDefinitionMediaListEntry = FragmentDefinitionNode(
           selectionSet: null,
         ),
         FieldNode(
+          name: NameNode(value: 'status'),
+          alias: null,
+          arguments: [
+            ArgumentNode(
+              name: NameNode(value: 'version'),
+              value: IntValueNode(value: '2'),
+            )
+          ],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'averageScore'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'popularity'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'startDate'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'FuzzyDate'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
           name: NameNode(value: '__typename'),
           alias: null,
           arguments: [],
@@ -3431,6 +3471,10 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
     this.$__typename = 'Media',
     this.episodes,
     this.chapters,
+    this.status,
+    this.averageScore,
+    this.popularity,
+    this.startDate,
   });
 
   factory Fragment$MediaListEntry$media.fromJson(Map<String, dynamic> json) {
@@ -3445,6 +3489,10 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
     final l$$__typename = json['__typename'];
     final l$episodes = json['episodes'];
     final l$chapters = json['chapters'];
+    final l$status = json['status'];
+    final l$averageScore = json['averageScore'];
+    final l$popularity = json['popularity'];
+    final l$startDate = json['startDate'];
     return Fragment$MediaListEntry$media(
       id: (l$id as int),
       type: l$type == null ? null : fromJson$Enum$MediaType((l$type as String)),
@@ -3465,6 +3513,14 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
       $__typename: (l$$__typename as String),
       episodes: (l$episodes as int?),
       chapters: (l$chapters as int?),
+      status: l$status == null
+          ? null
+          : fromJson$Enum$MediaStatus((l$status as String)),
+      averageScore: (l$averageScore as int?),
+      popularity: (l$popularity as int?),
+      startDate: l$startDate == null
+          ? null
+          : Fragment$FuzzyDate.fromJson((l$startDate as Map<String, dynamic>)),
     );
   }
 
@@ -3489,6 +3545,14 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
   final int? episodes;
 
   final int? chapters;
+
+  final Enum$MediaStatus? status;
+
+  final int? averageScore;
+
+  final int? popularity;
+
+  final Fragment$FuzzyDate? startDate;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
@@ -3515,6 +3579,15 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
     _resultData['episodes'] = l$episodes;
     final l$chapters = chapters;
     _resultData['chapters'] = l$chapters;
+    final l$status = status;
+    _resultData['status'] =
+        l$status == null ? null : toJson$Enum$MediaStatus(l$status);
+    final l$averageScore = averageScore;
+    _resultData['averageScore'] = l$averageScore;
+    final l$popularity = popularity;
+    _resultData['popularity'] = l$popularity;
+    final l$startDate = startDate;
+    _resultData['startDate'] = l$startDate?.toJson();
     return _resultData;
   }
 
@@ -3531,6 +3604,10 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
     final l$$__typename = $__typename;
     final l$episodes = episodes;
     final l$chapters = chapters;
+    final l$status = status;
+    final l$averageScore = averageScore;
+    final l$popularity = popularity;
+    final l$startDate = startDate;
     return Object.hashAll([
       l$id,
       l$type,
@@ -3543,6 +3620,10 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
       l$$__typename,
       l$episodes,
       l$chapters,
+      l$status,
+      l$averageScore,
+      l$popularity,
+      l$startDate,
     ]);
   }
 
@@ -3621,6 +3702,26 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
     if (l$chapters != lOther$chapters) {
       return false;
     }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$averageScore = averageScore;
+    final lOther$averageScore = other.averageScore;
+    if (l$averageScore != lOther$averageScore) {
+      return false;
+    }
+    final l$popularity = popularity;
+    final lOther$popularity = other.popularity;
+    if (l$popularity != lOther$popularity) {
+      return false;
+    }
+    final l$startDate = startDate;
+    final lOther$startDate = other.startDate;
+    if (l$startDate != lOther$startDate) {
+      return false;
+    }
     return true;
   }
 }
@@ -3655,9 +3756,14 @@ abstract class CopyWith$Fragment$MediaListEntry$media<TRes> {
     String? $__typename,
     int? episodes,
     int? chapters,
+    Enum$MediaStatus? status,
+    int? averageScore,
+    int? popularity,
+    Fragment$FuzzyDate? startDate,
   });
   CopyWith$Fragment$MediaListEntry$media$title<TRes> get title;
   CopyWith$Fragment$MediaListEntry$media$coverImage<TRes> get coverImage;
+  CopyWith$Fragment$FuzzyDate<TRes> get startDate;
 }
 
 class _CopyWithImpl$Fragment$MediaListEntry$media<TRes>
@@ -3685,6 +3791,10 @@ class _CopyWithImpl$Fragment$MediaListEntry$media<TRes>
     Object? $__typename = _undefined,
     Object? episodes = _undefined,
     Object? chapters = _undefined,
+    Object? status = _undefined,
+    Object? averageScore = _undefined,
+    Object? popularity = _undefined,
+    Object? startDate = _undefined,
   }) =>
       _then(Fragment$MediaListEntry$media(
         id: id == _undefined || id == null ? _instance.id : (id as int),
@@ -3712,6 +3822,18 @@ class _CopyWithImpl$Fragment$MediaListEntry$media<TRes>
             episodes == _undefined ? _instance.episodes : (episodes as int?),
         chapters:
             chapters == _undefined ? _instance.chapters : (chapters as int?),
+        status: status == _undefined
+            ? _instance.status
+            : (status as Enum$MediaStatus?),
+        averageScore: averageScore == _undefined
+            ? _instance.averageScore
+            : (averageScore as int?),
+        popularity: popularity == _undefined
+            ? _instance.popularity
+            : (popularity as int?),
+        startDate: startDate == _undefined
+            ? _instance.startDate
+            : (startDate as Fragment$FuzzyDate?),
       ));
   CopyWith$Fragment$MediaListEntry$media$title<TRes> get title {
     final local$title = _instance.title;
@@ -3728,6 +3850,14 @@ class _CopyWithImpl$Fragment$MediaListEntry$media<TRes>
             _then(_instance))
         : CopyWith$Fragment$MediaListEntry$media$coverImage(
             local$coverImage, (e) => call(coverImage: e));
+  }
+
+  CopyWith$Fragment$FuzzyDate<TRes> get startDate {
+    final local$startDate = _instance.startDate;
+    return local$startDate == null
+        ? CopyWith$Fragment$FuzzyDate.stub(_then(_instance))
+        : CopyWith$Fragment$FuzzyDate(
+            local$startDate, (e) => call(startDate: e));
   }
 }
 
@@ -3749,12 +3879,18 @@ class _CopyWithStubImpl$Fragment$MediaListEntry$media<TRes>
     String? $__typename,
     int? episodes,
     int? chapters,
+    Enum$MediaStatus? status,
+    int? averageScore,
+    int? popularity,
+    Fragment$FuzzyDate? startDate,
   }) =>
       _res;
   CopyWith$Fragment$MediaListEntry$media$title<TRes> get title =>
       CopyWith$Fragment$MediaListEntry$media$title.stub(_res);
   CopyWith$Fragment$MediaListEntry$media$coverImage<TRes> get coverImage =>
       CopyWith$Fragment$MediaListEntry$media$coverImage.stub(_res);
+  CopyWith$Fragment$FuzzyDate<TRes> get startDate =>
+      CopyWith$Fragment$FuzzyDate.stub(_res);
 }
 
 class Fragment$MediaListEntry$media$title
@@ -8257,4 +8393,250 @@ class _CopyWithStubImpl$Fragment$MessageActivity$messenger$avatar<TRes>
     String? $__typename,
   }) =>
       _res;
+}
+
+class Fragment$MediaListOptions {
+  Fragment$MediaListOptions({
+    this.sectionOrder,
+    this.customLists,
+    this.$__typename = 'MediaListTypeOptions',
+  });
+
+  factory Fragment$MediaListOptions.fromJson(Map<String, dynamic> json) {
+    final l$sectionOrder = json['sectionOrder'];
+    final l$customLists = json['customLists'];
+    final l$$__typename = json['__typename'];
+    return Fragment$MediaListOptions(
+      sectionOrder: (l$sectionOrder as List<dynamic>?)
+          ?.map((e) => (e as String?))
+          .toList(),
+      customLists: (l$customLists as List<dynamic>?)
+          ?.map((e) => (e as String?))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<String?>? sectionOrder;
+
+  final List<String?>? customLists;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$sectionOrder = sectionOrder;
+    _resultData['sectionOrder'] = l$sectionOrder?.map((e) => e).toList();
+    final l$customLists = customLists;
+    _resultData['customLists'] = l$customLists?.map((e) => e).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$sectionOrder = sectionOrder;
+    final l$customLists = customLists;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$sectionOrder == null
+          ? null
+          : Object.hashAll(l$sectionOrder.map((v) => v)),
+      l$customLists == null
+          ? null
+          : Object.hashAll(l$customLists.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$MediaListOptions) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$sectionOrder = sectionOrder;
+    final lOther$sectionOrder = other.sectionOrder;
+    if (l$sectionOrder != null && lOther$sectionOrder != null) {
+      if (l$sectionOrder.length != lOther$sectionOrder.length) {
+        return false;
+      }
+      for (int i = 0; i < l$sectionOrder.length; i++) {
+        final l$sectionOrder$entry = l$sectionOrder[i];
+        final lOther$sectionOrder$entry = lOther$sectionOrder[i];
+        if (l$sectionOrder$entry != lOther$sectionOrder$entry) {
+          return false;
+        }
+      }
+    } else if (l$sectionOrder != lOther$sectionOrder) {
+      return false;
+    }
+    final l$customLists = customLists;
+    final lOther$customLists = other.customLists;
+    if (l$customLists != null && lOther$customLists != null) {
+      if (l$customLists.length != lOther$customLists.length) {
+        return false;
+      }
+      for (int i = 0; i < l$customLists.length; i++) {
+        final l$customLists$entry = l$customLists[i];
+        final lOther$customLists$entry = lOther$customLists[i];
+        if (l$customLists$entry != lOther$customLists$entry) {
+          return false;
+        }
+      }
+    } else if (l$customLists != lOther$customLists) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$MediaListOptions
+    on Fragment$MediaListOptions {
+  CopyWith$Fragment$MediaListOptions<Fragment$MediaListOptions> get copyWith =>
+      CopyWith$Fragment$MediaListOptions(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$MediaListOptions<TRes> {
+  factory CopyWith$Fragment$MediaListOptions(
+    Fragment$MediaListOptions instance,
+    TRes Function(Fragment$MediaListOptions) then,
+  ) = _CopyWithImpl$Fragment$MediaListOptions;
+
+  factory CopyWith$Fragment$MediaListOptions.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$MediaListOptions;
+
+  TRes call({
+    List<String?>? sectionOrder,
+    List<String?>? customLists,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$MediaListOptions<TRes>
+    implements CopyWith$Fragment$MediaListOptions<TRes> {
+  _CopyWithImpl$Fragment$MediaListOptions(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$MediaListOptions _instance;
+
+  final TRes Function(Fragment$MediaListOptions) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? sectionOrder = _undefined,
+    Object? customLists = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$MediaListOptions(
+        sectionOrder: sectionOrder == _undefined
+            ? _instance.sectionOrder
+            : (sectionOrder as List<String?>?),
+        customLists: customLists == _undefined
+            ? _instance.customLists
+            : (customLists as List<String?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$MediaListOptions<TRes>
+    implements CopyWith$Fragment$MediaListOptions<TRes> {
+  _CopyWithStubImpl$Fragment$MediaListOptions(this._res);
+
+  TRes _res;
+
+  call({
+    List<String?>? sectionOrder,
+    List<String?>? customLists,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+const fragmentDefinitionMediaListOptions = FragmentDefinitionNode(
+  name: NameNode(value: 'MediaListOptions'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'MediaListTypeOptions'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'sectionOrder'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'customLists'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentMediaListOptions = DocumentNode(definitions: [
+  fragmentDefinitionMediaListOptions,
+]);
+
+extension ClientExtension$Fragment$MediaListOptions on graphql.GraphQLClient {
+  void writeFragment$MediaListOptions({
+    required Fragment$MediaListOptions data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
+      this.writeFragment(
+        graphql.FragmentRequest(
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'MediaListOptions',
+            document: documentNodeFragmentMediaListOptions,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$MediaListOptions? readFragment$MediaListOptions({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'MediaListOptions',
+          document: documentNodeFragmentMediaListOptions,
+        ),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Fragment$MediaListOptions.fromJson(result);
+  }
 }

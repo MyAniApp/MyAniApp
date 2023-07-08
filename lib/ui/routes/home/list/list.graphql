@@ -3,5 +3,18 @@ query MediaList($userName: String, $type: MediaType, $sort: [MediaListSort]) {
     lists {
       ...ListGroup
     }
+    user {
+      id
+      mediaListOptions {
+        scoreFormat
+        rowOrder
+        animeList {
+          ...MediaListOptions
+        }
+        mangaList {
+          ...MediaListOptions
+        }
+      }
+    }
   }
 }

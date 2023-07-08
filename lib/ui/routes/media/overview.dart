@@ -47,7 +47,8 @@ class MediaOverviewPage extends ConsumerWidget {
         const SizedBox(
           height: 10,
         ),
-        _Links(media: media.value!),
+        if (media.value!.externalLinks?.isNotEmpty == true)
+          _Links(media: media.value!),
       ],
     );
   }
@@ -58,7 +59,6 @@ class Player extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print((kIsWeb || Platform.isAndroid));
     if (!(kIsWeb || Platform.isAndroid)) return const SizedBox();
 
     return Column(

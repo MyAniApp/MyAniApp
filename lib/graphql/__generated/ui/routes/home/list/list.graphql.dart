@@ -409,6 +409,95 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
             ]),
           ),
           FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'mediaListOptions'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'scoreFormat'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'rowOrder'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'animeList'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaListOptions'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'mangaList'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaListOptions'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
@@ -430,6 +519,7 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
   fragmentDefinitionMediaListEntry,
   fragmentDefinitionFuzzyDate,
   fragmentDefinitionMediaFragment,
+  fragmentDefinitionMediaListOptions,
 ]);
 Query$MediaList _parserFn$Query$MediaList(Map<String, dynamic> data) =>
     Query$MediaList.fromJson(data);
@@ -583,12 +673,14 @@ class Query$MediaList$Widget extends graphql_flutter.Query<Query$MediaList> {
 class Query$MediaList$MediaListCollection {
   Query$MediaList$MediaListCollection({
     this.lists,
+    this.user,
     this.$__typename = 'MediaListCollection',
   });
 
   factory Query$MediaList$MediaListCollection.fromJson(
       Map<String, dynamic> json) {
     final l$lists = json['lists'];
+    final l$user = json['user'];
     final l$$__typename = json['__typename'];
     return Query$MediaList$MediaListCollection(
       lists: (l$lists as List<dynamic>?)
@@ -596,11 +688,17 @@ class Query$MediaList$MediaListCollection {
               ? null
               : Fragment$ListGroup.fromJson((e as Map<String, dynamic>)))
           .toList(),
+      user: l$user == null
+          ? null
+          : Query$MediaList$MediaListCollection$user.fromJson(
+              (l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
   final List<Fragment$ListGroup?>? lists;
+
+  final Query$MediaList$MediaListCollection$user? user;
 
   final String $__typename;
 
@@ -608,6 +706,8 @@ class Query$MediaList$MediaListCollection {
     final _resultData = <String, dynamic>{};
     final l$lists = lists;
     _resultData['lists'] = l$lists?.map((e) => e?.toJson()).toList();
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -616,9 +716,11 @@ class Query$MediaList$MediaListCollection {
   @override
   int get hashCode {
     final l$lists = lists;
+    final l$user = user;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$lists == null ? null : Object.hashAll(l$lists.map((v) => v)),
+      l$user,
       l$$__typename,
     ]);
   }
@@ -646,6 +748,11 @@ class Query$MediaList$MediaListCollection {
         }
       }
     } else if (l$lists != lOther$lists) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -678,12 +785,14 @@ abstract class CopyWith$Query$MediaList$MediaListCollection<TRes> {
 
   TRes call({
     List<Fragment$ListGroup?>? lists,
+    Query$MediaList$MediaListCollection$user? user,
     String? $__typename,
   });
   TRes lists(
       Iterable<Fragment$ListGroup?>? Function(
               Iterable<CopyWith$Fragment$ListGroup<Fragment$ListGroup>?>?)
           _fn);
+  CopyWith$Query$MediaList$MediaListCollection$user<TRes> get user;
 }
 
 class _CopyWithImpl$Query$MediaList$MediaListCollection<TRes>
@@ -701,12 +810,16 @@ class _CopyWithImpl$Query$MediaList$MediaListCollection<TRes>
 
   TRes call({
     Object? lists = _undefined,
+    Object? user = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$MediaList$MediaListCollection(
         lists: lists == _undefined
             ? _instance.lists
             : (lists as List<Fragment$ListGroup?>?),
+        user: user == _undefined
+            ? _instance.user
+            : (user as Query$MediaList$MediaListCollection$user?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -722,6 +835,14 @@ class _CopyWithImpl$Query$MediaList$MediaListCollection<TRes>
                   e,
                   (i) => i,
                 )))?.toList());
+  CopyWith$Query$MediaList$MediaListCollection$user<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWith$Query$MediaList$MediaListCollection$user.stub(
+            _then(_instance))
+        : CopyWith$Query$MediaList$MediaListCollection$user(
+            local$user, (e) => call(user: e));
+  }
 }
 
 class _CopyWithStubImpl$Query$MediaList$MediaListCollection<TRes>
@@ -732,8 +853,404 @@ class _CopyWithStubImpl$Query$MediaList$MediaListCollection<TRes>
 
   call({
     List<Fragment$ListGroup?>? lists,
+    Query$MediaList$MediaListCollection$user? user,
     String? $__typename,
   }) =>
       _res;
   lists(_fn) => _res;
+  CopyWith$Query$MediaList$MediaListCollection$user<TRes> get user =>
+      CopyWith$Query$MediaList$MediaListCollection$user.stub(_res);
+}
+
+class Query$MediaList$MediaListCollection$user {
+  Query$MediaList$MediaListCollection$user({
+    required this.id,
+    this.mediaListOptions,
+    this.$__typename = 'User',
+  });
+
+  factory Query$MediaList$MediaListCollection$user.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$mediaListOptions = json['mediaListOptions'];
+    final l$$__typename = json['__typename'];
+    return Query$MediaList$MediaListCollection$user(
+      id: (l$id as int),
+      mediaListOptions: l$mediaListOptions == null
+          ? null
+          : Query$MediaList$MediaListCollection$user$mediaListOptions.fromJson(
+              (l$mediaListOptions as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final Query$MediaList$MediaListCollection$user$mediaListOptions?
+      mediaListOptions;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$mediaListOptions = mediaListOptions;
+    _resultData['mediaListOptions'] = l$mediaListOptions?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$mediaListOptions = mediaListOptions;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$mediaListOptions,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$MediaList$MediaListCollection$user) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$mediaListOptions = mediaListOptions;
+    final lOther$mediaListOptions = other.mediaListOptions;
+    if (l$mediaListOptions != lOther$mediaListOptions) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$MediaList$MediaListCollection$user
+    on Query$MediaList$MediaListCollection$user {
+  CopyWith$Query$MediaList$MediaListCollection$user<
+          Query$MediaList$MediaListCollection$user>
+      get copyWith => CopyWith$Query$MediaList$MediaListCollection$user(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$MediaList$MediaListCollection$user<TRes> {
+  factory CopyWith$Query$MediaList$MediaListCollection$user(
+    Query$MediaList$MediaListCollection$user instance,
+    TRes Function(Query$MediaList$MediaListCollection$user) then,
+  ) = _CopyWithImpl$Query$MediaList$MediaListCollection$user;
+
+  factory CopyWith$Query$MediaList$MediaListCollection$user.stub(TRes res) =
+      _CopyWithStubImpl$Query$MediaList$MediaListCollection$user;
+
+  TRes call({
+    int? id,
+    Query$MediaList$MediaListCollection$user$mediaListOptions? mediaListOptions,
+    String? $__typename,
+  });
+  CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<TRes>
+      get mediaListOptions;
+}
+
+class _CopyWithImpl$Query$MediaList$MediaListCollection$user<TRes>
+    implements CopyWith$Query$MediaList$MediaListCollection$user<TRes> {
+  _CopyWithImpl$Query$MediaList$MediaListCollection$user(
+    this._instance,
+    this._then,
+  );
+
+  final Query$MediaList$MediaListCollection$user _instance;
+
+  final TRes Function(Query$MediaList$MediaListCollection$user) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? mediaListOptions = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$MediaList$MediaListCollection$user(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        mediaListOptions: mediaListOptions == _undefined
+            ? _instance.mediaListOptions
+            : (mediaListOptions
+                as Query$MediaList$MediaListCollection$user$mediaListOptions?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<TRes>
+      get mediaListOptions {
+    final local$mediaListOptions = _instance.mediaListOptions;
+    return local$mediaListOptions == null
+        ? CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions
+            .stub(_then(_instance))
+        : CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions(
+            local$mediaListOptions, (e) => call(mediaListOptions: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$MediaList$MediaListCollection$user<TRes>
+    implements CopyWith$Query$MediaList$MediaListCollection$user<TRes> {
+  _CopyWithStubImpl$Query$MediaList$MediaListCollection$user(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    Query$MediaList$MediaListCollection$user$mediaListOptions? mediaListOptions,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<TRes>
+      get mediaListOptions =>
+          CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions
+              .stub(_res);
+}
+
+class Query$MediaList$MediaListCollection$user$mediaListOptions {
+  Query$MediaList$MediaListCollection$user$mediaListOptions({
+    this.scoreFormat,
+    this.rowOrder,
+    this.animeList,
+    this.mangaList,
+    this.$__typename = 'MediaListOptions',
+  });
+
+  factory Query$MediaList$MediaListCollection$user$mediaListOptions.fromJson(
+      Map<String, dynamic> json) {
+    final l$scoreFormat = json['scoreFormat'];
+    final l$rowOrder = json['rowOrder'];
+    final l$animeList = json['animeList'];
+    final l$mangaList = json['mangaList'];
+    final l$$__typename = json['__typename'];
+    return Query$MediaList$MediaListCollection$user$mediaListOptions(
+      scoreFormat: l$scoreFormat == null
+          ? null
+          : fromJson$Enum$ScoreFormat((l$scoreFormat as String)),
+      rowOrder: (l$rowOrder as String?),
+      animeList: l$animeList == null
+          ? null
+          : Fragment$MediaListOptions.fromJson(
+              (l$animeList as Map<String, dynamic>)),
+      mangaList: l$mangaList == null
+          ? null
+          : Fragment$MediaListOptions.fromJson(
+              (l$mangaList as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Enum$ScoreFormat? scoreFormat;
+
+  final String? rowOrder;
+
+  final Fragment$MediaListOptions? animeList;
+
+  final Fragment$MediaListOptions? mangaList;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$scoreFormat = scoreFormat;
+    _resultData['scoreFormat'] =
+        l$scoreFormat == null ? null : toJson$Enum$ScoreFormat(l$scoreFormat);
+    final l$rowOrder = rowOrder;
+    _resultData['rowOrder'] = l$rowOrder;
+    final l$animeList = animeList;
+    _resultData['animeList'] = l$animeList?.toJson();
+    final l$mangaList = mangaList;
+    _resultData['mangaList'] = l$mangaList?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$scoreFormat = scoreFormat;
+    final l$rowOrder = rowOrder;
+    final l$animeList = animeList;
+    final l$mangaList = mangaList;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$scoreFormat,
+      l$rowOrder,
+      l$animeList,
+      l$mangaList,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$MediaList$MediaListCollection$user$mediaListOptions) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$scoreFormat = scoreFormat;
+    final lOther$scoreFormat = other.scoreFormat;
+    if (l$scoreFormat != lOther$scoreFormat) {
+      return false;
+    }
+    final l$rowOrder = rowOrder;
+    final lOther$rowOrder = other.rowOrder;
+    if (l$rowOrder != lOther$rowOrder) {
+      return false;
+    }
+    final l$animeList = animeList;
+    final lOther$animeList = other.animeList;
+    if (l$animeList != lOther$animeList) {
+      return false;
+    }
+    final l$mangaList = mangaList;
+    final lOther$mangaList = other.mangaList;
+    if (l$mangaList != lOther$mangaList) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$MediaList$MediaListCollection$user$mediaListOptions
+    on Query$MediaList$MediaListCollection$user$mediaListOptions {
+  CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<
+          Query$MediaList$MediaListCollection$user$mediaListOptions>
+      get copyWith =>
+          CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<
+    TRes> {
+  factory CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions(
+    Query$MediaList$MediaListCollection$user$mediaListOptions instance,
+    TRes Function(Query$MediaList$MediaListCollection$user$mediaListOptions)
+        then,
+  ) = _CopyWithImpl$Query$MediaList$MediaListCollection$user$mediaListOptions;
+
+  factory CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$MediaList$MediaListCollection$user$mediaListOptions;
+
+  TRes call({
+    Enum$ScoreFormat? scoreFormat,
+    String? rowOrder,
+    Fragment$MediaListOptions? animeList,
+    Fragment$MediaListOptions? mangaList,
+    String? $__typename,
+  });
+  CopyWith$Fragment$MediaListOptions<TRes> get animeList;
+  CopyWith$Fragment$MediaListOptions<TRes> get mangaList;
+}
+
+class _CopyWithImpl$Query$MediaList$MediaListCollection$user$mediaListOptions<
+        TRes>
+    implements
+        CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<
+            TRes> {
+  _CopyWithImpl$Query$MediaList$MediaListCollection$user$mediaListOptions(
+    this._instance,
+    this._then,
+  );
+
+  final Query$MediaList$MediaListCollection$user$mediaListOptions _instance;
+
+  final TRes Function(Query$MediaList$MediaListCollection$user$mediaListOptions)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? scoreFormat = _undefined,
+    Object? rowOrder = _undefined,
+    Object? animeList = _undefined,
+    Object? mangaList = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$MediaList$MediaListCollection$user$mediaListOptions(
+        scoreFormat: scoreFormat == _undefined
+            ? _instance.scoreFormat
+            : (scoreFormat as Enum$ScoreFormat?),
+        rowOrder:
+            rowOrder == _undefined ? _instance.rowOrder : (rowOrder as String?),
+        animeList: animeList == _undefined
+            ? _instance.animeList
+            : (animeList as Fragment$MediaListOptions?),
+        mangaList: mangaList == _undefined
+            ? _instance.mangaList
+            : (mangaList as Fragment$MediaListOptions?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Fragment$MediaListOptions<TRes> get animeList {
+    final local$animeList = _instance.animeList;
+    return local$animeList == null
+        ? CopyWith$Fragment$MediaListOptions.stub(_then(_instance))
+        : CopyWith$Fragment$MediaListOptions(
+            local$animeList, (e) => call(animeList: e));
+  }
+
+  CopyWith$Fragment$MediaListOptions<TRes> get mangaList {
+    final local$mangaList = _instance.mangaList;
+    return local$mangaList == null
+        ? CopyWith$Fragment$MediaListOptions.stub(_then(_instance))
+        : CopyWith$Fragment$MediaListOptions(
+            local$mangaList, (e) => call(mangaList: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$MediaList$MediaListCollection$user$mediaListOptions<
+        TRes>
+    implements
+        CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<
+            TRes> {
+  _CopyWithStubImpl$Query$MediaList$MediaListCollection$user$mediaListOptions(
+      this._res);
+
+  TRes _res;
+
+  call({
+    Enum$ScoreFormat? scoreFormat,
+    String? rowOrder,
+    Fragment$MediaListOptions? animeList,
+    Fragment$MediaListOptions? mangaList,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Fragment$MediaListOptions<TRes> get animeList =>
+      CopyWith$Fragment$MediaListOptions.stub(_res);
+  CopyWith$Fragment$MediaListOptions<TRes> get mangaList =>
+      CopyWith$Fragment$MediaListOptions.stub(_res);
 }

@@ -47,31 +47,12 @@ class UserAnimeListPage extends StatelessWidget {
           notificationPredicate: (notification) => notification.depth == 1,
           child: DefaultTabController(
             length: lists.length,
-            child: Scaffold(
-              appBar: AppBar(
-                bottom: TabBar(
-                  isScrollable: true,
-                  tabs: lists
-                      .map(
-                        (e) => Tab(
-                          text: '${e!.name} (${e.entries!.length})',
-                        ),
-                      )
-                      .toList(),
-                ),
-              ),
-              body: TabBarView(
-                children: lists
-                    .map(
-                      (list) => Media(
-                        list: list!,
-                        refresh: refetch,
-                        canEdit: false,
-                        setting: Setting.animeList,
-                      ),
-                    )
-                    .toList(),
-              ),
+            child: ListTabs(
+              leading: const AutoLeadingButton(),
+              lists: lists.cast(),
+              refresh: refetch,
+              user: result.parsedData!.MediaListCollection!.user!,
+              setting: Setting.animeList,
             ),
           ),
         );

@@ -61,7 +61,7 @@ fragment MediaListEntry on MediaList {
   hiddenFromStatusLists
   private
   repeat
-  score(format: POINT_100)
+  score
   customLists(asArray: true)
   startedAt {
     ...FuzzyDate
@@ -73,6 +73,12 @@ fragment MediaListEntry on MediaList {
     ...MediaFragment
     episodes
     chapters
+    status(version: 2)
+    averageScore
+    popularity
+    startDate {
+      ...FuzzyDate
+    }
   }
 }
 
@@ -183,4 +189,9 @@ fragment MessageActivity on MessageActivity {
       large
     }
   }
+}
+
+fragment MediaListOptions on MediaListTypeOptions {
+  sectionOrder
+  customLists
 }

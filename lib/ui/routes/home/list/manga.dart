@@ -71,30 +71,11 @@ class HomeMangaPage extends ConsumerWidget {
           notificationPredicate: (notification) => notification.depth == 1,
           child: DefaultTabController(
             length: lists.length,
-            child: Scaffold(
-              appBar: HomeAppBar(
-                bottom: TabBar(
-                  isScrollable: true,
-                  tabs: lists
-                      .map(
-                        (e) => Tab(
-                          text: '${e!.name} (${e.entries!.length})',
-                        ),
-                      )
-                      .toList(),
-                ),
-              ),
-              body: TabBarView(
-                children: lists
-                    .map(
-                      (list) => Media(
-                        list: list!,
-                        refresh: refetch,
-                        setting: Setting.mangaList,
-                      ),
-                    )
-                    .toList(),
-              ),
+            child: ListTabs(
+              lists: lists.cast(),
+              refresh: refetch,
+              user: result.parsedData!.MediaListCollection!.user!,
+              setting: Setting.mangaList,
             ),
           ),
         );
