@@ -188,9 +188,11 @@ class _ListTabsState extends State<ListTabs> {
           children: lists
               .map(
                 (e) => Media(
+                  scoreFormat: widget.user.mediaListOptions!.scoreFormat!,
                   list: e,
                   refresh: widget.refresh,
                   setting: widget.setting,
+                  canEdit: widget.canEdit,
                 ),
               )
               .toList(),
@@ -330,12 +332,14 @@ class Media extends StatefulWidget {
     required this.refresh,
     this.canEdit = true,
     required this.setting,
+    required this.scoreFormat,
   });
 
   final Fragment$ListGroup list;
   final void Function() refresh;
   final bool canEdit;
   final Setting setting;
+  final Enum$ScoreFormat scoreFormat;
 
   @override
   State<Media> createState() => _MediaState();
@@ -363,50 +367,80 @@ class _MediaState extends State<Media> with AutomaticKeepAliveClientMixin {
               )
           : null,
       chips: (_, index) {
-        if (!widget.canEdit) return [];
         var entry = widget.list.entries![index]!;
-        if (entry.status != Enum$MediaListStatus.CURRENT) return [];
-
-        if ((entry.media!.episodes ?? entry.media!.chapters) != null &&
-            entry.progress! >=
-                (entry.media!.episodes ?? entry.media!.chapters!)) {
-          return [];
-        }
 
         return [
-          GridChip(
-            maxWidth: 100,
-            bottom: 5,
-            right: 5,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                  height: 25,
-                  width: 30,
-                  child: IconButton(
-                    onPressed: () => client.value.mutate$SaveMediaListEntry(
-                      Options$Mutation$SaveMediaListEntry(
-                        variables: Variables$Mutation$SaveMediaListEntry(
-                          id: entry.id,
-                          progress: (entry.progress ?? 0) + 1,
+          if ((entry.score?.toInt() ?? 0) > 0)
+            GridChip(
+              left: 5,
+              top: 5,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.star,
+                    size: 20,
+                  ),
+                  switch (widget.scoreFormat) {
+                    Enum$ScoreFormat.POINT_100 =>
+                      Text(entry.score!.toInt().toString()),
+                    Enum$ScoreFormat.POINT_10_DECIMAL =>
+                      Text(entry.score!.toString()),
+                    Enum$ScoreFormat.POINT_10 =>
+                      Text(entry.score!.toInt().toString()),
+                    Enum$ScoreFormat.POINT_5 =>
+                      Text(entry.score!.toInt().toString()),
+                    Enum$ScoreFormat.POINT_3 => RotatedBox(
+                        quarterTurns: 1,
+                        child: Text(
+                          switch (entry.score!.toInt()) {
+                            1 => ':(',
+                            2 => ':|',
+                            3 => ':)',
+                            _ => ''
+                          },
+                          style: const TextStyle(fontSize: 20),
                         ),
                       ),
-                    ),
-                    icon: const Icon(Icons.add),
-                    padding: EdgeInsets.zero,
-                    iconSize: 15,
-                  ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  '${entry.progress ?? '0'} / ${entry.media!.episodes ?? entry.media!.chapters ?? '??'}',
-                )
-              ],
+                    _ => Text(entry.score!.toString())
+                  },
+                ],
+              ),
             ),
-          ),
+          if (widget.canEdit && entry.status == Enum$MediaListStatus.CURRENT)
+            GridChip(
+              maxWidth: 100,
+              bottom: 5,
+              right: 5,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 25,
+                    width: 30,
+                    child: IconButton(
+                      onPressed: () => client.value.mutate$SaveMediaListEntry(
+                        Options$Mutation$SaveMediaListEntry(
+                          variables: Variables$Mutation$SaveMediaListEntry(
+                            id: entry.id,
+                            progress: (entry.progress ?? 0) + 1,
+                          ),
+                        ),
+                      ),
+                      icon: const Icon(Icons.add),
+                      padding: EdgeInsets.zero,
+                      iconSize: 15,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    '${entry.progress ?? '0'} / ${entry.media!.episodes ?? entry.media!.chapters ?? '??'}',
+                  )
+                ],
+              ),
+            ),
         ];
       },
       underTitle: (media, style, index) {

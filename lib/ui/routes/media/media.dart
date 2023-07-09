@@ -68,7 +68,11 @@ class _MediaPageState extends ConsumerState<MediaPage> {
         ],
         builder: (context, child, tabController) {
           if (media.value!.trailer?.site == 'youtube') {
-            ytController?.loadVideoById(videoId: media.value!.trailer!.id!);
+            ytController?.videoData.then((value) {
+              if (value.videoId != media.value!.trailer!.id) {
+                ytController?.cueVideoById(videoId: media.value!.trailer!.id!);
+              }
+            });
           }
 
           return NestedScrollView(
@@ -79,7 +83,12 @@ class _MediaPageState extends ConsumerState<MediaPage> {
                 forceElevated: innerBoxIsScrolled,
               ),
             ],
-            body: child,
+            body: Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewPadding.bottom,
+              ),
+              child: child,
+            ),
           );
         },
       ),

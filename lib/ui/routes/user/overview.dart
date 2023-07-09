@@ -85,7 +85,7 @@ class UserOverviewPage extends ConsumerWidget {
               ),
               FavoriteList(list: user.value!.favourites!.manga!.nodes!.cast()),
             ],
-          )
+          ),
       ],
     );
   }

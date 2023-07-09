@@ -91,7 +91,12 @@ class UserPage extends ConsumerWidget {
                 ),
               ),
             ],
-            body: child,
+            body: Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewPadding.bottom,
+              ),
+              child: child,
+            ),
           ),
         ),
       ),

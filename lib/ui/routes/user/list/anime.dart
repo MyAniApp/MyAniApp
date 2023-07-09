@@ -53,6 +53,7 @@ class UserAnimeListPage extends StatelessWidget {
               refresh: refetch,
               user: result.parsedData!.MediaListCollection!.user!,
               setting: Setting.animeList,
+              canEdit: false,
             ),
           ),
         );

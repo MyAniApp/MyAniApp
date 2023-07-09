@@ -18,6 +18,8 @@ void callbackDispatcher() {
         if (!(await PushNotifications().hasPermission())) {
           return true;
         }
+        await initHiveForFlutter();
+
         // show debug notification
         PushNotifications().show(
           'Notification run',
@@ -111,7 +113,13 @@ void callbackDispatcher() {
             );
           }
         }
-      } catch (err) {}
+      } catch (err) {
+        PushNotifications().show(
+          'An Error Occurred',
+          PushNotifications.testDetails(),
+          err.toString(),
+        );
+      }
       return true;
     },
   );

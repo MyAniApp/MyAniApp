@@ -53,6 +53,7 @@ class UserMangaListPage extends StatelessWidget {
               refresh: refetch,
               user: result.parsedData!.MediaListCollection!.user!,
               setting: Setting.mangaList,
+              canEdit: false,
             ),
           ),
         );
