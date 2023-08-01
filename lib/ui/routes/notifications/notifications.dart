@@ -28,46 +28,49 @@ class NotificationsPage extends HookWidget {
             return GraphqlError(exception: result.exception!);
           }
 
-          return DetailedListCards(
-            padding: const EdgeInsets.all(8),
-            card: (index) {
-              var item = result.parsedData!.Page!.notifications![index]!;
+          return RefreshIndicator.adaptive(
+            onRefresh: refetch!,
+            child: DetailedListCards(
+              padding: const EdgeInsets.all(8),
+              card: (index) {
+                var item = result.parsedData!.Page!.notifications![index]!;
 
-              var notif = AnilistNotification(item);
-              return DetailedListCard(
-                onTap: (notif.isMedia &&
-                        item.$__typename != 'MediaDeletionNotification')
-                    ? () => context
-                        .pushRoute(MediaRoute(id: (item as dynamic).media.id))
-                    : notif.isActivity
-                        ? () => context.pushRoute(
-                            ActivityRoute(id: (item as dynamic).activityId))
-                        : null,
-                imageUrl: (notif.isMedia &&
-                        item.$__typename != 'MediaDeletionNotification')
-                    ? (item as dynamic).media.coverImage.extraLarge
-                    : (notif.isActivity ||
-                            item.$__typename == 'FollowingNotification')
-                        ? (item as dynamic).user.avatar.large
-                        : 'https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg',
-                underTitle: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      notif.toWidget(),
-                      Text(
-                        timeago.format(
-                          DateTime.fromMillisecondsSinceEpoch(
-                              (item as dynamic).createdAt * 1000),
+                var notif = AnilistNotification(item);
+                return DetailedListCard(
+                  onTap: (notif.isMedia &&
+                          item.$__typename != 'MediaDeletionNotification')
+                      ? () => context
+                          .pushRoute(MediaRoute(id: (item as dynamic).media.id))
+                      : notif.isActivity
+                          ? () => context.pushRoute(
+                              ActivityRoute(id: (item as dynamic).activityId))
+                          : null,
+                  imageUrl: (notif.isMedia &&
+                          item.$__typename != 'MediaDeletionNotification')
+                      ? (item as dynamic).media.coverImage.extraLarge
+                      : (notif.isActivity ||
+                              item.$__typename == 'FollowingNotification')
+                          ? (item as dynamic).user.avatar.large
+                          : 'https://s4.anilist.co/file/anilistcdn/staff/large/default.jpg',
+                  underTitle: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        notif.toWidget(),
+                        Text(
+                          timeago.format(
+                            DateTime.fromMillisecondsSinceEpoch(
+                                (item as dynamic).createdAt * 1000),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
-            itemCount: result.parsedData!.Page!.notifications!.length,
+                );
+              },
+              itemCount: result.parsedData!.Page!.notifications!.length,
+            ),
           );
         },
       ),

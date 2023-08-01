@@ -67,6 +67,8 @@ class HomeOverviewPage extends ConsumerWidget {
             return GraphqlError(exception: result.exception!);
           }
 
+          // print(result.parsedData!.releasing!.toJson());
+
           return RefreshIndicator.adaptive(
             onRefresh: refetch!,
             child: ListView(

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:logger/logger.dart';
 import 'package:myaniapp/background.dart';
@@ -21,6 +22,7 @@ void main() async {
   final prefs = await SharedPreferences.getInstance();
 
   if (!kIsWeb && Platform.isAndroid) {
+    MobileAds.instance.initialize();
     Workmanager().initialize(callbackDispatcher);
     Workmanager().registerPeriodicTask(
       'background-notifs',

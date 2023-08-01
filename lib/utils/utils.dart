@@ -10,7 +10,8 @@ bool isTodayFromTimestamp(int? timestamp) {
   var date = dateFromTimestamp(timestamp);
   return now.year == date.year &&
       now.month == date.month &&
-      (now.day) == (date.day);
+      (now.day == date.day || now.day == (date.day + 1)) &&
+      now.hour < date.hour;
 }
 
 bool hasTimestampPassed(int? timestamp) {
@@ -27,6 +28,18 @@ List<Fragment$ReleasingMedia> sortReleases(
   return releases
       .where((element) {
         if (includeUnreleased) return true;
+        if (element?.airingSchedule != null &&
+            element?.nextAiringEpisode != null &&
+            isTodayFromTimestamp(element!.airingSchedule!.edges!
+                .firstWhere(
+                    (e) =>
+                        e!.node!.episode ==
+                        element.nextAiringEpisode!.episode - 1,
+                    orElse: () => null)
+                ?.node
+                ?.airingAt)) {
+          return true;
+        }
         return element?.airingSchedule != null &&
             element?.nextAiringEpisode != null &&
             dateFromTimestamp((element!.nextAiringEpisode?.airingAt ??
