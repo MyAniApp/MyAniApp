@@ -337,6 +337,7 @@ const documentNodeQueryRecentThreads = DocumentNode(definitions: [
   fragmentDefinitionPageInfo,
   fragmentDefinitionThreadFragment,
   fragmentDefinitionMediaFragment,
+  fragmentDefinitionUserFragment,
 ]);
 Query$RecentThreads _parserFn$Query$RecentThreads(Map<String, dynamic> data) =>
     Query$RecentThreads.fromJson(data);

@@ -28,8 +28,6 @@ class HomeAnimePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var user = ref.watch(userProvider);
 
-    print(user.value!.mediaListOptions?.rowOrder);
-
     return Query$MediaList$Widget(
       options: Options$Query$MediaList(
         cacheRereadPolicy: CacheRereadPolicy.ignoreAll,

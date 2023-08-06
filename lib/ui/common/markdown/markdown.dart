@@ -61,8 +61,7 @@ class Markdown extends StatelessWidget {
                 var uri = Uri.tryParse(value);
                 // print(uri?.host);
                 if (uri?.host == 'anilist.co') {
-                  print(uri!.pathSegments);
-                  if (['anime', 'manga'].contains(uri.pathSegments.first)) {
+                  if (['anime', 'manga'].contains(uri!.pathSegments.first)) {
                     context.router.pushNamed('/media/${uri.pathSegments[1]}');
                     return;
                   } else if (['character', 'staff']

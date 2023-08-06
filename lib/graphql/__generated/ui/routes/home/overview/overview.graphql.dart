@@ -589,6 +589,7 @@ const documentNodeQueryOverview = DocumentNode(definitions: [
   fragmentDefinitionMediaListEntry,
   fragmentDefinitionFuzzyDate,
   fragmentDefinitionThreadFragment,
+  fragmentDefinitionUserFragment,
 ]);
 Query$Overview _parserFn$Query$Overview(Map<String, dynamic> data) =>
     Query$Overview.fromJson(data);

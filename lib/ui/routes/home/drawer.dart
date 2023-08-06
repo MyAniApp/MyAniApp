@@ -121,11 +121,11 @@ class _HomeDrawerState extends ConsumerState<HomeDrawer> {
             ListTile(
               enabled: _rewardedAd != null && _loadingErr != true,
               textColor: _loadingErr == true ? theme.colorScheme.error : null,
-              title: _rewardedAd != null
-                  ? _loadingErr != true
+              title: _loadingErr == true
+                  ? const Text('Error loading ad')
+                  : _rewardedAd != null
                       ? const Text('Watch ad')
-                      : const Text('Error loading ad')
-                  : const Text('Loading ad...'),
+                      : const Text('Loading ad...'),
               onTap: () {
                 _rewardedAd?.show(
                   onUserEarnedReward: (ad, reward) {},

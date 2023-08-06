@@ -46,11 +46,13 @@ class ThreadPage extends ConsumerWidget {
                   return GraphqlError(exception: result.exception!);
                 }
 
-                print(result.parsedData!.thread!.mediaCategories);
-
                 return Scaffold(
                   appBar: AppBar(
-                    title: Text(result.parsedData!.thread!.title!),
+                    title: Text(
+                      result.parsedData!.thread!.title!,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                     titleTextStyle: Theme.of(context).textTheme.titleMedium,
                   ),
                   floatingActionButton: FloatingActionButton(

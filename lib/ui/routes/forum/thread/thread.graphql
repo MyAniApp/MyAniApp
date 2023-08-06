@@ -27,7 +27,11 @@ query Thread($id: Int, $page: Int) {
       likeCount
       createdAt
       user {
-        ...UserFragment
+        id
+        name
+        avatar {
+          large
+        }
       }
       childComments
       isLocked

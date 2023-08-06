@@ -5111,11 +5111,10 @@ class Fragment$ThreadFragment {
           .toList(),
       user: l$user == null
           ? null
-          : Fragment$ThreadFragment$user.fromJson(
-              (l$user as Map<String, dynamic>)),
+          : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
       replyUser: l$replyUser == null
           ? null
-          : Fragment$ThreadFragment$replyUser.fromJson(
+          : Fragment$UserFragment.fromJson(
               (l$replyUser as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -5141,9 +5140,9 @@ class Fragment$ThreadFragment {
 
   final List<Fragment$ThreadFragment$categories?>? categories;
 
-  final Fragment$ThreadFragment$user? user;
+  final Fragment$UserFragment? user;
 
-  final Fragment$ThreadFragment$replyUser? replyUser;
+  final Fragment$UserFragment? replyUser;
 
   final String $__typename;
 
@@ -5341,8 +5340,8 @@ abstract class CopyWith$Fragment$ThreadFragment<TRes> {
     bool? isSticky,
     List<Fragment$MediaFragment?>? mediaCategories,
     List<Fragment$ThreadFragment$categories?>? categories,
-    Fragment$ThreadFragment$user? user,
-    Fragment$ThreadFragment$replyUser? replyUser,
+    Fragment$UserFragment? user,
+    Fragment$UserFragment? replyUser,
     String? $__typename,
   });
   TRes mediaCategories(
@@ -5356,8 +5355,8 @@ abstract class CopyWith$Fragment$ThreadFragment<TRes> {
                   CopyWith$Fragment$ThreadFragment$categories<
                       Fragment$ThreadFragment$categories>?>?)
           _fn);
-  CopyWith$Fragment$ThreadFragment$user<TRes> get user;
-  CopyWith$Fragment$ThreadFragment$replyUser<TRes> get replyUser;
+  CopyWith$Fragment$UserFragment<TRes> get user;
+  CopyWith$Fragment$UserFragment<TRes> get replyUser;
 }
 
 class _CopyWithImpl$Fragment$ThreadFragment<TRes>
@@ -5414,10 +5413,10 @@ class _CopyWithImpl$Fragment$ThreadFragment<TRes>
             : (categories as List<Fragment$ThreadFragment$categories?>?),
         user: user == _undefined
             ? _instance.user
-            : (user as Fragment$ThreadFragment$user?),
+            : (user as Fragment$UserFragment?),
         replyUser: replyUser == _undefined
             ? _instance.replyUser
-            : (replyUser as Fragment$ThreadFragment$replyUser?),
+            : (replyUser as Fragment$UserFragment?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -5448,19 +5447,18 @@ class _CopyWithImpl$Fragment$ThreadFragment<TRes>
                   e,
                   (i) => i,
                 )))?.toList());
-  CopyWith$Fragment$ThreadFragment$user<TRes> get user {
+  CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWith$Fragment$ThreadFragment$user.stub(_then(_instance))
-        : CopyWith$Fragment$ThreadFragment$user(
-            local$user, (e) => call(user: e));
+        ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
+        : CopyWith$Fragment$UserFragment(local$user, (e) => call(user: e));
   }
 
-  CopyWith$Fragment$ThreadFragment$replyUser<TRes> get replyUser {
+  CopyWith$Fragment$UserFragment<TRes> get replyUser {
     final local$replyUser = _instance.replyUser;
     return local$replyUser == null
-        ? CopyWith$Fragment$ThreadFragment$replyUser.stub(_then(_instance))
-        : CopyWith$Fragment$ThreadFragment$replyUser(
+        ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
+        : CopyWith$Fragment$UserFragment(
             local$replyUser, (e) => call(replyUser: e));
   }
 }
@@ -5482,17 +5480,17 @@ class _CopyWithStubImpl$Fragment$ThreadFragment<TRes>
     bool? isSticky,
     List<Fragment$MediaFragment?>? mediaCategories,
     List<Fragment$ThreadFragment$categories?>? categories,
-    Fragment$ThreadFragment$user? user,
-    Fragment$ThreadFragment$replyUser? replyUser,
+    Fragment$UserFragment? user,
+    Fragment$UserFragment? replyUser,
     String? $__typename,
   }) =>
       _res;
   mediaCategories(_fn) => _res;
   categories(_fn) => _res;
-  CopyWith$Fragment$ThreadFragment$user<TRes> get user =>
-      CopyWith$Fragment$ThreadFragment$user.stub(_res);
-  CopyWith$Fragment$ThreadFragment$replyUser<TRes> get replyUser =>
-      CopyWith$Fragment$ThreadFragment$replyUser.stub(_res);
+  CopyWith$Fragment$UserFragment<TRes> get user =>
+      CopyWith$Fragment$UserFragment.stub(_res);
+  CopyWith$Fragment$UserFragment<TRes> get replyUser =>
+      CopyWith$Fragment$UserFragment.stub(_res);
 }
 
 const fragmentDefinitionThreadFragment = FragmentDefinitionNode(
@@ -5614,41 +5612,9 @@ const fragmentDefinitionThreadFragment = FragmentDefinitionNode(
       arguments: [],
       directives: [],
       selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
+        FragmentSpreadNode(
+          name: NameNode(value: 'UserFragment'),
           directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'name'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'avatar'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'large'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: '__typename'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-          ]),
         ),
         FieldNode(
           name: NameNode(value: '__typename'),
@@ -5665,41 +5631,9 @@ const fragmentDefinitionThreadFragment = FragmentDefinitionNode(
       arguments: [],
       directives: [],
       selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
+        FragmentSpreadNode(
+          name: NameNode(value: 'UserFragment'),
           directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'name'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'avatar'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'large'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: '__typename'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-          ]),
         ),
         FieldNode(
           name: NameNode(value: '__typename'),
@@ -5722,6 +5656,7 @@ const fragmentDefinitionThreadFragment = FragmentDefinitionNode(
 const documentNodeFragmentThreadFragment = DocumentNode(definitions: [
   fragmentDefinitionThreadFragment,
   fragmentDefinitionMediaFragment,
+  fragmentDefinitionUserFragment,
 ]);
 
 extension ClientExtension$Fragment$ThreadFragment on graphql.GraphQLClient {
@@ -5899,610 +5834,6 @@ class _CopyWithStubImpl$Fragment$ThreadFragment$categories<TRes>
   call({
     int? id,
     String? name,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class Fragment$ThreadFragment$user {
-  Fragment$ThreadFragment$user({
-    required this.id,
-    required this.name,
-    this.avatar,
-    this.$__typename = 'User',
-  });
-
-  factory Fragment$ThreadFragment$user.fromJson(Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$avatar = json['avatar'];
-    final l$$__typename = json['__typename'];
-    return Fragment$ThreadFragment$user(
-      id: (l$id as int),
-      name: (l$name as String),
-      avatar: l$avatar == null
-          ? null
-          : Fragment$ThreadFragment$user$avatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final Fragment$ThreadFragment$user$avatar? avatar;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$avatar = avatar;
-    _resultData['avatar'] = l$avatar?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$avatar = avatar;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$avatar,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Fragment$ThreadFragment$user) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$ThreadFragment$user
-    on Fragment$ThreadFragment$user {
-  CopyWith$Fragment$ThreadFragment$user<Fragment$ThreadFragment$user>
-      get copyWith => CopyWith$Fragment$ThreadFragment$user(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Fragment$ThreadFragment$user<TRes> {
-  factory CopyWith$Fragment$ThreadFragment$user(
-    Fragment$ThreadFragment$user instance,
-    TRes Function(Fragment$ThreadFragment$user) then,
-  ) = _CopyWithImpl$Fragment$ThreadFragment$user;
-
-  factory CopyWith$Fragment$ThreadFragment$user.stub(TRes res) =
-      _CopyWithStubImpl$Fragment$ThreadFragment$user;
-
-  TRes call({
-    int? id,
-    String? name,
-    Fragment$ThreadFragment$user$avatar? avatar,
-    String? $__typename,
-  });
-  CopyWith$Fragment$ThreadFragment$user$avatar<TRes> get avatar;
-}
-
-class _CopyWithImpl$Fragment$ThreadFragment$user<TRes>
-    implements CopyWith$Fragment$ThreadFragment$user<TRes> {
-  _CopyWithImpl$Fragment$ThreadFragment$user(
-    this._instance,
-    this._then,
-  );
-
-  final Fragment$ThreadFragment$user _instance;
-
-  final TRes Function(Fragment$ThreadFragment$user) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? avatar = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThreadFragment$user(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as Fragment$ThreadFragment$user$avatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Fragment$ThreadFragment$user$avatar<TRes> get avatar {
-    final local$avatar = _instance.avatar;
-    return local$avatar == null
-        ? CopyWith$Fragment$ThreadFragment$user$avatar.stub(_then(_instance))
-        : CopyWith$Fragment$ThreadFragment$user$avatar(
-            local$avatar, (e) => call(avatar: e));
-  }
-}
-
-class _CopyWithStubImpl$Fragment$ThreadFragment$user<TRes>
-    implements CopyWith$Fragment$ThreadFragment$user<TRes> {
-  _CopyWithStubImpl$Fragment$ThreadFragment$user(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    Fragment$ThreadFragment$user$avatar? avatar,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Fragment$ThreadFragment$user$avatar<TRes> get avatar =>
-      CopyWith$Fragment$ThreadFragment$user$avatar.stub(_res);
-}
-
-class Fragment$ThreadFragment$user$avatar {
-  Fragment$ThreadFragment$user$avatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
-
-  factory Fragment$ThreadFragment$user$avatar.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return Fragment$ThreadFragment$user$avatar(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Fragment$ThreadFragment$user$avatar) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$ThreadFragment$user$avatar
-    on Fragment$ThreadFragment$user$avatar {
-  CopyWith$Fragment$ThreadFragment$user$avatar<
-          Fragment$ThreadFragment$user$avatar>
-      get copyWith => CopyWith$Fragment$ThreadFragment$user$avatar(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Fragment$ThreadFragment$user$avatar<TRes> {
-  factory CopyWith$Fragment$ThreadFragment$user$avatar(
-    Fragment$ThreadFragment$user$avatar instance,
-    TRes Function(Fragment$ThreadFragment$user$avatar) then,
-  ) = _CopyWithImpl$Fragment$ThreadFragment$user$avatar;
-
-  factory CopyWith$Fragment$ThreadFragment$user$avatar.stub(TRes res) =
-      _CopyWithStubImpl$Fragment$ThreadFragment$user$avatar;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Fragment$ThreadFragment$user$avatar<TRes>
-    implements CopyWith$Fragment$ThreadFragment$user$avatar<TRes> {
-  _CopyWithImpl$Fragment$ThreadFragment$user$avatar(
-    this._instance,
-    this._then,
-  );
-
-  final Fragment$ThreadFragment$user$avatar _instance;
-
-  final TRes Function(Fragment$ThreadFragment$user$avatar) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThreadFragment$user$avatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Fragment$ThreadFragment$user$avatar<TRes>
-    implements CopyWith$Fragment$ThreadFragment$user$avatar<TRes> {
-  _CopyWithStubImpl$Fragment$ThreadFragment$user$avatar(this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class Fragment$ThreadFragment$replyUser {
-  Fragment$ThreadFragment$replyUser({
-    required this.id,
-    required this.name,
-    this.avatar,
-    this.$__typename = 'User',
-  });
-
-  factory Fragment$ThreadFragment$replyUser.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$avatar = json['avatar'];
-    final l$$__typename = json['__typename'];
-    return Fragment$ThreadFragment$replyUser(
-      id: (l$id as int),
-      name: (l$name as String),
-      avatar: l$avatar == null
-          ? null
-          : Fragment$ThreadFragment$replyUser$avatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final Fragment$ThreadFragment$replyUser$avatar? avatar;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$avatar = avatar;
-    _resultData['avatar'] = l$avatar?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$avatar = avatar;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$avatar,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Fragment$ThreadFragment$replyUser) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$ThreadFragment$replyUser
-    on Fragment$ThreadFragment$replyUser {
-  CopyWith$Fragment$ThreadFragment$replyUser<Fragment$ThreadFragment$replyUser>
-      get copyWith => CopyWith$Fragment$ThreadFragment$replyUser(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Fragment$ThreadFragment$replyUser<TRes> {
-  factory CopyWith$Fragment$ThreadFragment$replyUser(
-    Fragment$ThreadFragment$replyUser instance,
-    TRes Function(Fragment$ThreadFragment$replyUser) then,
-  ) = _CopyWithImpl$Fragment$ThreadFragment$replyUser;
-
-  factory CopyWith$Fragment$ThreadFragment$replyUser.stub(TRes res) =
-      _CopyWithStubImpl$Fragment$ThreadFragment$replyUser;
-
-  TRes call({
-    int? id,
-    String? name,
-    Fragment$ThreadFragment$replyUser$avatar? avatar,
-    String? $__typename,
-  });
-  CopyWith$Fragment$ThreadFragment$replyUser$avatar<TRes> get avatar;
-}
-
-class _CopyWithImpl$Fragment$ThreadFragment$replyUser<TRes>
-    implements CopyWith$Fragment$ThreadFragment$replyUser<TRes> {
-  _CopyWithImpl$Fragment$ThreadFragment$replyUser(
-    this._instance,
-    this._then,
-  );
-
-  final Fragment$ThreadFragment$replyUser _instance;
-
-  final TRes Function(Fragment$ThreadFragment$replyUser) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? avatar = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThreadFragment$replyUser(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as Fragment$ThreadFragment$replyUser$avatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Fragment$ThreadFragment$replyUser$avatar<TRes> get avatar {
-    final local$avatar = _instance.avatar;
-    return local$avatar == null
-        ? CopyWith$Fragment$ThreadFragment$replyUser$avatar.stub(
-            _then(_instance))
-        : CopyWith$Fragment$ThreadFragment$replyUser$avatar(
-            local$avatar, (e) => call(avatar: e));
-  }
-}
-
-class _CopyWithStubImpl$Fragment$ThreadFragment$replyUser<TRes>
-    implements CopyWith$Fragment$ThreadFragment$replyUser<TRes> {
-  _CopyWithStubImpl$Fragment$ThreadFragment$replyUser(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    Fragment$ThreadFragment$replyUser$avatar? avatar,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Fragment$ThreadFragment$replyUser$avatar<TRes> get avatar =>
-      CopyWith$Fragment$ThreadFragment$replyUser$avatar.stub(_res);
-}
-
-class Fragment$ThreadFragment$replyUser$avatar {
-  Fragment$ThreadFragment$replyUser$avatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
-
-  factory Fragment$ThreadFragment$replyUser$avatar.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return Fragment$ThreadFragment$replyUser$avatar(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Fragment$ThreadFragment$replyUser$avatar) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Fragment$ThreadFragment$replyUser$avatar
-    on Fragment$ThreadFragment$replyUser$avatar {
-  CopyWith$Fragment$ThreadFragment$replyUser$avatar<
-          Fragment$ThreadFragment$replyUser$avatar>
-      get copyWith => CopyWith$Fragment$ThreadFragment$replyUser$avatar(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Fragment$ThreadFragment$replyUser$avatar<TRes> {
-  factory CopyWith$Fragment$ThreadFragment$replyUser$avatar(
-    Fragment$ThreadFragment$replyUser$avatar instance,
-    TRes Function(Fragment$ThreadFragment$replyUser$avatar) then,
-  ) = _CopyWithImpl$Fragment$ThreadFragment$replyUser$avatar;
-
-  factory CopyWith$Fragment$ThreadFragment$replyUser$avatar.stub(TRes res) =
-      _CopyWithStubImpl$Fragment$ThreadFragment$replyUser$avatar;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Fragment$ThreadFragment$replyUser$avatar<TRes>
-    implements CopyWith$Fragment$ThreadFragment$replyUser$avatar<TRes> {
-  _CopyWithImpl$Fragment$ThreadFragment$replyUser$avatar(
-    this._instance,
-    this._then,
-  );
-
-  final Fragment$ThreadFragment$replyUser$avatar _instance;
-
-  final TRes Function(Fragment$ThreadFragment$replyUser$avatar) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThreadFragment$replyUser$avatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Fragment$ThreadFragment$replyUser$avatar<TRes>
-    implements CopyWith$Fragment$ThreadFragment$replyUser$avatar<TRes> {
-  _CopyWithStubImpl$Fragment$ThreadFragment$replyUser$avatar(this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
     String? $__typename,
   }) =>
       _res;

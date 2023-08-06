@@ -422,6 +422,7 @@ const documentNodeQueryThreads = DocumentNode(definitions: [
   fragmentDefinitionPageInfo,
   fragmentDefinitionThreadFragment,
   fragmentDefinitionMediaFragment,
+  fragmentDefinitionUserFragment,
 ]);
 Query$Threads _parserFn$Query$Threads(Map<String, dynamic> data) =>
     Query$Threads.fromJson(data);

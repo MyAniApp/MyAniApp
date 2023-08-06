@@ -119,18 +119,10 @@ fragment ThreadFragment on Thread {
     name
   }
   user {
-    id
-    name
-    avatar {
-      large
-    }
+    ...UserFragment
   }
   replyUser {
-    id
-    name
-    avatar {
-      large
-    }
+    ...UserFragment
   }
 }
 

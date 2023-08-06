@@ -547,9 +547,41 @@ const documentNodeQueryThread = DocumentNode(definitions: [
                 arguments: [],
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'UserFragment'),
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
                     directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'avatar'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'large'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -603,8 +635,8 @@ const documentNodeQueryThread = DocumentNode(definitions: [
   ),
   fragmentDefinitionThreadFragment,
   fragmentDefinitionMediaFragment,
-  fragmentDefinitionPageInfo,
   fragmentDefinitionUserFragment,
+  fragmentDefinitionPageInfo,
 ]);
 Query$Thread _parserFn$Query$Thread(Map<String, dynamic> data) =>
     Query$Thread.fromJson(data);
@@ -820,10 +852,10 @@ class Query$Thread$thread implements Fragment$ThreadFragment {
           .toList(),
       user: l$user == null
           ? null
-          : Query$Thread$thread$user.fromJson((l$user as Map<String, dynamic>)),
+          : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
       replyUser: l$replyUser == null
           ? null
-          : Query$Thread$thread$replyUser.fromJson(
+          : Fragment$UserFragment.fromJson(
               (l$replyUser as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
       body: (l$body as String?),
@@ -855,9 +887,9 @@ class Query$Thread$thread implements Fragment$ThreadFragment {
 
   final List<Query$Thread$thread$categories?>? categories;
 
-  final Query$Thread$thread$user? user;
+  final Fragment$UserFragment? user;
 
-  final Query$Thread$thread$replyUser? replyUser;
+  final Fragment$UserFragment? replyUser;
 
   final String $__typename;
 
@@ -1120,8 +1152,8 @@ abstract class CopyWith$Query$Thread$thread<TRes> {
     bool? isSticky,
     List<Fragment$MediaFragment?>? mediaCategories,
     List<Query$Thread$thread$categories?>? categories,
-    Query$Thread$thread$user? user,
-    Query$Thread$thread$replyUser? replyUser,
+    Fragment$UserFragment? user,
+    Fragment$UserFragment? replyUser,
     String? $__typename,
     String? body,
     int? userId,
@@ -1141,8 +1173,8 @@ abstract class CopyWith$Query$Thread$thread<TRes> {
                   CopyWith$Query$Thread$thread$categories<
                       Query$Thread$thread$categories>?>?)
           _fn);
-  CopyWith$Query$Thread$thread$user<TRes> get user;
-  CopyWith$Query$Thread$thread$replyUser<TRes> get replyUser;
+  CopyWith$Fragment$UserFragment<TRes> get user;
+  CopyWith$Fragment$UserFragment<TRes> get replyUser;
 }
 
 class _CopyWithImpl$Query$Thread$thread<TRes>
@@ -1205,10 +1237,10 @@ class _CopyWithImpl$Query$Thread$thread<TRes>
             : (categories as List<Query$Thread$thread$categories?>?),
         user: user == _undefined
             ? _instance.user
-            : (user as Query$Thread$thread$user?),
+            : (user as Fragment$UserFragment?),
         replyUser: replyUser == _undefined
             ? _instance.replyUser
-            : (replyUser as Query$Thread$thread$replyUser?),
+            : (replyUser as Fragment$UserFragment?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -1252,18 +1284,18 @@ class _CopyWithImpl$Query$Thread$thread<TRes>
                   e,
                   (i) => i,
                 )))?.toList());
-  CopyWith$Query$Thread$thread$user<TRes> get user {
+  CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWith$Query$Thread$thread$user.stub(_then(_instance))
-        : CopyWith$Query$Thread$thread$user(local$user, (e) => call(user: e));
+        ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
+        : CopyWith$Fragment$UserFragment(local$user, (e) => call(user: e));
   }
 
-  CopyWith$Query$Thread$thread$replyUser<TRes> get replyUser {
+  CopyWith$Fragment$UserFragment<TRes> get replyUser {
     final local$replyUser = _instance.replyUser;
     return local$replyUser == null
-        ? CopyWith$Query$Thread$thread$replyUser.stub(_then(_instance))
-        : CopyWith$Query$Thread$thread$replyUser(
+        ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
+        : CopyWith$Fragment$UserFragment(
             local$replyUser, (e) => call(replyUser: e));
   }
 }
@@ -1285,8 +1317,8 @@ class _CopyWithStubImpl$Query$Thread$thread<TRes>
     bool? isSticky,
     List<Fragment$MediaFragment?>? mediaCategories,
     List<Query$Thread$thread$categories?>? categories,
-    Query$Thread$thread$user? user,
-    Query$Thread$thread$replyUser? replyUser,
+    Fragment$UserFragment? user,
+    Fragment$UserFragment? replyUser,
     String? $__typename,
     String? body,
     int? userId,
@@ -1298,10 +1330,10 @@ class _CopyWithStubImpl$Query$Thread$thread<TRes>
       _res;
   mediaCategories(_fn) => _res;
   categories(_fn) => _res;
-  CopyWith$Query$Thread$thread$user<TRes> get user =>
-      CopyWith$Query$Thread$thread$user.stub(_res);
-  CopyWith$Query$Thread$thread$replyUser<TRes> get replyUser =>
-      CopyWith$Query$Thread$thread$replyUser.stub(_res);
+  CopyWith$Fragment$UserFragment<TRes> get user =>
+      CopyWith$Fragment$UserFragment.stub(_res);
+  CopyWith$Fragment$UserFragment<TRes> get replyUser =>
+      CopyWith$Fragment$UserFragment.stub(_res);
 }
 
 class Query$Thread$thread$categories
@@ -1443,609 +1475,6 @@ class _CopyWithStubImpl$Query$Thread$thread$categories<TRes>
   call({
     int? id,
     String? name,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class Query$Thread$thread$user implements Fragment$ThreadFragment$user {
-  Query$Thread$thread$user({
-    required this.id,
-    required this.name,
-    this.avatar,
-    this.$__typename = 'User',
-  });
-
-  factory Query$Thread$thread$user.fromJson(Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$avatar = json['avatar'];
-    final l$$__typename = json['__typename'];
-    return Query$Thread$thread$user(
-      id: (l$id as int),
-      name: (l$name as String),
-      avatar: l$avatar == null
-          ? null
-          : Query$Thread$thread$user$avatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final Query$Thread$thread$user$avatar? avatar;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$avatar = avatar;
-    _resultData['avatar'] = l$avatar?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$avatar = avatar;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$avatar,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$Thread$thread$user) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Thread$thread$user
-    on Query$Thread$thread$user {
-  CopyWith$Query$Thread$thread$user<Query$Thread$thread$user> get copyWith =>
-      CopyWith$Query$Thread$thread$user(
-        this,
-        (i) => i,
-      );
-}
-
-abstract class CopyWith$Query$Thread$thread$user<TRes> {
-  factory CopyWith$Query$Thread$thread$user(
-    Query$Thread$thread$user instance,
-    TRes Function(Query$Thread$thread$user) then,
-  ) = _CopyWithImpl$Query$Thread$thread$user;
-
-  factory CopyWith$Query$Thread$thread$user.stub(TRes res) =
-      _CopyWithStubImpl$Query$Thread$thread$user;
-
-  TRes call({
-    int? id,
-    String? name,
-    Query$Thread$thread$user$avatar? avatar,
-    String? $__typename,
-  });
-  CopyWith$Query$Thread$thread$user$avatar<TRes> get avatar;
-}
-
-class _CopyWithImpl$Query$Thread$thread$user<TRes>
-    implements CopyWith$Query$Thread$thread$user<TRes> {
-  _CopyWithImpl$Query$Thread$thread$user(
-    this._instance,
-    this._then,
-  );
-
-  final Query$Thread$thread$user _instance;
-
-  final TRes Function(Query$Thread$thread$user) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? avatar = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Thread$thread$user(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as Query$Thread$thread$user$avatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Query$Thread$thread$user$avatar<TRes> get avatar {
-    final local$avatar = _instance.avatar;
-    return local$avatar == null
-        ? CopyWith$Query$Thread$thread$user$avatar.stub(_then(_instance))
-        : CopyWith$Query$Thread$thread$user$avatar(
-            local$avatar, (e) => call(avatar: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$Thread$thread$user<TRes>
-    implements CopyWith$Query$Thread$thread$user<TRes> {
-  _CopyWithStubImpl$Query$Thread$thread$user(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    Query$Thread$thread$user$avatar? avatar,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Query$Thread$thread$user$avatar<TRes> get avatar =>
-      CopyWith$Query$Thread$thread$user$avatar.stub(_res);
-}
-
-class Query$Thread$thread$user$avatar
-    implements Fragment$ThreadFragment$user$avatar {
-  Query$Thread$thread$user$avatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
-
-  factory Query$Thread$thread$user$avatar.fromJson(Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return Query$Thread$thread$user$avatar(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$Thread$thread$user$avatar) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Thread$thread$user$avatar
-    on Query$Thread$thread$user$avatar {
-  CopyWith$Query$Thread$thread$user$avatar<Query$Thread$thread$user$avatar>
-      get copyWith => CopyWith$Query$Thread$thread$user$avatar(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$Thread$thread$user$avatar<TRes> {
-  factory CopyWith$Query$Thread$thread$user$avatar(
-    Query$Thread$thread$user$avatar instance,
-    TRes Function(Query$Thread$thread$user$avatar) then,
-  ) = _CopyWithImpl$Query$Thread$thread$user$avatar;
-
-  factory CopyWith$Query$Thread$thread$user$avatar.stub(TRes res) =
-      _CopyWithStubImpl$Query$Thread$thread$user$avatar;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Query$Thread$thread$user$avatar<TRes>
-    implements CopyWith$Query$Thread$thread$user$avatar<TRes> {
-  _CopyWithImpl$Query$Thread$thread$user$avatar(
-    this._instance,
-    this._then,
-  );
-
-  final Query$Thread$thread$user$avatar _instance;
-
-  final TRes Function(Query$Thread$thread$user$avatar) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Thread$thread$user$avatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Query$Thread$thread$user$avatar<TRes>
-    implements CopyWith$Query$Thread$thread$user$avatar<TRes> {
-  _CopyWithStubImpl$Query$Thread$thread$user$avatar(this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class Query$Thread$thread$replyUser
-    implements Fragment$ThreadFragment$replyUser {
-  Query$Thread$thread$replyUser({
-    required this.id,
-    required this.name,
-    this.avatar,
-    this.$__typename = 'User',
-  });
-
-  factory Query$Thread$thread$replyUser.fromJson(Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$avatar = json['avatar'];
-    final l$$__typename = json['__typename'];
-    return Query$Thread$thread$replyUser(
-      id: (l$id as int),
-      name: (l$name as String),
-      avatar: l$avatar == null
-          ? null
-          : Query$Thread$thread$replyUser$avatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final Query$Thread$thread$replyUser$avatar? avatar;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$avatar = avatar;
-    _resultData['avatar'] = l$avatar?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$avatar = avatar;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$avatar,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$Thread$thread$replyUser) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Thread$thread$replyUser
-    on Query$Thread$thread$replyUser {
-  CopyWith$Query$Thread$thread$replyUser<Query$Thread$thread$replyUser>
-      get copyWith => CopyWith$Query$Thread$thread$replyUser(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$Thread$thread$replyUser<TRes> {
-  factory CopyWith$Query$Thread$thread$replyUser(
-    Query$Thread$thread$replyUser instance,
-    TRes Function(Query$Thread$thread$replyUser) then,
-  ) = _CopyWithImpl$Query$Thread$thread$replyUser;
-
-  factory CopyWith$Query$Thread$thread$replyUser.stub(TRes res) =
-      _CopyWithStubImpl$Query$Thread$thread$replyUser;
-
-  TRes call({
-    int? id,
-    String? name,
-    Query$Thread$thread$replyUser$avatar? avatar,
-    String? $__typename,
-  });
-  CopyWith$Query$Thread$thread$replyUser$avatar<TRes> get avatar;
-}
-
-class _CopyWithImpl$Query$Thread$thread$replyUser<TRes>
-    implements CopyWith$Query$Thread$thread$replyUser<TRes> {
-  _CopyWithImpl$Query$Thread$thread$replyUser(
-    this._instance,
-    this._then,
-  );
-
-  final Query$Thread$thread$replyUser _instance;
-
-  final TRes Function(Query$Thread$thread$replyUser) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? avatar = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Thread$thread$replyUser(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as Query$Thread$thread$replyUser$avatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-  CopyWith$Query$Thread$thread$replyUser$avatar<TRes> get avatar {
-    final local$avatar = _instance.avatar;
-    return local$avatar == null
-        ? CopyWith$Query$Thread$thread$replyUser$avatar.stub(_then(_instance))
-        : CopyWith$Query$Thread$thread$replyUser$avatar(
-            local$avatar, (e) => call(avatar: e));
-  }
-}
-
-class _CopyWithStubImpl$Query$Thread$thread$replyUser<TRes>
-    implements CopyWith$Query$Thread$thread$replyUser<TRes> {
-  _CopyWithStubImpl$Query$Thread$thread$replyUser(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    Query$Thread$thread$replyUser$avatar? avatar,
-    String? $__typename,
-  }) =>
-      _res;
-  CopyWith$Query$Thread$thread$replyUser$avatar<TRes> get avatar =>
-      CopyWith$Query$Thread$thread$replyUser$avatar.stub(_res);
-}
-
-class Query$Thread$thread$replyUser$avatar
-    implements Fragment$ThreadFragment$replyUser$avatar {
-  Query$Thread$thread$replyUser$avatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
-
-  factory Query$Thread$thread$replyUser$avatar.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return Query$Thread$thread$replyUser$avatar(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$Thread$thread$replyUser$avatar) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$Thread$thread$replyUser$avatar
-    on Query$Thread$thread$replyUser$avatar {
-  CopyWith$Query$Thread$thread$replyUser$avatar<
-          Query$Thread$thread$replyUser$avatar>
-      get copyWith => CopyWith$Query$Thread$thread$replyUser$avatar(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$Thread$thread$replyUser$avatar<TRes> {
-  factory CopyWith$Query$Thread$thread$replyUser$avatar(
-    Query$Thread$thread$replyUser$avatar instance,
-    TRes Function(Query$Thread$thread$replyUser$avatar) then,
-  ) = _CopyWithImpl$Query$Thread$thread$replyUser$avatar;
-
-  factory CopyWith$Query$Thread$thread$replyUser$avatar.stub(TRes res) =
-      _CopyWithStubImpl$Query$Thread$thread$replyUser$avatar;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Query$Thread$thread$replyUser$avatar<TRes>
-    implements CopyWith$Query$Thread$thread$replyUser$avatar<TRes> {
-  _CopyWithImpl$Query$Thread$thread$replyUser$avatar(
-    this._instance,
-    this._then,
-  );
-
-  final Query$Thread$thread$replyUser$avatar _instance;
-
-  final TRes Function(Query$Thread$thread$replyUser$avatar) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Thread$thread$replyUser$avatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Query$Thread$thread$replyUser$avatar<TRes>
-    implements CopyWith$Query$Thread$thread$replyUser$avatar<TRes> {
-  _CopyWithStubImpl$Query$Thread$thread$replyUser$avatar(this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
     String? $__typename,
   }) =>
       _res;
@@ -2280,7 +1709,8 @@ class Query$Thread$comments$threadComments {
       createdAt: (l$createdAt as int),
       user: l$user == null
           ? null
-          : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
+          : Query$Thread$comments$threadComments$user.fromJson(
+              (l$user as Map<String, dynamic>)),
       childComments: (l$childComments as dynamic?),
       isLocked: (l$isLocked as bool?),
       $__typename: (l$$__typename as String),
@@ -2299,7 +1729,7 @@ class Query$Thread$comments$threadComments {
 
   final int createdAt;
 
-  final Fragment$UserFragment? user;
+  final Query$Thread$comments$threadComments$user? user;
 
   final dynamic? childComments;
 
@@ -2447,12 +1877,12 @@ abstract class CopyWith$Query$Thread$comments$threadComments<TRes> {
     bool? isLiked,
     int? likeCount,
     int? createdAt,
-    Fragment$UserFragment? user,
+    Query$Thread$comments$threadComments$user? user,
     dynamic? childComments,
     bool? isLocked,
     String? $__typename,
   });
-  CopyWith$Fragment$UserFragment<TRes> get user;
+  CopyWith$Query$Thread$comments$threadComments$user<TRes> get user;
 }
 
 class _CopyWithImpl$Query$Thread$comments$threadComments<TRes>
@@ -2495,7 +1925,7 @@ class _CopyWithImpl$Query$Thread$comments$threadComments<TRes>
             : (createdAt as int),
         user: user == _undefined
             ? _instance.user
-            : (user as Fragment$UserFragment?),
+            : (user as Query$Thread$comments$threadComments$user?),
         childComments: childComments == _undefined
             ? _instance.childComments
             : (childComments as dynamic?),
@@ -2505,11 +1935,13 @@ class _CopyWithImpl$Query$Thread$comments$threadComments<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Fragment$UserFragment<TRes> get user {
+  CopyWith$Query$Thread$comments$threadComments$user<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
-        : CopyWith$Fragment$UserFragment(local$user, (e) => call(user: e));
+        ? CopyWith$Query$Thread$comments$threadComments$user.stub(
+            _then(_instance))
+        : CopyWith$Query$Thread$comments$threadComments$user(
+            local$user, (e) => call(user: e));
   }
 }
 
@@ -2526,14 +1958,319 @@ class _CopyWithStubImpl$Query$Thread$comments$threadComments<TRes>
     bool? isLiked,
     int? likeCount,
     int? createdAt,
-    Fragment$UserFragment? user,
+    Query$Thread$comments$threadComments$user? user,
     dynamic? childComments,
     bool? isLocked,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Fragment$UserFragment<TRes> get user =>
-      CopyWith$Fragment$UserFragment.stub(_res);
+  CopyWith$Query$Thread$comments$threadComments$user<TRes> get user =>
+      CopyWith$Query$Thread$comments$threadComments$user.stub(_res);
+}
+
+class Query$Thread$comments$threadComments$user {
+  Query$Thread$comments$threadComments$user({
+    required this.id,
+    required this.name,
+    this.avatar,
+    this.$__typename = 'User',
+  });
+
+  factory Query$Thread$comments$threadComments$user.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$avatar = json['avatar'];
+    final l$$__typename = json['__typename'];
+    return Query$Thread$comments$threadComments$user(
+      id: (l$id as int),
+      name: (l$name as String),
+      avatar: l$avatar == null
+          ? null
+          : Query$Thread$comments$threadComments$user$avatar.fromJson(
+              (l$avatar as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$Thread$comments$threadComments$user$avatar? avatar;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$avatar = avatar;
+    _resultData['avatar'] = l$avatar?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$avatar = avatar;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$avatar,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Thread$comments$threadComments$user) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$avatar = avatar;
+    final lOther$avatar = other.avatar;
+    if (l$avatar != lOther$avatar) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$Thread$comments$threadComments$user
+    on Query$Thread$comments$threadComments$user {
+  CopyWith$Query$Thread$comments$threadComments$user<
+          Query$Thread$comments$threadComments$user>
+      get copyWith => CopyWith$Query$Thread$comments$threadComments$user(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$Thread$comments$threadComments$user<TRes> {
+  factory CopyWith$Query$Thread$comments$threadComments$user(
+    Query$Thread$comments$threadComments$user instance,
+    TRes Function(Query$Thread$comments$threadComments$user) then,
+  ) = _CopyWithImpl$Query$Thread$comments$threadComments$user;
+
+  factory CopyWith$Query$Thread$comments$threadComments$user.stub(TRes res) =
+      _CopyWithStubImpl$Query$Thread$comments$threadComments$user;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$Thread$comments$threadComments$user$avatar? avatar,
+    String? $__typename,
+  });
+  CopyWith$Query$Thread$comments$threadComments$user$avatar<TRes> get avatar;
+}
+
+class _CopyWithImpl$Query$Thread$comments$threadComments$user<TRes>
+    implements CopyWith$Query$Thread$comments$threadComments$user<TRes> {
+  _CopyWithImpl$Query$Thread$comments$threadComments$user(
+    this._instance,
+    this._then,
+  );
+
+  final Query$Thread$comments$threadComments$user _instance;
+
+  final TRes Function(Query$Thread$comments$threadComments$user) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? avatar = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$Thread$comments$threadComments$user(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        avatar: avatar == _undefined
+            ? _instance.avatar
+            : (avatar as Query$Thread$comments$threadComments$user$avatar?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$Thread$comments$threadComments$user$avatar<TRes> get avatar {
+    final local$avatar = _instance.avatar;
+    return local$avatar == null
+        ? CopyWith$Query$Thread$comments$threadComments$user$avatar.stub(
+            _then(_instance))
+        : CopyWith$Query$Thread$comments$threadComments$user$avatar(
+            local$avatar, (e) => call(avatar: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Thread$comments$threadComments$user<TRes>
+    implements CopyWith$Query$Thread$comments$threadComments$user<TRes> {
+  _CopyWithStubImpl$Query$Thread$comments$threadComments$user(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$Thread$comments$threadComments$user$avatar? avatar,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$Thread$comments$threadComments$user$avatar<TRes> get avatar =>
+      CopyWith$Query$Thread$comments$threadComments$user$avatar.stub(_res);
+}
+
+class Query$Thread$comments$threadComments$user$avatar {
+  Query$Thread$comments$threadComments$user$avatar({
+    this.large,
+    this.$__typename = 'UserAvatar',
+  });
+
+  factory Query$Thread$comments$threadComments$user$avatar.fromJson(
+      Map<String, dynamic> json) {
+    final l$large = json['large'];
+    final l$$__typename = json['__typename'];
+    return Query$Thread$comments$threadComments$user$avatar(
+      large: (l$large as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? large;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$large = large;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$large,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Thread$comments$threadComments$user$avatar) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$Thread$comments$threadComments$user$avatar
+    on Query$Thread$comments$threadComments$user$avatar {
+  CopyWith$Query$Thread$comments$threadComments$user$avatar<
+          Query$Thread$comments$threadComments$user$avatar>
+      get copyWith => CopyWith$Query$Thread$comments$threadComments$user$avatar(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$Thread$comments$threadComments$user$avatar<TRes> {
+  factory CopyWith$Query$Thread$comments$threadComments$user$avatar(
+    Query$Thread$comments$threadComments$user$avatar instance,
+    TRes Function(Query$Thread$comments$threadComments$user$avatar) then,
+  ) = _CopyWithImpl$Query$Thread$comments$threadComments$user$avatar;
+
+  factory CopyWith$Query$Thread$comments$threadComments$user$avatar.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$Thread$comments$threadComments$user$avatar;
+
+  TRes call({
+    String? large,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$Thread$comments$threadComments$user$avatar<TRes>
+    implements CopyWith$Query$Thread$comments$threadComments$user$avatar<TRes> {
+  _CopyWithImpl$Query$Thread$comments$threadComments$user$avatar(
+    this._instance,
+    this._then,
+  );
+
+  final Query$Thread$comments$threadComments$user$avatar _instance;
+
+  final TRes Function(Query$Thread$comments$threadComments$user$avatar) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? large = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$Thread$comments$threadComments$user$avatar(
+        large: large == _undefined ? _instance.large : (large as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$Thread$comments$threadComments$user$avatar<TRes>
+    implements CopyWith$Query$Thread$comments$threadComments$user$avatar<TRes> {
+  _CopyWithStubImpl$Query$Thread$comments$threadComments$user$avatar(this._res);
+
+  TRes _res;
+
+  call({
+    String? large,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Mutation$SaveComment {

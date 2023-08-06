@@ -162,9 +162,7 @@ class PushNotifications {
     try {
       final http.Response response = await http.get(Uri.parse(url));
       return response.bodyBytes;
-    } catch (err) {
-      print(err);
-    }
+    } catch (err) {}
     return null;
   }
 }
