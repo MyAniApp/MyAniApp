@@ -1,4 +1,4 @@
-package com.example.myaniapp
+package com.eboi.myaniapp
 
 import io.flutter.embedding.android.FlutterActivity
 

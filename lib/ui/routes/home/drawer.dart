@@ -24,7 +24,7 @@ class _HomeDrawerState extends ConsumerState<HomeDrawer> {
   @override
   void initState() {
     super.initState();
-    loadAd();
+    if (kIsWeb && Platform.isAndroid) loadAd();
   }
 
   @override
