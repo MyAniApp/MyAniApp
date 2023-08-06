@@ -38,7 +38,7 @@ class _LoginPageState extends ConsumerState<AniLoginPage> {
     if (kIsWeb) return;
     _sub = uriLinkStream.listen((uri) async {
       // print(uri);
-      if (uri?.scheme == 'myaniapp2') {
+      if (uri?.scheme == 'myaniapp') {
         var fragment = uri!.toString();
         var start = fragment.indexOf('=');
         var middle = fragment.indexOf('&');
