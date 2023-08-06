@@ -1,6 +1,7 @@
-// GENERATED FILE
-// DO NOT MODIFY
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 import '../graphql/fragments.graphql.dart';
 import '../graphql/schema.graphql.dart';
 import 'dart:async';
@@ -2244,12 +2245,14 @@ extension UtilityExtension$Query$Notifications$Page$notifications
             (i) => i,
           );
   _T when<_T>({
-    required _T Function(Query$Notifications$Page$notifications$$AiringNotification)
+    required _T Function(
+            Query$Notifications$Page$notifications$$AiringNotification)
         airingNotification,
     required _T Function(
             Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification)
         relatedMediaAdditionNotification,
-    required _T Function(Query$Notifications$Page$notifications$$FollowingNotification)
+    required _T Function(
+            Query$Notifications$Page$notifications$$FollowingNotification)
         followingNotification,
     required _T Function(
             Query$Notifications$Page$notifications$$ActivityMessageNotification)
@@ -2278,11 +2281,21 @@ extension UtilityExtension$Query$Notifications$Page$notifications
     required _T Function(
             Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification)
         threadCommentSubscribedNotification,
-    required _T Function(Query$Notifications$Page$notifications$$ThreadCommentLikeNotification) threadCommentLikeNotification,
-    required _T Function(Query$Notifications$Page$notifications$$ThreadLikeNotification) threadLikeNotification,
-    required _T Function(Query$Notifications$Page$notifications$$MediaDataChangeNotification) mediaDataChangeNotification,
-    required _T Function(Query$Notifications$Page$notifications$$MediaMergeNotification) mediaMergeNotification,
-    required _T Function(Query$Notifications$Page$notifications$$MediaDeletionNotification) mediaDeletionNotification,
+    required _T Function(
+            Query$Notifications$Page$notifications$$ThreadCommentLikeNotification)
+        threadCommentLikeNotification,
+    required _T Function(
+            Query$Notifications$Page$notifications$$ThreadLikeNotification)
+        threadLikeNotification,
+    required _T Function(
+            Query$Notifications$Page$notifications$$MediaDataChangeNotification)
+        mediaDataChangeNotification,
+    required _T Function(
+            Query$Notifications$Page$notifications$$MediaMergeNotification)
+        mediaMergeNotification,
+    required _T Function(
+            Query$Notifications$Page$notifications$$MediaDeletionNotification)
+        mediaDeletionNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
@@ -2362,36 +2375,51 @@ extension UtilityExtension$Query$Notifications$Page$notifications
   _T maybeWhen<_T>({
     _T Function(Query$Notifications$Page$notifications$$AiringNotification)?
         airingNotification,
-    _T Function(Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification)?
         relatedMediaAdditionNotification,
     _T Function(Query$Notifications$Page$notifications$$FollowingNotification)?
         followingNotification,
-    _T Function(Query$Notifications$Page$notifications$$ActivityMessageNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ActivityMessageNotification)?
         activityMessageNotification,
-    _T Function(Query$Notifications$Page$notifications$$ActivityMentionNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ActivityMentionNotification)?
         activityMentionNotification,
-    _T Function(Query$Notifications$Page$notifications$$ActivityReplyNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ActivityReplyNotification)?
         activityReplyNotification,
-    _T Function(Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification)?
         activityReplySubscribedNotification,
-    _T Function(Query$Notifications$Page$notifications$$ActivityLikeNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ActivityLikeNotification)?
         activityLikeNotification,
-    _T Function(Query$Notifications$Page$notifications$$ActivityReplyLikeNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ActivityReplyLikeNotification)?
         activityReplyLikeNotification,
-    _T Function(Query$Notifications$Page$notifications$$ThreadCommentMentionNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ThreadCommentMentionNotification)?
         threadCommentMentionNotification,
-    _T Function(Query$Notifications$Page$notifications$$ThreadCommentReplyNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ThreadCommentReplyNotification)?
         threadCommentReplyNotification,
-    _T Function(Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification)?
         threadCommentSubscribedNotification,
-    _T Function(Query$Notifications$Page$notifications$$ThreadCommentLikeNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$ThreadCommentLikeNotification)?
         threadCommentLikeNotification,
     _T Function(Query$Notifications$Page$notifications$$ThreadLikeNotification)?
         threadLikeNotification,
-    _T Function(Query$Notifications$Page$notifications$$MediaDataChangeNotification)?
+    _T Function(
+            Query$Notifications$Page$notifications$$MediaDataChangeNotification)?
         mediaDataChangeNotification,
-    _T Function(Query$Notifications$Page$notifications$$MediaMergeNotification)? mediaMergeNotification,
-    _T Function(Query$Notifications$Page$notifications$$MediaDeletionNotification)? mediaDeletionNotification,
+    _T Function(Query$Notifications$Page$notifications$$MediaMergeNotification)?
+        mediaMergeNotification,
+    _T Function(
+            Query$Notifications$Page$notifications$$MediaDeletionNotification)?
+        mediaDeletionNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {

@@ -111,6 +111,9 @@ fragment ThreadFragment on Thread {
   repliedAt
   createdAt
   isSticky
+  mediaCategories {
+    ...MediaFragment
+  }
   categories {
     id
     name

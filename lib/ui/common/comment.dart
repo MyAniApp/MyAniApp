@@ -119,20 +119,26 @@ class CommentBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondaryContainer,
-          borderRadius: imageRadius,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-          child: Row(
-            children: [
-              if (icon != null) icon!,
-              Text(label),
-            ],
+    return FittedBox(
+      clipBehavior: Clip.hardEdge,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondaryContainer,
+            borderRadius: imageRadius,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+            child: Row(
+              children: [
+                if (icon != null) icon!,
+                Text(
+                  label,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -185,35 +191,33 @@ class CommentHeader extends StatelessWidget {
         Expanded(
           child: Row(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (username != null)
-                    Text(
-                      username!,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
-                  if (createdAt != null)
-                    Text(
-                      timeago.format(
-                        dateFromTimestamp(createdAt!),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (username != null)
+                      Text(
+                        username!,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
                       ),
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.hintColor,
-                        fontWeight: FontWeight.w500,
+                    if (createdAt != null)
+                      Text(
+                        timeago.format(dateFromTimestamp(createdAt!),
+                            locale: 'en_short'),
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.hintColor,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ),
-                ],
+                  ],
+                ),
               ),
               if (badge != null) badge!,
             ],
           ),
-        ),
-        const SizedBox(
-          width: 5,
         ),
         if (leading != null) leading!,
       ],

@@ -1,5 +1,6 @@
 query Thread($id: Int, $page: Int) {
   thread: Thread(id: $id) {
+    ...ThreadFragment
     id
     title
     body
@@ -13,28 +14,6 @@ query Thread($id: Int, $page: Int) {
     likeCount
     repliedAt
     createdAt
-    user {
-      id
-      name
-      avatar {
-        large
-      }
-    }
-    categories {
-      id
-      name
-    }
-    mediaCategories {
-      id
-      title {
-        userPreferred
-      }
-      coverImage {
-        large
-      }
-      type
-      format
-    }
   }
   comments: Page(page: $page, perPage: 15) {
     pageInfo {
@@ -48,14 +27,7 @@ query Thread($id: Int, $page: Int) {
       likeCount
       createdAt
       user {
-        id
-        name
-        donatorTier
-        donatorBadge
-        moderatorRoles
-        avatar {
-          large
-        }
+        ...UserFragment
       }
       childComments
       isLocked

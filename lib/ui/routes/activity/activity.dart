@@ -6,6 +6,7 @@ import 'package:myaniapp/graphql/__generated/graphql/schema.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/activity/activity.graphql.dart';
 import 'package:myaniapp/graphql/__generated/ui/routes/home/activities/activities.graphql.dart';
 import 'package:myaniapp/ui/common/activity_card.dart';
+import 'package:myaniapp/ui/common/banner_ad.dart';
 import 'package:myaniapp/ui/common/comment.dart';
 import 'package:myaniapp/ui/common/dialogs/delete.dart';
 import 'package:myaniapp/ui/common/graphql_error.dart';
@@ -22,179 +23,193 @@ class ActivityPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Query$Activity$Widget(
-      options: Options$Query$Activity(
-        variables: Variables$Query$Activity(id: id),
-      ),
-      builder: (result, {fetchMore, refetch}) {
-        if (result.isLoading && result.parsedData == null) {
-          return Scaffold(
-            appBar: AppBar(),
-            body: const Center(
-              child: CircularProgressIndicator.adaptive(),
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        BannerAdSafeArea(
+          child: Query$Activity$Widget(
+            options: Options$Query$Activity(
+              variables: Variables$Query$Activity(id: id),
             ),
-          );
-        } else if (result.hasException) {
-          return Scaffold(
-            appBar: AppBar(),
-            body: GraphqlError(exception: result.exception!),
-          );
-        }
+            builder: (result, {fetchMore, refetch}) {
+              if (result.isLoading && result.parsedData == null) {
+                return Scaffold(
+                  appBar: AppBar(),
+                  body: const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  ),
+                );
+              } else if (result.hasException) {
+                return Scaffold(
+                  appBar: AppBar(),
+                  body: GraphqlError(exception: result.exception!),
+                );
+              }
 
-        return Pagination(
-          fetchMore: fetchMore!,
-          opts: FetchMoreOptions$Query$Activity(
-            updateQuery: (previousResultData, fetchMoreResultData) {
-              var list = [
-                ...previousResultData!['replies']['activityReplies'],
-                ...fetchMoreResultData!['replies']['activityReplies'],
-              ];
+              return Pagination(
+                fetchMore: fetchMore!,
+                opts: FetchMoreOptions$Query$Activity(
+                  updateQuery: (previousResultData, fetchMoreResultData) {
+                    var list = [
+                      ...previousResultData!['replies']['activityReplies'],
+                      ...fetchMoreResultData!['replies']['activityReplies'],
+                    ];
 
-              fetchMoreResultData['replies']['activityReplies'] = list;
+                    fetchMoreResultData['replies']['activityReplies'] = list;
 
-              return fetchMoreResultData;
-            },
-            variables: Variables$Query$Activity(
-              page:
-                  (result.parsedData!.replies!.pageInfo!.currentPage ?? 1) + 1,
-            ),
-          ),
-          pageInfo: result.parsedData!.replies!.pageInfo!,
-          child: Scaffold(
-            appBar: AppBar(),
-            floatingActionButton: FloatingActionButton(
-              onPressed: requireLogin(
-                ref,
-                'reply',
-                () => showMarkdownEditor(
-                  context,
-                  onSave: (text) {
-                    if (text.isNotEmpty) {
-                      client.value.mutate$SaveActivityReply(
-                        Options$Mutation$SaveActivityReply(
-                          variables: Variables$Mutation$SaveActivityReply(
-                            activityId: id,
-                            text: text,
-                          ),
-                          onCompleted: (p0, p1) => refetch!(),
-                        ),
-                      );
-                    }
+                    return fetchMoreResultData;
                   },
+                  variables: Variables$Query$Activity(
+                    page: (result.parsedData!.replies!.pageInfo!.currentPage ??
+                            1) +
+                        1,
+                  ),
                 ),
-              ),
-              child: const Icon(Icons.reply),
-            ),
-            body: RefreshIndicator.adaptive(
-              onRefresh: refetch!,
-              child: CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: Column(
-                      children: [
-                        ActivityCard(
-                          activity: result.parsedData!.activity!,
-                          onDelete: () => context.popRoute(true),
-                          inActivity: true,
+                pageInfo: result.parsedData!.replies!.pageInfo!,
+                child: Scaffold(
+                  appBar: AppBar(),
+                  floatingActionButton: FloatingActionButton(
+                    onPressed: requireLogin(
+                      ref,
+                      'reply',
+                      () => showMarkdownEditor(
+                        context,
+                        onSave: (text) {
+                          if (text.isNotEmpty) {
+                            client.value.mutate$SaveActivityReply(
+                              Options$Mutation$SaveActivityReply(
+                                variables: Variables$Mutation$SaveActivityReply(
+                                  activityId: id,
+                                  text: text,
+                                ),
+                                onCompleted: (p0, p1) => refetch!(),
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                    child: const Icon(Icons.reply),
+                  ),
+                  body: RefreshIndicator.adaptive(
+                    onRefresh: refetch!,
+                    child: CustomScrollView(
+                      slivers: [
+                        SliverToBoxAdapter(
+                          child: Column(
+                            children: [
+                              ActivityCard(
+                                activity: result.parsedData!.activity!,
+                                onDelete: () => context.popRoute(true),
+                                inActivity: true,
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Replies ${result.parsedData?.replies?.activityReplies?.length ?? 0}',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SliverList.builder(
+                          itemBuilder: (context, index) {
+                            var reply = result
+                                .parsedData!.replies!.activityReplies![index]!;
+
+                            return Comment(
+                              body: Markdown(
+                                data: reply.text!,
+                              ),
+                              avatarUrl: reply.user?.avatar?.large,
+                              createdAt: reply.createdAt,
+                              username: reply.user?.name,
+                              leading: Row(
+                                children: [
+                                  IconButton(
+                                    icon: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.favorite,
+                                          color: (reply.isLiked ?? false)
+                                              ? Colors.red
+                                              : null,
+                                        ),
+                                        if (reply.likeCount > 0)
+                                          Text(reply.likeCount.toString()),
+                                      ],
+                                    ),
+                                    onPressed: requireLogin(
+                                      ref,
+                                      'like',
+                                      () => client.value.mutate$ToggleLike(
+                                        Options$Mutation$ToggleLike(
+                                          variables:
+                                              Variables$Mutation$ToggleLike(
+                                            id: reply.id,
+                                            type: Enum$LikeableType
+                                                .ACTIVITY_REPLY,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  ActivityPopupMenu(
+                                    text: reply.text,
+                                    userId: reply.userId,
+                                    onDelete: () =>
+                                        showDeleteDialog(context).then(
+                                      (value) {
+                                        if (value == true) {
+                                          client.value
+                                              .mutate$DeleteActivityReply(
+                                            Options$Mutation$DeleteActivityReply(
+                                              variables:
+                                                  Variables$Mutation$DeleteActivityReply(
+                                                id: reply.id,
+                                              ),
+                                              onCompleted: (p0, p1) =>
+                                                  refetch(),
+                                            ),
+                                          );
+                                        }
+                                      },
+                                    ),
+                                    onEdit: (text) {
+                                      if (text.length > 2) {
+                                        client.value.mutate$SaveActivityReply(
+                                          Options$Mutation$SaveActivityReply(
+                                            variables:
+                                                Variables$Mutation$SaveActivityReply(
+                                              id: reply.id,
+                                              text: text,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                    },
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          itemCount: result
+                              .parsedData!.replies!.activityReplies!.length,
                         ),
-                        Text(
-                          'Replies ${result.parsedData?.replies?.activityReplies?.length ?? 0}',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge
-                              ?.copyWith(fontWeight: FontWeight.bold),
-                        )
                       ],
                     ),
                   ),
-                  SliverList.builder(
-                    itemBuilder: (context, index) {
-                      var reply =
-                          result.parsedData!.replies!.activityReplies![index]!;
-
-                      return Comment(
-                        body: Markdown(
-                          data: reply.text!,
-                        ),
-                        avatarUrl: reply.user?.avatar?.large,
-                        createdAt: reply.createdAt,
-                        username: reply.user?.name,
-                        leading: Row(
-                          children: [
-                            IconButton(
-                              icon: Row(
-                                children: [
-                                  Icon(
-                                    Icons.favorite,
-                                    color: (reply.isLiked ?? false)
-                                        ? Colors.red
-                                        : null,
-                                  ),
-                                  if (reply.likeCount > 0)
-                                    Text(reply.likeCount.toString()),
-                                ],
-                              ),
-                              onPressed: requireLogin(
-                                ref,
-                                'like',
-                                () => client.value.mutate$ToggleLike(
-                                  Options$Mutation$ToggleLike(
-                                    variables: Variables$Mutation$ToggleLike(
-                                      id: reply.id,
-                                      type: Enum$LikeableType.ACTIVITY_REPLY,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            ActivityPopupMenu(
-                              text: reply.text,
-                              userId: reply.userId,
-                              onDelete: () => showDeleteDialog(context).then(
-                                (value) {
-                                  if (value == true) {
-                                    client.value.mutate$DeleteActivityReply(
-                                      Options$Mutation$DeleteActivityReply(
-                                        variables:
-                                            Variables$Mutation$DeleteActivityReply(
-                                          id: reply.id,
-                                        ),
-                                        onCompleted: (p0, p1) => refetch(),
-                                      ),
-                                    );
-                                  }
-                                },
-                              ),
-                              onEdit: (text) {
-                                if (text.length > 2) {
-                                  client.value.mutate$SaveActivityReply(
-                                    Options$Mutation$SaveActivityReply(
-                                      variables:
-                                          Variables$Mutation$SaveActivityReply(
-                                        id: reply.id,
-                                        text: text,
-                                      ),
-                                    ),
-                                  );
-                                }
-                              },
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                    itemCount:
-                        result.parsedData!.replies!.activityReplies!.length,
-                  ),
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           ),
-        );
-      },
+        ),
+        const BannerAdWidget(),
+      ],
     );
   }
 }

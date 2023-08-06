@@ -1,8 +1,29 @@
+import 'package:intl/intl.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 
 DateTime dateFromTimestamp(int timestamp) {
   return DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
 }
+
+String abbreviateNumber(num number) {
+  var f = NumberFormat.compact(locale: "en_US");
+  return f.format(number);
+}
+
+// String timeAgo(DateTime date) {
+//   var diff = DateTime.now().difference(date);
+
+//   print(diff.inHours);
+
+//   // less then 24 hours
+//   if (diff.inHours < 24) {
+//     return '${diff.inHours}h';
+//   } else if (diff.inDays < 30) {
+//     return '${diff.inDays}d';
+//   } else if (diff.y)
+
+//   return date.toString();
+// }
 
 bool isTodayFromTimestamp(int? timestamp) {
   if (timestamp == null) return false;

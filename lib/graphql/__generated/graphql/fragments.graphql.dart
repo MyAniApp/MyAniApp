@@ -1,6 +1,7 @@
-// GENERATED FILE
-// DO NOT MODIFY
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'schema.graphql.dart';
@@ -5067,6 +5068,7 @@ class Fragment$ThreadFragment {
     this.repliedAt,
     required this.createdAt,
     this.isSticky,
+    this.mediaCategories,
     this.categories,
     this.user,
     this.replyUser,
@@ -5082,6 +5084,7 @@ class Fragment$ThreadFragment {
     final l$repliedAt = json['repliedAt'];
     final l$createdAt = json['createdAt'];
     final l$isSticky = json['isSticky'];
+    final l$mediaCategories = json['mediaCategories'];
     final l$categories = json['categories'];
     final l$user = json['user'];
     final l$replyUser = json['replyUser'];
@@ -5095,6 +5098,11 @@ class Fragment$ThreadFragment {
       repliedAt: (l$repliedAt as int?),
       createdAt: (l$createdAt as int),
       isSticky: (l$isSticky as bool?),
+      mediaCategories: (l$mediaCategories as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          .toList(),
       categories: (l$categories as List<dynamic>?)
           ?.map((e) => e == null
               ? null
@@ -5129,6 +5137,8 @@ class Fragment$ThreadFragment {
 
   final bool? isSticky;
 
+  final List<Fragment$MediaFragment?>? mediaCategories;
+
   final List<Fragment$ThreadFragment$categories?>? categories;
 
   final Fragment$ThreadFragment$user? user;
@@ -5155,6 +5165,9 @@ class Fragment$ThreadFragment {
     _resultData['createdAt'] = l$createdAt;
     final l$isSticky = isSticky;
     _resultData['isSticky'] = l$isSticky;
+    final l$mediaCategories = mediaCategories;
+    _resultData['mediaCategories'] =
+        l$mediaCategories?.map((e) => e?.toJson()).toList();
     final l$categories = categories;
     _resultData['categories'] = l$categories?.map((e) => e?.toJson()).toList();
     final l$user = user;
@@ -5176,6 +5189,7 @@ class Fragment$ThreadFragment {
     final l$repliedAt = repliedAt;
     final l$createdAt = createdAt;
     final l$isSticky = isSticky;
+    final l$mediaCategories = mediaCategories;
     final l$categories = categories;
     final l$user = user;
     final l$replyUser = replyUser;
@@ -5189,6 +5203,9 @@ class Fragment$ThreadFragment {
       l$repliedAt,
       l$createdAt,
       l$isSticky,
+      l$mediaCategories == null
+          ? null
+          : Object.hashAll(l$mediaCategories.map((v) => v)),
       l$categories == null ? null : Object.hashAll(l$categories.map((v) => v)),
       l$user,
       l$replyUser,
@@ -5243,6 +5260,22 @@ class Fragment$ThreadFragment {
     final l$isSticky = isSticky;
     final lOther$isSticky = other.isSticky;
     if (l$isSticky != lOther$isSticky) {
+      return false;
+    }
+    final l$mediaCategories = mediaCategories;
+    final lOther$mediaCategories = other.mediaCategories;
+    if (l$mediaCategories != null && lOther$mediaCategories != null) {
+      if (l$mediaCategories.length != lOther$mediaCategories.length) {
+        return false;
+      }
+      for (int i = 0; i < l$mediaCategories.length; i++) {
+        final l$mediaCategories$entry = l$mediaCategories[i];
+        final lOther$mediaCategories$entry = lOther$mediaCategories[i];
+        if (l$mediaCategories$entry != lOther$mediaCategories$entry) {
+          return false;
+        }
+      }
+    } else if (l$mediaCategories != lOther$mediaCategories) {
       return false;
     }
     final l$categories = categories;
@@ -5306,11 +5339,17 @@ abstract class CopyWith$Fragment$ThreadFragment<TRes> {
     int? repliedAt,
     int? createdAt,
     bool? isSticky,
+    List<Fragment$MediaFragment?>? mediaCategories,
     List<Fragment$ThreadFragment$categories?>? categories,
     Fragment$ThreadFragment$user? user,
     Fragment$ThreadFragment$replyUser? replyUser,
     String? $__typename,
   });
+  TRes mediaCategories(
+      Iterable<Fragment$MediaFragment?>? Function(
+              Iterable<
+                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
+          _fn);
   TRes categories(
       Iterable<Fragment$ThreadFragment$categories?>? Function(
               Iterable<
@@ -5343,6 +5382,7 @@ class _CopyWithImpl$Fragment$ThreadFragment<TRes>
     Object? repliedAt = _undefined,
     Object? createdAt = _undefined,
     Object? isSticky = _undefined,
+    Object? mediaCategories = _undefined,
     Object? categories = _undefined,
     Object? user = _undefined,
     Object? replyUser = _undefined,
@@ -5366,6 +5406,9 @@ class _CopyWithImpl$Fragment$ThreadFragment<TRes>
             : (createdAt as int),
         isSticky:
             isSticky == _undefined ? _instance.isSticky : (isSticky as bool?),
+        mediaCategories: mediaCategories == _undefined
+            ? _instance.mediaCategories
+            : (mediaCategories as List<Fragment$MediaFragment?>?),
         categories: categories == _undefined
             ? _instance.categories
             : (categories as List<Fragment$ThreadFragment$categories?>?),
@@ -5379,6 +5422,19 @@ class _CopyWithImpl$Fragment$ThreadFragment<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+  TRes mediaCategories(
+          Iterable<Fragment$MediaFragment?>? Function(
+                  Iterable<
+                      CopyWith$Fragment$MediaFragment<
+                          Fragment$MediaFragment>?>?)
+              _fn) =>
+      call(
+          mediaCategories: _fn(_instance.mediaCategories?.map((e) => e == null
+              ? null
+              : CopyWith$Fragment$MediaFragment(
+                  e,
+                  (i) => i,
+                )))?.toList());
   TRes categories(
           Iterable<Fragment$ThreadFragment$categories?>? Function(
                   Iterable<
@@ -5424,12 +5480,14 @@ class _CopyWithStubImpl$Fragment$ThreadFragment<TRes>
     int? repliedAt,
     int? createdAt,
     bool? isSticky,
+    List<Fragment$MediaFragment?>? mediaCategories,
     List<Fragment$ThreadFragment$categories?>? categories,
     Fragment$ThreadFragment$user? user,
     Fragment$ThreadFragment$replyUser? replyUser,
     String? $__typename,
   }) =>
       _res;
+  mediaCategories(_fn) => _res;
   categories(_fn) => _res;
   CopyWith$Fragment$ThreadFragment$user<TRes> get user =>
       CopyWith$Fragment$ThreadFragment$user.stub(_res);
@@ -5501,6 +5559,25 @@ const fragmentDefinitionThreadFragment = FragmentDefinitionNode(
       arguments: [],
       directives: [],
       selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'mediaCategories'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'MediaFragment'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
     ),
     FieldNode(
       name: NameNode(value: 'categories'),
@@ -5644,6 +5721,7 @@ const fragmentDefinitionThreadFragment = FragmentDefinitionNode(
 );
 const documentNodeFragmentThreadFragment = DocumentNode(definitions: [
   fragmentDefinitionThreadFragment,
+  fragmentDefinitionMediaFragment,
 ]);
 
 extension ClientExtension$Fragment$ThreadFragment on graphql.GraphQLClient {

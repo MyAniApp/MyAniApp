@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:markdown/markdown.dart' as md;
 import 'package:markdown_widget/markdown_widget.dart' as md2;
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/ui/common/image.dart';
@@ -44,6 +45,7 @@ class Markdown extends StatelessWidget {
             ImgSyntax(),
             SpoilerSyntax(),
             BrSyntax(),
+            md.AutolinkExtensionSyntax(),
           ],
           textGenerator: (node, config, visitor) =>
               CustomTextNode(node.textContent, config, visitor),
@@ -59,7 +61,7 @@ class Markdown extends StatelessWidget {
                 var uri = Uri.tryParse(value);
                 // print(uri?.host);
                 if (uri?.host == 'anilist.co') {
-                  print(uri!.path);
+                  print(uri!.pathSegments);
                   if (['anime', 'manga'].contains(uri.pathSegments.first)) {
                     context.router.pushNamed('/media/${uri.pathSegments[1]}');
                     return;
@@ -68,9 +70,15 @@ class Markdown extends StatelessWidget {
                     context.router
                         .pushNamed('/${uri.pathSegments.take(2).join('/')}');
                     return;
+                  } else if (uri.pathSegments.first == 'forum' &&
+                      uri.pathSegments[1] == 'thread') {
+                    context.router.pushNamed('/thread/${uri.pathSegments[2]}');
+                    return;
                   }
                 }
-                if (uri != null) launchUrl(uri, webOnlyWindowName: uri.host);
+                if (uri != null) {
+                  launchUrl(uri, mode: LaunchMode.externalApplication);
+                }
               },
             ),
             md2.ImgConfig(

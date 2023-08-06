@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql/__generated/graphql/fragments.graphql.dart';
 import 'package:myaniapp/routes.gr.dart';
+import 'package:myaniapp/ui/common/cards/sheet_card.dart';
 import 'package:myaniapp/utils/utils.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -31,11 +32,20 @@ class ThreadCard extends StatelessWidget {
           children: [
             if ((thread.viewCount ?? 0) > 0) ...[
               const Icon(Icons.remove_red_eye),
-              Text((thread.viewCount ?? 0).toString()),
+              const SizedBox(
+                width: 2,
+              ),
+              Text(abbreviateNumber(thread.viewCount ?? 0)),
+              const SizedBox(
+                width: 2,
+              ),
             ],
             if ((thread.replyCount ?? 0) > 0) ...[
               const Icon(Icons.chat_bubble),
-              Text((thread.replyCount ?? 0).toString()),
+              const SizedBox(
+                width: 2,
+              ),
+              Text(abbreviateNumber(thread.replyCount ?? 0)),
             ],
           ],
         ),
@@ -59,7 +69,7 @@ class ThreadCard extends StatelessWidget {
             const SizedBox(
               width: 2,
             ),
-            Text((thread.viewCount ?? 0).toString()),
+            Text(abbreviateNumber(thread.viewCount ?? 0)),
             const SizedBox(
               width: 2,
             ),
@@ -69,7 +79,7 @@ class ThreadCard extends StatelessWidget {
             const SizedBox(
               width: 2,
             ),
-            Text((thread.replyCount ?? 0).toString()),
+            Text(abbreviateNumber(thread.replyCount ?? 0)),
           ],
         ],
       ),
@@ -124,7 +134,18 @@ class ThreadCard extends StatelessWidget {
                   label: Text(category!.name),
                   labelPadding: EdgeInsets.zero,
                   labelStyle: Theme.of(context).textTheme.labelSmall,
-                )
+                ),
+              for (var media in thread.mediaCategories!)
+                GestureDetector(
+                  onLongPress: () => showMediaCard(context, media),
+                  child: ActionChip(
+                    onPressed: () =>
+                        context.pushRoute(MediaRoute(id: media.id)),
+                    label: Text(media!.title!.userPreferred!),
+                    labelPadding: EdgeInsets.zero,
+                    labelStyle: Theme.of(context).textTheme.labelSmall,
+                  ),
+                ),
             ],
           )
         ],

@@ -50,11 +50,7 @@ class _AppState extends ConsumerState<App> {
 
     return MaterialApp.router(
       title: 'MyAniApp',
-      routerConfig: appRouter.config(
-        navigatorObservers: () => [
-          MyObserver(ref),
-        ],
-      ),
+      routerConfig: appRouter.config(),
       scrollBehavior: _ScrollBehavior(),
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,

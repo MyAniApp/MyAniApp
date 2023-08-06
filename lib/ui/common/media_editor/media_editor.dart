@@ -273,6 +273,23 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
             onChanged: (value) =>
                 setState(() => options = options.copyWith(private: value)),
           ),
+          _MediaListDate(
+            start: true,
+            date: options.startedAt?.toDateString(),
+            onTap: _showStartDate,
+            onClear: () =>
+                setState(() => options = options.copyWith(startedAt: null)),
+          ),
+          const SizedBox(
+            height: 1,
+          ),
+          _MediaListDate(
+            start: false,
+            date: options.completedAt?.toDateString(),
+            onTap: _showCompletedDate,
+            onClear: () =>
+                setState(() => options = options.copyWith(completedAt: null)),
+          ),
           if (widget.entry.customLists?.isNotEmpty == true) ...[
             Text(
               'Custom Lists',
@@ -324,6 +341,87 @@ class _MediaEditorState extends ConsumerState<MediaEditor> {
           )
         ],
       ),
+    );
+  }
+
+  void _showStartDate() async {
+    var date = await showDatePicker(
+      context: context,
+      initialDate: options.startedAt?.toDate() ?? DateTime.now(),
+      firstDate: DateTime(1940),
+      lastDate: DateTime(2100),
+    );
+
+    if (date != null && context.mounted) {
+      setState(
+        () => options = options.copyWith(
+            startedAt: Input$FuzzyDateInput(
+          year: date.year,
+          month: date.month,
+          day: date.day,
+        )),
+      );
+    }
+  }
+
+  void _showCompletedDate() async {
+    var date = await showDatePicker(
+      context: context,
+      initialDate: options.completedAt?.toDate() ?? DateTime.now(),
+      firstDate: DateTime(1940),
+      lastDate: DateTime(2100),
+    );
+
+    if (date != null && context.mounted) {
+      setState(
+        () => options = options.copyWith(
+            completedAt: Input$FuzzyDateInput(
+          year: date.year,
+          month: date.month,
+          day: date.day,
+        )),
+      );
+    }
+  }
+}
+
+class _MediaListDate extends StatelessWidget {
+  const _MediaListDate({
+    required this.start,
+    required this.date,
+    required this.onTap,
+    required this.onClear,
+  });
+
+  final bool start;
+  final String? date;
+  final VoidCallback onTap;
+  final VoidCallback onClear;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          '${start ? 'Start' : 'Completed'} Date:',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                fontWeight: FontWeight.w500,
+              ),
+        ),
+        Row(
+          children: [
+            ElevatedButton(
+              onPressed: onTap,
+              child: Text(date ?? ''),
+            ),
+            IconButton(
+              onPressed: onClear,
+              icon: const Icon(Icons.clear),
+            )
+          ],
+        ),
+      ],
     );
   }
 }

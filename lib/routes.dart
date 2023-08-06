@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.gr.dart';
@@ -82,57 +81,9 @@ class AppRouter extends $AppRouter {
               },
             )
           ],
-        )
+        ),
+        AutoRoute(page: RecentThreadsRoute.page, path: '/forum/recent'),
       ];
 }
 
 late AppRouter appRouter;
-
-class AuthLisener extends ChangeNotifier {
-  AuthLisener(this.ref) {
-    var user = ref.watch(userProvider);
-
-    user.whenData((value) {
-      if (value != null) notifyListeners();
-    });
-
-    // print('hii');
-  }
-
-  final WidgetRef ref;
-
-  // void login() {
-  //   _isLoggedIn = true;
-  //   notifyListeners();
-  // }
-
-  // void logout() {
-  //   _isLoggedIn = false;
-  //   notifyListeners();
-  // }
-}
-
-class MyObserver extends AutoRouterObserver {
-  MyObserver(this.ref);
-
-  final WidgetRef ref;
-
-  @override
-  void didChangeTabRoute(TabPageRoute route, TabPageRoute previousRoute) {
-    print('Tab route re-visited: ${route.name}');
-    if (route.name == 'HomeAnimeRoute' &&
-        ref.read(userProvider).value == null) {
-      appRouter.navigate(const MyHomeRoute(children: [HomeOverviewRoute()]));
-    }
-  }
-
-  // only override to observer tab routes
-  @override
-  void didInitTabRoute(TabPageRoute route, TabPageRoute? previousRoute) {
-    print('Tab route visited: ${route.name}');
-    if (route.name == 'HomeAnimeRoute' &&
-        ref.read(userProvider).value == null) {
-      appRouter.navigate(const MyHomeRoute(children: [HomeOverviewRoute()]));
-    }
-  }
-}

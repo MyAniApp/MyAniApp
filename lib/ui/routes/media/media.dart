@@ -33,7 +33,7 @@ class _MediaPageState extends ConsumerState<MediaPage> {
       ? YoutubePlayerController(
           params: const YoutubePlayerParams(
             enableCaption: true,
-            showFullscreenButton: true,
+            // showFullscreenButton: true,
             strictRelatedVideos: true,
           ),
         )
@@ -385,6 +385,7 @@ class MediaAppBar extends StatelessWidget {
                       const Icon(
                         Icons.favorite,
                         size: 20,
+                        color: Colors.red,
                       ),
                       Text((media.favourites ?? 0).toString()),
                       const SizedBox(
@@ -394,6 +395,7 @@ class MediaAppBar extends StatelessWidget {
                         const Icon(
                           Icons.star,
                           size: 20,
+                          color: Colors.yellow,
                         ),
                         Text('${media.averageScore ?? 0}/100'),
                       ]
