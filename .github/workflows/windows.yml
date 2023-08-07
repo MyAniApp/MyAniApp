@@ -1,11 +1,15 @@
 name: Build Windows
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
-    name: Build APK
+    name: Build Windows App
     runs-on: windows-latest
+    if: contains(github.event.head_commit.message, '[build]')
     permissions:
       contents: write
 
@@ -18,29 +22,26 @@ jobs:
         run: |
           echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
 
-      - name: Use value
-        run: echo ${{env.sha_short}}
+      - name: Get Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.x'
+          channel: 'stable'
+          cache: true
 
-      # - name: Get Flutter
-      #   uses: subosito/flutter-action@v2
-      #   with:
-      #     flutter-version: '3.10.x'
-      #     channel: 'stable'
-      #     cache: true
+      - run: flutter pub get
+      - run: flutter build windows
 
-      # - run: flutter pub get
-      # - run: flutter build windows
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: 'zip'
+          filename: MyAniApp-${{env.sha_short}}-windows.zip
+          directory: build/windows/runner/Release
 
-      # - name: Archive Release
-      #   uses: thedoctor0/zip-release@master
-      #   with:
-      #     type: 'zip'
-      #     filename: MyAniApp-${{env.sha_short}}-windows.zip
-      #     directory: build/windows/runner/Release
-
-      # - uses: ncipollo/release-action@v1
-      #   with:
-      #     tag: ${{ env.sha_short }}
-      #     artifacts: 'build/windows/runner/Release/MyAniApp-${{env.sha_short}}-windows.zip'
-      #     allowUpdates: true
-      #     prerelease: true
+      - uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ env.sha_short }}
+          artifacts: 'build/windows/runner/Release/MyAniApp-${{env.sha_short}}-windows.zip'
+          allowUpdates: true
+          prerelease: true
