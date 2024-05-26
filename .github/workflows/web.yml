@@ -19,12 +19,12 @@ jobs:
       - name: Get Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.x'
+          flutter-version: '3.22.x'
           channel: 'stable'
           cache: true
 
       - run: flutter pub get
-      - run: flutter build web --base-href /MyAniApp/
+      - run: flutter build web --base-href /MyAniApp/ --wasm
 
       - uses: peaceiris/actions-gh-pages@v3
         with:

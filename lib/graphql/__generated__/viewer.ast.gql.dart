@@ -3,6 +3,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:gql/ast.dart' as _i1;
+import 'package:myaniapp/graphql/fragments/__generated__/user.ast.gql.dart'
+    as _i2;
 
 const ThisUser = _i1.FragmentDefinitionNode(
   name: _i1.NameNode(value: 'ThisUser'),
@@ -13,6 +15,10 @@ const ThisUser = _i1.FragmentDefinitionNode(
   )),
   directives: [],
   selectionSet: _i1.SelectionSetNode(selections: [
+    _i1.FragmentSpreadNode(
+      name: _i1.NameNode(value: 'UserFragment'),
+      directives: [],
+    ),
     _i1.FieldNode(
       name: _i1.NameNode(value: 'id'),
       alias: null,
@@ -561,4 +567,5 @@ const document = _i1.DocumentNode(definitions: [
   Viewer,
   NotificationCount,
   UpdateUser,
+  _i2.UserFragment,
 ]);

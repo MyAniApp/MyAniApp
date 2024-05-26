@@ -204,6 +204,27 @@ class _$GViewerData_ViewerSerializer
             specifiedType:
                 const FullType(GViewerData_Viewer_mediaListOptions)));
     }
+    value = object.donatorTier;
+    if (value != null) {
+      result
+        ..add('donatorTier')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.donatorBadge;
+    if (value != null) {
+      result
+        ..add('donatorBadge')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.moderatorRoles;
+    if (value != null) {
+      result
+        ..add('moderatorRoles')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(_i2.GModRole)])));
+    }
     return result;
   }
 
@@ -263,6 +284,20 @@ class _$GViewerData_ViewerSerializer
                   specifiedType:
                       const FullType(GViewerData_Viewer_mediaListOptions))!
               as GViewerData_Viewer_mediaListOptions);
+          break;
+        case 'donatorTier':
+          result.donatorTier = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'donatorBadge':
+          result.donatorBadge = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'moderatorRoles':
+          result.moderatorRoles.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType.nullable(_i2.GModRole)
+              ]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1132,6 +1167,27 @@ class _$GUpdateUserData_UpdateUserSerializer
             specifiedType:
                 const FullType(GUpdateUserData_UpdateUser_mediaListOptions)));
     }
+    value = object.donatorTier;
+    if (value != null) {
+      result
+        ..add('donatorTier')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.donatorBadge;
+    if (value != null) {
+      result
+        ..add('donatorBadge')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.moderatorRoles;
+    if (value != null) {
+      result
+        ..add('moderatorRoles')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(_i2.GModRole)])));
+    }
     return result;
   }
 
@@ -1194,6 +1250,20 @@ class _$GUpdateUserData_UpdateUserSerializer
                   specifiedType: const FullType(
                       GUpdateUserData_UpdateUser_mediaListOptions))!
               as GUpdateUserData_UpdateUser_mediaListOptions);
+          break;
+        case 'donatorTier':
+          result.donatorTier = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'donatorBadge':
+          result.donatorBadge = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'moderatorRoles':
+          result.moderatorRoles.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType.nullable(_i2.GModRole)
+              ]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1775,6 +1845,34 @@ class _$GThisUserDataSerializer implements StructuredSerializer<GThisUserData> {
       serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
     Object? value;
+    value = object.donatorTier;
+    if (value != null) {
+      result
+        ..add('donatorTier')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.donatorBadge;
+    if (value != null) {
+      result
+        ..add('donatorBadge')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.moderatorRoles;
+    if (value != null) {
+      result
+        ..add('moderatorRoles')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(_i2.GModRole)])));
+    }
+    value = object.avatar;
+    if (value != null) {
+      result
+        ..add('avatar')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GThisUserData_avatar)));
+    }
     value = object.about;
     if (value != null) {
       result
@@ -1794,13 +1892,6 @@ class _$GThisUserDataSerializer implements StructuredSerializer<GThisUserData> {
       result
         ..add('unreadNotificationCount')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.avatar;
-    if (value != null) {
-      result
-        ..add('avatar')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GThisUserData_avatar)));
     }
     value = object.statistics;
     if (value != null) {
@@ -1850,6 +1941,25 @@ class _$GThisUserDataSerializer implements StructuredSerializer<GThisUserData> {
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
+        case 'donatorTier':
+          result.donatorTier = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'donatorBadge':
+          result.donatorBadge = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'moderatorRoles':
+          result.moderatorRoles.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType.nullable(_i2.GModRole)
+              ]))! as BuiltList<Object?>);
+          break;
+        case 'avatar':
+          result.avatar.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GThisUserData_avatar))!
+              as GThisUserData_avatar);
+          break;
         case 'about':
           result.about = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -1861,11 +1971,6 @@ class _$GThisUserDataSerializer implements StructuredSerializer<GThisUserData> {
         case 'unreadNotificationCount':
           result.unreadNotificationCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
-          break;
-        case 'avatar':
-          result.avatar.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GThisUserData_avatar))!
-              as GThisUserData_avatar);
           break;
         case 'statistics':
           result.statistics.replace(serializers.deserialize(value,
@@ -2567,6 +2672,12 @@ class _$GViewerData_Viewer extends GViewerData_Viewer {
   final GViewerData_Viewer_options? options;
   @override
   final GViewerData_Viewer_mediaListOptions? mediaListOptions;
+  @override
+  final int? donatorTier;
+  @override
+  final String? donatorBadge;
+  @override
+  final BuiltList<_i2.GModRole?>? moderatorRoles;
 
   factory _$GViewerData_Viewer(
           [void Function(GViewerData_ViewerBuilder)? updates]) =>
@@ -2582,7 +2693,10 @@ class _$GViewerData_Viewer extends GViewerData_Viewer {
       this.avatar,
       this.statistics,
       this.options,
-      this.mediaListOptions})
+      this.mediaListOptions,
+      this.donatorTier,
+      this.donatorBadge,
+      this.moderatorRoles})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, r'GViewerData_Viewer', 'G__typename');
@@ -2612,7 +2726,10 @@ class _$GViewerData_Viewer extends GViewerData_Viewer {
         avatar == other.avatar &&
         statistics == other.statistics &&
         options == other.options &&
-        mediaListOptions == other.mediaListOptions;
+        mediaListOptions == other.mediaListOptions &&
+        donatorTier == other.donatorTier &&
+        donatorBadge == other.donatorBadge &&
+        moderatorRoles == other.moderatorRoles;
   }
 
   @override
@@ -2628,6 +2745,9 @@ class _$GViewerData_Viewer extends GViewerData_Viewer {
     _$hash = $jc(_$hash, statistics.hashCode);
     _$hash = $jc(_$hash, options.hashCode);
     _$hash = $jc(_$hash, mediaListOptions.hashCode);
+    _$hash = $jc(_$hash, donatorTier.hashCode);
+    _$hash = $jc(_$hash, donatorBadge.hashCode);
+    _$hash = $jc(_$hash, moderatorRoles.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2644,7 +2764,10 @@ class _$GViewerData_Viewer extends GViewerData_Viewer {
           ..add('avatar', avatar)
           ..add('statistics', statistics)
           ..add('options', options)
-          ..add('mediaListOptions', mediaListOptions))
+          ..add('mediaListOptions', mediaListOptions)
+          ..add('donatorTier', donatorTier)
+          ..add('donatorBadge', donatorBadge)
+          ..add('moderatorRoles', moderatorRoles))
         .toString();
   }
 }
@@ -2704,6 +2827,20 @@ class GViewerData_ViewerBuilder
           GViewerData_Viewer_mediaListOptionsBuilder? mediaListOptions) =>
       _$this._mediaListOptions = mediaListOptions;
 
+  int? _donatorTier;
+  int? get donatorTier => _$this._donatorTier;
+  set donatorTier(int? donatorTier) => _$this._donatorTier = donatorTier;
+
+  String? _donatorBadge;
+  String? get donatorBadge => _$this._donatorBadge;
+  set donatorBadge(String? donatorBadge) => _$this._donatorBadge = donatorBadge;
+
+  ListBuilder<_i2.GModRole?>? _moderatorRoles;
+  ListBuilder<_i2.GModRole?> get moderatorRoles =>
+      _$this._moderatorRoles ??= new ListBuilder<_i2.GModRole?>();
+  set moderatorRoles(ListBuilder<_i2.GModRole?>? moderatorRoles) =>
+      _$this._moderatorRoles = moderatorRoles;
+
   GViewerData_ViewerBuilder() {
     GViewerData_Viewer._initializeBuilder(this);
   }
@@ -2721,6 +2858,9 @@ class GViewerData_ViewerBuilder
       _statistics = $v.statistics?.toBuilder();
       _options = $v.options?.toBuilder();
       _mediaListOptions = $v.mediaListOptions?.toBuilder();
+      _donatorTier = $v.donatorTier;
+      _donatorBadge = $v.donatorBadge;
+      _moderatorRoles = $v.moderatorRoles?.toBuilder();
       _$v = null;
     }
     return this;
@@ -2757,7 +2897,10 @@ class GViewerData_ViewerBuilder
               avatar: _avatar?.build(),
               statistics: _statistics?.build(),
               options: _options?.build(),
-              mediaListOptions: _mediaListOptions?.build());
+              mediaListOptions: _mediaListOptions?.build(),
+              donatorTier: donatorTier,
+              donatorBadge: donatorBadge,
+              moderatorRoles: _moderatorRoles?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2769,6 +2912,9 @@ class GViewerData_ViewerBuilder
         _options?.build();
         _$failedField = 'mediaListOptions';
         _mediaListOptions?.build();
+
+        _$failedField = 'moderatorRoles';
+        _moderatorRoles?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GViewerData_Viewer', _$failedField, e.toString());
@@ -4329,6 +4475,12 @@ class _$GUpdateUserData_UpdateUser extends GUpdateUserData_UpdateUser {
   final GUpdateUserData_UpdateUser_options? options;
   @override
   final GUpdateUserData_UpdateUser_mediaListOptions? mediaListOptions;
+  @override
+  final int? donatorTier;
+  @override
+  final String? donatorBadge;
+  @override
+  final BuiltList<_i2.GModRole?>? moderatorRoles;
 
   factory _$GUpdateUserData_UpdateUser(
           [void Function(GUpdateUserData_UpdateUserBuilder)? updates]) =>
@@ -4344,7 +4496,10 @@ class _$GUpdateUserData_UpdateUser extends GUpdateUserData_UpdateUser {
       this.avatar,
       this.statistics,
       this.options,
-      this.mediaListOptions})
+      this.mediaListOptions,
+      this.donatorTier,
+      this.donatorBadge,
+      this.moderatorRoles})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, r'GUpdateUserData_UpdateUser', 'G__typename');
@@ -4376,7 +4531,10 @@ class _$GUpdateUserData_UpdateUser extends GUpdateUserData_UpdateUser {
         avatar == other.avatar &&
         statistics == other.statistics &&
         options == other.options &&
-        mediaListOptions == other.mediaListOptions;
+        mediaListOptions == other.mediaListOptions &&
+        donatorTier == other.donatorTier &&
+        donatorBadge == other.donatorBadge &&
+        moderatorRoles == other.moderatorRoles;
   }
 
   @override
@@ -4392,6 +4550,9 @@ class _$GUpdateUserData_UpdateUser extends GUpdateUserData_UpdateUser {
     _$hash = $jc(_$hash, statistics.hashCode);
     _$hash = $jc(_$hash, options.hashCode);
     _$hash = $jc(_$hash, mediaListOptions.hashCode);
+    _$hash = $jc(_$hash, donatorTier.hashCode);
+    _$hash = $jc(_$hash, donatorBadge.hashCode);
+    _$hash = $jc(_$hash, moderatorRoles.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -4408,7 +4569,10 @@ class _$GUpdateUserData_UpdateUser extends GUpdateUserData_UpdateUser {
           ..add('avatar', avatar)
           ..add('statistics', statistics)
           ..add('options', options)
-          ..add('mediaListOptions', mediaListOptions))
+          ..add('mediaListOptions', mediaListOptions)
+          ..add('donatorTier', donatorTier)
+          ..add('donatorBadge', donatorBadge)
+          ..add('moderatorRoles', moderatorRoles))
         .toString();
   }
 }
@@ -4470,6 +4634,20 @@ class GUpdateUserData_UpdateUserBuilder
               mediaListOptions) =>
       _$this._mediaListOptions = mediaListOptions;
 
+  int? _donatorTier;
+  int? get donatorTier => _$this._donatorTier;
+  set donatorTier(int? donatorTier) => _$this._donatorTier = donatorTier;
+
+  String? _donatorBadge;
+  String? get donatorBadge => _$this._donatorBadge;
+  set donatorBadge(String? donatorBadge) => _$this._donatorBadge = donatorBadge;
+
+  ListBuilder<_i2.GModRole?>? _moderatorRoles;
+  ListBuilder<_i2.GModRole?> get moderatorRoles =>
+      _$this._moderatorRoles ??= new ListBuilder<_i2.GModRole?>();
+  set moderatorRoles(ListBuilder<_i2.GModRole?>? moderatorRoles) =>
+      _$this._moderatorRoles = moderatorRoles;
+
   GUpdateUserData_UpdateUserBuilder() {
     GUpdateUserData_UpdateUser._initializeBuilder(this);
   }
@@ -4487,6 +4665,9 @@ class GUpdateUserData_UpdateUserBuilder
       _statistics = $v.statistics?.toBuilder();
       _options = $v.options?.toBuilder();
       _mediaListOptions = $v.mediaListOptions?.toBuilder();
+      _donatorTier = $v.donatorTier;
+      _donatorBadge = $v.donatorBadge;
+      _moderatorRoles = $v.moderatorRoles?.toBuilder();
       _$v = null;
     }
     return this;
@@ -4523,7 +4704,10 @@ class GUpdateUserData_UpdateUserBuilder
               avatar: _avatar?.build(),
               statistics: _statistics?.build(),
               options: _options?.build(),
-              mediaListOptions: _mediaListOptions?.build());
+              mediaListOptions: _mediaListOptions?.build(),
+              donatorTier: donatorTier,
+              donatorBadge: donatorBadge,
+              moderatorRoles: _moderatorRoles?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4535,6 +4719,9 @@ class GUpdateUserData_UpdateUserBuilder
         _options?.build();
         _$failedField = 'mediaListOptions';
         _mediaListOptions?.build();
+
+        _$failedField = 'moderatorRoles';
+        _moderatorRoles?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GUpdateUserData_UpdateUser', _$failedField, e.toString());
@@ -5647,13 +5834,19 @@ class _$GThisUserData extends GThisUserData {
   @override
   final String name;
   @override
+  final int? donatorTier;
+  @override
+  final String? donatorBadge;
+  @override
+  final BuiltList<_i2.GModRole?>? moderatorRoles;
+  @override
+  final GThisUserData_avatar? avatar;
+  @override
   final String? about;
   @override
   final String? bannerImage;
   @override
   final int? unreadNotificationCount;
-  @override
-  final GThisUserData_avatar? avatar;
   @override
   final GThisUserData_statistics? statistics;
   @override
@@ -5668,10 +5861,13 @@ class _$GThisUserData extends GThisUserData {
       {required this.G__typename,
       required this.id,
       required this.name,
+      this.donatorTier,
+      this.donatorBadge,
+      this.moderatorRoles,
+      this.avatar,
       this.about,
       this.bannerImage,
       this.unreadNotificationCount,
-      this.avatar,
       this.statistics,
       this.options,
       this.mediaListOptions})
@@ -5696,10 +5892,13 @@ class _$GThisUserData extends GThisUserData {
         G__typename == other.G__typename &&
         id == other.id &&
         name == other.name &&
+        donatorTier == other.donatorTier &&
+        donatorBadge == other.donatorBadge &&
+        moderatorRoles == other.moderatorRoles &&
+        avatar == other.avatar &&
         about == other.about &&
         bannerImage == other.bannerImage &&
         unreadNotificationCount == other.unreadNotificationCount &&
-        avatar == other.avatar &&
         statistics == other.statistics &&
         options == other.options &&
         mediaListOptions == other.mediaListOptions;
@@ -5711,10 +5910,13 @@ class _$GThisUserData extends GThisUserData {
     _$hash = $jc(_$hash, G__typename.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, donatorTier.hashCode);
+    _$hash = $jc(_$hash, donatorBadge.hashCode);
+    _$hash = $jc(_$hash, moderatorRoles.hashCode);
+    _$hash = $jc(_$hash, avatar.hashCode);
     _$hash = $jc(_$hash, about.hashCode);
     _$hash = $jc(_$hash, bannerImage.hashCode);
     _$hash = $jc(_$hash, unreadNotificationCount.hashCode);
-    _$hash = $jc(_$hash, avatar.hashCode);
     _$hash = $jc(_$hash, statistics.hashCode);
     _$hash = $jc(_$hash, options.hashCode);
     _$hash = $jc(_$hash, mediaListOptions.hashCode);
@@ -5728,10 +5930,13 @@ class _$GThisUserData extends GThisUserData {
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('name', name)
+          ..add('donatorTier', donatorTier)
+          ..add('donatorBadge', donatorBadge)
+          ..add('moderatorRoles', moderatorRoles)
+          ..add('avatar', avatar)
           ..add('about', about)
           ..add('bannerImage', bannerImage)
           ..add('unreadNotificationCount', unreadNotificationCount)
-          ..add('avatar', avatar)
           ..add('statistics', statistics)
           ..add('options', options)
           ..add('mediaListOptions', mediaListOptions))
@@ -5755,6 +5960,25 @@ class GThisUserDataBuilder
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
+  int? _donatorTier;
+  int? get donatorTier => _$this._donatorTier;
+  set donatorTier(int? donatorTier) => _$this._donatorTier = donatorTier;
+
+  String? _donatorBadge;
+  String? get donatorBadge => _$this._donatorBadge;
+  set donatorBadge(String? donatorBadge) => _$this._donatorBadge = donatorBadge;
+
+  ListBuilder<_i2.GModRole?>? _moderatorRoles;
+  ListBuilder<_i2.GModRole?> get moderatorRoles =>
+      _$this._moderatorRoles ??= new ListBuilder<_i2.GModRole?>();
+  set moderatorRoles(ListBuilder<_i2.GModRole?>? moderatorRoles) =>
+      _$this._moderatorRoles = moderatorRoles;
+
+  GThisUserData_avatarBuilder? _avatar;
+  GThisUserData_avatarBuilder get avatar =>
+      _$this._avatar ??= new GThisUserData_avatarBuilder();
+  set avatar(GThisUserData_avatarBuilder? avatar) => _$this._avatar = avatar;
+
   String? _about;
   String? get about => _$this._about;
   set about(String? about) => _$this._about = about;
@@ -5767,11 +5991,6 @@ class GThisUserDataBuilder
   int? get unreadNotificationCount => _$this._unreadNotificationCount;
   set unreadNotificationCount(int? unreadNotificationCount) =>
       _$this._unreadNotificationCount = unreadNotificationCount;
-
-  GThisUserData_avatarBuilder? _avatar;
-  GThisUserData_avatarBuilder get avatar =>
-      _$this._avatar ??= new GThisUserData_avatarBuilder();
-  set avatar(GThisUserData_avatarBuilder? avatar) => _$this._avatar = avatar;
 
   GThisUserData_statisticsBuilder? _statistics;
   GThisUserData_statisticsBuilder get statistics =>
@@ -5802,10 +6021,13 @@ class GThisUserDataBuilder
       _G__typename = $v.G__typename;
       _id = $v.id;
       _name = $v.name;
+      _donatorTier = $v.donatorTier;
+      _donatorBadge = $v.donatorBadge;
+      _moderatorRoles = $v.moderatorRoles?.toBuilder();
+      _avatar = $v.avatar?.toBuilder();
       _about = $v.about;
       _bannerImage = $v.bannerImage;
       _unreadNotificationCount = $v.unreadNotificationCount;
-      _avatar = $v.avatar?.toBuilder();
       _statistics = $v.statistics?.toBuilder();
       _options = $v.options?.toBuilder();
       _mediaListOptions = $v.mediaListOptions?.toBuilder();
@@ -5839,18 +6061,24 @@ class GThisUserDataBuilder
                   id, r'GThisUserData', 'id'),
               name: BuiltValueNullFieldError.checkNotNull(
                   name, r'GThisUserData', 'name'),
+              donatorTier: donatorTier,
+              donatorBadge: donatorBadge,
+              moderatorRoles: _moderatorRoles?.build(),
+              avatar: _avatar?.build(),
               about: about,
               bannerImage: bannerImage,
               unreadNotificationCount: unreadNotificationCount,
-              avatar: _avatar?.build(),
               statistics: _statistics?.build(),
               options: _options?.build(),
               mediaListOptions: _mediaListOptions?.build());
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'moderatorRoles';
+        _moderatorRoles?.build();
         _$failedField = 'avatar';
         _avatar?.build();
+
         _$failedField = 'statistics';
         _statistics?.build();
         _$failedField = 'options';

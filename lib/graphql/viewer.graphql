@@ -1,4 +1,7 @@
+# import '/graphql/fragments/user.graphql'
+
 fragment ThisUser on User {
+  ...UserFragment
   id
   name
   about
