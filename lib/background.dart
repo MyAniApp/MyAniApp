@@ -71,7 +71,7 @@ void callbackDispatcher() {
               ),
               texts.join(),
               payload: {
-                'path': '/media/${notif.media!.id}',
+                'path': '/media/${notif.media!.id}/info',
               },
             );
             continue;
@@ -83,7 +83,7 @@ void callbackDispatcher() {
               PushNotifications.mediaDetails(),
               texts.join(),
               payload: notif.G__typename != 'MediaDeletionNotification'
-                  ? {'path': '/media/${(notif as dynamic).animeId}'}
+                  ? {'path': '/media/${(notif as dynamic).animeId}/info'}
                   : null,
             );
           } else if (parsed.isActivity) {
@@ -113,7 +113,7 @@ void callbackDispatcher() {
                     ?.large,
               ),
               texts.join(),
-              payload: {'path': '/profile/${(notif).user!.id}'},
+              payload: {'path': '/user/${(notif).user!.name}/info'},
             );
           }
         }

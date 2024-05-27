@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -11,6 +14,7 @@ import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/list_tile_circle_avatar.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/extensions.dart';
+import 'package:myaniapp/notifications/push.dart';
 import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/providers/user.dart';
 
@@ -37,6 +41,12 @@ class _HomeOverviewPageState extends ConsumerState<HomeOverviewPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    if (!kIsWeb && Platform.isAndroid) PushNotifications().init();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var user = ref.watch(userProvider);
 
@@ -54,13 +64,13 @@ class _HomeOverviewPageState extends ConsumerState<HomeOverviewPage> {
                   when: user.value?.data != null,
                   fallback: Text(
                     "Guest",
-                    style: TextStyle(
-                        color: context.theme.colorScheme.onSurface),
+                    style:
+                        TextStyle(color: context.theme.colorScheme.onSurface),
                   ),
                   child: () => Text(
                     user.requireValue.data!.Viewer!.name,
-                    style: TextStyle(
-                        color: context.theme.colorScheme.onSurface),
+                    style:
+                        TextStyle(color: context.theme.colorScheme.onSurface),
                   ),
                 ),
                 currentAccountPicture: Show(

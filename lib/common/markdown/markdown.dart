@@ -54,7 +54,6 @@ var markdownGenerator = md.MarkdownGenerator(
   inlineSyntaxList: [
     AnilistImageSyntax(),
     SpoilerSyntax(),
-    md2.AutolinkExtensionSyntax()
   ],
   blockSyntaxList: [
     const md2.HtmlBlockSyntax(),
@@ -106,7 +105,7 @@ class MarkdownWidget extends ConsumerWidget {
         ...markdownGenerator.inlineSyntaxList,
         if (showEmbedMediaCard) EmbedMediaCardSyntax(),
       ],
-      // blockSyntaxList: markdownGenerator.blockSyntaxList,
+      blockSyntaxList: markdownGenerator.blockSyntaxList,
     );
 
     var config = markdownConfig.copy(
