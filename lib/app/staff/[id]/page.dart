@@ -1,9 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myaniapp/app/media/__generated__/media.req.gql.dart';
 import 'package:myaniapp/app/staff/__generated__/staff.data.gql.dart';
 import 'package:myaniapp/app/staff/__generated__/staff.req.gql.dart';
 import 'package:myaniapp/common/cached_image.dart';
+import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/image_viewer.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/invisible_expanded_title.dart';
@@ -17,6 +19,7 @@ import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/fragments/__generated__/staff.data.gql.dart';
 import 'package:myaniapp/graphql/widget.dart';
+import 'package:myaniapp/main.dart';
 
 final _extractInfo = RegExp(r"^((?:(?:\*\*)|(?:__))[^]*?\n\n)");
 
@@ -76,170 +79,192 @@ class _StaffPageState extends State<StaffPage>
           _tabController = TabController(length: 2, vsync: this);
         }
 
-        return Scaffold(
-          body: NestedScrollView(
-            headerSliverBuilder: (context, innerBoxIsScrolled) => [
-              SliverAppBar(
-                pinned: true,
-                title: InvisibleExpandedTitle(
-                  child: Text(
-                    (data ?? placeholder)!.name!.userPreferred!,
-                    maxLines: 2,
+        return HidingFloatingButton(
+          button: Show(
+            when: data != null,
+            child: () => FloatingActionButton.extended(
+              heroTag: null,
+              onPressed: data!.isFavouriteBlocked
+                  ? null
+                  : () => client
+                      .request(GToggleFavoriteReq(
+                        (b) => b..vars.staffId = data.id,
+                      ))
+                      .first
+                      .then((_) => refetch()),
+              label: Icon(
+                Icons.favorite,
+                color: data.isFavourite ? Colors.red[200] : null,
+              ),
+              backgroundColor: Colors.red[900],
+            ),
+          ),
+          builder: (button) => Scaffold(
+            floatingActionButton: button,
+            body: NestedScrollView(
+              headerSliverBuilder: (context, innerBoxIsScrolled) => [
+                SliverAppBar(
+                  pinned: true,
+                  title: InvisibleExpandedTitle(
+                    child: Text(
+                      (data ?? placeholder)!.name!.userPreferred!,
+                      maxLines: 2,
+                    ),
                   ),
-                ),
-                expandedHeight: 182,
-                // snap: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: SafeArea(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 16,
-                            right: 8,
-                            left: 8,
-                          ),
-                          child: InkWellImage(
-                            onTap: () => ImageViewer.showImage(
-                              context,
-                              (data ?? placeholder)!.image!.large!,
-                              tag: (data ?? placeholder)!.id,
+                  expandedHeight: 182,
+                  // snap: true,
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: SafeArea(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 16,
+                              right: 8,
+                              left: 8,
                             ),
-                            borderRadius: imageRadius,
-                            child: ClipRRect(
-                              borderRadius: imageRadius,
-                              child: Hero(
+                            child: InkWellImage(
+                              onTap: () => ImageViewer.showImage(
+                                context,
+                                (data ?? placeholder)!.image!.large!,
                                 tag: (data ?? placeholder)!.id,
-                                child: CachedImage(
-                                  (data ?? placeholder)!.image!.large!,
-                                  height: 150,
-                                  width: 106,
-                                  fit: BoxFit.fill,
+                              ),
+                              borderRadius: imageRadius,
+                              child: ClipRRect(
+                                borderRadius: imageRadius,
+                                child: Hero(
+                                  tag: (data ?? placeholder)!.id,
+                                  child: CachedImage(
+                                    (data ?? placeholder)!.image!.large!,
+                                    height: 150,
+                                    width: 106,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Text(
-                              (data ?? placeholder)!.name!.userPreferred!,
-                              style: context.theme.textTheme.titleMedium,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 5,
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Text(
+                                (data ?? placeholder)!.name!.userPreferred!,
+                                style: context.theme.textTheme.titleMedium,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 5,
+                              ),
                             ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Show(
-                when: data != null,
-                fallback: const SliverToBoxAdapter(
-                  child: SizedBox(),
-                ),
-                child: () {
-                  var metadata = _extractInfo
-                      .firstMatch(data!.description ?? "")
-                      ?.group(1);
-                  var description = metadata != null
-                      ? data.description?.replaceAll(metadata, "")
-                      : data.description;
-
-                  return SliverPadding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    sliver: SliverToBoxAdapter(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          if (data.dateOfBirth?.toDateString() != null)
-                            _InfoText(
-                              title: "Birth:",
-                              text: data.dateOfBirth!.toDateString()!,
-                            ),
-                          if (data.dateOfDeath?.toDateString() != null)
-                            _InfoText(
-                              title: "Death:",
-                              text: data.dateOfDeath!.toDateString()!,
-                            ),
-                          if (data.age != null)
-                            _InfoText(
-                                title: "Age:", text: data.age!.toString()),
-                          if (data.homeTown != null)
-                            _InfoText(
-                              title: "Hometown:",
-                              text: data.homeTown!,
-                            ),
-                          if (data.gender != null)
-                            _InfoText(
-                              title: "Gender:",
-                              text: data.gender!,
-                            ),
-                          if (data.yearsActive?.isNotEmpty == true)
-                            _InfoText(
-                              title: "Year Active:",
-                              text:
-                                  "${data.yearsActive![0]} - ${data.yearsActive?.elementAtOrNull(1) ?? "Present"}",
-                            ),
-                          if (data.bloodType != null)
-                            _InfoText(
-                              title: "Blood Type:",
-                              text: data.bloodType!,
-                            ),
-                          if (metadata != null)
-                            MarkdownWidget.body(
-                              data: metadata,
-                              padding: const EdgeInsets.all(0),
-                            ),
-                          MarkdownWidget.body(
-                            data: description ?? "*No Description*",
-                            selectable: true,
-                            padding: const EdgeInsets.all(0),
-                          ),
+                          )
                         ],
                       ),
                     ),
+                  ),
+                ),
+                Show(
+                  when: data != null,
+                  fallback: const SliverToBoxAdapter(
+                    child: SizedBox(),
+                  ),
+                  child: () {
+                    var metadata = _extractInfo
+                        .firstMatch(data!.description ?? "")
+                        ?.group(1);
+                    var description = metadata != null
+                        ? data.description?.replaceAll(metadata, "")
+                        : data.description;
+
+                    return SliverPadding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      sliver: SliverToBoxAdapter(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (data.dateOfBirth?.toDateString() != null)
+                              _InfoText(
+                                title: "Birth:",
+                                text: data.dateOfBirth!.toDateString()!,
+                              ),
+                            if (data.dateOfDeath?.toDateString() != null)
+                              _InfoText(
+                                title: "Death:",
+                                text: data.dateOfDeath!.toDateString()!,
+                              ),
+                            if (data.age != null)
+                              _InfoText(
+                                  title: "Age:", text: data.age!.toString()),
+                            if (data.homeTown != null)
+                              _InfoText(
+                                title: "Hometown:",
+                                text: data.homeTown!,
+                              ),
+                            if (data.gender != null)
+                              _InfoText(
+                                title: "Gender:",
+                                text: data.gender!,
+                              ),
+                            if (data.yearsActive?.isNotEmpty == true)
+                              _InfoText(
+                                title: "Year Active:",
+                                text:
+                                    "${data.yearsActive![0]} - ${data.yearsActive?.elementAtOrNull(1) ?? "Present"}",
+                              ),
+                            if (data.bloodType != null)
+                              _InfoText(
+                                title: "Blood Type:",
+                                text: data.bloodType!,
+                              ),
+                            if (metadata != null)
+                              MarkdownWidget.body(
+                                data: metadata,
+                                padding: const EdgeInsets.all(0),
+                              ),
+                            MarkdownWidget.body(
+                              data: description ?? "*No Description*",
+                              selectable: true,
+                              padding: const EdgeInsets.all(0),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                Show(
+                  when: data != null && hasTabs(data),
+                  fallback: const SliverToBoxAdapter(
+                    child: SizedBox(),
+                  ),
+                  child: () => SliverPersistentHeader(
+                    delegate: SliverTabBarViewDelegate(
+                      child: TabBar(
+                        controller: _tabController,
+                        isScrollable: true,
+                        tabs: const [
+                          Tab(
+                            text: "VA Roles",
+                          ),
+                          Tab(text: "Staff")
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+              body: Show(
+                when: data != null,
+                fallback: const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                ),
+                child: () {
+                  return StaffView(
+                    controller: _tabController,
+                    staff: data!,
+                    operationRequest: response!.operationRequest as GStaffReq,
                   );
                 },
               ),
-              Show(
-                when: data != null && hasTabs(data),
-                fallback: const SliverToBoxAdapter(
-                  child: SizedBox(),
-                ),
-                child: () => SliverPersistentHeader(
-                  delegate: SliverTabBarViewDelegate(
-                    child: TabBar(
-                      controller: _tabController,
-                      isScrollable: true,
-                      tabs: const [
-                        Tab(
-                          text: "VA Roles",
-                        ),
-                        Tab(text: "Staff")
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ],
-            body: Show(
-              when: data != null,
-              fallback: const Center(
-                child: CircularProgressIndicator.adaptive(),
-              ),
-              child: () {
-                return StaffView(
-                  controller: _tabController,
-                  staff: data!,
-                  operationRequest: response!.operationRequest as GStaffReq,
-                );
-              },
             ),
           ),
         );

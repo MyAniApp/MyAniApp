@@ -141,12 +141,14 @@ class NotificationPage extends StatelessWidget {
                             children: [
                               Text(
                                 notif.toString(),
+                                maxLines: 3,
                               ),
                               Text(
                                 dateFromTimestamp(n.createdAt)
                                     .relativeTime(context),
                                 style: context.theme.textTheme.labelLarge
                                     ?.copyWith(color: context.theme.hintColor),
+                                maxLines: 2,
                               ),
                             ],
                           ),

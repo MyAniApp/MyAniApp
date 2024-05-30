@@ -22,8 +22,10 @@ import 'package:myaniapp/common/sliver_tabbar_view.dart';
 import 'package:myaniapp/common/widget_gradient.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
+import 'package:myaniapp/graphql/__generated__/schema.schema.gql.dart';
 import 'package:myaniapp/graphql/fragments/__generated__/media.data.gql.dart';
 import 'package:myaniapp/graphql/widget.dart';
+import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/user.dart';
 
 class MediaPage extends StatefulWidget {
@@ -203,6 +205,7 @@ class FloatingButtons extends ConsumerWidget {
         children: [
           Expanded(
             child: FloatingActionButton.extended(
+              heroTag: null,
               onPressed: () => MediaEditorDialog.show(
                 context, media, user.value!.data!.Viewer!.id,
                 onSave: onUpdate,
@@ -213,6 +216,27 @@ class FloatingButtons extends ConsumerWidget {
                   ? media.mediaListEntry!.status!.name.capitalize()
                   : "Add to list"),
             ),
+          ),
+          const SizedBox(width: 10),
+          FloatingActionButton.extended(
+            heroTag: null,
+            onPressed: media.isFavouriteBlocked
+                ? null
+                : () => client
+                    .request(media.type == GMediaType.ANIME
+                        ? GToggleFavoriteReq(
+                            (b) => b..vars.animeId = media.id,
+                          )
+                        : GToggleFavoriteReq(
+                            (b) => b..vars.mangaId = media.id,
+                          ))
+                    .first
+                    .then((_) => onUpdate()),
+            label: Icon(
+              Icons.favorite,
+              color: media.isFavourite ? Colors.red[200] : null,
+            ),
+            backgroundColor: Colors.red[900],
           ),
         ],
       ),
