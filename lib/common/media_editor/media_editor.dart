@@ -252,7 +252,7 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
               NumberPicker(
                 label: "Score",
                 value: options.score ?? 0,
-                readOnly: true,
+                // readOnly: true,
                 enabled: userId == widget.entry.user?.id,
                 min: 0,
                 max: switch (
@@ -283,7 +283,7 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
               NumberPicker(
                 label: "Episodes Progress",
                 value: (options.progress ?? 0).toInt(),
-                readOnly: true,
+                // readOnly: true,
                 enabled: userId == widget.entry.user?.id,
                 min: 0,
                 max: widget.entry.media!.episodes,
@@ -295,7 +295,7 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
               NumberPicker(
                 label: "Rewatches",
                 value: (options.repeat ?? 0).toInt(),
-                readOnly: true,
+                // readOnly: true,
                 enabled: userId == widget.entry.user?.id,
                 min: 0,
                 onDecrement: (value) =>

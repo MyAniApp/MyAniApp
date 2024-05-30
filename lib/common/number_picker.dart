@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class NumberPicker extends StatefulWidget {
   const NumberPicker({
@@ -40,14 +39,41 @@ class _NumberPickerState extends State<NumberPicker> {
     _controller = TextEditingController(
       text: widget.buildText?.call(widget.value) ?? widget.value.toString(),
     );
+    _controller.addListener(listener);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 
   @override
   void didUpdateWidget(covariant NumberPicker oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.value != widget.value) {
-      _controller.text =
-          widget.buildText?.call(widget.value) ?? widget.value.toString();
+    // if (oldWidget.value != widget.value) {
+    _controller.text =
+        widget.buildText?.call(widget.value) ?? widget.value.toString();
+    // }
+  }
+
+  void listener() {
+    num? parsed = num.tryParse(_controller.text);
+
+    if (parsed == null) return;
+
+    if (widget.max != null && parsed > widget.max!) {
+      widget.onIncrement(widget.max!);
+      return;
+    } else if (widget.min != null && parsed < widget.min!) {
+      widget.onIncrement(widget.min!);
+      return;
+    }
+
+    if (widget.value > parsed) {
+      widget.onDecrement(parsed);
+    } else {
+      widget.onIncrement(parsed);
     }
   }
 
@@ -99,9 +125,8 @@ class _NumberPickerState extends State<NumberPicker> {
               required maxLength}) =>
           null,
       maxLines: null,
-      maxLength: 2,
+      maxLength: 5,
       keyboardType: TextInputType.number,
-      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       expands: true,
     );
   }
