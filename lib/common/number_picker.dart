@@ -119,11 +119,6 @@ class _NumberPickerState extends State<NumberPicker> {
           ],
         ),
       ),
-      buildCounter: (context,
-              {required currentLength,
-              required isFocused,
-              required maxLength}) =>
-          null,
       maxLines: null,
       maxLength: 5,
       keyboardType: TextInputType.number,
