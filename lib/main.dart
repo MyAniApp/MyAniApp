@@ -10,11 +10,13 @@ import 'package:layout/layout.dart';
 import 'package:myaniapp/background.dart';
 import 'package:myaniapp/graphql/client.dart';
 import 'package:myaniapp/notifications/push.dart';
+import 'package:myaniapp/providers/app_info.dart';
 import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/providers/shared_prefs.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:myaniapp/url_protocol/web_url_protocol.dart'
     if (dart.library.io) 'package:myaniapp/url_protocol/api.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:relative_time/relative_time.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
@@ -29,6 +31,7 @@ void main() async {
   client = await initClient();
 
   var instance = await SharedPreferences.getInstance();
+  final appInfo = await PackageInfo.fromPlatform();
 
   if (!kIsWeb) {
     if (Platform.isWindows) {
@@ -52,7 +55,10 @@ void main() async {
 
   runApp(
     ProviderScope(
-      overrides: [sharedPrefsProvider.overrideWithValue(instance)],
+      overrides: [
+        sharedPrefsProvider.overrideWithValue(instance),
+        appInfoProvider.overrideWithValue(appInfo),
+      ],
       child: const MainApp(),
     ),
   );

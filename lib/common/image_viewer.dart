@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:myaniapp/common/cached_image.dart';
 
 double _disposeLevel = 150;
@@ -66,41 +67,41 @@ class _ImageViewerState extends State<ImageViewer> {
             bottom: 0 - _positionYDelta,
             left: horizontalPosition,
             right: horizontalPosition,
-            child: GestureDetector(
-              onVerticalDragStart: (details) {
-                setState(() => _initialPositionY = details.globalPosition.dy);
-              },
-              onVerticalDragUpdate: (details) {
-                setState(() {
-                  _currentPositionY = details.globalPosition.dy;
-                  _positionYDelta = _currentPositionY - _initialPositionY;
-                  setOpacity();
-                });
-              },
-              onVerticalDragEnd: (details) {
-                if (_positionYDelta > _disposeLevel ||
-                    _positionYDelta < -_disposeLevel) {
-                  Navigator.of(context).pop();
-                } else {
+            child: InteractiveViewer(
+              maxScale: 10,
+              minScale: 1,
+              boundaryMargin: const EdgeInsets.all(0),
+              child: GestureDetector(
+                onVerticalDragStart: (details) {
+                  setState(() => _initialPositionY = details.globalPosition.dy);
+                },
+                onVerticalDragUpdate: (details) {
                   setState(() {
-                    _animationDuration = const Duration(milliseconds: 300);
-                    _opacity = 1;
-                    _positionYDelta = 0;
+                    _currentPositionY = details.globalPosition.dy;
+                    _positionYDelta = _currentPositionY - _initialPositionY;
+                    setOpacity();
                   });
-
-                  Future.delayed(_animationDuration).then((_) {
+                },
+                onVerticalDragEnd: (details) {
+                  if (_positionYDelta > _disposeLevel ||
+                      _positionYDelta < -_disposeLevel) {
+                    Navigator.of(context).pop();
+                  } else {
                     setState(() {
-                      _animationDuration = Duration.zero;
+                      _animationDuration = const Duration(milliseconds: 300);
+                      _opacity = 1;
+                      _positionYDelta = 0;
                     });
-                  });
-                }
-              },
-              child: InteractiveViewer(
-                maxScale: 10,
-                minScale: 1,
-                boundaryMargin: const EdgeInsets.all(0),
+
+                    Future.delayed(_animationDuration).then((_) {
+                      setState(() {
+                        _animationDuration = Duration.zero;
+                      });
+                    });
+                  }
+                },
                 child: Hero(
-                  tag: widget.tag ?? widget.child.hashCode,
+                  tag: widget.tag ?? widget.hashCode,
                   child: widget.child,
                 ),
               ),
@@ -111,7 +112,7 @@ class _ImageViewerState extends State<ImageViewer> {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 24),
               child: IconButton(
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => context.pop(),
                 icon: Container(
                   width: 40,
                   height: 40,

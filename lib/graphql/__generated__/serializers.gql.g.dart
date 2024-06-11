@@ -803,6 +803,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GThisUserData_avatar.serializer)
       ..add(GThisUserData_mediaListOptions.serializer)
       ..add(GThisUserData_mediaListOptions_animeList.serializer)
+      ..add(GThisUserData_mediaListOptions_mangaList.serializer)
       ..add(GThisUserData_options.serializer)
       ..add(GThisUserData_statistics.serializer)
       ..add(GThisUserData_statistics_anime.serializer)
@@ -891,6 +892,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GUpdateUserData_UpdateUser_avatar.serializer)
       ..add(GUpdateUserData_UpdateUser_mediaListOptions.serializer)
       ..add(GUpdateUserData_UpdateUser_mediaListOptions_animeList.serializer)
+      ..add(GUpdateUserData_UpdateUser_mediaListOptions_mangaList.serializer)
       ..add(GUpdateUserData_UpdateUser_options.serializer)
       ..add(GUpdateUserData_UpdateUser_statistics.serializer)
       ..add(GUpdateUserData_UpdateUser_statistics_anime.serializer)
@@ -1054,6 +1056,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GViewerData_Viewer_avatar.serializer)
       ..add(GViewerData_Viewer_mediaListOptions.serializer)
       ..add(GViewerData_Viewer_mediaListOptions_animeList.serializer)
+      ..add(GViewerData_Viewer_mediaListOptions_mangaList.serializer)
       ..add(GViewerData_Viewer_options.serializer)
       ..add(GViewerData_Viewer_statistics.serializer)
       ..add(GViewerData_Viewer_statistics_anime.serializer)
@@ -1890,15 +1893,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType.nullable(String)]),
           () => new ListBuilder<String?>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType.nullable(String)]),
-          () => new ListBuilder<String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType.nullable(String)]),
-          () => new ListBuilder<String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType.nullable(String)]),
-          () => new ListBuilder<String?>())
-      ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType.nullable(GGenreCollectionData_tags)]),
           () => new ListBuilder<GGenreCollectionData_tags?>())
@@ -1913,6 +1907,60 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList,
               const [const FullType.nullable(GMediaData_Media_externalLinks)]),
           () => new ListBuilder<GMediaData_Media_externalLinks?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType.nullable(String)]),
+          () => new ListBuilder<String?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType.nullable(String)]),
           () => new ListBuilder<String?>())

@@ -15,6 +15,7 @@ import 'package:myaniapp/common/list_tile_circle_avatar.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/notifications/push.dart';
+import 'package:myaniapp/providers/app_info.dart';
 import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/providers/user.dart';
 
@@ -93,6 +94,19 @@ class _HomeOverviewPageState extends ConsumerState<HomeOverviewPage> {
               leading: const Icon(Icons.settings),
               title: const Text("Settings"),
               onTap: () => context.push("/settings"),
+            ),
+            ListTile(
+              onTap: () => showAboutDialog(
+                context: context,
+                applicationVersion: ref.read(appInfoProvider).version,
+                applicationName: "MyAniApp",
+                applicationIcon: Image.asset(
+                  "assets/app_icon.png",
+                  height: 40,
+                ),
+              ),
+              leading: const Icon(Icons.info),
+              title: const Text('About'),
             ),
             if (user.value?.data != null)
               ListTile(

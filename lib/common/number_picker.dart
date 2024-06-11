@@ -83,6 +83,11 @@ class _NumberPickerState extends State<NumberPicker> {
       readOnly: widget.readOnly ?? false,
       enabled: widget.enabled,
       controller: _controller,
+      buildCounter: (context,
+              {required currentLength,
+              required isFocused,
+              required maxLength}) =>
+          null,
       decoration: InputDecoration(
         label: Text(widget.label),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),

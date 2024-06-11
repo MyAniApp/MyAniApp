@@ -28,6 +28,9 @@ Serializer<GViewerData_Viewer_mediaListOptions>
 Serializer<GViewerData_Viewer_mediaListOptions_animeList>
     _$gViewerDataViewerMediaListOptionsAnimeListSerializer =
     new _$GViewerData_Viewer_mediaListOptions_animeListSerializer();
+Serializer<GViewerData_Viewer_mediaListOptions_mangaList>
+    _$gViewerDataViewerMediaListOptionsMangaListSerializer =
+    new _$GViewerData_Viewer_mediaListOptions_mangaListSerializer();
 Serializer<GNotificationCountData> _$gNotificationCountDataSerializer =
     new _$GNotificationCountDataSerializer();
 Serializer<GNotificationCountData_Viewer>
@@ -61,6 +64,9 @@ Serializer<GUpdateUserData_UpdateUser_mediaListOptions>
 Serializer<GUpdateUserData_UpdateUser_mediaListOptions_animeList>
     _$gUpdateUserDataUpdateUserMediaListOptionsAnimeListSerializer =
     new _$GUpdateUserData_UpdateUser_mediaListOptions_animeListSerializer();
+Serializer<GUpdateUserData_UpdateUser_mediaListOptions_mangaList>
+    _$gUpdateUserDataUpdateUserMediaListOptionsMangaListSerializer =
+    new _$GUpdateUserData_UpdateUser_mediaListOptions_mangaListSerializer();
 Serializer<GThisUserData> _$gThisUserDataSerializer =
     new _$GThisUserDataSerializer();
 Serializer<GThisUserData_avatar> _$gThisUserDataAvatarSerializer =
@@ -81,6 +87,9 @@ Serializer<GThisUserData_mediaListOptions>
 Serializer<GThisUserData_mediaListOptions_animeList>
     _$gThisUserDataMediaListOptionsAnimeListSerializer =
     new _$GThisUserData_mediaListOptions_animeListSerializer();
+Serializer<GThisUserData_mediaListOptions_mangaList>
+    _$gThisUserDataMediaListOptionsMangaListSerializer =
+    new _$GThisUserData_mediaListOptions_mangaListSerializer();
 
 class _$GViewerDataSerializer implements StructuredSerializer<GViewerData> {
   @override
@@ -752,6 +761,14 @@ class _$GViewerData_Viewer_mediaListOptionsSerializer
             specifiedType:
                 const FullType(GViewerData_Viewer_mediaListOptions_animeList)));
     }
+    value = object.mangaList;
+    if (value != null) {
+      result
+        ..add('mangaList')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(GViewerData_Viewer_mediaListOptions_mangaList)));
+    }
     return result;
   }
 
@@ -786,6 +803,12 @@ class _$GViewerData_Viewer_mediaListOptionsSerializer
                       GViewerData_Viewer_mediaListOptions_animeList))!
               as GViewerData_Viewer_mediaListOptions_animeList);
           break;
+        case 'mangaList':
+          result.mangaList.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GViewerData_Viewer_mediaListOptions_mangaList))!
+              as GViewerData_Viewer_mediaListOptions_mangaList);
+          break;
       }
     }
 
@@ -814,6 +837,14 @@ class _$GViewerData_Viewer_mediaListOptions_animeListSerializer
           specifiedType: const FullType(String)),
     ];
     Object? value;
+    value = object.customLists;
+    if (value != null) {
+      result
+        ..add('customLists')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
     value = object.sectionOrder;
     if (value != null) {
       result
@@ -821,6 +852,28 @@ class _$GViewerData_Viewer_mediaListOptions_animeListSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.splitCompletedSectionByFormat;
+    if (value != null) {
+      result
+        ..add('splitCompletedSectionByFormat')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.advancedScoring;
+    if (value != null) {
+      result
+        ..add('advancedScoring')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.advancedScoringEnabled;
+    if (value != null) {
+      result
+        ..add('advancedScoringEnabled')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
   }
@@ -841,11 +894,142 @@ class _$GViewerData_Viewer_mediaListOptions_animeListSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
+        case 'customLists':
+          result.customLists.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
         case 'sectionOrder':
           result.sectionOrder.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType.nullable(String)]))!
               as BuiltList<Object?>);
+          break;
+        case 'splitCompletedSectionByFormat':
+          result.splitCompletedSectionByFormat = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'advancedScoring':
+          result.advancedScoring.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'advancedScoringEnabled':
+          result.advancedScoringEnabled = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GViewerData_Viewer_mediaListOptions_mangaListSerializer
+    implements
+        StructuredSerializer<GViewerData_Viewer_mediaListOptions_mangaList> {
+  @override
+  final Iterable<Type> types = const [
+    GViewerData_Viewer_mediaListOptions_mangaList,
+    _$GViewerData_Viewer_mediaListOptions_mangaList
+  ];
+  @override
+  final String wireName = 'GViewerData_Viewer_mediaListOptions_mangaList';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      GViewerData_Viewer_mediaListOptions_mangaList object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.customLists;
+    if (value != null) {
+      result
+        ..add('customLists')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.sectionOrder;
+    if (value != null) {
+      result
+        ..add('sectionOrder')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.splitCompletedSectionByFormat;
+    if (value != null) {
+      result
+        ..add('splitCompletedSectionByFormat')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.advancedScoring;
+    if (value != null) {
+      result
+        ..add('advancedScoring')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.advancedScoringEnabled;
+    if (value != null) {
+      result
+        ..add('advancedScoringEnabled')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  GViewerData_Viewer_mediaListOptions_mangaList deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GViewerData_Viewer_mediaListOptions_mangaListBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'customLists':
+          result.customLists.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'sectionOrder':
+          result.sectionOrder.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'splitCompletedSectionByFormat':
+          result.splitCompletedSectionByFormat = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'advancedScoring':
+          result.advancedScoring.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'advancedScoringEnabled':
+          result.advancedScoringEnabled = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -1721,6 +1905,14 @@ class _$GUpdateUserData_UpdateUser_mediaListOptionsSerializer
             specifiedType: const FullType(
                 GUpdateUserData_UpdateUser_mediaListOptions_animeList)));
     }
+    value = object.mangaList;
+    if (value != null) {
+      result
+        ..add('mangaList')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                GUpdateUserData_UpdateUser_mediaListOptions_mangaList)));
+    }
     return result;
   }
 
@@ -1755,6 +1947,12 @@ class _$GUpdateUserData_UpdateUser_mediaListOptionsSerializer
                       GUpdateUserData_UpdateUser_mediaListOptions_animeList))!
               as GUpdateUserData_UpdateUser_mediaListOptions_animeList);
           break;
+        case 'mangaList':
+          result.mangaList.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GUpdateUserData_UpdateUser_mediaListOptions_mangaList))!
+              as GUpdateUserData_UpdateUser_mediaListOptions_mangaList);
+          break;
       }
     }
 
@@ -1785,6 +1983,14 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions_animeListSerializer
           specifiedType: const FullType(String)),
     ];
     Object? value;
+    value = object.customLists;
+    if (value != null) {
+      result
+        ..add('customLists')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
     value = object.sectionOrder;
     if (value != null) {
       result
@@ -1792,6 +1998,28 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions_animeListSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.splitCompletedSectionByFormat;
+    if (value != null) {
+      result
+        ..add('splitCompletedSectionByFormat')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.advancedScoring;
+    if (value != null) {
+      result
+        ..add('advancedScoring')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.advancedScoringEnabled;
+    if (value != null) {
+      result
+        ..add('advancedScoringEnabled')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
   }
@@ -1813,11 +2041,145 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions_animeListSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
+        case 'customLists':
+          result.customLists.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
         case 'sectionOrder':
           result.sectionOrder.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType.nullable(String)]))!
               as BuiltList<Object?>);
+          break;
+        case 'splitCompletedSectionByFormat':
+          result.splitCompletedSectionByFormat = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'advancedScoring':
+          result.advancedScoring.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'advancedScoringEnabled':
+          result.advancedScoringEnabled = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GUpdateUserData_UpdateUser_mediaListOptions_mangaListSerializer
+    implements
+        StructuredSerializer<
+            GUpdateUserData_UpdateUser_mediaListOptions_mangaList> {
+  @override
+  final Iterable<Type> types = const [
+    GUpdateUserData_UpdateUser_mediaListOptions_mangaList,
+    _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList
+  ];
+  @override
+  final String wireName =
+      'GUpdateUserData_UpdateUser_mediaListOptions_mangaList';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      GUpdateUserData_UpdateUser_mediaListOptions_mangaList object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.customLists;
+    if (value != null) {
+      result
+        ..add('customLists')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.sectionOrder;
+    if (value != null) {
+      result
+        ..add('sectionOrder')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.splitCompletedSectionByFormat;
+    if (value != null) {
+      result
+        ..add('splitCompletedSectionByFormat')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.advancedScoring;
+    if (value != null) {
+      result
+        ..add('advancedScoring')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.advancedScoringEnabled;
+    if (value != null) {
+      result
+        ..add('advancedScoringEnabled')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaList deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        new GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'customLists':
+          result.customLists.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'sectionOrder':
+          result.sectionOrder.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'splitCompletedSectionByFormat':
+          result.splitCompletedSectionByFormat = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'advancedScoring':
+          result.advancedScoring.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'advancedScoringEnabled':
+          result.advancedScoringEnabled = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -2439,6 +2801,14 @@ class _$GThisUserData_mediaListOptionsSerializer
             specifiedType:
                 const FullType(GThisUserData_mediaListOptions_animeList)));
     }
+    value = object.mangaList;
+    if (value != null) {
+      result
+        ..add('mangaList')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(GThisUserData_mediaListOptions_mangaList)));
+    }
     return result;
   }
 
@@ -2473,6 +2843,12 @@ class _$GThisUserData_mediaListOptionsSerializer
                       const FullType(GThisUserData_mediaListOptions_animeList))!
               as GThisUserData_mediaListOptions_animeList);
           break;
+        case 'mangaList':
+          result.mangaList.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GThisUserData_mediaListOptions_mangaList))!
+              as GThisUserData_mediaListOptions_mangaList);
+          break;
       }
     }
 
@@ -2500,6 +2876,14 @@ class _$GThisUserData_mediaListOptions_animeListSerializer
           specifiedType: const FullType(String)),
     ];
     Object? value;
+    value = object.customLists;
+    if (value != null) {
+      result
+        ..add('customLists')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
     value = object.sectionOrder;
     if (value != null) {
       result
@@ -2507,6 +2891,28 @@ class _$GThisUserData_mediaListOptions_animeListSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.splitCompletedSectionByFormat;
+    if (value != null) {
+      result
+        ..add('splitCompletedSectionByFormat')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.advancedScoring;
+    if (value != null) {
+      result
+        ..add('advancedScoring')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.advancedScoringEnabled;
+    if (value != null) {
+      result
+        ..add('advancedScoringEnabled')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
   }
@@ -2527,11 +2933,141 @@ class _$GThisUserData_mediaListOptions_animeListSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
+        case 'customLists':
+          result.customLists.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
         case 'sectionOrder':
           result.sectionOrder.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType.nullable(String)]))!
               as BuiltList<Object?>);
+          break;
+        case 'splitCompletedSectionByFormat':
+          result.splitCompletedSectionByFormat = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'advancedScoring':
+          result.advancedScoring.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'advancedScoringEnabled':
+          result.advancedScoringEnabled = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GThisUserData_mediaListOptions_mangaListSerializer
+    implements StructuredSerializer<GThisUserData_mediaListOptions_mangaList> {
+  @override
+  final Iterable<Type> types = const [
+    GThisUserData_mediaListOptions_mangaList,
+    _$GThisUserData_mediaListOptions_mangaList
+  ];
+  @override
+  final String wireName = 'GThisUserData_mediaListOptions_mangaList';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GThisUserData_mediaListOptions_mangaList object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.customLists;
+    if (value != null) {
+      result
+        ..add('customLists')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.sectionOrder;
+    if (value != null) {
+      result
+        ..add('sectionOrder')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.splitCompletedSectionByFormat;
+    if (value != null) {
+      result
+        ..add('splitCompletedSectionByFormat')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.advancedScoring;
+    if (value != null) {
+      result
+        ..add('advancedScoring')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType.nullable(String)])));
+    }
+    value = object.advancedScoringEnabled;
+    if (value != null) {
+      result
+        ..add('advancedScoringEnabled')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  GThisUserData_mediaListOptions_mangaList deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GThisUserData_mediaListOptions_mangaListBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'customLists':
+          result.customLists.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'sectionOrder':
+          result.sectionOrder.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'splitCompletedSectionByFormat':
+          result.splitCompletedSectionByFormat = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'advancedScoring':
+          result.advancedScoring.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType.nullable(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'advancedScoringEnabled':
+          result.advancedScoringEnabled = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -3702,6 +4238,8 @@ class _$GViewerData_Viewer_mediaListOptions
   final String? rowOrder;
   @override
   final GViewerData_Viewer_mediaListOptions_animeList? animeList;
+  @override
+  final GViewerData_Viewer_mediaListOptions_mangaList? mangaList;
 
   factory _$GViewerData_Viewer_mediaListOptions(
           [void Function(GViewerData_Viewer_mediaListOptionsBuilder)?
@@ -3713,7 +4251,8 @@ class _$GViewerData_Viewer_mediaListOptions
       {required this.G__typename,
       this.scoreFormat,
       this.rowOrder,
-      this.animeList})
+      this.animeList,
+      this.mangaList})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, r'GViewerData_Viewer_mediaListOptions', 'G__typename');
@@ -3735,7 +4274,8 @@ class _$GViewerData_Viewer_mediaListOptions
         G__typename == other.G__typename &&
         scoreFormat == other.scoreFormat &&
         rowOrder == other.rowOrder &&
-        animeList == other.animeList;
+        animeList == other.animeList &&
+        mangaList == other.mangaList;
   }
 
   @override
@@ -3745,6 +4285,7 @@ class _$GViewerData_Viewer_mediaListOptions
     _$hash = $jc(_$hash, scoreFormat.hashCode);
     _$hash = $jc(_$hash, rowOrder.hashCode);
     _$hash = $jc(_$hash, animeList.hashCode);
+    _$hash = $jc(_$hash, mangaList.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -3755,7 +4296,8 @@ class _$GViewerData_Viewer_mediaListOptions
           ..add('G__typename', G__typename)
           ..add('scoreFormat', scoreFormat)
           ..add('rowOrder', rowOrder)
-          ..add('animeList', animeList))
+          ..add('animeList', animeList)
+          ..add('mangaList', mangaList))
         .toString();
   }
 }
@@ -3787,6 +4329,14 @@ class GViewerData_Viewer_mediaListOptionsBuilder
           GViewerData_Viewer_mediaListOptions_animeListBuilder? animeList) =>
       _$this._animeList = animeList;
 
+  GViewerData_Viewer_mediaListOptions_mangaListBuilder? _mangaList;
+  GViewerData_Viewer_mediaListOptions_mangaListBuilder get mangaList =>
+      _$this._mangaList ??=
+          new GViewerData_Viewer_mediaListOptions_mangaListBuilder();
+  set mangaList(
+          GViewerData_Viewer_mediaListOptions_mangaListBuilder? mangaList) =>
+      _$this._mangaList = mangaList;
+
   GViewerData_Viewer_mediaListOptionsBuilder() {
     GViewerData_Viewer_mediaListOptions._initializeBuilder(this);
   }
@@ -3798,6 +4348,7 @@ class GViewerData_Viewer_mediaListOptionsBuilder
       _scoreFormat = $v.scoreFormat;
       _rowOrder = $v.rowOrder;
       _animeList = $v.animeList?.toBuilder();
+      _mangaList = $v.mangaList?.toBuilder();
       _$v = null;
     }
     return this;
@@ -3827,12 +4378,15 @@ class GViewerData_Viewer_mediaListOptionsBuilder
                   r'GViewerData_Viewer_mediaListOptions', 'G__typename'),
               scoreFormat: scoreFormat,
               rowOrder: rowOrder,
-              animeList: _animeList?.build());
+              animeList: _animeList?.build(),
+              mangaList: _mangaList?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'animeList';
         _animeList?.build();
+        _$failedField = 'mangaList';
+        _mangaList?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GViewerData_Viewer_mediaListOptions',
@@ -3851,7 +4405,15 @@ class _$GViewerData_Viewer_mediaListOptions_animeList
   @override
   final String G__typename;
   @override
+  final BuiltList<String?>? customLists;
+  @override
   final BuiltList<String?>? sectionOrder;
+  @override
+  final bool? splitCompletedSectionByFormat;
+  @override
+  final BuiltList<String?>? advancedScoring;
+  @override
+  final bool? advancedScoringEnabled;
 
   factory _$GViewerData_Viewer_mediaListOptions_animeList(
           [void Function(GViewerData_Viewer_mediaListOptions_animeListBuilder)?
@@ -3861,7 +4423,12 @@ class _$GViewerData_Viewer_mediaListOptions_animeList
           ._build();
 
   _$GViewerData_Viewer_mediaListOptions_animeList._(
-      {required this.G__typename, this.sectionOrder})
+      {required this.G__typename,
+      this.customLists,
+      this.sectionOrder,
+      this.splitCompletedSectionByFormat,
+      this.advancedScoring,
+      this.advancedScoringEnabled})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(G__typename,
         r'GViewerData_Viewer_mediaListOptions_animeList', 'G__typename');
@@ -3882,14 +4449,22 @@ class _$GViewerData_Viewer_mediaListOptions_animeList
     if (identical(other, this)) return true;
     return other is GViewerData_Viewer_mediaListOptions_animeList &&
         G__typename == other.G__typename &&
-        sectionOrder == other.sectionOrder;
+        customLists == other.customLists &&
+        sectionOrder == other.sectionOrder &&
+        splitCompletedSectionByFormat == other.splitCompletedSectionByFormat &&
+        advancedScoring == other.advancedScoring &&
+        advancedScoringEnabled == other.advancedScoringEnabled;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, customLists.hashCode);
     _$hash = $jc(_$hash, sectionOrder.hashCode);
+    _$hash = $jc(_$hash, splitCompletedSectionByFormat.hashCode);
+    _$hash = $jc(_$hash, advancedScoring.hashCode);
+    _$hash = $jc(_$hash, advancedScoringEnabled.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -3899,7 +4474,11 @@ class _$GViewerData_Viewer_mediaListOptions_animeList
     return (newBuiltValueToStringHelper(
             r'GViewerData_Viewer_mediaListOptions_animeList')
           ..add('G__typename', G__typename)
-          ..add('sectionOrder', sectionOrder))
+          ..add('customLists', customLists)
+          ..add('sectionOrder', sectionOrder)
+          ..add('splitCompletedSectionByFormat', splitCompletedSectionByFormat)
+          ..add('advancedScoring', advancedScoring)
+          ..add('advancedScoringEnabled', advancedScoringEnabled))
         .toString();
   }
 }
@@ -3914,11 +4493,34 @@ class GViewerData_Viewer_mediaListOptions_animeListBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
+  ListBuilder<String?>? _customLists;
+  ListBuilder<String?> get customLists =>
+      _$this._customLists ??= new ListBuilder<String?>();
+  set customLists(ListBuilder<String?>? customLists) =>
+      _$this._customLists = customLists;
+
   ListBuilder<String?>? _sectionOrder;
   ListBuilder<String?> get sectionOrder =>
       _$this._sectionOrder ??= new ListBuilder<String?>();
   set sectionOrder(ListBuilder<String?>? sectionOrder) =>
       _$this._sectionOrder = sectionOrder;
+
+  bool? _splitCompletedSectionByFormat;
+  bool? get splitCompletedSectionByFormat =>
+      _$this._splitCompletedSectionByFormat;
+  set splitCompletedSectionByFormat(bool? splitCompletedSectionByFormat) =>
+      _$this._splitCompletedSectionByFormat = splitCompletedSectionByFormat;
+
+  ListBuilder<String?>? _advancedScoring;
+  ListBuilder<String?> get advancedScoring =>
+      _$this._advancedScoring ??= new ListBuilder<String?>();
+  set advancedScoring(ListBuilder<String?>? advancedScoring) =>
+      _$this._advancedScoring = advancedScoring;
+
+  bool? _advancedScoringEnabled;
+  bool? get advancedScoringEnabled => _$this._advancedScoringEnabled;
+  set advancedScoringEnabled(bool? advancedScoringEnabled) =>
+      _$this._advancedScoringEnabled = advancedScoringEnabled;
 
   GViewerData_Viewer_mediaListOptions_animeListBuilder() {
     GViewerData_Viewer_mediaListOptions_animeList._initializeBuilder(this);
@@ -3928,7 +4530,11 @@ class GViewerData_Viewer_mediaListOptions_animeListBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
+      _customLists = $v.customLists?.toBuilder();
       _sectionOrder = $v.sectionOrder?.toBuilder();
+      _splitCompletedSectionByFormat = $v.splitCompletedSectionByFormat;
+      _advancedScoring = $v.advancedScoring?.toBuilder();
+      _advancedScoringEnabled = $v.advancedScoringEnabled;
       _$v = null;
     }
     return this;
@@ -3959,15 +4565,217 @@ class GViewerData_Viewer_mediaListOptions_animeListBuilder
                   G__typename,
                   r'GViewerData_Viewer_mediaListOptions_animeList',
                   'G__typename'),
-              sectionOrder: _sectionOrder?.build());
+              customLists: _customLists?.build(),
+              sectionOrder: _sectionOrder?.build(),
+              splitCompletedSectionByFormat: splitCompletedSectionByFormat,
+              advancedScoring: _advancedScoring?.build(),
+              advancedScoringEnabled: advancedScoringEnabled);
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'customLists';
+        _customLists?.build();
         _$failedField = 'sectionOrder';
         _sectionOrder?.build();
+
+        _$failedField = 'advancedScoring';
+        _advancedScoring?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GViewerData_Viewer_mediaListOptions_animeList',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GViewerData_Viewer_mediaListOptions_mangaList
+    extends GViewerData_Viewer_mediaListOptions_mangaList {
+  @override
+  final String G__typename;
+  @override
+  final BuiltList<String?>? customLists;
+  @override
+  final BuiltList<String?>? sectionOrder;
+  @override
+  final bool? splitCompletedSectionByFormat;
+  @override
+  final BuiltList<String?>? advancedScoring;
+  @override
+  final bool? advancedScoringEnabled;
+
+  factory _$GViewerData_Viewer_mediaListOptions_mangaList(
+          [void Function(GViewerData_Viewer_mediaListOptions_mangaListBuilder)?
+              updates]) =>
+      (new GViewerData_Viewer_mediaListOptions_mangaListBuilder()
+            ..update(updates))
+          ._build();
+
+  _$GViewerData_Viewer_mediaListOptions_mangaList._(
+      {required this.G__typename,
+      this.customLists,
+      this.sectionOrder,
+      this.splitCompletedSectionByFormat,
+      this.advancedScoring,
+      this.advancedScoringEnabled})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(G__typename,
+        r'GViewerData_Viewer_mediaListOptions_mangaList', 'G__typename');
+  }
+
+  @override
+  GViewerData_Viewer_mediaListOptions_mangaList rebuild(
+          void Function(GViewerData_Viewer_mediaListOptions_mangaListBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GViewerData_Viewer_mediaListOptions_mangaListBuilder toBuilder() =>
+      new GViewerData_Viewer_mediaListOptions_mangaListBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GViewerData_Viewer_mediaListOptions_mangaList &&
+        G__typename == other.G__typename &&
+        customLists == other.customLists &&
+        sectionOrder == other.sectionOrder &&
+        splitCompletedSectionByFormat == other.splitCompletedSectionByFormat &&
+        advancedScoring == other.advancedScoring &&
+        advancedScoringEnabled == other.advancedScoringEnabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, customLists.hashCode);
+    _$hash = $jc(_$hash, sectionOrder.hashCode);
+    _$hash = $jc(_$hash, splitCompletedSectionByFormat.hashCode);
+    _$hash = $jc(_$hash, advancedScoring.hashCode);
+    _$hash = $jc(_$hash, advancedScoringEnabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GViewerData_Viewer_mediaListOptions_mangaList')
+          ..add('G__typename', G__typename)
+          ..add('customLists', customLists)
+          ..add('sectionOrder', sectionOrder)
+          ..add('splitCompletedSectionByFormat', splitCompletedSectionByFormat)
+          ..add('advancedScoring', advancedScoring)
+          ..add('advancedScoringEnabled', advancedScoringEnabled))
+        .toString();
+  }
+}
+
+class GViewerData_Viewer_mediaListOptions_mangaListBuilder
+    implements
+        Builder<GViewerData_Viewer_mediaListOptions_mangaList,
+            GViewerData_Viewer_mediaListOptions_mangaListBuilder> {
+  _$GViewerData_Viewer_mediaListOptions_mangaList? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  ListBuilder<String?>? _customLists;
+  ListBuilder<String?> get customLists =>
+      _$this._customLists ??= new ListBuilder<String?>();
+  set customLists(ListBuilder<String?>? customLists) =>
+      _$this._customLists = customLists;
+
+  ListBuilder<String?>? _sectionOrder;
+  ListBuilder<String?> get sectionOrder =>
+      _$this._sectionOrder ??= new ListBuilder<String?>();
+  set sectionOrder(ListBuilder<String?>? sectionOrder) =>
+      _$this._sectionOrder = sectionOrder;
+
+  bool? _splitCompletedSectionByFormat;
+  bool? get splitCompletedSectionByFormat =>
+      _$this._splitCompletedSectionByFormat;
+  set splitCompletedSectionByFormat(bool? splitCompletedSectionByFormat) =>
+      _$this._splitCompletedSectionByFormat = splitCompletedSectionByFormat;
+
+  ListBuilder<String?>? _advancedScoring;
+  ListBuilder<String?> get advancedScoring =>
+      _$this._advancedScoring ??= new ListBuilder<String?>();
+  set advancedScoring(ListBuilder<String?>? advancedScoring) =>
+      _$this._advancedScoring = advancedScoring;
+
+  bool? _advancedScoringEnabled;
+  bool? get advancedScoringEnabled => _$this._advancedScoringEnabled;
+  set advancedScoringEnabled(bool? advancedScoringEnabled) =>
+      _$this._advancedScoringEnabled = advancedScoringEnabled;
+
+  GViewerData_Viewer_mediaListOptions_mangaListBuilder() {
+    GViewerData_Viewer_mediaListOptions_mangaList._initializeBuilder(this);
+  }
+
+  GViewerData_Viewer_mediaListOptions_mangaListBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _customLists = $v.customLists?.toBuilder();
+      _sectionOrder = $v.sectionOrder?.toBuilder();
+      _splitCompletedSectionByFormat = $v.splitCompletedSectionByFormat;
+      _advancedScoring = $v.advancedScoring?.toBuilder();
+      _advancedScoringEnabled = $v.advancedScoringEnabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GViewerData_Viewer_mediaListOptions_mangaList other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GViewerData_Viewer_mediaListOptions_mangaList;
+  }
+
+  @override
+  void update(
+      void Function(GViewerData_Viewer_mediaListOptions_mangaListBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GViewerData_Viewer_mediaListOptions_mangaList build() => _build();
+
+  _$GViewerData_Viewer_mediaListOptions_mangaList _build() {
+    _$GViewerData_Viewer_mediaListOptions_mangaList _$result;
+    try {
+      _$result = _$v ??
+          new _$GViewerData_Viewer_mediaListOptions_mangaList._(
+              G__typename: BuiltValueNullFieldError.checkNotNull(
+                  G__typename,
+                  r'GViewerData_Viewer_mediaListOptions_mangaList',
+                  'G__typename'),
+              customLists: _customLists?.build(),
+              sectionOrder: _sectionOrder?.build(),
+              splitCompletedSectionByFormat: splitCompletedSectionByFormat,
+              advancedScoring: _advancedScoring?.build(),
+              advancedScoringEnabled: advancedScoringEnabled);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'customLists';
+        _customLists?.build();
+        _$failedField = 'sectionOrder';
+        _sectionOrder?.build();
+
+        _$failedField = 'advancedScoring';
+        _advancedScoring?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'GViewerData_Viewer_mediaListOptions_mangaList',
             _$failedField,
             e.toString());
       }
@@ -5536,6 +6344,8 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions
   final String? rowOrder;
   @override
   final GUpdateUserData_UpdateUser_mediaListOptions_animeList? animeList;
+  @override
+  final GUpdateUserData_UpdateUser_mediaListOptions_mangaList? mangaList;
 
   factory _$GUpdateUserData_UpdateUser_mediaListOptions(
           [void Function(GUpdateUserData_UpdateUser_mediaListOptionsBuilder)?
@@ -5548,7 +6358,8 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions
       {required this.G__typename,
       this.scoreFormat,
       this.rowOrder,
-      this.animeList})
+      this.animeList,
+      this.mangaList})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(G__typename,
         r'GUpdateUserData_UpdateUser_mediaListOptions', 'G__typename');
@@ -5571,7 +6382,8 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions
         G__typename == other.G__typename &&
         scoreFormat == other.scoreFormat &&
         rowOrder == other.rowOrder &&
-        animeList == other.animeList;
+        animeList == other.animeList &&
+        mangaList == other.mangaList;
   }
 
   @override
@@ -5581,6 +6393,7 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions
     _$hash = $jc(_$hash, scoreFormat.hashCode);
     _$hash = $jc(_$hash, rowOrder.hashCode);
     _$hash = $jc(_$hash, animeList.hashCode);
+    _$hash = $jc(_$hash, mangaList.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -5592,7 +6405,8 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions
           ..add('G__typename', G__typename)
           ..add('scoreFormat', scoreFormat)
           ..add('rowOrder', rowOrder)
-          ..add('animeList', animeList))
+          ..add('animeList', animeList)
+          ..add('mangaList', mangaList))
         .toString();
   }
 }
@@ -5625,6 +6439,15 @@ class GUpdateUserData_UpdateUser_mediaListOptionsBuilder
               animeList) =>
       _$this._animeList = animeList;
 
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder? _mangaList;
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder get mangaList =>
+      _$this._mangaList ??=
+          new GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder();
+  set mangaList(
+          GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder?
+              mangaList) =>
+      _$this._mangaList = mangaList;
+
   GUpdateUserData_UpdateUser_mediaListOptionsBuilder() {
     GUpdateUserData_UpdateUser_mediaListOptions._initializeBuilder(this);
   }
@@ -5636,6 +6459,7 @@ class GUpdateUserData_UpdateUser_mediaListOptionsBuilder
       _scoreFormat = $v.scoreFormat;
       _rowOrder = $v.rowOrder;
       _animeList = $v.animeList?.toBuilder();
+      _mangaList = $v.mangaList?.toBuilder();
       _$v = null;
     }
     return this;
@@ -5668,12 +6492,15 @@ class GUpdateUserData_UpdateUser_mediaListOptionsBuilder
                   'G__typename'),
               scoreFormat: scoreFormat,
               rowOrder: rowOrder,
-              animeList: _animeList?.build());
+              animeList: _animeList?.build(),
+              mangaList: _mangaList?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'animeList';
         _animeList?.build();
+        _$failedField = 'mangaList';
+        _mangaList?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GUpdateUserData_UpdateUser_mediaListOptions',
@@ -5692,7 +6519,15 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions_animeList
   @override
   final String G__typename;
   @override
+  final BuiltList<String?>? customLists;
+  @override
   final BuiltList<String?>? sectionOrder;
+  @override
+  final bool? splitCompletedSectionByFormat;
+  @override
+  final BuiltList<String?>? advancedScoring;
+  @override
+  final bool? advancedScoringEnabled;
 
   factory _$GUpdateUserData_UpdateUser_mediaListOptions_animeList(
           [void Function(
@@ -5703,7 +6538,12 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions_animeList
           ._build();
 
   _$GUpdateUserData_UpdateUser_mediaListOptions_animeList._(
-      {required this.G__typename, this.sectionOrder})
+      {required this.G__typename,
+      this.customLists,
+      this.sectionOrder,
+      this.splitCompletedSectionByFormat,
+      this.advancedScoring,
+      this.advancedScoringEnabled})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename,
@@ -5728,14 +6568,22 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions_animeList
     if (identical(other, this)) return true;
     return other is GUpdateUserData_UpdateUser_mediaListOptions_animeList &&
         G__typename == other.G__typename &&
-        sectionOrder == other.sectionOrder;
+        customLists == other.customLists &&
+        sectionOrder == other.sectionOrder &&
+        splitCompletedSectionByFormat == other.splitCompletedSectionByFormat &&
+        advancedScoring == other.advancedScoring &&
+        advancedScoringEnabled == other.advancedScoringEnabled;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, customLists.hashCode);
     _$hash = $jc(_$hash, sectionOrder.hashCode);
+    _$hash = $jc(_$hash, splitCompletedSectionByFormat.hashCode);
+    _$hash = $jc(_$hash, advancedScoring.hashCode);
+    _$hash = $jc(_$hash, advancedScoringEnabled.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -5745,7 +6593,11 @@ class _$GUpdateUserData_UpdateUser_mediaListOptions_animeList
     return (newBuiltValueToStringHelper(
             r'GUpdateUserData_UpdateUser_mediaListOptions_animeList')
           ..add('G__typename', G__typename)
-          ..add('sectionOrder', sectionOrder))
+          ..add('customLists', customLists)
+          ..add('sectionOrder', sectionOrder)
+          ..add('splitCompletedSectionByFormat', splitCompletedSectionByFormat)
+          ..add('advancedScoring', advancedScoring)
+          ..add('advancedScoringEnabled', advancedScoringEnabled))
         .toString();
   }
 }
@@ -5760,11 +6612,34 @@ class GUpdateUserData_UpdateUser_mediaListOptions_animeListBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
+  ListBuilder<String?>? _customLists;
+  ListBuilder<String?> get customLists =>
+      _$this._customLists ??= new ListBuilder<String?>();
+  set customLists(ListBuilder<String?>? customLists) =>
+      _$this._customLists = customLists;
+
   ListBuilder<String?>? _sectionOrder;
   ListBuilder<String?> get sectionOrder =>
       _$this._sectionOrder ??= new ListBuilder<String?>();
   set sectionOrder(ListBuilder<String?>? sectionOrder) =>
       _$this._sectionOrder = sectionOrder;
+
+  bool? _splitCompletedSectionByFormat;
+  bool? get splitCompletedSectionByFormat =>
+      _$this._splitCompletedSectionByFormat;
+  set splitCompletedSectionByFormat(bool? splitCompletedSectionByFormat) =>
+      _$this._splitCompletedSectionByFormat = splitCompletedSectionByFormat;
+
+  ListBuilder<String?>? _advancedScoring;
+  ListBuilder<String?> get advancedScoring =>
+      _$this._advancedScoring ??= new ListBuilder<String?>();
+  set advancedScoring(ListBuilder<String?>? advancedScoring) =>
+      _$this._advancedScoring = advancedScoring;
+
+  bool? _advancedScoringEnabled;
+  bool? get advancedScoringEnabled => _$this._advancedScoringEnabled;
+  set advancedScoringEnabled(bool? advancedScoringEnabled) =>
+      _$this._advancedScoringEnabled = advancedScoringEnabled;
 
   GUpdateUserData_UpdateUser_mediaListOptions_animeListBuilder() {
     GUpdateUserData_UpdateUser_mediaListOptions_animeList._initializeBuilder(
@@ -5775,7 +6650,11 @@ class GUpdateUserData_UpdateUser_mediaListOptions_animeListBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
+      _customLists = $v.customLists?.toBuilder();
       _sectionOrder = $v.sectionOrder?.toBuilder();
+      _splitCompletedSectionByFormat = $v.splitCompletedSectionByFormat;
+      _advancedScoring = $v.advancedScoring?.toBuilder();
+      _advancedScoringEnabled = $v.advancedScoringEnabled;
       _$v = null;
     }
     return this;
@@ -5807,15 +6686,224 @@ class GUpdateUserData_UpdateUser_mediaListOptions_animeListBuilder
                   G__typename,
                   r'GUpdateUserData_UpdateUser_mediaListOptions_animeList',
                   'G__typename'),
-              sectionOrder: _sectionOrder?.build());
+              customLists: _customLists?.build(),
+              sectionOrder: _sectionOrder?.build(),
+              splitCompletedSectionByFormat: splitCompletedSectionByFormat,
+              advancedScoring: _advancedScoring?.build(),
+              advancedScoringEnabled: advancedScoringEnabled);
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'customLists';
+        _customLists?.build();
         _$failedField = 'sectionOrder';
         _sectionOrder?.build();
+
+        _$failedField = 'advancedScoring';
+        _advancedScoring?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GUpdateUserData_UpdateUser_mediaListOptions_animeList',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList
+    extends GUpdateUserData_UpdateUser_mediaListOptions_mangaList {
+  @override
+  final String G__typename;
+  @override
+  final BuiltList<String?>? customLists;
+  @override
+  final BuiltList<String?>? sectionOrder;
+  @override
+  final bool? splitCompletedSectionByFormat;
+  @override
+  final BuiltList<String?>? advancedScoring;
+  @override
+  final bool? advancedScoringEnabled;
+
+  factory _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList(
+          [void Function(
+                  GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder)?
+              updates]) =>
+      (new GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder()
+            ..update(updates))
+          ._build();
+
+  _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList._(
+      {required this.G__typename,
+      this.customLists,
+      this.sectionOrder,
+      this.splitCompletedSectionByFormat,
+      this.advancedScoring,
+      this.advancedScoringEnabled})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename,
+        r'GUpdateUserData_UpdateUser_mediaListOptions_mangaList',
+        'G__typename');
+  }
+
+  @override
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaList rebuild(
+          void Function(
+                  GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder toBuilder() =>
+      new GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder()
+        ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GUpdateUserData_UpdateUser_mediaListOptions_mangaList &&
+        G__typename == other.G__typename &&
+        customLists == other.customLists &&
+        sectionOrder == other.sectionOrder &&
+        splitCompletedSectionByFormat == other.splitCompletedSectionByFormat &&
+        advancedScoring == other.advancedScoring &&
+        advancedScoringEnabled == other.advancedScoringEnabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, customLists.hashCode);
+    _$hash = $jc(_$hash, sectionOrder.hashCode);
+    _$hash = $jc(_$hash, splitCompletedSectionByFormat.hashCode);
+    _$hash = $jc(_$hash, advancedScoring.hashCode);
+    _$hash = $jc(_$hash, advancedScoringEnabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GUpdateUserData_UpdateUser_mediaListOptions_mangaList')
+          ..add('G__typename', G__typename)
+          ..add('customLists', customLists)
+          ..add('sectionOrder', sectionOrder)
+          ..add('splitCompletedSectionByFormat', splitCompletedSectionByFormat)
+          ..add('advancedScoring', advancedScoring)
+          ..add('advancedScoringEnabled', advancedScoringEnabled))
+        .toString();
+  }
+}
+
+class GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder
+    implements
+        Builder<GUpdateUserData_UpdateUser_mediaListOptions_mangaList,
+            GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder> {
+  _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  ListBuilder<String?>? _customLists;
+  ListBuilder<String?> get customLists =>
+      _$this._customLists ??= new ListBuilder<String?>();
+  set customLists(ListBuilder<String?>? customLists) =>
+      _$this._customLists = customLists;
+
+  ListBuilder<String?>? _sectionOrder;
+  ListBuilder<String?> get sectionOrder =>
+      _$this._sectionOrder ??= new ListBuilder<String?>();
+  set sectionOrder(ListBuilder<String?>? sectionOrder) =>
+      _$this._sectionOrder = sectionOrder;
+
+  bool? _splitCompletedSectionByFormat;
+  bool? get splitCompletedSectionByFormat =>
+      _$this._splitCompletedSectionByFormat;
+  set splitCompletedSectionByFormat(bool? splitCompletedSectionByFormat) =>
+      _$this._splitCompletedSectionByFormat = splitCompletedSectionByFormat;
+
+  ListBuilder<String?>? _advancedScoring;
+  ListBuilder<String?> get advancedScoring =>
+      _$this._advancedScoring ??= new ListBuilder<String?>();
+  set advancedScoring(ListBuilder<String?>? advancedScoring) =>
+      _$this._advancedScoring = advancedScoring;
+
+  bool? _advancedScoringEnabled;
+  bool? get advancedScoringEnabled => _$this._advancedScoringEnabled;
+  set advancedScoringEnabled(bool? advancedScoringEnabled) =>
+      _$this._advancedScoringEnabled = advancedScoringEnabled;
+
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder() {
+    GUpdateUserData_UpdateUser_mediaListOptions_mangaList._initializeBuilder(
+        this);
+  }
+
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _customLists = $v.customLists?.toBuilder();
+      _sectionOrder = $v.sectionOrder?.toBuilder();
+      _splitCompletedSectionByFormat = $v.splitCompletedSectionByFormat;
+      _advancedScoring = $v.advancedScoring?.toBuilder();
+      _advancedScoringEnabled = $v.advancedScoringEnabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GUpdateUserData_UpdateUser_mediaListOptions_mangaList other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList;
+  }
+
+  @override
+  void update(
+      void Function(
+              GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaList build() => _build();
+
+  _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList _build() {
+    _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList _$result;
+    try {
+      _$result = _$v ??
+          new _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList._(
+              G__typename: BuiltValueNullFieldError.checkNotNull(
+                  G__typename,
+                  r'GUpdateUserData_UpdateUser_mediaListOptions_mangaList',
+                  'G__typename'),
+              customLists: _customLists?.build(),
+              sectionOrder: _sectionOrder?.build(),
+              splitCompletedSectionByFormat: splitCompletedSectionByFormat,
+              advancedScoring: _advancedScoring?.build(),
+              advancedScoringEnabled: advancedScoringEnabled);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'customLists';
+        _customLists?.build();
+        _$failedField = 'sectionOrder';
+        _sectionOrder?.build();
+
+        _$failedField = 'advancedScoring';
+        _advancedScoring?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'GUpdateUserData_UpdateUser_mediaListOptions_mangaList',
             _$failedField,
             e.toString());
       }
@@ -6862,6 +7950,8 @@ class _$GThisUserData_mediaListOptions extends GThisUserData_mediaListOptions {
   final String? rowOrder;
   @override
   final GThisUserData_mediaListOptions_animeList? animeList;
+  @override
+  final GThisUserData_mediaListOptions_mangaList? mangaList;
 
   factory _$GThisUserData_mediaListOptions(
           [void Function(GThisUserData_mediaListOptionsBuilder)? updates]) =>
@@ -6871,7 +7961,8 @@ class _$GThisUserData_mediaListOptions extends GThisUserData_mediaListOptions {
       {required this.G__typename,
       this.scoreFormat,
       this.rowOrder,
-      this.animeList})
+      this.animeList,
+      this.mangaList})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, r'GThisUserData_mediaListOptions', 'G__typename');
@@ -6893,7 +7984,8 @@ class _$GThisUserData_mediaListOptions extends GThisUserData_mediaListOptions {
         G__typename == other.G__typename &&
         scoreFormat == other.scoreFormat &&
         rowOrder == other.rowOrder &&
-        animeList == other.animeList;
+        animeList == other.animeList &&
+        mangaList == other.mangaList;
   }
 
   @override
@@ -6903,6 +7995,7 @@ class _$GThisUserData_mediaListOptions extends GThisUserData_mediaListOptions {
     _$hash = $jc(_$hash, scoreFormat.hashCode);
     _$hash = $jc(_$hash, rowOrder.hashCode);
     _$hash = $jc(_$hash, animeList.hashCode);
+    _$hash = $jc(_$hash, mangaList.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -6913,7 +8006,8 @@ class _$GThisUserData_mediaListOptions extends GThisUserData_mediaListOptions {
           ..add('G__typename', G__typename)
           ..add('scoreFormat', scoreFormat)
           ..add('rowOrder', rowOrder)
-          ..add('animeList', animeList))
+          ..add('animeList', animeList)
+          ..add('mangaList', mangaList))
         .toString();
   }
 }
@@ -6944,6 +8038,13 @@ class GThisUserData_mediaListOptionsBuilder
   set animeList(GThisUserData_mediaListOptions_animeListBuilder? animeList) =>
       _$this._animeList = animeList;
 
+  GThisUserData_mediaListOptions_mangaListBuilder? _mangaList;
+  GThisUserData_mediaListOptions_mangaListBuilder get mangaList =>
+      _$this._mangaList ??=
+          new GThisUserData_mediaListOptions_mangaListBuilder();
+  set mangaList(GThisUserData_mediaListOptions_mangaListBuilder? mangaList) =>
+      _$this._mangaList = mangaList;
+
   GThisUserData_mediaListOptionsBuilder() {
     GThisUserData_mediaListOptions._initializeBuilder(this);
   }
@@ -6955,6 +8056,7 @@ class GThisUserData_mediaListOptionsBuilder
       _scoreFormat = $v.scoreFormat;
       _rowOrder = $v.rowOrder;
       _animeList = $v.animeList?.toBuilder();
+      _mangaList = $v.mangaList?.toBuilder();
       _$v = null;
     }
     return this;
@@ -6983,12 +8085,15 @@ class GThisUserData_mediaListOptionsBuilder
                   r'GThisUserData_mediaListOptions', 'G__typename'),
               scoreFormat: scoreFormat,
               rowOrder: rowOrder,
-              animeList: _animeList?.build());
+              animeList: _animeList?.build(),
+              mangaList: _mangaList?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'animeList';
         _animeList?.build();
+        _$failedField = 'mangaList';
+        _mangaList?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GThisUserData_mediaListOptions', _$failedField, e.toString());
@@ -7005,7 +8110,15 @@ class _$GThisUserData_mediaListOptions_animeList
   @override
   final String G__typename;
   @override
+  final BuiltList<String?>? customLists;
+  @override
   final BuiltList<String?>? sectionOrder;
+  @override
+  final bool? splitCompletedSectionByFormat;
+  @override
+  final BuiltList<String?>? advancedScoring;
+  @override
+  final bool? advancedScoringEnabled;
 
   factory _$GThisUserData_mediaListOptions_animeList(
           [void Function(GThisUserData_mediaListOptions_animeListBuilder)?
@@ -7014,7 +8127,12 @@ class _$GThisUserData_mediaListOptions_animeList
           ._build();
 
   _$GThisUserData_mediaListOptions_animeList._(
-      {required this.G__typename, this.sectionOrder})
+      {required this.G__typename,
+      this.customLists,
+      this.sectionOrder,
+      this.splitCompletedSectionByFormat,
+      this.advancedScoring,
+      this.advancedScoringEnabled})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(G__typename,
         r'GThisUserData_mediaListOptions_animeList', 'G__typename');
@@ -7035,14 +8153,22 @@ class _$GThisUserData_mediaListOptions_animeList
     if (identical(other, this)) return true;
     return other is GThisUserData_mediaListOptions_animeList &&
         G__typename == other.G__typename &&
-        sectionOrder == other.sectionOrder;
+        customLists == other.customLists &&
+        sectionOrder == other.sectionOrder &&
+        splitCompletedSectionByFormat == other.splitCompletedSectionByFormat &&
+        advancedScoring == other.advancedScoring &&
+        advancedScoringEnabled == other.advancedScoringEnabled;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, customLists.hashCode);
     _$hash = $jc(_$hash, sectionOrder.hashCode);
+    _$hash = $jc(_$hash, splitCompletedSectionByFormat.hashCode);
+    _$hash = $jc(_$hash, advancedScoring.hashCode);
+    _$hash = $jc(_$hash, advancedScoringEnabled.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -7052,7 +8178,11 @@ class _$GThisUserData_mediaListOptions_animeList
     return (newBuiltValueToStringHelper(
             r'GThisUserData_mediaListOptions_animeList')
           ..add('G__typename', G__typename)
-          ..add('sectionOrder', sectionOrder))
+          ..add('customLists', customLists)
+          ..add('sectionOrder', sectionOrder)
+          ..add('splitCompletedSectionByFormat', splitCompletedSectionByFormat)
+          ..add('advancedScoring', advancedScoring)
+          ..add('advancedScoringEnabled', advancedScoringEnabled))
         .toString();
   }
 }
@@ -7067,11 +8197,34 @@ class GThisUserData_mediaListOptions_animeListBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
+  ListBuilder<String?>? _customLists;
+  ListBuilder<String?> get customLists =>
+      _$this._customLists ??= new ListBuilder<String?>();
+  set customLists(ListBuilder<String?>? customLists) =>
+      _$this._customLists = customLists;
+
   ListBuilder<String?>? _sectionOrder;
   ListBuilder<String?> get sectionOrder =>
       _$this._sectionOrder ??= new ListBuilder<String?>();
   set sectionOrder(ListBuilder<String?>? sectionOrder) =>
       _$this._sectionOrder = sectionOrder;
+
+  bool? _splitCompletedSectionByFormat;
+  bool? get splitCompletedSectionByFormat =>
+      _$this._splitCompletedSectionByFormat;
+  set splitCompletedSectionByFormat(bool? splitCompletedSectionByFormat) =>
+      _$this._splitCompletedSectionByFormat = splitCompletedSectionByFormat;
+
+  ListBuilder<String?>? _advancedScoring;
+  ListBuilder<String?> get advancedScoring =>
+      _$this._advancedScoring ??= new ListBuilder<String?>();
+  set advancedScoring(ListBuilder<String?>? advancedScoring) =>
+      _$this._advancedScoring = advancedScoring;
+
+  bool? _advancedScoringEnabled;
+  bool? get advancedScoringEnabled => _$this._advancedScoringEnabled;
+  set advancedScoringEnabled(bool? advancedScoringEnabled) =>
+      _$this._advancedScoringEnabled = advancedScoringEnabled;
 
   GThisUserData_mediaListOptions_animeListBuilder() {
     GThisUserData_mediaListOptions_animeList._initializeBuilder(this);
@@ -7081,7 +8234,11 @@ class GThisUserData_mediaListOptions_animeListBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
+      _customLists = $v.customLists?.toBuilder();
       _sectionOrder = $v.sectionOrder?.toBuilder();
+      _splitCompletedSectionByFormat = $v.splitCompletedSectionByFormat;
+      _advancedScoring = $v.advancedScoring?.toBuilder();
+      _advancedScoringEnabled = $v.advancedScoringEnabled;
       _$v = null;
     }
     return this;
@@ -7109,15 +8266,213 @@ class GThisUserData_mediaListOptions_animeListBuilder
           new _$GThisUserData_mediaListOptions_animeList._(
               G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
                   r'GThisUserData_mediaListOptions_animeList', 'G__typename'),
-              sectionOrder: _sectionOrder?.build());
+              customLists: _customLists?.build(),
+              sectionOrder: _sectionOrder?.build(),
+              splitCompletedSectionByFormat: splitCompletedSectionByFormat,
+              advancedScoring: _advancedScoring?.build(),
+              advancedScoringEnabled: advancedScoringEnabled);
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'customLists';
+        _customLists?.build();
         _$failedField = 'sectionOrder';
         _sectionOrder?.build();
+
+        _$failedField = 'advancedScoring';
+        _advancedScoring?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GThisUserData_mediaListOptions_animeList',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GThisUserData_mediaListOptions_mangaList
+    extends GThisUserData_mediaListOptions_mangaList {
+  @override
+  final String G__typename;
+  @override
+  final BuiltList<String?>? customLists;
+  @override
+  final BuiltList<String?>? sectionOrder;
+  @override
+  final bool? splitCompletedSectionByFormat;
+  @override
+  final BuiltList<String?>? advancedScoring;
+  @override
+  final bool? advancedScoringEnabled;
+
+  factory _$GThisUserData_mediaListOptions_mangaList(
+          [void Function(GThisUserData_mediaListOptions_mangaListBuilder)?
+              updates]) =>
+      (new GThisUserData_mediaListOptions_mangaListBuilder()..update(updates))
+          ._build();
+
+  _$GThisUserData_mediaListOptions_mangaList._(
+      {required this.G__typename,
+      this.customLists,
+      this.sectionOrder,
+      this.splitCompletedSectionByFormat,
+      this.advancedScoring,
+      this.advancedScoringEnabled})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(G__typename,
+        r'GThisUserData_mediaListOptions_mangaList', 'G__typename');
+  }
+
+  @override
+  GThisUserData_mediaListOptions_mangaList rebuild(
+          void Function(GThisUserData_mediaListOptions_mangaListBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GThisUserData_mediaListOptions_mangaListBuilder toBuilder() =>
+      new GThisUserData_mediaListOptions_mangaListBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GThisUserData_mediaListOptions_mangaList &&
+        G__typename == other.G__typename &&
+        customLists == other.customLists &&
+        sectionOrder == other.sectionOrder &&
+        splitCompletedSectionByFormat == other.splitCompletedSectionByFormat &&
+        advancedScoring == other.advancedScoring &&
+        advancedScoringEnabled == other.advancedScoringEnabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, customLists.hashCode);
+    _$hash = $jc(_$hash, sectionOrder.hashCode);
+    _$hash = $jc(_$hash, splitCompletedSectionByFormat.hashCode);
+    _$hash = $jc(_$hash, advancedScoring.hashCode);
+    _$hash = $jc(_$hash, advancedScoringEnabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GThisUserData_mediaListOptions_mangaList')
+          ..add('G__typename', G__typename)
+          ..add('customLists', customLists)
+          ..add('sectionOrder', sectionOrder)
+          ..add('splitCompletedSectionByFormat', splitCompletedSectionByFormat)
+          ..add('advancedScoring', advancedScoring)
+          ..add('advancedScoringEnabled', advancedScoringEnabled))
+        .toString();
+  }
+}
+
+class GThisUserData_mediaListOptions_mangaListBuilder
+    implements
+        Builder<GThisUserData_mediaListOptions_mangaList,
+            GThisUserData_mediaListOptions_mangaListBuilder> {
+  _$GThisUserData_mediaListOptions_mangaList? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  ListBuilder<String?>? _customLists;
+  ListBuilder<String?> get customLists =>
+      _$this._customLists ??= new ListBuilder<String?>();
+  set customLists(ListBuilder<String?>? customLists) =>
+      _$this._customLists = customLists;
+
+  ListBuilder<String?>? _sectionOrder;
+  ListBuilder<String?> get sectionOrder =>
+      _$this._sectionOrder ??= new ListBuilder<String?>();
+  set sectionOrder(ListBuilder<String?>? sectionOrder) =>
+      _$this._sectionOrder = sectionOrder;
+
+  bool? _splitCompletedSectionByFormat;
+  bool? get splitCompletedSectionByFormat =>
+      _$this._splitCompletedSectionByFormat;
+  set splitCompletedSectionByFormat(bool? splitCompletedSectionByFormat) =>
+      _$this._splitCompletedSectionByFormat = splitCompletedSectionByFormat;
+
+  ListBuilder<String?>? _advancedScoring;
+  ListBuilder<String?> get advancedScoring =>
+      _$this._advancedScoring ??= new ListBuilder<String?>();
+  set advancedScoring(ListBuilder<String?>? advancedScoring) =>
+      _$this._advancedScoring = advancedScoring;
+
+  bool? _advancedScoringEnabled;
+  bool? get advancedScoringEnabled => _$this._advancedScoringEnabled;
+  set advancedScoringEnabled(bool? advancedScoringEnabled) =>
+      _$this._advancedScoringEnabled = advancedScoringEnabled;
+
+  GThisUserData_mediaListOptions_mangaListBuilder() {
+    GThisUserData_mediaListOptions_mangaList._initializeBuilder(this);
+  }
+
+  GThisUserData_mediaListOptions_mangaListBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _customLists = $v.customLists?.toBuilder();
+      _sectionOrder = $v.sectionOrder?.toBuilder();
+      _splitCompletedSectionByFormat = $v.splitCompletedSectionByFormat;
+      _advancedScoring = $v.advancedScoring?.toBuilder();
+      _advancedScoringEnabled = $v.advancedScoringEnabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GThisUserData_mediaListOptions_mangaList other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GThisUserData_mediaListOptions_mangaList;
+  }
+
+  @override
+  void update(
+      void Function(GThisUserData_mediaListOptions_mangaListBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GThisUserData_mediaListOptions_mangaList build() => _build();
+
+  _$GThisUserData_mediaListOptions_mangaList _build() {
+    _$GThisUserData_mediaListOptions_mangaList _$result;
+    try {
+      _$result = _$v ??
+          new _$GThisUserData_mediaListOptions_mangaList._(
+              G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                  r'GThisUserData_mediaListOptions_mangaList', 'G__typename'),
+              customLists: _customLists?.build(),
+              sectionOrder: _sectionOrder?.build(),
+              splitCompletedSectionByFormat: splitCompletedSectionByFormat,
+              advancedScoring: _advancedScoring?.build(),
+              advancedScoringEnabled: advancedScoringEnabled);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'customLists';
+        _customLists?.build();
+        _$failedField = 'sectionOrder';
+        _sectionOrder?.build();
+
+        _$failedField = 'advancedScoring';
+        _advancedScoring?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'GThisUserData_mediaListOptions_mangaList',
             _$failedField,
             e.toString());
       }

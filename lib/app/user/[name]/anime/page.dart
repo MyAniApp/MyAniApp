@@ -14,6 +14,7 @@ import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated__/schema.schema.gql.dart';
 import 'package:myaniapp/graphql/fragments/__generated__/list_group.data.gql.dart';
 import 'package:myaniapp/graphql/widget.dart';
+import 'package:myaniapp/utils.dart';
 
 class UserAnimePage extends StatelessWidget {
   const UserAnimePage({super.key, required this.name});
@@ -90,7 +91,8 @@ class _MediaListViewState extends State<MediaListView>
   @override
   void didUpdateWidget(covariant MediaListView oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.groups.toString() != widget.groups.toString()) {
+    if (oldWidget.groups.toString() != widget.groups.toString() ||
+        oldWidget.user.toString() != widget.user.toString()) {
       setGroups(widget.groups);
     }
   }
@@ -297,7 +299,10 @@ class _MediaListViewState extends State<MediaListView>
                               width: 2,
                             ),
                             Text(
-                              (entry.score ?? 0).toString(),
+                              scoreToText(
+                                  widget.user.mediaListOptions?.scoreFormat ??
+                                      GScoreFormat.POINT_10,
+                                  entry.score ?? 0),
                             ),
                           ],
                         ),

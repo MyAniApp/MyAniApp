@@ -30,6 +30,7 @@ dependencies:
   markdown: ^7.2.2
   markdown_viewer: ^0.6.2
   markdown_widget: ^2.3.2+6
+  package_info_plus: ^8.0.0
   relative_time: ^5.0.0
   shared_preferences: ^2.2.2
   url_launcher: ^6.2.5
@@ -63,3 +64,5 @@ flutter_launcher_icons:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/app_icon.png

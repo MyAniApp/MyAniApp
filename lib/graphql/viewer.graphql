@@ -38,7 +38,18 @@ fragment ThisUser on User {
     scoreFormat
     rowOrder
     animeList {
+      customLists
       sectionOrder
+      splitCompletedSectionByFormat
+      advancedScoring
+      advancedScoringEnabled
+    }
+    mangaList {
+      customLists
+      sectionOrder
+      splitCompletedSectionByFormat
+      advancedScoring
+      advancedScoringEnabled
     }
   }
 }

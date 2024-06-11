@@ -321,6 +321,8 @@ abstract class GViewerData_Viewer_mediaListOptions
   String? get rowOrder;
   @override
   GViewerData_Viewer_mediaListOptions_animeList? get animeList;
+  @override
+  GViewerData_Viewer_mediaListOptions_mangaList? get mangaList;
   static Serializer<GViewerData_Viewer_mediaListOptions> get serializer =>
       _$gViewerDataViewerMediaListOptionsSerializer;
 
@@ -357,7 +359,15 @@ abstract class GViewerData_Viewer_mediaListOptions_animeList
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @override
+  BuiltList<String?>? get customLists;
+  @override
   BuiltList<String?>? get sectionOrder;
+  @override
+  bool? get splitCompletedSectionByFormat;
+  @override
+  BuiltList<String?>? get advancedScoring;
+  @override
+  bool? get advancedScoringEnabled;
   static Serializer<GViewerData_Viewer_mediaListOptions_animeList>
       get serializer => _$gViewerDataViewerMediaListOptionsAnimeListSerializer;
 
@@ -371,6 +381,51 @@ abstract class GViewerData_Viewer_mediaListOptions_animeList
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
         GViewerData_Viewer_mediaListOptions_animeList.serializer,
+        json,
+      );
+}
+
+abstract class GViewerData_Viewer_mediaListOptions_mangaList
+    implements
+        Built<GViewerData_Viewer_mediaListOptions_mangaList,
+            GViewerData_Viewer_mediaListOptions_mangaListBuilder>,
+        GThisUser_mediaListOptions_mangaList {
+  GViewerData_Viewer_mediaListOptions_mangaList._();
+
+  factory GViewerData_Viewer_mediaListOptions_mangaList(
+      [void Function(GViewerData_Viewer_mediaListOptions_mangaListBuilder b)
+          updates]) = _$GViewerData_Viewer_mediaListOptions_mangaList;
+
+  static void _initializeBuilder(
+          GViewerData_Viewer_mediaListOptions_mangaListBuilder b) =>
+      b..G__typename = 'MediaListTypeOptions';
+
+  @override
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  @override
+  BuiltList<String?>? get customLists;
+  @override
+  BuiltList<String?>? get sectionOrder;
+  @override
+  bool? get splitCompletedSectionByFormat;
+  @override
+  BuiltList<String?>? get advancedScoring;
+  @override
+  bool? get advancedScoringEnabled;
+  static Serializer<GViewerData_Viewer_mediaListOptions_mangaList>
+      get serializer => _$gViewerDataViewerMediaListOptionsMangaListSerializer;
+
+  @override
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GViewerData_Viewer_mediaListOptions_mangaList.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GViewerData_Viewer_mediaListOptions_mangaList? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GViewerData_Viewer_mediaListOptions_mangaList.serializer,
         json,
       );
 }
@@ -788,6 +843,8 @@ abstract class GUpdateUserData_UpdateUser_mediaListOptions
   String? get rowOrder;
   @override
   GUpdateUserData_UpdateUser_mediaListOptions_animeList? get animeList;
+  @override
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaList? get mangaList;
   static Serializer<GUpdateUserData_UpdateUser_mediaListOptions>
       get serializer => _$gUpdateUserDataUpdateUserMediaListOptionsSerializer;
 
@@ -825,7 +882,15 @@ abstract class GUpdateUserData_UpdateUser_mediaListOptions_animeList
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @override
+  BuiltList<String?>? get customLists;
+  @override
   BuiltList<String?>? get sectionOrder;
+  @override
+  bool? get splitCompletedSectionByFormat;
+  @override
+  BuiltList<String?>? get advancedScoring;
+  @override
+  bool? get advancedScoringEnabled;
   static Serializer<GUpdateUserData_UpdateUser_mediaListOptions_animeList>
       get serializer =>
           _$gUpdateUserDataUpdateUserMediaListOptionsAnimeListSerializer;
@@ -840,6 +905,53 @@ abstract class GUpdateUserData_UpdateUser_mediaListOptions_animeList
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
         GUpdateUserData_UpdateUser_mediaListOptions_animeList.serializer,
+        json,
+      );
+}
+
+abstract class GUpdateUserData_UpdateUser_mediaListOptions_mangaList
+    implements
+        Built<GUpdateUserData_UpdateUser_mediaListOptions_mangaList,
+            GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder>,
+        GThisUser_mediaListOptions_mangaList {
+  GUpdateUserData_UpdateUser_mediaListOptions_mangaList._();
+
+  factory GUpdateUserData_UpdateUser_mediaListOptions_mangaList(
+      [void Function(
+              GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder b)
+          updates]) = _$GUpdateUserData_UpdateUser_mediaListOptions_mangaList;
+
+  static void _initializeBuilder(
+          GUpdateUserData_UpdateUser_mediaListOptions_mangaListBuilder b) =>
+      b..G__typename = 'MediaListTypeOptions';
+
+  @override
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  @override
+  BuiltList<String?>? get customLists;
+  @override
+  BuiltList<String?>? get sectionOrder;
+  @override
+  bool? get splitCompletedSectionByFormat;
+  @override
+  BuiltList<String?>? get advancedScoring;
+  @override
+  bool? get advancedScoringEnabled;
+  static Serializer<GUpdateUserData_UpdateUser_mediaListOptions_mangaList>
+      get serializer =>
+          _$gUpdateUserDataUpdateUserMediaListOptionsMangaListSerializer;
+
+  @override
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GUpdateUserData_UpdateUser_mediaListOptions_mangaList.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GUpdateUserData_UpdateUser_mediaListOptions_mangaList? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GUpdateUserData_UpdateUser_mediaListOptions_mangaList.serializer,
         json,
       );
 }
@@ -921,12 +1033,27 @@ abstract class GThisUser_mediaListOptions {
   _i2.GScoreFormat? get scoreFormat;
   String? get rowOrder;
   GThisUser_mediaListOptions_animeList? get animeList;
+  GThisUser_mediaListOptions_mangaList? get mangaList;
   Map<String, dynamic> toJson();
 }
 
 abstract class GThisUser_mediaListOptions_animeList {
   String get G__typename;
+  BuiltList<String?>? get customLists;
   BuiltList<String?>? get sectionOrder;
+  bool? get splitCompletedSectionByFormat;
+  BuiltList<String?>? get advancedScoring;
+  bool? get advancedScoringEnabled;
+  Map<String, dynamic> toJson();
+}
+
+abstract class GThisUser_mediaListOptions_mangaList {
+  String get G__typename;
+  BuiltList<String?>? get customLists;
+  BuiltList<String?>? get sectionOrder;
+  bool? get splitCompletedSectionByFormat;
+  BuiltList<String?>? get advancedScoring;
+  bool? get advancedScoringEnabled;
   Map<String, dynamic> toJson();
 }
 
@@ -1209,6 +1336,8 @@ abstract class GThisUserData_mediaListOptions
   String? get rowOrder;
   @override
   GThisUserData_mediaListOptions_animeList? get animeList;
+  @override
+  GThisUserData_mediaListOptions_mangaList? get mangaList;
   static Serializer<GThisUserData_mediaListOptions> get serializer =>
       _$gThisUserDataMediaListOptionsSerializer;
 
@@ -1244,7 +1373,15 @@ abstract class GThisUserData_mediaListOptions_animeList
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   @override
+  BuiltList<String?>? get customLists;
+  @override
   BuiltList<String?>? get sectionOrder;
+  @override
+  bool? get splitCompletedSectionByFormat;
+  @override
+  BuiltList<String?>? get advancedScoring;
+  @override
+  bool? get advancedScoringEnabled;
   static Serializer<GThisUserData_mediaListOptions_animeList> get serializer =>
       _$gThisUserDataMediaListOptionsAnimeListSerializer;
 
@@ -1258,6 +1395,51 @@ abstract class GThisUserData_mediaListOptions_animeList
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
         GThisUserData_mediaListOptions_animeList.serializer,
+        json,
+      );
+}
+
+abstract class GThisUserData_mediaListOptions_mangaList
+    implements
+        Built<GThisUserData_mediaListOptions_mangaList,
+            GThisUserData_mediaListOptions_mangaListBuilder>,
+        GThisUser_mediaListOptions_mangaList {
+  GThisUserData_mediaListOptions_mangaList._();
+
+  factory GThisUserData_mediaListOptions_mangaList(
+      [void Function(GThisUserData_mediaListOptions_mangaListBuilder b)
+          updates]) = _$GThisUserData_mediaListOptions_mangaList;
+
+  static void _initializeBuilder(
+          GThisUserData_mediaListOptions_mangaListBuilder b) =>
+      b..G__typename = 'MediaListTypeOptions';
+
+  @override
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  @override
+  BuiltList<String?>? get customLists;
+  @override
+  BuiltList<String?>? get sectionOrder;
+  @override
+  bool? get splitCompletedSectionByFormat;
+  @override
+  BuiltList<String?>? get advancedScoring;
+  @override
+  bool? get advancedScoringEnabled;
+  static Serializer<GThisUserData_mediaListOptions_mangaList> get serializer =>
+      _$gThisUserDataMediaListOptionsMangaListSerializer;
+
+  @override
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GThisUserData_mediaListOptions_mangaList.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GThisUserData_mediaListOptions_mangaList? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GThisUserData_mediaListOptions_mangaList.serializer,
         json,
       );
 }
