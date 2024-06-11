@@ -24,7 +24,7 @@ jobs:
           cache: true
 
       - run: flutter pub get
-      - run: flutter build web --base-href /MyAniApp/ --wasm
+      - run: flutter build web --base-href /MyAniApp/
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
