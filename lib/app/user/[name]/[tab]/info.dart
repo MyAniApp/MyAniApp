@@ -24,8 +24,8 @@ class UserInfoPage extends StatelessWidget {
             constraints: const BoxConstraints(maxHeight: 150),
             margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
             decoration: BoxDecoration(
-              border:
-                  Border.all(color: context.theme.colorScheme.surfaceContainerHighest),
+              border: Border.all(
+                  color: context.theme.colorScheme.surfaceContainerHighest),
               borderRadius: imageRadius,
             ),
             child: MarkdownWidget(
@@ -218,7 +218,8 @@ class UserInfoPage extends StatelessWidget {
                               child: GridCard(
                                 image: staff!.image!.large!,
                                 title: staff.name!.userPreferred!,
-                                onTap: () => context.push("/staff/${staff.id}",
+                                onTap: () => context.push(
+                                    "/staff/${staff.id}/roles",
                                     extra: {"staff": staff}),
                                 aspectRatio: GridCard.listRatio,
                               ),
@@ -299,7 +300,8 @@ class _StatsBox extends StatelessWidget {
       child: Container(
         width: double.maxFinite,
         decoration: BoxDecoration(
-          border: Border.all(color: context.theme.colorScheme.surfaceContainerHighest),
+          border: Border.all(
+              color: context.theme.colorScheme.surfaceContainerHighest),
           borderRadius: imageRadius,
         ),
         margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
@@ -397,7 +399,8 @@ class _GenreOverview extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: context.theme.colorScheme.surfaceContainerHighest),
+        border: Border.all(
+            color: context.theme.colorScheme.surfaceContainerHighest),
         borderRadius: imageRadius,
       ),
       margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),

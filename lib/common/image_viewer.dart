@@ -36,6 +36,7 @@ class _ImageViewerState extends State<ImageViewer> {
   double _positionYDelta = 0;
   Duration _animationDuration = Duration.zero;
   double _opacity = 1;
+  bool _block = false;
 
   setOpacity() {
     final double tmp = _positionYDelta < 0
@@ -67,38 +68,43 @@ class _ImageViewerState extends State<ImageViewer> {
             bottom: 0 - _positionYDelta,
             left: horizontalPosition,
             right: horizontalPosition,
-            child: InteractiveViewer(
-              maxScale: 10,
-              minScale: 1,
-              boundaryMargin: const EdgeInsets.all(0),
-              child: GestureDetector(
-                onVerticalDragStart: (details) {
-                  setState(() => _initialPositionY = details.globalPosition.dy);
-                },
-                onVerticalDragUpdate: (details) {
+            child: GestureDetector(
+              onVerticalDragStart: (details) {
+                setState(() => _initialPositionY = details.globalPosition.dy);
+              },
+              onVerticalDragUpdate: (details) {
+                if (!_block) {
                   setState(() {
                     _currentPositionY = details.globalPosition.dy;
                     _positionYDelta = _currentPositionY - _initialPositionY;
                     setOpacity();
                   });
-                },
-                onVerticalDragEnd: (details) {
-                  if (_positionYDelta > _disposeLevel ||
-                      _positionYDelta < -_disposeLevel) {
-                    Navigator.of(context).pop();
-                  } else {
-                    setState(() {
-                      _animationDuration = const Duration(milliseconds: 300);
-                      _opacity = 1;
-                      _positionYDelta = 0;
-                    });
+                }
+              },
+              onVerticalDragEnd: (details) {
+                if (_positionYDelta > _disposeLevel ||
+                    _positionYDelta < -_disposeLevel) {
+                  Navigator.of(context).pop();
+                } else {
+                  setState(() {
+                    _animationDuration = const Duration(milliseconds: 300);
+                    _opacity = 1;
+                    _positionYDelta = 0;
+                  });
 
-                    Future.delayed(_animationDuration).then((_) {
-                      setState(() {
-                        _animationDuration = Duration.zero;
-                      });
+                  Future.delayed(_animationDuration).then((_) {
+                    setState(() {
+                      _animationDuration = Duration.zero;
                     });
-                  }
+                  });
+                }
+              },
+              child: InteractiveViewer(
+                maxScale: 10,
+                minScale: 1,
+                boundaryMargin: const EdgeInsets.all(0),
+                onInteractionUpdate: (details) {
+                  if (details.pointerCount >= 2) setState(() => _block = true);
                 },
                 child: Hero(
                   tag: widget.tag ?? widget.hashCode,

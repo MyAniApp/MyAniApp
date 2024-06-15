@@ -4,16 +4,22 @@ import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/lists/__generated__/lists.data.gql.dart';
 import 'package:myaniapp/common/lists/__generated__/lists.req.gql.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
+import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/media_editor/media_editor.dart';
+import 'package:myaniapp/common/show.dart';
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated__/schema.schema.gql.dart';
 import 'package:myaniapp/graphql/fragments/__generated__/list_group.data.gql.dart';
 import 'package:myaniapp/graphql/widget.dart';
+import 'package:myaniapp/providers/list_settings.dart';
 import 'package:myaniapp/utils.dart';
 
 class UserAnimePage extends StatelessWidget {
@@ -62,7 +68,7 @@ class UserAnimePage extends StatelessWidget {
   }
 }
 
-class MediaListView extends StatefulWidget {
+class MediaListView extends ConsumerStatefulWidget {
   const MediaListView({
     super.key,
     required this.groups,
@@ -79,10 +85,10 @@ class MediaListView extends StatefulWidget {
   final VoidCallback? onDelete;
 
   @override
-  State<MediaListView> createState() => _MediaListViewState();
+  ConsumerState<MediaListView> createState() => _MediaListViewState();
 }
 
-class _MediaListViewState extends State<MediaListView>
+class _MediaListViewState extends ConsumerState<MediaListView>
     with TickerProviderStateMixin {
   TabController? _tabController;
   List<GListGroup> groups = [];
@@ -194,6 +200,11 @@ class _MediaListViewState extends State<MediaListView>
 
   @override
   Widget build(BuildContext context) {
+    var listSettings = ref.watch(listSettingsProvider);
+    var setting = widget.type == GMediaType.ANIME
+        ? listSettings.animeList
+        : listSettings.mangaList;
+
     return Scaffold(
       appBar: AppBar(
         leading: widget.appBarLeading,
@@ -244,7 +255,15 @@ class _MediaListViewState extends State<MediaListView>
           ),
           const SizedBox(
             width: 5,
-          )
+          ),
+          ListSettingButton(
+            type: setting,
+            onUpdate: (type) => ref.read(listSettingsProvider.notifier).update(
+                  widget.type == GMediaType.ANIME
+                      ? listSettings.copyWith(animeList: type)
+                      : listSettings.copyWith(mangaList: type),
+                ),
+          ),
         ],
         bottom: TabBar(
           controller: _tabController,
@@ -259,20 +278,45 @@ class _MediaListViewState extends State<MediaListView>
         controller: _tabController,
         children: [
           for (var group in groups)
-            GridView.builder(
-              padding: const EdgeInsets.all(8),
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 150,
-                childAspectRatio: GridCard.listRatio,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-              ),
+            MediaCards(
+              listType: setting,
               itemBuilder: (context, index) {
                 var entry = group.entries![index]!;
 
-                return GridCard(
+                int? totalEpiChap =
+                    (entry.media!.chapters ?? entry.media!.episodes);
+
+                return MediaCard(
+                  listType: setting,
                   image: entry.media!.coverImage!.extraLarge!,
                   title: entry.media!.title!.userPreferred,
+                  underTitle: Show(
+                    when: setting == ListType.list,
+                    child: () => Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Show(
+                        when: totalEpiChap != null,
+                        fallback: Text(
+                          style: context.theme.textTheme.labelMedium,
+                          "${entry.progress} ${entry.media!.type == GMediaType.ANIME ? "Episodes Watched" : "Chapters Read"}",
+                        ),
+                        child: () => Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            LinearProgressIndicator(
+                              value: (entry.progress ?? 0) / totalEpiChap!,
+                              borderRadius: imageRadius,
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              "${entry.progress} / ${entry.media!.chapters ?? entry.media!.episodes}",
+                              style: context.theme.textTheme.labelMedium,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   onLongPress: () => MediaSheet.show(context, entry.media!),
                   onTap: () => context.push("/media/${entry.media!.id}/info",
                       extra: {"media": entry.media}),
@@ -311,7 +355,150 @@ class _MediaListViewState extends State<MediaListView>
                 );
               },
               itemCount: group.entries!.length,
-            )
+              padding:
+                  setting == ListType.grid ? const EdgeInsets.all(8) : null,
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 150,
+                childAspectRatio: GridCard.listRatio,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+              ),
+            ),
+          // switch (setting) {
+          //   ListType.grid => GridView.builder(
+          //       padding: const EdgeInsets.all(8),
+          //       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          //         maxCrossAxisExtent: 150,
+          //         childAspectRatio: GridCard.listRatio,
+          //         mainAxisSpacing: 10,
+          //         crossAxisSpacing: 10,
+          //       ),
+          //       itemBuilder: (context, index) {
+          //         var entry = group.entries![index]!;
+
+          //         return GridCard(
+          //           image: entry.media!.coverImage!.extraLarge!,
+          //           title: entry.media!.title!.userPreferred,
+          //           onLongPress: () => MediaSheet.show(context, entry.media!),
+          //           onTap: () => context.push("/media/${entry.media!.id}/info",
+          //               extra: {"media": entry.media}),
+          //           onDoubleTap: () => MediaEditorDialog.show(
+          //             context,
+          //             entry.media!,
+          //             widget.user.id,
+          //             onSave: () {},
+          //             onDelete: () => widget.onDelete?.call(),
+          //           ),
+          //           blur: entry.media!.isAdult!,
+          //           chips: [
+          //             if ((entry.score ?? 0) != 0)
+          //               GridChip(
+          //                 top: 5,
+          //                 left: 5,
+          //                 child: Row(
+          //                   children: [
+          //                     const Icon(
+          //                       Icons.star,
+          //                       size: 15,
+          //                     ),
+          //                     const SizedBox(
+          //                       width: 2,
+          //                     ),
+          //                     Text(
+          //                       scoreToText(
+          //                           widget.user.mediaListOptions?.scoreFormat ??
+          //                               GScoreFormat.POINT_10,
+          //                           entry.score ?? 0),
+          //                     ),
+          //                   ],
+          //                 ),
+          //               ),
+          //           ],
+          //         );
+          //       },
+          //       itemCount: group.entries!.length,
+          //     ),
+          //   ListType.list => ListView.builder(
+          //       padding: const EdgeInsets.all(8),
+          //       primary: false,
+          //       itemBuilder: (context, index) {
+          //         var entry = group.entries![index]!;
+
+          //         double? progress;
+
+          //         if (entry.media!.type == GMediaType.MANGA &&
+          //             entry.media!.chapters != null) {
+          //           progress = (entry.progress ?? 0) / entry.media!.chapters!;
+          //         } else if (entry.media!.episodes != null) {
+          //           progress = (entry.progress ?? 0) / entry.media!.episodes!;
+          //         }
+
+          //         return ListCard(
+          //           image: entry.media!.coverImage!.extraLarge!,
+          //           title: entry.media!.title!.userPreferred,
+          //           underTitle: Padding(
+          //             padding: const EdgeInsets.symmetric(horizontal: 8),
+          //             child: Show(
+          //               when: progress != null,
+          //               fallback: Text(
+          //                 style: context.theme.textTheme.labelMedium,
+          //                 "${entry.progress} ${entry.media!.type == GMediaType.ANIME ? "Episodes Watched" : "Chapters Read"}",
+          //               ),
+          //               child: () => Column(
+          //                 crossAxisAlignment: CrossAxisAlignment.end,
+          //                 children: [
+          //                   LinearProgressIndicator(
+          //                     value: progress,
+          //                     borderRadius: imageRadius,
+          //                   ),
+          //                   const SizedBox(height: 5),
+          //                   Text(
+          //                     "${entry.progress} / ${entry.media!.chapters ?? entry.media!.episodes}",
+          //                     style: context.theme.textTheme.labelMedium,
+          //                   )
+          //                 ],
+          //               ),
+          //             ),
+          //           ),
+          //           blur: entry.media!.isAdult ?? false,
+          //           onLongPress: () => MediaSheet.show(context, entry.media!),
+          //           onTap: () => context.push("/media/${entry.media!.id}/info",
+          //               extra: {"media": entry.media}),
+          //           onDoubleTap: () => MediaEditorDialog.show(
+          //             context,
+          //             entry.media!,
+          //             widget.user.id,
+          //             onSave: () {},
+          //             onDelete: () => widget.onDelete?.call(),
+          //           ),
+          //         );
+          //       },
+          //       itemCount: group.entries!.length,
+          //     ),
+          //   ListType.simple => ListView.builder(
+          //       primary: false,
+          //       itemBuilder: (context, index) {
+          //         var entry = group.entries![index]!;
+
+          //         return InkWell(
+          //           onLongPress: () => MediaSheet.show(context, entry.media!),
+          //           onTap: () => context.push("/media/${entry.media!.id}/info",
+          //               extra: {"media": entry.media}),
+          //           onDoubleTap: () => MediaEditorDialog.show(
+          //             context,
+          //             entry.media!,
+          //             widget.user.id,
+          //             onSave: () {},
+          //             onDelete: () => widget.onDelete?.call(),
+          //           ),
+          //           child: ListTile(
+          //             title: Text(entry.media!.title!.userPreferred!),
+          //           ),
+          //         );
+          //       },
+          //       itemCount: group.entries!.length,
+          //     ),
+          // }
         ],
       ),
     );

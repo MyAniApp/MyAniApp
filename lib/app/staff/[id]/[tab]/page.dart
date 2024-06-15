@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myaniapp/app/media/__generated__/media.req.gql.dart';
 import 'package:myaniapp/app/staff/__generated__/staff.data.gql.dart';
@@ -9,8 +10,10 @@ import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/image_viewer.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/invisible_expanded_title.dart';
+import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
+import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/common/show.dart';
@@ -20,30 +23,48 @@ import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/fragments/__generated__/staff.data.gql.dart';
 import 'package:myaniapp/graphql/widget.dart';
 import 'package:myaniapp/main.dart';
+import 'package:myaniapp/providers/list_settings.dart';
 
 final _extractInfo = RegExp(r"^((?:(?:\*\*)|(?:__))[^]*?\n\n)");
 
-class StaffPage extends StatefulWidget {
-  const StaffPage({super.key, required this.id});
+class StaffPage extends ConsumerStatefulWidget {
+  const StaffPage({super.key, required this.id, required this.tab});
 
   final String id;
+  final String tab;
 
   @override
-  State<StaffPage> createState() => _StaffPageState();
+  ConsumerState<StaffPage> createState() => _StaffPageState();
 }
 
-class _StaffPageState extends State<StaffPage>
+class _StaffPageState extends ConsumerState<StaffPage>
     with SingleTickerProviderStateMixin {
-  TabController? _tabController;
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(listener);
+  }
 
   @override
   void dispose() {
     super.dispose();
-    _tabController?.dispose();
+    _tabController.dispose();
+  }
+
+  void listener() {
+    context.replace(
+      '/staff/${widget.id}/${_tabController.index == 0 ? "roles" : "production"}',
+      extra: GoRouterState.of(context).extra,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    var listSettings = ref.watch(listSettingsProvider);
+
     return GQLRequest(
       key: Key(widget.id),
       operationRequest: GStaffReq(
@@ -75,10 +96,6 @@ class _StaffPageState extends State<StaffPage>
             (GoRouterState.of(context).extra as Map?)?["staff"];
         var data = response?.data?.Staff;
 
-        if (data != null && hasTabs(data) && _tabController == null) {
-          _tabController = TabController(length: 2, vsync: this);
-        }
-
         return HidingFloatingButton(
           button: Show(
             when: data != null,
@@ -104,6 +121,7 @@ class _StaffPageState extends State<StaffPage>
             body: NestedScrollView(
               headerSliverBuilder: (context, innerBoxIsScrolled) => [
                 SliverAppBar(
+                  // key: Key("${_tabController.index}"),
                   pinned: true,
                   title: InvisibleExpandedTitle(
                     child: Text(
@@ -113,6 +131,29 @@ class _StaffPageState extends State<StaffPage>
                   ),
                   expandedHeight: 182,
                   // snap: true,
+                  actions: [
+                    if (data != null &&
+                        data.characterMedia!.edges!.isNotEmpty &&
+                        (!hasTabs(data) || _tabController.index == 0))
+                      ListSettingButton(
+                        type: listSettings.staffVA,
+                        onUpdate: (type) =>
+                            ref.read(listSettingsProvider.notifier).update(
+                                  listSettings.copyWith(staffVA: type),
+                                ),
+                      ),
+                    if (data != null &&
+                        data.staffMedia!.edges!.isNotEmpty &&
+                        (!hasTabs(data) || _tabController.index == 1))
+                      ListSettingButton(
+                        type: listSettings.staffProduction,
+                        onUpdate: (type) =>
+                            ref.read(listSettingsProvider.notifier).update(
+                                  listSettings.copyWith(staffProduction: type),
+                                ),
+                      ),
+                    const SizedBox(width: 5),
+                  ],
                   flexibleSpace: FlexibleSpaceBar(
                     background: SafeArea(
                       child: Row(
@@ -285,7 +326,7 @@ class StaffView extends StatefulWidget {
       required this.staff,
       required this.operationRequest});
 
-  final TabController? controller;
+  final TabController controller;
   final GStaffReq operationRequest;
   final GStaffData_Staff staff;
 
@@ -297,7 +338,7 @@ class _StaffViewState extends State<StaffView> {
   @override
   void initState() {
     super.initState();
-    widget.controller?.addListener(listener);
+    widget.controller.addListener(listener);
   }
 
   void listener() {
@@ -307,15 +348,11 @@ class _StaffViewState extends State<StaffView> {
   @override
   Widget build(BuildContext context) {
     return GraphqlPagination(
-      pageInfo: widget.controller != null
-          ? widget.controller!.index == 0
-              ? widget.staff.characterMedia!.pageInfo!
-              : widget.staff.staffMedia!.pageInfo!
+      pageInfo: widget.controller.index == 0
+          ? widget.staff.characterMedia!.pageInfo!
           : widget.staff.staffMedia!.pageInfo!,
       req: (nextPage) {
-        var isCharacter = widget.controller != null
-            ? widget.controller!.index == 0
-            : widget.staff.characterMedia!.edges!.isNotEmpty;
+        var isCharacter = widget.controller.index == 0;
 
         if (isCharacter) {
           return (widget.operationRequest).rebuild(
@@ -344,7 +381,8 @@ class _StaffViewState extends State<StaffView> {
         );
       },
       child: Show(
-        when: widget.controller != null,
+        when: widget.staff.characterMedia!.edges!.isNotEmpty &&
+            widget.staff.staffMedia!.edges!.isNotEmpty,
         fallback: Show(
           when: widget.staff.characterMedia!.edges!.isNotEmpty == true,
           fallback: StaffRoles(
@@ -373,15 +411,19 @@ class _StaffViewState extends State<StaffView> {
   }
 }
 
-class StaffRoles extends StatelessWidget {
+class StaffRoles extends ConsumerWidget {
   const StaffRoles({super.key, required this.staffRoles});
 
   final GStaffData_Staff_staffMedia staffRoles;
 
   @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      // primary: false,
+  Widget build(BuildContext context, WidgetRef ref) {
+    var listSetting = ref.watch(listSettingsProvider.select(
+      (value) => value.staffProduction,
+    ));
+
+    return MediaCards(
+      listType: listSetting,
       padding: const EdgeInsets.all(8),
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 150,
@@ -392,19 +434,21 @@ class StaffRoles extends StatelessWidget {
       itemBuilder: (context, index) {
         var media = staffRoles.edges![index]!;
 
-        return GridCard(
+        return MediaCard(
+          listType: listSetting,
           image: media.node!.coverImage!.extraLarge!,
           title: media.node!.title!.userPreferred,
           blur: media.node!.isAdult ?? false,
           onTap: () => context.push("/media/${media.node!.id}/overview",
               extra: {"media": media.node}),
           onLongPress: () => MediaSheet.show(context, media.node!),
-          underTitle: media.staffRole != null
-              ? Text(
-                  media.staffRole!,
-                  style: context.theme.textTheme.labelSmall,
-                )
-              : null,
+          underTitle: Show(
+            when: media.staffRole != null,
+            child: () => Text(
+              media.staffRole!,
+              style: context.theme.textTheme.labelSmall,
+            ),
+          ),
         );
       },
       itemCount: staffRoles.edges!.length,
@@ -412,7 +456,7 @@ class StaffRoles extends StatelessWidget {
   }
 }
 
-class StaffVARoles extends StatelessWidget {
+class StaffVARoles extends ConsumerWidget {
   const StaffVARoles({
     super.key,
     required this.medias,
@@ -421,7 +465,11 @@ class StaffVARoles extends StatelessWidget {
   final GStaffData_Staff_characterMedia medias;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var listSetting = ref.watch(listSettingsProvider.select(
+      (value) => value.staffVA,
+    ));
+
     var years = _Media.sort(medias.edges!);
 
     return ListView.builder(
@@ -440,10 +488,12 @@ class StaffVARoles extends StatelessWidget {
                     ?.copyWith(fontWeight: FontWeight.w600),
               ),
             ),
-            GridView.builder(
+            MediaCards(
+              listType: listSetting,
               primary: false,
               shrinkWrap: true,
-              padding: const EdgeInsets.all(0),
+              padding:
+                  listSetting == ListType.grid ? const EdgeInsets.all(8) : null,
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 150,
                 childAspectRatio: GridCard.listRatio,
@@ -453,13 +503,54 @@ class StaffVARoles extends StatelessWidget {
               itemBuilder: (context, index) {
                 var media = year.medias[index];
 
-                return GridCard(
+                return MediaCard(
+                  listType: listSetting,
                   image: media.characters!.first!.image!.large!,
                   title: media.characters!.first!.name!.userPreferred,
                   blur: media.node!.isAdult ?? false,
                   onTap: () => context.push(
                       "/character/${media.characters!.first!.id}",
                       extra: {"character": media.characters!.first}),
+                  underTitle: Show(
+                    when: listSetting == ListType.list,
+                    fallback: Show(
+                      when: listSetting == ListType.simple,
+                      child: () => Text(media.node!.title!.userPreferred!),
+                    ),
+                    child: () => Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 80,
+                          width: 53,
+                          child: InkWellImage(
+                            onTap: () => context.push(
+                                "/media/${media.node!.id}/overview",
+                                extra: {
+                                  "media": media.node,
+                                }),
+                            onLongPress: () =>
+                                MediaSheet.show(context, media.node!),
+                            child: AspectRatio(
+                              aspectRatio: GridCard.listRatio,
+                              child: CachedImage(
+                                media.node!.coverImage!.extraLarge!,
+                                height: 50,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        Expanded(
+                          child: Text(
+                            media.node!.title!.userPreferred!,
+                            maxLines: 3,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   chips: [
                     Positioned(
                       bottom: 15,
@@ -470,11 +561,7 @@ class StaffVARoles extends StatelessWidget {
                         child: InkWellImage(
                           onTap: () => context.push(
                               "/media/${media.node!.id}/overview",
-                              extra: {
-                                "media": media.node,
-                                "tag":
-                                    "${media.node!.id}-${media.characters!.first!.id}"
-                              }),
+                              extra: {"media": media.node}),
                           onLongPress: () =>
                               MediaSheet.show(context, media.node!),
                           child: AspectRatio(

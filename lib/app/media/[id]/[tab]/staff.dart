@@ -49,7 +49,7 @@ class _MediaStaffPageState extends State<MediaStaffPage>
 
             return Card.outlined(
               child: InkWellImage(
-                onTap: () => context.push("/staff/${staff.node!.id}",
+                onTap: () => context.push("/staff/${staff.node!.id}/production",
                     extra: {"staff": staff.node!}),
                 borderRadius: imageRadius,
                 child: Row(

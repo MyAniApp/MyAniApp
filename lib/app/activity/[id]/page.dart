@@ -344,8 +344,8 @@ class ActivityCard extends ConsumerWidget {
           child: Row(
             children: [
               SizedBox(
-                height: 110,
-                width: 73,
+                height: 120,
+                width: 85,
                 child: InkWellImage(
                   borderRadius: imageRadius,
                   onTap: () => context.push(

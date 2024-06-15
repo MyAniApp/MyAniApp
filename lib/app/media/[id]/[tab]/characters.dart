@@ -192,7 +192,7 @@ class _CharacterListState extends State<_CharacterList> {
                                     borderRadius: imageRadius,
                                     child: InkWellImage(
                                       onTap: () => context.push(
-                                          "/staff/${va.voiceActor!.id}",
+                                          "/staff/${va.voiceActor!.id}/roles",
                                           extra: {"staff": va.voiceActor!}),
                                       child: CachedImage(
                                         va.voiceActor!.image!.large!,

@@ -1,26 +1,33 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myaniapp/app/media/__generated__/similar.req.gql.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
+import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/graphql/widget.dart';
+import 'package:myaniapp/providers/list_settings.dart';
 
-class MediaSimilarPage extends StatefulWidget {
+class MediaSimilarPage extends ConsumerStatefulWidget {
   const MediaSimilarPage({super.key, required this.mediaId});
 
   final int mediaId;
 
   @override
-  State<MediaSimilarPage> createState() => _MediaSimilarPageState();
+  ConsumerState<MediaSimilarPage> createState() => _MediaSimilarPageState();
 }
 
-class _MediaSimilarPageState extends State<MediaSimilarPage>
+class _MediaSimilarPageState extends ConsumerState<MediaSimilarPage>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    var listSetting = ref.watch(listSettingsProvider.select(
+      (value) => value.mediaSimilar,
+    ));
+
     return GQLRequest(
       operationRequest: GMediaSimilarReq((b) => b
         ..requestId = "mediaSimilar${widget.mediaId}"
@@ -39,25 +46,30 @@ class _MediaSimilarPageState extends State<MediaSimilarPage>
                           false) ??
                       [])),
         ),
-        child: GridView.builder(
+        child: MediaCards(
+          listType: listSetting,
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 150,
             childAspectRatio: GridCard.listRatio,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
           ),
-          padding: const EdgeInsets.all(8),
+          padding:
+              listSetting == ListType.grid ? const EdgeInsets.all(8) : null,
           itemBuilder: (context, index) {
-            var media0 = response.data!.Media!.recommendations!.nodes![index]!
-                .mediaRecommendation!;
+            var media = response.data!.Media!.recommendations!.nodes![index]!
+                .mediaRecommendation;
 
-            return GridCard(
-              image: media0.coverImage!.extraLarge!,
-              title: media0.title!.userPreferred,
-              blur: media0.isAdult ?? false,
-              onTap: () => context.push("/media/${media0.id}/overview",
-                  extra: {"media": media0}),
-              onLongPress: () => MediaSheet.show(context, media0),
+            if (media == null) return const SizedBox();
+
+            return MediaCard(
+              listType: listSetting,
+              image: media.coverImage!.extraLarge!,
+              title: media.title!.userPreferred,
+              blur: media.isAdult ?? false,
+              onTap: () => context
+                  .push("/media/${media.id}/overview", extra: {"media": media}),
+              onLongPress: () => MediaSheet.show(context, media),
             );
           },
           itemCount: response.data!.Media!.recommendations!.nodes!.length,

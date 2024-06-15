@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myaniapp/app/search/media/__generated__/mediaSearch.req.gql.dart';
 import 'package:myaniapp/app/search/media/page.dart';
 import 'package:myaniapp/common/custom_dropdown.dart';
+import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated__/schema.schema.gql.dart';
 import 'package:myaniapp/graphql/widget.dart';
+import 'package:myaniapp/providers/list_settings.dart';
+import 'package:myaniapp/providers/user.dart';
 
 var countries = {
   "Japan": "JP",
@@ -14,7 +18,7 @@ var countries = {
   "Taiwan": "TW",
 };
 
-class MediaSearchEditor extends StatefulWidget {
+class MediaSearchEditor extends ConsumerStatefulWidget {
   const MediaSearchEditor({super.key, required this.oldQuery});
 
   final MediaSearchQuery oldQuery;
@@ -31,10 +35,10 @@ class MediaSearchEditor extends StatefulWidget {
   }
 
   @override
-  State<MediaSearchEditor> createState() => _MediaSearchEditorState();
+  ConsumerState<MediaSearchEditor> createState() => _MediaSearchEditorState();
 }
 
-class _MediaSearchEditorState extends State<MediaSearchEditor> {
+class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
   late final MediaSearchQuery query;
 
   @override
@@ -67,21 +71,37 @@ class _MediaSearchEditorState extends State<MediaSearchEditor> {
 
   @override
   Widget build(BuildContext context) {
+    var listSettings = ref.watch(listSettingsProvider);
+
     return DraggableScrollableSheet(
       expand: false,
       builder: (context, scrollController) => ListView(
         padding: const EdgeInsets.all(0),
         controller: scrollController,
         children: [
-          TextButton(
-            onPressed: () {
-              if (query.genres?.contains("Hentai") == true) {
-                query.isAdult = true;
-              }
-              context.replace("/search/media${query.toString()}");
-              context.pop();
-            },
-            child: const Text("Save"),
+          Row(
+            children: [
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    if (query.genres?.contains("Hentai") == true) {
+                      query.isAdult = true;
+                    }
+                    context.replace("/search/media${query.toString()}");
+                    context.pop();
+                  },
+                  child: const Text("Save"),
+                ),
+              ),
+              const SizedBox(width: 5),
+              ListSettingButton(
+                type: listSettings.search,
+                onUpdate: (type) =>
+                    ref.read(listSettingsProvider.notifier).update(
+                          listSettings.copyWith(search: type),
+                        ),
+              ),
+            ],
           ),
           const SizedBox(
             height: 5,
@@ -181,24 +201,28 @@ class _MediaSearchEditorState extends State<MediaSearchEditor> {
   }
 }
 
-class GenresButton extends StatelessWidget {
+class GenresButton extends ConsumerWidget {
   const GenresButton({super.key, this.genres, required this.onChanged});
 
   final List<String>? genres;
   final void Function(List<String>? genres) onChanged;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var displayAdultContent = ref.watch(userProvider.select(
+      (value) => value.value?.data?.Viewer?.options?.displayAdultContent,
+    ));
+
     return GQLRequest(
       operationRequest:
           GGenreCollectionReq((b) => b..requestId = "genreCollectionSearch"),
       builder: (context, response, error, refetch) {
-        var genresList = response!.data!.genres!;
+        var genresList = response!.data!.genres!.toList();
 
         // TODO: when auth is implemented add below to remove the option of adding the genre if 18+ content is off
-        // if (user.adultContent == false) {
-        //    genres.remove("Hentai");
-        // }
+        if ((displayAdultContent ?? false) == false) {
+          genresList.remove("Hentai");
+        }
 
         return SheetDropdownMenu<String>.multi(
           hint: 'Genres',

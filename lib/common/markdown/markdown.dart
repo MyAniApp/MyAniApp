@@ -121,7 +121,8 @@ class MarkdownWidget extends ConsumerWidget {
                 return;
               } else if (['character', 'staff']
                   .contains(uri.pathSegments.first)) {
-                context.push('/${uri.pathSegments.take(2).join('/')}');
+                context.push(
+                    '/${uri.pathSegments.take(2).join('/')}${uri.pathSegments.first == "staff" ? "/roles" : ""}');
                 return;
               } else if (uri.pathSegments.first == 'forum' &&
                   uri.pathSegments[1] == 'thread') {

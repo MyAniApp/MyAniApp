@@ -110,8 +110,7 @@ class _FavoritesPageState extends State<FavoritesPage>
 }
 
 class _FavoriteAnime extends StatelessWidget {
-  const _FavoriteAnime(
-      {required this.operationRequest, required this.animes});
+  const _FavoriteAnime({required this.operationRequest, required this.animes});
 
   final GUserFavoritesReq operationRequest;
   final GUserFavoritesData_User_favourites_anime animes;
@@ -158,8 +157,7 @@ class _FavoriteAnime extends StatelessWidget {
 }
 
 class _FavoriteManga extends StatelessWidget {
-  const _FavoriteManga(
-      {required this.operationRequest, required this.mangas});
+  const _FavoriteManga({required this.operationRequest, required this.mangas});
 
   final GUserFavoritesReq operationRequest;
   final GUserFavoritesData_User_favourites_manga mangas;
@@ -253,8 +251,7 @@ class _FavoriteCharacters extends StatelessWidget {
 }
 
 class _FavoriteStaff extends StatelessWidget {
-  const _FavoriteStaff(
-      {required this.operationRequest, required this.staffs});
+  const _FavoriteStaff({required this.operationRequest, required this.staffs});
 
   final GUserFavoritesReq operationRequest;
   final GUserFavoritesData_User_favourites_staff staffs;
@@ -288,8 +285,8 @@ class _FavoriteStaff extends StatelessWidget {
           return GridCard(
             image: staff.node!.image!.large!,
             title: staff.node!.name!.userPreferred!,
-            onTap: () => context
-                .push("/staff/${staff.node!.id}", extra: {"staff": staff.node}),
+            onTap: () => context.push("/staff/${staff.node!.id}/roles",
+                extra: {"staff": staff.node}),
           );
         },
         itemCount: staffs.edges!.length,

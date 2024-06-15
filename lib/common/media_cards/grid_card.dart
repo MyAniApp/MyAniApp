@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
-import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/providers/settings.dart';
@@ -19,7 +18,6 @@ class GridCard extends StatelessWidget {
     required this.image,
     this.aspectRatio = GridCard.gridRatio,
     this.underTitle,
-    this.tag,
     this.onTap,
     this.onLongPress,
     this.title,
@@ -32,7 +30,6 @@ class GridCard extends StatelessWidget {
   final double aspectRatio;
   final String image;
   final Widget? underTitle;
-  final String? tag;
   final String? title;
   final GestureTapCallback? onTap;
   final GestureLongPressCallback? onLongPress;
@@ -68,21 +65,10 @@ class GridCard extends StatelessWidget {
                         borderRadius: imageRadius,
                         child: BlurImage(
                           enabled: blur,
-                          child: Show(
-                            when: tag != null,
-                            fallback: Image(
-                              image: imageProvider,
-                              fit: BoxFit.fill,
-                              width: double.maxFinite,
-                            ),
-                            child: () => Hero(
-                              tag: tag!,
-                              child: Image(
-                                image: imageProvider,
-                                fit: BoxFit.fill,
-                                width: double.maxFinite,
-                              ),
-                            ),
+                          child: Image(
+                            image: imageProvider,
+                            fit: BoxFit.fill,
+                            width: double.maxFinite,
                           ),
                         ),
                       ),
@@ -139,7 +125,8 @@ class GridChip extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: imageRadius,
-          color: context.theme.colorScheme.surfaceContainerHighest.withOpacity(.6),
+          color:
+              context.theme.colorScheme.surfaceContainerHighest.withOpacity(.6),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: child,

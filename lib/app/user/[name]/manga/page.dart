@@ -45,7 +45,7 @@ class UserMangaPage extends StatelessWidget {
                 .whereType<GListGroup>()
                 .toBuiltList(),
             user: response.data!.MediaListCollection!.user!,
-            type: GMediaType.ANIME,
+            type: GMediaType.MANGA,
           ),
         );
       },

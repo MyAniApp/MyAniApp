@@ -1,6 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myaniapp/app/character/__generated__/character.data.gql.dart';
 import 'package:myaniapp/app/character/__generated__/character.req.gql.dart';
 import 'package:myaniapp/app/media/__generated__/media.req.gql.dart';
 import 'package:myaniapp/common/cached_image.dart';
@@ -8,9 +10,11 @@ import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/image_viewer.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/invisible_expanded_title.dart';
+import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/list_tile_circle_avatar.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
+import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/common/show.dart';
@@ -19,18 +23,22 @@ import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/fragments/__generated__/character.data.gql.dart';
 import 'package:myaniapp/graphql/widget.dart';
 import 'package:myaniapp/main.dart';
+import 'package:myaniapp/providers/list_settings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final _extractInfo = RegExp(r"^((?:(?:\*\*)|(?:__))[^]*?\n\n)");
 
-class CharacterPage extends StatelessWidget {
+class CharacterPage extends ConsumerWidget {
   const CharacterPage({super.key, required this.id});
 
   final String id;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var listSettings = ref.watch(listSettingsProvider);
+
     return GQLRequest(
+      // key: const Key("SHD"),
       operationRequest: GCharacterReq(
         (b) => b
           ..requestId = "characterPage$id"
@@ -93,6 +101,14 @@ class CharacterPage extends StatelessWidget {
                     ),
                   ),
                   actions: [
+                    ListSettingButton(
+                      type: listSettings.character,
+                      onUpdate: (type) =>
+                          ref.read(listSettingsProvider.notifier).update(
+                                listSettings.copyWith(character: type),
+                              ),
+                    ),
+                    const SizedBox(width: 5),
                     if (data?.siteUrl != null)
                       PopupMenuButton(
                         itemBuilder: (context) => [
@@ -101,7 +117,7 @@ class CharacterPage extends StatelessWidget {
                             onTap: () => launchUrl(Uri.parse(data!.siteUrl!)),
                           ),
                         ],
-                      )
+                      ),
                   ],
                   expandedHeight: 182,
                   flexibleSpace: FlexibleSpaceBar(
@@ -231,86 +247,7 @@ class CharacterPage extends StatelessWidget {
                                 horizontal: 8, vertical: 4),
                           ),
                         ),
-                        SliverPadding(
-                          padding: const EdgeInsets.all(8),
-                          sliver: SliverGrid.builder(
-                            gridDelegate:
-                                const SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 150,
-                              childAspectRatio: GridCard.listRatio,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 10,
-                            ),
-                            itemBuilder: (context, index) {
-                              var media = data.media!.edges![index]!;
-
-                              return GridCard(
-                                blur: media.node!.isAdult ?? false,
-                                // media: media.node!,
-                                image: media.node!.coverImage!.extraLarge!,
-                                title: media.node!.title!.userPreferred,
-                                onTap: () => context.push(
-                                    "/media/${media.node!.id}/overview",
-                                    extra: {"media": media.node}),
-                                onLongPress: () => MediaSheet.show(
-                                  context,
-                                  media.node!,
-                                  leading: Column(
-                                    children: [
-                                      if (media.voiceActorRoles!.isNotEmpty ==
-                                          true) ...[
-                                        Text(
-                                          "Voices Actors for",
-                                          style: context
-                                              .theme.textTheme.titleMedium,
-                                        ),
-                                        ListTile(
-                                          title:
-                                              Text(data.name!.userPreferred!),
-                                          leading: ListTileCircleAvatar(
-                                            url: data.image!.large!,
-                                          ),
-                                        ),
-                                      ],
-                                      for (var staff in media.voiceActorRoles!)
-                                        ListTile(
-                                          title: Text(staff!.voiceActor!.name!
-                                              .userPreferred!),
-                                          subtitle: Text.rich(
-                                            TextSpan(
-                                              children: [
-                                                TextSpan(
-                                                  text: staff
-                                                      .voiceActor!.languageV2!,
-                                                ),
-                                                if (staff.roleNotes != null)
-                                                  TextSpan(
-                                                      text:
-                                                          " / ${staff.roleNotes!}"),
-                                                if (staff.dubGroup != null)
-                                                  TextSpan(
-                                                      text:
-                                                          " / ${staff.dubGroup!}")
-                                              ],
-                                            ),
-                                          ),
-                                          leading: ListTileCircleAvatar(
-                                            url:
-                                                staff.voiceActor!.image!.large!,
-                                          ),
-                                          onTap: () => context.push(
-                                              "/staff/${staff.voiceActor!.id}"),
-                                          contentPadding:
-                                              const EdgeInsets.all(0),
-                                        )
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                            itemCount: data.media!.edges!.length,
-                          ),
-                        )
+                        _MediaList(data: data),
                       ],
                     ),
                   );
@@ -321,6 +258,102 @@ class CharacterPage extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+class _MediaList extends ConsumerWidget {
+  const _MediaList({
+    super.key,
+    required this.data,
+  });
+
+  final GCharacterData_Character data;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    var listSetting = ref.watch(listSettingsProvider.select(
+      (value) => value.character,
+    ));
+
+    itemBuilder(BuildContext context, int index) {
+      var media = data.media!.edges![index]!;
+
+      return MediaCard(
+        listType: listSetting,
+        blur: media.node!.isAdult ?? false,
+        image: media.node!.coverImage!.extraLarge!,
+        title: media.node!.title!.userPreferred,
+        onTap: () => context.push("/media/${media.node!.id}/overview",
+            extra: {"media": media.node}),
+        onLongPress: () => MediaSheet.show(
+          context,
+          media.node!,
+          leading: Column(
+            children: [
+              if (media.voiceActorRoles!.isNotEmpty == true) ...[
+                Text(
+                  "Voices Actors for",
+                  style: context.theme.textTheme.titleMedium,
+                ),
+                ListTile(
+                  title: Text(data.name!.userPreferred!),
+                  leading: ListTileCircleAvatar(
+                    url: data.image!.large!,
+                  ),
+                ),
+              ],
+              for (var staff in media.voiceActorRoles!)
+                ListTile(
+                  title: Text(staff!.voiceActor!.name!.userPreferred!),
+                  subtitle: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: staff.voiceActor!.languageV2!,
+                        ),
+                        if (staff.roleNotes != null)
+                          TextSpan(text: " / ${staff.roleNotes!}"),
+                        if (staff.dubGroup != null)
+                          TextSpan(text: " / ${staff.dubGroup!}")
+                      ],
+                    ),
+                  ),
+                  leading: ListTileCircleAvatar(
+                    url: staff.voiceActor!.image!.large!,
+                  ),
+                  onTap: () =>
+                      context.push("/staff/${staff.voiceActor!.id}/roles"),
+                  contentPadding: const EdgeInsets.all(0),
+                )
+            ],
+          ),
+        ),
+      );
+    }
+
+    return switch (listSetting) {
+      ListType.grid => SliverPadding(
+          padding: const EdgeInsets.all(8),
+          sliver: SliverGrid.builder(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 150,
+              childAspectRatio: GridCard.listRatio,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+            ),
+            itemBuilder: itemBuilder,
+            itemCount: data.media!.edges!.length,
+          ),
+        ),
+      ListType.list => SliverList.builder(
+          itemBuilder: itemBuilder,
+          itemCount: data.media!.edges!.length,
+        ),
+      ListType.simple => SliverList.builder(
+          itemBuilder: itemBuilder,
+          itemCount: data.media!.edges!.length,
+        ),
+    };
   }
 }
 

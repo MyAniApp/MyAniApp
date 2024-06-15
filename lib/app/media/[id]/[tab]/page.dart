@@ -15,6 +15,7 @@ import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/image_viewer.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/invisible_expanded_title.dart';
+import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_editor/media_editor.dart';
 import 'package:myaniapp/common/show.dart';
@@ -26,6 +27,7 @@ import 'package:myaniapp/graphql/__generated__/schema.schema.gql.dart';
 import 'package:myaniapp/graphql/fragments/__generated__/media.data.gql.dart';
 import 'package:myaniapp/graphql/widget.dart';
 import 'package:myaniapp/main.dart';
+import 'package:myaniapp/providers/list_settings.dart';
 import 'package:myaniapp/providers/user.dart';
 
 class MediaPage extends StatefulWidget {
@@ -128,6 +130,7 @@ class _MediaPageState extends State<MediaPage> with TickerProviderStateMixin {
                             as GMediaFragment
                         : null,
                     data: response?.data?.Media,
+                    tab: tabs.isEmpty ? "Info" : tabs[_tabController.index].$2,
                   ),
                   if (response?.data != null && tabs.isNotEmpty)
                     SliverPersistentHeader(
@@ -244,18 +247,22 @@ class FloatingButtons extends ConsumerWidget {
   }
 }
 
-class MediaBar extends StatelessWidget {
+class MediaBar extends ConsumerWidget {
   const MediaBar({
     super.key,
     this.placeholderData,
     this.data,
+    required this.tab,
   });
 
   final GMediaFragment? placeholderData;
   final GMediaData_Media? data;
+  final String tab;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var listSettings = ref.watch(listSettingsProvider);
+
     return SliverAppBar(
       expandedHeight: 210,
       pinned: true,
@@ -280,6 +287,37 @@ class MediaBar extends StatelessWidget {
           ),
         ),
       ),
+      actions: [
+        if (tab == "Relations")
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(.4),
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+            ),
+            child: ListSettingButton(
+              type: listSettings.mediaRelations,
+              onUpdate: (type) =>
+                  ref.read(listSettingsProvider.notifier).update(
+                        listSettings.copyWith(mediaRelations: type),
+                      ),
+            ),
+          ),
+        if (tab == "Similar")
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(.4),
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+            ),
+            child: ListSettingButton(
+              type: listSettings.mediaSimilar,
+              onUpdate: (type) =>
+                  ref.read(listSettingsProvider.notifier).update(
+                        listSettings.copyWith(mediaSimilar: type),
+                      ),
+            ),
+          ),
+        const SizedBox(width: 5)
+      ],
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           children: [

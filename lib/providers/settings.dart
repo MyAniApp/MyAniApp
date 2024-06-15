@@ -12,7 +12,7 @@ class _Settings {
   _Settings({
     required this.token,
     required this.themeMode,
-    this.primaryColor,
+    required this.primaryColor,
     required this.blurCovers,
     required this.showEmbedMediaCard,
   });

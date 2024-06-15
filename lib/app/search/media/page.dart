@@ -1,11 +1,13 @@
 import 'package:collection/collection.dart';
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myaniapp/app/search/media/__generated__/mediaSearch.data.gql.dart';
 import 'package:myaniapp/app/search/media/__generated__/mediaSearch.req.gql.dart';
 import 'package:myaniapp/app/search/media/editor.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
+import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/common/show.dart';
@@ -13,6 +15,7 @@ import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__generated__/schema.schema.gql.dart';
 import 'package:myaniapp/graphql/widget.dart';
 import 'package:myaniapp/main.dart';
+import 'package:myaniapp/providers/list_settings.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -36,16 +39,16 @@ class SearchPage extends StatelessWidget {
   }
 }
 
-class SearchView extends StatefulWidget {
+class SearchView extends ConsumerStatefulWidget {
   const SearchView({super.key, required this.query});
 
   final MediaSearchQuery query;
 
   @override
-  State<SearchView> createState() => _SearchViewState();
+  ConsumerState<SearchView> createState() => _SearchViewState();
 }
 
-class _SearchViewState extends State<SearchView> {
+class _SearchViewState extends ConsumerState<SearchView> {
   final FocusNode _focusNode = FocusNode();
 
   @override
@@ -65,6 +68,10 @@ class _SearchViewState extends State<SearchView> {
 
   @override
   Widget build(BuildContext context) {
+    var listSetting = ref.watch(listSettingsProvider.select(
+      (value) => value.search,
+    ));
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -130,8 +137,9 @@ class _SearchViewState extends State<SearchView> {
                       ),
               );
             },
-            child: GridView.builder(
-              padding: const EdgeInsets.all(8),
+            child: MediaCards(
+              listType: listSetting,
+              padding: EdgeInsets.all(listSetting == ListType.grid ? 8 : 0),
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 150,
                 childAspectRatio: GridCard.listRatio,
@@ -141,7 +149,8 @@ class _SearchViewState extends State<SearchView> {
               itemBuilder: (context, index) {
                 var media = response.data!.Page!.media![index]!;
 
-                return GridCard(
+                return MediaCard(
+                  listType: listSetting,
                   image: media.coverImage!.extraLarge!,
                   title: media.title!.userPreferred!,
                   blur: media.isAdult!,

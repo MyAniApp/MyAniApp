@@ -17,7 +17,7 @@ import "app/recommendations/page.dart" as r8;
 import "app/review/[id]/page.dart" as r12;
 import "app/search/media/page.dart" as r11;
 import "app/settings/settings_page.dart" as r22;
-import "app/staff/[id]/page.dart" as r0;
+import "app/staff/[id]/[tab]/page.dart" as r0;
 import "app/studio/[id]/page.dart" as r7;
 import "app/user/[name]/[tab]/page.dart" as r21;
 import "app/user/[name]/anime/page.dart" as r18;
@@ -27,9 +27,10 @@ import "app/user/[name]/manga/page.dart" as r19;
 var routes = [
   GoRoute(path: "/", redirect: (_, __) => "/home/overview"),
   GoRoute(
-    path: "/staff/:id",
+    path: "/staff/:id/:tab",
     builder: (context, state) => r0.StaffPage(
       id: state.pathParameters['id']!,
+      tab: state.pathParameters['tab']!,
     ),
   ),
   GoRoute(
