@@ -9,11 +9,13 @@ import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/media_editor/media_editor.dart';
+import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/graphql/__gen/fragments/list_group.graphql.dart';
+import 'package:myaniapp/graphql/__gen/fragments/media_entry.graphql.dart';
 import 'package:myaniapp/graphql/__gen/media_list.graphql.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/providers/list_settings.dart';
@@ -189,11 +191,99 @@ class _MediaListViewState extends ConsumerState<MediaListView>
               onPressed: () {
                 var list = groups.expand((element) => element.entries!);
 
-                var media =
-                    list.elementAt(Random().nextInt(list.length))!.media!;
+                var entry = list.elementAt(Random().nextInt(list.length))!;
 
-                context.push(Routes.media(media.id),
-                    extra: {"placeholder": media});
+                showDialog(
+                  context: context,
+                  builder: (context) => Dialog(
+                    shape: RoundedRectangleBorder(borderRadius: imageRadius),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      child: Wrap(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        // mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 4),
+                            child: SizedBox(
+                              height: 120,
+                              child: MediaCard(
+                                listType: setting,
+                                image: entry.media!.coverImage!.extraLarge!,
+                                onLongPress: () =>
+                                    MediaSheet.show(context, entry.media!),
+                                onTap: () => context.push(
+                                    Routes.media(entry.mediaId),
+                                    extra: {"placeholder": entry.media}),
+                                onDoubleTap: () => MediaEditorDialog.show(
+                                  context,
+                                  entry.media!,
+                                  widget.response.parsedData!
+                                      .MediaListCollection!.user!.id,
+                                  onSave: () =>
+                                      widget.refetch(FetchPolicy.cacheOnly),
+                                  onDelete: () => widget.refetch(),
+                                ),
+                                blur: entry.media!.isAdult!,
+                                chips: [
+                                  if (entry.private == true)
+                                    GridChip(
+                                      top: entry.score != 0 ? 30 : 5,
+                                      left: 5,
+                                      child: const Tooltip(
+                                        message: "Private",
+                                        child: Icon(
+                                          Icons.lock,
+                                          size: 15,
+                                        ),
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                entry.media!.title!.userPreferred!,
+                                style: context.theme.textTheme.labelLarge
+                                    ?.copyWith(fontWeight: FontWeight.bold),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                              Text(
+                                  "Status: ${entry.status!.name.capitalize()}"),
+                              Text(
+                                "Rating: ${scoreToText(widget.response.parsedData!.MediaListCollection!.user!.mediaListOptions?.scoreFormat ?? Enum$ScoreFormat.POINT_10, entry.score ?? 0, fallback: "N/A")}",
+                              ),
+                              Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: entry.media!.type ==
+                                              Enum$MediaType.ANIME
+                                          ? "Episodes Watched: "
+                                          : "Chapters Read",
+                                    ),
+                                    TextSpan(text: "${entry.progress ?? 0}/"),
+                                    TextSpan(
+                                        text:
+                                            "${entry.media!.episodes ?? entry.media!.chapters ?? 'N/A'}")
+                                  ],
+                                ),
+                              ),
+                              if (entry.notes != null)
+                                Text("Notes: ${entry.notes}"),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
               },
               icon: const Icon(Icons.shuffle),
             ),

@@ -14,8 +14,8 @@ VoidCallback requiredLogin(
   return () => LoginDialog.show(ref.context, action);
 }
 
-String scoreToText(Enum$ScoreFormat format, double value) {
-  if (value == 0) return "";
+String scoreToText(Enum$ScoreFormat format, double value, {String? fallback}) {
+  if (value == 0) return fallback ?? "";
 
   return switch (format) {
     Enum$ScoreFormat.POINT_3 => value == 1
@@ -27,6 +27,6 @@ String scoreToText(Enum$ScoreFormat format, double value) {
     Enum$ScoreFormat.POINT_10 => "${value.toInt()} / 10",
     Enum$ScoreFormat.POINT_10_DECIMAL => "$value / 10",
     Enum$ScoreFormat.POINT_100 => "${value.toInt()} / 100",
-    Enum$ScoreFormat() => throw UnimplementedError(),
+    Enum$ScoreFormat() => fallback ?? "",
   };
 }
