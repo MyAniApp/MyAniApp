@@ -3,7 +3,7 @@ name: Build and Release Windows
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   build:
@@ -19,8 +19,8 @@ jobs:
       - name: Get Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.x'
-          channel: 'stable'
+          flutter-version: "3.29.x"
+          channel: "stable"
           cache: true
 
       - run: flutter pub get
@@ -29,12 +29,12 @@ jobs:
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
-          type: 'zip'
+          type: "zip"
           filename: MyAniApp-windows.zip
           directory: build/windows/x64/runner/Release
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: 'build/windows/x64/runner/Release/MyAniApp-windows.zip'
+          artifacts: "build/windows/x64/runner/Release/MyAniApp-windows.zip"
           allowUpdates: true
           makeLatest: true

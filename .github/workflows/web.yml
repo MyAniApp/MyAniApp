@@ -3,7 +3,7 @@ name: Build and Release Web
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   build:
@@ -19,8 +19,8 @@ jobs:
       - name: Get Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.x'
-          channel: 'stable'
+          flutter-version: "3.29.x"
+          channel: "stable"
           cache: true
 
       - run: flutter pub get
