@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 DotsIndicator(
                   dotsCount: pages.length,
-                  position: currentPage,
+                  position: currentPage as double,
                   decorator: DotsDecorator(activeColor: Colors.blue),
                 ),
                 if (currentPage != pages.length - 1)
