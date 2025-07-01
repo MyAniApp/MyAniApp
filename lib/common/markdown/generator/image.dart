@@ -10,9 +10,10 @@ import 'package:myaniapp/common/markdown/generator/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // overwrite default link generator because the default one for some reason adds a space at the end of the link
-md.SpanNodeGeneratorWithTag imageGeneratorWithTag = md.SpanNodeGeneratorWithTag(
+md.SpanNodeGeneratorWithTag imageGenerator = md.SpanNodeGeneratorWithTag(
   tag: "img",
-  generator: (e, config, visitor) => ImageNode2(e.attributes, config, visitor),
+  generator: (e, config, visitor) =>
+      AnilistImageNode(e.attributes, config, visitor),
 );
 
 class AnilistImageSyntax extends md2.InlineSyntax {
@@ -24,6 +25,7 @@ class AnilistImageSyntax extends md2.InlineSyntax {
     var height = match.group(1);
 
     if (src != null) {
+      // print(src);
       var elm = md2.Element("img", []);
       elm.attributes["src"] = src;
       if (height != null) {
@@ -33,6 +35,7 @@ class AnilistImageSyntax extends md2.InlineSyntax {
           elm.attributes["heightPercent"] = height;
         }
       }
+      // print(elm.tag);
       parser.addNode(elm);
     }
 
@@ -40,23 +43,26 @@ class AnilistImageSyntax extends md2.InlineSyntax {
   }
 }
 
-class ImageNode2 extends SpanNode {
+class AnilistImageNode extends SpanNode {
   final Map<String, String> attributes;
   final md.MarkdownConfig config;
   final md.WidgetVisitor visitor;
 
   md.ImgConfig get imgConfig => config.img;
 
-  ImageNode2(this.attributes, this.config, this.visitor);
+  AnilistImageNode(this.attributes, this.config, this.visitor);
 
   static double maxHeight = 400;
 
   @override
   InlineSpan build() {
     double? width;
+    double? height;
 
     if (attributes['width'] != null) {
-      width = double.tryParse(attributes['width']!);
+      width = double.tryParse(attributes['width']!.replaceAll('px', ''));
+    } else if (attributes['height'] != null) {
+      height = double.tryParse(attributes['height']!.replaceAll('px', ''));
     }
 
     final imageUrl = attributes['src'] ?? '';
@@ -72,11 +78,14 @@ class ImageNode2 extends SpanNode {
                   if (uri != null &&
                       await canLaunchUrl(uri) &&
                       context.mounted) {
-                    ConfirmationDialog.show(
-                      context,
-                      "launch to ${(parent as LinkNode).attributes["href"]}",
-                      () => launchUrl(uri),
-                    );
+                    ConfirmationDialog.show(context,
+                        "launch to ${(parent as LinkNode).attributes["href"]}",
+                        () {
+                      if (config.a.onTap != null)
+                        config.a.onTap?.call('jhk');
+                      else
+                        launchUrl(uri);
+                    });
                   }
                 }
               : null,
@@ -86,7 +95,7 @@ class ImageNode2 extends SpanNode {
               constraints: BoxConstraints(
                 minHeight: 10,
                 minWidth: 10,
-                maxHeight: maxHeight,
+                maxHeight: height ?? maxHeight,
                 maxWidth: width ?? double.maxFinite,
               ),
               child: CachedImage(

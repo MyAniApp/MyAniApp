@@ -14,8 +14,6 @@ import 'package:myaniapp/notifications/push.dart';
 import 'package:myaniapp/providers/app_info.dart';
 import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/providers/shared_prefs.dart';
-// import 'package:myaniapp/router.dart';
-// import 'package:myaniapp/router.gr.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:myaniapp/url_protocol/web_url_protocol.dart'
     if (dart.library.io) 'package:myaniapp/url_protocol/api.dart';
@@ -118,7 +116,6 @@ class _MainAppState extends ConsumerState<MainApp> {
     // if (!kIsWeb) return;5
 
     print('listening...');
-    // Handle link when app is in warm state (front or background)
     _linkSubscription = _appLinks.uriLinkStream.listen((uri) {
       if (uri.scheme == "myaniapp" &&
           uri.host == "ani" &&
@@ -167,7 +164,7 @@ class AppTheme {
           seedColor: seed ?? Colors.blue,
           brightness: Brightness.dark,
         ),
-        tabBarTheme: const TabBarTheme(tabAlignment: TabAlignment.start),
+        tabBarTheme: const TabBarThemeData(tabAlignment: TabAlignment.start),
       );
 
   static ThemeData light(Color? seed) => ThemeData(
@@ -175,7 +172,7 @@ class AppTheme {
           seedColor: seed ?? Colors.blue,
           brightness: Brightness.light,
         ),
-        tabBarTheme: const TabBarTheme(tabAlignment: TabAlignment.start),
+        tabBarTheme: const TabBarThemeData(tabAlignment: TabAlignment.start),
       );
 }
 

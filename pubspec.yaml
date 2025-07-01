@@ -1,7 +1,7 @@
 name: myaniapp
 description: "An unofficial Anilist app."
 publish_to: "none"
-version: 0.5.19
+version: 0.5.20
 
 environment:
   sdk: ">=3.3.1 <4.0.0"
@@ -47,7 +47,7 @@ dependencies:
   ffi: any
   go_router: ^15.1.2
 dev_dependencies:
-  graphql_codegen: ^1.1.1
+  graphql_codegen: ^1.2.3
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0

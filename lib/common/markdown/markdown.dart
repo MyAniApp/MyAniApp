@@ -5,30 +5,52 @@ import "package:markdown/markdown.dart" as md2;
 import 'package:markdown_widget/markdown_widget.dart' as md;
 import 'package:markdown_widget/widget/span_node.dart';
 import 'package:myaniapp/common/cached_image.dart';
+import 'package:myaniapp/common/markdown/generator/b.dart';
 import 'package:myaniapp/common/markdown/generator/center.dart';
 import 'package:myaniapp/common/markdown/generator/hr.dart';
 import 'package:myaniapp/common/markdown/generator/html.dart';
+import 'package:myaniapp/common/markdown/generator/i.dart';
 import 'package:myaniapp/common/markdown/generator/image.dart';
 import 'package:myaniapp/common/markdown/generator/link.dart';
 import 'package:myaniapp/common/markdown/generator/media_card.dart';
 import 'package:myaniapp/common/markdown/generator/spoiler.dart';
+import 'package:myaniapp/common/markdown/syntax/center.dart';
+import 'package:myaniapp/common/markdown/syntax/heading.dart';
 import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-RegExp removeFromMarkdown = RegExp("<BR>|<br>|~~~|```");
+RegExp removeFromMarkdown = RegExp("~~~|```");
 
 String stripHTML(String data) {
-  return data
-      .replaceAll(removeFromMarkdown, "")
-      .replaceAll(RegExp(r"</?(B|b)>"), "**")
-      .replaceAll(RegExp("</?(i|I)>"), "*")
-      .replaceAllMapped(
-        RegExp(r"youtube\((.*?)\)", dotAll: true),
-        (match) => match.group(1) ?? '',
-      )
-      .replaceAll(removeFromMarkdown, "");
+  return data;
+  // .replaceAll(removeFromMarkdown, "")
+  // .replaceAll(RegExp(r"</?(B|b)>"), "**")
+  // .replaceAll(RegExp("</?(i|I)>"), "*")
+  // .replaceAllMapped(
+  //   RegExp(r"youtube\((.*?)\)", dotAll: true),
+  //   (match) => match.group(1) ?? '',
+  // )
+  // .replaceAll(removeFromMarkdown, "");
 }
+
+md2.ExtensionSet extensionSet = md2.ExtensionSet(
+  List<md2.BlockSyntax>.unmodifiable(
+    <md2.BlockSyntax>[
+      const md2.TableSyntax(),
+      const md2.UnorderedListWithCheckboxSyntax(),
+      const md2.OrderedListWithCheckboxSyntax(),
+      const md2.FootnoteDefSyntax(),
+    ],
+  ),
+  List<md2.InlineSyntax>.unmodifiable(
+    <md2.InlineSyntax>[
+      // md2.InlineHtmlSyntax(),
+      md2.StrikethroughSyntax(),
+      md2.AutolinkExtensionSyntax()
+    ],
+  ),
+);
 
 var markdownConfig = md.MarkdownConfig(
   configs: [
@@ -45,32 +67,82 @@ var markdownConfig = md.MarkdownConfig(
     md.ImgConfig(
       builder: (url, attributes) => CachedImage(url),
     ),
+    md.LinkConfig(
+      style: const TextStyle(color: Colors.blue),
+      onTap: (value) {
+        var uri = Uri.tryParse(value);
+        // print(uri?.host);
+        if (uri?.host == 'anilist.co') {
+          try {
+            var context = goRouter.configuration.navigatorKey!.currentContext!;
+            if (['anime', 'manga'].contains(uri!.pathSegments.first)) {
+              context.push(Routes.media(int.parse(uri.pathSegments[1])));
+              return;
+            } else if (['character', 'staff']
+                .contains(uri.pathSegments.first)) {
+              if (uri.pathSegments[1] == "staff") {
+                context.push(Routes.staff(int.parse(uri.queryParameters[1]!)));
+              } else {
+                context
+                    .push(Routes.character(int.parse(uri.queryParameters[1]!)));
+              }
+              return;
+            } else if (uri.pathSegments.first == 'forum' &&
+                uri.pathSegments[1] == 'thread') {
+              // print(uri.pathSegments);
+              if (uri.pathSegments.length == 5) {
+                print(Routes.threadComment(
+                  int.parse(uri.pathSegments[2]),
+                  int.parse(uri.pathSegments[4]),
+                ));
+                context.push(Routes.threadComment(
+                  int.parse(uri.pathSegments[2]),
+                  int.parse(uri.pathSegments[4]),
+                ));
+              } else {
+                context.push(Routes.thread(int.parse(uri.pathSegments.last)));
+              }
+              return;
+            } else if (uri.pathSegments.first == 'activity') {
+              context.push(Routes.activity(int.parse(uri.pathSegments[1])));
+              return;
+            }
+          } catch (err) {}
+        }
+        if (uri != null) {
+          launchUrl(uri, mode: LaunchMode.externalApplication);
+        }
+      },
+    ),
   ],
 );
 var markdownGenerator = md.MarkdownGenerator(
   linesMargin: const EdgeInsets.all(0),
-  extensionSet: md2.ExtensionSet.gitHubWeb,
+  extensionSet: extensionSet,
   generators: [
-    linkGeneratorWithTag,
-    centerSpanWithTag,
+    linkGenerator,
+    centerGenerator,
     mediaCardGenerator,
-    imageGeneratorWithTag,
-    spoilerTag,
-    hrGeneratorWithTag,
+    imageGenerator,
+    spoilerGenerator,
+    hrGenerator,
+    bGenerator,
+    iGenerator,
   ],
   inlineSyntaxList: [
-    CenterSyntax(),
+    CenterInlineSyntax(),
     AnilistImageSyntax(),
     SpoilerSyntax(),
+    EmbedMediaCardSyntax(),
   ],
   blockSyntaxList: [
-    const md2.HtmlBlockSyntax(),
+    CustomHeaderSyntax(),
   ],
   textGenerator: (node, config, visitor) =>
       CustomTextNode(node.textContent, config, visitor),
 );
 
-class MarkdownWidget extends ConsumerWidget {
+class MarkdownWidget extends StatelessWidget {
   const MarkdownWidget({
     super.key,
     required this.data,
@@ -96,119 +168,27 @@ class MarkdownWidget extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    var showEmbedMediaCard =
-        ref.watch(settingsProvider.select((value) => value.showEmbedMediaCard));
-
-    var generator = md.MarkdownGenerator(
-      linesMargin: markdownGenerator.linesMargin,
-      extensionSet: markdownGenerator.extensionSet,
-      textGenerator: markdownGenerator.textGenerator,
-      generators: [
-        ...markdownGenerator.generators,
-      ],
-      inlineSyntaxList: [
-        ...markdownGenerator.inlineSyntaxList,
-        if (showEmbedMediaCard) EmbedMediaCardSyntax(),
-      ],
-      blockSyntaxList: markdownGenerator.blockSyntaxList,
-    );
-
-    var config = markdownConfig.copy(
-      configs: [
-        md.LinkConfig(
-          style: const TextStyle(color: Colors.blue),
-          onTap: (value) {
-            var uri = Uri.tryParse(value);
-            // print(uri?.host);
-            if (uri?.host == 'anilist.co') {
-              try {
-                if (['anime', 'manga'].contains(uri!.pathSegments.first)) {
-                  context.push('/media/${uri.pathSegments[1]}');
-                  // context.pushRoute(
-                  //     MediaRoute(id: int.parse(uri.pathSegments[1])));
-                  return;
-                } else if (['character', 'staff']
-                    .contains(uri.pathSegments.first)) {
-                  if (uri.pathSegments[1] == "staff") {
-                    context
-                        .push(Routes.staff(int.parse(uri.queryParameters[1]!)));
-                  } else {
-                    context.push(
-                        Routes.character(int.parse(uri.queryParameters[1]!)));
-                  }
-                  return;
-                } else if (uri.pathSegments.first == 'forum' &&
-                    uri.pathSegments[1] == 'thread') {
-                  print(uri.pathSegments);
-                  if (uri.pathSegments.length == 5) {
-                    print(Routes.threadComment(
-                      int.parse(uri.pathSegments[2]),
-                      int.parse(uri.pathSegments[4]),
-                    ));
-                    context.push(Routes.threadComment(
-                      int.parse(uri.pathSegments[2]),
-                      int.parse(uri.pathSegments[4]),
-                    ));
-                  } else {
-                    context
-                        .push(Routes.thread(int.parse(uri.pathSegments.last)));
-                  }
-                  return;
-                } else if (uri.pathSegments.first == 'activity') {
-                  context.push(Routes.activity(int.parse(uri.pathSegments[1])));
-                  return;
-                }
-              } catch (err) {}
-            }
-            if (uri != null) {
-              launchUrl(uri, mode: LaunchMode.externalApplication);
-            }
-          },
-        ),
-      ],
-    );
-
+  Widget build(BuildContext context) {
     if (body) {
       return Padding(
         padding: padding,
         child: md.MarkdownBlock(
-          data: stripHTML(data),
+          data: data,
           selectable: selectable ?? false,
-          generator: generator,
-          config: config,
-          // shrinkWrap: shrinkWrap ?? false,
+          generator: markdownGenerator,
+          config: markdownConfig,
         ),
       );
     }
 
     return md.MarkdownWidget(
-      data: stripHTML(data),
+      data: data,
       padding: padding,
       selectable: selectable ?? false,
       shrinkWrap: shrinkWrap ?? false,
-      config: config,
-      markdownGenerator: generator,
+      config: markdownConfig,
+      markdownGenerator: markdownGenerator,
     );
-  }
-}
-
-class EmbedMediaCardSyntax extends md2.InlineSyntax {
-  EmbedMediaCardSyntax()
-      : super(r"https:\/\/anilist\.co\/(?:anime|manga)\/(\d+)\/.*?(?:\/|\s)");
-
-  @override
-  bool onMatch(md2.InlineParser parser, Match match) {
-    var mediaId = match.group(1);
-
-    if (mediaId != null && int.tryParse(mediaId) != null) {
-      md2.Element el = md2.Element("mediaCard", []);
-      el.attributes["id"] = mediaId;
-      el.attributes["href"] = match.input.substring(match.start, match.end);
-      parser.addNode(el);
-    }
-
-    return true;
   }
 }
 
@@ -227,24 +207,6 @@ class CustomH3Config extends md.H3Config {
   md.HeadingDivider? get divider => null;
 }
 
-class FFInline extends md2.InlineSyntax {
-  // @override
-  // RegExp get pattern => RegExp(r'(?<tilde>~{3,})(?<tildeInfo>[^]*)(?:~{3,})');
-
-  FFInline() : super(r'(?:~{3,}([\s\S]*?))~{3,}');
-
-  @override
-  bool onMatch(md2.InlineParser parser, Match match) {
-    // print(match.group(1));
-
-    var elm = md2.Element.text("center", match.group(1)!);
-
-    parser.addNode(elm);
-
-    return true;
-  }
-}
-
 class CustomTextNode extends md.ElementNode {
   final String text;
   final md.MarkdownConfig config;
@@ -256,6 +218,7 @@ class CustomTextNode extends md.ElementNode {
   void onAccepted(SpanNode parent) {
     final textStyle = config.p.textStyle.merge(parentStyle);
     children.clear();
+    // print(text);
     if (!text.contains(htmlRep)) {
       accept(TextNode(text: text, style: textStyle));
       return;
@@ -274,27 +237,3 @@ class CustomTextNode extends md.ElementNode {
     }
   }
 }
-
-// class FFBlock extends md2.BlockSyntax {
-//   @override
-//   RegExp get pattern => RegExp(r'^(~{3,})(?<backtickInfo>[^~]*)$');
-
-//   @override
-//   md2.Node? parse(md2.BlockParser parser) {
-//     var elm = md2.Element.text("center", parser.current.content);
-//     parser.advance();
-
-//     return elm;
-//   }
-
-// @override
-// bool onMatch(md2.InlineParser parser, Match match) {
-//   // print(match.group(1));
-
-//   var elm = md2.Element.text("center", match.group(1)!);
-
-//   parser.addNode(elm);
-
-//   return true;
-// }
-// }

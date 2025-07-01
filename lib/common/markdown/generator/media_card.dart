@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:markdown/markdown.dart' as m;
 import 'package:markdown_widget/markdown_widget.dart' as md;
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
+import 'package:myaniapp/common/markdown/generator/link.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
+import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/media_card.graphql.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/main.dart';
+import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
 
@@ -19,6 +24,25 @@ md.SpanNodeGeneratorWithTag mediaCardGenerator = md.SpanNodeGeneratorWithTag(
   generator: (e, config, visitor) =>
       MediaCardNode(e.attributes, config.p, config.a),
 );
+
+class EmbedMediaCardSyntax extends m.InlineSyntax {
+  EmbedMediaCardSyntax()
+      : super(r"https:\/\/anilist\.co\/(?:anime|manga)\/(\d+)\/.*?(?:\/|\s)");
+
+  @override
+  bool onMatch(m.InlineParser parser, Match match) {
+    var mediaId = match.group(1);
+
+    if (mediaId != null && int.tryParse(mediaId) != null) {
+      m.Element el = m.Element("mediaCard", []);
+      el.attributes["id"] = mediaId;
+      el.attributes["href"] = match.input.substring(match.start, match.end);
+      parser.addNode(el);
+    }
+
+    return true;
+  }
+}
 
 class MediaCardNode extends md.ElementNode {
   final Map<String, String> attributes;
@@ -35,10 +59,39 @@ class MediaCardNode extends md.ElementNode {
   InlineSpan build() {
     var id = int.parse(attributes['id']!);
 
-    // return const WidgetSpan(child: SizedBox());
-
     return WidgetSpan(
-      child: HookBuilder(
+      child: MediaCard(
+        id: id,
+        href: attributes['href']!,
+        linkConfig: linkConfig,
+      ),
+    );
+  }
+}
+
+class MediaCard extends ConsumerWidget {
+  const MediaCard({
+    super.key,
+    required this.id,
+    required this.href,
+    required this.linkConfig,
+  });
+
+  final int id;
+  final String href;
+  final md.LinkConfig linkConfig;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    var showEmbedMediaCard =
+        ref.watch(settingsProvider.select((value) => value.showEmbedMediaCard));
+
+    return Show(
+      when: showEmbedMediaCard,
+      fallback: Text.rich((LinkNode({'href': href}, linkConfig)
+            ..accept(md.TextNode(text: href)))
+          .build()),
+      child: () => HookBuilder(
         builder: (context) {
           var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
             embedMediaCardQuery,

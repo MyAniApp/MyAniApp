@@ -5,7 +5,7 @@ import 'package:markdown_widget/markdown_widget.dart' as md;
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/routes.dart';
 
-md.SpanNodeGeneratorWithTag spoilerTag = md.SpanNodeGeneratorWithTag(
+md.SpanNodeGeneratorWithTag spoilerGenerator = md.SpanNodeGeneratorWithTag(
   tag: "spoiler",
   generator: (e, config, visitor) => SpoilerNode(e.textContent, config.a),
 );
@@ -18,7 +18,7 @@ class SpoilerSyntax extends md2.InlineSyntax {
     var spoiler = match.group(1);
 
     if (spoiler != null) {
-      md2.Element el = md2.Element.text(spoilerTag.tag, spoiler);
+      md2.Element el = md2.Element.text(spoilerGenerator.tag, spoiler);
       parser.addNode(el);
     }
 
@@ -41,7 +41,7 @@ class SpoilerBlockSyntax extends md2.BlockSyntax {
   md2.Node? parse(md2.BlockParser parser) {
     var text = pattern.firstMatch(parser.current.content)!.group(1)!;
 
-    var element = md2.Element.text(spoilerTag.tag, text);
+    var element = md2.Element.text(spoilerGenerator.tag, text);
 
     return element;
   }

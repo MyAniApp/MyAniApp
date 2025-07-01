@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:markdown_widget/markdown_widget.dart' as md;
 
 // overwrite default link generator because the default one for some reason adds a space at the end of the link
-md.SpanNodeGeneratorWithTag linkGeneratorWithTag = md.SpanNodeGeneratorWithTag(
+md.SpanNodeGeneratorWithTag linkGenerator = md.SpanNodeGeneratorWithTag(
   tag: "a",
   generator: (e, config, visitor) => LinkNode(e.attributes, config.a),
 );
@@ -34,6 +34,7 @@ class LinkNode extends md.ElementNode {
 
   InlineSpan _toLinkInlineSpan(InlineSpan span, VoidCallback onTap) {
     if (span is TextSpan) {
+      // print(span.children);
       span = TextSpan(
         text: span.text,
         children:

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/app/home/forum/screen.dart';
 import 'package:myaniapp/common/comment.dart';
-import 'package:myaniapp/common/custom_dropdown.dart';
 import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/common/markdown_editor.dart';
@@ -64,6 +62,8 @@ class ThreadScreen extends HookConsumerWidget {
           );
         }
         var threadData = snapshot.parsedData?.thread;
+
+        // print(threadData?.body);
 
         var view = CustomScrollView(
           controller: scrollController,
@@ -337,10 +337,10 @@ class ThreadScreen extends HookConsumerWidget {
                     onAvatarTap: comment.user != null
                         ? () => context.push(Routes.user(comment.user!.name))
                         : null,
-                    donatorText: comment.user!.donatorTier != 0
-                        ? comment.user!.donatorBadge
+                    donatorText: comment.user?.donatorTier != 0
+                        ? comment.user?.donatorBadge
                         : null,
-                    modRoles: comment.user!.moderatorRoles?.fold(
+                    modRoles: comment.user?.moderatorRoles?.fold(
                         [],
                         (previousValue, element) =>
                             [...?previousValue, element!.name.capitalize()]),
@@ -361,23 +361,25 @@ class ThreadScreen extends HookConsumerWidget {
             ),
             width: 130,
             child: Show(
-              when: snapshot.parsedData != null,
-              child: () => SheetDropdownMenu(
-                key: Key(
-                    (snapshot.parsedData!.comments!.pageInfo!.currentPage ?? 1)
-                        .toString()),
-                value:
-                    snapshot.parsedData!.comments!.pageInfo!.currentPage ?? 1,
-                hint: "Page",
-                onChanged: (values) {
+              when:
+                  (snapshot.parsedData?.comments?.pageInfo?.lastPage ?? 0) > 1,
+              child: () => DropdownMenu(
+                initialSelection:
+                    (snapshot.parsedData?.comments?.pageInfo?.currentPage ?? 0),
+                label: Text(
+                  "Page",
+                  style: TextStyle(
+                      backgroundColor: context.theme.colorScheme.surface),
+                ),
+                onSelected: (selected) {
                   if (snapshot.parsedData!.comments!.pageInfo!.currentPage ==
-                      values.first) {
+                      selected) {
                     return;
                   }
                   fetchMore(
                     variables: Variables$Query$Thread.fromJson(
                             snapshot.request!.variables)
-                        .copyWith(page: values.first)
+                        .copyWith(page: selected)
                         .toJson(),
                     mergeResults: (previousResult, result) => result,
                   );
@@ -386,7 +388,10 @@ class ThreadScreen extends HookConsumerWidget {
                         .jumpTo(dataKey.currentContext!.size!.height);
                   }
                 },
-                items: [
+                inputDecorationTheme: const InputDecorationTheme(
+                  border: OutlineInputBorder(borderRadius: imageRadius),
+                ),
+                dropdownMenuEntries: [
                   for (int i = 1;
                       i <=
                           (snapshot.parsedData!.comments!.pageInfo!.lastPage ??
@@ -500,10 +505,10 @@ class ThreadComment extends ConsumerWidget {
                       : null,
                   isReply: true,
                   refetch: refetch,
-                  donatorText: reply.user!.donatorTier != 0
-                      ? reply.user!.donatorBadge
+                  donatorText: reply.user?.donatorTier != 0
+                      ? reply.user?.donatorBadge
                       : null,
-                  modRoles: reply.user!.moderatorRoles?.fold(
+                  modRoles: reply.user?.moderatorRoles?.fold(
                       [],
                       (previousValue, element) =>
                           [...?previousValue, element!.name.capitalize()]),

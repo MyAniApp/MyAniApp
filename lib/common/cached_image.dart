@@ -34,9 +34,9 @@ class CachedImage extends StatelessWidget {
         imageBuilder: imageBuilder,
         height: height,
         width: width,
-        // filterQuality: FilterQuality.low,
         color: color,
         progressIndicatorBuilder: (context, url, progress) => Center(
+          heightFactor: 2,
           child: CircularProgressIndicator.adaptive(
             value: progress.progress,
           ),
