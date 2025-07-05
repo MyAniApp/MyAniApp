@@ -71,7 +71,6 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(GoRouterState.of(context).uri.queryParametersAll);
     var listSetting = ref.watch(listSettingsProvider.select(
       (value) => value.search,
     ));

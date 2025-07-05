@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gql/ast.dart';
 import 'package:html/dom.dart' as h;
 import 'package:html/dom_parsing.dart';
 import 'package:html/parser.dart';
@@ -24,7 +23,11 @@ void htmlToMarkdown(
     h.Node? node, int deep, List<m.Node> mNodes, WidgetVisitor visitor) {
   if (node == null) return;
   if (node is h.Text) {
-    mNodes.addAll(markdownText(node.text));
+    // add a space
+    // for text as "<p>hello <i>world</i>!"
+    // would be rendered as one word
+    // but it still adds space to the <p> text
+    mNodes.addAll(markdownText(' ${node.text}'));
   } else if (node is h.Element) {
     final tag = node.localName;
     List<m.Node> children = [];
@@ -107,7 +110,6 @@ class HtmlToSpanVisitor extends TreeVisitor {
   void visitText(h.Text node) {
     final last = _spansStack.last;
     if (last is ElementNode) {
-      // print(node.text);
       var mdNode = markdownText(node.text);
       var spans = visitor.visit(mdNode);
       for (var s in spans) last.accept(s);

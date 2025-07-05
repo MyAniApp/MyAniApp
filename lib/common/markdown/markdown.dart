@@ -91,10 +91,6 @@ var markdownConfig = md.MarkdownConfig(
                 uri.pathSegments[1] == 'thread') {
               // print(uri.pathSegments);
               if (uri.pathSegments.length == 5) {
-                print(Routes.threadComment(
-                  int.parse(uri.pathSegments[2]),
-                  int.parse(uri.pathSegments[4]),
-                ));
                 context.push(Routes.threadComment(
                   int.parse(uri.pathSegments[2]),
                   int.parse(uri.pathSegments[4]),

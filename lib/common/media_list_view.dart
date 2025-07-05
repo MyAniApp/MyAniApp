@@ -405,6 +405,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                       child: () => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Show(
                               when: totalEpiChap != null,

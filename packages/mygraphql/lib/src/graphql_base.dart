@@ -63,7 +63,6 @@ class GraphqlClient {
 
   QueryHookResult<T> useQuery<T>(GQLRequest<T> request) {
     // print(streamController.stream.single);
-
     return use(
       StreamHook(
         // stream,

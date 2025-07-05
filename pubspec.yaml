@@ -1,7 +1,7 @@
 name: myaniapp
 description: "An unofficial Anilist app."
 publish_to: "none"
-version: 0.5.20
+version: 0.5.21
 
 environment:
   sdk: ">=3.3.1 <4.0.0"
@@ -41,11 +41,11 @@ dependencies:
   gql_link: ^1.0.1-alpha+1717789143896
   numberpicker: ^2.1.2
   dots_indicator: ^4.0.1
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
 
   ffi: any
   go_router: ^15.1.2
+  hive_ce: ^2.11.3
+  hive_ce_flutter: ^2.3.1
 dev_dependencies:
   graphql_codegen: ^1.2.3
   flutter_test:

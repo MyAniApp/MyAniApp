@@ -13,22 +13,22 @@ import 'package:myaniapp/graphql/__gen/fragments/media.graphql.dart';
 import 'package:myaniapp/graphql/__gen/media.graphql.dart';
 import 'package:myaniapp/providers/list_settings.dart';
 
-class MediaScreenAppBar extends ConsumerWidget {
+class MediaScreenAppBar extends StatelessWidget {
   const MediaScreenAppBar({
     super.key,
     required this.data,
     required this.tab,
+    required this.tabs,
     this.placeholder,
   });
 
   final Query$Media$Media? data;
-  final String tab;
+  final TabController tab;
+  final List<(Widget, String)> tabs;
   final Fragment$MediaFragment? placeholder;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    var listSettings = ref.watch(listSettingsProvider);
-
+  Widget build(BuildContext context) {
     if (data == null && placeholder == null) return SliverAppBar();
 
     var dOrP = data ?? placeholder;
@@ -47,7 +47,7 @@ class MediaScreenAppBar extends ConsumerWidget {
         child: BackButton(
           style: ButtonStyle(
             backgroundColor: WidgetStatePropertyAll<Color?>(
-              context.theme.colorScheme.surface.withOpacity(.3),
+              context.theme.colorScheme.surface.withValues(alpha: .3),
             ),
             iconColor: WidgetStatePropertyAll(
               context.theme.colorScheme.onSurface,
@@ -56,35 +56,8 @@ class MediaScreenAppBar extends ConsumerWidget {
         ),
       ),
       actions: [
-        if (tab == "Relations")
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(.4),
-              borderRadius: const BorderRadius.all(Radius.circular(30)),
-            ),
-            child: ListSettingButton(
-              type: listSettings.mediaRelations,
-              onUpdate: (type) =>
-                  ref.read(listSettingsProvider.notifier).update(
-                        listSettings.copyWith(mediaRelations: type),
-                      ),
-            ),
-          ),
-        if (tab == "Similar")
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(.4),
-              borderRadius: const BorderRadius.all(Radius.circular(30)),
-            ),
-            child: ListSettingButton(
-              type: listSettings.mediaSimilar,
-              onUpdate: (type) =>
-                  ref.read(listSettingsProvider.notifier).update(
-                        listSettings.copyWith(mediaSimilar: type),
-                      ),
-            ),
-          ),
-        const SizedBox(width: 5)
+        MediaListSetting(tab: tab, tabs: tabs),
+        const SizedBox(width: 5),
       ],
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
@@ -177,11 +150,17 @@ class MediaScreenAppBar extends ConsumerWidget {
                                     horizontal: 10, vertical: 8),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      "Titles",
-                                      style:
-                                          context.theme.textTheme.titleMedium,
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        "Titles",
+                                        style: context
+                                            .theme.textTheme.titleLarge
+                                            ?.copyWith(
+                                                fontWeight: FontWeight.bold),
+                                      ),
                                     ),
                                     if (data?.title!.native != null)
                                       _MediaTitle(
@@ -258,6 +237,75 @@ class MediaScreenAppBar extends ConsumerWidget {
   }
 }
 
+class MediaListSetting extends ConsumerStatefulWidget {
+  final TabController tab;
+  final List<(Widget, String)> tabs;
+
+  const MediaListSetting({super.key, required this.tab, required this.tabs});
+
+  @override
+  ConsumerState<MediaListSetting> createState() => _MediaListSettingState();
+}
+
+class _MediaListSettingState extends ConsumerState<MediaListSetting> {
+  bool? show;
+
+  @override
+  void initState() {
+    widget.tab.addListener(listener);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget.tab.removeListener(listener);
+    super.dispose();
+  }
+
+  void listener() {
+    if (widget.tabs[widget.tab.index].$2 == 'Relations') {
+      setState(() => show = true);
+    } else if (widget.tabs[widget.tab.index].$2 == 'Similar') {
+      setState(() => show = false);
+    } else if (show != null) {
+      setState(() => show = null);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var listSettings = ref.watch(listSettingsProvider);
+    if (show == true) {
+      return Container(
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: .4),
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
+        ),
+        child: ListSettingButton(
+          type: listSettings.mediaRelations,
+          onUpdate: (type) => ref.read(listSettingsProvider.notifier).update(
+                listSettings.copyWith(mediaRelations: type),
+              ),
+        ),
+      );
+    } else if (show == false) {
+      return Container(
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(.4),
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
+        ),
+        child: ListSettingButton(
+          type: listSettings.mediaSimilar,
+          onUpdate: (type) => ref.read(listSettingsProvider.notifier).update(
+                listSettings.copyWith(mediaSimilar: type),
+              ),
+        ),
+      );
+    }
+    return const SizedBox();
+  }
+}
+
 class _MediaTitle extends StatelessWidget {
   const _MediaTitle({
     required this.lang,
@@ -271,12 +319,13 @@ class _MediaTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           "$lang: ",
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        SelectableText(title),
+        Expanded(child: SelectableText(title)),
       ],
     );
   }

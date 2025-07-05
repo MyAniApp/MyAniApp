@@ -22,21 +22,19 @@ class MediaInfoTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return Text('dsajfhlk');
     return ListView(
       padding: const EdgeInsets.all(0),
       children: [
         if (media.nextAiringEpisode != null)
-          Padding(
-            padding: const EdgeInsets.only(top: 5),
-            child: Container(
-              padding: const EdgeInsets.all(8.0),
-              color: Colors.blue[900],
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Episode ${media.nextAiringEpisode!.episode} Airing ${media.nextAiringEpisode!.airingAt.dateFromTimestamp().relativeTime(context)}",
-                  style: const TextStyle(color: Colors.white),
-                ),
+          Container(
+            padding: const EdgeInsets.all(8.0),
+            color: context.theme.colorScheme.primaryContainer,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Episode ${media.nextAiringEpisode!.episode} Airing ${media.nextAiringEpisode!.airingAt.dateFromTimestamp().relativeTime(context)}",
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           ),
@@ -69,6 +67,7 @@ class MediaInfoTab extends StatelessWidget {
             borderRadius: imageRadius,
           ),
           child: MarkdownWidget(
+            key: Key(media.description ?? ''),
             data: media.description ?? "*No description*",
             padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
             shrinkWrap: true,
@@ -323,15 +322,14 @@ class _TagsState extends State<_Tags> {
                     width: double.maxFinite,
                     height: double.maxFinite,
                     decoration: BoxDecoration(
-                      color: context.theme.colorScheme.surfaceContainerHighest,
+                      color: tag!.isMediaSpoiler == true
+                          ? context.theme.colorScheme.errorContainer
+                          : context.theme.colorScheme.surfaceContainerHighest,
                       borderRadius: imageRadius,
                     ),
                     padding: const EdgeInsets.all(8),
                     child: DefaultTextStyle(
-                      style: context.theme.textTheme.labelMedium?.copyWith(
-                              color: tag!.isMediaSpoiler == true
-                                  ? context.theme.colorScheme.error
-                                  : null) ??
+                      style: context.theme.textTheme.labelMedium ??
                           const TextStyle(),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

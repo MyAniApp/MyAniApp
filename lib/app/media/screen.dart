@@ -63,6 +63,7 @@ class _MediaScreenState extends State<MediaScreen>
       return null;
     }, [snapshot.parsedData?.hashCode]);
 
+    // print(snapshot?.parsedData?.Media);
     return HidingFloatingButton(
       notificationPredicate: (notification) => notification.depth == 2,
       button: Show(
@@ -79,7 +80,8 @@ class _MediaScreenState extends State<MediaScreen>
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
             MediaScreenAppBar(
               data: snapshot.parsedData?.Media!,
-              tab: widget.tab,
+              tab: _tabController,
+              tabs: tabs,
               placeholder: widget.placeholder,
             ),
             if (snapshot.parsedData != null && tabs.isNotEmpty)
@@ -87,7 +89,6 @@ class _MediaScreenState extends State<MediaScreen>
                 delegate: SliverTabBarViewDelegate(
                   child: TabBar(
                     isScrollable: true,
-                    tabAlignment: TabAlignment.center,
                     controller: _tabController,
                     tabs: [
                       for (var tab in tabs) Tab(text: tab.$2),

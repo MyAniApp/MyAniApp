@@ -1,4 +1,4 @@
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 import 'package:mygraphql/src/stores/store.dart';
 
 class HiveStore extends Store<Map<String, dynamic>?> {

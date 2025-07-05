@@ -109,10 +109,10 @@ class MediaSearchQuery {
         format0 = f.toList();
       }
     }
-
+    // print(query);
     return MediaSearchQuery(
       query,
-      search: query["search"],
+      search: query["search"]?[0],
       sort: sort0,
       type: type0,
       format: format0,
