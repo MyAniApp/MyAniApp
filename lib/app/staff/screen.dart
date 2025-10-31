@@ -385,7 +385,7 @@ class _StaffViewState extends ConsumerState<StaffView>
                     bool isCharacter = tabController.index == 0 ? true : false;
 
                     if (isCharacter) {
-                      widget.fetchMore(
+                      return widget.fetchMore(
                         variables: Variables$Query$Staff.fromJson(
                                 widget.request.variables)
                             .copyWith(characterPage: nextPage)
