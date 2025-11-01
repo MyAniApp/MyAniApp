@@ -192,13 +192,11 @@ class _StaffViewState extends ConsumerState<StaffView>
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
               SliverAppBar(
                 pinned: true,
-                title: InvisibleExpandedTitle(
-                  child: Text(
-                    (widget.staff ?? widget.placeholder)!.name!.userPreferred!,
-                    maxLines: 2,
-                  ),
+                title: Text(
+                  (widget.staff ?? widget.placeholder)!.name!.userPreferred!,
+                  maxLines: 2,
                 ),
-                expandedHeight: 182,
+                // expandedHeight: 182,
                 // snap: true,
                 actions: [
                   if (widget.staff != null &&
@@ -223,59 +221,59 @@ class _StaffViewState extends ConsumerState<StaffView>
                     ),
                   const SizedBox(width: 5),
                 ],
-                flexibleSpace: FlexibleSpaceBar(
-                  background: SafeArea(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 16,
-                            right: 8,
-                            left: 8,
-                          ),
-                          child: InkWellImage(
-                            onTap: () => ImageViewer.showImage(
-                              context,
-                              (widget.staff ?? widget.placeholder)!
-                                  .image!
-                                  .large!,
-                              tag: (widget.staff ?? widget.placeholder)!.id,
-                            ),
-                            borderRadius: imageRadius,
-                            child: ClipRRect(
-                              borderRadius: imageRadius,
-                              child: Hero(
-                                tag: (widget.staff ?? widget.placeholder)!.id,
-                                child: CachedImage(
-                                  (widget.staff ?? widget.placeholder)!
-                                      .image!
-                                      .large!,
-                                  height: 150,
-                                  width: 106,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Text(
-                              (widget.staff ?? widget.placeholder)!
-                                  .name!
-                                  .userPreferred!,
-                              style: context.theme.textTheme.titleMedium,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 5,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+                // flexibleSpace: FlexibleSpaceBar(
+                //   background: SafeArea(
+                //     child: Row(
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: [
+                //         Padding(
+                //           padding: const EdgeInsets.only(
+                //             top: 16,
+                //             right: 8,
+                //             left: 8,
+                //           ),
+                //           child: InkWellImage(
+                //             onTap: () => ImageViewer.showImage(
+                //               context,
+                //               (widget.staff ?? widget.placeholder)!
+                //                   .image!
+                //                   .large!,
+                //               tag: (widget.staff ?? widget.placeholder)!.id,
+                //             ),
+                //             borderRadius: imageRadius,
+                //             child: ClipRRect(
+                //               borderRadius: imageRadius,
+                //               child: Hero(
+                //                 tag: (widget.staff ?? widget.placeholder)!.id,
+                //                 child: CachedImage(
+                //                   (widget.staff ?? widget.placeholder)!
+                //                       .image!
+                //                       .large!,
+                //                   height: 150,
+                //                   width: 106,
+                //                   fit: BoxFit.fill,
+                //                 ),
+                //               ),
+                //             ),
+                //           ),
+                //         ),
+                //         Expanded(
+                //           child: Padding(
+                //             padding: const EdgeInsets.only(top: 20),
+                //             child: Text(
+                //               (widget.staff ?? widget.placeholder)!
+                //                   .name!
+                //                   .userPreferred!,
+                //               style: context.theme.textTheme.titleMedium,
+                //               overflow: TextOverflow.ellipsis,
+                //               maxLines: 5,
+                //             ),
+                //           ),
+                //         )
+                //       ],
+                //     ),
+                //   ),
+                // ),
               ),
               Show(
                 when: widget.staff != null,
@@ -297,41 +295,91 @@ class _StaffViewState extends ConsumerState<StaffView>
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          if (widget.staff!.dateOfBirth?.toDateString() != null)
-                            _InfoText(
-                              title: "Birth:",
-                              text: widget.staff!.dateOfBirth!.toDateString()!,
-                            ),
-                          if (widget.staff!.dateOfDeath?.toDateString() != null)
-                            _InfoText(
-                              title: "Death:",
-                              text: widget.staff!.dateOfDeath!.toDateString()!,
-                            ),
-                          if (widget.staff!.age != null)
-                            _InfoText(
-                                title: "Age:",
-                                text: widget.staff!.age!.toString()),
-                          if (widget.staff!.homeTown != null)
-                            _InfoText(
-                              title: "Hometown:",
-                              text: widget.staff!.homeTown!,
-                            ),
-                          if (widget.staff!.gender != null)
-                            _InfoText(
-                              title: "Gender:",
-                              text: widget.staff!.gender!,
-                            ),
-                          if (widget.staff!.yearsActive?.isNotEmpty == true)
-                            _InfoText(
-                              title: "Year Active:",
-                              text:
-                                  "${widget.staff!.yearsActive![0]} - ${widget.staff!.yearsActive?.elementAtOrNull(1) ?? "Present"}",
-                            ),
-                          if (widget.staff!.bloodType != null)
-                            _InfoText(
-                              title: "Blood Type:",
-                              text: widget.staff!.bloodType!,
-                            ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              InkWellImage(
+                                onTap: () => ImageViewer.showImage(
+                                  context,
+                                  (widget.staff ?? widget.placeholder)!
+                                      .image!
+                                      .large!,
+                                  tag: (widget.staff ?? widget.placeholder)!.id,
+                                ),
+                                borderRadius: imageRadius,
+                                child: ClipRRect(
+                                  borderRadius: imageRadius,
+                                  child: Hero(
+                                    tag: (widget.staff ?? widget.placeholder)!
+                                        .id,
+                                    child: CachedImage(
+                                      (widget.staff ?? widget.placeholder)!
+                                          .image!
+                                          .large!,
+                                      height: 150,
+                                      width: 106,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      if (widget.staff!.dateOfBirth
+                                              ?.toDateString() !=
+                                          null)
+                                        _InfoText(
+                                          title: "Birth:",
+                                          text: widget.staff!.dateOfBirth!
+                                              .toDateString()!,
+                                        ),
+                                      if (widget.staff!.dateOfDeath
+                                              ?.toDateString() !=
+                                          null)
+                                        _InfoText(
+                                          title: "Death:",
+                                          text: widget.staff!.dateOfDeath!
+                                              .toDateString()!,
+                                        ),
+                                      if (widget.staff!.age != null)
+                                        _InfoText(
+                                            title: "Age:",
+                                            text:
+                                                widget.staff!.age!.toString()),
+                                      if (widget.staff!.homeTown != null)
+                                        _InfoText(
+                                          title: "Hometown:",
+                                          text: widget.staff!.homeTown!,
+                                        ),
+                                      if (widget.staff!.gender != null)
+                                        _InfoText(
+                                          title: "Gender:",
+                                          text: widget.staff!.gender!,
+                                        ),
+                                      if (widget
+                                              .staff!.yearsActive?.isNotEmpty ==
+                                          true)
+                                        _InfoText(
+                                          title: "Year Active:",
+                                          text:
+                                              "${widget.staff!.yearsActive![0]} - ${widget.staff!.yearsActive?.elementAtOrNull(1) ?? "Present"}",
+                                        ),
+                                      if (widget.staff!.bloodType != null)
+                                        _InfoText(
+                                          title: "Blood Type:",
+                                          text: widget.staff!.bloodType!,
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                           if (metadata != null)
                             MarkdownWidget.body(
                               data: metadata,

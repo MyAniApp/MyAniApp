@@ -5,7 +5,6 @@ import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/image_viewer.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
-import 'package:myaniapp/common/invisible_expanded_title.dart';
 import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/list_tile_circle_avatar.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
@@ -106,11 +105,9 @@ class CharacterScreen extends HookConsumerWidget {
                 headerSliverBuilder: (context, innerBoxIsScrolled) => [
                   SliverAppBar(
                     pinned: true,
-                    title: InvisibleExpandedTitle(
-                      child: Text(
-                        (data ?? placeholder)!.name!.userPreferred!,
-                        maxLines: 2,
-                      ),
+                    title: Text(
+                      (data ?? placeholder)!.name!.userPreferred!,
+                      maxLines: 2,
                     ),
                     actions: [
                       ListSettingButton(
@@ -131,54 +128,54 @@ class CharacterScreen extends HookConsumerWidget {
                           ],
                         ),
                     ],
-                    expandedHeight: 182,
-                    flexibleSpace: FlexibleSpaceBar(
-                      background: SafeArea(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                top: 16,
-                                right: 8,
-                                left: 8,
-                              ),
-                              child: InkWellImage(
-                                onTap: () => ImageViewer.showImage(
-                                  context,
-                                  (data ?? placeholder)!.image!.large!,
-                                  tag: (data ?? placeholder)!.id,
-                                ),
-                                borderRadius: imageRadius,
-                                child: Hero(
-                                  tag: (data ?? placeholder)!.id,
-                                  child: ClipRRect(
-                                    borderRadius: imageRadius,
-                                    child: CachedImage(
-                                      (data ?? placeholder)!.image!.large!,
-                                      height: 150,
-                                      width: 106,
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 20),
-                                child: Text(
-                                  (data ?? placeholder)!.name!.userPreferred!,
-                                  style: context.theme.textTheme.titleMedium,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 5,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    // expandedHeight: 182,
+                    // flexibleSpace: FlexibleSpaceBar(
+                    //   background: SafeArea(
+                    //     child: Row(
+                    //       crossAxisAlignment: CrossAxisAlignment.start,
+                    //       children: [
+                    //         Padding(
+                    //           padding: const EdgeInsets.only(
+                    //             top: 16,
+                    //             right: 8,
+                    //             left: 8,
+                    //           ),
+                    //           child: InkWellImage(
+                    //             onTap: () => ImageViewer.showImage(
+                    //               context,
+                    //               (data ?? placeholder)!.image!.large!,
+                    //               tag: (data ?? placeholder)!.id,
+                    //             ),
+                    //             borderRadius: imageRadius,
+                    //             child: Hero(
+                    //               tag: (data ?? placeholder)!.id,
+                    //               child: ClipRRect(
+                    //                 borderRadius: imageRadius,
+                    //                 child: CachedImage(
+                    //                   (data ?? placeholder)!.image!.large!,
+                    //                   height: 150,
+                    //                   width: 106,
+                    //                   fit: BoxFit.fill,
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         ),
+                    //         Expanded(
+                    //           child: Padding(
+                    //             padding: const EdgeInsets.only(top: 20),
+                    //             child: Text(
+                    //               (data ?? placeholder)!.name!.userPreferred!,
+                    //               style: context.theme.textTheme.titleMedium,
+                    //               overflow: TextOverflow.ellipsis,
+                    //               maxLines: 5,
+                    //             ),
+                    // ),
+                    // )
+                    // ],
+                    // ),
+                    // ),
+                    // ),
                   ),
                 ],
                 body: Show(
@@ -220,24 +217,64 @@ class CharacterScreen extends HookConsumerWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              if (data.age != null)
-                                _InfoText(title: "Age:", text: data.age!),
-                              if (data.bloodType != null)
-                                _InfoText(
-                                  title: "Blood Type:",
-                                  text: data.bloodType!,
-                                ),
-                              if (data.dateOfBirth != null &&
-                                  data.dateOfBirth!.toDateString() != null)
-                                _InfoText(
-                                  title: "Birth:",
-                                  text: data.dateOfBirth!.toDateString()!,
-                                ),
-                              if (data.gender != null)
-                                _InfoText(
-                                  title: "Gender:",
-                                  text: data.gender!,
-                                ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  InkWellImage(
+                                    onTap: () => ImageViewer.showImage(
+                                      context,
+                                      data.image!.large!,
+                                      tag: data.id,
+                                    ),
+                                    borderRadius: imageRadius,
+                                    child: Hero(
+                                      tag: data.id,
+                                      child: ClipRRect(
+                                        borderRadius: imageRadius,
+                                        child: CachedImage(
+                                          data!.image!.large!,
+                                          height: 150,
+                                          width: 106,
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Flexible(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          if (data.age != null)
+                                            _InfoText(
+                                                title: "Age:", text: data.age!),
+                                          if (data.bloodType != null)
+                                            _InfoText(
+                                              title: "Blood Type:",
+                                              text: data.bloodType!,
+                                            ),
+                                          if (data.dateOfBirth != null &&
+                                              data.dateOfBirth!
+                                                      .toDateString() !=
+                                                  null)
+                                            _InfoText(
+                                              title: "Birth:",
+                                              text: data.dateOfBirth!
+                                                  .toDateString()!,
+                                            ),
+                                          if (data.gender != null)
+                                            _InfoText(
+                                              title: "Gender:",
+                                              text: data.gender!,
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
                               if (metadata != null)
                                 MarkdownWidget.body(
                                   data: metadata,

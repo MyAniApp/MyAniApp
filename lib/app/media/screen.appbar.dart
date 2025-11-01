@@ -147,21 +147,11 @@ class MediaScreenAppBar extends StatelessWidget {
                             builder: (context) => Dialog(
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 8),
+                                    horizontal: 10, vertical: 20),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Align(
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "Titles",
-                                        style: context
-                                            .theme.textTheme.titleLarge
-                                            ?.copyWith(
-                                                fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
                                     if (data?.title!.native != null)
                                       _MediaTitle(
                                         lang: "Native",
@@ -325,7 +315,7 @@ class _MediaTitle extends StatelessWidget {
           "$lang: ",
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        Expanded(child: SelectableText(title)),
+        Flexible(child: SelectableText(title)),
       ],
     );
   }

@@ -9,19 +9,24 @@ import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/media_editor/media_editor.dart';
-import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/graphql/__gen/fragments/list_group.graphql.dart';
-import 'package:myaniapp/graphql/__gen/fragments/media_entry.graphql.dart';
 import 'package:myaniapp/graphql/__gen/media_list.graphql.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/providers/list_settings.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:myaniapp/utils.dart';
 import 'package:mygraphql/graphql.dart';
+
+const listSortingOptions = {
+  Enum$MediaListSort.MEDIA_TITLE_NATIVE_DESC: "Title",
+  Enum$MediaListSort.ADDED_TIME_DESC: "Last Added",
+  Enum$MediaListSort.SCORE_DESC: "Score",
+  Enum$MediaListSort.UPDATED_TIME_DESC: "Last Updated",
+};
 
 class MediaListView extends ConsumerStatefulWidget {
   const MediaListView({
@@ -127,7 +132,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
   }
 
   void sortEntries() {
-    for (var (index, group) in groups.indexed) {
+    for (var group in groups) {
       switch (sort) {
         case Enum$MediaListSort.SCORE_DESC:
           group.entries!.sort(
@@ -150,7 +155,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
           break;
         case Enum$MediaListSort.ADDED_TIME_DESC:
           group.entries!.sort(
-            (a, b) => a!.id.compareTo(b!.id),
+            (a, b) => b!.id.compareTo(a!.id),
           );
           break;
         default:
@@ -168,7 +173,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
           break;
       }
 
-      groups.setAll(index, [group]);
+      // groups.setAll(index, [group]);
     }
 
     setState(() {});
@@ -209,7 +214,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                             child: SizedBox(
                               height: 120,
                               child: MediaCard(
-                                listType: setting,
+                                listType: ListType.grid,
                                 image: entry.media!.coverImage!.extraLarge!,
                                 onLongPress: () =>
                                     MediaSheet.show(context, entry.media!),
@@ -297,29 +302,20 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                 isScrollControlled: true,
                 builder: (context) => DraggableScrollableSheet(
                   expand: false,
-                  builder: (context, scrollController) => ListView(
-                    controller: scrollController,
-                    children: [
-                      Enum$MediaListSort.MEDIA_TITLE_NATIVE_DESC,
-                      Enum$MediaListSort.ADDED_TIME_DESC,
-                      Enum$MediaListSort.SCORE_DESC,
-                      Enum$MediaListSort.UPDATED_TIME_DESC,
-                    ]
-                        .map(
-                          (e) => RadioListTile<Enum$MediaListSort>.adaptive(
-                            value: e,
-                            groupValue: sort,
-                            title: Text(e.name.capitalize()),
-                            onChanged: (value) {
-                              sort =
-                                  value ?? Enum$MediaListSort.UPDATED_TIME_DESC;
-                              sortEntries();
-                              context.pop();
-                            },
-                          ),
-                        )
-                        .toList(),
-                  ),
+                  builder: (context, scrollController) =>
+                      ListView(controller: scrollController, children: [
+                    for (var e in (listSortingOptions.entries))
+                      RadioListTile<Enum$MediaListSort>.adaptive(
+                        value: e.key,
+                        groupValue: sort,
+                        title: Text(e.value),
+                        onChanged: (value) {
+                          sort = value ?? Enum$MediaListSort.UPDATED_TIME_DESC;
+                          sortEntries();
+                          context.pop();
+                        },
+                      ),
+                  ]),
                 ),
               ),
               icon: const Icon(Icons.sort),

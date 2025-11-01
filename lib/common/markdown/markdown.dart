@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import "package:markdown/markdown.dart" as md2;
 import 'package:markdown_widget/markdown_widget.dart' as md;
@@ -16,7 +15,6 @@ import 'package:myaniapp/common/markdown/generator/media_card.dart';
 import 'package:myaniapp/common/markdown/generator/spoiler.dart';
 import 'package:myaniapp/common/markdown/syntax/center.dart';
 import 'package:myaniapp/common/markdown/syntax/heading.dart';
-import 'package:myaniapp/providers/settings.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -71,7 +69,6 @@ var markdownConfig = md.MarkdownConfig(
       style: const TextStyle(color: Colors.blue),
       onTap: (value) {
         var uri = Uri.tryParse(value);
-        // print(uri?.host);
         if (uri?.host == 'anilist.co') {
           try {
             var context = goRouter.configuration.navigatorKey!.currentContext!;
@@ -81,10 +78,9 @@ var markdownConfig = md.MarkdownConfig(
             } else if (['character', 'staff']
                 .contains(uri.pathSegments.first)) {
               if (uri.pathSegments[1] == "staff") {
-                context.push(Routes.staff(int.parse(uri.queryParameters[1]!)));
+                context.push(Routes.staff(int.parse(uri.pathSegments[1]!)));
               } else {
-                context
-                    .push(Routes.character(int.parse(uri.queryParameters[1]!)));
+                context.push(Routes.character(int.parse(uri.pathSegments[1]!)));
               }
               return;
             } else if (uri.pathSegments.first == 'forum' &&
