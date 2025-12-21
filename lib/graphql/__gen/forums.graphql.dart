@@ -12,14 +12,13 @@ class Variables$Query$Forums {
     int? id,
     bool? subscribed,
     String? search,
-  }) =>
-      Variables$Query$Forums._({
-        if (page != null) r'page': page,
-        if (sort != null) r'sort': sort,
-        if (id != null) r'id': id,
-        if (subscribed != null) r'subscribed': subscribed,
-        if (search != null) r'search': search,
-      });
+  }) => Variables$Query$Forums._({
+    if (page != null) r'page': page,
+    if (sort != null) r'sort': sort,
+    if (id != null) r'id': id,
+    if (subscribed != null) r'subscribed': subscribed,
+    if (search != null) r'search': search,
+  });
 
   Variables$Query$Forums._(this._$data);
 
@@ -33,7 +32,8 @@ class Variables$Query$Forums {
       final l$sort = data['sort'];
       result$data['sort'] = (l$sort as List<dynamic>?)
           ?.map(
-              (e) => e == null ? null : fromJson$Enum$ThreadSort((e as String)))
+            (e) => e == null ? null : fromJson$Enum$ThreadSort((e as String)),
+          )
           .toList();
     }
     if (data.containsKey('id')) {
@@ -92,10 +92,7 @@ class Variables$Query$Forums {
   }
 
   CopyWith$Variables$Query$Forums<Variables$Query$Forums> get copyWith =>
-      CopyWith$Variables$Query$Forums(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$Forums(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -171,8 +168,8 @@ class Variables$Query$Forums {
       _$data.containsKey('page') ? l$page : const {},
       _$data.containsKey('sort')
           ? l$sort == null
-              ? null
-              : Object.hashAll(l$sort.map((v) => v))
+                ? null
+                : Object.hashAll(l$sort.map((v) => v))
           : const {},
       _$data.containsKey('id') ? l$id : const {},
       _$data.containsKey('subscribed') ? l$subscribed : const {},
@@ -201,10 +198,7 @@ abstract class CopyWith$Variables$Query$Forums<TRes> {
 
 class _CopyWithImpl$Variables$Query$Forums<TRes>
     implements CopyWith$Variables$Query$Forums<TRes> {
-  _CopyWithImpl$Variables$Query$Forums(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Forums(this._instance, this._then);
 
   final Variables$Query$Forums _instance;
 
@@ -218,15 +212,16 @@ class _CopyWithImpl$Variables$Query$Forums<TRes>
     Object? id = _undefined,
     Object? subscribed = _undefined,
     Object? search = _undefined,
-  }) =>
-      _then(Variables$Query$Forums._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-        if (sort != _undefined) 'sort': (sort as List<Enum$ThreadSort?>?),
-        if (id != _undefined) 'id': (id as int?),
-        if (subscribed != _undefined) 'subscribed': (subscribed as bool?),
-        if (search != _undefined) 'search': (search as String?),
-      }));
+  }) => _then(
+    Variables$Query$Forums._({
+      ..._instance._$data,
+      if (page != _undefined) 'page': (page as int?),
+      if (sort != _undefined) 'sort': (sort as List<Enum$ThreadSort?>?),
+      if (id != _undefined) 'id': (id as int?),
+      if (subscribed != _undefined) 'subscribed': (subscribed as bool?),
+      if (search != _undefined) 'search': (search as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Forums<TRes>
@@ -241,15 +236,11 @@ class _CopyWithStubImpl$Variables$Query$Forums<TRes>
     int? id,
     bool? subscribed,
     String? search,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Forums {
-  Query$Forums({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$Forums({this.Page, this.$__typename = 'Query'});
 
   factory Query$Forums.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -279,10 +270,7 @@ class Query$Forums {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -308,10 +296,8 @@ class Query$Forums {
 }
 
 extension UtilityExtension$Query$Forums on Query$Forums {
-  CopyWith$Query$Forums<Query$Forums> get copyWith => CopyWith$Query$Forums(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Forums<Query$Forums> get copyWith =>
+      CopyWith$Query$Forums(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Forums<TRes> {
@@ -322,18 +308,12 @@ abstract class CopyWith$Query$Forums<TRes> {
 
   factory CopyWith$Query$Forums.stub(TRes res) = _CopyWithStubImpl$Query$Forums;
 
-  TRes call({
-    Query$Forums$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$Forums$Page? Page, String? $__typename});
   CopyWith$Query$Forums$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$Forums<TRes> implements CopyWith$Query$Forums<TRes> {
-  _CopyWithImpl$Query$Forums(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Forums(this._instance, this._then);
 
   final Query$Forums _instance;
 
@@ -341,17 +321,17 @@ class _CopyWithImpl$Query$Forums<TRes> implements CopyWith$Query$Forums<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Forums(
-        Page:
-            Page == _undefined ? _instance.Page : (Page as Query$Forums$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Forums(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$Forums$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$Forums$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -367,137 +347,144 @@ class _CopyWithStubImpl$Query$Forums<TRes>
 
   TRes _res;
 
-  call({
-    Query$Forums$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$Forums$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$Forums$Page<TRes> get Page =>
       CopyWith$Query$Forums$Page.stub(_res);
 }
 
-const documentNodeQueryForums = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Forums'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryForums = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Forums'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'sort')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'ThreadSort'),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'sort')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'ThreadSort'),
+              isNonNull: false,
+            ),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'subscribed')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'search')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'subscribed')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'search')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'threads'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: VariableNode(name: NameNode(value: 'sort')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'categoryId'),
-                value: VariableNode(name: NameNode(value: 'id')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'subscribed'),
-                value: VariableNode(name: NameNode(value: 'subscribed')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'search'),
-                value: VariableNode(name: NameNode(value: 'search')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ThreadFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'threads'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: VariableNode(name: NameNode(value: 'sort')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'categoryId'),
+                      value: VariableNode(name: NameNode(value: 'id')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'subscribed'),
+                      value: VariableNode(name: NameNode(value: 'subscribed')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'search'),
+                      value: VariableNode(name: NameNode(value: 'search')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ThreadFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -506,29 +493,18 @@ const documentNodeQueryForums = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionThreadFragment,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionThreadFragment,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$Forums$Page {
-  Query$Forums$Page({
-    this.pageInfo,
-    this.threads,
-    this.$__typename = 'Page',
-  });
+  Query$Forums$Page({this.pageInfo, this.threads, this.$__typename = 'Page'});
 
   factory Query$Forums$Page.fromJson(Map<String, dynamic> json) {
     final l$pageInfo = json['pageInfo'];
@@ -539,9 +515,11 @@ class Query$Forums$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       threads: (l$threads as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -616,10 +594,7 @@ class Query$Forums$Page {
 
 extension UtilityExtension$Query$Forums$Page on Query$Forums$Page {
   CopyWith$Query$Forums$Page<Query$Forums$Page> get copyWith =>
-      CopyWith$Query$Forums$Page(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Forums$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Forums$Page<TRes> {
@@ -638,18 +613,16 @@ abstract class CopyWith$Query$Forums$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes threads(
-      Iterable<Fragment$ThreadFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?)
-          _fn);
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Forums$Page<TRes>
     implements CopyWith$Query$Forums$Page<TRes> {
-  _CopyWithImpl$Query$Forums$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Forums$Page(this._instance, this._then);
 
   final Query$Forums$Page _instance;
 
@@ -661,18 +634,19 @@ class _CopyWithImpl$Query$Forums$Page<TRes>
     Object? pageInfo = _undefined,
     Object? threads = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Forums$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        threads: threads == _undefined
-            ? _instance.threads
-            : (threads as List<Fragment$ThreadFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Forums$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      threads: threads == _undefined
+          ? _instance.threads
+          : (threads as List<Fragment$ThreadFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -682,18 +656,17 @@ class _CopyWithImpl$Query$Forums$Page<TRes>
   }
 
   TRes threads(
-          Iterable<Fragment$ThreadFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ThreadFragment<
-                          Fragment$ThreadFragment>?>?)
-              _fn) =>
-      call(
-          threads: _fn(_instance.threads?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ThreadFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    threads: _fn(
+      _instance.threads?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ThreadFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Forums$Page<TRes>
@@ -706,8 +679,7 @@ class _CopyWithStubImpl$Query$Forums$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$ThreadFragment?>? threads,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);

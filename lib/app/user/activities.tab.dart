@@ -15,12 +15,14 @@ class UserActivityTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      userActivitiesQuery,
-      variables: Variables$Query$UserActivities(userId: id).toJson(),
-      parseData: Query$UserActivities.fromJson,
-      mergeResults: defaultMergeResults("Page.activities"),
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        userActivitiesQuery,
+        variables: Variables$Query$UserActivities(userId: id).toJson(),
+        parseData: Query$UserActivities.fromJson,
+        mergeResults: defaultMergeResults("Page.activities"),
+      ),
+    );
 
     return GQLWidget(
       refetch: refetch,
@@ -31,16 +33,13 @@ class UserActivityTab extends HookWidget {
           pageInfo: snapshot.parsedData!.Page!.pageInfo!,
           req: (nextPage) => fetchMore(
             variables: Variables$Query$UserActivities.fromJson(
-                    snapshot.request!.variables)
-                .copyWith(page: nextPage)
-                .toJson(),
+              snapshot.request!.variables,
+            ).copyWith(page: nextPage).toJson(),
           ),
-          builder: (context, index) {
+          itemBuilder: (context, index) {
             var activity = snapshot.parsedData!.Page!.activities![index]!;
 
-            return ActivityCard(
-              activity: activity,
-            );
+            return ActivityCard(activity: activity);
           },
           itemCount: snapshot.parsedData!.Page!.activities!.length,
         ),

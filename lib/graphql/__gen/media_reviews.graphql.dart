@@ -5,10 +5,7 @@ import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
 
 class Variables$Query$MediaReviews {
-  factory Variables$Query$MediaReviews({
-    int? mediaId,
-    int? page,
-  }) =>
+  factory Variables$Query$MediaReviews({int? mediaId, int? page}) =>
       Variables$Query$MediaReviews._({
         if (mediaId != null) r'mediaId': mediaId,
         if (page != null) r'page': page,
@@ -49,10 +46,7 @@ class Variables$Query$MediaReviews {
   }
 
   CopyWith$Variables$Query$MediaReviews<Variables$Query$MediaReviews>
-      get copyWith => CopyWith$Variables$Query$MediaReviews(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$MediaReviews(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -102,18 +96,12 @@ abstract class CopyWith$Variables$Query$MediaReviews<TRes> {
   factory CopyWith$Variables$Query$MediaReviews.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$MediaReviews;
 
-  TRes call({
-    int? mediaId,
-    int? page,
-  });
+  TRes call({int? mediaId, int? page});
 }
 
 class _CopyWithImpl$Variables$Query$MediaReviews<TRes>
     implements CopyWith$Variables$Query$MediaReviews<TRes> {
-  _CopyWithImpl$Variables$Query$MediaReviews(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$MediaReviews(this._instance, this._then);
 
   final Variables$Query$MediaReviews _instance;
 
@@ -121,15 +109,13 @@ class _CopyWithImpl$Variables$Query$MediaReviews<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? mediaId = _undefined,
-    Object? page = _undefined,
-  }) =>
-      _then(Variables$Query$MediaReviews._({
-        ..._instance._$data,
-        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  TRes call({Object? mediaId = _undefined, Object? page = _undefined}) => _then(
+    Variables$Query$MediaReviews._({
+      ..._instance._$data,
+      if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$MediaReviews<TRes>
@@ -138,18 +124,11 @@ class _CopyWithStubImpl$Variables$Query$MediaReviews<TRes>
 
   TRes _res;
 
-  call({
-    int? mediaId,
-    int? page,
-  }) =>
-      _res;
+  call({int? mediaId, int? page}) => _res;
 }
 
 class Query$MediaReviews {
-  Query$MediaReviews({
-    this.Media,
-    this.$__typename = 'Query',
-  });
+  Query$MediaReviews({this.Media, this.$__typename = 'Query'});
 
   factory Query$MediaReviews.fromJson(Map<String, dynamic> json) {
     final l$Media = json['Media'];
@@ -158,7 +137,8 @@ class Query$MediaReviews {
       Media: l$Media == null
           ? null
           : Query$MediaReviews$Media.fromJson(
-              (l$Media as Map<String, dynamic>)),
+              (l$Media as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -180,10 +160,7 @@ class Query$MediaReviews {
   int get hashCode {
     final l$Media = Media;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Media,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Media, l$$__typename]);
   }
 
   @override
@@ -210,10 +187,7 @@ class Query$MediaReviews {
 
 extension UtilityExtension$Query$MediaReviews on Query$MediaReviews {
   CopyWith$Query$MediaReviews<Query$MediaReviews> get copyWith =>
-      CopyWith$Query$MediaReviews(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaReviews(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaReviews<TRes> {
@@ -225,19 +199,13 @@ abstract class CopyWith$Query$MediaReviews<TRes> {
   factory CopyWith$Query$MediaReviews.stub(TRes res) =
       _CopyWithStubImpl$Query$MediaReviews;
 
-  TRes call({
-    Query$MediaReviews$Media? Media,
-    String? $__typename,
-  });
+  TRes call({Query$MediaReviews$Media? Media, String? $__typename});
   CopyWith$Query$MediaReviews$Media<TRes> get Media;
 }
 
 class _CopyWithImpl$Query$MediaReviews<TRes>
     implements CopyWith$Query$MediaReviews<TRes> {
-  _CopyWithImpl$Query$MediaReviews(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaReviews(this._instance, this._then);
 
   final Query$MediaReviews _instance;
 
@@ -245,18 +213,17 @@ class _CopyWithImpl$Query$MediaReviews<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaReviews(
-        Media: Media == _undefined
-            ? _instance.Media
-            : (Media as Query$MediaReviews$Media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$MediaReviews(
+          Media: Media == _undefined
+              ? _instance.Media
+              : (Media as Query$MediaReviews$Media?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$MediaReviews$Media<TRes> get Media {
     final local$Media = _instance.Media;
@@ -272,138 +239,149 @@ class _CopyWithStubImpl$Query$MediaReviews<TRes>
 
   TRes _res;
 
-  call({
-    Query$MediaReviews$Media? Media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$MediaReviews$Media? Media, String? $__typename}) => _res;
 
   CopyWith$Query$MediaReviews$Media<TRes> get Media =>
       CopyWith$Query$MediaReviews$Media.stub(_res);
 }
 
-const documentNodeQueryMediaReviews = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'MediaReviews'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mediaId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryMediaReviews = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'MediaReviews'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'mediaId')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Media'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'mediaId')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'reviews'),
+            name: NameNode(value: 'Media'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'page'),
-                value: VariableNode(name: NameNode(value: 'page')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'RATING_DESC')),
-                  EnumValueNode(name: NameNode(value: 'ID')),
-                ]),
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'mediaId')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'pageInfo'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'PageInfo'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'id'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'reviews'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'page'),
+                      value: VariableNode(name: NameNode(value: 'page')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'RATING_DESC')),
+                          EnumValueNode(name: NameNode(value: 'ID')),
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'pageInfo'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'PageInfo'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'nodes'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'ReviewFragment'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'score'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'userRating'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'nodes'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'ReviewFragment'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'score'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'userRating'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -412,21 +390,14 @@ const documentNodeQueryMediaReviews = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionReviewFragment,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionReviewFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$MediaReviews$Media {
   Query$MediaReviews$Media({
@@ -444,7 +415,8 @@ class Query$MediaReviews$Media {
       reviews: l$reviews == null
           ? null
           : Query$MediaReviews$Media$reviews.fromJson(
-              (l$reviews as Map<String, dynamic>)),
+              (l$reviews as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -471,11 +443,7 @@ class Query$MediaReviews$Media {
     final l$id = id;
     final l$reviews = reviews;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$reviews,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$reviews, l$$__typename]);
   }
 
   @override
@@ -509,10 +477,7 @@ class Query$MediaReviews$Media {
 extension UtilityExtension$Query$MediaReviews$Media
     on Query$MediaReviews$Media {
   CopyWith$Query$MediaReviews$Media<Query$MediaReviews$Media> get copyWith =>
-      CopyWith$Query$MediaReviews$Media(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaReviews$Media(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaReviews$Media<TRes> {
@@ -534,10 +499,7 @@ abstract class CopyWith$Query$MediaReviews$Media<TRes> {
 
 class _CopyWithImpl$Query$MediaReviews$Media<TRes>
     implements CopyWith$Query$MediaReviews$Media<TRes> {
-  _CopyWithImpl$Query$MediaReviews$Media(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaReviews$Media(this._instance, this._then);
 
   final Query$MediaReviews$Media _instance;
 
@@ -549,23 +511,26 @@ class _CopyWithImpl$Query$MediaReviews$Media<TRes>
     Object? id = _undefined,
     Object? reviews = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaReviews$Media(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        reviews: reviews == _undefined
-            ? _instance.reviews
-            : (reviews as Query$MediaReviews$Media$reviews?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaReviews$Media(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      reviews: reviews == _undefined
+          ? _instance.reviews
+          : (reviews as Query$MediaReviews$Media$reviews?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$MediaReviews$Media$reviews<TRes> get reviews {
     final local$reviews = _instance.reviews;
     return local$reviews == null
         ? CopyWith$Query$MediaReviews$Media$reviews.stub(_then(_instance))
         : CopyWith$Query$MediaReviews$Media$reviews(
-            local$reviews, (e) => call(reviews: e));
+            local$reviews,
+            (e) => call(reviews: e),
+          );
   }
 }
 
@@ -579,8 +544,7 @@ class _CopyWithStubImpl$Query$MediaReviews$Media<TRes>
     int? id,
     Query$MediaReviews$Media$reviews? reviews,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$MediaReviews$Media$reviews<TRes> get reviews =>
       CopyWith$Query$MediaReviews$Media$reviews.stub(_res);
@@ -602,10 +566,13 @@ class Query$MediaReviews$Media$reviews {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$MediaReviews$Media$reviews$nodes.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$MediaReviews$Media$reviews$nodes.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -682,10 +649,7 @@ class Query$MediaReviews$Media$reviews {
 extension UtilityExtension$Query$MediaReviews$Media$reviews
     on Query$MediaReviews$Media$reviews {
   CopyWith$Query$MediaReviews$Media$reviews<Query$MediaReviews$Media$reviews>
-      get copyWith => CopyWith$Query$MediaReviews$Media$reviews(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$MediaReviews$Media$reviews(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaReviews$Media$reviews<TRes> {
@@ -704,19 +668,20 @@ abstract class CopyWith$Query$MediaReviews$Media$reviews<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes nodes(
-      Iterable<Query$MediaReviews$Media$reviews$nodes?>? Function(
-              Iterable<
-                  CopyWith$Query$MediaReviews$Media$reviews$nodes<
-                      Query$MediaReviews$Media$reviews$nodes>?>?)
-          _fn);
+    Iterable<Query$MediaReviews$Media$reviews$nodes?>? Function(
+      Iterable<
+        CopyWith$Query$MediaReviews$Media$reviews$nodes<
+          Query$MediaReviews$Media$reviews$nodes
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$MediaReviews$Media$reviews<TRes>
     implements CopyWith$Query$MediaReviews$Media$reviews<TRes> {
-  _CopyWithImpl$Query$MediaReviews$Media$reviews(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaReviews$Media$reviews(this._instance, this._then);
 
   final Query$MediaReviews$Media$reviews _instance;
 
@@ -728,18 +693,19 @@ class _CopyWithImpl$Query$MediaReviews$Media$reviews<TRes>
     Object? pageInfo = _undefined,
     Object? nodes = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaReviews$Media$reviews(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Query$MediaReviews$Media$reviews$nodes?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaReviews$Media$reviews(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      nodes: nodes == _undefined
+          ? _instance.nodes
+          : (nodes as List<Query$MediaReviews$Media$reviews$nodes?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -749,18 +715,23 @@ class _CopyWithImpl$Query$MediaReviews$Media$reviews<TRes>
   }
 
   TRes nodes(
-          Iterable<Query$MediaReviews$Media$reviews$nodes?>? Function(
-                  Iterable<
-                      CopyWith$Query$MediaReviews$Media$reviews$nodes<
-                          Query$MediaReviews$Media$reviews$nodes>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Query$MediaReviews$Media$reviews$nodes(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$MediaReviews$Media$reviews$nodes?>? Function(
+      Iterable<
+        CopyWith$Query$MediaReviews$Media$reviews$nodes<
+          Query$MediaReviews$Media$reviews$nodes
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$MediaReviews$Media$reviews$nodes(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$MediaReviews$Media$reviews<TRes>
@@ -773,8 +744,7 @@ class _CopyWithStubImpl$Query$MediaReviews$Media$reviews<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$MediaReviews$Media$reviews$nodes?>? nodes,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -797,7 +767,8 @@ class Query$MediaReviews$Media$reviews$nodes
   });
 
   factory Query$MediaReviews$Media$reviews$nodes.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$rating = json['rating'];
     final l$ratingAmount = json['ratingAmount'];
@@ -815,7 +786,8 @@ class Query$MediaReviews$Media$reviews$nodes
       media: l$media == null
           ? null
           : Query$MediaReviews$Media$reviews$nodes$media.fromJson(
-              (l$media as Map<String, dynamic>)),
+              (l$media as Map<String, dynamic>),
+            ),
       user: l$user == null
           ? null
           : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
@@ -864,8 +836,9 @@ class Query$MediaReviews$Media$reviews$nodes
     final l$score = score;
     _resultData['score'] = l$score;
     final l$userRating = userRating;
-    _resultData['userRating'] =
-        l$userRating == null ? null : toJson$Enum$ReviewRating(l$userRating);
+    _resultData['userRating'] = l$userRating == null
+        ? null
+        : toJson$Enum$ReviewRating(l$userRating);
     return _resultData;
   }
 
@@ -954,11 +927,10 @@ class Query$MediaReviews$Media$reviews$nodes
 extension UtilityExtension$Query$MediaReviews$Media$reviews$nodes
     on Query$MediaReviews$Media$reviews$nodes {
   CopyWith$Query$MediaReviews$Media$reviews$nodes<
-          Query$MediaReviews$Media$reviews$nodes>
-      get copyWith => CopyWith$Query$MediaReviews$Media$reviews$nodes(
-            this,
-            (i) => i,
-          );
+    Query$MediaReviews$Media$reviews$nodes
+  >
+  get copyWith =>
+      CopyWith$Query$MediaReviews$Media$reviews$nodes(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaReviews$Media$reviews$nodes<TRes> {
@@ -1008,37 +980,40 @@ class _CopyWithImpl$Query$MediaReviews$Media$reviews$nodes<TRes>
     Object? $__typename = _undefined,
     Object? score = _undefined,
     Object? userRating = _undefined,
-  }) =>
-      _then(Query$MediaReviews$Media$reviews$nodes(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        rating: rating == _undefined ? _instance.rating : (rating as int?),
-        ratingAmount: ratingAmount == _undefined
-            ? _instance.ratingAmount
-            : (ratingAmount as int?),
-        summary:
-            summary == _undefined ? _instance.summary : (summary as String?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Query$MediaReviews$Media$reviews$nodes$media?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        score: score == _undefined ? _instance.score : (score as int?),
-        userRating: userRating == _undefined
-            ? _instance.userRating
-            : (userRating as Enum$ReviewRating?),
-      ));
+  }) => _then(
+    Query$MediaReviews$Media$reviews$nodes(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      rating: rating == _undefined ? _instance.rating : (rating as int?),
+      ratingAmount: ratingAmount == _undefined
+          ? _instance.ratingAmount
+          : (ratingAmount as int?),
+      summary: summary == _undefined ? _instance.summary : (summary as String?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Query$MediaReviews$Media$reviews$nodes$media?),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      score: score == _undefined ? _instance.score : (score as int?),
+      userRating: userRating == _undefined
+          ? _instance.userRating
+          : (userRating as Enum$ReviewRating?),
+    ),
+  );
 
   CopyWith$Query$MediaReviews$Media$reviews$nodes$media<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
         ? CopyWith$Query$MediaReviews$Media$reviews$nodes$media.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$MediaReviews$Media$reviews$nodes$media(
-            local$media, (e) => call(media: e));
+            local$media,
+            (e) => call(media: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get user {
@@ -1065,8 +1040,7 @@ class _CopyWithStubImpl$Query$MediaReviews$Media$reviews$nodes<TRes>
     String? $__typename,
     int? score,
     Enum$ReviewRating? userRating,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$MediaReviews$Media$reviews$nodes$media<TRes> get media =>
       CopyWith$Query$MediaReviews$Media$reviews$nodes$media.stub(_res);
@@ -1086,7 +1060,8 @@ class Query$MediaReviews$Media$reviews$nodes$media
   });
 
   factory Query$MediaReviews$Media$reviews$nodes$media.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$title = json['title'];
     final l$type = json['type'];
@@ -1097,7 +1072,8 @@ class Query$MediaReviews$Media$reviews$nodes$media
       title: l$title == null
           ? null
           : Query$MediaReviews$Media$reviews$nodes$media$title.fromJson(
-              (l$title as Map<String, dynamic>)),
+              (l$title as Map<String, dynamic>),
+            ),
       type: l$type == null ? null : fromJson$Enum$MediaType((l$type as String)),
       bannerImage: (l$bannerImage as String?),
       $__typename: (l$$__typename as String),
@@ -1186,11 +1162,10 @@ class Query$MediaReviews$Media$reviews$nodes$media
 extension UtilityExtension$Query$MediaReviews$Media$reviews$nodes$media
     on Query$MediaReviews$Media$reviews$nodes$media {
   CopyWith$Query$MediaReviews$Media$reviews$nodes$media<
-          Query$MediaReviews$Media$reviews$nodes$media>
-      get copyWith => CopyWith$Query$MediaReviews$Media$reviews$nodes$media(
-            this,
-            (i) => i,
-          );
+    Query$MediaReviews$Media$reviews$nodes$media
+  >
+  get copyWith =>
+      CopyWith$Query$MediaReviews$Media$reviews$nodes$media(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaReviews$Media$reviews$nodes$media<TRes> {
@@ -1231,28 +1206,32 @@ class _CopyWithImpl$Query$MediaReviews$Media$reviews$nodes$media<TRes>
     Object? type = _undefined,
     Object? bannerImage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaReviews$Media$reviews$nodes$media(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Query$MediaReviews$Media$reviews$nodes$media$title?),
-        type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
-        bannerImage: bannerImage == _undefined
-            ? _instance.bannerImage
-            : (bannerImage as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaReviews$Media$reviews$nodes$media(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Query$MediaReviews$Media$reviews$nodes$media$title?),
+      type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
+      bannerImage: bannerImage == _undefined
+          ? _instance.bannerImage
+          : (bannerImage as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
         ? CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title(
-            local$title, (e) => call(title: e));
+            local$title,
+            (e) => call(title: e),
+          );
   }
 }
 
@@ -1268,8 +1247,7 @@ class _CopyWithStubImpl$Query$MediaReviews$Media$reviews$nodes$media<TRes>
     Enum$MediaType? type,
     String? bannerImage,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title<TRes> get title =>
       CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title.stub(_res);
@@ -1283,7 +1261,8 @@ class Query$MediaReviews$Media$reviews$nodes$media$title
   });
 
   factory Query$MediaReviews$Media$reviews$nodes$media$title.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$userPreferred = json['userPreferred'];
     final l$$__typename = json['__typename'];
     return Query$MediaReviews$Media$reviews$nodes$media$title(
@@ -1309,10 +1288,7 @@ class Query$MediaReviews$Media$reviews$nodes$media$title
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -1341,29 +1317,27 @@ class Query$MediaReviews$Media$reviews$nodes$media$title
 extension UtilityExtension$Query$MediaReviews$Media$reviews$nodes$media$title
     on Query$MediaReviews$Media$reviews$nodes$media$title {
   CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title<
-          Query$MediaReviews$Media$reviews$nodes$media$title>
-      get copyWith =>
-          CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title(
-            this,
-            (i) => i,
-          );
+    Query$MediaReviews$Media$reviews$nodes$media$title
+  >
+  get copyWith => CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title(
     Query$MediaReviews$Media$reviews$nodes$media$title instance,
     TRes Function(Query$MediaReviews$Media$reviews$nodes$media$title) then,
   ) = _CopyWithImpl$Query$MediaReviews$Media$reviews$nodes$media$title;
 
   factory CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$MediaReviews$Media$reviews$nodes$media$title;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$MediaReviews$Media$reviews$nodes$media$title;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Query$MediaReviews$Media$reviews$nodes$media$title<TRes>
@@ -1383,28 +1357,26 @@ class _CopyWithImpl$Query$MediaReviews$Media$reviews$nodes$media$title<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaReviews$Media$reviews$nodes$media$title(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaReviews$Media$reviews$nodes$media$title(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$MediaReviews$Media$reviews$nodes$media$title<TRes>
     implements
         CopyWith$Query$MediaReviews$Media$reviews$nodes$media$title<TRes> {
   _CopyWithStubImpl$Query$MediaReviews$Media$reviews$nodes$media$title(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }

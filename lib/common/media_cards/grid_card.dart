@@ -39,6 +39,21 @@ class GridCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return InkWellImage(
+    //   onTap: () => QR.to('/media/1'),
+    //   child: AspectRatio(
+    //     aspectRatio: aspectRatio,
+    //     child: Column(
+    //       children: [
+    //         Expanded(
+    //           child: CachedImage(image, fit: .cover, width: double.maxFinite),
+    //         ),
+    //         if (title != null) Text(title!, maxLines: 1),
+    //       ],
+    //     ),
+    //   ),
+    // );
+
     return AspectRatio(
       aspectRatio: aspectRatio,
       child: Stack(
@@ -50,20 +65,15 @@ class GridCard extends StatelessWidget {
             onDoubleTap: onDoubleTap,
             child: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context)
-                    .colorScheme
-                    .surfaceContainerHighest
-                    .withOpacity(.7),
+                color: context.theme.colorScheme.surfaceContainerHighest
+                    .withAlpha((255 * .7).truncate()),
                 borderRadius: imageRadius,
               ),
               child: Column(
                 children: [
                   Expanded(
                     child: ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: imageRadius.topLeft,
-                        topRight: imageRadius.topRight,
-                      ),
+                      borderRadius: imageRadius,
                       child: BlurImage(
                         enabled: blur,
                         child: CachedImage(
@@ -126,7 +136,7 @@ class GridCard extends StatelessWidget {
               // ),
             ),
           ),
-          ...?chips
+          ...?chips,
         ],
       ),
     );
@@ -141,30 +151,51 @@ class GridChip extends StatelessWidget {
     this.left,
     this.right,
     required this.child,
-  });
+    this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+    this.color,
+  }) : noPositioned = false;
+
+  const GridChip.nonPositioned({
+    super.key,
+    required this.child,
+    this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+    this.color,
+  }) : noPositioned = true,
+       bottom = null,
+       top = null,
+       right = null,
+       left = null;
 
   final double? bottom;
   final double? top;
   final double? left;
   final double? right;
+  final Color? color;
+  final EdgeInsets padding;
   final Widget child;
+  final bool noPositioned;
 
   @override
   Widget build(BuildContext context) {
+    final w = Container(
+      decoration: BoxDecoration(
+        borderRadius: imageRadius,
+        color:
+            color ??
+            context.theme.colorScheme.surfaceContainerHighest.withAlpha(150),
+      ),
+      padding: padding,
+      child: child,
+    );
+
+    if (noPositioned) return w;
+
     return Positioned(
       left: left,
       bottom: bottom,
       top: top,
       right: right,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: imageRadius,
-          color:
-              context.theme.colorScheme.surfaceContainerHighest.withOpacity(.6),
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        child: child,
-      ),
+      child: w,
     );
   }
 }
@@ -177,14 +208,12 @@ class BlurImage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var blurCovers =
-        ref.watch(settingsProvider.select((value) => value.blurCovers));
+    var blurCovers = ref.watch(
+      settingsProvider.select((value) => value.blurCovers),
+    );
 
     return ImageFiltered(
-      imageFilter: ImageFilter.blur(
-        sigmaX: 10,
-        sigmaY: 10,
-      ),
+      imageFilter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
       enabled: blurCovers && enabled,
       child: child,
     );

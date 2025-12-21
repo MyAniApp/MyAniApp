@@ -15,15 +15,14 @@ class Variables$Query$UserFavorites {
     int? characterPage,
     int? staffPage,
     int? studioPage,
-  }) =>
-      Variables$Query$UserFavorites._({
-        if (name != null) r'name': name,
-        if (animePage != null) r'animePage': animePage,
-        if (mangaPage != null) r'mangaPage': mangaPage,
-        if (characterPage != null) r'characterPage': characterPage,
-        if (staffPage != null) r'staffPage': staffPage,
-        if (studioPage != null) r'studioPage': studioPage,
-      });
+  }) => Variables$Query$UserFavorites._({
+    if (name != null) r'name': name,
+    if (animePage != null) r'animePage': animePage,
+    if (mangaPage != null) r'mangaPage': mangaPage,
+    if (characterPage != null) r'characterPage': characterPage,
+    if (staffPage != null) r'staffPage': staffPage,
+    if (studioPage != null) r'studioPage': studioPage,
+  });
 
   Variables$Query$UserFavorites._(this._$data);
 
@@ -100,10 +99,7 @@ class Variables$Query$UserFavorites {
   }
 
   CopyWith$Variables$Query$UserFavorites<Variables$Query$UserFavorites>
-      get copyWith => CopyWith$Variables$Query$UserFavorites(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$UserFavorites(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -210,10 +206,7 @@ abstract class CopyWith$Variables$Query$UserFavorites<TRes> {
 
 class _CopyWithImpl$Variables$Query$UserFavorites<TRes>
     implements CopyWith$Variables$Query$UserFavorites<TRes> {
-  _CopyWithImpl$Variables$Query$UserFavorites(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$UserFavorites(this._instance, this._then);
 
   final Variables$Query$UserFavorites _instance;
 
@@ -228,17 +221,17 @@ class _CopyWithImpl$Variables$Query$UserFavorites<TRes>
     Object? characterPage = _undefined,
     Object? staffPage = _undefined,
     Object? studioPage = _undefined,
-  }) =>
-      _then(Variables$Query$UserFavorites._({
-        ..._instance._$data,
-        if (name != _undefined) 'name': (name as String?),
-        if (animePage != _undefined) 'animePage': (animePage as int?),
-        if (mangaPage != _undefined) 'mangaPage': (mangaPage as int?),
-        if (characterPage != _undefined)
-          'characterPage': (characterPage as int?),
-        if (staffPage != _undefined) 'staffPage': (staffPage as int?),
-        if (studioPage != _undefined) 'studioPage': (studioPage as int?),
-      }));
+  }) => _then(
+    Variables$Query$UserFavorites._({
+      ..._instance._$data,
+      if (name != _undefined) 'name': (name as String?),
+      if (animePage != _undefined) 'animePage': (animePage as int?),
+      if (mangaPage != _undefined) 'mangaPage': (mangaPage as int?),
+      if (characterPage != _undefined) 'characterPage': (characterPage as int?),
+      if (staffPage != _undefined) 'staffPage': (staffPage as int?),
+      if (studioPage != _undefined) 'studioPage': (studioPage as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$UserFavorites<TRes>
@@ -254,15 +247,11 @@ class _CopyWithStubImpl$Variables$Query$UserFavorites<TRes>
     int? characterPage,
     int? staffPage,
     int? studioPage,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$UserFavorites {
-  Query$UserFavorites({
-    this.User,
-    this.$__typename = 'Query',
-  });
+  Query$UserFavorites({this.User, this.$__typename = 'Query'});
 
   factory Query$UserFavorites.fromJson(Map<String, dynamic> json) {
     final l$User = json['User'];
@@ -292,10 +281,7 @@ class Query$UserFavorites {
   int get hashCode {
     final l$User = User;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$User,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$User, l$$__typename]);
   }
 
   @override
@@ -322,10 +308,7 @@ class Query$UserFavorites {
 
 extension UtilityExtension$Query$UserFavorites on Query$UserFavorites {
   CopyWith$Query$UserFavorites<Query$UserFavorites> get copyWith =>
-      CopyWith$Query$UserFavorites(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$UserFavorites(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites<TRes> {
@@ -337,19 +320,13 @@ abstract class CopyWith$Query$UserFavorites<TRes> {
   factory CopyWith$Query$UserFavorites.stub(TRes res) =
       _CopyWithStubImpl$Query$UserFavorites;
 
-  TRes call({
-    Query$UserFavorites$User? User,
-    String? $__typename,
-  });
+  TRes call({Query$UserFavorites$User? User, String? $__typename});
   CopyWith$Query$UserFavorites$User<TRes> get User;
 }
 
 class _CopyWithImpl$Query$UserFavorites<TRes>
     implements CopyWith$Query$UserFavorites<TRes> {
-  _CopyWithImpl$Query$UserFavorites(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserFavorites(this._instance, this._then);
 
   final Query$UserFavorites _instance;
 
@@ -357,18 +334,17 @@ class _CopyWithImpl$Query$UserFavorites<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? User = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites(
-        User: User == _undefined
-            ? _instance.User
-            : (User as Query$UserFavorites$User?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? User = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$UserFavorites(
+          User: User == _undefined
+              ? _instance.User
+              : (User as Query$UserFavorites$User?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$UserFavorites$User<TRes> get User {
     final local$User = _instance.User;
@@ -384,119 +360,578 @@ class _CopyWithStubImpl$Query$UserFavorites<TRes>
 
   TRes _res;
 
-  call({
-    Query$UserFavorites$User? User,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$UserFavorites$User? User, String? $__typename}) => _res;
 
   CopyWith$Query$UserFavorites$User<TRes> get User =>
       CopyWith$Query$UserFavorites$User.stub(_res);
 }
 
-const documentNodeQueryUserFavorites = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'UserFavorites'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'animePage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mangaPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'characterPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'staffPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'studioPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'User'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'name'),
-            value: VariableNode(name: NameNode(value: 'name')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'UserFragment'),
-            directives: [],
+const documentNodeQueryUserFavorites = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'UserFavorites'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'name')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
           ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'animePage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'mangaPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'characterPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'staffPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'studioPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'favourites'),
+            name: NameNode(value: 'User'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: VariableNode(name: NameNode(value: 'name')),
+              ),
+            ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'anime'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'page'),
-                    value: VariableNode(name: NameNode(value: 'animePage')),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'pageInfo'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'PageInfo'),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'UserFragment'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: 'favourites'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'anime'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'page'),
+                            value: VariableNode(
+                              name: NameNode(value: 'animePage'),
+                            ),
+                          ),
+                        ],
                         directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'pageInfo'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'PageInfo'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'edges'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'favouriteOrder'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'node'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: SelectionSetNode(
+                                      selections: [
+                                        FragmentSpreadNode(
+                                          name: NameNode(
+                                            value: 'MediaFragment',
+                                          ),
+                                          directives: [],
+                                        ),
+                                        FieldNode(
+                                          name: NameNode(value: '__typename'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'manga'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'page'),
+                            value: VariableNode(
+                              name: NameNode(value: 'mangaPage'),
+                            ),
+                          ),
+                        ],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'pageInfo'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'PageInfo'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'edges'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'favouriteOrder'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'node'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: SelectionSetNode(
+                                      selections: [
+                                        FragmentSpreadNode(
+                                          name: NameNode(
+                                            value: 'MediaFragment',
+                                          ),
+                                          directives: [],
+                                        ),
+                                        FieldNode(
+                                          name: NameNode(value: '__typename'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'characters'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'page'),
+                            value: VariableNode(
+                              name: NameNode(value: 'characterPage'),
+                            ),
+                          ),
+                        ],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'pageInfo'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'PageInfo'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'edges'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'favouriteOrder'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'node'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: SelectionSetNode(
+                                      selections: [
+                                        FragmentSpreadNode(
+                                          name: NameNode(
+                                            value: 'CharacterFragment',
+                                          ),
+                                          directives: [],
+                                        ),
+                                        FieldNode(
+                                          name: NameNode(value: '__typename'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'staff'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'page'),
+                            value: VariableNode(
+                              name: NameNode(value: 'staffPage'),
+                            ),
+                          ),
+                        ],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'pageInfo'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'PageInfo'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'edges'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'favouriteOrder'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'node'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: SelectionSetNode(
+                                      selections: [
+                                        FragmentSpreadNode(
+                                          name: NameNode(
+                                            value: 'StaffFragment',
+                                          ),
+                                          directives: [],
+                                        ),
+                                        FieldNode(
+                                          name: NameNode(value: '__typename'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'studios'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'page'),
+                            value: VariableNode(
+                              name: NameNode(value: 'studioPage'),
+                            ),
+                          ),
+                        ],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'pageInfo'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'PageInfo'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'edges'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'favouriteOrder'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'node'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: SelectionSetNode(
+                                      selections: [
+                                        FragmentSpreadNode(
+                                          name: NameNode(
+                                            value: 'StudioFragment',
+                                          ),
+                                          directives: [],
+                                        ),
+                                        FieldNode(
+                                          name: NameNode(value: '__typename'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -505,421 +940,18 @@ const documentNodeQueryUserFavorites = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: 'edges'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'favouriteOrder'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'node'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                            name: NameNode(value: 'MediaFragment'),
-                            directives: [],
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'manga'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'page'),
-                    value: VariableNode(name: NameNode(value: 'mangaPage')),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'pageInfo'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'PageInfo'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'edges'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'favouriteOrder'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'node'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                            name: NameNode(value: 'MediaFragment'),
-                            directives: [],
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'characters'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'page'),
-                    value: VariableNode(name: NameNode(value: 'characterPage')),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'pageInfo'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'PageInfo'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'edges'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'favouriteOrder'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'node'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                            name: NameNode(value: 'CharacterFragment'),
-                            directives: [],
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'staff'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'page'),
-                    value: VariableNode(name: NameNode(value: 'staffPage')),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'pageInfo'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'PageInfo'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'edges'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'favouriteOrder'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'node'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                            name: NameNode(value: 'StaffFragment'),
-                            directives: [],
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'studios'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'page'),
-                    value: VariableNode(name: NameNode(value: 'studioPage')),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'pageInfo'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'PageInfo'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'edges'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'favouriteOrder'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'node'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                            name: NameNode(value: 'StudioFragment'),
-                            directives: [],
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -928,24 +960,17 @@ const documentNodeQueryUserFavorites = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionUserFragment,
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionCharacterFragment,
-  fragmentDefinitionStaffFragment,
-  fragmentDefinitionStudioFragment,
-]);
+    ),
+    fragmentDefinitionUserFragment,
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionCharacterFragment,
+    fragmentDefinitionStaffFragment,
+    fragmentDefinitionStudioFragment,
+  ],
+);
 
 class Query$UserFavorites$User implements Fragment$UserFragment {
   Query$UserFavorites$User({
@@ -979,12 +1004,14 @@ class Query$UserFavorites$User implements Fragment$UserFragment {
       avatar: l$avatar == null
           ? null
           : Query$UserFavorites$User$avatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
+              (l$avatar as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
       favourites: l$favourites == null
           ? null
           : Query$UserFavorites$User$favourites.fromJson(
-              (l$favourites as Map<String, dynamic>)),
+              (l$favourites as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -1118,10 +1145,7 @@ class Query$UserFavorites$User implements Fragment$UserFragment {
 extension UtilityExtension$Query$UserFavorites$User
     on Query$UserFavorites$User {
   CopyWith$Query$UserFavorites$User<Query$UserFavorites$User> get copyWith =>
-      CopyWith$Query$UserFavorites$User(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$UserFavorites$User(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User<TRes> {
@@ -1149,10 +1173,7 @@ abstract class CopyWith$Query$UserFavorites$User<TRes> {
 
 class _CopyWithImpl$Query$UserFavorites$User<TRes>
     implements CopyWith$Query$UserFavorites$User<TRes> {
-  _CopyWithImpl$Query$UserFavorites$User(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserFavorites$User(this._instance, this._then);
 
   final Query$UserFavorites$User _instance;
 
@@ -1169,38 +1190,41 @@ class _CopyWithImpl$Query$UserFavorites$User<TRes>
     Object? avatar = _undefined,
     Object? $__typename = _undefined,
     Object? favourites = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        donatorTier: donatorTier == _undefined
-            ? _instance.donatorTier
-            : (donatorTier as int?),
-        donatorBadge: donatorBadge == _undefined
-            ? _instance.donatorBadge
-            : (donatorBadge as String?),
-        moderatorRoles: moderatorRoles == _undefined
-            ? _instance.moderatorRoles
-            : (moderatorRoles as List<Enum$ModRole?>?),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as Query$UserFavorites$User$avatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        favourites: favourites == _undefined
-            ? _instance.favourites
-            : (favourites as Query$UserFavorites$User$favourites?),
-      ));
+  }) => _then(
+    Query$UserFavorites$User(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      donatorTier: donatorTier == _undefined
+          ? _instance.donatorTier
+          : (donatorTier as int?),
+      donatorBadge: donatorBadge == _undefined
+          ? _instance.donatorBadge
+          : (donatorBadge as String?),
+      moderatorRoles: moderatorRoles == _undefined
+          ? _instance.moderatorRoles
+          : (moderatorRoles as List<Enum$ModRole?>?),
+      avatar: avatar == _undefined
+          ? _instance.avatar
+          : (avatar as Query$UserFavorites$User$avatar?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      favourites: favourites == _undefined
+          ? _instance.favourites
+          : (favourites as Query$UserFavorites$User$favourites?),
+    ),
+  );
 
   CopyWith$Query$UserFavorites$User$avatar<TRes> get avatar {
     final local$avatar = _instance.avatar;
     return local$avatar == null
         ? CopyWith$Query$UserFavorites$User$avatar.stub(_then(_instance))
         : CopyWith$Query$UserFavorites$User$avatar(
-            local$avatar, (e) => call(avatar: e));
+            local$avatar,
+            (e) => call(avatar: e),
+          );
   }
 
   CopyWith$Query$UserFavorites$User$favourites<TRes> get favourites {
@@ -1208,7 +1232,9 @@ class _CopyWithImpl$Query$UserFavorites$User<TRes>
     return local$favourites == null
         ? CopyWith$Query$UserFavorites$User$favourites.stub(_then(_instance))
         : CopyWith$Query$UserFavorites$User$favourites(
-            local$favourites, (e) => call(favourites: e));
+            local$favourites,
+            (e) => call(favourites: e),
+          );
   }
 }
 
@@ -1227,8 +1253,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User<TRes>
     Query$UserFavorites$User$avatar? avatar,
     String? $__typename,
     Query$UserFavorites$User$favourites? favourites,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$UserFavorites$User$avatar<TRes> get avatar =>
       CopyWith$Query$UserFavorites$User$avatar.stub(_res);
@@ -1269,10 +1294,7 @@ class Query$UserFavorites$User$avatar implements Fragment$UserFragment$avatar {
   int get hashCode {
     final l$large = large;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$$__typename]);
   }
 
   @override
@@ -1301,10 +1323,7 @@ class Query$UserFavorites$User$avatar implements Fragment$UserFragment$avatar {
 extension UtilityExtension$Query$UserFavorites$User$avatar
     on Query$UserFavorites$User$avatar {
   CopyWith$Query$UserFavorites$User$avatar<Query$UserFavorites$User$avatar>
-      get copyWith => CopyWith$Query$UserFavorites$User$avatar(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$UserFavorites$User$avatar(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$avatar<TRes> {
@@ -1316,18 +1335,12 @@ abstract class CopyWith$Query$UserFavorites$User$avatar<TRes> {
   factory CopyWith$Query$UserFavorites$User$avatar.stub(TRes res) =
       _CopyWithStubImpl$Query$UserFavorites$User$avatar;
 
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
+  TRes call({String? large, String? $__typename});
 }
 
 class _CopyWithImpl$Query$UserFavorites$User$avatar<TRes>
     implements CopyWith$Query$UserFavorites$User$avatar<TRes> {
-  _CopyWithImpl$Query$UserFavorites$User$avatar(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserFavorites$User$avatar(this._instance, this._then);
 
   final Query$UserFavorites$User$avatar _instance;
 
@@ -1335,16 +1348,15 @@ class _CopyWithImpl$Query$UserFavorites$User$avatar<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$avatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? large = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$UserFavorites$User$avatar(
+          large: large == _undefined ? _instance.large : (large as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$UserFavorites$User$avatar<TRes>
@@ -1353,11 +1365,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$avatar<TRes>
 
   TRes _res;
 
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? $__typename}) => _res;
 }
 
 class Query$UserFavorites$User$favourites {
@@ -1371,7 +1379,8 @@ class Query$UserFavorites$User$favourites {
   });
 
   factory Query$UserFavorites$User$favourites.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$anime = json['anime'];
     final l$manga = json['manga'];
     final l$characters = json['characters'];
@@ -1382,23 +1391,28 @@ class Query$UserFavorites$User$favourites {
       anime: l$anime == null
           ? null
           : Query$UserFavorites$User$favourites$anime.fromJson(
-              (l$anime as Map<String, dynamic>)),
+              (l$anime as Map<String, dynamic>),
+            ),
       manga: l$manga == null
           ? null
           : Query$UserFavorites$User$favourites$manga.fromJson(
-              (l$manga as Map<String, dynamic>)),
+              (l$manga as Map<String, dynamic>),
+            ),
       characters: l$characters == null
           ? null
           : Query$UserFavorites$User$favourites$characters.fromJson(
-              (l$characters as Map<String, dynamic>)),
+              (l$characters as Map<String, dynamic>),
+            ),
       staff: l$staff == null
           ? null
           : Query$UserFavorites$User$favourites$staff.fromJson(
-              (l$staff as Map<String, dynamic>)),
+              (l$staff as Map<String, dynamic>),
+            ),
       studios: l$studios == null
           ? null
           : Query$UserFavorites$User$favourites$studios.fromJson(
-              (l$studios as Map<String, dynamic>)),
+              (l$studios as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1496,11 +1510,9 @@ class Query$UserFavorites$User$favourites {
 extension UtilityExtension$Query$UserFavorites$User$favourites
     on Query$UserFavorites$User$favourites {
   CopyWith$Query$UserFavorites$User$favourites<
-          Query$UserFavorites$User$favourites>
-      get copyWith => CopyWith$Query$UserFavorites$User$favourites(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites
+  >
+  get copyWith => CopyWith$Query$UserFavorites$User$favourites(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites<TRes> {
@@ -1529,10 +1541,7 @@ abstract class CopyWith$Query$UserFavorites$User$favourites<TRes> {
 
 class _CopyWithImpl$Query$UserFavorites$User$favourites<TRes>
     implements CopyWith$Query$UserFavorites$User$favourites<TRes> {
-  _CopyWithImpl$Query$UserFavorites$User$favourites(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserFavorites$User$favourites(this._instance, this._then);
 
   final Query$UserFavorites$User$favourites _instance;
 
@@ -1547,71 +1556,87 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites<TRes>
     Object? staff = _undefined,
     Object? studios = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites(
-        anime: anime == _undefined
-            ? _instance.anime
-            : (anime as Query$UserFavorites$User$favourites$anime?),
-        manga: manga == _undefined
-            ? _instance.manga
-            : (manga as Query$UserFavorites$User$favourites$manga?),
-        characters: characters == _undefined
-            ? _instance.characters
-            : (characters as Query$UserFavorites$User$favourites$characters?),
-        staff: staff == _undefined
-            ? _instance.staff
-            : (staff as Query$UserFavorites$User$favourites$staff?),
-        studios: studios == _undefined
-            ? _instance.studios
-            : (studios as Query$UserFavorites$User$favourites$studios?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites(
+      anime: anime == _undefined
+          ? _instance.anime
+          : (anime as Query$UserFavorites$User$favourites$anime?),
+      manga: manga == _undefined
+          ? _instance.manga
+          : (manga as Query$UserFavorites$User$favourites$manga?),
+      characters: characters == _undefined
+          ? _instance.characters
+          : (characters as Query$UserFavorites$User$favourites$characters?),
+      staff: staff == _undefined
+          ? _instance.staff
+          : (staff as Query$UserFavorites$User$favourites$staff?),
+      studios: studios == _undefined
+          ? _instance.studios
+          : (studios as Query$UserFavorites$User$favourites$studios?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$UserFavorites$User$favourites$anime<TRes> get anime {
     final local$anime = _instance.anime;
     return local$anime == null
         ? CopyWith$Query$UserFavorites$User$favourites$anime.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$UserFavorites$User$favourites$anime(
-            local$anime, (e) => call(anime: e));
+            local$anime,
+            (e) => call(anime: e),
+          );
   }
 
   CopyWith$Query$UserFavorites$User$favourites$manga<TRes> get manga {
     final local$manga = _instance.manga;
     return local$manga == null
         ? CopyWith$Query$UserFavorites$User$favourites$manga.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$UserFavorites$User$favourites$manga(
-            local$manga, (e) => call(manga: e));
+            local$manga,
+            (e) => call(manga: e),
+          );
   }
 
   CopyWith$Query$UserFavorites$User$favourites$characters<TRes> get characters {
     final local$characters = _instance.characters;
     return local$characters == null
         ? CopyWith$Query$UserFavorites$User$favourites$characters.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$UserFavorites$User$favourites$characters(
-            local$characters, (e) => call(characters: e));
+            local$characters,
+            (e) => call(characters: e),
+          );
   }
 
   CopyWith$Query$UserFavorites$User$favourites$staff<TRes> get staff {
     final local$staff = _instance.staff;
     return local$staff == null
         ? CopyWith$Query$UserFavorites$User$favourites$staff.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$UserFavorites$User$favourites$staff(
-            local$staff, (e) => call(staff: e));
+            local$staff,
+            (e) => call(staff: e),
+          );
   }
 
   CopyWith$Query$UserFavorites$User$favourites$studios<TRes> get studios {
     final local$studios = _instance.studios;
     return local$studios == null
         ? CopyWith$Query$UserFavorites$User$favourites$studios.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$UserFavorites$User$favourites$studios(
-            local$studios, (e) => call(studios: e));
+            local$studios,
+            (e) => call(studios: e),
+          );
   }
 }
 
@@ -1628,8 +1653,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites<TRes>
     Query$UserFavorites$User$favourites$staff? staff,
     Query$UserFavorites$User$favourites$studios? studios,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$UserFavorites$User$favourites$anime<TRes> get anime =>
       CopyWith$Query$UserFavorites$User$favourites$anime.stub(_res);
@@ -1638,8 +1662,8 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites<TRes>
       CopyWith$Query$UserFavorites$User$favourites$manga.stub(_res);
 
   CopyWith$Query$UserFavorites$User$favourites$characters<TRes>
-      get characters =>
-          CopyWith$Query$UserFavorites$User$favourites$characters.stub(_res);
+  get characters =>
+      CopyWith$Query$UserFavorites$User$favourites$characters.stub(_res);
 
   CopyWith$Query$UserFavorites$User$favourites$staff<TRes> get staff =>
       CopyWith$Query$UserFavorites$User$favourites$staff.stub(_res);
@@ -1656,7 +1680,8 @@ class Query$UserFavorites$User$favourites$anime {
   });
 
   factory Query$UserFavorites$User$favourites$anime.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$pageInfo = json['pageInfo'];
     final l$edges = json['edges'];
     final l$$__typename = json['__typename'];
@@ -1665,10 +1690,13 @@ class Query$UserFavorites$User$favourites$anime {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$UserFavorites$User$favourites$anime$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$UserFavorites$User$favourites$anime$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1745,11 +1773,10 @@ class Query$UserFavorites$User$favourites$anime {
 extension UtilityExtension$Query$UserFavorites$User$favourites$anime
     on Query$UserFavorites$User$favourites$anime {
   CopyWith$Query$UserFavorites$User$favourites$anime<
-          Query$UserFavorites$User$favourites$anime>
-      get copyWith => CopyWith$Query$UserFavorites$User$favourites$anime(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$anime
+  >
+  get copyWith =>
+      CopyWith$Query$UserFavorites$User$favourites$anime(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$anime<TRes> {
@@ -1768,11 +1795,15 @@ abstract class CopyWith$Query$UserFavorites$User$favourites$anime<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<Query$UserFavorites$User$favourites$anime$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$UserFavorites$User$favourites$anime$edges<
-                      Query$UserFavorites$User$favourites$anime$edges>?>?)
-          _fn);
+    Iterable<Query$UserFavorites$User$favourites$anime$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$anime$edges<
+          Query$UserFavorites$User$favourites$anime$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserFavorites$User$favourites$anime<TRes>
@@ -1792,19 +1823,19 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$anime<TRes>
     Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$anime(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges
-                as List<Query$UserFavorites$User$favourites$anime$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites$anime(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      edges: edges == _undefined
+          ? _instance.edges
+          : (edges as List<Query$UserFavorites$User$favourites$anime$edges?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -1814,18 +1845,26 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$anime<TRes>
   }
 
   TRes edges(
-          Iterable<Query$UserFavorites$User$favourites$anime$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$UserFavorites$User$favourites$anime$edges<
-                          Query$UserFavorites$User$favourites$anime$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Query$UserFavorites$User$favourites$anime$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$UserFavorites$User$favourites$anime$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$anime$edges<
+          Query$UserFavorites$User$favourites$anime$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$UserFavorites$User$favourites$anime$edges(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserFavorites$User$favourites$anime<TRes>
@@ -1838,8 +1877,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$anime<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$UserFavorites$User$favourites$anime$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -1856,7 +1894,8 @@ class Query$UserFavorites$User$favourites$anime$edges {
   });
 
   factory Query$UserFavorites$User$favourites$anime$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$favouriteOrder = json['favouriteOrder'];
     final l$node = json['node'];
@@ -1898,12 +1937,7 @@ class Query$UserFavorites$User$favourites$anime$edges {
     final l$favouriteOrder = favouriteOrder;
     final l$node = node;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$favouriteOrder,
-      l$node,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$favouriteOrder, l$node, l$$__typename]);
   }
 
   @override
@@ -1942,11 +1976,10 @@ class Query$UserFavorites$User$favourites$anime$edges {
 extension UtilityExtension$Query$UserFavorites$User$favourites$anime$edges
     on Query$UserFavorites$User$favourites$anime$edges {
   CopyWith$Query$UserFavorites$User$favourites$anime$edges<
-          Query$UserFavorites$User$favourites$anime$edges>
-      get copyWith => CopyWith$Query$UserFavorites$User$favourites$anime$edges(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$anime$edges
+  >
+  get copyWith =>
+      CopyWith$Query$UserFavorites$User$favourites$anime$edges(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$anime$edges<TRes> {
@@ -1956,8 +1989,8 @@ abstract class CopyWith$Query$UserFavorites$User$favourites$anime$edges<TRes> {
   ) = _CopyWithImpl$Query$UserFavorites$User$favourites$anime$edges;
 
   factory CopyWith$Query$UserFavorites$User$favourites$anime$edges.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserFavorites$User$favourites$anime$edges;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserFavorites$User$favourites$anime$edges;
 
   TRes call({
     int? id,
@@ -1986,19 +2019,20 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$anime$edges<TRes>
     Object? favouriteOrder = _undefined,
     Object? node = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$anime$edges(
-        id: id == _undefined ? _instance.id : (id as int?),
-        favouriteOrder: favouriteOrder == _undefined
-            ? _instance.favouriteOrder
-            : (favouriteOrder as int?),
-        node: node == _undefined
-            ? _instance.node
-            : (node as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites$anime$edges(
+      id: id == _undefined ? _instance.id : (id as int?),
+      favouriteOrder: favouriteOrder == _undefined
+          ? _instance.favouriteOrder
+          : (favouriteOrder as int?),
+      node: node == _undefined
+          ? _instance.node
+          : (node as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get node {
     final local$node = _instance.node;
@@ -2019,8 +2053,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$anime$edges<TRes>
     int? favouriteOrder,
     Fragment$MediaFragment? node,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get node =>
       CopyWith$Fragment$MediaFragment.stub(_res);
@@ -2034,7 +2067,8 @@ class Query$UserFavorites$User$favourites$manga {
   });
 
   factory Query$UserFavorites$User$favourites$manga.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$pageInfo = json['pageInfo'];
     final l$edges = json['edges'];
     final l$$__typename = json['__typename'];
@@ -2043,10 +2077,13 @@ class Query$UserFavorites$User$favourites$manga {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$UserFavorites$User$favourites$manga$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$UserFavorites$User$favourites$manga$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2123,11 +2160,10 @@ class Query$UserFavorites$User$favourites$manga {
 extension UtilityExtension$Query$UserFavorites$User$favourites$manga
     on Query$UserFavorites$User$favourites$manga {
   CopyWith$Query$UserFavorites$User$favourites$manga<
-          Query$UserFavorites$User$favourites$manga>
-      get copyWith => CopyWith$Query$UserFavorites$User$favourites$manga(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$manga
+  >
+  get copyWith =>
+      CopyWith$Query$UserFavorites$User$favourites$manga(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$manga<TRes> {
@@ -2146,11 +2182,15 @@ abstract class CopyWith$Query$UserFavorites$User$favourites$manga<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<Query$UserFavorites$User$favourites$manga$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$UserFavorites$User$favourites$manga$edges<
-                      Query$UserFavorites$User$favourites$manga$edges>?>?)
-          _fn);
+    Iterable<Query$UserFavorites$User$favourites$manga$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$manga$edges<
+          Query$UserFavorites$User$favourites$manga$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserFavorites$User$favourites$manga<TRes>
@@ -2170,19 +2210,19 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$manga<TRes>
     Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$manga(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges
-                as List<Query$UserFavorites$User$favourites$manga$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites$manga(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      edges: edges == _undefined
+          ? _instance.edges
+          : (edges as List<Query$UserFavorites$User$favourites$manga$edges?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -2192,18 +2232,26 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$manga<TRes>
   }
 
   TRes edges(
-          Iterable<Query$UserFavorites$User$favourites$manga$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$UserFavorites$User$favourites$manga$edges<
-                          Query$UserFavorites$User$favourites$manga$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Query$UserFavorites$User$favourites$manga$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$UserFavorites$User$favourites$manga$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$manga$edges<
+          Query$UserFavorites$User$favourites$manga$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$UserFavorites$User$favourites$manga$edges(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserFavorites$User$favourites$manga<TRes>
@@ -2216,8 +2264,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$manga<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$UserFavorites$User$favourites$manga$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -2234,7 +2281,8 @@ class Query$UserFavorites$User$favourites$manga$edges {
   });
 
   factory Query$UserFavorites$User$favourites$manga$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$favouriteOrder = json['favouriteOrder'];
     final l$node = json['node'];
@@ -2276,12 +2324,7 @@ class Query$UserFavorites$User$favourites$manga$edges {
     final l$favouriteOrder = favouriteOrder;
     final l$node = node;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$favouriteOrder,
-      l$node,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$favouriteOrder, l$node, l$$__typename]);
   }
 
   @override
@@ -2320,11 +2363,10 @@ class Query$UserFavorites$User$favourites$manga$edges {
 extension UtilityExtension$Query$UserFavorites$User$favourites$manga$edges
     on Query$UserFavorites$User$favourites$manga$edges {
   CopyWith$Query$UserFavorites$User$favourites$manga$edges<
-          Query$UserFavorites$User$favourites$manga$edges>
-      get copyWith => CopyWith$Query$UserFavorites$User$favourites$manga$edges(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$manga$edges
+  >
+  get copyWith =>
+      CopyWith$Query$UserFavorites$User$favourites$manga$edges(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$manga$edges<TRes> {
@@ -2334,8 +2376,8 @@ abstract class CopyWith$Query$UserFavorites$User$favourites$manga$edges<TRes> {
   ) = _CopyWithImpl$Query$UserFavorites$User$favourites$manga$edges;
 
   factory CopyWith$Query$UserFavorites$User$favourites$manga$edges.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserFavorites$User$favourites$manga$edges;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserFavorites$User$favourites$manga$edges;
 
   TRes call({
     int? id,
@@ -2364,19 +2406,20 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$manga$edges<TRes>
     Object? favouriteOrder = _undefined,
     Object? node = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$manga$edges(
-        id: id == _undefined ? _instance.id : (id as int?),
-        favouriteOrder: favouriteOrder == _undefined
-            ? _instance.favouriteOrder
-            : (favouriteOrder as int?),
-        node: node == _undefined
-            ? _instance.node
-            : (node as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites$manga$edges(
+      id: id == _undefined ? _instance.id : (id as int?),
+      favouriteOrder: favouriteOrder == _undefined
+          ? _instance.favouriteOrder
+          : (favouriteOrder as int?),
+      node: node == _undefined
+          ? _instance.node
+          : (node as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get node {
     final local$node = _instance.node;
@@ -2397,8 +2440,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$manga$edges<TRes>
     int? favouriteOrder,
     Fragment$MediaFragment? node,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get node =>
       CopyWith$Fragment$MediaFragment.stub(_res);
@@ -2412,7 +2454,8 @@ class Query$UserFavorites$User$favourites$characters {
   });
 
   factory Query$UserFavorites$User$favourites$characters.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$pageInfo = json['pageInfo'];
     final l$edges = json['edges'];
     final l$$__typename = json['__typename'];
@@ -2421,10 +2464,13 @@ class Query$UserFavorites$User$favourites$characters {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$UserFavorites$User$favourites$characters$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$UserFavorites$User$favourites$characters$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2501,11 +2547,10 @@ class Query$UserFavorites$User$favourites$characters {
 extension UtilityExtension$Query$UserFavorites$User$favourites$characters
     on Query$UserFavorites$User$favourites$characters {
   CopyWith$Query$UserFavorites$User$favourites$characters<
-          Query$UserFavorites$User$favourites$characters>
-      get copyWith => CopyWith$Query$UserFavorites$User$favourites$characters(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$characters
+  >
+  get copyWith =>
+      CopyWith$Query$UserFavorites$User$favourites$characters(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$characters<TRes> {
@@ -2515,8 +2560,8 @@ abstract class CopyWith$Query$UserFavorites$User$favourites$characters<TRes> {
   ) = _CopyWithImpl$Query$UserFavorites$User$favourites$characters;
 
   factory CopyWith$Query$UserFavorites$User$favourites$characters.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserFavorites$User$favourites$characters;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserFavorites$User$favourites$characters;
 
   TRes call({
     Fragment$PageInfo? pageInfo,
@@ -2525,11 +2570,15 @@ abstract class CopyWith$Query$UserFavorites$User$favourites$characters<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<Query$UserFavorites$User$favourites$characters$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$UserFavorites$User$favourites$characters$edges<
-                      Query$UserFavorites$User$favourites$characters$edges>?>?)
-          _fn);
+    Iterable<Query$UserFavorites$User$favourites$characters$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$characters$edges<
+          Query$UserFavorites$User$favourites$characters$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserFavorites$User$favourites$characters<TRes>
@@ -2549,19 +2598,22 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$characters<TRes>
     Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$characters(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges as List<
-                Query$UserFavorites$User$favourites$characters$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites$characters(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      edges: edges == _undefined
+          ? _instance.edges
+          : (edges
+                as List<
+                  Query$UserFavorites$User$favourites$characters$edges?
+                >?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -2571,18 +2623,26 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$characters<TRes>
   }
 
   TRes edges(
-          Iterable<Query$UserFavorites$User$favourites$characters$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$UserFavorites$User$favourites$characters$edges<
-                          Query$UserFavorites$User$favourites$characters$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Query$UserFavorites$User$favourites$characters$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$UserFavorites$User$favourites$characters$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$characters$edges<
+          Query$UserFavorites$User$favourites$characters$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$UserFavorites$User$favourites$characters$edges(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserFavorites$User$favourites$characters<TRes>
@@ -2595,8 +2655,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$characters<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$UserFavorites$User$favourites$characters$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -2613,7 +2672,8 @@ class Query$UserFavorites$User$favourites$characters$edges {
   });
 
   factory Query$UserFavorites$User$favourites$characters$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$favouriteOrder = json['favouriteOrder'];
     final l$node = json['node'];
@@ -2624,7 +2684,8 @@ class Query$UserFavorites$User$favourites$characters$edges {
       node: l$node == null
           ? null
           : Fragment$CharacterFragment.fromJson(
-              (l$node as Map<String, dynamic>)),
+              (l$node as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2656,12 +2717,7 @@ class Query$UserFavorites$User$favourites$characters$edges {
     final l$favouriteOrder = favouriteOrder;
     final l$node = node;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$favouriteOrder,
-      l$node,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$favouriteOrder, l$node, l$$__typename]);
   }
 
   @override
@@ -2700,24 +2756,25 @@ class Query$UserFavorites$User$favourites$characters$edges {
 extension UtilityExtension$Query$UserFavorites$User$favourites$characters$edges
     on Query$UserFavorites$User$favourites$characters$edges {
   CopyWith$Query$UserFavorites$User$favourites$characters$edges<
-          Query$UserFavorites$User$favourites$characters$edges>
-      get copyWith =>
-          CopyWith$Query$UserFavorites$User$favourites$characters$edges(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$characters$edges
+  >
+  get copyWith => CopyWith$Query$UserFavorites$User$favourites$characters$edges(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$characters$edges<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$UserFavorites$User$favourites$characters$edges(
     Query$UserFavorites$User$favourites$characters$edges instance,
     TRes Function(Query$UserFavorites$User$favourites$characters$edges) then,
   ) = _CopyWithImpl$Query$UserFavorites$User$favourites$characters$edges;
 
   factory CopyWith$Query$UserFavorites$User$favourites$characters$edges.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserFavorites$User$favourites$characters$edges;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserFavorites$User$favourites$characters$edges;
 
   TRes call({
     int? id,
@@ -2739,7 +2796,7 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$characters$edges<TRes>
   final Query$UserFavorites$User$favourites$characters$edges _instance;
 
   final TRes Function(Query$UserFavorites$User$favourites$characters$edges)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2748,19 +2805,20 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$characters$edges<TRes>
     Object? favouriteOrder = _undefined,
     Object? node = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$characters$edges(
-        id: id == _undefined ? _instance.id : (id as int?),
-        favouriteOrder: favouriteOrder == _undefined
-            ? _instance.favouriteOrder
-            : (favouriteOrder as int?),
-        node: node == _undefined
-            ? _instance.node
-            : (node as Fragment$CharacterFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites$characters$edges(
+      id: id == _undefined ? _instance.id : (id as int?),
+      favouriteOrder: favouriteOrder == _undefined
+          ? _instance.favouriteOrder
+          : (favouriteOrder as int?),
+      node: node == _undefined
+          ? _instance.node
+          : (node as Fragment$CharacterFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$CharacterFragment<TRes> get node {
     final local$node = _instance.node;
@@ -2771,11 +2829,13 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$characters$edges<TRes>
 }
 
 class _CopyWithStubImpl$Query$UserFavorites$User$favourites$characters$edges<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$UserFavorites$User$favourites$characters$edges<TRes> {
   _CopyWithStubImpl$Query$UserFavorites$User$favourites$characters$edges(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -2784,8 +2844,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$characters$edges<
     int? favouriteOrder,
     Fragment$CharacterFragment? node,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$CharacterFragment<TRes> get node =>
       CopyWith$Fragment$CharacterFragment.stub(_res);
@@ -2799,7 +2858,8 @@ class Query$UserFavorites$User$favourites$staff {
   });
 
   factory Query$UserFavorites$User$favourites$staff.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$pageInfo = json['pageInfo'];
     final l$edges = json['edges'];
     final l$$__typename = json['__typename'];
@@ -2808,10 +2868,13 @@ class Query$UserFavorites$User$favourites$staff {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$UserFavorites$User$favourites$staff$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$UserFavorites$User$favourites$staff$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2888,11 +2951,10 @@ class Query$UserFavorites$User$favourites$staff {
 extension UtilityExtension$Query$UserFavorites$User$favourites$staff
     on Query$UserFavorites$User$favourites$staff {
   CopyWith$Query$UserFavorites$User$favourites$staff<
-          Query$UserFavorites$User$favourites$staff>
-      get copyWith => CopyWith$Query$UserFavorites$User$favourites$staff(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$staff
+  >
+  get copyWith =>
+      CopyWith$Query$UserFavorites$User$favourites$staff(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$staff<TRes> {
@@ -2911,11 +2973,15 @@ abstract class CopyWith$Query$UserFavorites$User$favourites$staff<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<Query$UserFavorites$User$favourites$staff$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$UserFavorites$User$favourites$staff$edges<
-                      Query$UserFavorites$User$favourites$staff$edges>?>?)
-          _fn);
+    Iterable<Query$UserFavorites$User$favourites$staff$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$staff$edges<
+          Query$UserFavorites$User$favourites$staff$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserFavorites$User$favourites$staff<TRes>
@@ -2935,19 +3001,19 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$staff<TRes>
     Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$staff(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges
-                as List<Query$UserFavorites$User$favourites$staff$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites$staff(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      edges: edges == _undefined
+          ? _instance.edges
+          : (edges as List<Query$UserFavorites$User$favourites$staff$edges?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -2957,18 +3023,26 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$staff<TRes>
   }
 
   TRes edges(
-          Iterable<Query$UserFavorites$User$favourites$staff$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$UserFavorites$User$favourites$staff$edges<
-                          Query$UserFavorites$User$favourites$staff$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Query$UserFavorites$User$favourites$staff$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$UserFavorites$User$favourites$staff$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$staff$edges<
+          Query$UserFavorites$User$favourites$staff$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$UserFavorites$User$favourites$staff$edges(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserFavorites$User$favourites$staff<TRes>
@@ -2981,8 +3055,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$staff<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$UserFavorites$User$favourites$staff$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -2999,7 +3072,8 @@ class Query$UserFavorites$User$favourites$staff$edges {
   });
 
   factory Query$UserFavorites$User$favourites$staff$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$favouriteOrder = json['favouriteOrder'];
     final l$node = json['node'];
@@ -3041,12 +3115,7 @@ class Query$UserFavorites$User$favourites$staff$edges {
     final l$favouriteOrder = favouriteOrder;
     final l$node = node;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$favouriteOrder,
-      l$node,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$favouriteOrder, l$node, l$$__typename]);
   }
 
   @override
@@ -3085,11 +3154,10 @@ class Query$UserFavorites$User$favourites$staff$edges {
 extension UtilityExtension$Query$UserFavorites$User$favourites$staff$edges
     on Query$UserFavorites$User$favourites$staff$edges {
   CopyWith$Query$UserFavorites$User$favourites$staff$edges<
-          Query$UserFavorites$User$favourites$staff$edges>
-      get copyWith => CopyWith$Query$UserFavorites$User$favourites$staff$edges(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$staff$edges
+  >
+  get copyWith =>
+      CopyWith$Query$UserFavorites$User$favourites$staff$edges(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$staff$edges<TRes> {
@@ -3099,8 +3167,8 @@ abstract class CopyWith$Query$UserFavorites$User$favourites$staff$edges<TRes> {
   ) = _CopyWithImpl$Query$UserFavorites$User$favourites$staff$edges;
 
   factory CopyWith$Query$UserFavorites$User$favourites$staff$edges.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserFavorites$User$favourites$staff$edges;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserFavorites$User$favourites$staff$edges;
 
   TRes call({
     int? id,
@@ -3129,19 +3197,20 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$staff$edges<TRes>
     Object? favouriteOrder = _undefined,
     Object? node = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$staff$edges(
-        id: id == _undefined ? _instance.id : (id as int?),
-        favouriteOrder: favouriteOrder == _undefined
-            ? _instance.favouriteOrder
-            : (favouriteOrder as int?),
-        node: node == _undefined
-            ? _instance.node
-            : (node as Fragment$StaffFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites$staff$edges(
+      id: id == _undefined ? _instance.id : (id as int?),
+      favouriteOrder: favouriteOrder == _undefined
+          ? _instance.favouriteOrder
+          : (favouriteOrder as int?),
+      node: node == _undefined
+          ? _instance.node
+          : (node as Fragment$StaffFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$StaffFragment<TRes> get node {
     final local$node = _instance.node;
@@ -3162,8 +3231,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$staff$edges<TRes>
     int? favouriteOrder,
     Fragment$StaffFragment? node,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$StaffFragment<TRes> get node =>
       CopyWith$Fragment$StaffFragment.stub(_res);
@@ -3177,7 +3245,8 @@ class Query$UserFavorites$User$favourites$studios {
   });
 
   factory Query$UserFavorites$User$favourites$studios.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$pageInfo = json['pageInfo'];
     final l$edges = json['edges'];
     final l$$__typename = json['__typename'];
@@ -3186,10 +3255,13 @@ class Query$UserFavorites$User$favourites$studios {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$UserFavorites$User$favourites$studios$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$UserFavorites$User$favourites$studios$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -3266,11 +3338,10 @@ class Query$UserFavorites$User$favourites$studios {
 extension UtilityExtension$Query$UserFavorites$User$favourites$studios
     on Query$UserFavorites$User$favourites$studios {
   CopyWith$Query$UserFavorites$User$favourites$studios<
-          Query$UserFavorites$User$favourites$studios>
-      get copyWith => CopyWith$Query$UserFavorites$User$favourites$studios(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$studios
+  >
+  get copyWith =>
+      CopyWith$Query$UserFavorites$User$favourites$studios(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$studios<TRes> {
@@ -3289,11 +3360,15 @@ abstract class CopyWith$Query$UserFavorites$User$favourites$studios<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<Query$UserFavorites$User$favourites$studios$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$UserFavorites$User$favourites$studios$edges<
-                      Query$UserFavorites$User$favourites$studios$edges>?>?)
-          _fn);
+    Iterable<Query$UserFavorites$User$favourites$studios$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$studios$edges<
+          Query$UserFavorites$User$favourites$studios$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserFavorites$User$favourites$studios<TRes>
@@ -3313,19 +3388,20 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$studios<TRes>
     Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$studios(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges
+  }) => _then(
+    Query$UserFavorites$User$favourites$studios(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      edges: edges == _undefined
+          ? _instance.edges
+          : (edges
                 as List<Query$UserFavorites$User$favourites$studios$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -3335,18 +3411,26 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$studios<TRes>
   }
 
   TRes edges(
-          Iterable<Query$UserFavorites$User$favourites$studios$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$UserFavorites$User$favourites$studios$edges<
-                          Query$UserFavorites$User$favourites$studios$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Query$UserFavorites$User$favourites$studios$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$UserFavorites$User$favourites$studios$edges?>? Function(
+      Iterable<
+        CopyWith$Query$UserFavorites$User$favourites$studios$edges<
+          Query$UserFavorites$User$favourites$studios$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$UserFavorites$User$favourites$studios$edges(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserFavorites$User$favourites$studios<TRes>
@@ -3359,8 +3443,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$studios<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$UserFavorites$User$favourites$studios$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -3377,7 +3460,8 @@ class Query$UserFavorites$User$favourites$studios$edges {
   });
 
   factory Query$UserFavorites$User$favourites$studios$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$favouriteOrder = json['favouriteOrder'];
     final l$node = json['node'];
@@ -3419,12 +3503,7 @@ class Query$UserFavorites$User$favourites$studios$edges {
     final l$favouriteOrder = favouriteOrder;
     final l$node = node;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$favouriteOrder,
-      l$node,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$favouriteOrder, l$node, l$$__typename]);
   }
 
   @override
@@ -3463,24 +3542,25 @@ class Query$UserFavorites$User$favourites$studios$edges {
 extension UtilityExtension$Query$UserFavorites$User$favourites$studios$edges
     on Query$UserFavorites$User$favourites$studios$edges {
   CopyWith$Query$UserFavorites$User$favourites$studios$edges<
-          Query$UserFavorites$User$favourites$studios$edges>
-      get copyWith =>
-          CopyWith$Query$UserFavorites$User$favourites$studios$edges(
-            this,
-            (i) => i,
-          );
+    Query$UserFavorites$User$favourites$studios$edges
+  >
+  get copyWith => CopyWith$Query$UserFavorites$User$favourites$studios$edges(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$UserFavorites$User$favourites$studios$edges<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$UserFavorites$User$favourites$studios$edges(
     Query$UserFavorites$User$favourites$studios$edges instance,
     TRes Function(Query$UserFavorites$User$favourites$studios$edges) then,
   ) = _CopyWithImpl$Query$UserFavorites$User$favourites$studios$edges;
 
   factory CopyWith$Query$UserFavorites$User$favourites$studios$edges.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserFavorites$User$favourites$studios$edges;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserFavorites$User$favourites$studios$edges;
 
   TRes call({
     int? id,
@@ -3510,19 +3590,20 @@ class _CopyWithImpl$Query$UserFavorites$User$favourites$studios$edges<TRes>
     Object? favouriteOrder = _undefined,
     Object? node = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFavorites$User$favourites$studios$edges(
-        id: id == _undefined ? _instance.id : (id as int?),
-        favouriteOrder: favouriteOrder == _undefined
-            ? _instance.favouriteOrder
-            : (favouriteOrder as int?),
-        node: node == _undefined
-            ? _instance.node
-            : (node as Fragment$StudioFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserFavorites$User$favourites$studios$edges(
+      id: id == _undefined ? _instance.id : (id as int?),
+      favouriteOrder: favouriteOrder == _undefined
+          ? _instance.favouriteOrder
+          : (favouriteOrder as int?),
+      node: node == _undefined
+          ? _instance.node
+          : (node as Fragment$StudioFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$StudioFragment<TRes> get node {
     final local$node = _instance.node;
@@ -3536,7 +3617,8 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$studios$edges<TRes>
     implements
         CopyWith$Query$UserFavorites$User$favourites$studios$edges<TRes> {
   _CopyWithStubImpl$Query$UserFavorites$User$favourites$studios$edges(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -3545,8 +3627,7 @@ class _CopyWithStubImpl$Query$UserFavorites$User$favourites$studios$edges<TRes>
     int? favouriteOrder,
     Fragment$StudioFragment? node,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$StudioFragment<TRes> get node =>
       CopyWith$Fragment$StudioFragment.stub(_res);

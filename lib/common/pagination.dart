@@ -44,8 +44,6 @@ class _GraphqlPaginationState extends State<GraphqlPagination> {
             await widget.req((widget.pageInfo.currentPage ?? 1) + 1);
             setState(() => loading = false);
           });
-          // client.requestController.add(req((pageInfo.currentPage ?? 1) + 1));
-          // print(req((pageInfo.currentPage ?? 1) + 1));
         }
         return false;
       },
@@ -63,7 +61,7 @@ class PaginationView extends StatefulWidget {
     required this.pageInfo,
     this.depth,
     this.trailing,
-    required this.builder,
+    required this.itemBuilder,
     required this.itemCount,
     this.padding,
   });
@@ -72,19 +70,19 @@ class PaginationView extends StatefulWidget {
     required this.req,
     this.depth,
     required this.pageInfo,
-    required this.builder,
+    required this.itemBuilder,
     required this.itemCount,
     this.trailing,
     this.padding,
-  })  : isGrid = false,
-        gridDelegate = null;
+  }) : isGrid = false,
+       gridDelegate = null;
   const PaginationView.grid({
     super.key,
     required this.req,
     this.depth,
     required this.pageInfo,
     required this.gridDelegate,
-    required this.builder,
+    required this.itemBuilder,
     required this.itemCount,
     this.trailing,
     this.padding,
@@ -93,7 +91,7 @@ class PaginationView extends StatefulWidget {
   final bool isGrid;
   final SliverGridDelegate? gridDelegate;
   final int itemCount;
-  final Widget Function(BuildContext context, int index) builder;
+  final Widget Function(BuildContext context, int index) itemBuilder;
   final Fragment$PageInfo pageInfo;
   final int? depth;
   final FutureOr Function(int nextPage) req;
@@ -137,7 +135,7 @@ class _PaginationViewState extends State<PaginationView> {
               padding: widget.padding ?? EdgeInsets.zero,
               sliver: SliverGrid.builder(
                 gridDelegate: widget.gridDelegate!,
-                itemBuilder: widget.builder,
+                itemBuilder: widget.itemBuilder,
                 itemCount: widget.itemCount,
               ),
             )
@@ -145,7 +143,7 @@ class _PaginationViewState extends State<PaginationView> {
             SliverPadding(
               padding: widget.padding ?? EdgeInsets.zero,
               sliver: SliverList.builder(
-                itemBuilder: widget.builder,
+                itemBuilder: widget.itemBuilder,
                 itemCount: widget.itemCount,
               ),
             ),
@@ -153,11 +151,9 @@ class _PaginationViewState extends State<PaginationView> {
             const SliverPadding(
               padding: EdgeInsets.all(8.0),
               sliver: SliverToBoxAdapter(
-                child: Center(
-                  child: CircularProgressIndicator.adaptive(),
-                ),
+                child: Center(child: CircularProgressIndicator.adaptive()),
               ),
-            )
+            ),
         ],
       ),
     );

@@ -4,9 +4,8 @@ import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
 
 class Variables$Query$Review {
-  factory Variables$Query$Review({int? id}) => Variables$Query$Review._({
-        if (id != null) r'id': id,
-      });
+  factory Variables$Query$Review({int? id}) =>
+      Variables$Query$Review._({if (id != null) r'id': id});
 
   Variables$Query$Review._(this._$data);
 
@@ -33,10 +32,7 @@ class Variables$Query$Review {
   }
 
   CopyWith$Variables$Query$Review<Variables$Query$Review> get copyWith =>
-      CopyWith$Variables$Query$Review(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$Review(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -78,10 +74,7 @@ abstract class CopyWith$Variables$Query$Review<TRes> {
 
 class _CopyWithImpl$Variables$Query$Review<TRes>
     implements CopyWith$Variables$Query$Review<TRes> {
-  _CopyWithImpl$Variables$Query$Review(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Review(this._instance, this._then);
 
   final Variables$Query$Review _instance;
 
@@ -89,10 +82,12 @@ class _CopyWithImpl$Variables$Query$Review<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? id = _undefined}) => _then(Variables$Query$Review._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-      }));
+  TRes call({Object? id = _undefined}) => _then(
+    Variables$Query$Review._({
+      ..._instance._$data,
+      if (id != _undefined) 'id': (id as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Review<TRes>
@@ -105,10 +100,7 @@ class _CopyWithStubImpl$Variables$Query$Review<TRes>
 }
 
 class Query$Review {
-  Query$Review({
-    this.Review,
-    this.$__typename = 'Query',
-  });
+  Query$Review({this.Review, this.$__typename = 'Query'});
 
   factory Query$Review.fromJson(Map<String, dynamic> json) {
     final l$Review = json['Review'];
@@ -138,10 +130,7 @@ class Query$Review {
   int get hashCode {
     final l$Review = Review;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Review,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Review, l$$__typename]);
   }
 
   @override
@@ -167,10 +156,8 @@ class Query$Review {
 }
 
 extension UtilityExtension$Query$Review on Query$Review {
-  CopyWith$Query$Review<Query$Review> get copyWith => CopyWith$Query$Review(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Review<Query$Review> get copyWith =>
+      CopyWith$Query$Review(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Review<TRes> {
@@ -181,18 +168,12 @@ abstract class CopyWith$Query$Review<TRes> {
 
   factory CopyWith$Query$Review.stub(TRes res) = _CopyWithStubImpl$Query$Review;
 
-  TRes call({
-    Query$Review$Review? Review,
-    String? $__typename,
-  });
+  TRes call({Query$Review$Review? Review, String? $__typename});
   CopyWith$Query$Review$Review<TRes> get Review;
 }
 
 class _CopyWithImpl$Query$Review<TRes> implements CopyWith$Query$Review<TRes> {
-  _CopyWithImpl$Query$Review(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Review(this._instance, this._then);
 
   final Query$Review _instance;
 
@@ -200,18 +181,17 @@ class _CopyWithImpl$Query$Review<TRes> implements CopyWith$Query$Review<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Review = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Review(
-        Review: Review == _undefined
-            ? _instance.Review
-            : (Review as Query$Review$Review?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Review = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Review(
+          Review: Review == _undefined
+              ? _instance.Review
+              : (Review as Query$Review$Review?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$Review$Review<TRes> get Review {
     final local$Review = _instance.Review;
@@ -227,75 +207,81 @@ class _CopyWithStubImpl$Query$Review<TRes>
 
   TRes _res;
 
-  call({
-    Query$Review$Review? Review,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$Review$Review? Review, String? $__typename}) => _res;
 
   CopyWith$Query$Review$Review<TRes> get Review =>
       CopyWith$Query$Review$Review.stub(_res);
 }
 
-const documentNodeQueryReview = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Review'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryReview = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Review'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Review'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'ReviewFragment'),
-            directives: [],
-          ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'body'),
+            name: NameNode(value: 'Review'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
+              ),
+            ],
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'userRating'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'score'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'createdAt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'ReviewFragment'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: 'body'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'userRating'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'score'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'createdAt'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -304,20 +290,13 @@ const documentNodeQueryReview = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionReviewFragment,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionReviewFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$Review$Review implements Fragment$ReviewFragment {
   Query$Review$Review({
@@ -354,7 +333,8 @@ class Query$Review$Review implements Fragment$ReviewFragment {
       media: l$media == null
           ? null
           : Query$Review$Review$media.fromJson(
-              (l$media as Map<String, dynamic>)),
+              (l$media as Map<String, dynamic>),
+            ),
       user: l$user == null
           ? null
           : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
@@ -409,8 +389,9 @@ class Query$Review$Review implements Fragment$ReviewFragment {
     final l$body = body;
     _resultData['body'] = l$body;
     final l$userRating = userRating;
-    _resultData['userRating'] =
-        l$userRating == null ? null : toJson$Enum$ReviewRating(l$userRating);
+    _resultData['userRating'] = l$userRating == null
+        ? null
+        : toJson$Enum$ReviewRating(l$userRating);
     final l$score = score;
     _resultData['score'] = l$score;
     final l$createdAt = createdAt;
@@ -515,10 +496,7 @@ class Query$Review$Review implements Fragment$ReviewFragment {
 
 extension UtilityExtension$Query$Review$Review on Query$Review$Review {
   CopyWith$Query$Review$Review<Query$Review$Review> get copyWith =>
-      CopyWith$Query$Review$Review(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Review$Review(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Review$Review<TRes> {
@@ -549,10 +527,7 @@ abstract class CopyWith$Query$Review$Review<TRes> {
 
 class _CopyWithImpl$Query$Review$Review<TRes>
     implements CopyWith$Query$Review$Review<TRes> {
-  _CopyWithImpl$Query$Review$Review(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Review$Review(this._instance, this._then);
 
   final Query$Review$Review _instance;
 
@@ -572,40 +547,42 @@ class _CopyWithImpl$Query$Review$Review<TRes>
     Object? userRating = _undefined,
     Object? score = _undefined,
     Object? createdAt = _undefined,
-  }) =>
-      _then(Query$Review$Review(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        rating: rating == _undefined ? _instance.rating : (rating as int?),
-        ratingAmount: ratingAmount == _undefined
-            ? _instance.ratingAmount
-            : (ratingAmount as int?),
-        summary:
-            summary == _undefined ? _instance.summary : (summary as String?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Query$Review$Review$media?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        body: body == _undefined ? _instance.body : (body as String?),
-        userRating: userRating == _undefined
-            ? _instance.userRating
-            : (userRating as Enum$ReviewRating?),
-        score: score == _undefined ? _instance.score : (score as int?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-      ));
+  }) => _then(
+    Query$Review$Review(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      rating: rating == _undefined ? _instance.rating : (rating as int?),
+      ratingAmount: ratingAmount == _undefined
+          ? _instance.ratingAmount
+          : (ratingAmount as int?),
+      summary: summary == _undefined ? _instance.summary : (summary as String?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Query$Review$Review$media?),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      body: body == _undefined ? _instance.body : (body as String?),
+      userRating: userRating == _undefined
+          ? _instance.userRating
+          : (userRating as Enum$ReviewRating?),
+      score: score == _undefined ? _instance.score : (score as int?),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+    ),
+  );
 
   CopyWith$Query$Review$Review$media<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
         ? CopyWith$Query$Review$Review$media.stub(_then(_instance))
         : CopyWith$Query$Review$Review$media(
-            local$media, (e) => call(media: e));
+            local$media,
+            (e) => call(media: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get user {
@@ -634,8 +611,7 @@ class _CopyWithStubImpl$Query$Review$Review<TRes>
     Enum$ReviewRating? userRating,
     int? score,
     int? createdAt,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Review$Review$media<TRes> get media =>
       CopyWith$Query$Review$Review$media.stub(_res);
@@ -664,7 +640,8 @@ class Query$Review$Review$media implements Fragment$ReviewFragment$media {
       title: l$title == null
           ? null
           : Query$Review$Review$media$title.fromJson(
-              (l$title as Map<String, dynamic>)),
+              (l$title as Map<String, dynamic>),
+            ),
       type: l$type == null ? null : fromJson$Enum$MediaType((l$type as String)),
       bannerImage: (l$bannerImage as String?),
       $__typename: (l$$__typename as String),
@@ -753,10 +730,7 @@ class Query$Review$Review$media implements Fragment$ReviewFragment$media {
 extension UtilityExtension$Query$Review$Review$media
     on Query$Review$Review$media {
   CopyWith$Query$Review$Review$media<Query$Review$Review$media> get copyWith =>
-      CopyWith$Query$Review$Review$media(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Review$Review$media(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Review$Review$media<TRes> {
@@ -780,10 +754,7 @@ abstract class CopyWith$Query$Review$Review$media<TRes> {
 
 class _CopyWithImpl$Query$Review$Review$media<TRes>
     implements CopyWith$Query$Review$Review$media<TRes> {
-  _CopyWithImpl$Query$Review$Review$media(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Review$Review$media(this._instance, this._then);
 
   final Query$Review$Review$media _instance;
 
@@ -797,27 +768,30 @@ class _CopyWithImpl$Query$Review$Review$media<TRes>
     Object? type = _undefined,
     Object? bannerImage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Review$Review$media(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Query$Review$Review$media$title?),
-        type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
-        bannerImage: bannerImage == _undefined
-            ? _instance.bannerImage
-            : (bannerImage as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Review$Review$media(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Query$Review$Review$media$title?),
+      type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
+      bannerImage: bannerImage == _undefined
+          ? _instance.bannerImage
+          : (bannerImage as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Review$Review$media$title<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
         ? CopyWith$Query$Review$Review$media$title.stub(_then(_instance))
         : CopyWith$Query$Review$Review$media$title(
-            local$title, (e) => call(title: e));
+            local$title,
+            (e) => call(title: e),
+          );
   }
 }
 
@@ -833,8 +807,7 @@ class _CopyWithStubImpl$Query$Review$Review$media<TRes>
     Enum$MediaType? type,
     String? bannerImage,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Review$Review$media$title<TRes> get title =>
       CopyWith$Query$Review$Review$media$title.stub(_res);
@@ -873,10 +846,7 @@ class Query$Review$Review$media$title
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -905,10 +875,7 @@ class Query$Review$Review$media$title
 extension UtilityExtension$Query$Review$Review$media$title
     on Query$Review$Review$media$title {
   CopyWith$Query$Review$Review$media$title<Query$Review$Review$media$title>
-      get copyWith => CopyWith$Query$Review$Review$media$title(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Review$Review$media$title(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Review$Review$media$title<TRes> {
@@ -920,18 +887,12 @@ abstract class CopyWith$Query$Review$Review$media$title<TRes> {
   factory CopyWith$Query$Review$Review$media$title.stub(TRes res) =
       _CopyWithStubImpl$Query$Review$Review$media$title;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Review$Review$media$title<TRes>
     implements CopyWith$Query$Review$Review$media$title<TRes> {
-  _CopyWithImpl$Query$Review$Review$media$title(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Review$Review$media$title(this._instance, this._then);
 
   final Query$Review$Review$media$title _instance;
 
@@ -942,15 +903,16 @@ class _CopyWithImpl$Query$Review$Review$media$title<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Review$Review$media$title(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Review$Review$media$title(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Review$Review$media$title<TRes>
@@ -959,18 +921,11 @@ class _CopyWithStubImpl$Query$Review$Review$media$title<TRes>
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }
 
 class Variables$Mutation$RateReview {
-  factory Variables$Mutation$RateReview({
-    int? id,
-    Enum$ReviewRating? rating,
-  }) =>
+  factory Variables$Mutation$RateReview({int? id, Enum$ReviewRating? rating}) =>
       Variables$Mutation$RateReview._({
         if (id != null) r'id': id,
         if (rating != null) r'rating': rating,
@@ -1007,17 +962,15 @@ class Variables$Mutation$RateReview {
     }
     if (_$data.containsKey('rating')) {
       final l$rating = rating;
-      result$data['rating'] =
-          l$rating == null ? null : toJson$Enum$ReviewRating(l$rating);
+      result$data['rating'] = l$rating == null
+          ? null
+          : toJson$Enum$ReviewRating(l$rating);
     }
     return result$data;
   }
 
   CopyWith$Variables$Mutation$RateReview<Variables$Mutation$RateReview>
-      get copyWith => CopyWith$Variables$Mutation$RateReview(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Mutation$RateReview(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1067,18 +1020,12 @@ abstract class CopyWith$Variables$Mutation$RateReview<TRes> {
   factory CopyWith$Variables$Mutation$RateReview.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$RateReview;
 
-  TRes call({
-    int? id,
-    Enum$ReviewRating? rating,
-  });
+  TRes call({int? id, Enum$ReviewRating? rating});
 }
 
 class _CopyWithImpl$Variables$Mutation$RateReview<TRes>
     implements CopyWith$Variables$Mutation$RateReview<TRes> {
-  _CopyWithImpl$Variables$Mutation$RateReview(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Mutation$RateReview(this._instance, this._then);
 
   final Variables$Mutation$RateReview _instance;
 
@@ -1086,15 +1033,13 @@ class _CopyWithImpl$Variables$Mutation$RateReview<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? rating = _undefined,
-  }) =>
-      _then(Variables$Mutation$RateReview._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-        if (rating != _undefined) 'rating': (rating as Enum$ReviewRating?),
-      }));
+  TRes call({Object? id = _undefined, Object? rating = _undefined}) => _then(
+    Variables$Mutation$RateReview._({
+      ..._instance._$data,
+      if (id != _undefined) 'id': (id as int?),
+      if (rating != _undefined) 'rating': (rating as Enum$ReviewRating?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Mutation$RateReview<TRes>
@@ -1103,18 +1048,11 @@ class _CopyWithStubImpl$Variables$Mutation$RateReview<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    Enum$ReviewRating? rating,
-  }) =>
-      _res;
+  call({int? id, Enum$ReviewRating? rating}) => _res;
 }
 
 class Mutation$RateReview {
-  Mutation$RateReview({
-    this.RateReview,
-    this.$__typename = 'Mutation',
-  });
+  Mutation$RateReview({this.RateReview, this.$__typename = 'Mutation'});
 
   factory Mutation$RateReview.fromJson(Map<String, dynamic> json) {
     final l$RateReview = json['RateReview'];
@@ -1123,7 +1061,8 @@ class Mutation$RateReview {
       RateReview: l$RateReview == null
           ? null
           : Mutation$RateReview$RateReview.fromJson(
-              (l$RateReview as Map<String, dynamic>)),
+              (l$RateReview as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1145,10 +1084,7 @@ class Mutation$RateReview {
   int get hashCode {
     final l$RateReview = RateReview;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$RateReview,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$RateReview, l$$__typename]);
   }
 
   @override
@@ -1175,10 +1111,7 @@ class Mutation$RateReview {
 
 extension UtilityExtension$Mutation$RateReview on Mutation$RateReview {
   CopyWith$Mutation$RateReview<Mutation$RateReview> get copyWith =>
-      CopyWith$Mutation$RateReview(
-        this,
-        (i) => i,
-      );
+      CopyWith$Mutation$RateReview(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$RateReview<TRes> {
@@ -1190,19 +1123,13 @@ abstract class CopyWith$Mutation$RateReview<TRes> {
   factory CopyWith$Mutation$RateReview.stub(TRes res) =
       _CopyWithStubImpl$Mutation$RateReview;
 
-  TRes call({
-    Mutation$RateReview$RateReview? RateReview,
-    String? $__typename,
-  });
+  TRes call({Mutation$RateReview$RateReview? RateReview, String? $__typename});
   CopyWith$Mutation$RateReview$RateReview<TRes> get RateReview;
 }
 
 class _CopyWithImpl$Mutation$RateReview<TRes>
     implements CopyWith$Mutation$RateReview<TRes> {
-  _CopyWithImpl$Mutation$RateReview(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$RateReview(this._instance, this._then);
 
   final Mutation$RateReview _instance;
 
@@ -1213,22 +1140,25 @@ class _CopyWithImpl$Mutation$RateReview<TRes>
   TRes call({
     Object? RateReview = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$RateReview(
-        RateReview: RateReview == _undefined
-            ? _instance.RateReview
-            : (RateReview as Mutation$RateReview$RateReview?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$RateReview(
+      RateReview: RateReview == _undefined
+          ? _instance.RateReview
+          : (RateReview as Mutation$RateReview$RateReview?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Mutation$RateReview$RateReview<TRes> get RateReview {
     final local$RateReview = _instance.RateReview;
     return local$RateReview == null
         ? CopyWith$Mutation$RateReview$RateReview.stub(_then(_instance))
         : CopyWith$Mutation$RateReview$RateReview(
-            local$RateReview, (e) => call(RateReview: e));
+            local$RateReview,
+            (e) => call(RateReview: e),
+          );
   }
 }
 
@@ -1238,84 +1168,91 @@ class _CopyWithStubImpl$Mutation$RateReview<TRes>
 
   TRes _res;
 
-  call({
-    Mutation$RateReview$RateReview? RateReview,
-    String? $__typename,
-  }) =>
+  call({Mutation$RateReview$RateReview? RateReview, String? $__typename}) =>
       _res;
 
   CopyWith$Mutation$RateReview$RateReview<TRes> get RateReview =>
       CopyWith$Mutation$RateReview$RateReview.stub(_res);
 }
 
-const documentNodeMutationRateReview = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'RateReview'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeMutationRateReview = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'RateReview'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'rating')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ReviewRating'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'rating')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'ReviewRating'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'RateReview'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'reviewId'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'rating'),
-            value: VariableNode(name: NameNode(value: 'rating')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'id'),
+            name: NameNode(value: 'RateReview'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'reviewId'),
+                value: VariableNode(name: NameNode(value: 'id')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'rating'),
+                value: VariableNode(name: NameNode(value: 'rating')),
+              ),
+            ],
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'rating'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'ratingAmount'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'userRating'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'id'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'rating'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'ratingAmount'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'userRating'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1324,18 +1261,11 @@ const documentNodeMutationRateReview = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 
 class Mutation$RateReview$RateReview {
   Mutation$RateReview$RateReview({
@@ -1382,8 +1312,9 @@ class Mutation$RateReview$RateReview {
     final l$ratingAmount = ratingAmount;
     _resultData['ratingAmount'] = l$ratingAmount;
     final l$userRating = userRating;
-    _resultData['userRating'] =
-        l$userRating == null ? null : toJson$Enum$ReviewRating(l$userRating);
+    _resultData['userRating'] = l$userRating == null
+        ? null
+        : toJson$Enum$ReviewRating(l$userRating);
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1446,10 +1377,7 @@ class Mutation$RateReview$RateReview {
 extension UtilityExtension$Mutation$RateReview$RateReview
     on Mutation$RateReview$RateReview {
   CopyWith$Mutation$RateReview$RateReview<Mutation$RateReview$RateReview>
-      get copyWith => CopyWith$Mutation$RateReview$RateReview(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Mutation$RateReview$RateReview(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$RateReview$RateReview<TRes> {
@@ -1472,10 +1400,7 @@ abstract class CopyWith$Mutation$RateReview$RateReview<TRes> {
 
 class _CopyWithImpl$Mutation$RateReview$RateReview<TRes>
     implements CopyWith$Mutation$RateReview$RateReview<TRes> {
-  _CopyWithImpl$Mutation$RateReview$RateReview(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$RateReview$RateReview(this._instance, this._then);
 
   final Mutation$RateReview$RateReview _instance;
 
@@ -1489,20 +1414,21 @@ class _CopyWithImpl$Mutation$RateReview$RateReview<TRes>
     Object? ratingAmount = _undefined,
     Object? userRating = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$RateReview$RateReview(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        rating: rating == _undefined ? _instance.rating : (rating as int?),
-        ratingAmount: ratingAmount == _undefined
-            ? _instance.ratingAmount
-            : (ratingAmount as int?),
-        userRating: userRating == _undefined
-            ? _instance.userRating
-            : (userRating as Enum$ReviewRating?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$RateReview$RateReview(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      rating: rating == _undefined ? _instance.rating : (rating as int?),
+      ratingAmount: ratingAmount == _undefined
+          ? _instance.ratingAmount
+          : (ratingAmount as int?),
+      userRating: userRating == _undefined
+          ? _instance.userRating
+          : (userRating as Enum$ReviewRating?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$RateReview$RateReview<TRes>
@@ -1517,6 +1443,5 @@ class _CopyWithStubImpl$Mutation$RateReview$RateReview<TRes>
     int? ratingAmount,
     Enum$ReviewRating? userRating,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

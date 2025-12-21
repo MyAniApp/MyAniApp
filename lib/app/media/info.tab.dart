@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
@@ -12,17 +13,16 @@ import 'package:myaniapp/routes.dart';
 import 'package:relative_time/relative_time.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+var startEndDate = DateFormat('MMM d, yyyy');
+
 class MediaInfoTab extends StatelessWidget {
-  const MediaInfoTab({
-    super.key,
-    required this.media,
-  });
+  const MediaInfoTab({super.key, required this.media});
 
   final Query$Media$Media media;
 
   @override
   Widget build(BuildContext context) {
-    // return Text('dsajfhlk');
+
     return ListView(
       padding: const EdgeInsets.all(0),
       children: [
@@ -63,7 +63,8 @@ class MediaInfoTab extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 4),
           decoration: BoxDecoration(
             border: Border.all(
-                color: context.theme.colorScheme.surfaceContainerHighest),
+              color: context.theme.colorScheme.surfaceContainerHighest,
+            ),
             borderRadius: imageRadius,
           ),
           child: MarkdownWidget(
@@ -80,21 +81,13 @@ class MediaInfoTab extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 170,
             mainAxisExtent: 75,
-            mainAxisSpacing: 5,
-            crossAxisSpacing: 5,
           ),
           shrinkWrap: true,
           children: [
             if (media.format != null)
-              DetailBox(
-                title: "Format",
-                info: media.format!.name.capitalize(),
-              ),
+              DetailBox(title: "Format", info: media.format!.name.capitalize()),
             if (media.status != null)
-              DetailBox(
-                title: "Status",
-                info: media.status!.name.capitalize(),
-              ),
+              DetailBox(title: "Status", info: media.status!.name.capitalize()),
             if (media.season != null)
               DetailBox(
                 title: "Season",
@@ -107,46 +100,32 @@ class MediaInfoTab extends StatelessWidget {
                 title: media.status == Enum$MediaStatus.NOT_YET_RELEASED
                     ? 'Starting'
                     : 'Started',
-                info: media.startDate!.toDateString()!,
+                info: startEndDate.format(media.startDate!.toDate()!),
               ),
             if (media.endDate != null && media.endDate!.toDateString() != null)
               DetailBox(
                 title: media.status == Enum$MediaStatus.FINISHED
                     ? "Ended"
                     : "Ending",
-                info: media.endDate!.toDateString()!,
+                info: startEndDate.format(media.endDate!.toDate()!),
               ),
             if (media.episodes != null)
-              DetailBox(
-                title: 'Episodes',
-                info: media.episodes!.toString(),
-              ),
+              DetailBox(title: 'Episodes', info: media.episodes!.toString()),
             if (media.duration != null)
-              DetailBox(
-                title: 'Duration',
-                info: '${media.duration} mins',
-              ),
+              DetailBox(title: 'Duration', info: '${media.duration} mins'),
             if (media.chapters != null)
-              DetailBox(
-                title: 'Chapters',
-                info: media.chapters.toString(),
-              ),
+              DetailBox(title: 'Chapters', info: media.chapters.toString()),
             if (media.volumes != null)
-              DetailBox(
-                title: 'Volumes',
-                info: media.volumes.toString(),
-              ),
+              DetailBox(title: 'Volumes', info: media.volumes.toString()),
             if (media.source != null)
-              DetailBox(
-                title: 'Source',
-                info: media.source!.name.capitalize(),
-              ),
+              DetailBox(title: 'Source', info: media.source!.name.capitalize()),
             if (media.hashtag?.isNotEmpty == true)
               DetailBox(
                 title: 'Hashtag',
                 info: media.hashtag!,
                 onTap: () => launchUrlString(
-                    'https://twitter.com/search?q=${Uri.encodeComponent(media.hashtag!)}&src=typd'),
+                  'https://twitter.com/search?q=${Uri.encodeComponent(media.hashtag!)}&src=typd',
+                ),
               ),
           ],
         ),
@@ -154,10 +133,7 @@ class MediaInfoTab extends StatelessWidget {
           _Studios(studios: media.studios!),
         if (media.tags?.isNotEmpty == true) _Tags(tags: media.tags!),
         if (media.externalLinks?.isNotEmpty == true || media.trailer != null)
-          _Links(
-            links: media.externalLinks,
-            trailer: media.trailer,
-          )
+          _Links(links: media.externalLinks, trailer: media.trailer),
       ],
     );
   }
@@ -170,17 +146,11 @@ class _Studios extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var mains = studios.edges!.where(
-      (element) => element?.isMain == true,
-    );
+    var mains = studios.edges!.where((element) => element?.isMain == true);
     var producers = studios.edges!
+        .whereNot((element) => element?.isMain == true)
         .whereNot(
-          (element) => element?.isMain == true,
-        )
-        .whereNot(
-          (e) => mains.any(
-            (element) => element!.node!.id == e!.node!.id,
-          ),
+          (e) => mains.any((element) => element!.node!.id == e!.node!.id),
         );
 
     return Padding(
@@ -212,7 +182,7 @@ class _Studios extends StatelessWidget {
                     ),
                 ],
               ),
-            )
+            ),
           ],
           if (producers.isNotEmpty) ...[
             Padding(
@@ -237,8 +207,8 @@ class _Studios extends StatelessWidget {
                     ),
                 ],
               ),
-            )
-          ]
+            ),
+          ],
         ],
       ),
     );
@@ -246,9 +216,7 @@ class _Studios extends StatelessWidget {
 }
 
 class _Tags extends StatefulWidget {
-  const _Tags({
-    required this.tags,
-  });
+  const _Tags({required this.tags});
 
   final List<Query$Media$Media$tags?> tags;
 
@@ -271,10 +239,7 @@ class _TagsState extends State<_Tags> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Tags",
-                  style: context.theme.textTheme.titleMedium,
-                ),
+                Text("Tags", style: context.theme.textTheme.titleMedium),
                 if (widget.tags.any((p0) => p0?.isMediaSpoiler == true))
                   ElevatedButton(
                     onPressed: () => setState(() => showSpoiler = !showSpoiler),
@@ -295,15 +260,18 @@ class _TagsState extends State<_Tags> {
             ),
             children: [
               for (var tag in widget.tags.where(
-                  (p0) => showSpoiler ? true : p0!.isMediaSpoiler == false))
+                (p0) => showSpoiler ? true : p0!.isMediaSpoiler == false,
+              ))
                 InkWellImage(
                   borderRadius: imageRadius,
-                  onLongPress: () => showDialog(
+                  onTap: () => showDialog(
                     context: context,
                     builder: (context) => Dialog(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 20, horizontal: 50),
+                          vertical: 20,
+                          horizontal: 50,
+                        ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -329,17 +297,13 @@ class _TagsState extends State<_Tags> {
                     ),
                     padding: const EdgeInsets.all(8),
                     child: DefaultTextStyle(
-                      style: context.theme.textTheme.labelMedium ??
+                      style:
+                          context.theme.textTheme.labelMedium ??
                           const TextStyle(),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(
-                            child: Text(
-                              tag!.name,
-                              maxLines: 2,
-                            ),
-                          ),
+                          Expanded(child: Text(tag.name, maxLines: 2)),
                           Text("${tag.rank}%"),
                         ],
                       ),
@@ -347,7 +311,7 @@ class _TagsState extends State<_Tags> {
                   ),
                 ),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -355,10 +319,7 @@ class _TagsState extends State<_Tags> {
 }
 
 class _Links extends StatelessWidget {
-  const _Links({
-    required this.links,
-    this.trailer,
-  });
+  const _Links({required this.links, this.trailer});
 
   final Iterable<Query$Media$Media$externalLinks?>? links;
   final Query$Media$Media$trailer? trailer;
@@ -370,24 +331,20 @@ class _Links extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Links',
-            style: context.theme.textTheme.titleMedium,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
+          Text('Links', style: context.theme.textTheme.titleMedium),
+          const SizedBox(height: 10),
           Wrap(
             spacing: 5,
             runSpacing: 5,
             children: [
               if (trailer != null)
                 _Link(
-                    link: Query$Media$Media$externalLinks(
-                  site: "Trailer",
-                  url:
-                      "https://${trailer!.site}.com/${trailer!.site == "youtube" ? "/watch?v=${trailer!.id}" : "/video/${trailer!.id}"}",
-                )),
+                  link: Query$Media$Media$externalLinks(
+                    site: "Trailer",
+                    url:
+                        "https://${trailer!.site}.com/${trailer!.site == "youtube" ? "/watch?v=${trailer!.id}" : "/video/${trailer!.id}"}",
+                  ),
+                ),
               if (links?.isNotEmpty == true)
                 for (var link in links!) _Link(link: link!),
             ],
@@ -399,9 +356,7 @@ class _Links extends StatelessWidget {
 }
 
 class _Link extends StatelessWidget {
-  const _Link({
-    required this.link,
-  });
+  const _Link({required this.link});
 
   final Query$Media$Media$externalLinks link;
 
@@ -413,9 +368,7 @@ class _Link extends StatelessWidget {
           : () => launchUrlString(link.url!),
       style: ButtonStyle(
         shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
-          ),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         ),
         foregroundColor: WidgetStatePropertyAll<Color>(
           Theme.of(context).textTheme.titleMedium!.color!,
@@ -433,24 +386,22 @@ class _Link extends StatelessWidget {
               width: 20,
               child: CachedImage(
                 link.icon!,
-                color:
-                    link.color != null ? HexColor.fromHex(link.color!) : null,
+                color: link.color != null
+                    ? HexColor.fromHex(link.color!)
+                    : null,
               ),
             ),
-          const SizedBox(
-            width: 5,
-          ),
+          const SizedBox(width: 5),
           Text(link.site),
           if (link.language != null) ...[
-            const SizedBox(
-              width: 2,
-            ),
+            const SizedBox(width: 2),
             Text(
               link.language!,
-              style: context.theme.textTheme.labelSmall
-                  ?.copyWith(color: context.theme.hintColor),
+              style: context.theme.textTheme.labelSmall?.copyWith(
+                color: context.theme.hintColor,
+              ),
             ),
-          ]
+          ],
         ],
       ),
     );
@@ -471,30 +422,19 @@ class DetailBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: imageRadius,
-      child: Container(
-        height: 80,
-        width: 120,
-        padding: const EdgeInsets.all(4),
-        decoration: BoxDecoration(
-          border: Border.all(
-              color: context.theme.colorScheme.surfaceContainerHighest),
-          borderRadius: imageRadius,
-        ),
+    return Card(
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: imageRadius,
         child: Column(
           children: [
             Text(
               title,
-              style: context.theme.textTheme.bodyLarge?.bold,
-            ),
-            Expanded(
-              child: Text(
-                info,
-                maxLines: 2,
+              style: context.theme.textTheme.bodyLarge?.copyWith(
+                fontWeight: .bold,
               ),
-            )
+            ),
+            Expanded(child: Text(info, maxLines: 2)),
           ],
         ),
       ),

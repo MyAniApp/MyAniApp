@@ -48,12 +48,7 @@ class Fragment$FuzzyDate {
     final l$month = month;
     final l$year = year;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$day,
-      l$month,
-      l$year,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$day, l$month, l$year, l$$__typename]);
   }
 
   @override
@@ -90,10 +85,7 @@ class Fragment$FuzzyDate {
 
 extension UtilityExtension$Fragment$FuzzyDate on Fragment$FuzzyDate {
   CopyWith$Fragment$FuzzyDate<Fragment$FuzzyDate> get copyWith =>
-      CopyWith$Fragment$FuzzyDate(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$FuzzyDate(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$FuzzyDate<TRes> {
@@ -105,20 +97,12 @@ abstract class CopyWith$Fragment$FuzzyDate<TRes> {
   factory CopyWith$Fragment$FuzzyDate.stub(TRes res) =
       _CopyWithStubImpl$Fragment$FuzzyDate;
 
-  TRes call({
-    int? day,
-    int? month,
-    int? year,
-    String? $__typename,
-  });
+  TRes call({int? day, int? month, int? year, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$FuzzyDate<TRes>
     implements CopyWith$Fragment$FuzzyDate<TRes> {
-  _CopyWithImpl$Fragment$FuzzyDate(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$FuzzyDate(this._instance, this._then);
 
   final Fragment$FuzzyDate _instance;
 
@@ -131,15 +115,16 @@ class _CopyWithImpl$Fragment$FuzzyDate<TRes>
     Object? month = _undefined,
     Object? year = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$FuzzyDate(
-        day: day == _undefined ? _instance.day : (day as int?),
-        month: month == _undefined ? _instance.month : (month as int?),
-        year: year == _undefined ? _instance.year : (year as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$FuzzyDate(
+      day: day == _undefined ? _instance.day : (day as int?),
+      month: month == _undefined ? _instance.month : (month as int?),
+      year: year == _undefined ? _instance.year : (year as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$FuzzyDate<TRes>
@@ -148,54 +133,48 @@ class _CopyWithStubImpl$Fragment$FuzzyDate<TRes>
 
   TRes _res;
 
-  call({
-    int? day,
-    int? month,
-    int? year,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? day, int? month, int? year, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionFuzzyDate = FragmentDefinitionNode(
   name: NameNode(value: 'FuzzyDate'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'FuzzyDate'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'FuzzyDate'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'day'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'month'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'year'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'day'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'month'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'year'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentFuzzyDate = DocumentNode(definitions: [
-  fragmentDefinitionFuzzyDate,
-]);
+const documentNodeFragmentFuzzyDate = DocumentNode(
+  definitions: [fragmentDefinitionFuzzyDate],
+);

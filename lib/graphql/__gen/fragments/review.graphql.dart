@@ -29,7 +29,8 @@ class Fragment$ReviewFragment {
       media: l$media == null
           ? null
           : Fragment$ReviewFragment$media.fromJson(
-              (l$media as Map<String, dynamic>)),
+              (l$media as Map<String, dynamic>),
+            ),
       user: l$user == null
           ? null
           : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
@@ -139,10 +140,7 @@ class Fragment$ReviewFragment {
 
 extension UtilityExtension$Fragment$ReviewFragment on Fragment$ReviewFragment {
   CopyWith$Fragment$ReviewFragment<Fragment$ReviewFragment> get copyWith =>
-      CopyWith$Fragment$ReviewFragment(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$ReviewFragment(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ReviewFragment<TRes> {
@@ -169,10 +167,7 @@ abstract class CopyWith$Fragment$ReviewFragment<TRes> {
 
 class _CopyWithImpl$Fragment$ReviewFragment<TRes>
     implements CopyWith$Fragment$ReviewFragment<TRes> {
-  _CopyWithImpl$Fragment$ReviewFragment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ReviewFragment(this._instance, this._then);
 
   final Fragment$ReviewFragment _instance;
 
@@ -188,32 +183,34 @@ class _CopyWithImpl$Fragment$ReviewFragment<TRes>
     Object? media = _undefined,
     Object? user = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ReviewFragment(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        rating: rating == _undefined ? _instance.rating : (rating as int?),
-        ratingAmount: ratingAmount == _undefined
-            ? _instance.ratingAmount
-            : (ratingAmount as int?),
-        summary:
-            summary == _undefined ? _instance.summary : (summary as String?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$ReviewFragment$media?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ReviewFragment(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      rating: rating == _undefined ? _instance.rating : (rating as int?),
+      ratingAmount: ratingAmount == _undefined
+          ? _instance.ratingAmount
+          : (ratingAmount as int?),
+      summary: summary == _undefined ? _instance.summary : (summary as String?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$ReviewFragment$media?),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$ReviewFragment$media<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
         ? CopyWith$Fragment$ReviewFragment$media.stub(_then(_instance))
         : CopyWith$Fragment$ReviewFragment$media(
-            local$media, (e) => call(media: e));
+            local$media,
+            (e) => call(media: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get user {
@@ -238,8 +235,7 @@ class _CopyWithStubImpl$Fragment$ReviewFragment<TRes>
     Fragment$ReviewFragment$media? media,
     Fragment$UserFragment? user,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$ReviewFragment$media<TRes> get media =>
       CopyWith$Fragment$ReviewFragment$media.stub(_res);
@@ -251,61 +247,86 @@ class _CopyWithStubImpl$Fragment$ReviewFragment<TRes>
 const fragmentDefinitionReviewFragment = FragmentDefinitionNode(
   name: NameNode(value: 'ReviewFragment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Review'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Review'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'rating'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'ratingAmount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'summary'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'media'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'title'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'rating'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'ratingAmount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'summary'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'media'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
             FieldNode(
-              name: NameNode(value: 'userPreferred'),
+              name: NameNode(value: 'id'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'title'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'userPreferred'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: 'type'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'bannerImage'),
               alias: null,
               arguments: [],
               directives: [],
@@ -318,63 +339,46 @@ const fragmentDefinitionReviewFragment = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'type'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'user'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'UserFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'bannerImage'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'user'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'UserFragment'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentReviewFragment = DocumentNode(definitions: [
-  fragmentDefinitionReviewFragment,
-  fragmentDefinitionUserFragment,
-]);
+const documentNodeFragmentReviewFragment = DocumentNode(
+  definitions: [
+    fragmentDefinitionReviewFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Fragment$ReviewFragment$media {
   Fragment$ReviewFragment$media({
@@ -396,7 +400,8 @@ class Fragment$ReviewFragment$media {
       title: l$title == null
           ? null
           : Fragment$ReviewFragment$media$title.fromJson(
-              (l$title as Map<String, dynamic>)),
+              (l$title as Map<String, dynamic>),
+            ),
       type: l$type == null ? null : fromJson$Enum$MediaType((l$type as String)),
       bannerImage: (l$bannerImage as String?),
       $__typename: (l$$__typename as String),
@@ -485,10 +490,7 @@ class Fragment$ReviewFragment$media {
 extension UtilityExtension$Fragment$ReviewFragment$media
     on Fragment$ReviewFragment$media {
   CopyWith$Fragment$ReviewFragment$media<Fragment$ReviewFragment$media>
-      get copyWith => CopyWith$Fragment$ReviewFragment$media(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$ReviewFragment$media(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ReviewFragment$media<TRes> {
@@ -512,10 +514,7 @@ abstract class CopyWith$Fragment$ReviewFragment$media<TRes> {
 
 class _CopyWithImpl$Fragment$ReviewFragment$media<TRes>
     implements CopyWith$Fragment$ReviewFragment$media<TRes> {
-  _CopyWithImpl$Fragment$ReviewFragment$media(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ReviewFragment$media(this._instance, this._then);
 
   final Fragment$ReviewFragment$media _instance;
 
@@ -529,27 +528,30 @@ class _CopyWithImpl$Fragment$ReviewFragment$media<TRes>
     Object? type = _undefined,
     Object? bannerImage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ReviewFragment$media(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Fragment$ReviewFragment$media$title?),
-        type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
-        bannerImage: bannerImage == _undefined
-            ? _instance.bannerImage
-            : (bannerImage as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ReviewFragment$media(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Fragment$ReviewFragment$media$title?),
+      type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
+      bannerImage: bannerImage == _undefined
+          ? _instance.bannerImage
+          : (bannerImage as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$ReviewFragment$media$title<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
         ? CopyWith$Fragment$ReviewFragment$media$title.stub(_then(_instance))
         : CopyWith$Fragment$ReviewFragment$media$title(
-            local$title, (e) => call(title: e));
+            local$title,
+            (e) => call(title: e),
+          );
   }
 }
 
@@ -565,8 +567,7 @@ class _CopyWithStubImpl$Fragment$ReviewFragment$media<TRes>
     Enum$MediaType? type,
     String? bannerImage,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$ReviewFragment$media$title<TRes> get title =>
       CopyWith$Fragment$ReviewFragment$media$title.stub(_res);
@@ -579,7 +580,8 @@ class Fragment$ReviewFragment$media$title {
   });
 
   factory Fragment$ReviewFragment$media$title.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$userPreferred = json['userPreferred'];
     final l$$__typename = json['__typename'];
     return Fragment$ReviewFragment$media$title(
@@ -605,10 +607,7 @@ class Fragment$ReviewFragment$media$title {
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -637,11 +636,9 @@ class Fragment$ReviewFragment$media$title {
 extension UtilityExtension$Fragment$ReviewFragment$media$title
     on Fragment$ReviewFragment$media$title {
   CopyWith$Fragment$ReviewFragment$media$title<
-          Fragment$ReviewFragment$media$title>
-      get copyWith => CopyWith$Fragment$ReviewFragment$media$title(
-            this,
-            (i) => i,
-          );
+    Fragment$ReviewFragment$media$title
+  >
+  get copyWith => CopyWith$Fragment$ReviewFragment$media$title(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ReviewFragment$media$title<TRes> {
@@ -653,18 +650,12 @@ abstract class CopyWith$Fragment$ReviewFragment$media$title<TRes> {
   factory CopyWith$Fragment$ReviewFragment$media$title.stub(TRes res) =
       _CopyWithStubImpl$Fragment$ReviewFragment$media$title;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$ReviewFragment$media$title<TRes>
     implements CopyWith$Fragment$ReviewFragment$media$title<TRes> {
-  _CopyWithImpl$Fragment$ReviewFragment$media$title(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ReviewFragment$media$title(this._instance, this._then);
 
   final Fragment$ReviewFragment$media$title _instance;
 
@@ -675,15 +666,16 @@ class _CopyWithImpl$Fragment$ReviewFragment$media$title<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ReviewFragment$media$title(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ReviewFragment$media$title(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ReviewFragment$media$title<TRes>
@@ -692,9 +684,5 @@ class _CopyWithStubImpl$Fragment$ReviewFragment$media$title<TRes>
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }

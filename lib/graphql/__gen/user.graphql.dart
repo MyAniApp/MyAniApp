@@ -46,11 +46,7 @@ class Fragment$GenreStat {
     final l$genre = genre;
     final l$count = count;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$genre,
-      l$count,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$genre, l$count, l$$__typename]);
   }
 
   @override
@@ -82,10 +78,7 @@ class Fragment$GenreStat {
 
 extension UtilityExtension$Fragment$GenreStat on Fragment$GenreStat {
   CopyWith$Fragment$GenreStat<Fragment$GenreStat> get copyWith =>
-      CopyWith$Fragment$GenreStat(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$GenreStat(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$GenreStat<TRes> {
@@ -97,19 +90,12 @@ abstract class CopyWith$Fragment$GenreStat<TRes> {
   factory CopyWith$Fragment$GenreStat.stub(TRes res) =
       _CopyWithStubImpl$Fragment$GenreStat;
 
-  TRes call({
-    String? genre,
-    int? count,
-    String? $__typename,
-  });
+  TRes call({String? genre, int? count, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$GenreStat<TRes>
     implements CopyWith$Fragment$GenreStat<TRes> {
-  _CopyWithImpl$Fragment$GenreStat(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$GenreStat(this._instance, this._then);
 
   final Fragment$GenreStat _instance;
 
@@ -121,16 +107,17 @@ class _CopyWithImpl$Fragment$GenreStat<TRes>
     Object? genre = _undefined,
     Object? count = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$GenreStat(
-        genre: genre == _undefined ? _instance.genre : (genre as String?),
-        count: count == _undefined || count == null
-            ? _instance.count
-            : (count as int),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$GenreStat(
+      genre: genre == _undefined ? _instance.genre : (genre as String?),
+      count: count == _undefined || count == null
+          ? _instance.count
+          : (count as int),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$GenreStat<TRes>
@@ -139,54 +126,51 @@ class _CopyWithStubImpl$Fragment$GenreStat<TRes>
 
   TRes _res;
 
-  call({
-    String? genre,
-    int? count,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? genre, int? count, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionGenreStat = FragmentDefinitionNode(
   name: NameNode(value: 'GenreStat'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'UserGenreStatistic'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'UserGenreStatistic'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'genre'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'count'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'genre'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'count'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentGenreStat = DocumentNode(definitions: [
-  fragmentDefinitionGenreStat,
-]);
+const documentNodeFragmentGenreStat = DocumentNode(
+  definitions: [fragmentDefinitionGenreStat],
+);
 
 class Variables$Query$User {
-  factory Variables$Query$User({String? name}) => Variables$Query$User._({
-        if (name != null) r'name': name,
-      });
+  factory Variables$Query$User({String? name}) =>
+      Variables$Query$User._({if (name != null) r'name': name});
 
   Variables$Query$User._(this._$data);
 
@@ -213,10 +197,7 @@ class Variables$Query$User {
   }
 
   CopyWith$Variables$Query$User<Variables$Query$User> get copyWith =>
-      CopyWith$Variables$Query$User(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$User(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -258,10 +239,7 @@ abstract class CopyWith$Variables$Query$User<TRes> {
 
 class _CopyWithImpl$Variables$Query$User<TRes>
     implements CopyWith$Variables$Query$User<TRes> {
-  _CopyWithImpl$Variables$Query$User(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$User(this._instance, this._then);
 
   final Variables$Query$User _instance;
 
@@ -269,10 +247,12 @@ class _CopyWithImpl$Variables$Query$User<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name = _undefined}) => _then(Variables$Query$User._({
-        ..._instance._$data,
-        if (name != _undefined) 'name': (name as String?),
-      }));
+  TRes call({Object? name = _undefined}) => _then(
+    Variables$Query$User._({
+      ..._instance._$data,
+      if (name != _undefined) 'name': (name as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$User<TRes>
@@ -285,10 +265,7 @@ class _CopyWithStubImpl$Variables$Query$User<TRes>
 }
 
 class Query$User {
-  Query$User({
-    this.User,
-    this.$__typename = 'Query',
-  });
+  Query$User({this.User, this.$__typename = 'Query'});
 
   factory Query$User.fromJson(Map<String, dynamic> json) {
     final l$User = json['User'];
@@ -318,10 +295,7 @@ class Query$User {
   int get hashCode {
     final l$User = User;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$User,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$User, l$$__typename]);
   }
 
   @override
@@ -347,10 +321,8 @@ class Query$User {
 }
 
 extension UtilityExtension$Query$User on Query$User {
-  CopyWith$Query$User<Query$User> get copyWith => CopyWith$Query$User(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$User<Query$User> get copyWith =>
+      CopyWith$Query$User(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User<TRes> {
@@ -361,18 +333,12 @@ abstract class CopyWith$Query$User<TRes> {
 
   factory CopyWith$Query$User.stub(TRes res) = _CopyWithStubImpl$Query$User;
 
-  TRes call({
-    Query$User$User? User,
-    String? $__typename,
-  });
+  TRes call({Query$User$User? User, String? $__typename});
   CopyWith$Query$User$User<TRes> get User;
 }
 
 class _CopyWithImpl$Query$User<TRes> implements CopyWith$Query$User<TRes> {
-  _CopyWithImpl$Query$User(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User(this._instance, this._then);
 
   final Query$User _instance;
 
@@ -380,16 +346,17 @@ class _CopyWithImpl$Query$User<TRes> implements CopyWith$Query$User<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? User = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User(
-        User: User == _undefined ? _instance.User : (User as Query$User$User?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? User = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$User(
+          User: User == _undefined
+              ? _instance.User
+              : (User as Query$User$User?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$User$User<TRes> get User {
     final local$User = _instance.User;
@@ -404,150 +371,259 @@ class _CopyWithStubImpl$Query$User<TRes> implements CopyWith$Query$User<TRes> {
 
   TRes _res;
 
-  call({
-    Query$User$User? User,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$User$User? User, String? $__typename}) => _res;
 
   CopyWith$Query$User$User<TRes> get User =>
       CopyWith$Query$User$User.stub(_res);
 }
 
-const documentNodeQueryUser = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'User'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
+const documentNodeQueryUser = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'User'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'name')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'User'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'name'),
-            value: VariableNode(name: NameNode(value: 'name')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'UserFragment'),
-            directives: [],
-          ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'bannerImage'),
+            name: NameNode(value: 'User'),
             alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'about'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'mediaListOptions'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'scoreFormat'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'name'),
+                value: VariableNode(name: NameNode(value: 'name')),
               ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'statistics'),
-            alias: null,
-            arguments: [],
+            ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'anime'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'count'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'episodesWatched'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'minutesWatched'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'standardDeviation'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'meanScore'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'genres'),
-                    alias: null,
-                    arguments: [
-                      ArgumentNode(
-                        name: NameNode(value: 'limit'),
-                        value: IntValueNode(value: '10'),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'UserFragment'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: 'bannerImage'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'about'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'mediaListOptions'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'scoreFormat'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
                       ),
-                      ArgumentNode(
-                        name: NameNode(value: 'sort'),
-                        value:
-                            EnumValueNode(name: NameNode(value: 'COUNT_DESC')),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
                       ),
                     ],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'GenreStat'),
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'statistics'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'anime'),
+                        alias: null,
+                        arguments: [],
                         directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'count'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'episodesWatched'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'minutesWatched'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'standardDeviation'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'meanScore'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'genres'),
+                              alias: null,
+                              arguments: [
+                                ArgumentNode(
+                                  name: NameNode(value: 'limit'),
+                                  value: IntValueNode(value: '10'),
+                                ),
+                                ArgumentNode(
+                                  name: NameNode(value: 'sort'),
+                                  value: EnumValueNode(
+                                    name: NameNode(value: 'COUNT_DESC'),
+                                  ),
+                                ),
+                              ],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'GenreStat'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'manga'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'count'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'chaptersRead'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'volumesRead'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'standardDeviation'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'meanScore'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'genres'),
+                              alias: null,
+                              arguments: [
+                                ArgumentNode(
+                                  name: NameNode(value: 'limit'),
+                                  value: IntValueNode(value: '10'),
+                                ),
+                                ArgumentNode(
+                                  name: NameNode(value: 'sort'),
+                                  value: EnumValueNode(
+                                    name: NameNode(value: 'COUNT_DESC'),
+                                  ),
+                                ),
+                              ],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'GenreStat'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -555,78 +631,231 @@ const documentNodeQueryUser = DocumentNode(definitions: [
                         arguments: [],
                         directives: [],
                         selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'manga'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'count'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'chaptersRead'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'volumesRead'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'standardDeviation'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'meanScore'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'genres'),
-                    alias: null,
-                    arguments: [
-                      ArgumentNode(
-                        name: NameNode(value: 'limit'),
-                        value: IntValueNode(value: '10'),
-                      ),
-                      ArgumentNode(
-                        name: NameNode(value: 'sort'),
-                        value:
-                            EnumValueNode(name: NameNode(value: 'COUNT_DESC')),
                       ),
                     ],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'GenreStat'),
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'favourites'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'anime'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'perPage'),
+                            value: IntValueNode(value: '4'),
+                          ),
+                        ],
                         directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'nodes'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'manga'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'perPage'),
+                            value: IntValueNode(value: '4'),
+                          ),
+                        ],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'nodes'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'characters'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'perPage'),
+                            value: IntValueNode(value: '4'),
+                          ),
+                        ],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'nodes'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'CharacterFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'staff'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'perPage'),
+                            value: IntValueNode(value: '4'),
+                          ),
+                        ],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'nodes'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'StaffFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'studios'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'perPage'),
+                            value: IntValueNode(value: '4'),
+                          ),
+                        ],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'nodes'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'StudioFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -635,235 +864,18 @@ const documentNodeQueryUser = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'favourites'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'anime'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'perPage'),
-                    value: IntValueNode(value: '4'),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'nodes'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'manga'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'perPage'),
-                    value: IntValueNode(value: '4'),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'nodes'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'characters'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'perPage'),
-                    value: IntValueNode(value: '4'),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'nodes'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'CharacterFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'staff'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'perPage'),
-                    value: IntValueNode(value: '4'),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'nodes'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'StaffFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'studios'),
-                alias: null,
-                arguments: [
-                  ArgumentNode(
-                    name: NameNode(value: 'perPage'),
-                    value: IntValueNode(value: '4'),
-                  )
-                ],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'nodes'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'StudioFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -872,24 +884,17 @@ const documentNodeQueryUser = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionUserFragment,
-  fragmentDefinitionGenreStat,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionCharacterFragment,
-  fragmentDefinitionStaffFragment,
-  fragmentDefinitionStudioFragment,
-]);
+    ),
+    fragmentDefinitionUserFragment,
+    fragmentDefinitionGenreStat,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionCharacterFragment,
+    fragmentDefinitionStaffFragment,
+    fragmentDefinitionStudioFragment,
+  ],
+);
 
 class Query$User$User implements Fragment$UserFragment {
   Query$User$User({
@@ -937,15 +942,18 @@ class Query$User$User implements Fragment$UserFragment {
       mediaListOptions: l$mediaListOptions == null
           ? null
           : Query$User$User$mediaListOptions.fromJson(
-              (l$mediaListOptions as Map<String, dynamic>)),
+              (l$mediaListOptions as Map<String, dynamic>),
+            ),
       statistics: l$statistics == null
           ? null
           : Query$User$User$statistics.fromJson(
-              (l$statistics as Map<String, dynamic>)),
+              (l$statistics as Map<String, dynamic>),
+            ),
       favourites: l$favourites == null
           ? null
           : Query$User$User$favourites.fromJson(
-              (l$favourites as Map<String, dynamic>)),
+              (l$favourites as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -1121,10 +1129,7 @@ class Query$User$User implements Fragment$UserFragment {
 
 extension UtilityExtension$Query$User$User on Query$User$User {
   CopyWith$Query$User$User<Query$User$User> get copyWith =>
-      CopyWith$Query$User$User(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$User$User(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User<TRes> {
@@ -1158,10 +1163,7 @@ abstract class CopyWith$Query$User$User<TRes> {
 
 class _CopyWithImpl$Query$User$User<TRes>
     implements CopyWith$Query$User$User<TRes> {
-  _CopyWithImpl$Query$User$User(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User(this._instance, this._then);
 
   final Query$User$User _instance;
 
@@ -1182,41 +1184,42 @@ class _CopyWithImpl$Query$User$User<TRes>
     Object? mediaListOptions = _undefined,
     Object? statistics = _undefined,
     Object? favourites = _undefined,
-  }) =>
-      _then(Query$User$User(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        donatorTier: donatorTier == _undefined
-            ? _instance.donatorTier
-            : (donatorTier as int?),
-        donatorBadge: donatorBadge == _undefined
-            ? _instance.donatorBadge
-            : (donatorBadge as String?),
-        moderatorRoles: moderatorRoles == _undefined
-            ? _instance.moderatorRoles
-            : (moderatorRoles as List<Enum$ModRole?>?),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as Query$User$User$avatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        bannerImage: bannerImage == _undefined
-            ? _instance.bannerImage
-            : (bannerImage as String?),
-        about: about == _undefined ? _instance.about : (about as String?),
-        mediaListOptions: mediaListOptions == _undefined
-            ? _instance.mediaListOptions
-            : (mediaListOptions as Query$User$User$mediaListOptions?),
-        statistics: statistics == _undefined
-            ? _instance.statistics
-            : (statistics as Query$User$User$statistics?),
-        favourites: favourites == _undefined
-            ? _instance.favourites
-            : (favourites as Query$User$User$favourites?),
-      ));
+  }) => _then(
+    Query$User$User(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      donatorTier: donatorTier == _undefined
+          ? _instance.donatorTier
+          : (donatorTier as int?),
+      donatorBadge: donatorBadge == _undefined
+          ? _instance.donatorBadge
+          : (donatorBadge as String?),
+      moderatorRoles: moderatorRoles == _undefined
+          ? _instance.moderatorRoles
+          : (moderatorRoles as List<Enum$ModRole?>?),
+      avatar: avatar == _undefined
+          ? _instance.avatar
+          : (avatar as Query$User$User$avatar?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      bannerImage: bannerImage == _undefined
+          ? _instance.bannerImage
+          : (bannerImage as String?),
+      about: about == _undefined ? _instance.about : (about as String?),
+      mediaListOptions: mediaListOptions == _undefined
+          ? _instance.mediaListOptions
+          : (mediaListOptions as Query$User$User$mediaListOptions?),
+      statistics: statistics == _undefined
+          ? _instance.statistics
+          : (statistics as Query$User$User$statistics?),
+      favourites: favourites == _undefined
+          ? _instance.favourites
+          : (favourites as Query$User$User$favourites?),
+    ),
+  );
 
   CopyWith$Query$User$User$avatar<TRes> get avatar {
     final local$avatar = _instance.avatar;
@@ -1230,7 +1233,9 @@ class _CopyWithImpl$Query$User$User<TRes>
     return local$mediaListOptions == null
         ? CopyWith$Query$User$User$mediaListOptions.stub(_then(_instance))
         : CopyWith$Query$User$User$mediaListOptions(
-            local$mediaListOptions, (e) => call(mediaListOptions: e));
+            local$mediaListOptions,
+            (e) => call(mediaListOptions: e),
+          );
   }
 
   CopyWith$Query$User$User$statistics<TRes> get statistics {
@@ -1238,7 +1243,9 @@ class _CopyWithImpl$Query$User$User<TRes>
     return local$statistics == null
         ? CopyWith$Query$User$User$statistics.stub(_then(_instance))
         : CopyWith$Query$User$User$statistics(
-            local$statistics, (e) => call(statistics: e));
+            local$statistics,
+            (e) => call(statistics: e),
+          );
   }
 
   CopyWith$Query$User$User$favourites<TRes> get favourites {
@@ -1246,7 +1253,9 @@ class _CopyWithImpl$Query$User$User<TRes>
     return local$favourites == null
         ? CopyWith$Query$User$User$favourites.stub(_then(_instance))
         : CopyWith$Query$User$User$favourites(
-            local$favourites, (e) => call(favourites: e));
+            local$favourites,
+            (e) => call(favourites: e),
+          );
   }
 }
 
@@ -1269,8 +1278,7 @@ class _CopyWithStubImpl$Query$User$User<TRes>
     Query$User$User$mediaListOptions? mediaListOptions,
     Query$User$User$statistics? statistics,
     Query$User$User$favourites? favourites,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$User$User$avatar<TRes> get avatar =>
       CopyWith$Query$User$User$avatar.stub(_res);
@@ -1286,10 +1294,7 @@ class _CopyWithStubImpl$Query$User$User<TRes>
 }
 
 class Query$User$User$avatar implements Fragment$UserFragment$avatar {
-  Query$User$User$avatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
+  Query$User$User$avatar({this.large, this.$__typename = 'UserAvatar'});
 
   factory Query$User$User$avatar.fromJson(Map<String, dynamic> json) {
     final l$large = json['large'];
@@ -1317,10 +1322,7 @@ class Query$User$User$avatar implements Fragment$UserFragment$avatar {
   int get hashCode {
     final l$large = large;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$$__typename]);
   }
 
   @override
@@ -1347,10 +1349,7 @@ class Query$User$User$avatar implements Fragment$UserFragment$avatar {
 
 extension UtilityExtension$Query$User$User$avatar on Query$User$User$avatar {
   CopyWith$Query$User$User$avatar<Query$User$User$avatar> get copyWith =>
-      CopyWith$Query$User$User$avatar(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$User$User$avatar(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$avatar<TRes> {
@@ -1362,18 +1361,12 @@ abstract class CopyWith$Query$User$User$avatar<TRes> {
   factory CopyWith$Query$User$User$avatar.stub(TRes res) =
       _CopyWithStubImpl$Query$User$User$avatar;
 
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
+  TRes call({String? large, String? $__typename});
 }
 
 class _CopyWithImpl$Query$User$User$avatar<TRes>
     implements CopyWith$Query$User$User$avatar<TRes> {
-  _CopyWithImpl$Query$User$User$avatar(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$avatar(this._instance, this._then);
 
   final Query$User$User$avatar _instance;
 
@@ -1381,16 +1374,15 @@ class _CopyWithImpl$Query$User$User$avatar<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$avatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? large = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$User$User$avatar(
+          large: large == _undefined ? _instance.large : (large as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$User$User$avatar<TRes>
@@ -1399,11 +1391,7 @@ class _CopyWithStubImpl$Query$User$User$avatar<TRes>
 
   TRes _res;
 
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? $__typename}) => _res;
 }
 
 class Query$User$User$mediaListOptions {
@@ -1430,8 +1418,9 @@ class Query$User$User$mediaListOptions {
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$scoreFormat = scoreFormat;
-    _resultData['scoreFormat'] =
-        l$scoreFormat == null ? null : toJson$Enum$ScoreFormat(l$scoreFormat);
+    _resultData['scoreFormat'] = l$scoreFormat == null
+        ? null
+        : toJson$Enum$ScoreFormat(l$scoreFormat);
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1441,10 +1430,7 @@ class Query$User$User$mediaListOptions {
   int get hashCode {
     final l$scoreFormat = scoreFormat;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$scoreFormat,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$scoreFormat, l$$__typename]);
   }
 
   @override
@@ -1473,10 +1459,7 @@ class Query$User$User$mediaListOptions {
 extension UtilityExtension$Query$User$User$mediaListOptions
     on Query$User$User$mediaListOptions {
   CopyWith$Query$User$User$mediaListOptions<Query$User$User$mediaListOptions>
-      get copyWith => CopyWith$Query$User$User$mediaListOptions(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$User$User$mediaListOptions(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$mediaListOptions<TRes> {
@@ -1488,18 +1471,12 @@ abstract class CopyWith$Query$User$User$mediaListOptions<TRes> {
   factory CopyWith$Query$User$User$mediaListOptions.stub(TRes res) =
       _CopyWithStubImpl$Query$User$User$mediaListOptions;
 
-  TRes call({
-    Enum$ScoreFormat? scoreFormat,
-    String? $__typename,
-  });
+  TRes call({Enum$ScoreFormat? scoreFormat, String? $__typename});
 }
 
 class _CopyWithImpl$Query$User$User$mediaListOptions<TRes>
     implements CopyWith$Query$User$User$mediaListOptions<TRes> {
-  _CopyWithImpl$Query$User$User$mediaListOptions(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$mediaListOptions(this._instance, this._then);
 
   final Query$User$User$mediaListOptions _instance;
 
@@ -1510,15 +1487,16 @@ class _CopyWithImpl$Query$User$User$mediaListOptions<TRes>
   TRes call({
     Object? scoreFormat = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$mediaListOptions(
-        scoreFormat: scoreFormat == _undefined
-            ? _instance.scoreFormat
-            : (scoreFormat as Enum$ScoreFormat?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$User$User$mediaListOptions(
+      scoreFormat: scoreFormat == _undefined
+          ? _instance.scoreFormat
+          : (scoreFormat as Enum$ScoreFormat?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$User$User$mediaListOptions<TRes>
@@ -1527,11 +1505,7 @@ class _CopyWithStubImpl$Query$User$User$mediaListOptions<TRes>
 
   TRes _res;
 
-  call({
-    Enum$ScoreFormat? scoreFormat,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Enum$ScoreFormat? scoreFormat, String? $__typename}) => _res;
 }
 
 class Query$User$User$statistics {
@@ -1549,11 +1523,13 @@ class Query$User$User$statistics {
       anime: l$anime == null
           ? null
           : Query$User$User$statistics$anime.fromJson(
-              (l$anime as Map<String, dynamic>)),
+              (l$anime as Map<String, dynamic>),
+            ),
       manga: l$manga == null
           ? null
           : Query$User$User$statistics$manga.fromJson(
-              (l$manga as Map<String, dynamic>)),
+              (l$manga as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1580,11 +1556,7 @@ class Query$User$User$statistics {
     final l$anime = anime;
     final l$manga = manga;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$anime,
-      l$manga,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$anime, l$manga, l$$__typename]);
   }
 
   @override
@@ -1618,10 +1590,7 @@ class Query$User$User$statistics {
 extension UtilityExtension$Query$User$User$statistics
     on Query$User$User$statistics {
   CopyWith$Query$User$User$statistics<Query$User$User$statistics>
-      get copyWith => CopyWith$Query$User$User$statistics(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$User$User$statistics(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$statistics<TRes> {
@@ -1644,10 +1613,7 @@ abstract class CopyWith$Query$User$User$statistics<TRes> {
 
 class _CopyWithImpl$Query$User$User$statistics<TRes>
     implements CopyWith$Query$User$User$statistics<TRes> {
-  _CopyWithImpl$Query$User$User$statistics(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$statistics(this._instance, this._then);
 
   final Query$User$User$statistics _instance;
 
@@ -1659,25 +1625,28 @@ class _CopyWithImpl$Query$User$User$statistics<TRes>
     Object? anime = _undefined,
     Object? manga = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$statistics(
-        anime: anime == _undefined
-            ? _instance.anime
-            : (anime as Query$User$User$statistics$anime?),
-        manga: manga == _undefined
-            ? _instance.manga
-            : (manga as Query$User$User$statistics$manga?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$User$User$statistics(
+      anime: anime == _undefined
+          ? _instance.anime
+          : (anime as Query$User$User$statistics$anime?),
+      manga: manga == _undefined
+          ? _instance.manga
+          : (manga as Query$User$User$statistics$manga?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$User$User$statistics$anime<TRes> get anime {
     final local$anime = _instance.anime;
     return local$anime == null
         ? CopyWith$Query$User$User$statistics$anime.stub(_then(_instance))
         : CopyWith$Query$User$User$statistics$anime(
-            local$anime, (e) => call(anime: e));
+            local$anime,
+            (e) => call(anime: e),
+          );
   }
 
   CopyWith$Query$User$User$statistics$manga<TRes> get manga {
@@ -1685,7 +1654,9 @@ class _CopyWithImpl$Query$User$User$statistics<TRes>
     return local$manga == null
         ? CopyWith$Query$User$User$statistics$manga.stub(_then(_instance))
         : CopyWith$Query$User$User$statistics$manga(
-            local$manga, (e) => call(manga: e));
+            local$manga,
+            (e) => call(manga: e),
+          );
   }
 }
 
@@ -1699,8 +1670,7 @@ class _CopyWithStubImpl$Query$User$User$statistics<TRes>
     Query$User$User$statistics$anime? anime,
     Query$User$User$statistics$manga? manga,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$User$User$statistics$anime<TRes> get anime =>
       CopyWith$Query$User$User$statistics$anime.stub(_res);
@@ -1735,9 +1705,11 @@ class Query$User$User$statistics$anime {
       standardDeviation: (l$standardDeviation as num).toDouble(),
       meanScore: (l$meanScore as num).toDouble(),
       genres: (l$genres as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$GenreStat.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$GenreStat.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1858,10 +1830,7 @@ class Query$User$User$statistics$anime {
 extension UtilityExtension$Query$User$User$statistics$anime
     on Query$User$User$statistics$anime {
   CopyWith$Query$User$User$statistics$anime<Query$User$User$statistics$anime>
-      get copyWith => CopyWith$Query$User$User$statistics$anime(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$User$User$statistics$anime(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$statistics$anime<TRes> {
@@ -1883,17 +1852,16 @@ abstract class CopyWith$Query$User$User$statistics$anime<TRes> {
     String? $__typename,
   });
   TRes genres(
-      Iterable<Fragment$GenreStat?>? Function(
-              Iterable<CopyWith$Fragment$GenreStat<Fragment$GenreStat>?>?)
-          _fn);
+    Iterable<Fragment$GenreStat?>? Function(
+      Iterable<CopyWith$Fragment$GenreStat<Fragment$GenreStat>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$User$User$statistics$anime<TRes>
     implements CopyWith$Query$User$User$statistics$anime<TRes> {
-  _CopyWithImpl$Query$User$User$statistics$anime(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$statistics$anime(this._instance, this._then);
 
   final Query$User$User$statistics$anime _instance;
 
@@ -1909,44 +1877,45 @@ class _CopyWithImpl$Query$User$User$statistics$anime<TRes>
     Object? meanScore = _undefined,
     Object? genres = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$statistics$anime(
-        count: count == _undefined || count == null
-            ? _instance.count
-            : (count as int),
-        episodesWatched:
-            episodesWatched == _undefined || episodesWatched == null
-                ? _instance.episodesWatched
-                : (episodesWatched as int),
-        minutesWatched: minutesWatched == _undefined || minutesWatched == null
-            ? _instance.minutesWatched
-            : (minutesWatched as int),
-        standardDeviation:
-            standardDeviation == _undefined || standardDeviation == null
-                ? _instance.standardDeviation
-                : (standardDeviation as double),
-        meanScore: meanScore == _undefined || meanScore == null
-            ? _instance.meanScore
-            : (meanScore as double),
-        genres: genres == _undefined
-            ? _instance.genres
-            : (genres as List<Fragment$GenreStat?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$User$User$statistics$anime(
+      count: count == _undefined || count == null
+          ? _instance.count
+          : (count as int),
+      episodesWatched: episodesWatched == _undefined || episodesWatched == null
+          ? _instance.episodesWatched
+          : (episodesWatched as int),
+      minutesWatched: minutesWatched == _undefined || minutesWatched == null
+          ? _instance.minutesWatched
+          : (minutesWatched as int),
+      standardDeviation:
+          standardDeviation == _undefined || standardDeviation == null
+          ? _instance.standardDeviation
+          : (standardDeviation as double),
+      meanScore: meanScore == _undefined || meanScore == null
+          ? _instance.meanScore
+          : (meanScore as double),
+      genres: genres == _undefined
+          ? _instance.genres
+          : (genres as List<Fragment$GenreStat?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes genres(
-          Iterable<Fragment$GenreStat?>? Function(
-                  Iterable<CopyWith$Fragment$GenreStat<Fragment$GenreStat>?>?)
-              _fn) =>
-      call(
-          genres: _fn(_instance.genres?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$GenreStat(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$GenreStat?>? Function(
+      Iterable<CopyWith$Fragment$GenreStat<Fragment$GenreStat>?>?,
+    )
+    _fn,
+  ) => call(
+    genres: _fn(
+      _instance.genres?.map(
+        (e) => e == null ? null : CopyWith$Fragment$GenreStat(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$User$User$statistics$anime<TRes>
@@ -1963,8 +1932,7 @@ class _CopyWithStubImpl$Query$User$User$statistics$anime<TRes>
     double? meanScore,
     List<Fragment$GenreStat?>? genres,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   genres(_fn) => _res;
 }
@@ -1995,9 +1963,11 @@ class Query$User$User$statistics$manga {
       standardDeviation: (l$standardDeviation as num).toDouble(),
       meanScore: (l$meanScore as num).toDouble(),
       genres: (l$genres as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$GenreStat.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$GenreStat.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2118,10 +2088,7 @@ class Query$User$User$statistics$manga {
 extension UtilityExtension$Query$User$User$statistics$manga
     on Query$User$User$statistics$manga {
   CopyWith$Query$User$User$statistics$manga<Query$User$User$statistics$manga>
-      get copyWith => CopyWith$Query$User$User$statistics$manga(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$User$User$statistics$manga(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$statistics$manga<TRes> {
@@ -2143,17 +2110,16 @@ abstract class CopyWith$Query$User$User$statistics$manga<TRes> {
     String? $__typename,
   });
   TRes genres(
-      Iterable<Fragment$GenreStat?>? Function(
-              Iterable<CopyWith$Fragment$GenreStat<Fragment$GenreStat>?>?)
-          _fn);
+    Iterable<Fragment$GenreStat?>? Function(
+      Iterable<CopyWith$Fragment$GenreStat<Fragment$GenreStat>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$User$User$statistics$manga<TRes>
     implements CopyWith$Query$User$User$statistics$manga<TRes> {
-  _CopyWithImpl$Query$User$User$statistics$manga(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$statistics$manga(this._instance, this._then);
 
   final Query$User$User$statistics$manga _instance;
 
@@ -2169,43 +2135,45 @@ class _CopyWithImpl$Query$User$User$statistics$manga<TRes>
     Object? meanScore = _undefined,
     Object? genres = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$statistics$manga(
-        count: count == _undefined || count == null
-            ? _instance.count
-            : (count as int),
-        chaptersRead: chaptersRead == _undefined || chaptersRead == null
-            ? _instance.chaptersRead
-            : (chaptersRead as int),
-        volumesRead: volumesRead == _undefined || volumesRead == null
-            ? _instance.volumesRead
-            : (volumesRead as int),
-        standardDeviation:
-            standardDeviation == _undefined || standardDeviation == null
-                ? _instance.standardDeviation
-                : (standardDeviation as double),
-        meanScore: meanScore == _undefined || meanScore == null
-            ? _instance.meanScore
-            : (meanScore as double),
-        genres: genres == _undefined
-            ? _instance.genres
-            : (genres as List<Fragment$GenreStat?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$User$User$statistics$manga(
+      count: count == _undefined || count == null
+          ? _instance.count
+          : (count as int),
+      chaptersRead: chaptersRead == _undefined || chaptersRead == null
+          ? _instance.chaptersRead
+          : (chaptersRead as int),
+      volumesRead: volumesRead == _undefined || volumesRead == null
+          ? _instance.volumesRead
+          : (volumesRead as int),
+      standardDeviation:
+          standardDeviation == _undefined || standardDeviation == null
+          ? _instance.standardDeviation
+          : (standardDeviation as double),
+      meanScore: meanScore == _undefined || meanScore == null
+          ? _instance.meanScore
+          : (meanScore as double),
+      genres: genres == _undefined
+          ? _instance.genres
+          : (genres as List<Fragment$GenreStat?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes genres(
-          Iterable<Fragment$GenreStat?>? Function(
-                  Iterable<CopyWith$Fragment$GenreStat<Fragment$GenreStat>?>?)
-              _fn) =>
-      call(
-          genres: _fn(_instance.genres?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$GenreStat(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$GenreStat?>? Function(
+      Iterable<CopyWith$Fragment$GenreStat<Fragment$GenreStat>?>?,
+    )
+    _fn,
+  ) => call(
+    genres: _fn(
+      _instance.genres?.map(
+        (e) => e == null ? null : CopyWith$Fragment$GenreStat(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$User$User$statistics$manga<TRes>
@@ -2222,8 +2190,7 @@ class _CopyWithStubImpl$Query$User$User$statistics$manga<TRes>
     double? meanScore,
     List<Fragment$GenreStat?>? genres,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   genres(_fn) => _res;
 }
@@ -2249,23 +2216,28 @@ class Query$User$User$favourites {
       anime: l$anime == null
           ? null
           : Query$User$User$favourites$anime.fromJson(
-              (l$anime as Map<String, dynamic>)),
+              (l$anime as Map<String, dynamic>),
+            ),
       manga: l$manga == null
           ? null
           : Query$User$User$favourites$manga.fromJson(
-              (l$manga as Map<String, dynamic>)),
+              (l$manga as Map<String, dynamic>),
+            ),
       characters: l$characters == null
           ? null
           : Query$User$User$favourites$characters.fromJson(
-              (l$characters as Map<String, dynamic>)),
+              (l$characters as Map<String, dynamic>),
+            ),
       staff: l$staff == null
           ? null
           : Query$User$User$favourites$staff.fromJson(
-              (l$staff as Map<String, dynamic>)),
+              (l$staff as Map<String, dynamic>),
+            ),
       studios: l$studios == null
           ? null
           : Query$User$User$favourites$studios.fromJson(
-              (l$studios as Map<String, dynamic>)),
+              (l$studios as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2363,10 +2335,7 @@ class Query$User$User$favourites {
 extension UtilityExtension$Query$User$User$favourites
     on Query$User$User$favourites {
   CopyWith$Query$User$User$favourites<Query$User$User$favourites>
-      get copyWith => CopyWith$Query$User$User$favourites(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$User$User$favourites(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$favourites<TRes> {
@@ -2395,10 +2364,7 @@ abstract class CopyWith$Query$User$User$favourites<TRes> {
 
 class _CopyWithImpl$Query$User$User$favourites<TRes>
     implements CopyWith$Query$User$User$favourites<TRes> {
-  _CopyWithImpl$Query$User$User$favourites(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$favourites(this._instance, this._then);
 
   final Query$User$User$favourites _instance;
 
@@ -2413,34 +2379,37 @@ class _CopyWithImpl$Query$User$User$favourites<TRes>
     Object? staff = _undefined,
     Object? studios = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$favourites(
-        anime: anime == _undefined
-            ? _instance.anime
-            : (anime as Query$User$User$favourites$anime?),
-        manga: manga == _undefined
-            ? _instance.manga
-            : (manga as Query$User$User$favourites$manga?),
-        characters: characters == _undefined
-            ? _instance.characters
-            : (characters as Query$User$User$favourites$characters?),
-        staff: staff == _undefined
-            ? _instance.staff
-            : (staff as Query$User$User$favourites$staff?),
-        studios: studios == _undefined
-            ? _instance.studios
-            : (studios as Query$User$User$favourites$studios?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$User$User$favourites(
+      anime: anime == _undefined
+          ? _instance.anime
+          : (anime as Query$User$User$favourites$anime?),
+      manga: manga == _undefined
+          ? _instance.manga
+          : (manga as Query$User$User$favourites$manga?),
+      characters: characters == _undefined
+          ? _instance.characters
+          : (characters as Query$User$User$favourites$characters?),
+      staff: staff == _undefined
+          ? _instance.staff
+          : (staff as Query$User$User$favourites$staff?),
+      studios: studios == _undefined
+          ? _instance.studios
+          : (studios as Query$User$User$favourites$studios?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$User$User$favourites$anime<TRes> get anime {
     final local$anime = _instance.anime;
     return local$anime == null
         ? CopyWith$Query$User$User$favourites$anime.stub(_then(_instance))
         : CopyWith$Query$User$User$favourites$anime(
-            local$anime, (e) => call(anime: e));
+            local$anime,
+            (e) => call(anime: e),
+          );
   }
 
   CopyWith$Query$User$User$favourites$manga<TRes> get manga {
@@ -2448,7 +2417,9 @@ class _CopyWithImpl$Query$User$User$favourites<TRes>
     return local$manga == null
         ? CopyWith$Query$User$User$favourites$manga.stub(_then(_instance))
         : CopyWith$Query$User$User$favourites$manga(
-            local$manga, (e) => call(manga: e));
+            local$manga,
+            (e) => call(manga: e),
+          );
   }
 
   CopyWith$Query$User$User$favourites$characters<TRes> get characters {
@@ -2456,7 +2427,9 @@ class _CopyWithImpl$Query$User$User$favourites<TRes>
     return local$characters == null
         ? CopyWith$Query$User$User$favourites$characters.stub(_then(_instance))
         : CopyWith$Query$User$User$favourites$characters(
-            local$characters, (e) => call(characters: e));
+            local$characters,
+            (e) => call(characters: e),
+          );
   }
 
   CopyWith$Query$User$User$favourites$staff<TRes> get staff {
@@ -2464,7 +2437,9 @@ class _CopyWithImpl$Query$User$User$favourites<TRes>
     return local$staff == null
         ? CopyWith$Query$User$User$favourites$staff.stub(_then(_instance))
         : CopyWith$Query$User$User$favourites$staff(
-            local$staff, (e) => call(staff: e));
+            local$staff,
+            (e) => call(staff: e),
+          );
   }
 
   CopyWith$Query$User$User$favourites$studios<TRes> get studios {
@@ -2472,7 +2447,9 @@ class _CopyWithImpl$Query$User$User$favourites<TRes>
     return local$studios == null
         ? CopyWith$Query$User$User$favourites$studios.stub(_then(_instance))
         : CopyWith$Query$User$User$favourites$studios(
-            local$studios, (e) => call(studios: e));
+            local$studios,
+            (e) => call(studios: e),
+          );
   }
 }
 
@@ -2489,8 +2466,7 @@ class _CopyWithStubImpl$Query$User$User$favourites<TRes>
     Query$User$User$favourites$staff? staff,
     Query$User$User$favourites$studios? studios,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$User$User$favourites$anime<TRes> get anime =>
       CopyWith$Query$User$User$favourites$anime.stub(_res);
@@ -2519,9 +2495,11 @@ class Query$User$User$favourites$anime {
     final l$$__typename = json['__typename'];
     return Query$User$User$favourites$anime(
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2587,10 +2565,7 @@ class Query$User$User$favourites$anime {
 extension UtilityExtension$Query$User$User$favourites$anime
     on Query$User$User$favourites$anime {
   CopyWith$Query$User$User$favourites$anime<Query$User$User$favourites$anime>
-      get copyWith => CopyWith$Query$User$User$favourites$anime(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$User$User$favourites$anime(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$favourites$anime<TRes> {
@@ -2602,23 +2577,18 @@ abstract class CopyWith$Query$User$User$favourites$anime<TRes> {
   factory CopyWith$Query$User$User$favourites$anime.stub(TRes res) =
       _CopyWithStubImpl$Query$User$User$favourites$anime;
 
-  TRes call({
-    List<Fragment$MediaFragment?>? nodes,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$MediaFragment?>? nodes, String? $__typename});
   TRes nodes(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$User$User$favourites$anime<TRes>
     implements CopyWith$Query$User$User$favourites$anime<TRes> {
-  _CopyWithImpl$Query$User$User$favourites$anime(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$favourites$anime(this._instance, this._then);
 
   final Query$User$User$favourites$anime _instance;
 
@@ -2626,32 +2596,30 @@ class _CopyWithImpl$Query$User$User$favourites$anime<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? nodes = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$favourites$anime(
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Fragment$MediaFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? nodes = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$User$User$favourites$anime(
+          nodes: nodes == _undefined
+              ? _instance.nodes
+              : (nodes as List<Fragment$MediaFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes nodes(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$User$User$favourites$anime<TRes>
@@ -2660,11 +2628,7 @@ class _CopyWithStubImpl$Query$User$User$favourites$anime<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$MediaFragment?>? nodes,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$MediaFragment?>? nodes, String? $__typename}) => _res;
 
   nodes(_fn) => _res;
 }
@@ -2680,9 +2644,11 @@ class Query$User$User$favourites$manga {
     final l$$__typename = json['__typename'];
     return Query$User$User$favourites$manga(
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2748,10 +2714,7 @@ class Query$User$User$favourites$manga {
 extension UtilityExtension$Query$User$User$favourites$manga
     on Query$User$User$favourites$manga {
   CopyWith$Query$User$User$favourites$manga<Query$User$User$favourites$manga>
-      get copyWith => CopyWith$Query$User$User$favourites$manga(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$User$User$favourites$manga(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$favourites$manga<TRes> {
@@ -2763,23 +2726,18 @@ abstract class CopyWith$Query$User$User$favourites$manga<TRes> {
   factory CopyWith$Query$User$User$favourites$manga.stub(TRes res) =
       _CopyWithStubImpl$Query$User$User$favourites$manga;
 
-  TRes call({
-    List<Fragment$MediaFragment?>? nodes,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$MediaFragment?>? nodes, String? $__typename});
   TRes nodes(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$User$User$favourites$manga<TRes>
     implements CopyWith$Query$User$User$favourites$manga<TRes> {
-  _CopyWithImpl$Query$User$User$favourites$manga(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$favourites$manga(this._instance, this._then);
 
   final Query$User$User$favourites$manga _instance;
 
@@ -2787,32 +2745,30 @@ class _CopyWithImpl$Query$User$User$favourites$manga<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? nodes = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$favourites$manga(
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Fragment$MediaFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? nodes = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$User$User$favourites$manga(
+          nodes: nodes == _undefined
+              ? _instance.nodes
+              : (nodes as List<Fragment$MediaFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes nodes(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$User$User$favourites$manga<TRes>
@@ -2821,11 +2777,7 @@ class _CopyWithStubImpl$Query$User$User$favourites$manga<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$MediaFragment?>? nodes,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$MediaFragment?>? nodes, String? $__typename}) => _res;
 
   nodes(_fn) => _res;
 }
@@ -2837,15 +2789,19 @@ class Query$User$User$favourites$characters {
   });
 
   factory Query$User$User$favourites$characters.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
     return Query$User$User$favourites$characters(
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$CharacterFragment.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$CharacterFragment.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2911,11 +2867,10 @@ class Query$User$User$favourites$characters {
 extension UtilityExtension$Query$User$User$favourites$characters
     on Query$User$User$favourites$characters {
   CopyWith$Query$User$User$favourites$characters<
-          Query$User$User$favourites$characters>
-      get copyWith => CopyWith$Query$User$User$favourites$characters(
-            this,
-            (i) => i,
-          );
+    Query$User$User$favourites$characters
+  >
+  get copyWith =>
+      CopyWith$Query$User$User$favourites$characters(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$favourites$characters<TRes> {
@@ -2927,16 +2882,15 @@ abstract class CopyWith$Query$User$User$favourites$characters<TRes> {
   factory CopyWith$Query$User$User$favourites$characters.stub(TRes res) =
       _CopyWithStubImpl$Query$User$User$favourites$characters;
 
-  TRes call({
-    List<Fragment$CharacterFragment?>? nodes,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$CharacterFragment?>? nodes, String? $__typename});
   TRes nodes(
-      Iterable<Fragment$CharacterFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$CharacterFragment<
-                      Fragment$CharacterFragment>?>?)
-          _fn);
+    Iterable<Fragment$CharacterFragment?>? Function(
+      Iterable<
+        CopyWith$Fragment$CharacterFragment<Fragment$CharacterFragment>?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$User$User$favourites$characters<TRes>
@@ -2952,32 +2906,33 @@ class _CopyWithImpl$Query$User$User$favourites$characters<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? nodes = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$favourites$characters(
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Fragment$CharacterFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? nodes = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$User$User$favourites$characters(
+          nodes: nodes == _undefined
+              ? _instance.nodes
+              : (nodes as List<Fragment$CharacterFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes nodes(
-          Iterable<Fragment$CharacterFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$CharacterFragment<
-                          Fragment$CharacterFragment>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$CharacterFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$CharacterFragment?>? Function(
+      Iterable<
+        CopyWith$Fragment$CharacterFragment<Fragment$CharacterFragment>?
+      >?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) =>
+            e == null ? null : CopyWith$Fragment$CharacterFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$User$User$favourites$characters<TRes>
@@ -2986,11 +2941,7 @@ class _CopyWithStubImpl$Query$User$User$favourites$characters<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$CharacterFragment?>? nodes,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$CharacterFragment?>? nodes, String? $__typename}) => _res;
 
   nodes(_fn) => _res;
 }
@@ -3006,9 +2957,11 @@ class Query$User$User$favourites$staff {
     final l$$__typename = json['__typename'];
     return Query$User$User$favourites$staff(
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$StaffFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$StaffFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -3074,10 +3027,7 @@ class Query$User$User$favourites$staff {
 extension UtilityExtension$Query$User$User$favourites$staff
     on Query$User$User$favourites$staff {
   CopyWith$Query$User$User$favourites$staff<Query$User$User$favourites$staff>
-      get copyWith => CopyWith$Query$User$User$favourites$staff(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$User$User$favourites$staff(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$favourites$staff<TRes> {
@@ -3089,23 +3039,18 @@ abstract class CopyWith$Query$User$User$favourites$staff<TRes> {
   factory CopyWith$Query$User$User$favourites$staff.stub(TRes res) =
       _CopyWithStubImpl$Query$User$User$favourites$staff;
 
-  TRes call({
-    List<Fragment$StaffFragment?>? nodes,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$StaffFragment?>? nodes, String? $__typename});
   TRes nodes(
-      Iterable<Fragment$StaffFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$StaffFragment<Fragment$StaffFragment>?>?)
-          _fn);
+    Iterable<Fragment$StaffFragment?>? Function(
+      Iterable<CopyWith$Fragment$StaffFragment<Fragment$StaffFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$User$User$favourites$staff<TRes>
     implements CopyWith$Query$User$User$favourites$staff<TRes> {
-  _CopyWithImpl$Query$User$User$favourites$staff(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$favourites$staff(this._instance, this._then);
 
   final Query$User$User$favourites$staff _instance;
 
@@ -3113,32 +3058,30 @@ class _CopyWithImpl$Query$User$User$favourites$staff<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? nodes = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$favourites$staff(
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Fragment$StaffFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? nodes = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$User$User$favourites$staff(
+          nodes: nodes == _undefined
+              ? _instance.nodes
+              : (nodes as List<Fragment$StaffFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes nodes(
-          Iterable<Fragment$StaffFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$StaffFragment<
-                          Fragment$StaffFragment>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$StaffFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$StaffFragment?>? Function(
+      Iterable<CopyWith$Fragment$StaffFragment<Fragment$StaffFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null ? null : CopyWith$Fragment$StaffFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$User$User$favourites$staff<TRes>
@@ -3147,11 +3090,7 @@ class _CopyWithStubImpl$Query$User$User$favourites$staff<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$StaffFragment?>? nodes,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$StaffFragment?>? nodes, String? $__typename}) => _res;
 
   nodes(_fn) => _res;
 }
@@ -3163,14 +3102,17 @@ class Query$User$User$favourites$studios {
   });
 
   factory Query$User$User$favourites$studios.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
     return Query$User$User$favourites$studios(
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$StudioFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$StudioFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -3236,11 +3178,9 @@ class Query$User$User$favourites$studios {
 extension UtilityExtension$Query$User$User$favourites$studios
     on Query$User$User$favourites$studios {
   CopyWith$Query$User$User$favourites$studios<
-          Query$User$User$favourites$studios>
-      get copyWith => CopyWith$Query$User$User$favourites$studios(
-            this,
-            (i) => i,
-          );
+    Query$User$User$favourites$studios
+  >
+  get copyWith => CopyWith$Query$User$User$favourites$studios(this, (i) => i);
 }
 
 abstract class CopyWith$Query$User$User$favourites$studios<TRes> {
@@ -3252,23 +3192,18 @@ abstract class CopyWith$Query$User$User$favourites$studios<TRes> {
   factory CopyWith$Query$User$User$favourites$studios.stub(TRes res) =
       _CopyWithStubImpl$Query$User$User$favourites$studios;
 
-  TRes call({
-    List<Fragment$StudioFragment?>? nodes,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$StudioFragment?>? nodes, String? $__typename});
   TRes nodes(
-      Iterable<Fragment$StudioFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$StudioFragment<Fragment$StudioFragment>?>?)
-          _fn);
+    Iterable<Fragment$StudioFragment?>? Function(
+      Iterable<CopyWith$Fragment$StudioFragment<Fragment$StudioFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$User$User$favourites$studios<TRes>
     implements CopyWith$Query$User$User$favourites$studios<TRes> {
-  _CopyWithImpl$Query$User$User$favourites$studios(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$User$User$favourites$studios(this._instance, this._then);
 
   final Query$User$User$favourites$studios _instance;
 
@@ -3276,32 +3211,30 @@ class _CopyWithImpl$Query$User$User$favourites$studios<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? nodes = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$User$User$favourites$studios(
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Fragment$StudioFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? nodes = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$User$User$favourites$studios(
+          nodes: nodes == _undefined
+              ? _instance.nodes
+              : (nodes as List<Fragment$StudioFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes nodes(
-          Iterable<Fragment$StudioFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$StudioFragment<
-                          Fragment$StudioFragment>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$StudioFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$StudioFragment?>? Function(
+      Iterable<CopyWith$Fragment$StudioFragment<Fragment$StudioFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null ? null : CopyWith$Fragment$StudioFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$User$User$favourites$studios<TRes>
@@ -3310,11 +3243,7 @@ class _CopyWithStubImpl$Query$User$User$favourites$studios<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$StudioFragment?>? nodes,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$StudioFragment?>? nodes, String? $__typename}) => _res;
 
   nodes(_fn) => _res;
 }

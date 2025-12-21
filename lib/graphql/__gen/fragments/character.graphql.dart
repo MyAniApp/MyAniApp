@@ -18,11 +18,13 @@ class Fragment$CharacterFragment {
       name: l$name == null
           ? null
           : Fragment$CharacterFragment$name.fromJson(
-              (l$name as Map<String, dynamic>)),
+              (l$name as Map<String, dynamic>),
+            ),
       image: l$image == null
           ? null
           : Fragment$CharacterFragment$image.fromJson(
-              (l$image as Map<String, dynamic>)),
+              (l$image as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -54,12 +56,7 @@ class Fragment$CharacterFragment {
     final l$name = name;
     final l$image = image;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$image,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$name, l$image, l$$__typename]);
   }
 
   @override
@@ -98,10 +95,7 @@ class Fragment$CharacterFragment {
 extension UtilityExtension$Fragment$CharacterFragment
     on Fragment$CharacterFragment {
   CopyWith$Fragment$CharacterFragment<Fragment$CharacterFragment>
-      get copyWith => CopyWith$Fragment$CharacterFragment(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$CharacterFragment(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$CharacterFragment<TRes> {
@@ -125,10 +119,7 @@ abstract class CopyWith$Fragment$CharacterFragment<TRes> {
 
 class _CopyWithImpl$Fragment$CharacterFragment<TRes>
     implements CopyWith$Fragment$CharacterFragment<TRes> {
-  _CopyWithImpl$Fragment$CharacterFragment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$CharacterFragment(this._instance, this._then);
 
   final Fragment$CharacterFragment _instance;
 
@@ -141,26 +132,29 @@ class _CopyWithImpl$Fragment$CharacterFragment<TRes>
     Object? name = _undefined,
     Object? image = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$CharacterFragment(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined
-            ? _instance.name
-            : (name as Fragment$CharacterFragment$name?),
-        image: image == _undefined
-            ? _instance.image
-            : (image as Fragment$CharacterFragment$image?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$CharacterFragment(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined
+          ? _instance.name
+          : (name as Fragment$CharacterFragment$name?),
+      image: image == _undefined
+          ? _instance.image
+          : (image as Fragment$CharacterFragment$image?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$CharacterFragment$name<TRes> get name {
     final local$name = _instance.name;
     return local$name == null
         ? CopyWith$Fragment$CharacterFragment$name.stub(_then(_instance))
         : CopyWith$Fragment$CharacterFragment$name(
-            local$name, (e) => call(name: e));
+            local$name,
+            (e) => call(name: e),
+          );
   }
 
   CopyWith$Fragment$CharacterFragment$image<TRes> get image {
@@ -168,7 +162,9 @@ class _CopyWithImpl$Fragment$CharacterFragment<TRes>
     return local$image == null
         ? CopyWith$Fragment$CharacterFragment$image.stub(_then(_instance))
         : CopyWith$Fragment$CharacterFragment$image(
-            local$image, (e) => call(image: e));
+            local$image,
+            (e) => call(image: e),
+          );
   }
 }
 
@@ -183,8 +179,7 @@ class _CopyWithStubImpl$Fragment$CharacterFragment<TRes>
     Fragment$CharacterFragment$name? name,
     Fragment$CharacterFragment$image? image,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$CharacterFragment$name<TRes> get name =>
       CopyWith$Fragment$CharacterFragment$name.stub(_res);
@@ -196,75 +191,79 @@ class _CopyWithStubImpl$Fragment$CharacterFragment<TRes>
 const fragmentDefinitionCharacterFragment = FragmentDefinitionNode(
   name: NameNode(value: 'CharacterFragment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Character'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Character'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'userPreferred'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'userPreferred'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'image'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'large'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'image'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'large'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentCharacterFragment = DocumentNode(definitions: [
-  fragmentDefinitionCharacterFragment,
-]);
+const documentNodeFragmentCharacterFragment = DocumentNode(
+  definitions: [fragmentDefinitionCharacterFragment],
+);
 
 class Fragment$CharacterFragment$name {
   Fragment$CharacterFragment$name({
@@ -298,10 +297,7 @@ class Fragment$CharacterFragment$name {
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -330,10 +326,7 @@ class Fragment$CharacterFragment$name {
 extension UtilityExtension$Fragment$CharacterFragment$name
     on Fragment$CharacterFragment$name {
   CopyWith$Fragment$CharacterFragment$name<Fragment$CharacterFragment$name>
-      get copyWith => CopyWith$Fragment$CharacterFragment$name(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$CharacterFragment$name(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$CharacterFragment$name<TRes> {
@@ -345,18 +338,12 @@ abstract class CopyWith$Fragment$CharacterFragment$name<TRes> {
   factory CopyWith$Fragment$CharacterFragment$name.stub(TRes res) =
       _CopyWithStubImpl$Fragment$CharacterFragment$name;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$CharacterFragment$name<TRes>
     implements CopyWith$Fragment$CharacterFragment$name<TRes> {
-  _CopyWithImpl$Fragment$CharacterFragment$name(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$CharacterFragment$name(this._instance, this._then);
 
   final Fragment$CharacterFragment$name _instance;
 
@@ -367,15 +354,16 @@ class _CopyWithImpl$Fragment$CharacterFragment$name<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$CharacterFragment$name(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$CharacterFragment$name(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$CharacterFragment$name<TRes>
@@ -384,11 +372,7 @@ class _CopyWithStubImpl$Fragment$CharacterFragment$name<TRes>
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }
 
 class Fragment$CharacterFragment$image {
@@ -423,10 +407,7 @@ class Fragment$CharacterFragment$image {
   int get hashCode {
     final l$large = large;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$$__typename]);
   }
 
   @override
@@ -455,10 +436,7 @@ class Fragment$CharacterFragment$image {
 extension UtilityExtension$Fragment$CharacterFragment$image
     on Fragment$CharacterFragment$image {
   CopyWith$Fragment$CharacterFragment$image<Fragment$CharacterFragment$image>
-      get copyWith => CopyWith$Fragment$CharacterFragment$image(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$CharacterFragment$image(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$CharacterFragment$image<TRes> {
@@ -470,18 +448,12 @@ abstract class CopyWith$Fragment$CharacterFragment$image<TRes> {
   factory CopyWith$Fragment$CharacterFragment$image.stub(TRes res) =
       _CopyWithStubImpl$Fragment$CharacterFragment$image;
 
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
+  TRes call({String? large, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$CharacterFragment$image<TRes>
     implements CopyWith$Fragment$CharacterFragment$image<TRes> {
-  _CopyWithImpl$Fragment$CharacterFragment$image(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$CharacterFragment$image(this._instance, this._then);
 
   final Fragment$CharacterFragment$image _instance;
 
@@ -489,16 +461,15 @@ class _CopyWithImpl$Fragment$CharacterFragment$image<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$CharacterFragment$image(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? large = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$CharacterFragment$image(
+          large: large == _undefined ? _instance.large : (large as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$CharacterFragment$image<TRes>
@@ -507,9 +478,5 @@ class _CopyWithStubImpl$Fragment$CharacterFragment$image<TRes>
 
   TRes _res;
 
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? $__typename}) => _res;
 }

@@ -5,18 +5,23 @@ import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/settings.dart';
 import 'package:mygraphql/graphql.dart';
 
-final userProvider = StreamProvider.autoDispose<GQLResponse<Query$Viewer>>(
-  (ref) async* {
-    var token = ref.watch(settingsProvider.select((value) => value.token));
-    if (token == null) {
-      yield GQLResponse(response: const {}, request: null);
-    } else {
-      var stream = c.query(GQLRequest(viewerQuery,
-          parseData: Query$Viewer.fromJson, fetchPolicy: FetchPolicy.noCache));
+final userProvider = StreamProvider.autoDispose<GQLResponse<Query$Viewer>>((
+  ref,
+) async* {
+  var token = ref.watch(settingsProvider.select((value) => value.token));
+  if (token == null) {
+    yield GQLResponse(response: const {}, request: null);
+  } else {
+    var stream = gqlClient.query(
+      GQLRequest(
+        viewerQuery,
+        parseData: Query$Viewer.fromJson,
+        // fetchPolicy: FetchPolicy.noCache,
+      ),
+    );
 
-      await for (var s in stream) {
-        yield s;
-      }
+    await for (var s in stream) {
+      yield s;
     }
-  },
-);
+  }
+});

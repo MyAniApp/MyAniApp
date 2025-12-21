@@ -19,11 +19,13 @@ class MyListReleases extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      releasesListQuery,
-      parseData: Query$ReleasesList.fromJson,
-      mergeResults: defaultMergeResults("Page.media"),
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        releasesListQuery,
+        parseData: Query$ReleasesList.fromJson,
+        mergeResults: defaultMergeResults("Page.media"),
+      ),
+    );
     var now = DateTime.now();
 
     return GQLWidget(
@@ -31,20 +33,20 @@ class MyListReleases extends HookWidget {
       response: snapshot,
       builder: () {
         var sorted = snapshot.parsedData!.Page!.media!
-            .where(
-              (p0) => p0?.nextAiringEpisode != null,
-            )
+            .where((p0) => p0?.nextAiringEpisode != null)
             .sorted(
-              (a, b) => a!.nextAiringEpisode!.airingAt
-                  .compareTo(b!.nextAiringEpisode!.airingAt),
+              (a, b) => a!.nextAiringEpisode!.airingAt.compareTo(
+                b!.nextAiringEpisode!.airingAt,
+              ),
             );
 
         return PaginationView.list(
           pageInfo: snapshot.parsedData!.Page!.pageInfo!,
           req: (nextPage) => fetchMore(
-              variables: Variables$Query$ReleasesList(page: nextPage).toJson()),
+            variables: Variables$Query$ReleasesList(page: nextPage).toJson(),
+          ),
           // child: ListView.builder(
-          builder: (context, index) {
+          itemBuilder: (context, index) {
             var media = sorted[index]!;
 
             var next = media.nextAiringEpisode;
@@ -55,8 +57,10 @@ class MyListReleases extends HookWidget {
 
             return Card.outlined(
               child: InkWellImage(
-                onTap: () => context.push(Routes.media(media.id),
-                    extra: {"placeholder": media}),
+                onTap: () => context.push(
+                  Routes.media(media.id),
+                  extra: {"placeholder": media},
+                ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -9,12 +9,11 @@ class Variables$Query$Notifications {
     int? page,
     List<Enum$NotificationType?>? types,
     bool? reset,
-  }) =>
-      Variables$Query$Notifications._({
-        if (page != null) r'page': page,
-        if (types != null) r'types': types,
-        if (reset != null) r'reset': reset,
-      });
+  }) => Variables$Query$Notifications._({
+    if (page != null) r'page': page,
+    if (types != null) r'types': types,
+    if (reset != null) r'reset': reset,
+  });
 
   Variables$Query$Notifications._(this._$data);
 
@@ -27,8 +26,11 @@ class Variables$Query$Notifications {
     if (data.containsKey('types')) {
       final l$types = data['types'];
       result$data['types'] = (l$types as List<dynamic>?)
-          ?.map((e) =>
-              e == null ? null : fromJson$Enum$NotificationType((e as String)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : fromJson$Enum$NotificationType((e as String)),
+          )
           .toList();
     }
     if (data.containsKey('reset')) {
@@ -67,10 +69,7 @@ class Variables$Query$Notifications {
   }
 
   CopyWith$Variables$Query$Notifications<Variables$Query$Notifications>
-      get copyWith => CopyWith$Variables$Query$Notifications(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$Notifications(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -128,8 +127,8 @@ class Variables$Query$Notifications {
       _$data.containsKey('page') ? l$page : const {},
       _$data.containsKey('types')
           ? l$types == null
-              ? null
-              : Object.hashAll(l$types.map((v) => v))
+                ? null
+                : Object.hashAll(l$types.map((v) => v))
           : const {},
       _$data.containsKey('reset') ? l$reset : const {},
     ]);
@@ -145,19 +144,12 @@ abstract class CopyWith$Variables$Query$Notifications<TRes> {
   factory CopyWith$Variables$Query$Notifications.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$Notifications;
 
-  TRes call({
-    int? page,
-    List<Enum$NotificationType?>? types,
-    bool? reset,
-  });
+  TRes call({int? page, List<Enum$NotificationType?>? types, bool? reset});
 }
 
 class _CopyWithImpl$Variables$Query$Notifications<TRes>
     implements CopyWith$Variables$Query$Notifications<TRes> {
-  _CopyWithImpl$Variables$Query$Notifications(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Notifications(this._instance, this._then);
 
   final Variables$Query$Notifications _instance;
 
@@ -169,14 +161,15 @@ class _CopyWithImpl$Variables$Query$Notifications<TRes>
     Object? page = _undefined,
     Object? types = _undefined,
     Object? reset = _undefined,
-  }) =>
-      _then(Variables$Query$Notifications._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-        if (types != _undefined)
-          'types': (types as List<Enum$NotificationType?>?),
-        if (reset != _undefined) 'reset': (reset as bool?),
-      }));
+  }) => _then(
+    Variables$Query$Notifications._({
+      ..._instance._$data,
+      if (page != _undefined) 'page': (page as int?),
+      if (types != _undefined)
+        'types': (types as List<Enum$NotificationType?>?),
+      if (reset != _undefined) 'reset': (reset as bool?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Notifications<TRes>
@@ -185,19 +178,11 @@ class _CopyWithStubImpl$Variables$Query$Notifications<TRes>
 
   TRes _res;
 
-  call({
-    int? page,
-    List<Enum$NotificationType?>? types,
-    bool? reset,
-  }) =>
-      _res;
+  call({int? page, List<Enum$NotificationType?>? types, bool? reset}) => _res;
 }
 
 class Query$Notifications {
-  Query$Notifications({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$Notifications({this.Page, this.$__typename = 'Query'});
 
   factory Query$Notifications.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -227,10 +212,7 @@ class Query$Notifications {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -257,10 +239,7 @@ class Query$Notifications {
 
 extension UtilityExtension$Query$Notifications on Query$Notifications {
   CopyWith$Query$Notifications<Query$Notifications> get copyWith =>
-      CopyWith$Query$Notifications(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Notifications(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Notifications<TRes> {
@@ -272,19 +251,13 @@ abstract class CopyWith$Query$Notifications<TRes> {
   factory CopyWith$Query$Notifications.stub(TRes res) =
       _CopyWithStubImpl$Query$Notifications;
 
-  TRes call({
-    Query$Notifications$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$Notifications$Page? Page, String? $__typename});
   CopyWith$Query$Notifications$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$Notifications<TRes>
     implements CopyWith$Query$Notifications<TRes> {
-  _CopyWithImpl$Query$Notifications(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Notifications(this._instance, this._then);
 
   final Query$Notifications _instance;
 
@@ -292,18 +265,17 @@ class _CopyWithImpl$Query$Notifications<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$Notifications$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Notifications(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$Notifications$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$Notifications$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -319,147 +291,74 @@ class _CopyWithStubImpl$Query$Notifications<TRes>
 
   TRes _res;
 
-  call({
-    Query$Notifications$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$Notifications$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$Notifications$Page<TRes> get Page =>
       CopyWith$Query$Notifications$Page.stub(_res);
 }
 
-const documentNodeQueryNotifications = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Notifications'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryNotifications = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Notifications'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'types')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'NotificationType'),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'types')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'NotificationType'),
+              isNonNull: false,
+            ),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'reset')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'reset')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: true)),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: true)),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '50'),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'notifications'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'type_in'),
-                value: VariableNode(name: NameNode(value: 'types')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
               ArgumentNode(
-                name: NameNode(value: 'resetNotificationCount'),
-                value: VariableNode(name: NameNode(value: 'reset')),
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '50'),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'AiringNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'episode'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'contexts'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'media'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
+                        name: NameNode(value: 'PageInfo'),
                         directives: [],
                       ),
                       FieldNode(
@@ -469,62 +368,1463 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'FollowingNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'notifications'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'type_in'),
+                      value: VariableNode(name: NameNode(value: 'types')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'resetNotificationCount'),
+                      value: VariableNode(name: NameNode(value: 'reset')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'AiringNotification'),
+                            isNonNull: false,
+                          ),
+                        ),
                         directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'episode'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'contexts'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'media'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'FollowingNotification'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'ActivityMessageNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'activityId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'ActivityMentionNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'activityId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'ActivityReplyNotification'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'activityId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'ActivityReplySubscribedNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'activityId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'ActivityLikeNotification'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'activityId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'ActivityReplyLikeNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'activityId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'ThreadCommentMentionNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'commentId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'thread'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'title'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'ThreadCommentReplyNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'commentId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'thread'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'title'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'ThreadCommentSubscribedNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'commentId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'thread'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'title'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'ThreadCommentLikeNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'commentId'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'thread'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'title'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'ThreadLikeNotification'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'thread'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'id'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'title'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'user'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'UserFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'RelatedMediaAdditionNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'media'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(
+                              value: 'MediaDataChangeNotification',
+                            ),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'media'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'reason'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'MediaMergeNotification'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'media'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'deletedMediaTitles'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'reason'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'MediaDeletionNotification'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'type'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'context'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'deletedMediaTitle'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'reason'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'createdAt'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -533,1223 +1833,18 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ActivityMessageNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'activityId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ActivityMentionNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'activityId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ActivityReplyNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'activityId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ActivityReplySubscribedNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'activityId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ActivityLikeNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'activityId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ActivityReplyLikeNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'activityId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ThreadCommentMentionNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'commentId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'thread'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'title'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ThreadCommentReplyNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'commentId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'thread'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'title'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ThreadCommentSubscribedNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'commentId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'thread'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'title'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ThreadCommentLikeNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'commentId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'thread'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'title'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ThreadLikeNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'thread'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'title'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'UserFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'RelatedMediaAdditionNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'media'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'MediaDataChangeNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'media'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'reason'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'MediaMergeNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'media'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'deletedMediaTitles'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'reason'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'MediaDeletionNotification'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'type'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'context'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'deletedMediaTitle'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'reason'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'createdAt'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1758,21 +1853,14 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$Notifications$Page {
   Query$Notifications$Page({
@@ -1790,10 +1878,13 @@ class Query$Notifications$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       notifications: (l$notifications as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Notifications$Page$notifications.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Notifications$Page$notifications.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1810,8 +1901,9 @@ class Query$Notifications$Page {
     final l$pageInfo = pageInfo;
     _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$notifications = notifications;
-    _resultData['notifications'] =
-        l$notifications?.map((e) => e?.toJson()).toList();
+    _resultData['notifications'] = l$notifications
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1873,10 +1965,7 @@ class Query$Notifications$Page {
 extension UtilityExtension$Query$Notifications$Page
     on Query$Notifications$Page {
   CopyWith$Query$Notifications$Page<Query$Notifications$Page> get copyWith =>
-      CopyWith$Query$Notifications$Page(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Notifications$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Notifications$Page<TRes> {
@@ -1895,19 +1984,20 @@ abstract class CopyWith$Query$Notifications$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes notifications(
-      Iterable<Query$Notifications$Page$notifications?>? Function(
-              Iterable<
-                  CopyWith$Query$Notifications$Page$notifications<
-                      Query$Notifications$Page$notifications>?>?)
-          _fn);
+    Iterable<Query$Notifications$Page$notifications?>? Function(
+      Iterable<
+        CopyWith$Query$Notifications$Page$notifications<
+          Query$Notifications$Page$notifications
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Notifications$Page<TRes>
     implements CopyWith$Query$Notifications$Page<TRes> {
-  _CopyWithImpl$Query$Notifications$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Notifications$Page(this._instance, this._then);
 
   final Query$Notifications$Page _instance;
 
@@ -1919,18 +2009,19 @@ class _CopyWithImpl$Query$Notifications$Page<TRes>
     Object? pageInfo = _undefined,
     Object? notifications = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        notifications: notifications == _undefined
-            ? _instance.notifications
-            : (notifications as List<Query$Notifications$Page$notifications?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      notifications: notifications == _undefined
+          ? _instance.notifications
+          : (notifications as List<Query$Notifications$Page$notifications?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -1940,18 +2031,23 @@ class _CopyWithImpl$Query$Notifications$Page<TRes>
   }
 
   TRes notifications(
-          Iterable<Query$Notifications$Page$notifications?>? Function(
-                  Iterable<
-                      CopyWith$Query$Notifications$Page$notifications<
-                          Query$Notifications$Page$notifications>?>?)
-              _fn) =>
-      call(
-          notifications: _fn(_instance.notifications?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Notifications$Page$notifications(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Notifications$Page$notifications?>? Function(
+      Iterable<
+        CopyWith$Query$Notifications$Page$notifications<
+          Query$Notifications$Page$notifications
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    notifications: _fn(
+      _instance.notifications?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Notifications$Page$notifications(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page<TRes>
@@ -1964,8 +2060,7 @@ class _CopyWithStubImpl$Query$Notifications$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$Notifications$Page$notifications?>? notifications,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -1977,80 +2072,99 @@ class Query$Notifications$Page$notifications {
   Query$Notifications$Page$notifications({required this.$__typename});
 
   factory Query$Notifications$Page$notifications.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     switch (json["__typename"] as String) {
       case "AiringNotification":
-        return Query$Notifications$Page$notifications$$AiringNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$AiringNotification.fromJson(
+          json,
+        );
 
       case "FollowingNotification":
-        return Query$Notifications$Page$notifications$$FollowingNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$FollowingNotification.fromJson(
+          json,
+        );
 
       case "ActivityMessageNotification":
-        return Query$Notifications$Page$notifications$$ActivityMessageNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ActivityMessageNotification.fromJson(
+          json,
+        );
 
       case "ActivityMentionNotification":
-        return Query$Notifications$Page$notifications$$ActivityMentionNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ActivityMentionNotification.fromJson(
+          json,
+        );
 
       case "ActivityReplyNotification":
-        return Query$Notifications$Page$notifications$$ActivityReplyNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ActivityReplyNotification.fromJson(
+          json,
+        );
 
       case "ActivityReplySubscribedNotification":
-        return Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification.fromJson(
+          json,
+        );
 
       case "ActivityLikeNotification":
-        return Query$Notifications$Page$notifications$$ActivityLikeNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ActivityLikeNotification.fromJson(
+          json,
+        );
 
       case "ActivityReplyLikeNotification":
-        return Query$Notifications$Page$notifications$$ActivityReplyLikeNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ActivityReplyLikeNotification.fromJson(
+          json,
+        );
 
       case "ThreadCommentMentionNotification":
-        return Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ThreadCommentMentionNotification.fromJson(
+          json,
+        );
 
       case "ThreadCommentReplyNotification":
-        return Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ThreadCommentReplyNotification.fromJson(
+          json,
+        );
 
       case "ThreadCommentSubscribedNotification":
-        return Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification.fromJson(
+          json,
+        );
 
       case "ThreadCommentLikeNotification":
-        return Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ThreadCommentLikeNotification.fromJson(
+          json,
+        );
 
       case "ThreadLikeNotification":
-        return Query$Notifications$Page$notifications$$ThreadLikeNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$ThreadLikeNotification.fromJson(
+          json,
+        );
 
       case "RelatedMediaAdditionNotification":
-        return Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification.fromJson(
+          json,
+        );
 
       case "MediaDataChangeNotification":
-        return Query$Notifications$Page$notifications$$MediaDataChangeNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$MediaDataChangeNotification.fromJson(
+          json,
+        );
 
       case "MediaMergeNotification":
-        return Query$Notifications$Page$notifications$$MediaMergeNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$MediaMergeNotification.fromJson(
+          json,
+        );
 
       case "MediaDeletionNotification":
-        return Query$Notifications$Page$notifications$$MediaDeletionNotification
-            .fromJson(json);
+        return Query$Notifications$Page$notifications$$MediaDeletionNotification.fromJson(
+          json,
+        );
 
       default:
         final l$$__typename = json['__typename'];
         return Query$Notifications$Page$notifications(
-            $__typename: (l$$__typename as String));
+          $__typename: (l$$__typename as String),
+        );
     }
   }
 
@@ -2090,133 +2204,182 @@ class Query$Notifications$Page$notifications {
 extension UtilityExtension$Query$Notifications$Page$notifications
     on Query$Notifications$Page$notifications {
   CopyWith$Query$Notifications$Page$notifications<
-          Query$Notifications$Page$notifications>
-      get copyWith => CopyWith$Query$Notifications$Page$notifications(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications(this, (i) => i);
+
   _T when<_T>({
     required _T Function(
-            Query$Notifications$Page$notifications$$AiringNotification)
-        airingNotification,
+      Query$Notifications$Page$notifications$$AiringNotification,
+    )
+    airingNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$FollowingNotification)
-        followingNotification,
+      Query$Notifications$Page$notifications$$FollowingNotification,
+    )
+    followingNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ActivityMessageNotification)
-        activityMessageNotification,
+      Query$Notifications$Page$notifications$$ActivityMessageNotification,
+    )
+    activityMessageNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ActivityMentionNotification)
-        activityMentionNotification,
+      Query$Notifications$Page$notifications$$ActivityMentionNotification,
+    )
+    activityMentionNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ActivityReplyNotification)
-        activityReplyNotification,
+      Query$Notifications$Page$notifications$$ActivityReplyNotification,
+    )
+    activityReplyNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification)
-        activityReplySubscribedNotification,
+      Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification,
+    )
+    activityReplySubscribedNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ActivityLikeNotification)
-        activityLikeNotification,
+      Query$Notifications$Page$notifications$$ActivityLikeNotification,
+    )
+    activityLikeNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ActivityReplyLikeNotification)
-        activityReplyLikeNotification,
+      Query$Notifications$Page$notifications$$ActivityReplyLikeNotification,
+    )
+    activityReplyLikeNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ThreadCommentMentionNotification)
-        threadCommentMentionNotification,
+      Query$Notifications$Page$notifications$$ThreadCommentMentionNotification,
+    )
+    threadCommentMentionNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ThreadCommentReplyNotification)
-        threadCommentReplyNotification,
+      Query$Notifications$Page$notifications$$ThreadCommentReplyNotification,
+    )
+    threadCommentReplyNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification)
-        threadCommentSubscribedNotification,
+      Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification,
+    )
+    threadCommentSubscribedNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ThreadCommentLikeNotification)
-        threadCommentLikeNotification,
+      Query$Notifications$Page$notifications$$ThreadCommentLikeNotification,
+    )
+    threadCommentLikeNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$ThreadLikeNotification)
-        threadLikeNotification,
+      Query$Notifications$Page$notifications$$ThreadLikeNotification,
+    )
+    threadLikeNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification)
-        relatedMediaAdditionNotification,
+      Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification,
+    )
+    relatedMediaAdditionNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$MediaDataChangeNotification)
-        mediaDataChangeNotification,
+      Query$Notifications$Page$notifications$$MediaDataChangeNotification,
+    )
+    mediaDataChangeNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$MediaMergeNotification)
-        mediaMergeNotification,
+      Query$Notifications$Page$notifications$$MediaMergeNotification,
+    )
+    mediaMergeNotification,
     required _T Function(
-            Query$Notifications$Page$notifications$$MediaDeletionNotification)
-        mediaDeletionNotification,
+      Query$Notifications$Page$notifications$$MediaDeletionNotification,
+    )
+    mediaDeletionNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "AiringNotification":
         return airingNotification(
-            this as Query$Notifications$Page$notifications$$AiringNotification);
+          this as Query$Notifications$Page$notifications$$AiringNotification,
+        );
 
       case "FollowingNotification":
-        return followingNotification(this
-            as Query$Notifications$Page$notifications$$FollowingNotification);
+        return followingNotification(
+          this as Query$Notifications$Page$notifications$$FollowingNotification,
+        );
 
       case "ActivityMessageNotification":
-        return activityMessageNotification(this
-            as Query$Notifications$Page$notifications$$ActivityMessageNotification);
+        return activityMessageNotification(
+          this
+              as Query$Notifications$Page$notifications$$ActivityMessageNotification,
+        );
 
       case "ActivityMentionNotification":
-        return activityMentionNotification(this
-            as Query$Notifications$Page$notifications$$ActivityMentionNotification);
+        return activityMentionNotification(
+          this
+              as Query$Notifications$Page$notifications$$ActivityMentionNotification,
+        );
 
       case "ActivityReplyNotification":
-        return activityReplyNotification(this
-            as Query$Notifications$Page$notifications$$ActivityReplyNotification);
+        return activityReplyNotification(
+          this
+              as Query$Notifications$Page$notifications$$ActivityReplyNotification,
+        );
 
       case "ActivityReplySubscribedNotification":
-        return activityReplySubscribedNotification(this
-            as Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification);
+        return activityReplySubscribedNotification(
+          this
+              as Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification,
+        );
 
       case "ActivityLikeNotification":
-        return activityLikeNotification(this
-            as Query$Notifications$Page$notifications$$ActivityLikeNotification);
+        return activityLikeNotification(
+          this
+              as Query$Notifications$Page$notifications$$ActivityLikeNotification,
+        );
 
       case "ActivityReplyLikeNotification":
-        return activityReplyLikeNotification(this
-            as Query$Notifications$Page$notifications$$ActivityReplyLikeNotification);
+        return activityReplyLikeNotification(
+          this
+              as Query$Notifications$Page$notifications$$ActivityReplyLikeNotification,
+        );
 
       case "ThreadCommentMentionNotification":
-        return threadCommentMentionNotification(this
-            as Query$Notifications$Page$notifications$$ThreadCommentMentionNotification);
+        return threadCommentMentionNotification(
+          this
+              as Query$Notifications$Page$notifications$$ThreadCommentMentionNotification,
+        );
 
       case "ThreadCommentReplyNotification":
-        return threadCommentReplyNotification(this
-            as Query$Notifications$Page$notifications$$ThreadCommentReplyNotification);
+        return threadCommentReplyNotification(
+          this
+              as Query$Notifications$Page$notifications$$ThreadCommentReplyNotification,
+        );
 
       case "ThreadCommentSubscribedNotification":
-        return threadCommentSubscribedNotification(this
-            as Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification);
+        return threadCommentSubscribedNotification(
+          this
+              as Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification,
+        );
 
       case "ThreadCommentLikeNotification":
-        return threadCommentLikeNotification(this
-            as Query$Notifications$Page$notifications$$ThreadCommentLikeNotification);
+        return threadCommentLikeNotification(
+          this
+              as Query$Notifications$Page$notifications$$ThreadCommentLikeNotification,
+        );
 
       case "ThreadLikeNotification":
-        return threadLikeNotification(this
-            as Query$Notifications$Page$notifications$$ThreadLikeNotification);
+        return threadLikeNotification(
+          this
+              as Query$Notifications$Page$notifications$$ThreadLikeNotification,
+        );
 
       case "RelatedMediaAdditionNotification":
-        return relatedMediaAdditionNotification(this
-            as Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification);
+        return relatedMediaAdditionNotification(
+          this
+              as Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification,
+        );
 
       case "MediaDataChangeNotification":
-        return mediaDataChangeNotification(this
-            as Query$Notifications$Page$notifications$$MediaDataChangeNotification);
+        return mediaDataChangeNotification(
+          this
+              as Query$Notifications$Page$notifications$$MediaDataChangeNotification,
+        );
 
       case "MediaMergeNotification":
-        return mediaMergeNotification(this
-            as Query$Notifications$Page$notifications$$MediaMergeNotification);
+        return mediaMergeNotification(
+          this
+              as Query$Notifications$Page$notifications$$MediaMergeNotification,
+        );
 
       case "MediaDeletionNotification":
-        return mediaDeletionNotification(this
-            as Query$Notifications$Page$notifications$$MediaDeletionNotification);
+        return mediaDeletionNotification(
+          this
+              as Query$Notifications$Page$notifications$$MediaDeletionNotification,
+        );
 
       default:
         return orElse();
@@ -2225,187 +2388,233 @@ extension UtilityExtension$Query$Notifications$Page$notifications
 
   _T maybeWhen<_T>({
     _T Function(Query$Notifications$Page$notifications$$AiringNotification)?
-        airingNotification,
+    airingNotification,
     _T Function(Query$Notifications$Page$notifications$$FollowingNotification)?
-        followingNotification,
+    followingNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ActivityMessageNotification)?
-        activityMessageNotification,
+      Query$Notifications$Page$notifications$$ActivityMessageNotification,
+    )?
+    activityMessageNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ActivityMentionNotification)?
-        activityMentionNotification,
+      Query$Notifications$Page$notifications$$ActivityMentionNotification,
+    )?
+    activityMentionNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ActivityReplyNotification)?
-        activityReplyNotification,
+      Query$Notifications$Page$notifications$$ActivityReplyNotification,
+    )?
+    activityReplyNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification)?
-        activityReplySubscribedNotification,
+      Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification,
+    )?
+    activityReplySubscribedNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ActivityLikeNotification)?
-        activityLikeNotification,
+      Query$Notifications$Page$notifications$$ActivityLikeNotification,
+    )?
+    activityLikeNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ActivityReplyLikeNotification)?
-        activityReplyLikeNotification,
+      Query$Notifications$Page$notifications$$ActivityReplyLikeNotification,
+    )?
+    activityReplyLikeNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ThreadCommentMentionNotification)?
-        threadCommentMentionNotification,
+      Query$Notifications$Page$notifications$$ThreadCommentMentionNotification,
+    )?
+    threadCommentMentionNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ThreadCommentReplyNotification)?
-        threadCommentReplyNotification,
+      Query$Notifications$Page$notifications$$ThreadCommentReplyNotification,
+    )?
+    threadCommentReplyNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification)?
-        threadCommentSubscribedNotification,
+      Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification,
+    )?
+    threadCommentSubscribedNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$ThreadCommentLikeNotification)?
-        threadCommentLikeNotification,
+      Query$Notifications$Page$notifications$$ThreadCommentLikeNotification,
+    )?
+    threadCommentLikeNotification,
     _T Function(Query$Notifications$Page$notifications$$ThreadLikeNotification)?
-        threadLikeNotification,
+    threadLikeNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification)?
-        relatedMediaAdditionNotification,
+      Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification,
+    )?
+    relatedMediaAdditionNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$MediaDataChangeNotification)?
-        mediaDataChangeNotification,
+      Query$Notifications$Page$notifications$$MediaDataChangeNotification,
+    )?
+    mediaDataChangeNotification,
     _T Function(Query$Notifications$Page$notifications$$MediaMergeNotification)?
-        mediaMergeNotification,
+    mediaMergeNotification,
     _T Function(
-            Query$Notifications$Page$notifications$$MediaDeletionNotification)?
-        mediaDeletionNotification,
+      Query$Notifications$Page$notifications$$MediaDeletionNotification,
+    )?
+    mediaDeletionNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "AiringNotification":
         if (airingNotification != null) {
-          return airingNotification(this
-              as Query$Notifications$Page$notifications$$AiringNotification);
+          return airingNotification(
+            this as Query$Notifications$Page$notifications$$AiringNotification,
+          );
         } else {
           return orElse();
         }
 
       case "FollowingNotification":
         if (followingNotification != null) {
-          return followingNotification(this
-              as Query$Notifications$Page$notifications$$FollowingNotification);
+          return followingNotification(
+            this
+                as Query$Notifications$Page$notifications$$FollowingNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ActivityMessageNotification":
         if (activityMessageNotification != null) {
-          return activityMessageNotification(this
-              as Query$Notifications$Page$notifications$$ActivityMessageNotification);
+          return activityMessageNotification(
+            this
+                as Query$Notifications$Page$notifications$$ActivityMessageNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ActivityMentionNotification":
         if (activityMentionNotification != null) {
-          return activityMentionNotification(this
-              as Query$Notifications$Page$notifications$$ActivityMentionNotification);
+          return activityMentionNotification(
+            this
+                as Query$Notifications$Page$notifications$$ActivityMentionNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ActivityReplyNotification":
         if (activityReplyNotification != null) {
-          return activityReplyNotification(this
-              as Query$Notifications$Page$notifications$$ActivityReplyNotification);
+          return activityReplyNotification(
+            this
+                as Query$Notifications$Page$notifications$$ActivityReplyNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ActivityReplySubscribedNotification":
         if (activityReplySubscribedNotification != null) {
-          return activityReplySubscribedNotification(this
-              as Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification);
+          return activityReplySubscribedNotification(
+            this
+                as Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ActivityLikeNotification":
         if (activityLikeNotification != null) {
-          return activityLikeNotification(this
-              as Query$Notifications$Page$notifications$$ActivityLikeNotification);
+          return activityLikeNotification(
+            this
+                as Query$Notifications$Page$notifications$$ActivityLikeNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ActivityReplyLikeNotification":
         if (activityReplyLikeNotification != null) {
-          return activityReplyLikeNotification(this
-              as Query$Notifications$Page$notifications$$ActivityReplyLikeNotification);
+          return activityReplyLikeNotification(
+            this
+                as Query$Notifications$Page$notifications$$ActivityReplyLikeNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ThreadCommentMentionNotification":
         if (threadCommentMentionNotification != null) {
-          return threadCommentMentionNotification(this
-              as Query$Notifications$Page$notifications$$ThreadCommentMentionNotification);
+          return threadCommentMentionNotification(
+            this
+                as Query$Notifications$Page$notifications$$ThreadCommentMentionNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ThreadCommentReplyNotification":
         if (threadCommentReplyNotification != null) {
-          return threadCommentReplyNotification(this
-              as Query$Notifications$Page$notifications$$ThreadCommentReplyNotification);
+          return threadCommentReplyNotification(
+            this
+                as Query$Notifications$Page$notifications$$ThreadCommentReplyNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ThreadCommentSubscribedNotification":
         if (threadCommentSubscribedNotification != null) {
-          return threadCommentSubscribedNotification(this
-              as Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification);
+          return threadCommentSubscribedNotification(
+            this
+                as Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ThreadCommentLikeNotification":
         if (threadCommentLikeNotification != null) {
-          return threadCommentLikeNotification(this
-              as Query$Notifications$Page$notifications$$ThreadCommentLikeNotification);
+          return threadCommentLikeNotification(
+            this
+                as Query$Notifications$Page$notifications$$ThreadCommentLikeNotification,
+          );
         } else {
           return orElse();
         }
 
       case "ThreadLikeNotification":
         if (threadLikeNotification != null) {
-          return threadLikeNotification(this
-              as Query$Notifications$Page$notifications$$ThreadLikeNotification);
+          return threadLikeNotification(
+            this
+                as Query$Notifications$Page$notifications$$ThreadLikeNotification,
+          );
         } else {
           return orElse();
         }
 
       case "RelatedMediaAdditionNotification":
         if (relatedMediaAdditionNotification != null) {
-          return relatedMediaAdditionNotification(this
-              as Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification);
+          return relatedMediaAdditionNotification(
+            this
+                as Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification,
+          );
         } else {
           return orElse();
         }
 
       case "MediaDataChangeNotification":
         if (mediaDataChangeNotification != null) {
-          return mediaDataChangeNotification(this
-              as Query$Notifications$Page$notifications$$MediaDataChangeNotification);
+          return mediaDataChangeNotification(
+            this
+                as Query$Notifications$Page$notifications$$MediaDataChangeNotification,
+          );
         } else {
           return orElse();
         }
 
       case "MediaMergeNotification":
         if (mediaMergeNotification != null) {
-          return mediaMergeNotification(this
-              as Query$Notifications$Page$notifications$$MediaMergeNotification);
+          return mediaMergeNotification(
+            this
+                as Query$Notifications$Page$notifications$$MediaMergeNotification,
+          );
         } else {
           return orElse();
         }
 
       case "MediaDeletionNotification":
         if (mediaDeletionNotification != null) {
-          return mediaDeletionNotification(this
-              as Query$Notifications$Page$notifications$$MediaDeletionNotification);
+          return mediaDeletionNotification(
+            this
+                as Query$Notifications$Page$notifications$$MediaDeletionNotification,
+          );
         } else {
           return orElse();
         }
@@ -2441,11 +2650,13 @@ class _CopyWithImpl$Query$Notifications$Page$notifications<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$Notifications$Page$notifications(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$Notifications$Page$notifications(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications<TRes>
@@ -2470,7 +2681,8 @@ class Query$Notifications$Page$notifications$$AiringNotification
   });
 
   factory Query$Notifications$Page$notifications$$AiringNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$episode = json['episode'];
@@ -2484,8 +2696,9 @@ class Query$Notifications$Page$notifications$$AiringNotification
           ? null
           : fromJson$Enum$NotificationType((l$type as String)),
       episode: (l$episode as int),
-      contexts:
-          (l$contexts as List<dynamic>?)?.map((e) => (e as String?)).toList(),
+      contexts: (l$contexts as List<dynamic>?)
+          ?.map((e) => (e as String?))
+          .toList(),
       media: l$media == null
           ? null
           : Fragment$MediaFragment.fromJson((l$media as Map<String, dynamic>)),
@@ -2513,8 +2726,9 @@ class Query$Notifications$Page$notifications$$AiringNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$episode = episode;
     _resultData['episode'] = l$episode;
     final l$contexts = contexts;
@@ -2610,25 +2824,27 @@ class Query$Notifications$Page$notifications$$AiringNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$AiringNotification
     on Query$Notifications$Page$notifications$$AiringNotification {
   CopyWith$Query$Notifications$Page$notifications$$AiringNotification<
-          Query$Notifications$Page$notifications$$AiringNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$AiringNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$AiringNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$AiringNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$AiringNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$AiringNotification(
     Query$Notifications$Page$notifications$$AiringNotification instance,
     TRes Function(Query$Notifications$Page$notifications$$AiringNotification)
-        then,
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$AiringNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$AiringNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$AiringNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$AiringNotification;
 
   TRes call({
     int? id,
@@ -2643,10 +2859,12 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$AiringNotificati
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$AiringNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$AiringNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$AiringNotification(
     this._instance,
     this._then,
@@ -2655,7 +2873,9 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$AiringNotification<
   final Query$Notifications$Page$notifications$$AiringNotification _instance;
 
   final TRes Function(
-      Query$Notifications$Page$notifications$$AiringNotification) _then;
+    Query$Notifications$Page$notifications$$AiringNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2667,27 +2887,29 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$AiringNotification<
     Object? media = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$AiringNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        episode: episode == _undefined || episode == null
-            ? _instance.episode
-            : (episode as int),
-        contexts: contexts == _undefined
-            ? _instance.contexts
-            : (contexts as List<String?>?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$AiringNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      episode: episode == _undefined || episode == null
+          ? _instance.episode
+          : (episode as int),
+      contexts: contexts == _undefined
+          ? _instance.contexts
+          : (contexts as List<String?>?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get media {
     final local$media = _instance.media;
@@ -2698,12 +2920,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$AiringNotification<
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$AiringNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$AiringNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$AiringNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -2715,8 +2940,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$AiringNotificati
     Fragment$MediaFragment? media,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get media =>
       CopyWith$Fragment$MediaFragment.stub(_res);
@@ -2734,7 +2958,8 @@ class Query$Notifications$Page$notifications$$FollowingNotification
   });
 
   factory Query$Notifications$Page$notifications$$FollowingNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -2772,8 +2997,9 @@ class Query$Notifications$Page$notifications$$FollowingNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$user = user;
@@ -2850,25 +3076,27 @@ class Query$Notifications$Page$notifications$$FollowingNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$FollowingNotification
     on Query$Notifications$Page$notifications$$FollowingNotification {
   CopyWith$Query$Notifications$Page$notifications$$FollowingNotification<
-          Query$Notifications$Page$notifications$$FollowingNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$FollowingNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$FollowingNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$FollowingNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$FollowingNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$FollowingNotification(
     Query$Notifications$Page$notifications$$FollowingNotification instance,
     TRes Function(Query$Notifications$Page$notifications$$FollowingNotification)
-        then,
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$FollowingNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$FollowingNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$FollowingNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$FollowingNotification;
 
   TRes call({
     int? id,
@@ -2882,10 +3110,12 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$FollowingNotific
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$FollowingNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$FollowingNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$FollowingNotification(
     this._instance,
     this._then,
@@ -2894,7 +3124,9 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$FollowingNotificatio
   final Query$Notifications$Page$notifications$$FollowingNotification _instance;
 
   final TRes Function(
-      Query$Notifications$Page$notifications$$FollowingNotification) _then;
+    Query$Notifications$Page$notifications$$FollowingNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2905,23 +3137,24 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$FollowingNotificatio
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$FollowingNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$FollowingNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -2932,12 +3165,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$FollowingNotificatio
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$FollowingNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$FollowingNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$FollowingNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -2948,8 +3184,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$FollowingNotific
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -2968,7 +3203,8 @@ class Query$Notifications$Page$notifications$$ActivityMessageNotification
   });
 
   factory Query$Notifications$Page$notifications$$ActivityMessageNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -3010,8 +3246,9 @@ class Query$Notifications$Page$notifications$$ActivityMessageNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$activityId = activityId;
@@ -3097,27 +3334,30 @@ class Query$Notifications$Page$notifications$$ActivityMessageNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$ActivityMessageNotification
     on Query$Notifications$Page$notifications$$ActivityMessageNotification {
   CopyWith$Query$Notifications$Page$notifications$$ActivityMessageNotification<
-          Query$Notifications$Page$notifications$$ActivityMessageNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ActivityMessageNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ActivityMessageNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ActivityMessageNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityMessageNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityMessageNotification(
     Query$Notifications$Page$notifications$$ActivityMessageNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ActivityMessageNotification)
-        then,
+      Query$Notifications$Page$notifications$$ActivityMessageNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMessageNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityMessageNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMessageNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMessageNotification;
 
   TRes call({
     int? id,
@@ -3132,21 +3372,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityMessageN
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMessageNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityMessageNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMessageNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ActivityMessageNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ActivityMessageNotification)
-      _then;
+    Query$Notifications$Page$notifications$$ActivityMessageNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3158,26 +3401,27 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMessageNotif
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$ActivityMessageNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        activityId: activityId == _undefined || activityId == null
-            ? _instance.activityId
-            : (activityId as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ActivityMessageNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      activityId: activityId == _undefined || activityId == null
+          ? _instance.activityId
+          : (activityId as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -3188,12 +3432,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMessageNotif
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMessageNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityMessageNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMessageNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -3205,8 +3452,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMessageN
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -3225,7 +3471,8 @@ class Query$Notifications$Page$notifications$$ActivityMentionNotification
   });
 
   factory Query$Notifications$Page$notifications$$ActivityMentionNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -3267,8 +3514,9 @@ class Query$Notifications$Page$notifications$$ActivityMentionNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$activityId = activityId;
@@ -3354,27 +3602,30 @@ class Query$Notifications$Page$notifications$$ActivityMentionNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$ActivityMentionNotification
     on Query$Notifications$Page$notifications$$ActivityMentionNotification {
   CopyWith$Query$Notifications$Page$notifications$$ActivityMentionNotification<
-          Query$Notifications$Page$notifications$$ActivityMentionNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ActivityMentionNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ActivityMentionNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ActivityMentionNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityMentionNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityMentionNotification(
     Query$Notifications$Page$notifications$$ActivityMentionNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ActivityMentionNotification)
-        then,
+      Query$Notifications$Page$notifications$$ActivityMentionNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMentionNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityMentionNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMentionNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMentionNotification;
 
   TRes call({
     int? id,
@@ -3389,21 +3640,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityMentionN
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMentionNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityMentionNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMentionNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ActivityMentionNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ActivityMentionNotification)
-      _then;
+    Query$Notifications$Page$notifications$$ActivityMentionNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3415,26 +3669,27 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMentionNotif
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$ActivityMentionNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        activityId: activityId == _undefined || activityId == null
-            ? _instance.activityId
-            : (activityId as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ActivityMentionNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      activityId: activityId == _undefined || activityId == null
+          ? _instance.activityId
+          : (activityId as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -3445,12 +3700,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityMentionNotif
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMentionNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityMentionNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMentionNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -3462,8 +3720,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityMentionN
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -3482,7 +3739,8 @@ class Query$Notifications$Page$notifications$$ActivityReplyNotification
   });
 
   factory Query$Notifications$Page$notifications$$ActivityReplyNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -3524,8 +3782,9 @@ class Query$Notifications$Page$notifications$$ActivityReplyNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$activityId = activityId;
@@ -3611,26 +3870,29 @@ class Query$Notifications$Page$notifications$$ActivityReplyNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$ActivityReplyNotification
     on Query$Notifications$Page$notifications$$ActivityReplyNotification {
   CopyWith$Query$Notifications$Page$notifications$$ActivityReplyNotification<
-          Query$Notifications$Page$notifications$$ActivityReplyNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ActivityReplyNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ActivityReplyNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ActivityReplyNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityReplyNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityReplyNotification(
     Query$Notifications$Page$notifications$$ActivityReplyNotification instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ActivityReplyNotification)
-        then,
+      Query$Notifications$Page$notifications$$ActivityReplyNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityReplyNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyNotification;
 
   TRes call({
     int? id,
@@ -3645,20 +3907,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityReplyNot
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityReplyNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ActivityReplyNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-      Query$Notifications$Page$notifications$$ActivityReplyNotification) _then;
+    Query$Notifications$Page$notifications$$ActivityReplyNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3670,26 +3936,27 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyNotific
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$ActivityReplyNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        activityId: activityId == _undefined || activityId == null
-            ? _instance.activityId
-            : (activityId as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ActivityReplyNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      activityId: activityId == _undefined || activityId == null
+          ? _instance.activityId
+          : (activityId as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -3700,12 +3967,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyNotific
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityReplyNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -3717,8 +3987,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyNot
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -3737,7 +4006,8 @@ class Query$Notifications$Page$notifications$$ActivityReplySubscribedNotificatio
   });
 
   factory Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -3779,8 +4049,9 @@ class Query$Notifications$Page$notifications$$ActivityReplySubscribedNotificatio
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$activityId = activityId;
@@ -3866,27 +4137,30 @@ class Query$Notifications$Page$notifications$$ActivityReplySubscribedNotificatio
 extension UtilityExtension$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification
     on Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification {
   CopyWith$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification<
-          Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification(
     Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification)
-        then,
+      Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification;
 
   TRes call({
     int? id,
@@ -3901,21 +4175,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityReplySub
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification)
-      _then;
+    Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3927,27 +4204,27 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplySubscri
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        activityId: activityId == _undefined || activityId == null
-            ? _instance.activityId
-            : (activityId as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      activityId: activityId == _undefined || activityId == null
+          ? _instance.activityId
+          : (activityId as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -3958,12 +4235,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplySubscri
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplySubscribedNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -3975,8 +4255,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplySub
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -3995,7 +4274,8 @@ class Query$Notifications$Page$notifications$$ActivityLikeNotification
   });
 
   factory Query$Notifications$Page$notifications$$ActivityLikeNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -4037,8 +4317,9 @@ class Query$Notifications$Page$notifications$$ActivityLikeNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$activityId = activityId;
@@ -4124,26 +4405,29 @@ class Query$Notifications$Page$notifications$$ActivityLikeNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$ActivityLikeNotification
     on Query$Notifications$Page$notifications$$ActivityLikeNotification {
   CopyWith$Query$Notifications$Page$notifications$$ActivityLikeNotification<
-          Query$Notifications$Page$notifications$$ActivityLikeNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ActivityLikeNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ActivityLikeNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ActivityLikeNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityLikeNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityLikeNotification(
     Query$Notifications$Page$notifications$$ActivityLikeNotification instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ActivityLikeNotification)
-        then,
+      Query$Notifications$Page$notifications$$ActivityLikeNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityLikeNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityLikeNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityLikeNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityLikeNotification;
 
   TRes call({
     int? id,
@@ -4158,20 +4442,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityLikeNoti
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityLikeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityLikeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityLikeNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ActivityLikeNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-      Query$Notifications$Page$notifications$$ActivityLikeNotification) _then;
+    Query$Notifications$Page$notifications$$ActivityLikeNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -4183,26 +4471,27 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityLikeNotifica
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$ActivityLikeNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        activityId: activityId == _undefined || activityId == null
-            ? _instance.activityId
-            : (activityId as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ActivityLikeNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      activityId: activityId == _undefined || activityId == null
+          ? _instance.activityId
+          : (activityId as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -4213,12 +4502,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityLikeNotifica
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityLikeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityLikeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityLikeNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -4230,8 +4522,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityLikeNoti
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -4250,7 +4541,8 @@ class Query$Notifications$Page$notifications$$ActivityReplyLikeNotification
   });
 
   factory Query$Notifications$Page$notifications$$ActivityReplyLikeNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -4292,8 +4584,9 @@ class Query$Notifications$Page$notifications$$ActivityReplyLikeNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$activityId = activityId;
@@ -4379,27 +4672,30 @@ class Query$Notifications$Page$notifications$$ActivityReplyLikeNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification
     on Query$Notifications$Page$notifications$$ActivityReplyLikeNotification {
   CopyWith$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification<
-          Query$Notifications$Page$notifications$$ActivityReplyLikeNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ActivityReplyLikeNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification(
     Query$Notifications$Page$notifications$$ActivityReplyLikeNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ActivityReplyLikeNotification)
-        then,
+      Query$Notifications$Page$notifications$$ActivityReplyLikeNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification;
 
   TRes call({
     int? id,
@@ -4414,21 +4710,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ActivityReplyLik
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ActivityReplyLikeNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ActivityReplyLikeNotification)
-      _then;
+    Query$Notifications$Page$notifications$$ActivityReplyLikeNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -4440,27 +4739,27 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyLikeNot
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ActivityReplyLikeNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        activityId: activityId == _undefined || activityId == null
-            ? _instance.activityId
-            : (activityId as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ActivityReplyLikeNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      activityId: activityId == _undefined || activityId == null
+          ? _instance.activityId
+          : (activityId as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -4471,12 +4770,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ActivityReplyLikeNot
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyLikeNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -4488,8 +4790,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ActivityReplyLik
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -4509,7 +4810,8 @@ class Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
   });
 
   factory Query$Notifications$Page$notifications$$ThreadCommentMentionNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -4527,8 +4829,9 @@ class Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
       commentId: (l$commentId as int),
       thread: l$thread == null
           ? null
-          : Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread
-              .fromJson((l$thread as Map<String, dynamic>)),
+          : Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread.fromJson(
+              (l$thread as Map<String, dynamic>),
+            ),
       user: l$user == null
           ? null
           : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
@@ -4546,7 +4849,7 @@ class Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
   final int commentId;
 
   final Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread?
-      thread;
+  thread;
 
   final Fragment$UserFragment? user;
 
@@ -4559,8 +4862,9 @@ class Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$commentId = commentId;
@@ -4655,27 +4959,30 @@ class Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
     on Query$Notifications$Page$notifications$$ThreadCommentMentionNotification {
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification<
-          Query$Notifications$Page$notifications$$ThreadCommentMentionNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification(
     Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadCommentMentionNotification)
-        then,
+      Query$Notifications$Page$notifications$$ThreadCommentMentionNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification;
 
   TRes call({
     int? id,
@@ -4683,32 +4990,37 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMen
     String? context,
     int? commentId,
     Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
   });
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread<
-      TRes> get thread;
+    TRes
+  >
+  get thread;
   CopyWith$Fragment$UserFragment<TRes> get user;
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadCommentMentionNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ThreadCommentMentionNotification)
-      _then;
+    Query$Notifications$Page$notifications$$ThreadCommentMentionNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -4721,40 +5033,45 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentMention
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ThreadCommentMentionNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        commentId: commentId == _undefined || commentId == null
-            ? _instance.commentId
-            : (commentId as int),
-        thread: thread == _undefined
-            ? _instance.thread
-            : (thread
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadCommentMentionNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      commentId: commentId == _undefined || commentId == null
+          ? _instance.commentId
+          : (commentId as int),
+      thread: thread == _undefined
+          ? _instance.thread
+          : (thread
                 as Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread<
-      TRes> get thread {
+    TRes
+  >
+  get thread {
     final local$thread = _instance.thread;
     return local$thread == null
-        ? CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread
-            .stub(_then(_instance))
+        ? CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread(
-            local$thread, (e) => call(thread: e));
+            local$thread,
+            (e) => call(thread: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get user {
@@ -4766,12 +5083,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentMention
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -4781,18 +5101,19 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentMen
     String? context,
     int? commentId,
     Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread<
-          TRes>
-      get thread =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread
-              .stub(_res);
+    TRes
+  >
+  get thread =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread.stub(
+        _res,
+      );
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -4806,7 +5127,8 @@ class Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$t
   });
 
   factory Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$title = json['title'];
     final l$$__typename = json['__typename'];
@@ -4839,11 +5161,7 @@ class Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$t
     final l$id = id;
     final l$title = title;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$title,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$title, l$$__typename]);
   }
 
   @override
@@ -4876,53 +5194,56 @@ class Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$t
 }
 
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread
-    on Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread {
+    on
+        Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread {
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread<
-          Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread(
     Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread)
-        then,
+      Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread;
 
-  TRes call({
-    int? id,
-    String? title,
-    String? $__typename,
-  });
+  TRes call({int? id, String? title, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread)
-      _then;
+    Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -4930,33 +5251,31 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentMention
     Object? id = _undefined,
     Object? title = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined ? _instance.title : (title as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined ? _instance.title : (title as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentMentionNotification$thread(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    int? id,
-    String? title,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, String? title, String? $__typename}) => _res;
 }
 
 class Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
@@ -4973,7 +5292,8 @@ class Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
   });
 
   factory Query$Notifications$Page$notifications$$ThreadCommentReplyNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -4991,8 +5311,9 @@ class Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
       commentId: (l$commentId as int),
       thread: l$thread == null
           ? null
-          : Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread
-              .fromJson((l$thread as Map<String, dynamic>)),
+          : Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread.fromJson(
+              (l$thread as Map<String, dynamic>),
+            ),
       user: l$user == null
           ? null
           : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
@@ -5010,7 +5331,7 @@ class Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
   final int commentId;
 
   final Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread?
-      thread;
+  thread;
 
   final Fragment$UserFragment? user;
 
@@ -5023,8 +5344,9 @@ class Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$commentId = commentId;
@@ -5119,27 +5441,30 @@ class Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
     on Query$Notifications$Page$notifications$$ThreadCommentReplyNotification {
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification<
-          Query$Notifications$Page$notifications$$ThreadCommentReplyNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification(
     Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadCommentReplyNotification)
-        then,
+      Query$Notifications$Page$notifications$$ThreadCommentReplyNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification;
 
   TRes call({
     int? id,
@@ -5147,32 +5472,37 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentRep
     String? context,
     int? commentId,
     Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
   });
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread<
-      TRes> get thread;
+    TRes
+  >
+  get thread;
   CopyWith$Fragment$UserFragment<TRes> get user;
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadCommentReplyNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ThreadCommentReplyNotification)
-      _then;
+    Query$Notifications$Page$notifications$$ThreadCommentReplyNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -5185,40 +5515,45 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNo
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ThreadCommentReplyNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        commentId: commentId == _undefined || commentId == null
-            ? _instance.commentId
-            : (commentId as int),
-        thread: thread == _undefined
-            ? _instance.thread
-            : (thread
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadCommentReplyNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      commentId: commentId == _undefined || commentId == null
+          ? _instance.commentId
+          : (commentId as int),
+      thread: thread == _undefined
+          ? _instance.thread
+          : (thread
                 as Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread<
-      TRes> get thread {
+    TRes
+  >
+  get thread {
     final local$thread = _instance.thread;
     return local$thread == null
-        ? CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread
-            .stub(_then(_instance))
+        ? CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread(
-            local$thread, (e) => call(thread: e));
+            local$thread,
+            (e) => call(thread: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get user {
@@ -5230,12 +5565,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNo
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -5245,18 +5583,19 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentRep
     String? context,
     int? commentId,
     Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread<
-          TRes>
-      get thread =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread
-              .stub(_res);
+    TRes
+  >
+  get thread =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread.stub(
+        _res,
+      );
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -5270,7 +5609,8 @@ class Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thr
   });
 
   factory Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$title = json['title'];
     final l$$__typename = json['__typename'];
@@ -5303,11 +5643,7 @@ class Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thr
     final l$id = id;
     final l$title = title;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$title,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$title, l$$__typename]);
   }
 
   @override
@@ -5342,51 +5678,53 @@ class Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thr
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread
     on Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread {
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread<
-          Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread(
     Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread)
-        then,
+      Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread;
 
-  TRes call({
-    int? id,
-    String? title,
-    String? $__typename,
-  });
+  TRes call({int? id, String? title, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread)
-      _then;
+    Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -5394,33 +5732,31 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNo
     Object? id = _undefined,
     Object? title = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined ? _instance.title : (title as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined ? _instance.title : (title as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentReplyNotification$thread(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    int? id,
-    String? title,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, String? title, String? $__typename}) => _res;
 }
 
 class Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification
@@ -5437,7 +5773,8 @@ class Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotificatio
   });
 
   factory Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -5455,8 +5792,9 @@ class Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotificatio
       commentId: (l$commentId as int),
       thread: l$thread == null
           ? null
-          : Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread
-              .fromJson((l$thread as Map<String, dynamic>)),
+          : Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread.fromJson(
+              (l$thread as Map<String, dynamic>),
+            ),
       user: l$user == null
           ? null
           : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
@@ -5474,7 +5812,7 @@ class Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotificatio
   final int commentId;
 
   final Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread?
-      thread;
+  thread;
 
   final Fragment$UserFragment? user;
 
@@ -5487,8 +5825,9 @@ class Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotificatio
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$commentId = commentId;
@@ -5583,27 +5922,30 @@ class Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotificatio
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification
     on Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification {
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification<
-          Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification(
     Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification)
-        then,
+      Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification;
 
   TRes call({
     int? id,
@@ -5611,32 +5953,37 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSub
     String? context,
     int? commentId,
     Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
   });
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread<
-      TRes> get thread;
+    TRes
+  >
+  get thread;
   CopyWith$Fragment$UserFragment<TRes> get user;
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification)
-      _then;
+    Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -5649,40 +5996,45 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscri
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        commentId: commentId == _undefined || commentId == null
-            ? _instance.commentId
-            : (commentId as int),
-        thread: thread == _undefined
-            ? _instance.thread
-            : (thread
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      commentId: commentId == _undefined || commentId == null
+          ? _instance.commentId
+          : (commentId as int),
+      thread: thread == _undefined
+          ? _instance.thread
+          : (thread
                 as Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread<
-      TRes> get thread {
+    TRes
+  >
+  get thread {
     final local$thread = _instance.thread;
     return local$thread == null
-        ? CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread
-            .stub(_then(_instance))
+        ? CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread(
-            local$thread, (e) => call(thread: e));
+            local$thread,
+            (e) => call(thread: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get user {
@@ -5694,12 +6046,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscri
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -5709,18 +6064,19 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentSub
     String? context,
     int? commentId,
     Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread<
-          TRes>
-      get thread =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread
-              .stub(_res);
+    TRes
+  >
+  get thread =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread.stub(
+        _res,
+      );
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -5734,7 +6090,8 @@ class Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotificatio
   });
 
   factory Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$title = json['title'];
     final l$$__typename = json['__typename'];
@@ -5767,11 +6124,7 @@ class Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotificatio
     final l$id = id;
     final l$title = title;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$title,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$title, l$$__typename]);
   }
 
   @override
@@ -5804,53 +6157,56 @@ class Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotificatio
 }
 
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread
-    on Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread {
+    on
+        Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread {
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread<
-          Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread(
     Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread)
-        then,
+      Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread;
 
-  TRes call({
-    int? id,
-    String? title,
-    String? $__typename,
-  });
+  TRes call({int? id, String? title, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread)
-      _then;
+    Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -5858,33 +6214,31 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscri
     Object? id = _undefined,
     Object? title = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined ? _instance.title : (title as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined ? _instance.title : (title as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentSubscribedNotification$thread(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    int? id,
-    String? title,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, String? title, String? $__typename}) => _res;
 }
 
 class Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
@@ -5901,7 +6255,8 @@ class Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
   });
 
   factory Query$Notifications$Page$notifications$$ThreadCommentLikeNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -5919,8 +6274,9 @@ class Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
       commentId: (l$commentId as int),
       thread: l$thread == null
           ? null
-          : Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread
-              .fromJson((l$thread as Map<String, dynamic>)),
+          : Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread.fromJson(
+              (l$thread as Map<String, dynamic>),
+            ),
       user: l$user == null
           ? null
           : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
@@ -5938,7 +6294,7 @@ class Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
   final int commentId;
 
   final Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread?
-      thread;
+  thread;
 
   final Fragment$UserFragment? user;
 
@@ -5951,8 +6307,9 @@ class Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$commentId = commentId;
@@ -6047,27 +6404,30 @@ class Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
     on Query$Notifications$Page$notifications$$ThreadCommentLikeNotification {
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification<
-          Query$Notifications$Page$notifications$$ThreadCommentLikeNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification(
     Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadCommentLikeNotification)
-        then,
+      Query$Notifications$Page$notifications$$ThreadCommentLikeNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification;
 
   TRes call({
     int? id,
@@ -6075,32 +6435,37 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLik
     String? context,
     int? commentId,
     Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
   });
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread<
-      TRes> get thread;
+    TRes
+  >
+  get thread;
   CopyWith$Fragment$UserFragment<TRes> get user;
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadCommentLikeNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ThreadCommentLikeNotification)
-      _then;
+    Query$Notifications$Page$notifications$$ThreadCommentLikeNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -6113,40 +6478,45 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNot
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ThreadCommentLikeNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        commentId: commentId == _undefined || commentId == null
-            ? _instance.commentId
-            : (commentId as int),
-        thread: thread == _undefined
-            ? _instance.thread
-            : (thread
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadCommentLikeNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      commentId: commentId == _undefined || commentId == null
+          ? _instance.commentId
+          : (commentId as int),
+      thread: thread == _undefined
+          ? _instance.thread
+          : (thread
                 as Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread<
-      TRes> get thread {
+    TRes
+  >
+  get thread {
     final local$thread = _instance.thread;
     return local$thread == null
-        ? CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread
-            .stub(_then(_instance))
+        ? CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread(
-            local$thread, (e) => call(thread: e));
+            local$thread,
+            (e) => call(thread: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get user {
@@ -6158,12 +6528,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNot
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -6173,18 +6546,19 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentLik
     String? context,
     int? commentId,
     Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread<
-          TRes>
-      get thread =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread
-              .stub(_res);
+    TRes
+  >
+  get thread =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread.stub(
+        _res,
+      );
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -6198,7 +6572,8 @@ class Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thre
   });
 
   factory Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$title = json['title'];
     final l$$__typename = json['__typename'];
@@ -6231,11 +6606,7 @@ class Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thre
     final l$id = id;
     final l$title = title;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$title,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$title, l$$__typename]);
   }
 
   @override
@@ -6270,51 +6641,53 @@ class Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thre
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread
     on Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread {
   CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread<
-          Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread(
     Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread)
-        then,
+      Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread;
 
-  TRes call({
-    int? id,
-    String? title,
-    String? $__typename,
-  });
+  TRes call({int? id, String? title, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread)
-      _then;
+    Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -6322,33 +6695,31 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNot
     Object? id = _undefined,
     Object? title = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined ? _instance.title : (title as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined ? _instance.title : (title as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadCommentLikeNotification$thread(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    int? id,
-    String? title,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, String? title, String? $__typename}) => _res;
 }
 
 class Query$Notifications$Page$notifications$$ThreadLikeNotification
@@ -6364,7 +6735,8 @@ class Query$Notifications$Page$notifications$$ThreadLikeNotification
   });
 
   factory Query$Notifications$Page$notifications$$ThreadLikeNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -6380,8 +6752,9 @@ class Query$Notifications$Page$notifications$$ThreadLikeNotification
       context: (l$context as String?),
       thread: l$thread == null
           ? null
-          : Query$Notifications$Page$notifications$$ThreadLikeNotification$thread
-              .fromJson((l$thread as Map<String, dynamic>)),
+          : Query$Notifications$Page$notifications$$ThreadLikeNotification$thread.fromJson(
+              (l$thread as Map<String, dynamic>),
+            ),
       user: l$user == null
           ? null
           : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
@@ -6397,7 +6770,7 @@ class Query$Notifications$Page$notifications$$ThreadLikeNotification
   final String? context;
 
   final Query$Notifications$Page$notifications$$ThreadLikeNotification$thread?
-      thread;
+  thread;
 
   final Fragment$UserFragment? user;
 
@@ -6410,8 +6783,9 @@ class Query$Notifications$Page$notifications$$ThreadLikeNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$thread = thread;
@@ -6497,57 +6871,66 @@ class Query$Notifications$Page$notifications$$ThreadLikeNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadLikeNotification
     on Query$Notifications$Page$notifications$$ThreadLikeNotification {
   CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification<
-          Query$Notifications$Page$notifications$$ThreadLikeNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadLikeNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification(
     Query$Notifications$Page$notifications$$ThreadLikeNotification instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadLikeNotification)
-        then,
+      Query$Notifications$Page$notifications$$ThreadLikeNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification;
 
   TRes call({
     int? id,
     Enum$NotificationType? type,
     String? context,
     Query$Notifications$Page$notifications$$ThreadLikeNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
   });
   CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread<
-      TRes> get thread;
+    TRes
+  >
+  get thread;
   CopyWith$Fragment$UserFragment<TRes> get user;
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadLikeNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-      Query$Notifications$Page$notifications$$ThreadLikeNotification) _then;
+    Query$Notifications$Page$notifications$$ThreadLikeNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -6559,36 +6942,42 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadLikeNotificati
     Object? user = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$ThreadLikeNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        thread: thread == _undefined
-            ? _instance.thread
-            : (thread
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadLikeNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      thread: thread == _undefined
+          ? _instance.thread
+          : (thread
                 as Query$Notifications$Page$notifications$$ThreadLikeNotification$thread?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread<
-      TRes> get thread {
+    TRes
+  >
+  get thread {
     final local$thread = _instance.thread;
     return local$thread == null
-        ? CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread
-            .stub(_then(_instance))
+        ? CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread(
-            local$thread, (e) => call(thread: e));
+            local$thread,
+            (e) => call(thread: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get user {
@@ -6600,12 +6989,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadLikeNotificati
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -6614,18 +7006,19 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadLikeNotifi
     Enum$NotificationType? type,
     String? context,
     Query$Notifications$Page$notifications$$ThreadLikeNotification$thread?
-        thread,
+    thread,
     Fragment$UserFragment? user,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread<
-          TRes>
-      get thread =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread
-              .stub(_res);
+    TRes
+  >
+  get thread =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread.stub(
+        _res,
+      );
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -6639,7 +7032,8 @@ class Query$Notifications$Page$notifications$$ThreadLikeNotification$thread {
   });
 
   factory Query$Notifications$Page$notifications$$ThreadLikeNotification$thread.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$title = json['title'];
     final l$$__typename = json['__typename'];
@@ -6672,11 +7066,7 @@ class Query$Notifications$Page$notifications$$ThreadLikeNotification$thread {
     final l$id = id;
     final l$title = title;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$title,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$title, l$$__typename]);
   }
 
   @override
@@ -6711,51 +7101,53 @@ class Query$Notifications$Page$notifications$$ThreadLikeNotification$thread {
 extension UtilityExtension$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread
     on Query$Notifications$Page$notifications$$ThreadLikeNotification$thread {
   CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread<
-          Query$Notifications$Page$notifications$$ThreadLikeNotification$thread>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$ThreadLikeNotification$thread
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread(
     Query$Notifications$Page$notifications$$ThreadLikeNotification$thread
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$ThreadLikeNotification$thread)
-        then,
+      Query$Notifications$Page$notifications$$ThreadLikeNotification$thread,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread;
 
   factory CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread;
 
-  TRes call({
-    int? id,
-    String? title,
-    String? $__typename,
-  });
+  TRes call({int? id, String? title, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$ThreadLikeNotification$thread
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$ThreadLikeNotification$thread)
-      _then;
+    Query$Notifications$Page$notifications$$ThreadLikeNotification$thread,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -6763,33 +7155,31 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$ThreadLikeNotificati
     Object? id = _undefined,
     Object? title = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$ThreadLikeNotification$thread(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined ? _instance.title : (title as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$ThreadLikeNotification$thread(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined ? _instance.title : (title as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$ThreadLikeNotification$thread(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    int? id,
-    String? title,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, String? title, String? $__typename}) => _res;
 }
 
 class Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification
@@ -6804,7 +7194,8 @@ class Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification
   });
 
   factory Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -6842,8 +7233,9 @@ class Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$media = media;
@@ -6920,27 +7312,30 @@ class Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification
     on Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification {
   CopyWith$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification<
-          Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification(
     Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification)
-        then,
+      Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification;
 
   TRes call({
     int? id,
@@ -6954,21 +7349,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$RelatedMediaAddi
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification)
-      _then;
+    Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -6979,24 +7377,24 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$RelatedMediaAddition
     Object? media = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get media {
     final local$media = _instance.media;
@@ -7007,12 +7405,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$RelatedMediaAddition
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$RelatedMediaAdditionNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -7023,8 +7424,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$RelatedMediaAddi
     Fragment$MediaFragment? media,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get media =>
       CopyWith$Fragment$MediaFragment.stub(_res);
@@ -7043,7 +7443,8 @@ class Query$Notifications$Page$notifications$$MediaDataChangeNotification
   });
 
   factory Query$Notifications$Page$notifications$$MediaDataChangeNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -7085,8 +7486,9 @@ class Query$Notifications$Page$notifications$$MediaDataChangeNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$media = media;
@@ -7172,27 +7574,30 @@ class Query$Notifications$Page$notifications$$MediaDataChangeNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$MediaDataChangeNotification
     on Query$Notifications$Page$notifications$$MediaDataChangeNotification {
   CopyWith$Query$Notifications$Page$notifications$$MediaDataChangeNotification<
-          Query$Notifications$Page$notifications$$MediaDataChangeNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$MediaDataChangeNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$MediaDataChangeNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$MediaDataChangeNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$MediaDataChangeNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$MediaDataChangeNotification(
     Query$Notifications$Page$notifications$$MediaDataChangeNotification
-        instance,
+    instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$MediaDataChangeNotification)
-        then,
+      Query$Notifications$Page$notifications$$MediaDataChangeNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$MediaDataChangeNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$MediaDataChangeNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDataChangeNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDataChangeNotification;
 
   TRes call({
     int? id,
@@ -7207,21 +7612,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$MediaDataChangeN
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$MediaDataChangeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$MediaDataChangeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$MediaDataChangeNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$MediaDataChangeNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Notifications$Page$notifications$$MediaDataChangeNotification)
-      _then;
+    Query$Notifications$Page$notifications$$MediaDataChangeNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -7233,24 +7641,25 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$MediaDataChangeNotif
     Object? reason = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$MediaDataChangeNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        reason: reason == _undefined ? _instance.reason : (reason as String?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$MediaDataChangeNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      reason: reason == _undefined ? _instance.reason : (reason as String?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get media {
     final local$media = _instance.media;
@@ -7261,12 +7670,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$MediaDataChangeNotif
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDataChangeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$MediaDataChangeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDataChangeNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -7278,8 +7690,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDataChangeN
     String? reason,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get media =>
       CopyWith$Fragment$MediaFragment.stub(_res);
@@ -7299,7 +7710,8 @@ class Query$Notifications$Page$notifications$$MediaMergeNotification
   });
 
   factory Query$Notifications$Page$notifications$$MediaMergeNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -7347,15 +7759,17 @@ class Query$Notifications$Page$notifications$$MediaMergeNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$media = media;
     _resultData['media'] = l$media?.toJson();
     final l$deletedMediaTitles = deletedMediaTitles;
-    _resultData['deletedMediaTitles'] =
-        l$deletedMediaTitles?.map((e) => e).toList();
+    _resultData['deletedMediaTitles'] = l$deletedMediaTitles
+        ?.map((e) => e)
+        .toList();
     final l$reason = reason;
     _resultData['reason'] = l$reason;
     final l$createdAt = createdAt;
@@ -7457,26 +7871,29 @@ class Query$Notifications$Page$notifications$$MediaMergeNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$MediaMergeNotification
     on Query$Notifications$Page$notifications$$MediaMergeNotification {
   CopyWith$Query$Notifications$Page$notifications$$MediaMergeNotification<
-          Query$Notifications$Page$notifications$$MediaMergeNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$MediaMergeNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$MediaMergeNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$MediaMergeNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$MediaMergeNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$MediaMergeNotification(
     Query$Notifications$Page$notifications$$MediaMergeNotification instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$MediaMergeNotification)
-        then,
+      Query$Notifications$Page$notifications$$MediaMergeNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$MediaMergeNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$MediaMergeNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaMergeNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaMergeNotification;
 
   TRes call({
     int? id,
@@ -7492,20 +7909,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$MediaMergeNotifi
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$MediaMergeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$MediaMergeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$MediaMergeNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$MediaMergeNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-      Query$Notifications$Page$notifications$$MediaMergeNotification) _then;
+    Query$Notifications$Page$notifications$$MediaMergeNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -7518,27 +7939,28 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$MediaMergeNotificati
     Object? reason = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$MediaMergeNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        deletedMediaTitles: deletedMediaTitles == _undefined
-            ? _instance.deletedMediaTitles
-            : (deletedMediaTitles as List<String?>?),
-        reason: reason == _undefined ? _instance.reason : (reason as String?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$MediaMergeNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      deletedMediaTitles: deletedMediaTitles == _undefined
+          ? _instance.deletedMediaTitles
+          : (deletedMediaTitles as List<String?>?),
+      reason: reason == _undefined ? _instance.reason : (reason as String?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get media {
     final local$media = _instance.media;
@@ -7549,12 +7971,15 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$MediaMergeNotificati
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaMergeNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$MediaMergeNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaMergeNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -7567,8 +7992,7 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaMergeNotifi
     String? reason,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get media =>
       CopyWith$Fragment$MediaFragment.stub(_res);
@@ -7587,7 +8011,8 @@ class Query$Notifications$Page$notifications$$MediaDeletionNotification
   });
 
   factory Query$Notifications$Page$notifications$$MediaDeletionNotification.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$context = json['context'];
@@ -7627,8 +8052,9 @@ class Query$Notifications$Page$notifications$$MediaDeletionNotification
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$NotificationType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$NotificationType(l$type);
     final l$context = context;
     _resultData['context'] = l$context;
     final l$deletedMediaTitle = deletedMediaTitle;
@@ -7714,26 +8140,29 @@ class Query$Notifications$Page$notifications$$MediaDeletionNotification
 extension UtilityExtension$Query$Notifications$Page$notifications$$MediaDeletionNotification
     on Query$Notifications$Page$notifications$$MediaDeletionNotification {
   CopyWith$Query$Notifications$Page$notifications$$MediaDeletionNotification<
-          Query$Notifications$Page$notifications$$MediaDeletionNotification>
-      get copyWith =>
-          CopyWith$Query$Notifications$Page$notifications$$MediaDeletionNotification(
-            this,
-            (i) => i,
-          );
+    Query$Notifications$Page$notifications$$MediaDeletionNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$MediaDeletionNotification(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Notifications$Page$notifications$$MediaDeletionNotification<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Notifications$Page$notifications$$MediaDeletionNotification(
     Query$Notifications$Page$notifications$$MediaDeletionNotification instance,
     TRes Function(
-            Query$Notifications$Page$notifications$$MediaDeletionNotification)
-        then,
+      Query$Notifications$Page$notifications$$MediaDeletionNotification,
+    )
+    then,
   ) = _CopyWithImpl$Query$Notifications$Page$notifications$$MediaDeletionNotification;
 
   factory CopyWith$Query$Notifications$Page$notifications$$MediaDeletionNotification.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDeletionNotification;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDeletionNotification;
 
   TRes call({
     int? id,
@@ -7747,20 +8176,24 @@ abstract class CopyWith$Query$Notifications$Page$notifications$$MediaDeletionNot
 }
 
 class _CopyWithImpl$Query$Notifications$Page$notifications$$MediaDeletionNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$MediaDeletionNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Notifications$Page$notifications$$MediaDeletionNotification(
     this._instance,
     this._then,
   );
 
   final Query$Notifications$Page$notifications$$MediaDeletionNotification
-      _instance;
+  _instance;
 
   final TRes Function(
-      Query$Notifications$Page$notifications$$MediaDeletionNotification) _then;
+    Query$Notifications$Page$notifications$$MediaDeletionNotification,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -7772,33 +8205,37 @@ class _CopyWithImpl$Query$Notifications$Page$notifications$$MediaDeletionNotific
     Object? reason = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Notifications$Page$notifications$$MediaDeletionNotification(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined
-            ? _instance.type
-            : (type as Enum$NotificationType?),
-        context:
-            context == _undefined ? _instance.context : (context as String?),
-        deletedMediaTitle: deletedMediaTitle == _undefined
-            ? _instance.deletedMediaTitle
-            : (deletedMediaTitle as String?),
-        reason: reason == _undefined ? _instance.reason : (reason as String?),
-        createdAt:
-            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Notifications$Page$notifications$$MediaDeletionNotification(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined
+          ? _instance.type
+          : (type as Enum$NotificationType?),
+      context: context == _undefined ? _instance.context : (context as String?),
+      deletedMediaTitle: deletedMediaTitle == _undefined
+          ? _instance.deletedMediaTitle
+          : (deletedMediaTitle as String?),
+      reason: reason == _undefined ? _instance.reason : (reason as String?),
+      createdAt: createdAt == _undefined
+          ? _instance.createdAt
+          : (createdAt as int?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDeletionNotification<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Notifications$Page$notifications$$MediaDeletionNotification<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDeletionNotification(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -7810,6 +8247,5 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDeletionNot
     String? reason,
     int? createdAt,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

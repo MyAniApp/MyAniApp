@@ -6,11 +6,7 @@ import 'fragments/staff.graphql.dart';
 import 'package:gql/ast.dart';
 
 class Variables$Query$Character {
-  factory Variables$Query$Character({
-    int? id,
-    int? page,
-    bool? onList,
-  }) =>
+  factory Variables$Query$Character({int? id, int? page, bool? onList}) =>
       Variables$Query$Character._({
         if (id != null) r'id': id,
         if (page != null) r'page': page,
@@ -62,10 +58,7 @@ class Variables$Query$Character {
   }
 
   CopyWith$Variables$Query$Character<Variables$Query$Character> get copyWith =>
-      CopyWith$Variables$Query$Character(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$Character(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -125,19 +118,12 @@ abstract class CopyWith$Variables$Query$Character<TRes> {
   factory CopyWith$Variables$Query$Character.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$Character;
 
-  TRes call({
-    int? id,
-    int? page,
-    bool? onList,
-  });
+  TRes call({int? id, int? page, bool? onList});
 }
 
 class _CopyWithImpl$Variables$Query$Character<TRes>
     implements CopyWith$Variables$Query$Character<TRes> {
-  _CopyWithImpl$Variables$Query$Character(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Character(this._instance, this._then);
 
   final Variables$Query$Character _instance;
 
@@ -149,13 +135,14 @@ class _CopyWithImpl$Variables$Query$Character<TRes>
     Object? id = _undefined,
     Object? page = _undefined,
     Object? onList = _undefined,
-  }) =>
-      _then(Variables$Query$Character._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-        if (page != _undefined) 'page': (page as int?),
-        if (onList != _undefined) 'onList': (onList as bool?),
-      }));
+  }) => _then(
+    Variables$Query$Character._({
+      ..._instance._$data,
+      if (id != _undefined) 'id': (id as int?),
+      if (page != _undefined) 'page': (page as int?),
+      if (onList != _undefined) 'onList': (onList as bool?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Character<TRes>
@@ -164,19 +151,11 @@ class _CopyWithStubImpl$Variables$Query$Character<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    int? page,
-    bool? onList,
-  }) =>
-      _res;
+  call({int? id, int? page, bool? onList}) => _res;
 }
 
 class Query$Character {
-  Query$Character({
-    this.Character,
-    this.$__typename = 'Query',
-  });
+  Query$Character({this.Character, this.$__typename = 'Query'});
 
   factory Query$Character.fromJson(Map<String, dynamic> json) {
     final l$Character = json['Character'];
@@ -185,7 +164,8 @@ class Query$Character {
       Character: l$Character == null
           ? null
           : Query$Character$Character.fromJson(
-              (l$Character as Map<String, dynamic>)),
+              (l$Character as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -207,10 +187,7 @@ class Query$Character {
   int get hashCode {
     final l$Character = Character;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Character,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Character, l$$__typename]);
   }
 
   @override
@@ -237,10 +214,7 @@ class Query$Character {
 
 extension UtilityExtension$Query$Character on Query$Character {
   CopyWith$Query$Character<Query$Character> get copyWith =>
-      CopyWith$Query$Character(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Character(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Character<TRes> {
@@ -252,19 +226,13 @@ abstract class CopyWith$Query$Character<TRes> {
   factory CopyWith$Query$Character.stub(TRes res) =
       _CopyWithStubImpl$Query$Character;
 
-  TRes call({
-    Query$Character$Character? Character,
-    String? $__typename,
-  });
+  TRes call({Query$Character$Character? Character, String? $__typename});
   CopyWith$Query$Character$Character<TRes> get Character;
 }
 
 class _CopyWithImpl$Query$Character<TRes>
     implements CopyWith$Query$Character<TRes> {
-  _CopyWithImpl$Query$Character(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Character(this._instance, this._then);
 
   final Query$Character _instance;
 
@@ -275,22 +243,25 @@ class _CopyWithImpl$Query$Character<TRes>
   TRes call({
     Object? Character = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Character(
-        Character: Character == _undefined
-            ? _instance.Character
-            : (Character as Query$Character$Character?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Character(
+      Character: Character == _undefined
+          ? _instance.Character
+          : (Character as Query$Character$Character?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Character$Character<TRes> get Character {
     final local$Character = _instance.Character;
     return local$Character == null
         ? CopyWith$Query$Character$Character.stub(_then(_instance))
         : CopyWith$Query$Character$Character(
-            local$Character, (e) => call(Character: e));
+            local$Character,
+            (e) => call(Character: e),
+          );
   }
 }
 
@@ -300,255 +271,124 @@ class _CopyWithStubImpl$Query$Character<TRes>
 
   TRes _res;
 
-  call({
-    Query$Character$Character? Character,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$Character$Character? Character, String? $__typename}) => _res;
 
   CopyWith$Query$Character$Character<TRes> get Character =>
       CopyWith$Query$Character$Character.stub(_res);
 }
 
-const documentNodeQueryCharacter = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Character'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryCharacter = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Character'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'onList')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'onList')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Character'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'CharacterFragment'),
-            directives: [],
-          ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'description'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'gender'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'age'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'bloodType'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'isFavourite'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'siteUrl'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'isFavouriteBlocked'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'favourites'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'dateOfBirth'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'FuzzyDate'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'media'),
+            name: NameNode(value: 'Character'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'POPULARITY_DESC'))
-                ]),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'page'),
-                value: VariableNode(name: NameNode(value: 'page')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'onList'),
-                value: VariableNode(name: NameNode(value: 'onList')),
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'pageInfo'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'PageInfo'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'edges'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'voiceActorRoles'),
-                    alias: null,
-                    arguments: [
-                      ArgumentNode(
-                        name: NameNode(value: 'sort'),
-                        value: EnumValueNode(name: NameNode(value: 'LANGUAGE')),
-                      )
-                    ],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'roleNotes'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'dubGroup'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'voiceActor'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                            name: NameNode(value: 'StaffFragment'),
-                            directives: [],
-                          ),
-                          FieldNode(
-                            name: NameNode(value: 'languageV2'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
-                          ),
-                        ]),
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'node'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'CharacterFragment'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: 'description'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'gender'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'age'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'bloodType'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'isFavourite'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'siteUrl'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'isFavouriteBlocked'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'favourites'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'dateOfBirth'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
+                        name: NameNode(value: 'FuzzyDate'),
                         directives: [],
                       ),
                       FieldNode(
@@ -558,25 +398,181 @@ const documentNodeQueryCharacter = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(
+                            name: NameNode(value: 'POPULARITY_DESC'),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'page'),
+                      value: VariableNode(name: NameNode(value: 'page')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'onList'),
+                      value: VariableNode(name: NameNode(value: 'onList')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'pageInfo'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'PageInfo'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'edges'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'voiceActorRoles'),
+                              alias: null,
+                              arguments: [
+                                ArgumentNode(
+                                  name: NameNode(value: 'sort'),
+                                  value: EnumValueNode(
+                                    name: NameNode(value: 'LANGUAGE'),
+                                  ),
+                                ),
+                              ],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FieldNode(
+                                    name: NameNode(value: 'roleNotes'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'dubGroup'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'voiceActor'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: SelectionSetNode(
+                                      selections: [
+                                        FragmentSpreadNode(
+                                          name: NameNode(
+                                            value: 'StaffFragment',
+                                          ),
+                                          directives: [],
+                                        ),
+                                        FieldNode(
+                                          name: NameNode(value: 'languageV2'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null,
+                                        ),
+                                        FieldNode(
+                                          name: NameNode(value: '__typename'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'node'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -585,23 +581,16 @@ const documentNodeQueryCharacter = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionCharacterFragment,
-  fragmentDefinitionFuzzyDate,
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionStaffFragment,
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionCharacterFragment,
+    fragmentDefinitionFuzzyDate,
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionStaffFragment,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Query$Character$Character implements Fragment$CharacterFragment {
   Query$Character$Character({
@@ -641,11 +630,13 @@ class Query$Character$Character implements Fragment$CharacterFragment {
       name: l$name == null
           ? null
           : Query$Character$Character$name.fromJson(
-              (l$name as Map<String, dynamic>)),
+              (l$name as Map<String, dynamic>),
+            ),
       image: l$image == null
           ? null
           : Query$Character$Character$image.fromJson(
-              (l$image as Map<String, dynamic>)),
+              (l$image as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
       description: (l$description as String?),
       gender: (l$gender as String?),
@@ -658,11 +649,13 @@ class Query$Character$Character implements Fragment$CharacterFragment {
       dateOfBirth: l$dateOfBirth == null
           ? null
           : Fragment$FuzzyDate.fromJson(
-              (l$dateOfBirth as Map<String, dynamic>)),
+              (l$dateOfBirth as Map<String, dynamic>),
+            ),
       media: l$media == null
           ? null
           : Query$Character$Character$media.fromJson(
-              (l$media as Map<String, dynamic>)),
+              (l$media as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -847,10 +840,7 @@ class Query$Character$Character implements Fragment$CharacterFragment {
 extension UtilityExtension$Query$Character$Character
     on Query$Character$Character {
   CopyWith$Query$Character$Character<Query$Character$Character> get copyWith =>
-      CopyWith$Query$Character$Character(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Character$Character(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Character$Character<TRes> {
@@ -886,10 +876,7 @@ abstract class CopyWith$Query$Character$Character<TRes> {
 
 class _CopyWithImpl$Query$Character$Character<TRes>
     implements CopyWith$Query$Character$Character<TRes> {
-  _CopyWithImpl$Query$Character$Character(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Character$Character(this._instance, this._then);
 
   final Query$Character$Character _instance;
 
@@ -912,52 +899,54 @@ class _CopyWithImpl$Query$Character$Character<TRes>
     Object? favourites = _undefined,
     Object? dateOfBirth = _undefined,
     Object? media = _undefined,
-  }) =>
-      _then(Query$Character$Character(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined
-            ? _instance.name
-            : (name as Query$Character$Character$name?),
-        image: image == _undefined
-            ? _instance.image
-            : (image as Query$Character$Character$image?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        gender: gender == _undefined ? _instance.gender : (gender as String?),
-        age: age == _undefined ? _instance.age : (age as String?),
-        bloodType: bloodType == _undefined
-            ? _instance.bloodType
-            : (bloodType as String?),
-        isFavourite: isFavourite == _undefined || isFavourite == null
-            ? _instance.isFavourite
-            : (isFavourite as bool),
-        siteUrl:
-            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
-        isFavouriteBlocked:
-            isFavouriteBlocked == _undefined || isFavouriteBlocked == null
-                ? _instance.isFavouriteBlocked
-                : (isFavouriteBlocked as bool),
-        favourites: favourites == _undefined
-            ? _instance.favourites
-            : (favourites as int?),
-        dateOfBirth: dateOfBirth == _undefined
-            ? _instance.dateOfBirth
-            : (dateOfBirth as Fragment$FuzzyDate?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Query$Character$Character$media?),
-      ));
+  }) => _then(
+    Query$Character$Character(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined
+          ? _instance.name
+          : (name as Query$Character$Character$name?),
+      image: image == _undefined
+          ? _instance.image
+          : (image as Query$Character$Character$image?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      gender: gender == _undefined ? _instance.gender : (gender as String?),
+      age: age == _undefined ? _instance.age : (age as String?),
+      bloodType: bloodType == _undefined
+          ? _instance.bloodType
+          : (bloodType as String?),
+      isFavourite: isFavourite == _undefined || isFavourite == null
+          ? _instance.isFavourite
+          : (isFavourite as bool),
+      siteUrl: siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+      isFavouriteBlocked:
+          isFavouriteBlocked == _undefined || isFavouriteBlocked == null
+          ? _instance.isFavouriteBlocked
+          : (isFavouriteBlocked as bool),
+      favourites: favourites == _undefined
+          ? _instance.favourites
+          : (favourites as int?),
+      dateOfBirth: dateOfBirth == _undefined
+          ? _instance.dateOfBirth
+          : (dateOfBirth as Fragment$FuzzyDate?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Query$Character$Character$media?),
+    ),
+  );
 
   CopyWith$Query$Character$Character$name<TRes> get name {
     final local$name = _instance.name;
     return local$name == null
         ? CopyWith$Query$Character$Character$name.stub(_then(_instance))
         : CopyWith$Query$Character$Character$name(
-            local$name, (e) => call(name: e));
+            local$name,
+            (e) => call(name: e),
+          );
   }
 
   CopyWith$Query$Character$Character$image<TRes> get image {
@@ -965,7 +954,9 @@ class _CopyWithImpl$Query$Character$Character<TRes>
     return local$image == null
         ? CopyWith$Query$Character$Character$image.stub(_then(_instance))
         : CopyWith$Query$Character$Character$image(
-            local$image, (e) => call(image: e));
+            local$image,
+            (e) => call(image: e),
+          );
   }
 
   CopyWith$Fragment$FuzzyDate<TRes> get dateOfBirth {
@@ -973,7 +964,9 @@ class _CopyWithImpl$Query$Character$Character<TRes>
     return local$dateOfBirth == null
         ? CopyWith$Fragment$FuzzyDate.stub(_then(_instance))
         : CopyWith$Fragment$FuzzyDate(
-            local$dateOfBirth, (e) => call(dateOfBirth: e));
+            local$dateOfBirth,
+            (e) => call(dateOfBirth: e),
+          );
   }
 
   CopyWith$Query$Character$Character$media<TRes> get media {
@@ -981,7 +974,9 @@ class _CopyWithImpl$Query$Character$Character<TRes>
     return local$media == null
         ? CopyWith$Query$Character$Character$media.stub(_then(_instance))
         : CopyWith$Query$Character$Character$media(
-            local$media, (e) => call(media: e));
+            local$media,
+            (e) => call(media: e),
+          );
   }
 }
 
@@ -1006,8 +1001,7 @@ class _CopyWithStubImpl$Query$Character$Character<TRes>
     int? favourites,
     Fragment$FuzzyDate? dateOfBirth,
     Query$Character$Character$media? media,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Character$Character$name<TRes> get name =>
       CopyWith$Query$Character$Character$name.stub(_res);
@@ -1055,10 +1049,7 @@ class Query$Character$Character$name
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -1087,10 +1078,7 @@ class Query$Character$Character$name
 extension UtilityExtension$Query$Character$Character$name
     on Query$Character$Character$name {
   CopyWith$Query$Character$Character$name<Query$Character$Character$name>
-      get copyWith => CopyWith$Query$Character$Character$name(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Character$Character$name(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Character$Character$name<TRes> {
@@ -1102,18 +1090,12 @@ abstract class CopyWith$Query$Character$Character$name<TRes> {
   factory CopyWith$Query$Character$Character$name.stub(TRes res) =
       _CopyWithStubImpl$Query$Character$Character$name;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Character$Character$name<TRes>
     implements CopyWith$Query$Character$Character$name<TRes> {
-  _CopyWithImpl$Query$Character$Character$name(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Character$Character$name(this._instance, this._then);
 
   final Query$Character$Character$name _instance;
 
@@ -1124,15 +1106,16 @@ class _CopyWithImpl$Query$Character$Character$name<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Character$Character$name(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Character$Character$name(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Character$Character$name<TRes>
@@ -1141,11 +1124,7 @@ class _CopyWithStubImpl$Query$Character$Character$name<TRes>
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }
 
 class Query$Character$Character$image
@@ -1181,10 +1160,7 @@ class Query$Character$Character$image
   int get hashCode {
     final l$large = large;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$$__typename]);
   }
 
   @override
@@ -1213,10 +1189,7 @@ class Query$Character$Character$image
 extension UtilityExtension$Query$Character$Character$image
     on Query$Character$Character$image {
   CopyWith$Query$Character$Character$image<Query$Character$Character$image>
-      get copyWith => CopyWith$Query$Character$Character$image(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Character$Character$image(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Character$Character$image<TRes> {
@@ -1228,18 +1201,12 @@ abstract class CopyWith$Query$Character$Character$image<TRes> {
   factory CopyWith$Query$Character$Character$image.stub(TRes res) =
       _CopyWithStubImpl$Query$Character$Character$image;
 
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
+  TRes call({String? large, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Character$Character$image<TRes>
     implements CopyWith$Query$Character$Character$image<TRes> {
-  _CopyWithImpl$Query$Character$Character$image(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Character$Character$image(this._instance, this._then);
 
   final Query$Character$Character$image _instance;
 
@@ -1247,16 +1214,15 @@ class _CopyWithImpl$Query$Character$Character$image<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Character$Character$image(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? large = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Character$Character$image(
+          large: large == _undefined ? _instance.large : (large as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Character$Character$image<TRes>
@@ -1265,11 +1231,7 @@ class _CopyWithStubImpl$Query$Character$Character$image<TRes>
 
   TRes _res;
 
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? $__typename}) => _res;
 }
 
 class Query$Character$Character$media {
@@ -1288,10 +1250,13 @@ class Query$Character$Character$media {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Character$Character$media$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Character$Character$media$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1368,10 +1333,7 @@ class Query$Character$Character$media {
 extension UtilityExtension$Query$Character$Character$media
     on Query$Character$Character$media {
   CopyWith$Query$Character$Character$media<Query$Character$Character$media>
-      get copyWith => CopyWith$Query$Character$Character$media(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Character$Character$media(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Character$Character$media<TRes> {
@@ -1390,19 +1352,20 @@ abstract class CopyWith$Query$Character$Character$media<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<Query$Character$Character$media$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$Character$Character$media$edges<
-                      Query$Character$Character$media$edges>?>?)
-          _fn);
+    Iterable<Query$Character$Character$media$edges?>? Function(
+      Iterable<
+        CopyWith$Query$Character$Character$media$edges<
+          Query$Character$Character$media$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Character$Character$media<TRes>
     implements CopyWith$Query$Character$Character$media<TRes> {
-  _CopyWithImpl$Query$Character$Character$media(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Character$Character$media(this._instance, this._then);
 
   final Query$Character$Character$media _instance;
 
@@ -1414,18 +1377,19 @@ class _CopyWithImpl$Query$Character$Character$media<TRes>
     Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Character$Character$media(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges as List<Query$Character$Character$media$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Character$Character$media(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      edges: edges == _undefined
+          ? _instance.edges
+          : (edges as List<Query$Character$Character$media$edges?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -1435,18 +1399,23 @@ class _CopyWithImpl$Query$Character$Character$media<TRes>
   }
 
   TRes edges(
-          Iterable<Query$Character$Character$media$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$Character$Character$media$edges<
-                          Query$Character$Character$media$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Character$Character$media$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Character$Character$media$edges?>? Function(
+      Iterable<
+        CopyWith$Query$Character$Character$media$edges<
+          Query$Character$Character$media$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Character$Character$media$edges(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Character$Character$media<TRes>
@@ -1459,8 +1428,7 @@ class _CopyWithStubImpl$Query$Character$Character$media<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$Character$Character$media$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -1476,16 +1444,20 @@ class Query$Character$Character$media$edges {
   });
 
   factory Query$Character$Character$media$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$voiceActorRoles = json['voiceActorRoles'];
     final l$node = json['node'];
     final l$$__typename = json['__typename'];
     return Query$Character$Character$media$edges(
       voiceActorRoles: (l$voiceActorRoles as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Character$Character$media$edges$voiceActorRoles.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Character$Character$media$edges$voiceActorRoles.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       node: l$node == null
           ? null
@@ -1495,7 +1467,7 @@ class Query$Character$Character$media$edges {
   }
 
   final List<Query$Character$Character$media$edges$voiceActorRoles?>?
-      voiceActorRoles;
+  voiceActorRoles;
 
   final Fragment$MediaFragment? node;
 
@@ -1504,8 +1476,9 @@ class Query$Character$Character$media$edges {
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$voiceActorRoles = voiceActorRoles;
-    _resultData['voiceActorRoles'] =
-        l$voiceActorRoles?.map((e) => e?.toJson()).toList();
+    _resultData['voiceActorRoles'] = l$voiceActorRoles
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$node = node;
     _resultData['node'] = l$node?.toJson();
     final l$$__typename = $__typename;
@@ -1569,11 +1542,10 @@ class Query$Character$Character$media$edges {
 extension UtilityExtension$Query$Character$Character$media$edges
     on Query$Character$Character$media$edges {
   CopyWith$Query$Character$Character$media$edges<
-          Query$Character$Character$media$edges>
-      get copyWith => CopyWith$Query$Character$Character$media$edges(
-            this,
-            (i) => i,
-          );
+    Query$Character$Character$media$edges
+  >
+  get copyWith =>
+      CopyWith$Query$Character$Character$media$edges(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Character$Character$media$edges<TRes> {
@@ -1587,16 +1559,20 @@ abstract class CopyWith$Query$Character$Character$media$edges<TRes> {
 
   TRes call({
     List<Query$Character$Character$media$edges$voiceActorRoles?>?
-        voiceActorRoles,
+    voiceActorRoles,
     Fragment$MediaFragment? node,
     String? $__typename,
   });
   TRes voiceActorRoles(
-      Iterable<Query$Character$Character$media$edges$voiceActorRoles?>? Function(
-              Iterable<
-                  CopyWith$Query$Character$Character$media$edges$voiceActorRoles<
-                      Query$Character$Character$media$edges$voiceActorRoles>?>?)
-          _fn);
+    Iterable<Query$Character$Character$media$edges$voiceActorRoles?>? Function(
+      Iterable<
+        CopyWith$Query$Character$Character$media$edges$voiceActorRoles<
+          Query$Character$Character$media$edges$voiceActorRoles
+        >?
+      >?,
+    )
+    _fn,
+  );
   CopyWith$Fragment$MediaFragment<TRes> get node;
 }
 
@@ -1617,33 +1593,44 @@ class _CopyWithImpl$Query$Character$Character$media$edges<TRes>
     Object? voiceActorRoles = _undefined,
     Object? node = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Character$Character$media$edges(
-        voiceActorRoles: voiceActorRoles == _undefined
-            ? _instance.voiceActorRoles
-            : (voiceActorRoles as List<
-                Query$Character$Character$media$edges$voiceActorRoles?>?),
-        node: node == _undefined
-            ? _instance.node
-            : (node as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Character$Character$media$edges(
+      voiceActorRoles: voiceActorRoles == _undefined
+          ? _instance.voiceActorRoles
+          : (voiceActorRoles
+                as List<
+                  Query$Character$Character$media$edges$voiceActorRoles?
+                >?),
+      node: node == _undefined
+          ? _instance.node
+          : (node as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes voiceActorRoles(
-          Iterable<Query$Character$Character$media$edges$voiceActorRoles?>? Function(
-                  Iterable<
-                      CopyWith$Query$Character$Character$media$edges$voiceActorRoles<
-                          Query$Character$Character$media$edges$voiceActorRoles>?>?)
-              _fn) =>
-      call(
-          voiceActorRoles: _fn(_instance.voiceActorRoles?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Character$Character$media$edges$voiceActorRoles(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Character$Character$media$edges$voiceActorRoles?>? Function(
+      Iterable<
+        CopyWith$Query$Character$Character$media$edges$voiceActorRoles<
+          Query$Character$Character$media$edges$voiceActorRoles
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    voiceActorRoles: _fn(
+      _instance.voiceActorRoles?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Character$Character$media$edges$voiceActorRoles(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get node {
     final local$node = _instance.node;
@@ -1661,11 +1648,10 @@ class _CopyWithStubImpl$Query$Character$Character$media$edges<TRes>
 
   call({
     List<Query$Character$Character$media$edges$voiceActorRoles?>?
-        voiceActorRoles,
+    voiceActorRoles,
     Fragment$MediaFragment? node,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   voiceActorRoles(_fn) => _res;
 
@@ -1682,7 +1668,8 @@ class Query$Character$Character$media$edges$voiceActorRoles {
   });
 
   factory Query$Character$Character$media$edges$voiceActorRoles.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$roleNotes = json['roleNotes'];
     final l$dubGroup = json['dubGroup'];
     final l$voiceActor = json['voiceActor'];
@@ -1692,8 +1679,9 @@ class Query$Character$Character$media$edges$voiceActorRoles {
       dubGroup: (l$dubGroup as String?),
       voiceActor: l$voiceActor == null
           ? null
-          : Query$Character$Character$media$edges$voiceActorRoles$voiceActor
-              .fromJson((l$voiceActor as Map<String, dynamic>)),
+          : Query$Character$Character$media$edges$voiceActorRoles$voiceActor.fromJson(
+              (l$voiceActor as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1703,7 +1691,7 @@ class Query$Character$Character$media$edges$voiceActorRoles {
   final String? dubGroup;
 
   final Query$Character$Character$media$edges$voiceActorRoles$voiceActor?
-      voiceActor;
+  voiceActor;
 
   final String $__typename;
 
@@ -1770,34 +1758,38 @@ class Query$Character$Character$media$edges$voiceActorRoles {
 extension UtilityExtension$Query$Character$Character$media$edges$voiceActorRoles
     on Query$Character$Character$media$edges$voiceActorRoles {
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles<
-          Query$Character$Character$media$edges$voiceActorRoles>
-      get copyWith =>
-          CopyWith$Query$Character$Character$media$edges$voiceActorRoles(
-            this,
-            (i) => i,
-          );
+    Query$Character$Character$media$edges$voiceActorRoles
+  >
+  get copyWith =>
+      CopyWith$Query$Character$Character$media$edges$voiceActorRoles(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Character$Character$media$edges$voiceActorRoles<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Character$Character$media$edges$voiceActorRoles(
     Query$Character$Character$media$edges$voiceActorRoles instance,
     TRes Function(Query$Character$Character$media$edges$voiceActorRoles) then,
   ) = _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles;
 
   factory CopyWith$Query$Character$Character$media$edges$voiceActorRoles.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles;
 
   TRes call({
     String? roleNotes,
     String? dubGroup,
     Query$Character$Character$media$edges$voiceActorRoles$voiceActor?
-        voiceActor,
+    voiceActor,
     String? $__typename,
   });
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor<
-      TRes> get voiceActor;
+    TRes
+  >
+  get voiceActor;
 }
 
 class _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles<TRes>
@@ -1811,7 +1803,7 @@ class _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles<TRes>
   final Query$Character$Character$media$edges$voiceActorRoles _instance;
 
   final TRes Function(Query$Character$Character$media$edges$voiceActorRoles)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1820,39 +1812,48 @@ class _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles<TRes>
     Object? dubGroup = _undefined,
     Object? voiceActor = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Character$Character$media$edges$voiceActorRoles(
-        roleNotes: roleNotes == _undefined
-            ? _instance.roleNotes
-            : (roleNotes as String?),
-        dubGroup:
-            dubGroup == _undefined ? _instance.dubGroup : (dubGroup as String?),
-        voiceActor: voiceActor == _undefined
-            ? _instance.voiceActor
-            : (voiceActor
+  }) => _then(
+    Query$Character$Character$media$edges$voiceActorRoles(
+      roleNotes: roleNotes == _undefined
+          ? _instance.roleNotes
+          : (roleNotes as String?),
+      dubGroup: dubGroup == _undefined
+          ? _instance.dubGroup
+          : (dubGroup as String?),
+      voiceActor: voiceActor == _undefined
+          ? _instance.voiceActor
+          : (voiceActor
                 as Query$Character$Character$media$edges$voiceActorRoles$voiceActor?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor<
-      TRes> get voiceActor {
+    TRes
+  >
+  get voiceActor {
     final local$voiceActor = _instance.voiceActor;
     return local$voiceActor == null
-        ? CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor
-            .stub(_then(_instance))
+        ? CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor(
-            local$voiceActor, (e) => call(voiceActor: e));
+            local$voiceActor,
+            (e) => call(voiceActor: e),
+          );
   }
 }
 
 class _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Character$Character$media$edges$voiceActorRoles<TRes> {
   _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1860,16 +1861,17 @@ class _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles<
     String? roleNotes,
     String? dubGroup,
     Query$Character$Character$media$edges$voiceActorRoles$voiceActor?
-        voiceActor,
+    voiceActor,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor<
-          TRes>
-      get voiceActor =>
-          CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor
-              .stub(_res);
+    TRes
+  >
+  get voiceActor =>
+      CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor.stub(
+        _res,
+      );
 }
 
 class Query$Character$Character$media$edges$voiceActorRoles$voiceActor
@@ -1883,7 +1885,8 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor
   });
 
   factory Query$Character$Character$media$edges$voiceActorRoles$voiceActor.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$image = json['image'];
@@ -1893,12 +1896,14 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor
       id: (l$id as int),
       name: l$name == null
           ? null
-          : Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
-              .fromJson((l$name as Map<String, dynamic>)),
+          : Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name.fromJson(
+              (l$name as Map<String, dynamic>),
+            ),
       image: l$image == null
           ? null
-          : Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
-              .fromJson((l$image as Map<String, dynamic>)),
+          : Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image.fromJson(
+              (l$image as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
       languageV2: (l$languageV2 as String?),
     );
@@ -1907,10 +1912,10 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor
   final int id;
 
   final Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name?
-      name;
+  name;
 
   final Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image?
-      image;
+  image;
 
   final String $__typename;
 
@@ -1938,13 +1943,7 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor
     final l$image = image;
     final l$$__typename = $__typename;
     final l$languageV2 = languageV2;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$image,
-      l$$__typename,
-      l$languageV2,
-    ]);
+    return Object.hashAll([l$id, l$name, l$image, l$$__typename, l$languageV2]);
   }
 
   @override
@@ -1989,56 +1988,67 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor
 extension UtilityExtension$Query$Character$Character$media$edges$voiceActorRoles$voiceActor
     on Query$Character$Character$media$edges$voiceActorRoles$voiceActor {
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor<
-          Query$Character$Character$media$edges$voiceActorRoles$voiceActor>
-      get copyWith =>
-          CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor(
-            this,
-            (i) => i,
-          );
+    Query$Character$Character$media$edges$voiceActorRoles$voiceActor
+  >
+  get copyWith =>
+      CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor(
     Query$Character$Character$media$edges$voiceActorRoles$voiceActor instance,
     TRes Function(
-            Query$Character$Character$media$edges$voiceActorRoles$voiceActor)
-        then,
+      Query$Character$Character$media$edges$voiceActorRoles$voiceActor,
+    )
+    then,
   ) = _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor;
 
   factory CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor;
 
   TRes call({
     int? id,
     Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name? name,
     Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image?
-        image,
+    image,
     String? $__typename,
     String? languageV2,
   });
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name<
-      TRes> get name;
+    TRes
+  >
+  get name;
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image<
-      TRes> get image;
+    TRes
+  >
+  get image;
 }
 
 class _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor(
     this._instance,
     this._then,
   );
 
   final Query$Character$Character$media$edges$voiceActorRoles$voiceActor
-      _instance;
+  _instance;
 
   final TRes Function(
-      Query$Character$Character$media$edges$voiceActorRoles$voiceActor) _then;
+    Query$Character$Character$media$edges$voiceActorRoles$voiceActor,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2048,53 +2058,67 @@ class _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceA
     Object? image = _undefined,
     Object? $__typename = _undefined,
     Object? languageV2 = _undefined,
-  }) =>
-      _then(Query$Character$Character$media$edges$voiceActorRoles$voiceActor(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined
-            ? _instance.name
-            : (name
+  }) => _then(
+    Query$Character$Character$media$edges$voiceActorRoles$voiceActor(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined
+          ? _instance.name
+          : (name
                 as Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name?),
-        image: image == _undefined
-            ? _instance.image
-            : (image
+      image: image == _undefined
+          ? _instance.image
+          : (image
                 as Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        languageV2: languageV2 == _undefined
-            ? _instance.languageV2
-            : (languageV2 as String?),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      languageV2: languageV2 == _undefined
+          ? _instance.languageV2
+          : (languageV2 as String?),
+    ),
+  );
 
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name<
-      TRes> get name {
+    TRes
+  >
+  get name {
     final local$name = _instance.name;
     return local$name == null
-        ? CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
-            .stub(_then(_instance))
+        ? CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name(
-            local$name, (e) => call(name: e));
+            local$name,
+            (e) => call(name: e),
+          );
   }
 
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image<
-      TRes> get image {
+    TRes
+  >
+  get image {
     final local$image = _instance.image;
     return local$image == null
-        ? CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
-            .stub(_then(_instance))
+        ? CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image(
-            local$image, (e) => call(image: e));
+            local$image,
+            (e) => call(image: e),
+          );
   }
 }
 
 class _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -2102,23 +2126,26 @@ class _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$vo
     int? id,
     Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name? name,
     Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image?
-        image,
+    image,
     String? $__typename,
     String? languageV2,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name<
-          TRes>
-      get name =>
-          CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
-              .stub(_res);
+    TRes
+  >
+  get name =>
+      CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name.stub(
+        _res,
+      );
 
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image<
-          TRes>
-      get image =>
-          CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
-              .stub(_res);
+    TRes
+  >
+  get image =>
+      CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image.stub(
+        _res,
+      );
 }
 
 class Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
@@ -2129,7 +2156,8 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
   });
 
   factory Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$userPreferred = json['userPreferred'];
     final l$$__typename = json['__typename'];
     return Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name(
@@ -2155,10 +2183,7 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -2188,83 +2213,85 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
 extension UtilityExtension$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
     on Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name {
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name<
-          Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name>
-      get copyWith =>
-          CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name(
-            this,
-            (i) => i,
-          );
+    Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
+  >
+  get copyWith =>
+      CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name(
     Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
-        instance,
+    instance,
     TRes Function(
-            Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name)
-        then,
+      Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name,
+    )
+    then,
   ) = _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name;
 
   factory CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name(
     this._instance,
     this._then,
   );
 
   final Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name)
-      _then;
+    Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$name(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }
 
 class Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
@@ -2275,7 +2302,8 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
   });
 
   factory Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$large = json['large'];
     final l$$__typename = json['__typename'];
     return Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image(
@@ -2301,10 +2329,7 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
   int get hashCode {
     final l$large = large;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$$__typename]);
   }
 
   @override
@@ -2334,79 +2359,79 @@ class Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
 extension UtilityExtension$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
     on Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image {
   CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image<
-          Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image>
-      get copyWith =>
-          CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image(
-            this,
-            (i) => i,
-          );
+    Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
+  >
+  get copyWith =>
+      CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image(
     Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
-        instance,
+    instance,
     TRes Function(
-            Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image)
-        then,
+      Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image,
+    )
+    then,
   ) = _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image;
 
   factory CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image;
 
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
+  TRes call({String? large, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image(
     this._instance,
     this._then,
   );
 
   final Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image
-      _instance;
+  _instance;
 
   final TRes Function(
-          Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image)
-      _then;
+    Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image,
+  )
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
+  TRes call({Object? large = _undefined, Object? $__typename = _undefined}) =>
       _then(
-          Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+        Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image(
+          large: large == _undefined ? _instance.large : (large as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$Character$Character$media$edges$voiceActorRoles$voiceActor$image(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? $__typename}) => _res;
 }

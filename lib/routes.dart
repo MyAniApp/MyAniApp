@@ -73,15 +73,17 @@ final goRouter = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-                path: Routes.explore,
-                builder: (context, state) => ExploreTab()),
+              path: Routes.explore,
+              builder: (context, state) => ExploreTab(),
+            ),
           ],
         ),
         StatefulShellBranch(
           routes: [
             GoRoute(
-                path: Routes.activities,
-                builder: (context, state) => HomeActivitiesTab()),
+              path: Routes.activities,
+              builder: (context, state) => HomeActivitiesTab(),
+            ),
           ],
         ),
         StatefulShellBranch(
@@ -105,10 +107,12 @@ final goRouter = GoRouter(
     GoRoute(
       path: Routes._media,
       builder: (context, state) {
-        var placeholder =
-            state.extra is Map ? (state.extra as Map)['placeholder'] : null;
-        placeholder =
-            placeholder is Fragment$MediaFragment ? placeholder : null;
+        var placeholder = state.extra is Map
+            ? (state.extra as Map)['placeholder']
+            : null;
+        placeholder = placeholder is Fragment$MediaFragment
+            ? placeholder
+            : null;
         return parseIdOr404(
           state.pathParameters['id']!,
           (id) => MediaScreen(
@@ -122,10 +126,12 @@ final goRouter = GoRouter(
     GoRoute(
       path: Routes._review,
       builder: (context, state) {
-        var placeholder =
-            state.extra is Map ? (state.extra as Map)['placeholder'] : null;
-        placeholder =
-            placeholder is Fragment$ReviewFragment ? placeholder : null;
+        var placeholder = state.extra is Map
+            ? (state.extra as Map)['placeholder']
+            : null;
+        placeholder = placeholder is Fragment$ReviewFragment
+            ? placeholder
+            : null;
         return parseIdOr404(
           state.pathParameters['id']!,
           (id) => ReviewScreen(id: id, placeholder: placeholder),
@@ -135,10 +141,12 @@ final goRouter = GoRouter(
     GoRoute(
       path: Routes._character,
       builder: (context, state) {
-        var placeholder =
-            state.extra is Map ? (state.extra as Map)['placeholder'] : null;
-        placeholder =
-            placeholder is Fragment$CharacterFragment ? placeholder : null;
+        var placeholder = state.extra is Map
+            ? (state.extra as Map)['placeholder']
+            : null;
+        placeholder = placeholder is Fragment$CharacterFragment
+            ? placeholder
+            : null;
         return parseIdOr404(
           state.pathParameters['id']!,
           (id) => CharacterScreen(id: id, placeholder: placeholder),
@@ -148,10 +156,12 @@ final goRouter = GoRouter(
     GoRoute(
       path: Routes._staff,
       builder: (context, state) {
-        var placeholder =
-            state.extra is Map ? (state.extra as Map)['placeholder'] : null;
-        placeholder =
-            placeholder is Fragment$StaffFragment ? placeholder : null;
+        var placeholder = state.extra is Map
+            ? (state.extra as Map)['placeholder']
+            : null;
+        placeholder = placeholder is Fragment$StaffFragment
+            ? placeholder
+            : null;
         return parseIdOr404(
           state.pathParameters['id']!,
           (id) => StaffScreen(id: id, placeholder: placeholder),
@@ -161,10 +171,12 @@ final goRouter = GoRouter(
     GoRoute(
       path: Routes._thread,
       builder: (context, state) {
-        var placeholder =
-            state.extra is Map ? (state.extra as Map)['placeholder'] : null;
-        placeholder =
-            placeholder is Fragment$ThreadFragment ? placeholder : null;
+        var placeholder = state.extra is Map
+            ? (state.extra as Map)['placeholder']
+            : null;
+        placeholder = placeholder is Fragment$ThreadFragment
+            ? placeholder
+            : null;
         return parseIdOr404(
           state.pathParameters['id']!,
           (id) => ThreadScreen(id: id, placeholder: placeholder),
@@ -189,8 +201,9 @@ final goRouter = GoRouter(
     GoRoute(
       path: Routes._activity,
       builder: (context, state) {
-        var placeholder =
-            state.extra is Map ? (state.extra as Map)['placeholder'] : null;
+        var placeholder = state.extra is Map
+            ? (state.extra as Map)['placeholder']
+            : null;
         return parseIdOr404(
           state.pathParameters['id']!,
           (id) => ActivityScreen(id: id, placeholder: placeholder),
@@ -207,14 +220,10 @@ final goRouter = GoRouter(
     ),
     GoRoute(
       path: Routes._auth,
-      builder: (context, state) => AuthScreen(
-        accessToken: state.uri.queryParameters['access_token'],
-      ),
+      builder: (context, state) =>
+          AuthScreen(accessToken: state.uri.queryParameters['access_token']),
     ),
-    GoRoute(
-      path: Routes.login,
-      builder: (context, state) => LoginScreen(),
-    ),
+    GoRoute(path: Routes.login, builder: (context, state) => LoginScreen()),
     GoRoute(
       path: Routes.anilistLogin,
       builder: (context, state) => AnilistLoginScreen(),
@@ -236,13 +245,16 @@ final goRouter = GoRouter(
     GoRoute(
       path: Routes._searchMedia,
       builder: (context, state) {
-        var autofocus =
-            state.extra is Map ? (state.extra as Map)['autofocus'] : null;
+        var autofocus = state.extra is Map
+            ? (state.extra as Map)['autofocus']
+            : null;
         return MediaSearchScreen(autofocus: autofocus);
       },
     ),
     GoRoute(
-        path: Routes.calendaer, builder: (context, state) => CalendarScreen()),
+      path: Routes.calendaer,
+      builder: (context, state) => CalendarScreen(),
+    ),
     GoRoute(
       path: Routes._studio,
       builder: (context, state) => parseIdOr404(
@@ -253,8 +265,9 @@ final goRouter = GoRouter(
     GoRoute(
       path: Routes._user,
       builder: (context, state) {
-        var placeholder =
-            state.extra is Map ? (state.extra as Map)['placeholder'] : null;
+        var placeholder = state.extra is Map
+            ? (state.extra as Map)['placeholder']
+            : null;
         placeholder = placeholder is Fragment$UserFragment ? placeholder : null;
         return UserScreen(
           name: state.pathParameters['name']!,
@@ -263,19 +276,22 @@ final goRouter = GoRouter(
       },
     ),
     GoRoute(
-        path: Routes._userAnime,
-        builder: (context, state) =>
-            UserAnimeScreen(name: state.pathParameters['name']!)),
+      path: Routes._userAnime,
+      builder: (context, state) =>
+          UserAnimeScreen(name: state.pathParameters['name']!),
+    ),
     GoRoute(
-        path: Routes._userManga,
-        builder: (context, state) =>
-            UserMangaScreen(name: state.pathParameters['name']!)),
+      path: Routes._userManga,
+      builder: (context, state) =>
+          UserMangaScreen(name: state.pathParameters['name']!),
+    ),
     GoRoute(
-        path: Routes._userFavorites,
-        builder: (context, state) => UserFavoritesScreen(
-              name: state.pathParameters['name']!,
-              tab: state.pathParameters['tab']!,
-            )),
+      path: Routes._userFavorites,
+      builder: (context, state) => UserFavoritesScreen(
+        name: state.pathParameters['name']!,
+        tab: state.pathParameters['tab']!,
+      ),
+    ),
     GoRoute(
       path: Routes.settings,
       builder: (context, state) => SettingsScreen(),

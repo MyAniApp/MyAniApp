@@ -21,15 +21,17 @@ class MediaSimilarTab extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var listSetting = ref.watch(listSettingsProvider.select(
-      (value) => value.mediaSimilar,
-    ));
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      mediaSimilarQuery,
-      variables: Variables$Query$MediaSimilar(mediaId: mediaId).toJson(),
-      parseData: Query$MediaSimilar.fromJson,
-      mergeResults: defaultMergeResults("Media.recommendations.nodes"),
-    ));
+    var listSetting = ref.watch(
+      listSettingsProvider.select((value) => value.mediaSimilar),
+    );
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        mediaSimilarQuery,
+        variables: Variables$Query$MediaSimilar(mediaId: mediaId).toJson(),
+        parseData: Query$MediaSimilar.fromJson,
+        mergeResults: defaultMergeResults("Media.recommendations.nodes"),
+      ),
+    );
 
     return GQLWidget(
       refetch: refetch,
@@ -41,14 +43,18 @@ class MediaSimilarTab extends HookConsumerWidget {
           when: listSetting == ListType.grid,
           fallback: PaginationView.list(
             req: (nextPage) => fetchMore(
-                variables: Variables$Query$MediaSimilar.fromJson(
-                        snapshot.request!.variables)
-                    .copyWith(page: nextPage)
-                    .toJson()),
+              variables: Variables$Query$MediaSimilar.fromJson(
+                snapshot.request!.variables,
+              ).copyWith(page: nextPage).toJson(),
+            ),
             pageInfo: snapshot.parsedData!.Media!.recommendations!.pageInfo!,
-            builder: (context, index) {
-              var media = snapshot.parsedData!.Media!.recommendations!
-                  .nodes![index]!.mediaRecommendation;
+            itemBuilder: (context, index) {
+              var media = snapshot
+                  .parsedData!
+                  .Media!
+                  .recommendations!
+                  .nodes![index]!
+                  .mediaRecommendation;
 
               if (media == null) return const SizedBox();
 
@@ -57,8 +63,10 @@ class MediaSimilarTab extends HookConsumerWidget {
                 image: media.coverImage!.extraLarge!,
                 title: media.title!.userPreferred,
                 blur: media.isAdult ?? false,
-                onTap: () => context.push(Routes.media(media.id),
-                    extra: {"placeholder": media}),
+                onTap: () => context.push(
+                  Routes.media(media.id),
+                  extra: {"placeholder": media},
+                ),
                 onLongPress: () => MediaSheet.show(context, media),
               );
             },
@@ -68,10 +76,10 @@ class MediaSimilarTab extends HookConsumerWidget {
           child: () => PaginationView.grid(
             padding: const EdgeInsets.all(8),
             req: (nextPage) => fetchMore(
-                variables: Variables$Query$MediaSimilar.fromJson(
-                        snapshot.request!.variables)
-                    .copyWith(page: nextPage)
-                    .toJson()),
+              variables: Variables$Query$MediaSimilar.fromJson(
+                snapshot.request!.variables,
+              ).copyWith(page: nextPage).toJson(),
+            ),
             pageInfo: snapshot.parsedData!.Media!.recommendations!.pageInfo!,
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 150,
@@ -79,9 +87,13 @@ class MediaSimilarTab extends HookConsumerWidget {
               mainAxisSpacing: 10,
               crossAxisSpacing: 10,
             ),
-            builder: (context, index) {
-              var media = snapshot.parsedData!.Media!.recommendations!
-                  .nodes![index]!.mediaRecommendation;
+            itemBuilder: (context, index) {
+              var media = snapshot
+                  .parsedData!
+                  .Media!
+                  .recommendations!
+                  .nodes![index]!
+                  .mediaRecommendation;
 
               if (media == null) return const SizedBox();
 
@@ -90,8 +102,10 @@ class MediaSimilarTab extends HookConsumerWidget {
                 image: media.coverImage!.extraLarge!,
                 title: media.title!.userPreferred,
                 blur: media.isAdult ?? false,
-                onTap: () => context.push(Routes.media(media.id),
-                    extra: {"placeholder": media}),
+                onTap: () => context.push(
+                  Routes.media(media.id),
+                  extra: {"placeholder": media},
+                ),
                 onLongPress: () => MediaSheet.show(context, media),
               );
             },

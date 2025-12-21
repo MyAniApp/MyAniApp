@@ -12,13 +12,12 @@ class Variables$Query$HomeActivities {
     bool? hasReplies,
     Enum$ActivityType? activityType,
     int? page,
-  }) =>
-      Variables$Query$HomeActivities._({
-        if (isFollowing != null) r'isFollowing': isFollowing,
-        if (hasReplies != null) r'hasReplies': hasReplies,
-        if (activityType != null) r'activityType': activityType,
-        if (page != null) r'page': page,
-      });
+  }) => Variables$Query$HomeActivities._({
+    if (isFollowing != null) r'isFollowing': isFollowing,
+    if (hasReplies != null) r'hasReplies': hasReplies,
+    if (activityType != null) r'activityType': activityType,
+    if (page != null) r'page': page,
+  });
 
   Variables$Query$HomeActivities._(this._$data);
 
@@ -80,10 +79,7 @@ class Variables$Query$HomeActivities {
   }
 
   CopyWith$Variables$Query$HomeActivities<Variables$Query$HomeActivities>
-      get copyWith => CopyWith$Variables$Query$HomeActivities(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$HomeActivities(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -166,10 +162,7 @@ abstract class CopyWith$Variables$Query$HomeActivities<TRes> {
 
 class _CopyWithImpl$Variables$Query$HomeActivities<TRes>
     implements CopyWith$Variables$Query$HomeActivities<TRes> {
-  _CopyWithImpl$Variables$Query$HomeActivities(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$HomeActivities(this._instance, this._then);
 
   final Variables$Query$HomeActivities _instance;
 
@@ -182,15 +175,16 @@ class _CopyWithImpl$Variables$Query$HomeActivities<TRes>
     Object? hasReplies = _undefined,
     Object? activityType = _undefined,
     Object? page = _undefined,
-  }) =>
-      _then(Variables$Query$HomeActivities._({
-        ..._instance._$data,
-        if (isFollowing != _undefined) 'isFollowing': (isFollowing as bool?),
-        if (hasReplies != _undefined) 'hasReplies': (hasReplies as bool?),
-        if (activityType != _undefined)
-          'activityType': (activityType as Enum$ActivityType?),
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  }) => _then(
+    Variables$Query$HomeActivities._({
+      ..._instance._$data,
+      if (isFollowing != _undefined) 'isFollowing': (isFollowing as bool?),
+      if (hasReplies != _undefined) 'hasReplies': (hasReplies as bool?),
+      if (activityType != _undefined)
+        'activityType': (activityType as Enum$ActivityType?),
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$HomeActivities<TRes>
@@ -204,15 +198,11 @@ class _CopyWithStubImpl$Variables$Query$HomeActivities<TRes>
     bool? hasReplies,
     Enum$ActivityType? activityType,
     int? page,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$HomeActivities {
-  Query$HomeActivities({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$HomeActivities({this.Page, this.$__typename = 'Query'});
 
   factory Query$HomeActivities.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -221,7 +211,8 @@ class Query$HomeActivities {
       Page: l$Page == null
           ? null
           : Query$HomeActivities$Page.fromJson(
-              (l$Page as Map<String, dynamic>)),
+              (l$Page as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -243,10 +234,7 @@ class Query$HomeActivities {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -273,10 +261,7 @@ class Query$HomeActivities {
 
 extension UtilityExtension$Query$HomeActivities on Query$HomeActivities {
   CopyWith$Query$HomeActivities<Query$HomeActivities> get copyWith =>
-      CopyWith$Query$HomeActivities(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$HomeActivities(this, (i) => i);
 }
 
 abstract class CopyWith$Query$HomeActivities<TRes> {
@@ -288,19 +273,13 @@ abstract class CopyWith$Query$HomeActivities<TRes> {
   factory CopyWith$Query$HomeActivities.stub(TRes res) =
       _CopyWithStubImpl$Query$HomeActivities;
 
-  TRes call({
-    Query$HomeActivities$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$HomeActivities$Page? Page, String? $__typename});
   CopyWith$Query$HomeActivities$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$HomeActivities<TRes>
     implements CopyWith$Query$HomeActivities<TRes> {
-  _CopyWithImpl$Query$HomeActivities(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$HomeActivities(this._instance, this._then);
 
   final Query$HomeActivities _instance;
 
@@ -308,18 +287,17 @@ class _CopyWithImpl$Query$HomeActivities<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$HomeActivities(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$HomeActivities$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$HomeActivities(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$HomeActivities$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$HomeActivities$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -335,175 +313,195 @@ class _CopyWithStubImpl$Query$HomeActivities<TRes>
 
   TRes _res;
 
-  call({
-    Query$HomeActivities$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$HomeActivities$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$HomeActivities$Page<TRes> get Page =>
       CopyWith$Query$HomeActivities$Page.stub(_res);
 }
 
-const documentNodeQueryHomeActivities = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'HomeActivities'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'isFollowing')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: true)),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'hasReplies')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'activityType')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ActivityType'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
+const documentNodeQueryHomeActivities = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'HomeActivities'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'isFollowing')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '25'),
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: true)),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'hasReplies')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'activityType')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'ActivityType'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'activities'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'isFollowing'),
-                value: VariableNode(name: NameNode(value: 'isFollowing')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
               ArgumentNode(
-                name: NameNode(value: 'type'),
-                value: VariableNode(name: NameNode(value: 'activityType')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'hasRepliesOrTypeText'),
-                value: VariableNode(name: NameNode(value: 'hasReplies')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'type_in'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'TEXT')),
-                  EnumValueNode(name: NameNode(value: 'ANIME_LIST')),
-                  EnumValueNode(name: NameNode(value: 'MANGA_LIST')),
-                ]),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '25'),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'TextActivity'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'TextActivity'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'activities'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'isFollowing'),
+                      value: VariableNode(name: NameNode(value: 'isFollowing')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type'),
+                      value: VariableNode(
+                        name: NameNode(value: 'activityType'),
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'hasRepliesOrTypeText'),
+                      value: VariableNode(name: NameNode(value: 'hasReplies')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type_in'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'TEXT')),
+                          EnumValueNode(name: NameNode(value: 'ANIME_LIST')),
+                          EnumValueNode(name: NameNode(value: 'MANGA_LIST')),
+                        ],
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'TextActivity'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'TextActivity'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'ListActivity'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'ListActivity'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ListActivity'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'ListActivity'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -512,23 +510,16 @@ const documentNodeQueryHomeActivities = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionTextActivity,
-  fragmentDefinitionUserFragment,
-  fragmentDefinitionListActivity,
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionTextActivity,
+    fragmentDefinitionUserFragment,
+    fragmentDefinitionListActivity,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Query$HomeActivities$Page {
   Query$HomeActivities$Page({
@@ -546,10 +537,13 @@ class Query$HomeActivities$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       activities: (l$activities as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$HomeActivities$Page$activities.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$HomeActivities$Page$activities.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -626,10 +620,7 @@ class Query$HomeActivities$Page {
 extension UtilityExtension$Query$HomeActivities$Page
     on Query$HomeActivities$Page {
   CopyWith$Query$HomeActivities$Page<Query$HomeActivities$Page> get copyWith =>
-      CopyWith$Query$HomeActivities$Page(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$HomeActivities$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$HomeActivities$Page<TRes> {
@@ -648,19 +639,20 @@ abstract class CopyWith$Query$HomeActivities$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes activities(
-      Iterable<Query$HomeActivities$Page$activities?>? Function(
-              Iterable<
-                  CopyWith$Query$HomeActivities$Page$activities<
-                      Query$HomeActivities$Page$activities>?>?)
-          _fn);
+    Iterable<Query$HomeActivities$Page$activities?>? Function(
+      Iterable<
+        CopyWith$Query$HomeActivities$Page$activities<
+          Query$HomeActivities$Page$activities
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$HomeActivities$Page<TRes>
     implements CopyWith$Query$HomeActivities$Page<TRes> {
-  _CopyWithImpl$Query$HomeActivities$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$HomeActivities$Page(this._instance, this._then);
 
   final Query$HomeActivities$Page _instance;
 
@@ -672,18 +664,19 @@ class _CopyWithImpl$Query$HomeActivities$Page<TRes>
     Object? pageInfo = _undefined,
     Object? activities = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$HomeActivities$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        activities: activities == _undefined
-            ? _instance.activities
-            : (activities as List<Query$HomeActivities$Page$activities?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$HomeActivities$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      activities: activities == _undefined
+          ? _instance.activities
+          : (activities as List<Query$HomeActivities$Page$activities?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -693,18 +686,23 @@ class _CopyWithImpl$Query$HomeActivities$Page<TRes>
   }
 
   TRes activities(
-          Iterable<Query$HomeActivities$Page$activities?>? Function(
-                  Iterable<
-                      CopyWith$Query$HomeActivities$Page$activities<
-                          Query$HomeActivities$Page$activities>?>?)
-              _fn) =>
-      call(
-          activities: _fn(_instance.activities?.map((e) => e == null
-              ? null
-              : CopyWith$Query$HomeActivities$Page$activities(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$HomeActivities$Page$activities?>? Function(
+      Iterable<
+        CopyWith$Query$HomeActivities$Page$activities<
+          Query$HomeActivities$Page$activities
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    activities: _fn(
+      _instance.activities?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$HomeActivities$Page$activities(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$HomeActivities$Page<TRes>
@@ -717,8 +715,7 @@ class _CopyWithStubImpl$Query$HomeActivities$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$HomeActivities$Page$activities?>? activities,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -730,24 +727,29 @@ class Query$HomeActivities$Page$activities {
   Query$HomeActivities$Page$activities({required this.$__typename});
 
   factory Query$HomeActivities$Page$activities.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     switch (json["__typename"] as String) {
       case "TextActivity":
         return Query$HomeActivities$Page$activities$$TextActivity.fromJson(
-            json);
+          json,
+        );
 
       case "ListActivity":
         return Query$HomeActivities$Page$activities$$ListActivity.fromJson(
-            json);
+          json,
+        );
 
       case "MessageActivity":
         return Query$HomeActivities$Page$activities$$MessageActivity.fromJson(
-            json);
+          json,
+        );
 
       default:
         final l$$__typename = json['__typename'];
         return Query$HomeActivities$Page$activities(
-            $__typename: (l$$__typename as String));
+          $__typename: (l$$__typename as String),
+        );
     }
   }
 
@@ -787,32 +789,34 @@ class Query$HomeActivities$Page$activities {
 extension UtilityExtension$Query$HomeActivities$Page$activities
     on Query$HomeActivities$Page$activities {
   CopyWith$Query$HomeActivities$Page$activities<
-          Query$HomeActivities$Page$activities>
-      get copyWith => CopyWith$Query$HomeActivities$Page$activities(
-            this,
-            (i) => i,
-          );
+    Query$HomeActivities$Page$activities
+  >
+  get copyWith => CopyWith$Query$HomeActivities$Page$activities(this, (i) => i);
+
   _T when<_T>({
     required _T Function(Query$HomeActivities$Page$activities$$TextActivity)
-        textActivity,
+    textActivity,
     required _T Function(Query$HomeActivities$Page$activities$$ListActivity)
-        listActivity,
+    listActivity,
     required _T Function(Query$HomeActivities$Page$activities$$MessageActivity)
-        messageActivity,
+    messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "TextActivity":
         return textActivity(
-            this as Query$HomeActivities$Page$activities$$TextActivity);
+          this as Query$HomeActivities$Page$activities$$TextActivity,
+        );
 
       case "ListActivity":
         return listActivity(
-            this as Query$HomeActivities$Page$activities$$ListActivity);
+          this as Query$HomeActivities$Page$activities$$ListActivity,
+        );
 
       case "MessageActivity":
         return messageActivity(
-            this as Query$HomeActivities$Page$activities$$MessageActivity);
+          this as Query$HomeActivities$Page$activities$$MessageActivity,
+        );
 
       default:
         return orElse();
@@ -821,18 +825,19 @@ extension UtilityExtension$Query$HomeActivities$Page$activities
 
   _T maybeWhen<_T>({
     _T Function(Query$HomeActivities$Page$activities$$TextActivity)?
-        textActivity,
+    textActivity,
     _T Function(Query$HomeActivities$Page$activities$$ListActivity)?
-        listActivity,
+    listActivity,
     _T Function(Query$HomeActivities$Page$activities$$MessageActivity)?
-        messageActivity,
+    messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "TextActivity":
         if (textActivity != null) {
           return textActivity(
-              this as Query$HomeActivities$Page$activities$$TextActivity);
+            this as Query$HomeActivities$Page$activities$$TextActivity,
+          );
         } else {
           return orElse();
         }
@@ -840,7 +845,8 @@ extension UtilityExtension$Query$HomeActivities$Page$activities
       case "ListActivity":
         if (listActivity != null) {
           return listActivity(
-              this as Query$HomeActivities$Page$activities$$ListActivity);
+            this as Query$HomeActivities$Page$activities$$ListActivity,
+          );
         } else {
           return orElse();
         }
@@ -848,7 +854,8 @@ extension UtilityExtension$Query$HomeActivities$Page$activities
       case "MessageActivity":
         if (messageActivity != null) {
           return messageActivity(
-              this as Query$HomeActivities$Page$activities$$MessageActivity);
+            this as Query$HomeActivities$Page$activities$$MessageActivity,
+          );
         } else {
           return orElse();
         }
@@ -884,11 +891,13 @@ class _CopyWithImpl$Query$HomeActivities$Page$activities<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$HomeActivities$Page$activities(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$HomeActivities$Page$activities(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$HomeActivities$Page$activities<TRes>
@@ -918,7 +927,8 @@ class Query$HomeActivities$Page$activities$$TextActivity
   });
 
   factory Query$HomeActivities$Page$activities$$TextActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$userId = json['userId'];
     final l$type = json['type'];
@@ -982,8 +992,9 @@ class Query$HomeActivities$Page$activities$$TextActivity
     final l$userId = userId;
     _resultData['userId'] = l$userId;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$replyCount = replyCount;
     _resultData['replyCount'] = l$replyCount;
     final l$text = text;
@@ -1111,24 +1122,25 @@ class Query$HomeActivities$Page$activities$$TextActivity
 extension UtilityExtension$Query$HomeActivities$Page$activities$$TextActivity
     on Query$HomeActivities$Page$activities$$TextActivity {
   CopyWith$Query$HomeActivities$Page$activities$$TextActivity<
-          Query$HomeActivities$Page$activities$$TextActivity>
-      get copyWith =>
-          CopyWith$Query$HomeActivities$Page$activities$$TextActivity(
-            this,
-            (i) => i,
-          );
+    Query$HomeActivities$Page$activities$$TextActivity
+  >
+  get copyWith => CopyWith$Query$HomeActivities$Page$activities$$TextActivity(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$HomeActivities$Page$activities$$TextActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$HomeActivities$Page$activities$$TextActivity(
     Query$HomeActivities$Page$activities$$TextActivity instance,
     TRes Function(Query$HomeActivities$Page$activities$$TextActivity) then,
   ) = _CopyWithImpl$Query$HomeActivities$Page$activities$$TextActivity;
 
   factory CopyWith$Query$HomeActivities$Page$activities$$TextActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$HomeActivities$Page$activities$$TextActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$HomeActivities$Page$activities$$TextActivity;
 
   TRes call({
     int? id,
@@ -1174,35 +1186,36 @@ class _CopyWithImpl$Query$HomeActivities$Page$activities$$TextActivity<TRes>
     Object? createdAt = _undefined,
     Object? user = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$HomeActivities$Page$activities$$TextActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        text: text == _undefined ? _instance.text : (text as String?),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$HomeActivities$Page$activities$$TextActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      userId: userId == _undefined ? _instance.userId : (userId as int?),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      replyCount: replyCount == _undefined || replyCount == null
+          ? _instance.replyCount
+          : (replyCount as int),
+      text: text == _undefined ? _instance.text : (text as String?),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      isSubscribed: isSubscribed == _undefined
+          ? _instance.isSubscribed
+          : (isSubscribed as bool?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -1216,7 +1229,8 @@ class _CopyWithStubImpl$Query$HomeActivities$Page$activities$$TextActivity<TRes>
     implements
         CopyWith$Query$HomeActivities$Page$activities$$TextActivity<TRes> {
   _CopyWithStubImpl$Query$HomeActivities$Page$activities$$TextActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1233,8 +1247,7 @@ class _CopyWithStubImpl$Query$HomeActivities$Page$activities$$TextActivity<TRes>
     int? createdAt,
     Fragment$UserFragment? user,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -1260,7 +1273,8 @@ class Query$HomeActivities$Page$activities$$ListActivity
   });
 
   factory Query$HomeActivities$Page$activities$$ListActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$userId = json['userId'];
     final l$type = json['type'];
@@ -1334,8 +1348,9 @@ class Query$HomeActivities$Page$activities$$ListActivity
     final l$userId = userId;
     _resultData['userId'] = l$userId;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$status = status;
     _resultData['status'] = l$status;
     final l$progress = progress;
@@ -1481,24 +1496,25 @@ class Query$HomeActivities$Page$activities$$ListActivity
 extension UtilityExtension$Query$HomeActivities$Page$activities$$ListActivity
     on Query$HomeActivities$Page$activities$$ListActivity {
   CopyWith$Query$HomeActivities$Page$activities$$ListActivity<
-          Query$HomeActivities$Page$activities$$ListActivity>
-      get copyWith =>
-          CopyWith$Query$HomeActivities$Page$activities$$ListActivity(
-            this,
-            (i) => i,
-          );
+    Query$HomeActivities$Page$activities$$ListActivity
+  >
+  get copyWith => CopyWith$Query$HomeActivities$Page$activities$$ListActivity(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$HomeActivities$Page$activities$$ListActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$HomeActivities$Page$activities$$ListActivity(
     Query$HomeActivities$Page$activities$$ListActivity instance,
     TRes Function(Query$HomeActivities$Page$activities$$ListActivity) then,
   ) = _CopyWithImpl$Query$HomeActivities$Page$activities$$ListActivity;
 
   factory CopyWith$Query$HomeActivities$Page$activities$$ListActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$HomeActivities$Page$activities$$ListActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$HomeActivities$Page$activities$$ListActivity;
 
   TRes call({
     int? id,
@@ -1549,40 +1565,42 @@ class _CopyWithImpl$Query$HomeActivities$Page$activities$$ListActivity<TRes>
     Object? user = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$HomeActivities$Page$activities$$ListActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        status: status == _undefined ? _instance.status : (status as String?),
-        progress:
-            progress == _undefined ? _instance.progress : (progress as String?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$HomeActivities$Page$activities$$ListActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      userId: userId == _undefined ? _instance.userId : (userId as int?),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      status: status == _undefined ? _instance.status : (status as String?),
+      progress: progress == _undefined
+          ? _instance.progress
+          : (progress as String?),
+      replyCount: replyCount == _undefined || replyCount == null
+          ? _instance.replyCount
+          : (replyCount as int),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      isSubscribed: isSubscribed == _undefined
+          ? _instance.isSubscribed
+          : (isSubscribed as bool?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -1603,7 +1621,8 @@ class _CopyWithStubImpl$Query$HomeActivities$Page$activities$$ListActivity<TRes>
     implements
         CopyWith$Query$HomeActivities$Page$activities$$ListActivity<TRes> {
   _CopyWithStubImpl$Query$HomeActivities$Page$activities$$ListActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1622,8 +1641,7 @@ class _CopyWithStubImpl$Query$HomeActivities$Page$activities$$ListActivity<TRes>
     Fragment$UserFragment? user,
     Fragment$MediaFragment? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -1634,14 +1652,17 @@ class _CopyWithStubImpl$Query$HomeActivities$Page$activities$$ListActivity<TRes>
 
 class Query$HomeActivities$Page$activities$$MessageActivity
     implements Query$HomeActivities$Page$activities {
-  Query$HomeActivities$Page$activities$$MessageActivity(
-      {this.$__typename = 'MessageActivity'});
+  Query$HomeActivities$Page$activities$$MessageActivity({
+    this.$__typename = 'MessageActivity',
+  });
 
   factory Query$HomeActivities$Page$activities$$MessageActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$$__typename = json['__typename'];
     return Query$HomeActivities$Page$activities$$MessageActivity(
-        $__typename: (l$$__typename as String));
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String $__typename;
@@ -1680,24 +1701,26 @@ class Query$HomeActivities$Page$activities$$MessageActivity
 extension UtilityExtension$Query$HomeActivities$Page$activities$$MessageActivity
     on Query$HomeActivities$Page$activities$$MessageActivity {
   CopyWith$Query$HomeActivities$Page$activities$$MessageActivity<
-          Query$HomeActivities$Page$activities$$MessageActivity>
-      get copyWith =>
-          CopyWith$Query$HomeActivities$Page$activities$$MessageActivity(
-            this,
-            (i) => i,
-          );
+    Query$HomeActivities$Page$activities$$MessageActivity
+  >
+  get copyWith =>
+      CopyWith$Query$HomeActivities$Page$activities$$MessageActivity(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$HomeActivities$Page$activities$$MessageActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$HomeActivities$Page$activities$$MessageActivity(
     Query$HomeActivities$Page$activities$$MessageActivity instance,
     TRes Function(Query$HomeActivities$Page$activities$$MessageActivity) then,
   ) = _CopyWithImpl$Query$HomeActivities$Page$activities$$MessageActivity;
 
   factory CopyWith$Query$HomeActivities$Page$activities$$MessageActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$HomeActivities$Page$activities$$MessageActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$HomeActivities$Page$activities$$MessageActivity;
 
   TRes call({String? $__typename});
 }
@@ -1713,23 +1736,27 @@ class _CopyWithImpl$Query$HomeActivities$Page$activities$$MessageActivity<TRes>
   final Query$HomeActivities$Page$activities$$MessageActivity _instance;
 
   final TRes Function(Query$HomeActivities$Page$activities$$MessageActivity)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$HomeActivities$Page$activities$$MessageActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$HomeActivities$Page$activities$$MessageActivity(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$HomeActivities$Page$activities$$MessageActivity<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$HomeActivities$Page$activities$$MessageActivity<TRes> {
   _CopyWithStubImpl$Query$HomeActivities$Page$activities$$MessageActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1737,10 +1764,7 @@ class _CopyWithStubImpl$Query$HomeActivities$Page$activities$$MessageActivity<
 }
 
 class Variables$Mutation$ToggleLike {
-  factory Variables$Mutation$ToggleLike({
-    Enum$LikeableType? type,
-    int? id,
-  }) =>
+  factory Variables$Mutation$ToggleLike({Enum$LikeableType? type, int? id}) =>
       Variables$Mutation$ToggleLike._({
         if (type != null) r'type': type,
         if (id != null) r'id': id,
@@ -1773,8 +1797,9 @@ class Variables$Mutation$ToggleLike {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('type')) {
       final l$type = type;
-      result$data['type'] =
-          l$type == null ? null : toJson$Enum$LikeableType(l$type);
+      result$data['type'] = l$type == null
+          ? null
+          : toJson$Enum$LikeableType(l$type);
     }
     if (_$data.containsKey('id')) {
       final l$id = id;
@@ -1784,10 +1809,7 @@ class Variables$Mutation$ToggleLike {
   }
 
   CopyWith$Variables$Mutation$ToggleLike<Variables$Mutation$ToggleLike>
-      get copyWith => CopyWith$Variables$Mutation$ToggleLike(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Mutation$ToggleLike(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1837,18 +1859,12 @@ abstract class CopyWith$Variables$Mutation$ToggleLike<TRes> {
   factory CopyWith$Variables$Mutation$ToggleLike.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$ToggleLike;
 
-  TRes call({
-    Enum$LikeableType? type,
-    int? id,
-  });
+  TRes call({Enum$LikeableType? type, int? id});
 }
 
 class _CopyWithImpl$Variables$Mutation$ToggleLike<TRes>
     implements CopyWith$Variables$Mutation$ToggleLike<TRes> {
-  _CopyWithImpl$Variables$Mutation$ToggleLike(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Mutation$ToggleLike(this._instance, this._then);
 
   final Variables$Mutation$ToggleLike _instance;
 
@@ -1856,15 +1872,13 @@ class _CopyWithImpl$Variables$Mutation$ToggleLike<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? type = _undefined,
-    Object? id = _undefined,
-  }) =>
-      _then(Variables$Mutation$ToggleLike._({
-        ..._instance._$data,
-        if (type != _undefined) 'type': (type as Enum$LikeableType?),
-        if (id != _undefined) 'id': (id as int?),
-      }));
+  TRes call({Object? type = _undefined, Object? id = _undefined}) => _then(
+    Variables$Mutation$ToggleLike._({
+      ..._instance._$data,
+      if (type != _undefined) 'type': (type as Enum$LikeableType?),
+      if (id != _undefined) 'id': (id as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Mutation$ToggleLike<TRes>
@@ -1873,18 +1887,11 @@ class _CopyWithStubImpl$Variables$Mutation$ToggleLike<TRes>
 
   TRes _res;
 
-  call({
-    Enum$LikeableType? type,
-    int? id,
-  }) =>
-      _res;
+  call({Enum$LikeableType? type, int? id}) => _res;
 }
 
 class Mutation$ToggleLike {
-  Mutation$ToggleLike({
-    this.ToggleLikeV2,
-    this.$__typename = 'Mutation',
-  });
+  Mutation$ToggleLike({this.ToggleLikeV2, this.$__typename = 'Mutation'});
 
   factory Mutation$ToggleLike.fromJson(Map<String, dynamic> json) {
     final l$ToggleLikeV2 = json['ToggleLikeV2'];
@@ -1893,7 +1900,8 @@ class Mutation$ToggleLike {
       ToggleLikeV2: l$ToggleLikeV2 == null
           ? null
           : Mutation$ToggleLike$ToggleLikeV2.fromJson(
-              (l$ToggleLikeV2 as Map<String, dynamic>)),
+              (l$ToggleLikeV2 as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1915,10 +1923,7 @@ class Mutation$ToggleLike {
   int get hashCode {
     final l$ToggleLikeV2 = ToggleLikeV2;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$ToggleLikeV2,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$ToggleLikeV2, l$$__typename]);
   }
 
   @override
@@ -1945,10 +1950,7 @@ class Mutation$ToggleLike {
 
 extension UtilityExtension$Mutation$ToggleLike on Mutation$ToggleLike {
   CopyWith$Mutation$ToggleLike<Mutation$ToggleLike> get copyWith =>
-      CopyWith$Mutation$ToggleLike(
-        this,
-        (i) => i,
-      );
+      CopyWith$Mutation$ToggleLike(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$ToggleLike<TRes> {
@@ -1969,10 +1971,7 @@ abstract class CopyWith$Mutation$ToggleLike<TRes> {
 
 class _CopyWithImpl$Mutation$ToggleLike<TRes>
     implements CopyWith$Mutation$ToggleLike<TRes> {
-  _CopyWithImpl$Mutation$ToggleLike(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$ToggleLike(this._instance, this._then);
 
   final Mutation$ToggleLike _instance;
 
@@ -1983,22 +1982,25 @@ class _CopyWithImpl$Mutation$ToggleLike<TRes>
   TRes call({
     Object? ToggleLikeV2 = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$ToggleLike(
-        ToggleLikeV2: ToggleLikeV2 == _undefined
-            ? _instance.ToggleLikeV2
-            : (ToggleLikeV2 as Mutation$ToggleLike$ToggleLikeV2?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$ToggleLike(
+      ToggleLikeV2: ToggleLikeV2 == _undefined
+          ? _instance.ToggleLikeV2
+          : (ToggleLikeV2 as Mutation$ToggleLike$ToggleLikeV2?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Mutation$ToggleLike$ToggleLikeV2<TRes> get ToggleLikeV2 {
     final local$ToggleLikeV2 = _instance.ToggleLikeV2;
     return local$ToggleLikeV2 == null
         ? CopyWith$Mutation$ToggleLike$ToggleLikeV2.stub(_then(_instance))
         : CopyWith$Mutation$ToggleLike$ToggleLikeV2(
-            local$ToggleLikeV2, (e) => call(ToggleLikeV2: e));
+            local$ToggleLikeV2,
+            (e) => call(ToggleLikeV2: e),
+          );
   }
 }
 
@@ -2008,284 +2010,309 @@ class _CopyWithStubImpl$Mutation$ToggleLike<TRes>
 
   TRes _res;
 
-  call({
-    Mutation$ToggleLike$ToggleLikeV2? ToggleLikeV2,
-    String? $__typename,
-  }) =>
+  call({Mutation$ToggleLike$ToggleLikeV2? ToggleLikeV2, String? $__typename}) =>
       _res;
 
   CopyWith$Mutation$ToggleLike$ToggleLikeV2<TRes> get ToggleLikeV2 =>
       CopyWith$Mutation$ToggleLike$ToggleLikeV2.stub(_res);
 }
 
-const documentNodeMutationToggleLike = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'ToggleLike'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'type')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'LikeableType'),
-          isNonNull: false,
+const documentNodeMutationToggleLike = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'ToggleLike'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'type')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'LikeableType'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'ToggleLikeV2'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'type'),
-            value: VariableNode(name: NameNode(value: 'type')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'ListActivity'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'ToggleLikeV2'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'type'),
+                value: VariableNode(name: NameNode(value: 'type')),
+              ),
+              ArgumentNode(
                 name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
+                value: VariableNode(name: NameNode(value: 'id')),
               ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'MessageActivity'),
-              isNonNull: false,
-            )),
+            ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'TextActivity'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'ActivityReply'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'Thread'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'ThreadComment'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                      name: NameNode(value: 'ListActivity'),
+                      isNonNull: false,
+                    ),
+                  ),
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'likeCount'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'isLiked'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                      name: NameNode(value: 'MessageActivity'),
+                      isNonNull: false,
+                    ),
+                  ),
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'likeCount'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'isLiked'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                      name: NameNode(value: 'TextActivity'),
+                      isNonNull: false,
+                    ),
+                  ),
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'likeCount'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'isLiked'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                      name: NameNode(value: 'ActivityReply'),
+                      isNonNull: false,
+                    ),
+                  ),
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'likeCount'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'isLiked'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                      name: NameNode(value: 'Thread'),
+                      isNonNull: false,
+                    ),
+                  ),
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'likeCount'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'isLiked'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                InlineFragmentNode(
+                  typeCondition: TypeConditionNode(
+                    on: NamedTypeNode(
+                      name: NameNode(value: 'ThreadComment'),
+                      isNonNull: false,
+                    ),
+                  ),
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'likeCount'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'isLiked'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -2294,18 +2321,11 @@ const documentNodeMutationToggleLike = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 
 class Mutation$ToggleLike$ToggleLikeV2 {
   Mutation$ToggleLike$ToggleLikeV2({required this.$__typename});
@@ -2333,7 +2353,8 @@ class Mutation$ToggleLike$ToggleLikeV2 {
       default:
         final l$$__typename = json['__typename'];
         return Mutation$ToggleLike$ToggleLikeV2(
-            $__typename: (l$$__typename as String));
+          $__typename: (l$$__typename as String),
+        );
     }
   }
 
@@ -2373,47 +2394,50 @@ class Mutation$ToggleLike$ToggleLikeV2 {
 extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2
     on Mutation$ToggleLike$ToggleLikeV2 {
   CopyWith$Mutation$ToggleLike$ToggleLikeV2<Mutation$ToggleLike$ToggleLikeV2>
-      get copyWith => CopyWith$Mutation$ToggleLike$ToggleLikeV2(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Mutation$ToggleLike$ToggleLikeV2(this, (i) => i);
+
   _T when<_T>({
     required _T Function(Mutation$ToggleLike$ToggleLikeV2$$ListActivity)
-        listActivity,
+    listActivity,
     required _T Function(Mutation$ToggleLike$ToggleLikeV2$$MessageActivity)
-        messageActivity,
+    messageActivity,
     required _T Function(Mutation$ToggleLike$ToggleLikeV2$$TextActivity)
-        textActivity,
+    textActivity,
     required _T Function(Mutation$ToggleLike$ToggleLikeV2$$ActivityReply)
-        activityReply,
+    activityReply,
     required _T Function(Mutation$ToggleLike$ToggleLikeV2$$Thread) thread,
     required _T Function(Mutation$ToggleLike$ToggleLikeV2$$ThreadComment)
-        threadComment,
+    threadComment,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "ListActivity":
         return listActivity(
-            this as Mutation$ToggleLike$ToggleLikeV2$$ListActivity);
+          this as Mutation$ToggleLike$ToggleLikeV2$$ListActivity,
+        );
 
       case "MessageActivity":
         return messageActivity(
-            this as Mutation$ToggleLike$ToggleLikeV2$$MessageActivity);
+          this as Mutation$ToggleLike$ToggleLikeV2$$MessageActivity,
+        );
 
       case "TextActivity":
         return textActivity(
-            this as Mutation$ToggleLike$ToggleLikeV2$$TextActivity);
+          this as Mutation$ToggleLike$ToggleLikeV2$$TextActivity,
+        );
 
       case "ActivityReply":
         return activityReply(
-            this as Mutation$ToggleLike$ToggleLikeV2$$ActivityReply);
+          this as Mutation$ToggleLike$ToggleLikeV2$$ActivityReply,
+        );
 
       case "Thread":
         return thread(this as Mutation$ToggleLike$ToggleLikeV2$$Thread);
 
       case "ThreadComment":
         return threadComment(
-            this as Mutation$ToggleLike$ToggleLikeV2$$ThreadComment);
+          this as Mutation$ToggleLike$ToggleLikeV2$$ThreadComment,
+        );
 
       default:
         return orElse();
@@ -2423,7 +2447,7 @@ extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2
   _T maybeWhen<_T>({
     _T Function(Mutation$ToggleLike$ToggleLikeV2$$ListActivity)? listActivity,
     _T Function(Mutation$ToggleLike$ToggleLikeV2$$MessageActivity)?
-        messageActivity,
+    messageActivity,
     _T Function(Mutation$ToggleLike$ToggleLikeV2$$TextActivity)? textActivity,
     _T Function(Mutation$ToggleLike$ToggleLikeV2$$ActivityReply)? activityReply,
     _T Function(Mutation$ToggleLike$ToggleLikeV2$$Thread)? thread,
@@ -2434,7 +2458,8 @@ extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2
       case "ListActivity":
         if (listActivity != null) {
           return listActivity(
-              this as Mutation$ToggleLike$ToggleLikeV2$$ListActivity);
+            this as Mutation$ToggleLike$ToggleLikeV2$$ListActivity,
+          );
         } else {
           return orElse();
         }
@@ -2442,7 +2467,8 @@ extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2
       case "MessageActivity":
         if (messageActivity != null) {
           return messageActivity(
-              this as Mutation$ToggleLike$ToggleLikeV2$$MessageActivity);
+            this as Mutation$ToggleLike$ToggleLikeV2$$MessageActivity,
+          );
         } else {
           return orElse();
         }
@@ -2450,7 +2476,8 @@ extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2
       case "TextActivity":
         if (textActivity != null) {
           return textActivity(
-              this as Mutation$ToggleLike$ToggleLikeV2$$TextActivity);
+            this as Mutation$ToggleLike$ToggleLikeV2$$TextActivity,
+          );
         } else {
           return orElse();
         }
@@ -2458,7 +2485,8 @@ extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2
       case "ActivityReply":
         if (activityReply != null) {
           return activityReply(
-              this as Mutation$ToggleLike$ToggleLikeV2$$ActivityReply);
+            this as Mutation$ToggleLike$ToggleLikeV2$$ActivityReply,
+          );
         } else {
           return orElse();
         }
@@ -2473,7 +2501,8 @@ extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2
       case "ThreadComment":
         if (threadComment != null) {
           return threadComment(
-              this as Mutation$ToggleLike$ToggleLikeV2$$ThreadComment);
+            this as Mutation$ToggleLike$ToggleLikeV2$$ThreadComment,
+          );
         } else {
           return orElse();
         }
@@ -2498,10 +2527,7 @@ abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2<TRes> {
 
 class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2<TRes>
     implements CopyWith$Mutation$ToggleLike$ToggleLikeV2<TRes> {
-  _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2(this._instance, this._then);
 
   final Mutation$ToggleLike$ToggleLikeV2 _instance;
 
@@ -2509,11 +2535,13 @@ class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Mutation$ToggleLike$ToggleLikeV2(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Mutation$ToggleLike$ToggleLikeV2(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2<TRes>
@@ -2535,7 +2563,8 @@ class Mutation$ToggleLike$ToggleLikeV2$$ListActivity
   });
 
   factory Mutation$ToggleLike$ToggleLikeV2$$ListActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
@@ -2575,12 +2604,7 @@ class Mutation$ToggleLike$ToggleLikeV2$$ListActivity
     final l$likeCount = likeCount;
     final l$isLiked = isLiked;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$likeCount,
-      l$isLiked,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$likeCount, l$isLiked, l$$__typename]);
   }
 
   @override
@@ -2619,11 +2643,10 @@ class Mutation$ToggleLike$ToggleLikeV2$$ListActivity
 extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2$$ListActivity
     on Mutation$ToggleLike$ToggleLikeV2$$ListActivity {
   CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ListActivity<
-          Mutation$ToggleLike$ToggleLikeV2$$ListActivity>
-      get copyWith => CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ListActivity(
-            this,
-            (i) => i,
-          );
+    Mutation$ToggleLike$ToggleLikeV2$$ListActivity
+  >
+  get copyWith =>
+      CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ListActivity(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ListActivity<TRes> {
@@ -2633,15 +2656,10 @@ abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ListActivity<TRes> {
   ) = _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$ListActivity;
 
   factory CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ListActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ListActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ListActivity;
 
-  TRes call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  });
+  TRes call({int? id, int? likeCount, bool? isLiked, String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$ListActivity<TRes>
@@ -2662,17 +2680,18 @@ class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$ListActivity<TRes>
     Object? likeCount = _undefined,
     Object? isLiked = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$ToggleLike$ToggleLikeV2$$ListActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$ToggleLike$ToggleLikeV2$$ListActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ListActivity<TRes>
@@ -2681,13 +2700,7 @@ class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ListActivity<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, int? likeCount, bool? isLiked, String? $__typename}) => _res;
 }
 
 class Mutation$ToggleLike$ToggleLikeV2$$MessageActivity
@@ -2700,7 +2713,8 @@ class Mutation$ToggleLike$ToggleLikeV2$$MessageActivity
   });
 
   factory Mutation$ToggleLike$ToggleLikeV2$$MessageActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
@@ -2740,12 +2754,7 @@ class Mutation$ToggleLike$ToggleLikeV2$$MessageActivity
     final l$likeCount = likeCount;
     final l$isLiked = isLiked;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$likeCount,
-      l$isLiked,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$likeCount, l$isLiked, l$$__typename]);
   }
 
   @override
@@ -2784,31 +2793,27 @@ class Mutation$ToggleLike$ToggleLikeV2$$MessageActivity
 extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity
     on Mutation$ToggleLike$ToggleLikeV2$$MessageActivity {
   CopyWith$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity<
-          Mutation$ToggleLike$ToggleLikeV2$$MessageActivity>
-      get copyWith =>
-          CopyWith$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity(
-            this,
-            (i) => i,
-          );
+    Mutation$ToggleLike$ToggleLikeV2$$MessageActivity
+  >
+  get copyWith => CopyWith$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity(
     Mutation$ToggleLike$ToggleLikeV2$$MessageActivity instance,
     TRes Function(Mutation$ToggleLike$ToggleLikeV2$$MessageActivity) then,
   ) = _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity;
 
   factory CopyWith$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity;
 
-  TRes call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  });
+  TRes call({int? id, int? likeCount, bool? isLiked, String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity<TRes>
@@ -2830,34 +2835,30 @@ class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity<TRes>
     Object? likeCount = _undefined,
     Object? isLiked = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$ToggleLike$ToggleLikeV2$$MessageActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$ToggleLike$ToggleLikeV2$$MessageActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity<TRes>
     implements
         CopyWith$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity<TRes> {
   _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$MessageActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, int? likeCount, bool? isLiked, String? $__typename}) => _res;
 }
 
 class Mutation$ToggleLike$ToggleLikeV2$$TextActivity
@@ -2870,7 +2871,8 @@ class Mutation$ToggleLike$ToggleLikeV2$$TextActivity
   });
 
   factory Mutation$ToggleLike$ToggleLikeV2$$TextActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
@@ -2910,12 +2912,7 @@ class Mutation$ToggleLike$ToggleLikeV2$$TextActivity
     final l$likeCount = likeCount;
     final l$isLiked = isLiked;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$likeCount,
-      l$isLiked,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$likeCount, l$isLiked, l$$__typename]);
   }
 
   @override
@@ -2954,11 +2951,10 @@ class Mutation$ToggleLike$ToggleLikeV2$$TextActivity
 extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2$$TextActivity
     on Mutation$ToggleLike$ToggleLikeV2$$TextActivity {
   CopyWith$Mutation$ToggleLike$ToggleLikeV2$$TextActivity<
-          Mutation$ToggleLike$ToggleLikeV2$$TextActivity>
-      get copyWith => CopyWith$Mutation$ToggleLike$ToggleLikeV2$$TextActivity(
-            this,
-            (i) => i,
-          );
+    Mutation$ToggleLike$ToggleLikeV2$$TextActivity
+  >
+  get copyWith =>
+      CopyWith$Mutation$ToggleLike$ToggleLikeV2$$TextActivity(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$TextActivity<TRes> {
@@ -2968,15 +2964,10 @@ abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$TextActivity<TRes> {
   ) = _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$TextActivity;
 
   factory CopyWith$Mutation$ToggleLike$ToggleLikeV2$$TextActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$TextActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$TextActivity;
 
-  TRes call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  });
+  TRes call({int? id, int? likeCount, bool? isLiked, String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$TextActivity<TRes>
@@ -2997,17 +2988,18 @@ class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$TextActivity<TRes>
     Object? likeCount = _undefined,
     Object? isLiked = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$ToggleLike$ToggleLikeV2$$TextActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$ToggleLike$ToggleLikeV2$$TextActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$TextActivity<TRes>
@@ -3016,13 +3008,7 @@ class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$TextActivity<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, int? likeCount, bool? isLiked, String? $__typename}) => _res;
 }
 
 class Mutation$ToggleLike$ToggleLikeV2$$ActivityReply
@@ -3035,7 +3021,8 @@ class Mutation$ToggleLike$ToggleLikeV2$$ActivityReply
   });
 
   factory Mutation$ToggleLike$ToggleLikeV2$$ActivityReply.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
@@ -3075,12 +3062,7 @@ class Mutation$ToggleLike$ToggleLikeV2$$ActivityReply
     final l$likeCount = likeCount;
     final l$isLiked = isLiked;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$likeCount,
-      l$isLiked,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$likeCount, l$isLiked, l$$__typename]);
   }
 
   @override
@@ -3119,11 +3101,10 @@ class Mutation$ToggleLike$ToggleLikeV2$$ActivityReply
 extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply
     on Mutation$ToggleLike$ToggleLikeV2$$ActivityReply {
   CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply<
-          Mutation$ToggleLike$ToggleLikeV2$$ActivityReply>
-      get copyWith => CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply(
-            this,
-            (i) => i,
-          );
+    Mutation$ToggleLike$ToggleLikeV2$$ActivityReply
+  >
+  get copyWith =>
+      CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply<TRes> {
@@ -3133,15 +3114,10 @@ abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply<TRes> {
   ) = _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply;
 
   factory CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply;
 
-  TRes call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  });
+  TRes call({int? id, int? likeCount, bool? isLiked, String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply<TRes>
@@ -3162,17 +3138,18 @@ class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply<TRes>
     Object? likeCount = _undefined,
     Object? isLiked = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$ToggleLike$ToggleLikeV2$$ActivityReply(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$ToggleLike$ToggleLikeV2$$ActivityReply(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply<TRes>
@@ -3181,13 +3158,7 @@ class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ActivityReply<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, int? likeCount, bool? isLiked, String? $__typename}) => _res;
 }
 
 class Mutation$ToggleLike$ToggleLikeV2$$Thread
@@ -3200,7 +3171,8 @@ class Mutation$ToggleLike$ToggleLikeV2$$Thread
   });
 
   factory Mutation$ToggleLike$ToggleLikeV2$$Thread.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
@@ -3240,12 +3212,7 @@ class Mutation$ToggleLike$ToggleLikeV2$$Thread
     final l$likeCount = likeCount;
     final l$isLiked = isLiked;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$likeCount,
-      l$isLiked,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$likeCount, l$isLiked, l$$__typename]);
   }
 
   @override
@@ -3284,11 +3251,10 @@ class Mutation$ToggleLike$ToggleLikeV2$$Thread
 extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2$$Thread
     on Mutation$ToggleLike$ToggleLikeV2$$Thread {
   CopyWith$Mutation$ToggleLike$ToggleLikeV2$$Thread<
-          Mutation$ToggleLike$ToggleLikeV2$$Thread>
-      get copyWith => CopyWith$Mutation$ToggleLike$ToggleLikeV2$$Thread(
-            this,
-            (i) => i,
-          );
+    Mutation$ToggleLike$ToggleLikeV2$$Thread
+  >
+  get copyWith =>
+      CopyWith$Mutation$ToggleLike$ToggleLikeV2$$Thread(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$Thread<TRes> {
@@ -3300,12 +3266,7 @@ abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$Thread<TRes> {
   factory CopyWith$Mutation$ToggleLike$ToggleLikeV2$$Thread.stub(TRes res) =
       _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$Thread;
 
-  TRes call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  });
+  TRes call({int? id, int? likeCount, bool? isLiked, String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$Thread<TRes>
@@ -3326,17 +3287,18 @@ class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$Thread<TRes>
     Object? likeCount = _undefined,
     Object? isLiked = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$ToggleLike$ToggleLikeV2$$Thread(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$ToggleLike$ToggleLikeV2$$Thread(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$Thread<TRes>
@@ -3345,13 +3307,7 @@ class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$Thread<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, int? likeCount, bool? isLiked, String? $__typename}) => _res;
 }
 
 class Mutation$ToggleLike$ToggleLikeV2$$ThreadComment
@@ -3364,7 +3320,8 @@ class Mutation$ToggleLike$ToggleLikeV2$$ThreadComment
   });
 
   factory Mutation$ToggleLike$ToggleLikeV2$$ThreadComment.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
@@ -3404,12 +3361,7 @@ class Mutation$ToggleLike$ToggleLikeV2$$ThreadComment
     final l$likeCount = likeCount;
     final l$isLiked = isLiked;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$likeCount,
-      l$isLiked,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$likeCount, l$isLiked, l$$__typename]);
   }
 
   @override
@@ -3448,11 +3400,10 @@ class Mutation$ToggleLike$ToggleLikeV2$$ThreadComment
 extension UtilityExtension$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment
     on Mutation$ToggleLike$ToggleLikeV2$$ThreadComment {
   CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment<
-          Mutation$ToggleLike$ToggleLikeV2$$ThreadComment>
-      get copyWith => CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment(
-            this,
-            (i) => i,
-          );
+    Mutation$ToggleLike$ToggleLikeV2$$ThreadComment
+  >
+  get copyWith =>
+      CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment<TRes> {
@@ -3462,15 +3413,10 @@ abstract class CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment<TRes> {
   ) = _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment;
 
   factory CopyWith$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment;
 
-  TRes call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  });
+  TRes call({int? id, int? likeCount, bool? isLiked, String? $__typename});
 }
 
 class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment<TRes>
@@ -3491,17 +3437,18 @@ class _CopyWithImpl$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment<TRes>
     Object? likeCount = _undefined,
     Object? isLiked = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$ToggleLike$ToggleLikeV2$$ThreadComment(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$ToggleLike$ToggleLikeV2$$ThreadComment(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment<TRes>
@@ -3510,20 +3457,11 @@ class _CopyWithStubImpl$Mutation$ToggleLike$ToggleLikeV2$$ThreadComment<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    int? likeCount,
-    bool? isLiked,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, int? likeCount, bool? isLiked, String? $__typename}) => _res;
 }
 
 class Variables$Mutation$SaveTextActivity {
-  factory Variables$Mutation$SaveTextActivity({
-    int? id,
-    String? text,
-  }) =>
+  factory Variables$Mutation$SaveTextActivity({int? id, String? text}) =>
       Variables$Mutation$SaveTextActivity._({
         if (id != null) r'id': id,
         if (text != null) r'text': text,
@@ -3532,7 +3470,8 @@ class Variables$Mutation$SaveTextActivity {
   Variables$Mutation$SaveTextActivity._(this._$data);
 
   factory Variables$Mutation$SaveTextActivity.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('id')) {
       final l$id = data['id'];
@@ -3565,11 +3504,9 @@ class Variables$Mutation$SaveTextActivity {
   }
 
   CopyWith$Variables$Mutation$SaveTextActivity<
-          Variables$Mutation$SaveTextActivity>
-      get copyWith => CopyWith$Variables$Mutation$SaveTextActivity(
-            this,
-            (i) => i,
-          );
+    Variables$Mutation$SaveTextActivity
+  >
+  get copyWith => CopyWith$Variables$Mutation$SaveTextActivity(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -3619,18 +3556,12 @@ abstract class CopyWith$Variables$Mutation$SaveTextActivity<TRes> {
   factory CopyWith$Variables$Mutation$SaveTextActivity.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$SaveTextActivity;
 
-  TRes call({
-    int? id,
-    String? text,
-  });
+  TRes call({int? id, String? text});
 }
 
 class _CopyWithImpl$Variables$Mutation$SaveTextActivity<TRes>
     implements CopyWith$Variables$Mutation$SaveTextActivity<TRes> {
-  _CopyWithImpl$Variables$Mutation$SaveTextActivity(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Mutation$SaveTextActivity(this._instance, this._then);
 
   final Variables$Mutation$SaveTextActivity _instance;
 
@@ -3638,15 +3569,13 @@ class _CopyWithImpl$Variables$Mutation$SaveTextActivity<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? text = _undefined,
-  }) =>
-      _then(Variables$Mutation$SaveTextActivity._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-        if (text != _undefined) 'text': (text as String?),
-      }));
+  TRes call({Object? id = _undefined, Object? text = _undefined}) => _then(
+    Variables$Mutation$SaveTextActivity._({
+      ..._instance._$data,
+      if (id != _undefined) 'id': (id as int?),
+      if (text != _undefined) 'text': (text as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Mutation$SaveTextActivity<TRes>
@@ -3655,11 +3584,7 @@ class _CopyWithStubImpl$Variables$Mutation$SaveTextActivity<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    String? text,
-  }) =>
-      _res;
+  call({int? id, String? text}) => _res;
 }
 
 class Mutation$SaveTextActivity {
@@ -3675,7 +3600,8 @@ class Mutation$SaveTextActivity {
       SaveTextActivity: l$SaveTextActivity == null
           ? null
           : Mutation$SaveTextActivity$SaveTextActivity.fromJson(
-              (l$SaveTextActivity as Map<String, dynamic>)),
+              (l$SaveTextActivity as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -3697,10 +3623,7 @@ class Mutation$SaveTextActivity {
   int get hashCode {
     final l$SaveTextActivity = SaveTextActivity;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$SaveTextActivity,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$SaveTextActivity, l$$__typename]);
   }
 
   @override
@@ -3729,10 +3652,7 @@ class Mutation$SaveTextActivity {
 extension UtilityExtension$Mutation$SaveTextActivity
     on Mutation$SaveTextActivity {
   CopyWith$Mutation$SaveTextActivity<Mutation$SaveTextActivity> get copyWith =>
-      CopyWith$Mutation$SaveTextActivity(
-        this,
-        (i) => i,
-      );
+      CopyWith$Mutation$SaveTextActivity(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$SaveTextActivity<TRes> {
@@ -3749,15 +3669,12 @@ abstract class CopyWith$Mutation$SaveTextActivity<TRes> {
     String? $__typename,
   });
   CopyWith$Mutation$SaveTextActivity$SaveTextActivity<TRes>
-      get SaveTextActivity;
+  get SaveTextActivity;
 }
 
 class _CopyWithImpl$Mutation$SaveTextActivity<TRes>
     implements CopyWith$Mutation$SaveTextActivity<TRes> {
-  _CopyWithImpl$Mutation$SaveTextActivity(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$SaveTextActivity(this._instance, this._then);
 
   final Mutation$SaveTextActivity _instance;
 
@@ -3768,24 +3685,28 @@ class _CopyWithImpl$Mutation$SaveTextActivity<TRes>
   TRes call({
     Object? SaveTextActivity = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$SaveTextActivity(
-        SaveTextActivity: SaveTextActivity == _undefined
-            ? _instance.SaveTextActivity
-            : (SaveTextActivity as Mutation$SaveTextActivity$SaveTextActivity?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$SaveTextActivity(
+      SaveTextActivity: SaveTextActivity == _undefined
+          ? _instance.SaveTextActivity
+          : (SaveTextActivity as Mutation$SaveTextActivity$SaveTextActivity?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Mutation$SaveTextActivity$SaveTextActivity<TRes>
-      get SaveTextActivity {
+  get SaveTextActivity {
     final local$SaveTextActivity = _instance.SaveTextActivity;
     return local$SaveTextActivity == null
         ? CopyWith$Mutation$SaveTextActivity$SaveTextActivity.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Mutation$SaveTextActivity$SaveTextActivity(
-            local$SaveTextActivity, (e) => call(SaveTextActivity: e));
+            local$SaveTextActivity,
+            (e) => call(SaveTextActivity: e),
+          );
   }
 }
 
@@ -3798,143 +3719,154 @@ class _CopyWithStubImpl$Mutation$SaveTextActivity<TRes>
   call({
     Mutation$SaveTextActivity$SaveTextActivity? SaveTextActivity,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Mutation$SaveTextActivity$SaveTextActivity<TRes>
-      get SaveTextActivity =>
-          CopyWith$Mutation$SaveTextActivity$SaveTextActivity.stub(_res);
+  get SaveTextActivity =>
+      CopyWith$Mutation$SaveTextActivity$SaveTextActivity.stub(_res);
 }
 
-const documentNodeMutationSaveTextActivity = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'SaveTextActivity'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeMutationSaveTextActivity = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'SaveTextActivity'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'text')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'text')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'SaveTextActivity'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'text'),
-            value: VariableNode(name: NameNode(value: 'text')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'id'),
+            name: NameNode(value: 'SaveTextActivity'),
             alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'userId'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'type'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'replyCount'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'text'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'isLocked'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'isSubscribed'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'isLiked'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'likeCount'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'createdAt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'user'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'UserFragment'),
-                directives: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
               ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
+              ArgumentNode(
+                name: NameNode(value: 'text'),
+                value: VariableNode(name: NameNode(value: 'text')),
               ),
-            ]),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'id'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'userId'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'type'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'replyCount'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'text'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'isLocked'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'isSubscribed'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'isLiked'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'likeCount'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'createdAt'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'user'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'UserFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -3943,19 +3875,12 @@ const documentNodeMutationSaveTextActivity = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Mutation$SaveTextActivity$SaveTextActivity {
   Mutation$SaveTextActivity$SaveTextActivity({
@@ -3974,7 +3899,8 @@ class Mutation$SaveTextActivity$SaveTextActivity {
   });
 
   factory Mutation$SaveTextActivity$SaveTextActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$userId = json['userId'];
     final l$type = json['type'];
@@ -4038,8 +3964,9 @@ class Mutation$SaveTextActivity$SaveTextActivity {
     final l$userId = userId;
     _resultData['userId'] = l$userId;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$replyCount = replyCount;
     _resultData['replyCount'] = l$replyCount;
     final l$text = text;
@@ -4167,11 +4094,10 @@ class Mutation$SaveTextActivity$SaveTextActivity {
 extension UtilityExtension$Mutation$SaveTextActivity$SaveTextActivity
     on Mutation$SaveTextActivity$SaveTextActivity {
   CopyWith$Mutation$SaveTextActivity$SaveTextActivity<
-          Mutation$SaveTextActivity$SaveTextActivity>
-      get copyWith => CopyWith$Mutation$SaveTextActivity$SaveTextActivity(
-            this,
-            (i) => i,
-          );
+    Mutation$SaveTextActivity$SaveTextActivity
+  >
+  get copyWith =>
+      CopyWith$Mutation$SaveTextActivity$SaveTextActivity(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$SaveTextActivity$SaveTextActivity<TRes> {
@@ -4226,35 +4152,36 @@ class _CopyWithImpl$Mutation$SaveTextActivity$SaveTextActivity<TRes>
     Object? createdAt = _undefined,
     Object? user = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$SaveTextActivity$SaveTextActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        text: text == _undefined ? _instance.text : (text as String?),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$SaveTextActivity$SaveTextActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      userId: userId == _undefined ? _instance.userId : (userId as int?),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      replyCount: replyCount == _undefined || replyCount == null
+          ? _instance.replyCount
+          : (replyCount as int),
+      text: text == _undefined ? _instance.text : (text as String?),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      isSubscribed: isSubscribed == _undefined
+          ? _instance.isSubscribed
+          : (isSubscribed as bool?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -4283,8 +4210,7 @@ class _CopyWithStubImpl$Mutation$SaveTextActivity$SaveTextActivity<TRes>
     int? createdAt,
     Fragment$UserFragment? user,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);

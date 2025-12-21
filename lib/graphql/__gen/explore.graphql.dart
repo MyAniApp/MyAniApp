@@ -8,13 +8,12 @@ class Variables$Query$Explore {
     int? seasonYear,
     Enum$MediaSeason? nextSeason,
     int? nextYear,
-  }) =>
-      Variables$Query$Explore._({
-        if (season != null) r'season': season,
-        if (seasonYear != null) r'seasonYear': seasonYear,
-        if (nextSeason != null) r'nextSeason': nextSeason,
-        if (nextYear != null) r'nextYear': nextYear,
-      });
+  }) => Variables$Query$Explore._({
+    if (season != null) r'season': season,
+    if (seasonYear != null) r'seasonYear': seasonYear,
+    if (nextSeason != null) r'nextSeason': nextSeason,
+    if (nextYear != null) r'nextYear': nextYear,
+  });
 
   Variables$Query$Explore._(this._$data);
 
@@ -58,8 +57,9 @@ class Variables$Query$Explore {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('season')) {
       final l$season = season;
-      result$data['season'] =
-          l$season == null ? null : toJson$Enum$MediaSeason(l$season);
+      result$data['season'] = l$season == null
+          ? null
+          : toJson$Enum$MediaSeason(l$season);
     }
     if (_$data.containsKey('seasonYear')) {
       final l$seasonYear = seasonYear;
@@ -67,8 +67,9 @@ class Variables$Query$Explore {
     }
     if (_$data.containsKey('nextSeason')) {
       final l$nextSeason = nextSeason;
-      result$data['nextSeason'] =
-          l$nextSeason == null ? null : toJson$Enum$MediaSeason(l$nextSeason);
+      result$data['nextSeason'] = l$nextSeason == null
+          ? null
+          : toJson$Enum$MediaSeason(l$nextSeason);
     }
     if (_$data.containsKey('nextYear')) {
       final l$nextYear = nextYear;
@@ -78,10 +79,7 @@ class Variables$Query$Explore {
   }
 
   CopyWith$Variables$Query$Explore<Variables$Query$Explore> get copyWith =>
-      CopyWith$Variables$Query$Explore(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$Explore(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -163,10 +161,7 @@ abstract class CopyWith$Variables$Query$Explore<TRes> {
 
 class _CopyWithImpl$Variables$Query$Explore<TRes>
     implements CopyWith$Variables$Query$Explore<TRes> {
-  _CopyWithImpl$Variables$Query$Explore(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Explore(this._instance, this._then);
 
   final Variables$Query$Explore _instance;
 
@@ -179,15 +174,16 @@ class _CopyWithImpl$Variables$Query$Explore<TRes>
     Object? seasonYear = _undefined,
     Object? nextSeason = _undefined,
     Object? nextYear = _undefined,
-  }) =>
-      _then(Variables$Query$Explore._({
-        ..._instance._$data,
-        if (season != _undefined) 'season': (season as Enum$MediaSeason?),
-        if (seasonYear != _undefined) 'seasonYear': (seasonYear as int?),
-        if (nextSeason != _undefined)
-          'nextSeason': (nextSeason as Enum$MediaSeason?),
-        if (nextYear != _undefined) 'nextYear': (nextYear as int?),
-      }));
+  }) => _then(
+    Variables$Query$Explore._({
+      ..._instance._$data,
+      if (season != _undefined) 'season': (season as Enum$MediaSeason?),
+      if (seasonYear != _undefined) 'seasonYear': (seasonYear as int?),
+      if (nextSeason != _undefined)
+        'nextSeason': (nextSeason as Enum$MediaSeason?),
+      if (nextYear != _undefined) 'nextYear': (nextYear as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Explore<TRes>
@@ -201,8 +197,7 @@ class _CopyWithStubImpl$Variables$Query$Explore<TRes>
     int? seasonYear,
     Enum$MediaSeason? nextSeason,
     int? nextYear,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Explore {
@@ -226,14 +221,16 @@ class Query$Explore {
       trending: l$trending == null
           ? null
           : Query$Explore$trending.fromJson(
-              (l$trending as Map<String, dynamic>)),
+              (l$trending as Map<String, dynamic>),
+            ),
       season: l$season == null
           ? null
           : Query$Explore$season.fromJson((l$season as Map<String, dynamic>)),
       nextSeason: l$nextSeason == null
           ? null
           : Query$Explore$nextSeason.fromJson(
-              (l$nextSeason as Map<String, dynamic>)),
+              (l$nextSeason as Map<String, dynamic>),
+            ),
       popular: l$popular == null
           ? null
           : Query$Explore$popular.fromJson((l$popular as Map<String, dynamic>)),
@@ -334,10 +331,8 @@ class Query$Explore {
 }
 
 extension UtilityExtension$Query$Explore on Query$Explore {
-  CopyWith$Query$Explore<Query$Explore> get copyWith => CopyWith$Query$Explore(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Explore<Query$Explore> get copyWith =>
+      CopyWith$Query$Explore(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Explore<TRes> {
@@ -366,10 +361,7 @@ abstract class CopyWith$Query$Explore<TRes> {
 
 class _CopyWithImpl$Query$Explore<TRes>
     implements CopyWith$Query$Explore<TRes> {
-  _CopyWithImpl$Query$Explore(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Explore(this._instance, this._then);
 
   final Query$Explore _instance;
 
@@ -384,34 +376,37 @@ class _CopyWithImpl$Query$Explore<TRes>
     Object? popular = _undefined,
     Object? recent = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Explore(
-        trending: trending == _undefined
-            ? _instance.trending
-            : (trending as Query$Explore$trending?),
-        season: season == _undefined
-            ? _instance.season
-            : (season as Query$Explore$season?),
-        nextSeason: nextSeason == _undefined
-            ? _instance.nextSeason
-            : (nextSeason as Query$Explore$nextSeason?),
-        popular: popular == _undefined
-            ? _instance.popular
-            : (popular as Query$Explore$popular?),
-        recent: recent == _undefined
-            ? _instance.recent
-            : (recent as Query$Explore$recent?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Explore(
+      trending: trending == _undefined
+          ? _instance.trending
+          : (trending as Query$Explore$trending?),
+      season: season == _undefined
+          ? _instance.season
+          : (season as Query$Explore$season?),
+      nextSeason: nextSeason == _undefined
+          ? _instance.nextSeason
+          : (nextSeason as Query$Explore$nextSeason?),
+      popular: popular == _undefined
+          ? _instance.popular
+          : (popular as Query$Explore$popular?),
+      recent: recent == _undefined
+          ? _instance.recent
+          : (recent as Query$Explore$recent?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Explore$trending<TRes> get trending {
     final local$trending = _instance.trending;
     return local$trending == null
         ? CopyWith$Query$Explore$trending.stub(_then(_instance))
         : CopyWith$Query$Explore$trending(
-            local$trending, (e) => call(trending: e));
+            local$trending,
+            (e) => call(trending: e),
+          );
   }
 
   CopyWith$Query$Explore$season<TRes> get season {
@@ -426,7 +421,9 @@ class _CopyWithImpl$Query$Explore<TRes>
     return local$nextSeason == null
         ? CopyWith$Query$Explore$nextSeason.stub(_then(_instance))
         : CopyWith$Query$Explore$nextSeason(
-            local$nextSeason, (e) => call(nextSeason: e));
+            local$nextSeason,
+            (e) => call(nextSeason: e),
+          );
   }
 
   CopyWith$Query$Explore$popular<TRes> get popular {
@@ -434,7 +431,9 @@ class _CopyWithImpl$Query$Explore<TRes>
     return local$popular == null
         ? CopyWith$Query$Explore$popular.stub(_then(_instance))
         : CopyWith$Query$Explore$popular(
-            local$popular, (e) => call(popular: e));
+            local$popular,
+            (e) => call(popular: e),
+          );
   }
 
   CopyWith$Query$Explore$recent<TRes> get recent {
@@ -458,8 +457,7 @@ class _CopyWithStubImpl$Query$Explore<TRes>
     Query$Explore$popular? popular,
     Query$Explore$recent? recent,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Explore$trending<TRes> get trending =>
       CopyWith$Query$Explore$trending.stub(_res);
@@ -477,96 +475,365 @@ class _CopyWithStubImpl$Query$Explore<TRes>
       CopyWith$Query$Explore$recent.stub(_res);
 }
 
-const documentNodeQueryExplore = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Explore'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'season')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MediaSeason'),
-          isNonNull: false,
+const documentNodeQueryExplore = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Explore'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'season')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaSeason'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'seasonYear')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'seasonYear')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nextSeason')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MediaSeason'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nextSeason')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaSeason'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'nextYear')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'nextYear')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'trending'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: IntValueNode(value: '1'),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '10'),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'media'),
-            alias: null,
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'trending'),
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'TRENDING_DESC')),
+                name: NameNode(value: 'page'),
+                value: IntValueNode(value: '1'),
               ),
               ArgumentNode(
-                name: NameNode(value: 'type'),
-                value: EnumValueNode(name: NameNode(value: 'ANIME')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'isAdult'),
-                value: BooleanValueNode(value: false),
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '10'),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MediaFragment'),
-                directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(
+                        name: NameNode(value: 'TRENDING_DESC'),
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type'),
+                      value: EnumValueNode(name: NameNode(value: 'ANIME')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'isAdult'),
+                      value: BooleanValueNode(value: false),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'season'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: IntValueNode(value: '1'),
               ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '13'),
               ),
-            ]),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'season'),
+                      value: VariableNode(name: NameNode(value: 'season')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'seasonYear'),
+                      value: VariableNode(name: NameNode(value: 'seasonYear')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(
+                        name: NameNode(value: 'POPULARITY_DESC'),
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type'),
+                      value: EnumValueNode(name: NameNode(value: 'ANIME')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'isAdult'),
+                      value: BooleanValueNode(value: false),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'nextSeason'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: IntValueNode(value: '1'),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '14'),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'season'),
+                      value: VariableNode(name: NameNode(value: 'nextSeason')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'seasonYear'),
+                      value: VariableNode(name: NameNode(value: 'nextYear')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(
+                        name: NameNode(value: 'POPULARITY_DESC'),
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type'),
+                      value: EnumValueNode(name: NameNode(value: 'ANIME')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'isAdult'),
+                      value: BooleanValueNode(value: false),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'popular'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: IntValueNode(value: '1'),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '11'),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(
+                        name: NameNode(value: 'POPULARITY_DESC'),
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type'),
+                      value: EnumValueNode(name: NameNode(value: 'ANIME')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'isAdult'),
+                      value: BooleanValueNode(value: false),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'recent'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: IntValueNode(value: '1'),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '12'),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'isAdult'),
+                      value: BooleanValueNode(value: false),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -575,270 +842,26 @@ const documentNodeQueryExplore = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'season'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: IntValueNode(value: '1'),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '13'),
-          ),
         ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'media'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'season'),
-                value: VariableNode(name: NameNode(value: 'season')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'seasonYear'),
-                value: VariableNode(name: NameNode(value: 'seasonYear')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'POPULARITY_DESC')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'type'),
-                value: EnumValueNode(name: NameNode(value: 'ANIME')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'isAdult'),
-                value: BooleanValueNode(value: false),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MediaFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
       ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'nextSeason'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: IntValueNode(value: '1'),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '14'),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'media'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'season'),
-                value: VariableNode(name: NameNode(value: 'nextSeason')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'seasonYear'),
-                value: VariableNode(name: NameNode(value: 'nextYear')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'POPULARITY_DESC')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'type'),
-                value: EnumValueNode(name: NameNode(value: 'ANIME')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'isAdult'),
-                value: BooleanValueNode(value: false),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MediaFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'popular'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: IntValueNode(value: '1'),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '11'),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'media'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'POPULARITY_DESC')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'type'),
-                value: EnumValueNode(name: NameNode(value: 'ANIME')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'isAdult'),
-                value: BooleanValueNode(value: false),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MediaFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'recent'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: IntValueNode(value: '1'),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '12'),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'media'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'isAdult'),
-                value: BooleanValueNode(value: false),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MediaFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Query$Explore$trending {
-  Query$Explore$trending({
-    this.media,
-    this.$__typename = 'Page',
-  });
+  Query$Explore$trending({this.media, this.$__typename = 'Page'});
 
   factory Query$Explore$trending.fromJson(Map<String, dynamic> json) {
     final l$media = json['media'];
     final l$$__typename = json['__typename'];
     return Query$Explore$trending(
       media: (l$media as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -902,10 +925,7 @@ class Query$Explore$trending {
 
 extension UtilityExtension$Query$Explore$trending on Query$Explore$trending {
   CopyWith$Query$Explore$trending<Query$Explore$trending> get copyWith =>
-      CopyWith$Query$Explore$trending(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Explore$trending(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Explore$trending<TRes> {
@@ -917,23 +937,18 @@ abstract class CopyWith$Query$Explore$trending<TRes> {
   factory CopyWith$Query$Explore$trending.stub(TRes res) =
       _CopyWithStubImpl$Query$Explore$trending;
 
-  TRes call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$MediaFragment?>? media, String? $__typename});
   TRes media(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Explore$trending<TRes>
     implements CopyWith$Query$Explore$trending<TRes> {
-  _CopyWithImpl$Query$Explore$trending(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Explore$trending(this._instance, this._then);
 
   final Query$Explore$trending _instance;
 
@@ -941,32 +956,30 @@ class _CopyWithImpl$Query$Explore$trending<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Explore$trending(
-        media: media == _undefined
-            ? _instance.media
-            : (media as List<Fragment$MediaFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Explore$trending(
+          media: media == _undefined
+              ? _instance.media
+              : (media as List<Fragment$MediaFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes media(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          media: _fn(_instance.media?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    media: _fn(
+      _instance.media?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Explore$trending<TRes>
@@ -975,29 +988,24 @@ class _CopyWithStubImpl$Query$Explore$trending<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$MediaFragment?>? media, String? $__typename}) => _res;
 
   media(_fn) => _res;
 }
 
 class Query$Explore$season {
-  Query$Explore$season({
-    this.media,
-    this.$__typename = 'Page',
-  });
+  Query$Explore$season({this.media, this.$__typename = 'Page'});
 
   factory Query$Explore$season.fromJson(Map<String, dynamic> json) {
     final l$media = json['media'];
     final l$$__typename = json['__typename'];
     return Query$Explore$season(
       media: (l$media as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1061,10 +1069,7 @@ class Query$Explore$season {
 
 extension UtilityExtension$Query$Explore$season on Query$Explore$season {
   CopyWith$Query$Explore$season<Query$Explore$season> get copyWith =>
-      CopyWith$Query$Explore$season(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Explore$season(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Explore$season<TRes> {
@@ -1076,23 +1081,18 @@ abstract class CopyWith$Query$Explore$season<TRes> {
   factory CopyWith$Query$Explore$season.stub(TRes res) =
       _CopyWithStubImpl$Query$Explore$season;
 
-  TRes call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$MediaFragment?>? media, String? $__typename});
   TRes media(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Explore$season<TRes>
     implements CopyWith$Query$Explore$season<TRes> {
-  _CopyWithImpl$Query$Explore$season(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Explore$season(this._instance, this._then);
 
   final Query$Explore$season _instance;
 
@@ -1100,32 +1100,30 @@ class _CopyWithImpl$Query$Explore$season<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Explore$season(
-        media: media == _undefined
-            ? _instance.media
-            : (media as List<Fragment$MediaFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Explore$season(
+          media: media == _undefined
+              ? _instance.media
+              : (media as List<Fragment$MediaFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes media(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          media: _fn(_instance.media?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    media: _fn(
+      _instance.media?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Explore$season<TRes>
@@ -1134,29 +1132,24 @@ class _CopyWithStubImpl$Query$Explore$season<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$MediaFragment?>? media, String? $__typename}) => _res;
 
   media(_fn) => _res;
 }
 
 class Query$Explore$nextSeason {
-  Query$Explore$nextSeason({
-    this.media,
-    this.$__typename = 'Page',
-  });
+  Query$Explore$nextSeason({this.media, this.$__typename = 'Page'});
 
   factory Query$Explore$nextSeason.fromJson(Map<String, dynamic> json) {
     final l$media = json['media'];
     final l$$__typename = json['__typename'];
     return Query$Explore$nextSeason(
       media: (l$media as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1222,10 +1215,7 @@ class Query$Explore$nextSeason {
 extension UtilityExtension$Query$Explore$nextSeason
     on Query$Explore$nextSeason {
   CopyWith$Query$Explore$nextSeason<Query$Explore$nextSeason> get copyWith =>
-      CopyWith$Query$Explore$nextSeason(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Explore$nextSeason(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Explore$nextSeason<TRes> {
@@ -1237,23 +1227,18 @@ abstract class CopyWith$Query$Explore$nextSeason<TRes> {
   factory CopyWith$Query$Explore$nextSeason.stub(TRes res) =
       _CopyWithStubImpl$Query$Explore$nextSeason;
 
-  TRes call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$MediaFragment?>? media, String? $__typename});
   TRes media(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Explore$nextSeason<TRes>
     implements CopyWith$Query$Explore$nextSeason<TRes> {
-  _CopyWithImpl$Query$Explore$nextSeason(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Explore$nextSeason(this._instance, this._then);
 
   final Query$Explore$nextSeason _instance;
 
@@ -1261,32 +1246,30 @@ class _CopyWithImpl$Query$Explore$nextSeason<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Explore$nextSeason(
-        media: media == _undefined
-            ? _instance.media
-            : (media as List<Fragment$MediaFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Explore$nextSeason(
+          media: media == _undefined
+              ? _instance.media
+              : (media as List<Fragment$MediaFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes media(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          media: _fn(_instance.media?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    media: _fn(
+      _instance.media?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Explore$nextSeason<TRes>
@@ -1295,29 +1278,24 @@ class _CopyWithStubImpl$Query$Explore$nextSeason<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$MediaFragment?>? media, String? $__typename}) => _res;
 
   media(_fn) => _res;
 }
 
 class Query$Explore$popular {
-  Query$Explore$popular({
-    this.media,
-    this.$__typename = 'Page',
-  });
+  Query$Explore$popular({this.media, this.$__typename = 'Page'});
 
   factory Query$Explore$popular.fromJson(Map<String, dynamic> json) {
     final l$media = json['media'];
     final l$$__typename = json['__typename'];
     return Query$Explore$popular(
       media: (l$media as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1381,10 +1359,7 @@ class Query$Explore$popular {
 
 extension UtilityExtension$Query$Explore$popular on Query$Explore$popular {
   CopyWith$Query$Explore$popular<Query$Explore$popular> get copyWith =>
-      CopyWith$Query$Explore$popular(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Explore$popular(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Explore$popular<TRes> {
@@ -1396,23 +1371,18 @@ abstract class CopyWith$Query$Explore$popular<TRes> {
   factory CopyWith$Query$Explore$popular.stub(TRes res) =
       _CopyWithStubImpl$Query$Explore$popular;
 
-  TRes call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$MediaFragment?>? media, String? $__typename});
   TRes media(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Explore$popular<TRes>
     implements CopyWith$Query$Explore$popular<TRes> {
-  _CopyWithImpl$Query$Explore$popular(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Explore$popular(this._instance, this._then);
 
   final Query$Explore$popular _instance;
 
@@ -1420,32 +1390,30 @@ class _CopyWithImpl$Query$Explore$popular<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Explore$popular(
-        media: media == _undefined
-            ? _instance.media
-            : (media as List<Fragment$MediaFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Explore$popular(
+          media: media == _undefined
+              ? _instance.media
+              : (media as List<Fragment$MediaFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes media(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          media: _fn(_instance.media?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    media: _fn(
+      _instance.media?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Explore$popular<TRes>
@@ -1454,29 +1422,24 @@ class _CopyWithStubImpl$Query$Explore$popular<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$MediaFragment?>? media, String? $__typename}) => _res;
 
   media(_fn) => _res;
 }
 
 class Query$Explore$recent {
-  Query$Explore$recent({
-    this.media,
-    this.$__typename = 'Page',
-  });
+  Query$Explore$recent({this.media, this.$__typename = 'Page'});
 
   factory Query$Explore$recent.fromJson(Map<String, dynamic> json) {
     final l$media = json['media'];
     final l$$__typename = json['__typename'];
     return Query$Explore$recent(
       media: (l$media as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1540,10 +1503,7 @@ class Query$Explore$recent {
 
 extension UtilityExtension$Query$Explore$recent on Query$Explore$recent {
   CopyWith$Query$Explore$recent<Query$Explore$recent> get copyWith =>
-      CopyWith$Query$Explore$recent(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Explore$recent(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Explore$recent<TRes> {
@@ -1555,23 +1515,18 @@ abstract class CopyWith$Query$Explore$recent<TRes> {
   factory CopyWith$Query$Explore$recent.stub(TRes res) =
       _CopyWithStubImpl$Query$Explore$recent;
 
-  TRes call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$MediaFragment?>? media, String? $__typename});
   TRes media(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Explore$recent<TRes>
     implements CopyWith$Query$Explore$recent<TRes> {
-  _CopyWithImpl$Query$Explore$recent(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Explore$recent(this._instance, this._then);
 
   final Query$Explore$recent _instance;
 
@@ -1579,32 +1534,30 @@ class _CopyWithImpl$Query$Explore$recent<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Explore$recent(
-        media: media == _undefined
-            ? _instance.media
-            : (media as List<Fragment$MediaFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Explore$recent(
+          media: media == _undefined
+              ? _instance.media
+              : (media as List<Fragment$MediaFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes media(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          media: _fn(_instance.media?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    media: _fn(
+      _instance.media?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Explore$recent<TRes>
@@ -1613,11 +1566,7 @@ class _CopyWithStubImpl$Query$Explore$recent<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$MediaFragment?>? media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$MediaFragment?>? media, String? $__typename}) => _res;
 
   media(_fn) => _res;
 }

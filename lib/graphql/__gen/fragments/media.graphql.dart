@@ -36,11 +36,13 @@ class Fragment$MediaFragment {
       title: l$title == null
           ? null
           : Fragment$MediaFragment$title.fromJson(
-              (l$title as Map<String, dynamic>)),
+              (l$title as Map<String, dynamic>),
+            ),
       coverImage: l$coverImage == null
           ? null
           : Fragment$MediaFragment$coverImage.fromJson(
-              (l$coverImage as Map<String, dynamic>)),
+              (l$coverImage as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -74,8 +76,9 @@ class Fragment$MediaFragment {
     final l$genres = genres;
     _resultData['genres'] = l$genres?.map((e) => e).toList();
     final l$format = format;
-    _resultData['format'] =
-        l$format == null ? null : toJson$Enum$MediaFormat(l$format);
+    _resultData['format'] = l$format == null
+        ? null
+        : toJson$Enum$MediaFormat(l$format);
     final l$description = description;
     _resultData['description'] = l$description;
     final l$title = title;
@@ -181,10 +184,7 @@ class Fragment$MediaFragment {
 
 extension UtilityExtension$Fragment$MediaFragment on Fragment$MediaFragment {
   CopyWith$Fragment$MediaFragment<Fragment$MediaFragment> get copyWith =>
-      CopyWith$Fragment$MediaFragment(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$MediaFragment(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaFragment<TRes> {
@@ -213,10 +213,7 @@ abstract class CopyWith$Fragment$MediaFragment<TRes> {
 
 class _CopyWithImpl$Fragment$MediaFragment<TRes>
     implements CopyWith$Fragment$MediaFragment<TRes> {
-  _CopyWithImpl$Fragment$MediaFragment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MediaFragment(this._instance, this._then);
 
   final Fragment$MediaFragment _instance;
 
@@ -234,37 +231,40 @@ class _CopyWithImpl$Fragment$MediaFragment<TRes>
     Object? title = _undefined,
     Object? coverImage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaFragment(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
-        isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
-        genres: genres == _undefined
-            ? _instance.genres
-            : (genres as List<String?>?),
-        format: format == _undefined
-            ? _instance.format
-            : (format as Enum$MediaFormat?),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Fragment$MediaFragment$title?),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage as Fragment$MediaFragment$coverImage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaFragment(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
+      isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
+      genres: genres == _undefined
+          ? _instance.genres
+          : (genres as List<String?>?),
+      format: format == _undefined
+          ? _instance.format
+          : (format as Enum$MediaFormat?),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Fragment$MediaFragment$title?),
+      coverImage: coverImage == _undefined
+          ? _instance.coverImage
+          : (coverImage as Fragment$MediaFragment$coverImage?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment$title<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
         ? CopyWith$Fragment$MediaFragment$title.stub(_then(_instance))
         : CopyWith$Fragment$MediaFragment$title(
-            local$title, (e) => call(title: e));
+            local$title,
+            (e) => call(title: e),
+          );
   }
 
   CopyWith$Fragment$MediaFragment$coverImage<TRes> get coverImage {
@@ -272,7 +272,9 @@ class _CopyWithImpl$Fragment$MediaFragment<TRes>
     return local$coverImage == null
         ? CopyWith$Fragment$MediaFragment$coverImage.stub(_then(_instance))
         : CopyWith$Fragment$MediaFragment$coverImage(
-            local$coverImage, (e) => call(coverImage: e));
+            local$coverImage,
+            (e) => call(coverImage: e),
+          );
   }
 }
 
@@ -292,8 +294,7 @@ class _CopyWithStubImpl$Fragment$MediaFragment<TRes>
     Fragment$MediaFragment$title? title,
     Fragment$MediaFragment$coverImage? coverImage,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment$title<TRes> get title =>
       CopyWith$Fragment$MediaFragment$title.stub(_res);
@@ -305,115 +306,119 @@ class _CopyWithStubImpl$Fragment$MediaFragment<TRes>
 const fragmentDefinitionMediaFragment = FragmentDefinitionNode(
   name: NameNode(value: 'MediaFragment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Media'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Media'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'type'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isAdult'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'genres'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'format'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'description'),
-      alias: null,
-      arguments: [
-        ArgumentNode(
-          name: NameNode(value: 'asHtml'),
-          value: BooleanValueNode(value: false),
-        )
-      ],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'title'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'userPreferred'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'type'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isAdult'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'genres'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'format'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'description'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'asHtml'),
+            value: BooleanValueNode(value: false),
+          ),
+        ],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'title'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'userPreferred'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'coverImage'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'extraLarge'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'coverImage'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'extraLarge'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentMediaFragment = DocumentNode(definitions: [
-  fragmentDefinitionMediaFragment,
-]);
+const documentNodeFragmentMediaFragment = DocumentNode(
+  definitions: [fragmentDefinitionMediaFragment],
+);
 
 class Fragment$MediaFragment$title {
   Fragment$MediaFragment$title({
@@ -447,10 +452,7 @@ class Fragment$MediaFragment$title {
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -479,10 +481,7 @@ class Fragment$MediaFragment$title {
 extension UtilityExtension$Fragment$MediaFragment$title
     on Fragment$MediaFragment$title {
   CopyWith$Fragment$MediaFragment$title<Fragment$MediaFragment$title>
-      get copyWith => CopyWith$Fragment$MediaFragment$title(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$MediaFragment$title(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaFragment$title<TRes> {
@@ -494,18 +493,12 @@ abstract class CopyWith$Fragment$MediaFragment$title<TRes> {
   factory CopyWith$Fragment$MediaFragment$title.stub(TRes res) =
       _CopyWithStubImpl$Fragment$MediaFragment$title;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$MediaFragment$title<TRes>
     implements CopyWith$Fragment$MediaFragment$title<TRes> {
-  _CopyWithImpl$Fragment$MediaFragment$title(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MediaFragment$title(this._instance, this._then);
 
   final Fragment$MediaFragment$title _instance;
 
@@ -516,15 +509,16 @@ class _CopyWithImpl$Fragment$MediaFragment$title<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaFragment$title(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaFragment$title(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$MediaFragment$title<TRes>
@@ -533,11 +527,7 @@ class _CopyWithStubImpl$Fragment$MediaFragment$title<TRes>
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }
 
 class Fragment$MediaFragment$coverImage {
@@ -547,7 +537,8 @@ class Fragment$MediaFragment$coverImage {
   });
 
   factory Fragment$MediaFragment$coverImage.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$extraLarge = json['extraLarge'];
     final l$$__typename = json['__typename'];
     return Fragment$MediaFragment$coverImage(
@@ -573,10 +564,7 @@ class Fragment$MediaFragment$coverImage {
   int get hashCode {
     final l$extraLarge = extraLarge;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$extraLarge,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$extraLarge, l$$__typename]);
   }
 
   @override
@@ -605,10 +593,7 @@ class Fragment$MediaFragment$coverImage {
 extension UtilityExtension$Fragment$MediaFragment$coverImage
     on Fragment$MediaFragment$coverImage {
   CopyWith$Fragment$MediaFragment$coverImage<Fragment$MediaFragment$coverImage>
-      get copyWith => CopyWith$Fragment$MediaFragment$coverImage(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$MediaFragment$coverImage(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaFragment$coverImage<TRes> {
@@ -620,18 +605,12 @@ abstract class CopyWith$Fragment$MediaFragment$coverImage<TRes> {
   factory CopyWith$Fragment$MediaFragment$coverImage.stub(TRes res) =
       _CopyWithStubImpl$Fragment$MediaFragment$coverImage;
 
-  TRes call({
-    String? extraLarge,
-    String? $__typename,
-  });
+  TRes call({String? extraLarge, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$MediaFragment$coverImage<TRes>
     implements CopyWith$Fragment$MediaFragment$coverImage<TRes> {
-  _CopyWithImpl$Fragment$MediaFragment$coverImage(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MediaFragment$coverImage(this._instance, this._then);
 
   final Fragment$MediaFragment$coverImage _instance;
 
@@ -642,15 +621,16 @@ class _CopyWithImpl$Fragment$MediaFragment$coverImage<TRes>
   TRes call({
     Object? extraLarge = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaFragment$coverImage(
-        extraLarge: extraLarge == _undefined
-            ? _instance.extraLarge
-            : (extraLarge as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaFragment$coverImage(
+      extraLarge: extraLarge == _undefined
+          ? _instance.extraLarge
+          : (extraLarge as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$MediaFragment$coverImage<TRes>
@@ -659,9 +639,5 @@ class _CopyWithStubImpl$Fragment$MediaFragment$coverImage<TRes>
 
   TRes _res;
 
-  call({
-    String? extraLarge,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? extraLarge, String? $__typename}) => _res;
 }

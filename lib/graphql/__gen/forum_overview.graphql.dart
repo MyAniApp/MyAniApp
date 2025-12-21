@@ -20,14 +20,16 @@ class Query$ForumOverview {
       recent: l$recent == null
           ? null
           : Query$ForumOverview$recent.fromJson(
-              (l$recent as Map<String, dynamic>)),
+              (l$recent as Map<String, dynamic>),
+            ),
       $new: l$$new == null
           ? null
           : Query$ForumOverview$new.fromJson((l$$new as Map<String, dynamic>)),
       release: l$release == null
           ? null
           : Query$ForumOverview$release.fromJson(
-              (l$release as Map<String, dynamic>)),
+              (l$release as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -59,12 +61,7 @@ class Query$ForumOverview {
     final l$$new = $new;
     final l$release = release;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$recent,
-      l$$new,
-      l$release,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$recent, l$$new, l$release, l$$__typename]);
   }
 
   @override
@@ -101,10 +98,7 @@ class Query$ForumOverview {
 
 extension UtilityExtension$Query$ForumOverview on Query$ForumOverview {
   CopyWith$Query$ForumOverview<Query$ForumOverview> get copyWith =>
-      CopyWith$Query$ForumOverview(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$ForumOverview(this, (i) => i);
 }
 
 abstract class CopyWith$Query$ForumOverview<TRes> {
@@ -129,10 +123,7 @@ abstract class CopyWith$Query$ForumOverview<TRes> {
 
 class _CopyWithImpl$Query$ForumOverview<TRes>
     implements CopyWith$Query$ForumOverview<TRes> {
-  _CopyWithImpl$Query$ForumOverview(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$ForumOverview(this._instance, this._then);
 
   final Query$ForumOverview _instance;
 
@@ -145,28 +136,31 @@ class _CopyWithImpl$Query$ForumOverview<TRes>
     Object? $new = _undefined,
     Object? release = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$ForumOverview(
-        recent: recent == _undefined
-            ? _instance.recent
-            : (recent as Query$ForumOverview$recent?),
-        $new: $new == _undefined
-            ? _instance.$new
-            : ($new as Query$ForumOverview$new?),
-        release: release == _undefined
-            ? _instance.release
-            : (release as Query$ForumOverview$release?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$ForumOverview(
+      recent: recent == _undefined
+          ? _instance.recent
+          : (recent as Query$ForumOverview$recent?),
+      $new: $new == _undefined
+          ? _instance.$new
+          : ($new as Query$ForumOverview$new?),
+      release: release == _undefined
+          ? _instance.release
+          : (release as Query$ForumOverview$release?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$ForumOverview$recent<TRes> get recent {
     final local$recent = _instance.recent;
     return local$recent == null
         ? CopyWith$Query$ForumOverview$recent.stub(_then(_instance))
         : CopyWith$Query$ForumOverview$recent(
-            local$recent, (e) => call(recent: e));
+            local$recent,
+            (e) => call(recent: e),
+          );
   }
 
   CopyWith$Query$ForumOverview$new<TRes> get $new {
@@ -181,7 +175,9 @@ class _CopyWithImpl$Query$ForumOverview<TRes>
     return local$release == null
         ? CopyWith$Query$ForumOverview$release.stub(_then(_instance))
         : CopyWith$Query$ForumOverview$release(
-            local$release, (e) => call(release: e));
+            local$release,
+            (e) => call(release: e),
+          );
   }
 }
 
@@ -196,8 +192,7 @@ class _CopyWithStubImpl$Query$ForumOverview<TRes>
     Query$ForumOverview$new? $new,
     Query$ForumOverview$release? release,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$ForumOverview$recent<TRes> get recent =>
       CopyWith$Query$ForumOverview$recent.stub(_res);
@@ -209,145 +204,179 @@ class _CopyWithStubImpl$Query$ForumOverview<TRes>
       CopyWith$Query$ForumOverview$release.stub(_res);
 }
 
-const documentNodeQueryForumOverview = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'ForumOverview'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'recent'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '14'),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryForumOverview = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'ForumOverview'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'threads'),
-            alias: null,
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'recent'),
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'IS_STICKY')),
-                  EnumValueNode(name: NameNode(value: 'REPLIED_AT_DESC')),
-                ]),
-              )
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '14'),
+              ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ThreadFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'threads'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'IS_STICKY')),
+                          EnumValueNode(
+                            name: NameNode(value: 'REPLIED_AT_DESC'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ThreadFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'new'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '5'),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'threads'),
-            alias: null,
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'new'),
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(
-                    values: [EnumValueNode(name: NameNode(value: 'ID_DESC'))]),
-              )
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ThreadFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'release'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '4'),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'threads'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'categoryId'),
+                name: NameNode(value: 'perPage'),
                 value: IntValueNode(value: '5'),
               ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'threads'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ThreadFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'release'),
+            arguments: [
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'REPLIED_AT_DESC'))
-                ]),
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '4'),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ThreadFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'threads'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'categoryId'),
+                      value: IntValueNode(value: '5'),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(
+                            name: NameNode(value: 'REPLIED_AT_DESC'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ThreadFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -356,36 +385,28 @@ const documentNodeQueryForumOverview = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionThreadFragment,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionThreadFragment,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$ForumOverview$recent {
-  Query$ForumOverview$recent({
-    this.threads,
-    this.$__typename = 'Page',
-  });
+  Query$ForumOverview$recent({this.threads, this.$__typename = 'Page'});
 
   factory Query$ForumOverview$recent.fromJson(Map<String, dynamic> json) {
     final l$threads = json['threads'];
     final l$$__typename = json['__typename'];
     return Query$ForumOverview$recent(
       threads: (l$threads as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -451,10 +472,7 @@ class Query$ForumOverview$recent {
 extension UtilityExtension$Query$ForumOverview$recent
     on Query$ForumOverview$recent {
   CopyWith$Query$ForumOverview$recent<Query$ForumOverview$recent>
-      get copyWith => CopyWith$Query$ForumOverview$recent(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$ForumOverview$recent(this, (i) => i);
 }
 
 abstract class CopyWith$Query$ForumOverview$recent<TRes> {
@@ -466,23 +484,18 @@ abstract class CopyWith$Query$ForumOverview$recent<TRes> {
   factory CopyWith$Query$ForumOverview$recent.stub(TRes res) =
       _CopyWithStubImpl$Query$ForumOverview$recent;
 
-  TRes call({
-    List<Fragment$ThreadFragment?>? threads,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$ThreadFragment?>? threads, String? $__typename});
   TRes threads(
-      Iterable<Fragment$ThreadFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?)
-          _fn);
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$ForumOverview$recent<TRes>
     implements CopyWith$Query$ForumOverview$recent<TRes> {
-  _CopyWithImpl$Query$ForumOverview$recent(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$ForumOverview$recent(this._instance, this._then);
 
   final Query$ForumOverview$recent _instance;
 
@@ -490,32 +503,30 @@ class _CopyWithImpl$Query$ForumOverview$recent<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? threads = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$ForumOverview$recent(
-        threads: threads == _undefined
-            ? _instance.threads
-            : (threads as List<Fragment$ThreadFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? threads = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$ForumOverview$recent(
+          threads: threads == _undefined
+              ? _instance.threads
+              : (threads as List<Fragment$ThreadFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes threads(
-          Iterable<Fragment$ThreadFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ThreadFragment<
-                          Fragment$ThreadFragment>?>?)
-              _fn) =>
-      call(
-          threads: _fn(_instance.threads?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ThreadFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    threads: _fn(
+      _instance.threads?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ThreadFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$ForumOverview$recent<TRes>
@@ -524,29 +535,24 @@ class _CopyWithStubImpl$Query$ForumOverview$recent<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$ThreadFragment?>? threads,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$ThreadFragment?>? threads, String? $__typename}) => _res;
 
   threads(_fn) => _res;
 }
 
 class Query$ForumOverview$new {
-  Query$ForumOverview$new({
-    this.threads,
-    this.$__typename = 'Page',
-  });
+  Query$ForumOverview$new({this.threads, this.$__typename = 'Page'});
 
   factory Query$ForumOverview$new.fromJson(Map<String, dynamic> json) {
     final l$threads = json['threads'];
     final l$$__typename = json['__typename'];
     return Query$ForumOverview$new(
       threads: (l$threads as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -610,10 +616,7 @@ class Query$ForumOverview$new {
 
 extension UtilityExtension$Query$ForumOverview$new on Query$ForumOverview$new {
   CopyWith$Query$ForumOverview$new<Query$ForumOverview$new> get copyWith =>
-      CopyWith$Query$ForumOverview$new(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$ForumOverview$new(this, (i) => i);
 }
 
 abstract class CopyWith$Query$ForumOverview$new<TRes> {
@@ -625,23 +628,18 @@ abstract class CopyWith$Query$ForumOverview$new<TRes> {
   factory CopyWith$Query$ForumOverview$new.stub(TRes res) =
       _CopyWithStubImpl$Query$ForumOverview$new;
 
-  TRes call({
-    List<Fragment$ThreadFragment?>? threads,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$ThreadFragment?>? threads, String? $__typename});
   TRes threads(
-      Iterable<Fragment$ThreadFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?)
-          _fn);
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$ForumOverview$new<TRes>
     implements CopyWith$Query$ForumOverview$new<TRes> {
-  _CopyWithImpl$Query$ForumOverview$new(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$ForumOverview$new(this._instance, this._then);
 
   final Query$ForumOverview$new _instance;
 
@@ -649,32 +647,30 @@ class _CopyWithImpl$Query$ForumOverview$new<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? threads = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$ForumOverview$new(
-        threads: threads == _undefined
-            ? _instance.threads
-            : (threads as List<Fragment$ThreadFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? threads = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$ForumOverview$new(
+          threads: threads == _undefined
+              ? _instance.threads
+              : (threads as List<Fragment$ThreadFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes threads(
-          Iterable<Fragment$ThreadFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ThreadFragment<
-                          Fragment$ThreadFragment>?>?)
-              _fn) =>
-      call(
-          threads: _fn(_instance.threads?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ThreadFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    threads: _fn(
+      _instance.threads?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ThreadFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$ForumOverview$new<TRes>
@@ -683,29 +679,24 @@ class _CopyWithStubImpl$Query$ForumOverview$new<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$ThreadFragment?>? threads,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$ThreadFragment?>? threads, String? $__typename}) => _res;
 
   threads(_fn) => _res;
 }
 
 class Query$ForumOverview$release {
-  Query$ForumOverview$release({
-    this.threads,
-    this.$__typename = 'Page',
-  });
+  Query$ForumOverview$release({this.threads, this.$__typename = 'Page'});
 
   factory Query$ForumOverview$release.fromJson(Map<String, dynamic> json) {
     final l$threads = json['threads'];
     final l$$__typename = json['__typename'];
     return Query$ForumOverview$release(
       threads: (l$threads as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -771,10 +762,7 @@ class Query$ForumOverview$release {
 extension UtilityExtension$Query$ForumOverview$release
     on Query$ForumOverview$release {
   CopyWith$Query$ForumOverview$release<Query$ForumOverview$release>
-      get copyWith => CopyWith$Query$ForumOverview$release(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$ForumOverview$release(this, (i) => i);
 }
 
 abstract class CopyWith$Query$ForumOverview$release<TRes> {
@@ -786,23 +774,18 @@ abstract class CopyWith$Query$ForumOverview$release<TRes> {
   factory CopyWith$Query$ForumOverview$release.stub(TRes res) =
       _CopyWithStubImpl$Query$ForumOverview$release;
 
-  TRes call({
-    List<Fragment$ThreadFragment?>? threads,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$ThreadFragment?>? threads, String? $__typename});
   TRes threads(
-      Iterable<Fragment$ThreadFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?)
-          _fn);
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$ForumOverview$release<TRes>
     implements CopyWith$Query$ForumOverview$release<TRes> {
-  _CopyWithImpl$Query$ForumOverview$release(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$ForumOverview$release(this._instance, this._then);
 
   final Query$ForumOverview$release _instance;
 
@@ -810,32 +793,30 @@ class _CopyWithImpl$Query$ForumOverview$release<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? threads = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$ForumOverview$release(
-        threads: threads == _undefined
-            ? _instance.threads
-            : (threads as List<Fragment$ThreadFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? threads = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$ForumOverview$release(
+          threads: threads == _undefined
+              ? _instance.threads
+              : (threads as List<Fragment$ThreadFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes threads(
-          Iterable<Fragment$ThreadFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ThreadFragment<
-                          Fragment$ThreadFragment>?>?)
-              _fn) =>
-      call(
-          threads: _fn(_instance.threads?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ThreadFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    threads: _fn(
+      _instance.threads?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ThreadFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$ForumOverview$release<TRes>
@@ -844,11 +825,7 @@ class _CopyWithStubImpl$Query$ForumOverview$release<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$ThreadFragment?>? threads,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$ThreadFragment?>? threads, String? $__typename}) => _res;
 
   threads(_fn) => _res;
 }

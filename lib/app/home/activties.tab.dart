@@ -6,6 +6,7 @@ import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/markdown_editor.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/graphql/__gen/home_activities.graphql.dart';
+import 'package:myaniapp/graphql/mutations.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/main.dart';
@@ -34,12 +35,13 @@ class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
   @override
   Widget build(BuildContext context) {
     var user = ref.watch(userProvider);
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
       GQLRequest(
         homeActivitiesQuery,
         variables: Variables$Query$HomeActivities(
-                hasReplies: !isFollowing, isFollowing: isFollowing)
-            .toJson(),
+          hasReplies: !isFollowing,
+          isFollowing: isFollowing,
+        ).toJson(),
         parseData: Query$HomeActivities.fromJson,
         mergeResults: defaultMergeResults("Page.activities"),
       ),
@@ -52,18 +54,15 @@ class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
           "send a post",
           () => MarkdownEditor.show(
             context,
-            onSave: (text) => c
-                .query(GQLRequest(saveTextActivityQuery,
-                    variables: Variables$Mutation$SaveTextActivity(text: text)
-                        .toJson()))
-                .last
-                .then((value) => setState(() {
-                      if (!isFollowing) {
-                        isFollowing = true;
-                      } else {
-                        refetch();
-                      }
-                    })),
+            onSave: (text) => mutationSaveTextActivity(text).then(
+              (value) => setState(() {
+                if (!isFollowing) {
+                  isFollowing = true;
+                } else {
+                  refetch();
+                }
+              }),
+            ),
             hint: "Write a post",
           ),
         ),
@@ -80,7 +79,9 @@ class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
                 onChanged: (value) {
                   setState(() => isFollowing = !isFollowing);
                   Future.delayed(
-                      const Duration(milliseconds: 100), () => refetch());
+                    const Duration(milliseconds: 100),
+                    () => refetch(),
+                  );
                 },
               ),
           ],
@@ -94,18 +95,14 @@ class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
             child: PaginationView.list(
               req: (nextPage) => fetchMore(
                 variables: Variables$Query$HomeActivities.fromJson(
-                        snapshot.request!.variables)
-                    .copyWith(page: nextPage)
-                    .toJson(),
+                  snapshot.request!.variables,
+                ).copyWith(page: nextPage).toJson(),
               ),
               pageInfo: snapshot.parsedData!.Page!.pageInfo!,
-              builder: (context, index) {
+              itemBuilder: (context, index) {
                 var activity = snapshot.parsedData!.Page!.activities![index]!;
 
-                return ActivityCard(
-                  activity: activity,
-                  refetch: refetch,
-                );
+                return ActivityCard(activity: activity, refetch: refetch);
               },
               itemCount: snapshot.parsedData!.Page!.activities!.length,
             ),

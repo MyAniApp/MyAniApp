@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/app/home/forum/screen.dart';
 import 'package:myaniapp/app/home/screen.dart';
+import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
@@ -32,12 +33,12 @@ class HomeLoggedInOverviewTab extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var user = ref.watch(userProvider);
 
-    var (:snapshot, fetchMore: _, :refetch) = c.useQuery(
+    var (:snapshot, fetchMore: _, :refetch) = gqlClient.useQuery(
       GQLRequest(
         homeOverviewQuery,
         variables: Variables$Query$HomeOverview(
-                userId: user.value!.parsedData!.Viewer!.id)
-            .toJson(),
+          userId: user.value!.parsedData!.Viewer!.id,
+        ).toJson(),
         parseData: Query$HomeOverview.fromJson,
       ),
     );
@@ -117,11 +118,7 @@ class HomeLoggedInOverviewTab extends HookConsumerWidget {
 }
 
 class InProgress extends ConsumerWidget {
-  const InProgress({
-    super.key,
-    required this.list,
-    required this.refetch,
-  });
+  const InProgress({super.key, required this.list, required this.refetch});
 
   final List<Fragment$MediaListEntry?> list;
   final Future<void> Function() refetch;
@@ -145,127 +142,161 @@ class InProgress extends ConsumerWidget {
               const Spacer(),
               ListSettingButton(
                 type: settings.inProgress,
-                onUpdate: (type) =>
-                    ref.read(listSettingsProvider.notifier).update(
-                          settings.copyWith(inProgress: type),
-                        ),
+                onUpdate: (type) => ref
+                    .read(listSettingsProvider.notifier)
+                    .update(settings.copyWith(inProgress: type)),
               ),
             ],
           ),
         ),
         switch (settings.inProgress) {
           ListType.grid => SizedBox(
-              height: 170,
-              child: ListView.separated(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                shrinkWrap: true,
-                primary: false,
-                scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, index) => const SizedBox(width: 8),
-                itemBuilder: (context, index) {
-                  var entry = list[index]!;
-
-                  return MediaCard(
-                    listType: settings.inProgress,
-                    image: entry.media!.coverImage!.extraLarge!,
-                    title: entry.media!.title!.userPreferred,
-                    blur: entry.media!.isAdult ?? false,
-                    aspectRatio: GridCard.listRatio,
-                    onDoubleTap: () => MediaEditorDialog.show(
-                      context,
-                      entry.media!,
-                      user.value!.parsedData!.Viewer!.id,
-                      onSave: refetch,
-                      onDelete: refetch,
-                    ),
-                    onTap: () => context.push(Routes.media(entry.mediaId),
-                        extra: {"placeholder": entry.media}),
-                    onLongPress: () => MediaSheet.show(context, entry.media!),
-                  );
-                },
-                itemCount: list.length,
-              ),
-            ),
-          ListType.list => ListView.separated(
+            height: 190,
+            child: ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               shrinkWrap: true,
               primary: false,
+              scrollDirection: Axis.horizontal,
               separatorBuilder: (context, index) => const SizedBox(width: 8),
               itemBuilder: (context, index) {
                 var entry = list[index]!;
-
-                double? progress;
-
-                if (entry.media!.type == Enum$MediaType.MANGA &&
-                    entry.media!.chapters != null) {
-                  progress = (entry.progress ?? 0) / entry.media!.chapters!;
-                } else if (entry.media!.episodes != null) {
-                  progress = (entry.progress ?? 0) / entry.media!.episodes!;
-                }
 
                 return MediaCard(
                   listType: settings.inProgress,
                   image: entry.media!.coverImage!.extraLarge!,
                   title: entry.media!.title!.userPreferred,
-                  underTitle: Show(
-                    when: progress != null,
-                    fallback: Text(
-                      style: context.theme.textTheme.labelMedium,
-                      "${entry.progress} ${entry.media!.type == Enum$MediaType.ANIME ? "Episodes Watched" : "Chapters Read"}",
-                    ),
-                    child: () => Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        LinearProgressIndicator(
-                          value: progress,
-                          borderRadius: imageRadius,
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          "${entry.progress} / ${entry.media!.chapters ?? entry.media!.episodes}",
-                          style: context.theme.textTheme.labelMedium,
-                        )
-                      ],
-                    ),
-                  ),
                   blur: entry.media!.isAdult ?? false,
-                  onDoubleTap: () => MediaEditorDialog.show(
-                    context,
-                    entry.media!,
-                    user.value!.parsedData!.Viewer!.id,
-                    onSave: refetch,
-                    onDelete: refetch,
+                  aspectRatio: GridCard.listRatio,
+                  onTap: () => context.push(
+                    Routes.media(entry.mediaId),
+                    extra: {"placeholder": entry.media},
                   ),
-                  onTap: () => context.push(Routes.media(entry.mediaId),
-                      extra: {"placeholder": entry.media}),
                   onLongPress: () => MediaSheet.show(context, entry.media!),
+                  chips: [
+                    GridChip(
+                      left: 5,
+                      top: 5,
+                      padding: EdgeInsets.zero,
+                      child: InkWellImage(
+                        borderRadius: imageRadius,
+                        onTap: () => MediaEditorDialog.show(
+                          context,
+                          entry.media!,
+                          user.value!.parsedData!.Viewer!.id,
+                          onSave: refetch,
+                          onDelete: refetch,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          child: Icon(Icons.edit, size: 15),
+                        ),
+                      ),
+                    ),
+                  ],
                 );
               },
               itemCount: list.length,
             ),
-          ListType.simple => ListView.builder(
-              padding: const EdgeInsets.all(0),
-              shrinkWrap: true,
-              primary: false,
-              itemBuilder: (context, index) {
-                var entry = list[index]!;
+          ),
+          ListType.list => ListView.separated(
+            shrinkWrap: true,
+            primary: false,
+            separatorBuilder: (context, index) => const SizedBox(width: 8),
+            itemBuilder: (context, index) {
+              var entry = list[index]!;
 
-                return MediaCard(
-                  listType: settings.inProgress,
-                  onDoubleTap: () => MediaEditorDialog.show(
-                    context,
-                    entry.media!,
-                    user.value!.parsedData!.Viewer!.id,
-                    onSave: refetch,
-                    onDelete: refetch,
+              double? progress;
+
+              if (entry.media!.type == Enum$MediaType.MANGA &&
+                  entry.media!.chapters != null) {
+                progress = (entry.progress ?? 0) / entry.media!.chapters!;
+              } else if (entry.media!.episodes != null) {
+                progress = (entry.progress ?? 0) / entry.media!.episodes!;
+              }
+
+              return MediaCard(
+                listType: settings.inProgress,
+                image: entry.media!.coverImage!.extraLarge!,
+                title: entry.media!.title!.userPreferred,
+                underTitle: Show(
+                  when: progress != null,
+                  fallback: Text(
+                    style: context.theme.textTheme.labelMedium,
+                    "${entry.progress} ${entry.media!.type == Enum$MediaType.ANIME ? "Episodes Watched" : "Chapters Read"}",
                   ),
-                  onLongPress: () => MediaSheet.show(context, entry.media!),
-                  onTap: () => context.push(Routes.media(entry.mediaId),
-                      extra: {"placeholder": entry.media}),
-                  title: entry.media!.title!.userPreferred!,
-                );
-              },
-              itemCount: list.length,
-            ),
+                  child: () => Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      LinearProgressIndicator(
+                        value: progress,
+                        borderRadius: imageRadius,
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        "${entry.progress} / ${entry.media!.chapters ?? entry.media!.episodes}",
+                        style: context.theme.textTheme.labelMedium,
+                      ),
+                      IconButton(
+                        visualDensity: .compact,
+                        icon: Icon(Icons.edit),
+                        onPressed: () => MediaEditorDialog.show(
+                          context,
+                          entry.media!,
+                          user.value!.parsedData!.Viewer!.id,
+                          onSave: refetch,
+                          onDelete: refetch,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                blur: entry.media!.isAdult ?? false,
+                onTap: () => context.push(
+                  Routes.media(entry.mediaId),
+                  extra: {"placeholder": entry.media},
+                ),
+                onLongPress: () => MediaSheet.show(context, entry.media!),
+              );
+            },
+            itemCount: list.length,
+          ),
+          ListType.simple => ListView.builder(
+            padding: const EdgeInsets.all(0),
+            shrinkWrap: true,
+            primary: false,
+            itemBuilder: (context, index) {
+              var entry = list[index]!;
+
+              return MediaCard(
+                listType: settings.inProgress,
+                onLongPress: () => MediaSheet.show(context, entry.media!),
+                onTap: () => context.push(
+                  Routes.media(entry.mediaId),
+                  extra: {"placeholder": entry.media},
+                ),
+                title: entry.media!.title!.userPreferred!,
+                underTitle: Row(
+                  children: [
+                    IconButton(
+                      visualDensity: .compact,
+                      icon: Icon(Icons.edit),
+                      onPressed: () => MediaEditorDialog.show(
+                        context,
+                        entry.media!,
+                        user.value!.parsedData!.Viewer!.id,
+                        onSave: refetch,
+                        onDelete: refetch,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+            itemCount: list.length,
+          ),
         },
       ],
     );

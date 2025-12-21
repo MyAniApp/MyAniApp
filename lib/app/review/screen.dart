@@ -29,7 +29,7 @@ class ReviewScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
       reviewQuery,
       variables: Variables$Query$Review(id: id).toJson(),
       parseData: Query$Review.fromJson,
@@ -208,7 +208,7 @@ class ReviewScreen extends HookConsumerWidget {
                             onPressed: requiredLogin(
                               ref,
                               "to rate a review",
-                              () => c
+                              () => gqlClient
                                   .query(GQLRequest(
                                     rateReviewQuery,
                                     variables: Variables$Mutation$RateReview(
@@ -235,7 +235,7 @@ class ReviewScreen extends HookConsumerWidget {
                             onPressed: requiredLogin(
                               ref,
                               "to rate a review",
-                              () => c
+                              () => gqlClient
                                   .query(GQLRequest(
                                     rateReviewQuery,
                                     variables: Variables$Mutation$RateReview(

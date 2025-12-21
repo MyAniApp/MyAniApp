@@ -91,3 +91,27 @@ mutation ToggleThreadSubscription($id: Int, $subscribe: Boolean) {
         isSubscribed
     }
 }
+
+mutation SaveThread(
+    $id: Int
+    $title: String
+    $body: String
+    $categories: [Int]
+    $media: [Int]
+) {
+    SaveThread(
+        id: $id
+        title: $title
+        body: $body
+        categories: $categories
+        mediaCategories: $media
+    ) {
+        ...ThreadFragment
+    }
+}
+
+mutation DeleteThread($id: Int) {
+    DeleteThread(id: $id) {
+        deleted
+    }
+}

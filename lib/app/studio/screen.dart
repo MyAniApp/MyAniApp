@@ -22,14 +22,17 @@ class StudioScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      studioQuery,
-      variables:
-          Variables$Query$Studio(id: id, sort: [Enum$MediaSort.START_DATE_DESC])
-              .toJson(),
-      parseData: Query$Studio.fromJson,
-      mergeResults: defaultMergeResults("Studio.media.nodes"),
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        studioQuery,
+        variables: Variables$Query$Studio(
+          id: id,
+          sort: [Enum$MediaSort.START_DATE_DESC],
+        ).toJson(),
+        parseData: Query$Studio.fromJson,
+        mergeResults: defaultMergeResults("Studio.media.nodes"),
+      ),
+    );
     var listSetting = ref.watch(listSettingsProvider);
 
     return GQLWidget(
@@ -37,9 +40,7 @@ class StudioScreen extends HookConsumerWidget {
       response: snapshot,
       loading: Scaffold(
         appBar: AppBar(),
-        body: Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
+        body: Center(child: CircularProgressIndicator.adaptive()),
       ),
       error: Scaffold(
         body: GraphqlError(
@@ -61,15 +62,15 @@ class StudioScreen extends HookConsumerWidget {
           ],
         ),
         body: PaginationView(
-          padding:
-              listSetting.studio == ListType.grid ? EdgeInsets.all(8) : null,
+          padding: listSetting.studio == ListType.grid
+              ? EdgeInsets.all(8)
+              : null,
           isGrid: listSetting.studio == ListType.grid,
           pageInfo: snapshot.parsedData!.Studio!.media!.pageInfo!,
           req: (nextPage) => fetchMore(
-            variables:
-                Variables$Query$Studio.fromJson(snapshot.request!.variables)
-                    .copyWith(page: nextPage)
-                    .toJson(),
+            variables: Variables$Query$Studio.fromJson(
+              snapshot.request!.variables,
+            ).copyWith(page: nextPage).toJson(),
           ),
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 150,
@@ -77,7 +78,7 @@ class StudioScreen extends HookConsumerWidget {
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
           ),
-          builder: (context, index) {
+          itemBuilder: (context, index) {
             var anime = snapshot.parsedData!.Studio!.media!.nodes![index]!;
 
             return MediaCard(
@@ -85,8 +86,10 @@ class StudioScreen extends HookConsumerWidget {
               image: anime.coverImage!.extraLarge!,
               title: anime.title!.userPreferred,
               blur: anime.isAdult ?? false,
-              onTap: () => context
-                  .push(Routes.media(anime.id), extra: {"placeholder": anime}),
+              onTap: () => context.push(
+                Routes.media(anime.id),
+                extra: {"placeholder": anime},
+              ),
               onLongPress: () => MediaSheet.show(context, anime),
             );
           },

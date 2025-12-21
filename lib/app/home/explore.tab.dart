@@ -33,11 +33,13 @@ class ExploreTab extends HookWidget {
   @override
   Widget build(BuildContext context) {
     var vars = useMemoized(getVars);
-    var (snapshot: data, fetchMore: _, :refetch) = c.useQuery(GQLRequest(
-      exploreQuery,
-      variables: vars,
-      parseData: Query$Explore.fromJson,
-    ));
+    var (snapshot: data, fetchMore: _, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        exploreQuery,
+        variables: vars,
+        parseData: Query$Explore.fromJson,
+      ),
+    );
 
     return Scaffold(
       appBar: AppBar(leading: const HomeLeadingIcon()),
@@ -60,10 +62,7 @@ class ExploreTab extends HookWidget {
                           segments: const [
                             ButtonSegment(
                               value: 0,
-                              icon: Icon(
-                                Icons.tv,
-                                size: 17,
-                              ),
+                              icon: Icon(Icons.tv, size: 17),
                               label: Text('Search Media'),
                             ),
                             ButtonSegment(
@@ -82,8 +81,10 @@ class ExploreTab extends HookWidget {
                             // throw "Down";
                             switch (v.firstOrNull) {
                               case 0:
-                                context.push(Routes.searchMedia(null),
-                                    extra: {"autofocus": true});
+                                context.push(
+                                  Routes.searchMedia(null),
+                                  extra: {"autofocus": true},
+                                );
                               case 1:
                                 context.push(Routes.searchStaff(null));
                               case 2:
@@ -108,10 +109,7 @@ class ExploreTab extends HookWidget {
                           segments: const [
                             ButtonSegment(
                               value: 0,
-                              icon: Icon(
-                                Icons.thumb_up,
-                                size: 17,
-                              ),
+                              icon: Icon(Icons.thumb_up, size: 17),
                               label: Text('Recommendations'),
                             ),
                             ButtonSegment(
@@ -138,32 +136,37 @@ class ExploreTab extends HookWidget {
                 medias: data.parsedData!.trending!.media!,
                 title: "Trending",
                 onTap: () => context.push(
-                    "/search/media?sort=${Enum$MediaSort.TRENDING_DESC.name}"),
+                  "/search/media?sort=${Enum$MediaSort.TRENDING_DESC.name}",
+                ),
               ),
               _List(
                 medias: data.parsedData!.season!.media!,
                 title: "Releasing This Season",
                 onTap: () => context.push(
-                    "/search/media?season=${vars['season']}&year=${vars['seasonYear']}"),
+                  "/search/media?season=${vars['season']}&year=${vars['seasonYear']}",
+                ),
               ),
               _List(
                 medias: data.parsedData!.nextSeason!.media!,
                 title: "Releasing Next Season",
                 onTap: () => context.push(
-                    "/search/media?season=${vars['nextSeason']}&year=${vars['nextYear']}"),
+                  "/search/media?season=${vars['nextSeason']}&year=${vars['nextYear']}",
+                ),
               ),
               _List(
                 medias: data.parsedData!.popular!.media!,
                 title: "All Time Popular",
                 onTap: () => context.push(
-                    "/search/media?sort=${Enum$MediaSort.POPULARITY_DESC.name}"),
+                  "/search/media?sort=${Enum$MediaSort.POPULARITY_DESC.name}",
+                ),
               ),
               _List(
                 medias: data.parsedData!.recent!.media!,
                 title: "Recent",
-                onTap: () => context
-                    .push("/search/media?sort=${Enum$MediaSort.ID_DESC.name}"),
-              )
+                onTap: () => context.push(
+                  "/search/media?sort=${Enum$MediaSort.ID_DESC.name}",
+                ),
+              ),
             ],
           ),
         ),
@@ -176,10 +179,10 @@ class ExploreTab extends HookWidget {
     Enum$MediaSeason season = m >= 1 && m <= 3
         ? Enum$MediaSeason.WINTER
         : m >= 4 && m <= 6
-            ? Enum$MediaSeason.SPRING
-            : m >= 7 && m <= 9
-                ? Enum$MediaSeason.SUMMER
-                : Enum$MediaSeason.FALL;
+        ? Enum$MediaSeason.SPRING
+        : m >= 7 && m <= 9
+        ? Enum$MediaSeason.SUMMER
+        : Enum$MediaSeason.FALL;
 
     return (season, date.year);
   }
@@ -198,11 +201,7 @@ class ExploreTab extends HookWidget {
 }
 
 class _List extends StatelessWidget {
-  const _List({
-    required this.medias,
-    required this.title,
-    required this.onTap,
-  });
+  const _List({required this.medias, required this.title, required this.onTap});
 
   final List<Fragment$MediaFragment?> medias;
   final String title;
@@ -218,11 +217,12 @@ class _List extends StatelessWidget {
           child: TextViewAllButton(title: title, onTap: onTap),
         ),
         SizedBox(
-          height: 170,
+          height: 200,
           child: ListView(
             padding: EdgeInsets.zero,
             scrollDirection: Axis.horizontal,
             primary: false,
+            itemExtent: 145,
             children: [
               for (var media in medias.take(10))
                 Padding(
@@ -231,8 +231,10 @@ class _List extends StatelessWidget {
                     blur: media!.isAdult ?? false,
                     image: media.coverImage!.extraLarge!,
                     title: media.title!.userPreferred!,
-                    onTap: () => context.push(Routes.media(media.id),
-                        extra: {"placeholder": media}),
+                    onTap: () => context.push(
+                      Routes.media(media.id),
+                      extra: {"placeholder": media},
+                    ),
                     onLongPress: () => MediaSheet.show(context, media),
                     aspectRatio: GridCard.listRatio,
                   ),

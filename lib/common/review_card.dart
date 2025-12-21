@@ -13,11 +13,13 @@ class ReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card.outlined(
+    return Card(
       child: InkWellImage(
         borderRadius: imageRadius,
-        onTap: () => context
-            .push(Routes.review(review.id), extra: {"placeholder": review}),
+        onTap: () => context.push(
+          Routes.review(review.id),
+          extra: {"placeholder": review},
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,9 +43,10 @@ class ReviewCard extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                          text:
-                              "Review of ${review.media!.title!.userPreferred!} by ${review.user!.name}\n"),
-                      TextSpan(text: review.summary!)
+                        text:
+                            "Review of ${review.media!.title!.userPreferred!} by ${review.user!.name}\n",
+                      ),
+                      TextSpan(text: review.summary!),
                     ],
                   ),
                   maxLines: 5,

@@ -6,6 +6,7 @@ import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/invisible_expanded_title.dart';
 import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
+import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/common/widget_gradient.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
@@ -13,44 +14,36 @@ import 'package:myaniapp/graphql/__gen/fragments/media.graphql.dart';
 import 'package:myaniapp/graphql/__gen/media.graphql.dart';
 import 'package:myaniapp/providers/list_settings.dart';
 
-class MediaScreenAppBar extends StatelessWidget {
-  const MediaScreenAppBar({
+class MediaAppBar extends StatelessWidget {
+  const MediaAppBar({
     super.key,
-    required this.data,
+    required this.media,
+    this.placeholder,
     required this.tab,
     required this.tabs,
-    this.placeholder,
   });
 
-  final Query$Media$Media? data;
+  final Query$Media$Media? media;
+  final Fragment$MediaFragment? placeholder;
   final TabController tab;
   final List<(Widget, String)> tabs;
-  final Fragment$MediaFragment? placeholder;
 
   @override
   Widget build(BuildContext context) {
-    if (data == null && placeholder == null) return SliverAppBar();
+    if (media == null && placeholder == null) return SliverAppBar();
 
-    var dOrP = data ?? placeholder;
+    var dOrP = media ?? placeholder;
 
     return SliverAppBar(
-      expandedHeight: 210,
+      expandedHeight: 180,
       pinned: true,
-      title: InvisibleExpandedTitle(
-        child: Text(
-          dOrP!.title!.userPreferred!,
-          maxLines: 2,
-        ),
-      ),
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BackButton(
+          color: Theme.of(context).colorScheme.onSurface,
           style: ButtonStyle(
             backgroundColor: WidgetStatePropertyAll<Color?>(
-              context.theme.colorScheme.surface.withValues(alpha: .3),
-            ),
-            iconColor: WidgetStatePropertyAll(
-              context.theme.colorScheme.onSurface,
+              Theme.of(context).colorScheme.surface.withValues(alpha: .3),
             ),
           ),
         ),
@@ -59,167 +52,189 @@ class MediaScreenAppBar extends StatelessWidget {
         MediaListSetting(tab: tab, tabs: tabs),
         const SizedBox(width: 5),
       ],
+      title: InvisibleExpandedTitle(
+        child: Text(dOrP!.title!.userPreferred!, maxLines: 2),
+      ),
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           children: [
             SizedBox(
-              height: 210,
+              width: double.maxFinite,
+              height: double.maxFinite,
               child: BlurImage(
-                enabled: data?.isAdult ?? false,
+                enabled: media?.isAdult ?? false,
                 child: WidgetGradient(
-                  child: data?.bannerImage == null
-                      ? Container(
-                          height: 210,
-                          color: Colors.grey,
-                        )
+                  child: media?.bannerImage == null
+                      ? Container(height: double.maxFinite, color: Colors.grey)
                       : InkWellImage(
                           onTap: () => ImageViewer.showImage(
                             context,
-                            data!.bannerImage!,
-                            tag: data!.bannerImage,
+                            media!.bannerImage!,
+                            tag: media!.bannerImage,
                           ),
                           child: Hero(
-                            tag: data!.bannerImage!,
+                            tag: media!.bannerImage!,
                             child: CachedImage(
-                              data!.bannerImage!,
+                              media!.bannerImage!,
                               fit: BoxFit.cover,
-                              height: 210,
                               width: double.maxFinite,
+                              height: double.maxFinite,
                             ),
                           ),
                         ),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  // if (data != null || placeholderData != null)
-                  InkWellImage(
-                    onTap: () => ImageViewer.showImage(
-                      context,
-                      dOrP.coverImage!.extraLarge!,
-                      tag: dOrP.id,
-                    ),
-                    borderRadius: imageRadius,
-                    child: Hero(
-                      tag: dOrP.id,
-                      child: ClipRRect(
-                        borderRadius: imageRadius,
-                        child: BlurImage(
-                          enabled: dOrP.isAdult ?? false,
-                          child: CachedImage(
-                            dOrP.coverImage!.extraLarge!,
-                            height: 150,
-                            width: 106,
-                            fit: BoxFit.fill,
+            Align(
+              alignment: .bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Row(
+                  spacing: 8,
+                  crossAxisAlignment: .end,
+                  children: [
+                    InkWellImage(
+                      onTap: () => ImageViewer.showImage(
+                        context,
+                        dOrP.coverImage!.extraLarge!,
+                        tag: dOrP.id,
+                      ),
+                      borderRadius: imageRadius,
+                      child: Hero(
+                        tag: dOrP.id,
+                        child: ClipRRect(
+                          borderRadius: imageRadius,
+                          child: BlurImage(
+                            enabled: dOrP.isAdult ?? false,
+                            child: CachedImage(
+                              dOrP.coverImage!.extraLarge!,
+                              width: 95,
+                              height: 140,
+                              fit: .cover,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        if (dOrP.isAdult == true)
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            decoration: BoxDecoration(
-                              color: Colors.red[700],
-                              borderRadius: BorderRadius.circular(7),
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: .start,
+                        mainAxisSize: .min,
+                        children: [
+                          if (dOrP.isAdult == true)
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.red[700],
+                                borderRadius: BorderRadius.circular(7),
+                              ),
+                              child: const Text(
+                                "18+",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
-                            child: const Text(
-                              "18+",
-                              style: TextStyle(color: Colors.white),
+                          GestureDetector(
+                            onTap: media != null
+                                ? () => showDialog(
+                                    context: context,
+                                    builder: (context) => _MediaTitleDialog(
+                                      titles: media!.title!,
+                                    ),
+                                  )
+                                : null,
+                            child: Text(
+                              dOrP.title!.userPreferred!,
+                              maxLines: 3,
+                              overflow: .ellipsis,
+                              style: context.theme.textTheme.titleMedium
+                                  ?.copyWith(color: Colors.blue[400]),
                             ),
                           ),
-                        GestureDetector(
-                          onTap: () => showDialog(
-                            context: context,
-                            builder: (context) => Dialog(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 20),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    if (data?.title!.native != null)
-                                      _MediaTitle(
-                                        lang: "Native",
-                                        title: data!.title!.native!,
-                                      ),
-                                    if (data?.title!.romaji != null)
-                                      _MediaTitle(
-                                        lang: "Romaji",
-                                        title: data!.title!.romaji!,
-                                      ),
-                                    if (data?.title!.english != null)
-                                      _MediaTitle(
-                                        lang: "English",
-                                        title: data!.title!.english!,
-                                      )
-                                  ],
+                          if (dOrP.format != null)
+                            Text(dOrP.format!.name.capitalize()),
+                          Show(
+                            when: media != null,
+                            child: () => Wrap(
+                              spacing: 5,
+                              children: [
+                                TextButton.icon(
+                                  label: Text(
+                                    (media!.favourites ?? 0).abbreviate(),
+                                    style: context.theme.textTheme.bodyMedium,
+                                  ),
+                                  icon: Icon(Icons.favorite, color: Colors.red),
+                                  onPressed: null,
+                                  style: ButtonStyle(
+                                    padding: WidgetStatePropertyAll(
+                                      EdgeInsets.zero,
+                                    ),
+                                    visualDensity: VisualDensity(
+                                      horizontal: -4,
+                                      vertical: -4,
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                if (media!.averageScore != null)
+                                  TextButton.icon(
+                                    label: Text(
+                                      (media!.averageScore ?? 0).abbreviate(),
+                                      style: context.theme.textTheme.bodyMedium,
+                                    ),
+                                    icon: Icon(
+                                      Icons.star,
+                                      color: Colors.yellow,
+                                    ),
+                                    onPressed: null,
+                                    style: ButtonStyle(
+                                      padding: WidgetStatePropertyAll(
+                                        EdgeInsets.zero,
+                                      ),
+                                      visualDensity: VisualDensity(
+                                        horizontal: -4,
+                                        vertical: -4,
+                                      ),
+                                    ),
+                                  ),
+                              ],
                             ),
                           ),
-                          child: Text(
-                            dOrP.title!.userPreferred!,
-                            style: context.theme.textTheme.titleMedium
-                                ?.copyWith(color: Colors.blue[400]),
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
-                        ),
-                        Text(
-                          dOrP.format?.name.capitalize() ??
-                              dOrP.type!.name.capitalize(),
-                          maxLines: 2,
-                          style: context.theme.textTheme.titleSmall,
-                        ),
-                        if (data?.favourites != null)
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                                size: 20,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(data!.favourites!.abbreviate()),
-                            ],
-                          ),
-                        if (data?.averageScore != null)
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.star,
-                                color: Colors.yellow,
-                                size: 20,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text("${data!.averageScore!.abbreviate()}/100"),
-                            ],
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _MediaTitleDialog extends StatelessWidget {
+  const _MediaTitleDialog({super.key, required this.titles});
+
+  final Query$Media$Media$title titles;
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (titles.native != null)
+              _MediaTitle(lang: "Native", title: titles.native!),
+            if (titles.romaji != null)
+              _MediaTitle(lang: "Romaji", title: titles.romaji!),
+            if (titles.english != null)
+              _MediaTitle(lang: "English", title: titles.english!),
           ],
         ),
       ),
@@ -273,9 +288,9 @@ class _MediaListSettingState extends ConsumerState<MediaListSetting> {
         ),
         child: ListSettingButton(
           type: listSettings.mediaRelations,
-          onUpdate: (type) => ref.read(listSettingsProvider.notifier).update(
-                listSettings.copyWith(mediaRelations: type),
-              ),
+          onUpdate: (type) => ref
+              .read(listSettingsProvider.notifier)
+              .update(listSettings.copyWith(mediaRelations: type)),
         ),
       );
     } else if (show == false) {
@@ -286,9 +301,9 @@ class _MediaListSettingState extends ConsumerState<MediaListSetting> {
         ),
         child: ListSettingButton(
           type: listSettings.mediaSimilar,
-          onUpdate: (type) => ref.read(listSettingsProvider.notifier).update(
-                listSettings.copyWith(mediaSimilar: type),
-              ),
+          onUpdate: (type) => ref
+              .read(listSettingsProvider.notifier)
+              .update(listSettings.copyWith(mediaSimilar: type)),
         ),
       );
     }
@@ -297,10 +312,7 @@ class _MediaListSettingState extends ConsumerState<MediaListSetting> {
 }
 
 class _MediaTitle extends StatelessWidget {
-  const _MediaTitle({
-    required this.lang,
-    required this.title,
-  });
+  const _MediaTitle({required this.lang, required this.title});
 
   final String lang;
   final String title;
@@ -311,10 +323,7 @@ class _MediaTitle extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "$lang: ",
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
+        Text("$lang: ", style: const TextStyle(fontWeight: FontWeight.bold)),
         Flexible(child: SelectableText(title)),
       ],
     );

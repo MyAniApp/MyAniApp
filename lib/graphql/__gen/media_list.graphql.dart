@@ -11,12 +11,11 @@ class Variables$Query$MediaList {
     String? userName,
     Enum$MediaType? type,
     List<Enum$MediaListSort?>? sort,
-  }) =>
-      Variables$Query$MediaList._({
-        if (userName != null) r'userName': userName,
-        if (type != null) r'type': type,
-        if (sort != null) r'sort': sort,
-      });
+  }) => Variables$Query$MediaList._({
+    if (userName != null) r'userName': userName,
+    if (type != null) r'type': type,
+    if (sort != null) r'sort': sort,
+  });
 
   Variables$Query$MediaList._(this._$data);
 
@@ -28,14 +27,17 @@ class Variables$Query$MediaList {
     }
     if (data.containsKey('type')) {
       final l$type = data['type'];
-      result$data['type'] =
-          l$type == null ? null : fromJson$Enum$MediaType((l$type as String));
+      result$data['type'] = l$type == null
+          ? null
+          : fromJson$Enum$MediaType((l$type as String));
     }
     if (data.containsKey('sort')) {
       final l$sort = data['sort'];
       result$data['sort'] = (l$sort as List<dynamic>?)
-          ?.map((e) =>
-              e == null ? null : fromJson$Enum$MediaListSort((e as String)))
+          ?.map(
+            (e) =>
+                e == null ? null : fromJson$Enum$MediaListSort((e as String)),
+          )
           .toList();
     }
     return Variables$Query$MediaList._(result$data);
@@ -58,8 +60,9 @@ class Variables$Query$MediaList {
     }
     if (_$data.containsKey('type')) {
       final l$type = type;
-      result$data['type'] =
-          l$type == null ? null : toJson$Enum$MediaType(l$type);
+      result$data['type'] = l$type == null
+          ? null
+          : toJson$Enum$MediaType(l$type);
     }
     if (_$data.containsKey('sort')) {
       final l$sort = sort;
@@ -71,10 +74,7 @@ class Variables$Query$MediaList {
   }
 
   CopyWith$Variables$Query$MediaList<Variables$Query$MediaList> get copyWith =>
-      CopyWith$Variables$Query$MediaList(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$MediaList(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -134,8 +134,8 @@ class Variables$Query$MediaList {
       _$data.containsKey('type') ? l$type : const {},
       _$data.containsKey('sort')
           ? l$sort == null
-              ? null
-              : Object.hashAll(l$sort.map((v) => v))
+                ? null
+                : Object.hashAll(l$sort.map((v) => v))
           : const {},
     ]);
   }
@@ -159,10 +159,7 @@ abstract class CopyWith$Variables$Query$MediaList<TRes> {
 
 class _CopyWithImpl$Variables$Query$MediaList<TRes>
     implements CopyWith$Variables$Query$MediaList<TRes> {
-  _CopyWithImpl$Variables$Query$MediaList(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$MediaList(this._instance, this._then);
 
   final Variables$Query$MediaList _instance;
 
@@ -174,13 +171,14 @@ class _CopyWithImpl$Variables$Query$MediaList<TRes>
     Object? userName = _undefined,
     Object? type = _undefined,
     Object? sort = _undefined,
-  }) =>
-      _then(Variables$Query$MediaList._({
-        ..._instance._$data,
-        if (userName != _undefined) 'userName': (userName as String?),
-        if (type != _undefined) 'type': (type as Enum$MediaType?),
-        if (sort != _undefined) 'sort': (sort as List<Enum$MediaListSort?>?),
-      }));
+  }) => _then(
+    Variables$Query$MediaList._({
+      ..._instance._$data,
+      if (userName != _undefined) 'userName': (userName as String?),
+      if (type != _undefined) 'type': (type as Enum$MediaType?),
+      if (sort != _undefined) 'sort': (sort as List<Enum$MediaListSort?>?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$MediaList<TRes>
@@ -193,15 +191,11 @@ class _CopyWithStubImpl$Variables$Query$MediaList<TRes>
     String? userName,
     Enum$MediaType? type,
     List<Enum$MediaListSort?>? sort,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$MediaList {
-  Query$MediaList({
-    this.MediaListCollection,
-    this.$__typename = 'Query',
-  });
+  Query$MediaList({this.MediaListCollection, this.$__typename = 'Query'});
 
   factory Query$MediaList.fromJson(Map<String, dynamic> json) {
     final l$MediaListCollection = json['MediaListCollection'];
@@ -210,7 +204,8 @@ class Query$MediaList {
       MediaListCollection: l$MediaListCollection == null
           ? null
           : Query$MediaList$MediaListCollection.fromJson(
-              (l$MediaListCollection as Map<String, dynamic>)),
+              (l$MediaListCollection as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -232,10 +227,7 @@ class Query$MediaList {
   int get hashCode {
     final l$MediaListCollection = MediaListCollection;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$MediaListCollection,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$MediaListCollection, l$$__typename]);
   }
 
   @override
@@ -262,10 +254,7 @@ class Query$MediaList {
 
 extension UtilityExtension$Query$MediaList on Query$MediaList {
   CopyWith$Query$MediaList<Query$MediaList> get copyWith =>
-      CopyWith$Query$MediaList(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaList(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaList<TRes> {
@@ -286,10 +275,7 @@ abstract class CopyWith$Query$MediaList<TRes> {
 
 class _CopyWithImpl$Query$MediaList<TRes>
     implements CopyWith$Query$MediaList<TRes> {
-  _CopyWithImpl$Query$MediaList(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaList(this._instance, this._then);
 
   final Query$MediaList _instance;
 
@@ -300,22 +286,25 @@ class _CopyWithImpl$Query$MediaList<TRes>
   TRes call({
     Object? MediaListCollection = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaList(
-        MediaListCollection: MediaListCollection == _undefined
-            ? _instance.MediaListCollection
-            : (MediaListCollection as Query$MediaList$MediaListCollection?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaList(
+      MediaListCollection: MediaListCollection == _undefined
+          ? _instance.MediaListCollection
+          : (MediaListCollection as Query$MediaList$MediaListCollection?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$MediaList$MediaListCollection<TRes> get MediaListCollection {
     final local$MediaListCollection = _instance.MediaListCollection;
     return local$MediaListCollection == null
         ? CopyWith$Query$MediaList$MediaListCollection.stub(_then(_instance))
         : CopyWith$Query$MediaList$MediaListCollection(
-            local$MediaListCollection, (e) => call(MediaListCollection: e));
+            local$MediaListCollection,
+            (e) => call(MediaListCollection: e),
+          );
   }
 }
 
@@ -328,130 +317,81 @@ class _CopyWithStubImpl$Query$MediaList<TRes>
   call({
     Query$MediaList$MediaListCollection? MediaListCollection,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$MediaList$MediaListCollection<TRes> get MediaListCollection =>
       CopyWith$Query$MediaList$MediaListCollection.stub(_res);
 }
 
-const documentNodeQueryMediaList = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'MediaList'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userName')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'type')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MediaType'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'sort')),
-        type: ListTypeNode(
+const documentNodeQueryMediaList = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'MediaList'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'userName')),
           type: NamedTypeNode(
-            name: NameNode(value: 'MediaListSort'),
+            name: NameNode(value: 'String'),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'MediaListCollection'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'userName'),
-            value: VariableNode(name: NameNode(value: 'userName')),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'type')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaType'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'type'),
-            value: VariableNode(name: NameNode(value: 'type')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'sort')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'MediaListSort'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'sort'),
-            value: VariableNode(name: NameNode(value: 'sort')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'lists'),
+            name: NameNode(value: 'MediaListCollection'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'userName'),
+                value: VariableNode(name: NameNode(value: 'userName')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'type'),
+                value: VariableNode(name: NameNode(value: 'type')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'sort'),
+                value: VariableNode(name: NameNode(value: 'sort')),
+              ),
+            ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ListGroup'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'user'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'mediaListOptions'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'scoreFormat'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'rowOrder'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'animeList'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'lists'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'MediaListOptions'),
+                        name: NameNode(value: 'ListGroup'),
                         directives: [],
                       ),
                       FieldNode(
@@ -461,17 +401,95 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: 'mangaList'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'MediaListOptions'),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'user'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
                         directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'mediaListOptions'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'scoreFormat'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'rowOrder'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'animeList'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaListOptions'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'mangaList'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaListOptions'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -480,25 +498,18 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -507,23 +518,16 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionListGroup,
-  fragmentDefinitionMediaListEntry,
-  fragmentDefinitionFuzzyDate,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionMediaListOptions,
-]);
+    ),
+    fragmentDefinitionListGroup,
+    fragmentDefinitionMediaListEntry,
+    fragmentDefinitionFuzzyDate,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionMediaListOptions,
+  ],
+);
 
 class Query$MediaList$MediaListCollection {
   Query$MediaList$MediaListCollection({
@@ -533,20 +537,24 @@ class Query$MediaList$MediaListCollection {
   });
 
   factory Query$MediaList$MediaListCollection.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$lists = json['lists'];
     final l$user = json['user'];
     final l$$__typename = json['__typename'];
     return Query$MediaList$MediaListCollection(
       lists: (l$lists as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ListGroup.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ListGroup.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       user: l$user == null
           ? null
           : Query$MediaList$MediaListCollection$user.fromJson(
-              (l$user as Map<String, dynamic>)),
+              (l$user as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -622,11 +630,9 @@ class Query$MediaList$MediaListCollection {
 extension UtilityExtension$Query$MediaList$MediaListCollection
     on Query$MediaList$MediaListCollection {
   CopyWith$Query$MediaList$MediaListCollection<
-          Query$MediaList$MediaListCollection>
-      get copyWith => CopyWith$Query$MediaList$MediaListCollection(
-            this,
-            (i) => i,
-          );
+    Query$MediaList$MediaListCollection
+  >
+  get copyWith => CopyWith$Query$MediaList$MediaListCollection(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaList$MediaListCollection<TRes> {
@@ -644,18 +650,17 @@ abstract class CopyWith$Query$MediaList$MediaListCollection<TRes> {
     String? $__typename,
   });
   TRes lists(
-      Iterable<Fragment$ListGroup?>? Function(
-              Iterable<CopyWith$Fragment$ListGroup<Fragment$ListGroup>?>?)
-          _fn);
+    Iterable<Fragment$ListGroup?>? Function(
+      Iterable<CopyWith$Fragment$ListGroup<Fragment$ListGroup>?>?,
+    )
+    _fn,
+  );
   CopyWith$Query$MediaList$MediaListCollection$user<TRes> get user;
 }
 
 class _CopyWithImpl$Query$MediaList$MediaListCollection<TRes>
     implements CopyWith$Query$MediaList$MediaListCollection<TRes> {
-  _CopyWithImpl$Query$MediaList$MediaListCollection(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaList$MediaListCollection(this._instance, this._then);
 
   final Query$MediaList$MediaListCollection _instance;
 
@@ -667,38 +672,43 @@ class _CopyWithImpl$Query$MediaList$MediaListCollection<TRes>
     Object? lists = _undefined,
     Object? user = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaList$MediaListCollection(
-        lists: lists == _undefined
-            ? _instance.lists
-            : (lists as List<Fragment$ListGroup?>?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Query$MediaList$MediaListCollection$user?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaList$MediaListCollection(
+      lists: lists == _undefined
+          ? _instance.lists
+          : (lists as List<Fragment$ListGroup?>?),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Query$MediaList$MediaListCollection$user?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes lists(
-          Iterable<Fragment$ListGroup?>? Function(
-                  Iterable<CopyWith$Fragment$ListGroup<Fragment$ListGroup>?>?)
-              _fn) =>
-      call(
-          lists: _fn(_instance.lists?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ListGroup(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ListGroup?>? Function(
+      Iterable<CopyWith$Fragment$ListGroup<Fragment$ListGroup>?>?,
+    )
+    _fn,
+  ) => call(
+    lists: _fn(
+      _instance.lists?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ListGroup(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 
   CopyWith$Query$MediaList$MediaListCollection$user<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
         ? CopyWith$Query$MediaList$MediaListCollection$user.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$MediaList$MediaListCollection$user(
-            local$user, (e) => call(user: e));
+            local$user,
+            (e) => call(user: e),
+          );
   }
 }
 
@@ -712,8 +722,7 @@ class _CopyWithStubImpl$Query$MediaList$MediaListCollection<TRes>
     List<Fragment$ListGroup?>? lists,
     Query$MediaList$MediaListCollection$user? user,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   lists(_fn) => _res;
 
@@ -729,7 +738,8 @@ class Query$MediaList$MediaListCollection$user {
   });
 
   factory Query$MediaList$MediaListCollection$user.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$mediaListOptions = json['mediaListOptions'];
     final l$$__typename = json['__typename'];
@@ -738,7 +748,8 @@ class Query$MediaList$MediaListCollection$user {
       mediaListOptions: l$mediaListOptions == null
           ? null
           : Query$MediaList$MediaListCollection$user$mediaListOptions.fromJson(
-              (l$mediaListOptions as Map<String, dynamic>)),
+              (l$mediaListOptions as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -746,7 +757,7 @@ class Query$MediaList$MediaListCollection$user {
   final int id;
 
   final Query$MediaList$MediaListCollection$user$mediaListOptions?
-      mediaListOptions;
+  mediaListOptions;
 
   final String $__typename;
 
@@ -766,11 +777,7 @@ class Query$MediaList$MediaListCollection$user {
     final l$id = id;
     final l$mediaListOptions = mediaListOptions;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$mediaListOptions,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$mediaListOptions, l$$__typename]);
   }
 
   @override
@@ -804,11 +811,10 @@ class Query$MediaList$MediaListCollection$user {
 extension UtilityExtension$Query$MediaList$MediaListCollection$user
     on Query$MediaList$MediaListCollection$user {
   CopyWith$Query$MediaList$MediaListCollection$user<
-          Query$MediaList$MediaListCollection$user>
-      get copyWith => CopyWith$Query$MediaList$MediaListCollection$user(
-            this,
-            (i) => i,
-          );
+    Query$MediaList$MediaListCollection$user
+  >
+  get copyWith =>
+      CopyWith$Query$MediaList$MediaListCollection$user(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaList$MediaListCollection$user<TRes> {
@@ -826,7 +832,7 @@ abstract class CopyWith$Query$MediaList$MediaListCollection$user<TRes> {
     String? $__typename,
   });
   CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<TRes>
-      get mediaListOptions;
+  get mediaListOptions;
 }
 
 class _CopyWithImpl$Query$MediaList$MediaListCollection$user<TRes>
@@ -846,26 +852,30 @@ class _CopyWithImpl$Query$MediaList$MediaListCollection$user<TRes>
     Object? id = _undefined,
     Object? mediaListOptions = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaList$MediaListCollection$user(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        mediaListOptions: mediaListOptions == _undefined
-            ? _instance.mediaListOptions
-            : (mediaListOptions
+  }) => _then(
+    Query$MediaList$MediaListCollection$user(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      mediaListOptions: mediaListOptions == _undefined
+          ? _instance.mediaListOptions
+          : (mediaListOptions
                 as Query$MediaList$MediaListCollection$user$mediaListOptions?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<TRes>
-      get mediaListOptions {
+  get mediaListOptions {
     final local$mediaListOptions = _instance.mediaListOptions;
     return local$mediaListOptions == null
-        ? CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions
-            .stub(_then(_instance))
+        ? CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions.stub(
+            _then(_instance),
+          )
         : CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions(
-            local$mediaListOptions, (e) => call(mediaListOptions: e));
+            local$mediaListOptions,
+            (e) => call(mediaListOptions: e),
+          );
   }
 }
 
@@ -879,13 +889,13 @@ class _CopyWithStubImpl$Query$MediaList$MediaListCollection$user<TRes>
     int? id,
     Query$MediaList$MediaListCollection$user$mediaListOptions? mediaListOptions,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<TRes>
-      get mediaListOptions =>
-          CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions
-              .stub(_res);
+  get mediaListOptions =>
+      CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions.stub(
+        _res,
+      );
 }
 
 class Query$MediaList$MediaListCollection$user$mediaListOptions {
@@ -898,7 +908,8 @@ class Query$MediaList$MediaListCollection$user$mediaListOptions {
   });
 
   factory Query$MediaList$MediaListCollection$user$mediaListOptions.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$scoreFormat = json['scoreFormat'];
     final l$rowOrder = json['rowOrder'];
     final l$animeList = json['animeList'];
@@ -912,11 +923,13 @@ class Query$MediaList$MediaListCollection$user$mediaListOptions {
       animeList: l$animeList == null
           ? null
           : Fragment$MediaListOptions.fromJson(
-              (l$animeList as Map<String, dynamic>)),
+              (l$animeList as Map<String, dynamic>),
+            ),
       mangaList: l$mangaList == null
           ? null
           : Fragment$MediaListOptions.fromJson(
-              (l$mangaList as Map<String, dynamic>)),
+              (l$mangaList as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -934,8 +947,9 @@ class Query$MediaList$MediaListCollection$user$mediaListOptions {
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$scoreFormat = scoreFormat;
-    _resultData['scoreFormat'] =
-        l$scoreFormat == null ? null : toJson$Enum$ScoreFormat(l$scoreFormat);
+    _resultData['scoreFormat'] = l$scoreFormat == null
+        ? null
+        : toJson$Enum$ScoreFormat(l$scoreFormat);
     final l$rowOrder = rowOrder;
     _resultData['rowOrder'] = l$rowOrder;
     final l$animeList = animeList;
@@ -1004,25 +1018,27 @@ class Query$MediaList$MediaListCollection$user$mediaListOptions {
 extension UtilityExtension$Query$MediaList$MediaListCollection$user$mediaListOptions
     on Query$MediaList$MediaListCollection$user$mediaListOptions {
   CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<
-          Query$MediaList$MediaListCollection$user$mediaListOptions>
-      get copyWith =>
-          CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions(
-            this,
-            (i) => i,
-          );
+    Query$MediaList$MediaListCollection$user$mediaListOptions
+  >
+  get copyWith =>
+      CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions(
     Query$MediaList$MediaListCollection$user$mediaListOptions instance,
     TRes Function(Query$MediaList$MediaListCollection$user$mediaListOptions)
-        then,
+    then,
   ) = _CopyWithImpl$Query$MediaList$MediaListCollection$user$mediaListOptions;
 
   factory CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$MediaList$MediaListCollection$user$mediaListOptions;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$MediaList$MediaListCollection$user$mediaListOptions;
 
   TRes call({
     Enum$ScoreFormat? scoreFormat,
@@ -1036,10 +1052,12 @@ abstract class CopyWith$Query$MediaList$MediaListCollection$user$mediaListOption
 }
 
 class _CopyWithImpl$Query$MediaList$MediaListCollection$user$mediaListOptions<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<
-            TRes> {
+          TRes
+        > {
   _CopyWithImpl$Query$MediaList$MediaListCollection$user$mediaListOptions(
     this._instance,
     this._then,
@@ -1048,7 +1066,7 @@ class _CopyWithImpl$Query$MediaList$MediaListCollection$user$mediaListOptions<
   final Query$MediaList$MediaListCollection$user$mediaListOptions _instance;
 
   final TRes Function(Query$MediaList$MediaListCollection$user$mediaListOptions)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1058,30 +1076,34 @@ class _CopyWithImpl$Query$MediaList$MediaListCollection$user$mediaListOptions<
     Object? animeList = _undefined,
     Object? mangaList = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaList$MediaListCollection$user$mediaListOptions(
-        scoreFormat: scoreFormat == _undefined
-            ? _instance.scoreFormat
-            : (scoreFormat as Enum$ScoreFormat?),
-        rowOrder:
-            rowOrder == _undefined ? _instance.rowOrder : (rowOrder as String?),
-        animeList: animeList == _undefined
-            ? _instance.animeList
-            : (animeList as Fragment$MediaListOptions?),
-        mangaList: mangaList == _undefined
-            ? _instance.mangaList
-            : (mangaList as Fragment$MediaListOptions?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaList$MediaListCollection$user$mediaListOptions(
+      scoreFormat: scoreFormat == _undefined
+          ? _instance.scoreFormat
+          : (scoreFormat as Enum$ScoreFormat?),
+      rowOrder: rowOrder == _undefined
+          ? _instance.rowOrder
+          : (rowOrder as String?),
+      animeList: animeList == _undefined
+          ? _instance.animeList
+          : (animeList as Fragment$MediaListOptions?),
+      mangaList: mangaList == _undefined
+          ? _instance.mangaList
+          : (mangaList as Fragment$MediaListOptions?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaListOptions<TRes> get animeList {
     final local$animeList = _instance.animeList;
     return local$animeList == null
         ? CopyWith$Fragment$MediaListOptions.stub(_then(_instance))
         : CopyWith$Fragment$MediaListOptions(
-            local$animeList, (e) => call(animeList: e));
+            local$animeList,
+            (e) => call(animeList: e),
+          );
   }
 
   CopyWith$Fragment$MediaListOptions<TRes> get mangaList {
@@ -1089,17 +1111,22 @@ class _CopyWithImpl$Query$MediaList$MediaListCollection$user$mediaListOptions<
     return local$mangaList == null
         ? CopyWith$Fragment$MediaListOptions.stub(_then(_instance))
         : CopyWith$Fragment$MediaListOptions(
-            local$mangaList, (e) => call(mangaList: e));
+            local$mangaList,
+            (e) => call(mangaList: e),
+          );
   }
 }
 
 class _CopyWithStubImpl$Query$MediaList$MediaListCollection$user$mediaListOptions<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$MediaList$MediaListCollection$user$mediaListOptions<
-            TRes> {
+          TRes
+        > {
   _CopyWithStubImpl$Query$MediaList$MediaListCollection$user$mediaListOptions(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1109,8 +1136,7 @@ class _CopyWithStubImpl$Query$MediaList$MediaListCollection$user$mediaListOption
     Fragment$MediaListOptions? animeList,
     Fragment$MediaListOptions? mangaList,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaListOptions<TRes> get animeList =>
       CopyWith$Fragment$MediaListOptions.stub(_res);

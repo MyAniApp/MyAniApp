@@ -95,8 +95,9 @@ class Fragment$ListActivity {
     final l$userId = userId;
     _resultData['userId'] = l$userId;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$status = status;
     _resultData['status'] = l$status;
     final l$progress = progress;
@@ -240,10 +241,7 @@ class Fragment$ListActivity {
 
 extension UtilityExtension$Fragment$ListActivity on Fragment$ListActivity {
   CopyWith$Fragment$ListActivity<Fragment$ListActivity> get copyWith =>
-      CopyWith$Fragment$ListActivity(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$ListActivity(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ListActivity<TRes> {
@@ -277,10 +275,7 @@ abstract class CopyWith$Fragment$ListActivity<TRes> {
 
 class _CopyWithImpl$Fragment$ListActivity<TRes>
     implements CopyWith$Fragment$ListActivity<TRes> {
-  _CopyWithImpl$Fragment$ListActivity(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ListActivity(this._instance, this._then);
 
   final Fragment$ListActivity _instance;
 
@@ -303,40 +298,42 @@ class _CopyWithImpl$Fragment$ListActivity<TRes>
     Object? user = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ListActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        status: status == _undefined ? _instance.status : (status as String?),
-        progress:
-            progress == _undefined ? _instance.progress : (progress as String?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ListActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      userId: userId == _undefined ? _instance.userId : (userId as int?),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      status: status == _undefined ? _instance.status : (status as String?),
+      progress: progress == _undefined
+          ? _instance.progress
+          : (progress as String?),
+      replyCount: replyCount == _undefined || replyCount == null
+          ? _instance.replyCount
+          : (replyCount as int),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      isSubscribed: isSubscribed == _undefined
+          ? _instance.isSubscribed
+          : (isSubscribed as bool?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -374,8 +371,7 @@ class _CopyWithStubImpl$Fragment$ListActivity<TRes>
     Fragment$UserFragment? user,
     Fragment$MediaFragment? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -387,138 +383,144 @@ class _CopyWithStubImpl$Fragment$ListActivity<TRes>
 const fragmentDefinitionListActivity = FragmentDefinitionNode(
   name: NameNode(value: 'ListActivity'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'ListActivity'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'ListActivity'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'userId'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'type'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'status'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'progress'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'replyCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isLocked'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isSubscribed'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isLiked'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'likeCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'createdAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'user'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'UserFragment'),
-          directives: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'userId'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'type'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'status'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'progress'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'replyCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isLocked'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isSubscribed'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isLiked'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'likeCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'createdAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'user'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'UserFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'media'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'MediaFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'media'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'MediaFragment'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentListActivity = DocumentNode(definitions: [
-  fragmentDefinitionListActivity,
-  fragmentDefinitionUserFragment,
-  fragmentDefinitionMediaFragment,
-]);
+const documentNodeFragmentListActivity = DocumentNode(
+  definitions: [
+    fragmentDefinitionListActivity,
+    fragmentDefinitionUserFragment,
+    fragmentDefinitionMediaFragment,
+  ],
+);

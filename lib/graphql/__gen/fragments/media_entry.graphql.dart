@@ -64,11 +64,13 @@ class Fragment$MediaListEntry {
       completedAt: l$completedAt == null
           ? null
           : Fragment$FuzzyDate.fromJson(
-              (l$completedAt as Map<String, dynamic>)),
+              (l$completedAt as Map<String, dynamic>),
+            ),
       media: l$media == null
           ? null
           : Fragment$MediaListEntry$media.fromJson(
-              (l$media as Map<String, dynamic>)),
+              (l$media as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -114,8 +116,9 @@ class Fragment$MediaListEntry {
     final l$mediaId = mediaId;
     _resultData['mediaId'] = l$mediaId;
     final l$status = status;
-    _resultData['status'] =
-        l$status == null ? null : toJson$Enum$MediaListStatus(l$status);
+    _resultData['status'] = l$status == null
+        ? null
+        : toJson$Enum$MediaListStatus(l$status);
     final l$updatedAt = updatedAt;
     _resultData['updatedAt'] = l$updatedAt;
     final l$progress = progress;
@@ -286,10 +289,7 @@ class Fragment$MediaListEntry {
 
 extension UtilityExtension$Fragment$MediaListEntry on Fragment$MediaListEntry {
   CopyWith$Fragment$MediaListEntry<Fragment$MediaListEntry> get copyWith =>
-      CopyWith$Fragment$MediaListEntry(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$MediaListEntry(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaListEntry<TRes> {
@@ -327,10 +327,7 @@ abstract class CopyWith$Fragment$MediaListEntry<TRes> {
 
 class _CopyWithImpl$Fragment$MediaListEntry<TRes>
     implements CopyWith$Fragment$MediaListEntry<TRes> {
-  _CopyWithImpl$Fragment$MediaListEntry(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MediaListEntry(this._instance, this._then);
 
   final Fragment$MediaListEntry _instance;
 
@@ -356,54 +353,60 @@ class _CopyWithImpl$Fragment$MediaListEntry<TRes>
     Object? completedAt = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaListEntry(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        mediaId: mediaId == _undefined || mediaId == null
-            ? _instance.mediaId
-            : (mediaId as int),
-        status: status == _undefined
-            ? _instance.status
-            : (status as Enum$MediaListStatus?),
-        updatedAt:
-            updatedAt == _undefined ? _instance.updatedAt : (updatedAt as int?),
-        progress:
-            progress == _undefined ? _instance.progress : (progress as int?),
-        progressVolumes: progressVolumes == _undefined
-            ? _instance.progressVolumes
-            : (progressVolumes as int?),
-        priority:
-            priority == _undefined ? _instance.priority : (priority as int?),
-        notes: notes == _undefined ? _instance.notes : (notes as String?),
-        hiddenFromStatusLists: hiddenFromStatusLists == _undefined
-            ? _instance.hiddenFromStatusLists
-            : (hiddenFromStatusLists as bool?),
-        private: private == _undefined ? _instance.private : (private as bool?),
-        repeat: repeat == _undefined ? _instance.repeat : (repeat as int?),
-        score: score == _undefined ? _instance.score : (score as double?),
-        customLists: customLists == _undefined
-            ? _instance.customLists
-            : (customLists as dynamic?),
-        startedAt: startedAt == _undefined
-            ? _instance.startedAt
-            : (startedAt as Fragment$FuzzyDate?),
-        completedAt: completedAt == _undefined
-            ? _instance.completedAt
-            : (completedAt as Fragment$FuzzyDate?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaListEntry$media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaListEntry(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      mediaId: mediaId == _undefined || mediaId == null
+          ? _instance.mediaId
+          : (mediaId as int),
+      status: status == _undefined
+          ? _instance.status
+          : (status as Enum$MediaListStatus?),
+      updatedAt: updatedAt == _undefined
+          ? _instance.updatedAt
+          : (updatedAt as int?),
+      progress: progress == _undefined
+          ? _instance.progress
+          : (progress as int?),
+      progressVolumes: progressVolumes == _undefined
+          ? _instance.progressVolumes
+          : (progressVolumes as int?),
+      priority: priority == _undefined
+          ? _instance.priority
+          : (priority as int?),
+      notes: notes == _undefined ? _instance.notes : (notes as String?),
+      hiddenFromStatusLists: hiddenFromStatusLists == _undefined
+          ? _instance.hiddenFromStatusLists
+          : (hiddenFromStatusLists as bool?),
+      private: private == _undefined ? _instance.private : (private as bool?),
+      repeat: repeat == _undefined ? _instance.repeat : (repeat as int?),
+      score: score == _undefined ? _instance.score : (score as double?),
+      customLists: customLists == _undefined
+          ? _instance.customLists
+          : (customLists as dynamic?),
+      startedAt: startedAt == _undefined
+          ? _instance.startedAt
+          : (startedAt as Fragment$FuzzyDate?),
+      completedAt: completedAt == _undefined
+          ? _instance.completedAt
+          : (completedAt as Fragment$FuzzyDate?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaListEntry$media?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$FuzzyDate<TRes> get startedAt {
     final local$startedAt = _instance.startedAt;
     return local$startedAt == null
         ? CopyWith$Fragment$FuzzyDate.stub(_then(_instance))
         : CopyWith$Fragment$FuzzyDate(
-            local$startedAt, (e) => call(startedAt: e));
+            local$startedAt,
+            (e) => call(startedAt: e),
+          );
   }
 
   CopyWith$Fragment$FuzzyDate<TRes> get completedAt {
@@ -411,7 +414,9 @@ class _CopyWithImpl$Fragment$MediaListEntry<TRes>
     return local$completedAt == null
         ? CopyWith$Fragment$FuzzyDate.stub(_then(_instance))
         : CopyWith$Fragment$FuzzyDate(
-            local$completedAt, (e) => call(completedAt: e));
+            local$completedAt,
+            (e) => call(completedAt: e),
+          );
   }
 
   CopyWith$Fragment$MediaListEntry$media<TRes> get media {
@@ -419,7 +424,9 @@ class _CopyWithImpl$Fragment$MediaListEntry<TRes>
     return local$media == null
         ? CopyWith$Fragment$MediaListEntry$media.stub(_then(_instance))
         : CopyWith$Fragment$MediaListEntry$media(
-            local$media, (e) => call(media: e));
+            local$media,
+            (e) => call(media: e),
+          );
   }
 }
 
@@ -447,8 +454,7 @@ class _CopyWithStubImpl$Fragment$MediaListEntry<TRes>
     Fragment$FuzzyDate? completedAt,
     Fragment$MediaListEntry$media? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$FuzzyDate<TRes> get startedAt =>
       CopyWith$Fragment$FuzzyDate.stub(_res);
@@ -463,209 +469,121 @@ class _CopyWithStubImpl$Fragment$MediaListEntry<TRes>
 const fragmentDefinitionMediaListEntry = FragmentDefinitionNode(
   name: NameNode(value: 'MediaListEntry'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'MediaList'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'MediaList'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'mediaId'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'status'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'updatedAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'status'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'progress'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'progressVolumes'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'priority'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'notes'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'hiddenFromStatusLists'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'private'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'repeat'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'score'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'customLists'),
-      alias: null,
-      arguments: [
-        ArgumentNode(
-          name: NameNode(value: 'asArray'),
-          value: BooleanValueNode(value: true),
-        )
-      ],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'startedAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'FuzzyDate'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'completedAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'FuzzyDate'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'media'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'MediaFragment'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: 'episodes'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'chapters'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'status'),
-          alias: null,
-          arguments: [
-            ArgumentNode(
-              name: NameNode(value: 'version'),
-              value: IntValueNode(value: '2'),
-            )
-          ],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'averageScore'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'popularity'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'startDate'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'mediaId'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'status'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'updatedAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'status'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'progress'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'progressVolumes'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'priority'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'notes'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'hiddenFromStatusLists'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'private'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'repeat'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'score'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'customLists'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'asArray'),
+            value: BooleanValueNode(value: true),
+          ),
+        ],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'startedAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
             FragmentSpreadNode(
               name: NameNode(value: 'FuzzyDate'),
               directives: [],
@@ -677,31 +595,129 @@ const fragmentDefinitionMediaListEntry = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'completedAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'FuzzyDate'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'media'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'MediaFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: 'episodes'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'chapters'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'status'),
+              alias: null,
+              arguments: [
+                ArgumentNode(
+                  name: NameNode(value: 'version'),
+                  value: IntValueNode(value: '2'),
+                ),
+              ],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'averageScore'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'popularity'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'startDate'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'FuzzyDate'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
+        ),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentMediaListEntry = DocumentNode(definitions: [
-  fragmentDefinitionMediaListEntry,
-  fragmentDefinitionFuzzyDate,
-  fragmentDefinitionMediaFragment,
-]);
+const documentNodeFragmentMediaListEntry = DocumentNode(
+  definitions: [
+    fragmentDefinitionMediaListEntry,
+    fragmentDefinitionFuzzyDate,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
   Fragment$MediaListEntry$media({
@@ -750,11 +766,13 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
       title: l$title == null
           ? null
           : Fragment$MediaListEntry$media$title.fromJson(
-              (l$title as Map<String, dynamic>)),
+              (l$title as Map<String, dynamic>),
+            ),
       coverImage: l$coverImage == null
           ? null
           : Fragment$MediaListEntry$media$coverImage.fromJson(
-              (l$coverImage as Map<String, dynamic>)),
+              (l$coverImage as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
       episodes: (l$episodes as int?),
       chapters: (l$chapters as int?),
@@ -810,8 +828,9 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
     final l$genres = genres;
     _resultData['genres'] = l$genres?.map((e) => e).toList();
     final l$format = format;
-    _resultData['format'] =
-        l$format == null ? null : toJson$Enum$MediaFormat(l$format);
+    _resultData['format'] = l$format == null
+        ? null
+        : toJson$Enum$MediaFormat(l$format);
     final l$description = description;
     _resultData['description'] = l$description;
     final l$title = title;
@@ -825,8 +844,9 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
     final l$chapters = chapters;
     _resultData['chapters'] = l$chapters;
     final l$status = status;
-    _resultData['status'] =
-        l$status == null ? null : toJson$Enum$MediaStatus(l$status);
+    _resultData['status'] = l$status == null
+        ? null
+        : toJson$Enum$MediaStatus(l$status);
     final l$averageScore = averageScore;
     _resultData['averageScore'] = l$averageScore;
     final l$popularity = popularity;
@@ -974,10 +994,7 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
 extension UtilityExtension$Fragment$MediaListEntry$media
     on Fragment$MediaListEntry$media {
   CopyWith$Fragment$MediaListEntry$media<Fragment$MediaListEntry$media>
-      get copyWith => CopyWith$Fragment$MediaListEntry$media(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$MediaListEntry$media(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaListEntry$media<TRes> {
@@ -1013,10 +1030,7 @@ abstract class CopyWith$Fragment$MediaListEntry$media<TRes> {
 
 class _CopyWithImpl$Fragment$MediaListEntry$media<TRes>
     implements CopyWith$Fragment$MediaListEntry$media<TRes> {
-  _CopyWithImpl$Fragment$MediaListEntry$media(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MediaListEntry$media(this._instance, this._then);
 
   final Fragment$MediaListEntry$media _instance;
 
@@ -1040,62 +1054,70 @@ class _CopyWithImpl$Fragment$MediaListEntry$media<TRes>
     Object? averageScore = _undefined,
     Object? popularity = _undefined,
     Object? startDate = _undefined,
-  }) =>
-      _then(Fragment$MediaListEntry$media(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
-        isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
-        genres: genres == _undefined
-            ? _instance.genres
-            : (genres as List<String?>?),
-        format: format == _undefined
-            ? _instance.format
-            : (format as Enum$MediaFormat?),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Fragment$MediaListEntry$media$title?),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage as Fragment$MediaListEntry$media$coverImage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        episodes:
-            episodes == _undefined ? _instance.episodes : (episodes as int?),
-        chapters:
-            chapters == _undefined ? _instance.chapters : (chapters as int?),
-        status: status == _undefined
-            ? _instance.status
-            : (status as Enum$MediaStatus?),
-        averageScore: averageScore == _undefined
-            ? _instance.averageScore
-            : (averageScore as int?),
-        popularity: popularity == _undefined
-            ? _instance.popularity
-            : (popularity as int?),
-        startDate: startDate == _undefined
-            ? _instance.startDate
-            : (startDate as Fragment$FuzzyDate?),
-      ));
+  }) => _then(
+    Fragment$MediaListEntry$media(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
+      isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
+      genres: genres == _undefined
+          ? _instance.genres
+          : (genres as List<String?>?),
+      format: format == _undefined
+          ? _instance.format
+          : (format as Enum$MediaFormat?),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Fragment$MediaListEntry$media$title?),
+      coverImage: coverImage == _undefined
+          ? _instance.coverImage
+          : (coverImage as Fragment$MediaListEntry$media$coverImage?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      episodes: episodes == _undefined
+          ? _instance.episodes
+          : (episodes as int?),
+      chapters: chapters == _undefined
+          ? _instance.chapters
+          : (chapters as int?),
+      status: status == _undefined
+          ? _instance.status
+          : (status as Enum$MediaStatus?),
+      averageScore: averageScore == _undefined
+          ? _instance.averageScore
+          : (averageScore as int?),
+      popularity: popularity == _undefined
+          ? _instance.popularity
+          : (popularity as int?),
+      startDate: startDate == _undefined
+          ? _instance.startDate
+          : (startDate as Fragment$FuzzyDate?),
+    ),
+  );
 
   CopyWith$Fragment$MediaListEntry$media$title<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
         ? CopyWith$Fragment$MediaListEntry$media$title.stub(_then(_instance))
         : CopyWith$Fragment$MediaListEntry$media$title(
-            local$title, (e) => call(title: e));
+            local$title,
+            (e) => call(title: e),
+          );
   }
 
   CopyWith$Fragment$MediaListEntry$media$coverImage<TRes> get coverImage {
     final local$coverImage = _instance.coverImage;
     return local$coverImage == null
         ? CopyWith$Fragment$MediaListEntry$media$coverImage.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Fragment$MediaListEntry$media$coverImage(
-            local$coverImage, (e) => call(coverImage: e));
+            local$coverImage,
+            (e) => call(coverImage: e),
+          );
   }
 
   CopyWith$Fragment$FuzzyDate<TRes> get startDate {
@@ -1103,7 +1125,9 @@ class _CopyWithImpl$Fragment$MediaListEntry$media<TRes>
     return local$startDate == null
         ? CopyWith$Fragment$FuzzyDate.stub(_then(_instance))
         : CopyWith$Fragment$FuzzyDate(
-            local$startDate, (e) => call(startDate: e));
+            local$startDate,
+            (e) => call(startDate: e),
+          );
   }
 }
 
@@ -1129,8 +1153,7 @@ class _CopyWithStubImpl$Fragment$MediaListEntry$media<TRes>
     int? averageScore,
     int? popularity,
     Fragment$FuzzyDate? startDate,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaListEntry$media$title<TRes> get title =>
       CopyWith$Fragment$MediaListEntry$media$title.stub(_res);
@@ -1150,7 +1173,8 @@ class Fragment$MediaListEntry$media$title
   });
 
   factory Fragment$MediaListEntry$media$title.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$userPreferred = json['userPreferred'];
     final l$$__typename = json['__typename'];
     return Fragment$MediaListEntry$media$title(
@@ -1176,10 +1200,7 @@ class Fragment$MediaListEntry$media$title
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -1208,11 +1229,9 @@ class Fragment$MediaListEntry$media$title
 extension UtilityExtension$Fragment$MediaListEntry$media$title
     on Fragment$MediaListEntry$media$title {
   CopyWith$Fragment$MediaListEntry$media$title<
-          Fragment$MediaListEntry$media$title>
-      get copyWith => CopyWith$Fragment$MediaListEntry$media$title(
-            this,
-            (i) => i,
-          );
+    Fragment$MediaListEntry$media$title
+  >
+  get copyWith => CopyWith$Fragment$MediaListEntry$media$title(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaListEntry$media$title<TRes> {
@@ -1224,18 +1243,12 @@ abstract class CopyWith$Fragment$MediaListEntry$media$title<TRes> {
   factory CopyWith$Fragment$MediaListEntry$media$title.stub(TRes res) =
       _CopyWithStubImpl$Fragment$MediaListEntry$media$title;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$MediaListEntry$media$title<TRes>
     implements CopyWith$Fragment$MediaListEntry$media$title<TRes> {
-  _CopyWithImpl$Fragment$MediaListEntry$media$title(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MediaListEntry$media$title(this._instance, this._then);
 
   final Fragment$MediaListEntry$media$title _instance;
 
@@ -1246,15 +1259,16 @@ class _CopyWithImpl$Fragment$MediaListEntry$media$title<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaListEntry$media$title(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaListEntry$media$title(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$MediaListEntry$media$title<TRes>
@@ -1263,11 +1277,7 @@ class _CopyWithStubImpl$Fragment$MediaListEntry$media$title<TRes>
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }
 
 class Fragment$MediaListEntry$media$coverImage
@@ -1278,7 +1288,8 @@ class Fragment$MediaListEntry$media$coverImage
   });
 
   factory Fragment$MediaListEntry$media$coverImage.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$extraLarge = json['extraLarge'];
     final l$$__typename = json['__typename'];
     return Fragment$MediaListEntry$media$coverImage(
@@ -1304,10 +1315,7 @@ class Fragment$MediaListEntry$media$coverImage
   int get hashCode {
     final l$extraLarge = extraLarge;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$extraLarge,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$extraLarge, l$$__typename]);
   }
 
   @override
@@ -1336,11 +1344,10 @@ class Fragment$MediaListEntry$media$coverImage
 extension UtilityExtension$Fragment$MediaListEntry$media$coverImage
     on Fragment$MediaListEntry$media$coverImage {
   CopyWith$Fragment$MediaListEntry$media$coverImage<
-          Fragment$MediaListEntry$media$coverImage>
-      get copyWith => CopyWith$Fragment$MediaListEntry$media$coverImage(
-            this,
-            (i) => i,
-          );
+    Fragment$MediaListEntry$media$coverImage
+  >
+  get copyWith =>
+      CopyWith$Fragment$MediaListEntry$media$coverImage(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaListEntry$media$coverImage<TRes> {
@@ -1352,10 +1359,7 @@ abstract class CopyWith$Fragment$MediaListEntry$media$coverImage<TRes> {
   factory CopyWith$Fragment$MediaListEntry$media$coverImage.stub(TRes res) =
       _CopyWithStubImpl$Fragment$MediaListEntry$media$coverImage;
 
-  TRes call({
-    String? extraLarge,
-    String? $__typename,
-  });
+  TRes call({String? extraLarge, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$MediaListEntry$media$coverImage<TRes>
@@ -1374,15 +1378,16 @@ class _CopyWithImpl$Fragment$MediaListEntry$media$coverImage<TRes>
   TRes call({
     Object? extraLarge = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaListEntry$media$coverImage(
-        extraLarge: extraLarge == _undefined
-            ? _instance.extraLarge
-            : (extraLarge as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaListEntry$media$coverImage(
+      extraLarge: extraLarge == _undefined
+          ? _instance.extraLarge
+          : (extraLarge as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$MediaListEntry$media$coverImage<TRes>
@@ -1391,9 +1396,5 @@ class _CopyWithStubImpl$Fragment$MediaListEntry$media$coverImage<TRes>
 
   TRes _res;
 
-  call({
-    String? extraLarge,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? extraLarge, String? $__typename}) => _res;
 }

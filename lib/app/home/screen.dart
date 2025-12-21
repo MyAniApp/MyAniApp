@@ -22,9 +22,7 @@ class HomeScreen extends ConsumerWidget {
 
     if (user.isLoading || user.hasError || user.value?.loading == true) {
       return const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
+        body: Center(child: CircularProgressIndicator.adaptive()),
       );
     }
 
@@ -32,68 +30,72 @@ class HomeScreen extends ConsumerWidget {
       if (user.value?.data != null) ...[
         const NavigationDestination(icon: Icon(Icons.home), label: "Home"),
         const NavigationDestination(
-            icon: Icon(Icons.view_list_sharp), label: "Lists"),
+          icon: Icon(Icons.view_list_sharp),
+          label: "Lists",
+        ),
       ],
       const NavigationDestination(icon: Icon(Icons.explore), label: "Explore"),
       const NavigationDestination(icon: Icon(Icons.chat), label: "Activities"),
       const NavigationDestination(icon: Icon(Icons.forum), label: "Forums"),
     ];
 
-    return OrientationBuilder(builder: (context, orientation) {
-      return Scaffold(
-        body: Show(
-          when: orientation == Orientation.landscape,
-          fallback: child,
-          child: () => Row(
-            children: [
-              NavigationRail(
-                destinations: [
-                  for (var d in destinations)
-                    NavigationRailDestination(
-                      icon: d.icon,
-                      label: Text(d.label),
-                    )
-                ],
-                selectedIndex: destinations.length == 3
-                    ? child.currentIndex - 2
-                    : child.currentIndex,
-                onDestinationSelected: (value) {
-                  var v = destinations.length == 3 ? value + 2 : value;
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return Scaffold(
+          body: Show(
+            when: orientation == Orientation.landscape,
+            fallback: child,
+            child: () => Row(
+              children: [
+                NavigationRail(
+                  destinations: [
+                    for (var d in destinations)
+                      NavigationRailDestination(
+                        icon: d.icon,
+                        label: Text(d.label),
+                      ),
+                  ],
+                  selectedIndex: destinations.length == 3
+                      ? child.currentIndex - 2
+                      : child.currentIndex,
+                  onDestinationSelected: (value) {
+                    var v = destinations.length == 3 ? value + 2 : value;
 
-                  if (v != 4) {
-                    child.goBranch(v);
-                  } else {
-                    context.go(Routes.forums(ForumTabs.overview));
-                  }
-                },
-              ),
-              Expanded(child: child),
-            ],
+                    if (v != 4) {
+                      child.goBranch(v);
+                    } else {
+                      context.go(Routes.forums(ForumTabs.overview));
+                    }
+                  },
+                ),
+                Expanded(child: child),
+              ],
+            ),
           ),
-        ),
-        drawer: Drawer(),
-        bottomNavigationBar: Show(
-          when: orientation == Orientation.portrait,
-          child: () => NavigationBar(
-            destinations: destinations,
-            selectedIndex: destinations.length == 3
-                ? child.currentIndex - 2
-                : child.currentIndex,
-            labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-            height: 70,
-            onDestinationSelected: (value) {
-              var v = destinations.length == 3 ? value + 2 : value;
+          drawer: Drawer(),
+          bottomNavigationBar: Show(
+            when: orientation == Orientation.portrait,
+            child: () => NavigationBar(
+              destinations: destinations,
+              selectedIndex: destinations.length == 3
+                  ? child.currentIndex - 2
+                  : child.currentIndex,
+              labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+              height: 70,
+              onDestinationSelected: (value) {
+                var v = destinations.length == 3 ? value + 2 : value;
 
-              if (v != 4) {
-                child.goBranch(v);
-              } else {
-                context.go(Routes.forums(ForumTabs.overview));
-              }
-            },
+                if (v != 4) {
+                  child.goBranch(v);
+                } else {
+                  context.go(Routes.forums(ForumTabs.overview));
+                }
+              },
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
 
@@ -111,7 +113,8 @@ class Drawer extends ConsumerWidget {
               ? () => context.replace(Routes.login)
               : () => context.push(
                   Routes.user(user.value!.parsedData!.Viewer!.name),
-                  extra: {"placeholder": user.value!.parsedData!.Viewer!.name}),
+                  extra: {"placeholder": user.value!.parsedData!.Viewer!.name},
+                ),
           child: UserAccountsDrawerHeader(
             accountName: Show(
               when: user.value?.parsedData != null,
@@ -135,8 +138,9 @@ class Drawer extends ConsumerWidget {
                 ? null
                 : Text(
                     "Sign in!",
-                    style:
-                        TextStyle(color: context.theme.colorScheme.onSurface),
+                    style: TextStyle(
+                      color: context.theme.colorScheme.onSurface,
+                    ),
                   ),
           ),
         ),
@@ -150,23 +154,17 @@ class Drawer extends ConsumerWidget {
             context: context,
             applicationVersion: ref.read(appInfoProvider).version,
             applicationName: "MyAniApp",
-            applicationIcon: Image.asset(
-              "assets/app_icon.png",
-              height: 40,
-            ),
+            applicationIcon: Image.asset("assets/app_icon.png", height: 40),
           ),
           leading: const Icon(Icons.info),
           title: const Text('About'),
         ),
         if (user.value?.data != null)
           ListTile(
-            leading: const Icon(
-              Icons.logout,
-              color: Colors.red,
-            ),
+            leading: const Icon(Icons.logout, color: Colors.red),
             title: const Text("Logout"),
             onTap: () => ref.read(settingsProvider.notifier).updateToken(null),
-          )
+          ),
       ],
     );
   }
@@ -177,8 +175,9 @@ class HomeLeadingIcon extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var userAvatar = ref.watch(userProvider
-        .select((value) => value.value?.parsedData?.Viewer?.avatar));
+    var userAvatar = ref.watch(
+      userProvider.select((value) => value.value?.parsedData?.Viewer?.avatar),
+    );
 
     return Show(
       when: userAvatar != null,
@@ -188,9 +187,7 @@ class HomeLeadingIcon extends ConsumerWidget {
       ),
       child: () => IconButton(
         onPressed: () => Scaffold.of(Scaffold.of(context).context).openDrawer(),
-        icon: ListTileCircleAvatar(
-          url: userAvatar!.large!,
-        ),
+        icon: ListTileCircleAvatar(url: userAvatar!.large!),
       ),
     );
   }

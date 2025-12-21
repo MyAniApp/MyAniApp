@@ -3,12 +3,11 @@ class Input$AiringScheduleInput {
     int? airingAt,
     int? episode,
     int? timeUntilAiring,
-  }) =>
-      Input$AiringScheduleInput._({
-        if (airingAt != null) r'airingAt': airingAt,
-        if (episode != null) r'episode': episode,
-        if (timeUntilAiring != null) r'timeUntilAiring': timeUntilAiring,
-      });
+  }) => Input$AiringScheduleInput._({
+    if (airingAt != null) r'airingAt': airingAt,
+    if (episode != null) r'episode': episode,
+    if (timeUntilAiring != null) r'timeUntilAiring': timeUntilAiring,
+  });
 
   Input$AiringScheduleInput._(this._$data);
 
@@ -55,10 +54,7 @@ class Input$AiringScheduleInput {
   }
 
   CopyWith$Input$AiringScheduleInput<Input$AiringScheduleInput> get copyWith =>
-      CopyWith$Input$AiringScheduleInput(
-        this,
-        (i) => i,
-      );
+      CopyWith$Input$AiringScheduleInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -120,19 +116,12 @@ abstract class CopyWith$Input$AiringScheduleInput<TRes> {
   factory CopyWith$Input$AiringScheduleInput.stub(TRes res) =
       _CopyWithStubImpl$Input$AiringScheduleInput;
 
-  TRes call({
-    int? airingAt,
-    int? episode,
-    int? timeUntilAiring,
-  });
+  TRes call({int? airingAt, int? episode, int? timeUntilAiring});
 }
 
 class _CopyWithImpl$Input$AiringScheduleInput<TRes>
     implements CopyWith$Input$AiringScheduleInput<TRes> {
-  _CopyWithImpl$Input$AiringScheduleInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$AiringScheduleInput(this._instance, this._then);
 
   final Input$AiringScheduleInput _instance;
 
@@ -144,14 +133,15 @@ class _CopyWithImpl$Input$AiringScheduleInput<TRes>
     Object? airingAt = _undefined,
     Object? episode = _undefined,
     Object? timeUntilAiring = _undefined,
-  }) =>
-      _then(Input$AiringScheduleInput._({
-        ..._instance._$data,
-        if (airingAt != _undefined) 'airingAt': (airingAt as int?),
-        if (episode != _undefined) 'episode': (episode as int?),
-        if (timeUntilAiring != _undefined)
-          'timeUntilAiring': (timeUntilAiring as int?),
-      }));
+  }) => _then(
+    Input$AiringScheduleInput._({
+      ..._instance._$data,
+      if (airingAt != _undefined) 'airingAt': (airingAt as int?),
+      if (episode != _undefined) 'episode': (episode as int?),
+      if (timeUntilAiring != _undefined)
+        'timeUntilAiring': (timeUntilAiring as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$AiringScheduleInput<TRes>
@@ -160,19 +150,11 @@ class _CopyWithStubImpl$Input$AiringScheduleInput<TRes>
 
   TRes _res;
 
-  call({
-    int? airingAt,
-    int? episode,
-    int? timeUntilAiring,
-  }) =>
-      _res;
+  call({int? airingAt, int? episode, int? timeUntilAiring}) => _res;
 }
 
 class Input$AniChartHighlightInput {
-  factory Input$AniChartHighlightInput({
-    int? mediaId,
-    String? highlight,
-  }) =>
+  factory Input$AniChartHighlightInput({int? mediaId, String? highlight}) =>
       Input$AniChartHighlightInput._({
         if (mediaId != null) r'mediaId': mediaId,
         if (highlight != null) r'highlight': highlight,
@@ -213,10 +195,7 @@ class Input$AniChartHighlightInput {
   }
 
   CopyWith$Input$AniChartHighlightInput<Input$AniChartHighlightInput>
-      get copyWith => CopyWith$Input$AniChartHighlightInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$AniChartHighlightInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -267,18 +246,12 @@ abstract class CopyWith$Input$AniChartHighlightInput<TRes> {
   factory CopyWith$Input$AniChartHighlightInput.stub(TRes res) =
       _CopyWithStubImpl$Input$AniChartHighlightInput;
 
-  TRes call({
-    int? mediaId,
-    String? highlight,
-  });
+  TRes call({int? mediaId, String? highlight});
 }
 
 class _CopyWithImpl$Input$AniChartHighlightInput<TRes>
     implements CopyWith$Input$AniChartHighlightInput<TRes> {
-  _CopyWithImpl$Input$AniChartHighlightInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$AniChartHighlightInput(this._instance, this._then);
 
   final Input$AniChartHighlightInput _instance;
 
@@ -286,15 +259,14 @@ class _CopyWithImpl$Input$AniChartHighlightInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? mediaId = _undefined,
-    Object? highlight = _undefined,
-  }) =>
-      _then(Input$AniChartHighlightInput._({
-        ..._instance._$data,
-        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
-        if (highlight != _undefined) 'highlight': (highlight as String?),
-      }));
+  TRes call({Object? mediaId = _undefined, Object? highlight = _undefined}) =>
+      _then(
+        Input$AniChartHighlightInput._({
+          ..._instance._$data,
+          if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+          if (highlight != _undefined) 'highlight': (highlight as String?),
+        }),
+      );
 }
 
 class _CopyWithStubImpl$Input$AniChartHighlightInput<TRes>
@@ -303,11 +275,7 @@ class _CopyWithStubImpl$Input$AniChartHighlightInput<TRes>
 
   TRes _res;
 
-  call({
-    int? mediaId,
-    String? highlight,
-  }) =>
-      _res;
+  call({int? mediaId, String? highlight}) => _res;
 }
 
 class Input$CharacterNameInput {
@@ -318,16 +286,14 @@ class Input$CharacterNameInput {
     String? native,
     List<String?>? alternative,
     List<String?>? alternativeSpoiler,
-  }) =>
-      Input$CharacterNameInput._({
-        if (first != null) r'first': first,
-        if (middle != null) r'middle': middle,
-        if (last != null) r'last': last,
-        if (native != null) r'native': native,
-        if (alternative != null) r'alternative': alternative,
-        if (alternativeSpoiler != null)
-          r'alternativeSpoiler': alternativeSpoiler,
-      });
+  }) => Input$CharacterNameInput._({
+    if (first != null) r'first': first,
+    if (middle != null) r'middle': middle,
+    if (last != null) r'last': last,
+    if (native != null) r'native': native,
+    if (alternative != null) r'alternative': alternative,
+    if (alternativeSpoiler != null) r'alternativeSpoiler': alternativeSpoiler,
+  });
 
   Input$CharacterNameInput._(this._$data);
 
@@ -404,17 +370,15 @@ class Input$CharacterNameInput {
     }
     if (_$data.containsKey('alternativeSpoiler')) {
       final l$alternativeSpoiler = alternativeSpoiler;
-      result$data['alternativeSpoiler'] =
-          l$alternativeSpoiler?.map((e) => e).toList();
+      result$data['alternativeSpoiler'] = l$alternativeSpoiler
+          ?.map((e) => e)
+          .toList();
     }
     return result$data;
   }
 
   CopyWith$Input$CharacterNameInput<Input$CharacterNameInput> get copyWith =>
-      CopyWith$Input$CharacterNameInput(
-        this,
-        (i) => i,
-      );
+      CopyWith$Input$CharacterNameInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -515,13 +479,13 @@ class Input$CharacterNameInput {
       _$data.containsKey('native') ? l$native : const {},
       _$data.containsKey('alternative')
           ? l$alternative == null
-              ? null
-              : Object.hashAll(l$alternative.map((v) => v))
+                ? null
+                : Object.hashAll(l$alternative.map((v) => v))
           : const {},
       _$data.containsKey('alternativeSpoiler')
           ? l$alternativeSpoiler == null
-              ? null
-              : Object.hashAll(l$alternativeSpoiler.map((v) => v))
+                ? null
+                : Object.hashAll(l$alternativeSpoiler.map((v) => v))
           : const {},
     ]);
   }
@@ -548,10 +512,7 @@ abstract class CopyWith$Input$CharacterNameInput<TRes> {
 
 class _CopyWithImpl$Input$CharacterNameInput<TRes>
     implements CopyWith$Input$CharacterNameInput<TRes> {
-  _CopyWithImpl$Input$CharacterNameInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$CharacterNameInput(this._instance, this._then);
 
   final Input$CharacterNameInput _instance;
 
@@ -566,18 +527,19 @@ class _CopyWithImpl$Input$CharacterNameInput<TRes>
     Object? native = _undefined,
     Object? alternative = _undefined,
     Object? alternativeSpoiler = _undefined,
-  }) =>
-      _then(Input$CharacterNameInput._({
-        ..._instance._$data,
-        if (first != _undefined) 'first': (first as String?),
-        if (middle != _undefined) 'middle': (middle as String?),
-        if (last != _undefined) 'last': (last as String?),
-        if (native != _undefined) 'native': (native as String?),
-        if (alternative != _undefined)
-          'alternative': (alternative as List<String?>?),
-        if (alternativeSpoiler != _undefined)
-          'alternativeSpoiler': (alternativeSpoiler as List<String?>?),
-      }));
+  }) => _then(
+    Input$CharacterNameInput._({
+      ..._instance._$data,
+      if (first != _undefined) 'first': (first as String?),
+      if (middle != _undefined) 'middle': (middle as String?),
+      if (last != _undefined) 'last': (last as String?),
+      if (native != _undefined) 'native': (native as String?),
+      if (alternative != _undefined)
+        'alternative': (alternative as List<String?>?),
+      if (alternativeSpoiler != _undefined)
+        'alternativeSpoiler': (alternativeSpoiler as List<String?>?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$CharacterNameInput<TRes>
@@ -593,16 +555,11 @@ class _CopyWithStubImpl$Input$CharacterNameInput<TRes>
     String? native,
     List<String?>? alternative,
     List<String?>? alternativeSpoiler,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$FuzzyDateInput {
-  factory Input$FuzzyDateInput({
-    int? year,
-    int? month,
-    int? day,
-  }) =>
+  factory Input$FuzzyDateInput({int? year, int? month, int? day}) =>
       Input$FuzzyDateInput._({
         if (year != null) r'year': year,
         if (month != null) r'month': month,
@@ -654,10 +611,7 @@ class Input$FuzzyDateInput {
   }
 
   CopyWith$Input$FuzzyDateInput<Input$FuzzyDateInput> get copyWith =>
-      CopyWith$Input$FuzzyDateInput(
-        this,
-        (i) => i,
-      );
+      CopyWith$Input$FuzzyDateInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -716,19 +670,12 @@ abstract class CopyWith$Input$FuzzyDateInput<TRes> {
   factory CopyWith$Input$FuzzyDateInput.stub(TRes res) =
       _CopyWithStubImpl$Input$FuzzyDateInput;
 
-  TRes call({
-    int? year,
-    int? month,
-    int? day,
-  });
+  TRes call({int? year, int? month, int? day});
 }
 
 class _CopyWithImpl$Input$FuzzyDateInput<TRes>
     implements CopyWith$Input$FuzzyDateInput<TRes> {
-  _CopyWithImpl$Input$FuzzyDateInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$FuzzyDateInput(this._instance, this._then);
 
   final Input$FuzzyDateInput _instance;
 
@@ -740,13 +687,14 @@ class _CopyWithImpl$Input$FuzzyDateInput<TRes>
     Object? year = _undefined,
     Object? month = _undefined,
     Object? day = _undefined,
-  }) =>
-      _then(Input$FuzzyDateInput._({
-        ..._instance._$data,
-        if (year != _undefined) 'year': (year as int?),
-        if (month != _undefined) 'month': (month as int?),
-        if (day != _undefined) 'day': (day as int?),
-      }));
+  }) => _then(
+    Input$FuzzyDateInput._({
+      ..._instance._$data,
+      if (year != _undefined) 'year': (year as int?),
+      if (month != _undefined) 'month': (month as int?),
+      if (day != _undefined) 'day': (day as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$FuzzyDateInput<TRes>
@@ -755,23 +703,17 @@ class _CopyWithStubImpl$Input$FuzzyDateInput<TRes>
 
   TRes _res;
 
-  call({
-    int? year,
-    int? month,
-    int? day,
-  }) =>
-      _res;
+  call({int? year, int? month, int? day}) => _res;
 }
 
 class Input$ListActivityOptionInput {
   factory Input$ListActivityOptionInput({
     bool? disabled,
     Enum$MediaListStatus? type,
-  }) =>
-      Input$ListActivityOptionInput._({
-        if (disabled != null) r'disabled': disabled,
-        if (type != null) r'type': type,
-      });
+  }) => Input$ListActivityOptionInput._({
+    if (disabled != null) r'disabled': disabled,
+    if (type != null) r'type': type,
+  });
 
   Input$ListActivityOptionInput._(this._$data);
 
@@ -804,17 +746,15 @@ class Input$ListActivityOptionInput {
     }
     if (_$data.containsKey('type')) {
       final l$type = type;
-      result$data['type'] =
-          l$type == null ? null : toJson$Enum$MediaListStatus(l$type);
+      result$data['type'] = l$type == null
+          ? null
+          : toJson$Enum$MediaListStatus(l$type);
     }
     return result$data;
   }
 
   CopyWith$Input$ListActivityOptionInput<Input$ListActivityOptionInput>
-      get copyWith => CopyWith$Input$ListActivityOptionInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$ListActivityOptionInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -865,18 +805,12 @@ abstract class CopyWith$Input$ListActivityOptionInput<TRes> {
   factory CopyWith$Input$ListActivityOptionInput.stub(TRes res) =
       _CopyWithStubImpl$Input$ListActivityOptionInput;
 
-  TRes call({
-    bool? disabled,
-    Enum$MediaListStatus? type,
-  });
+  TRes call({bool? disabled, Enum$MediaListStatus? type});
 }
 
 class _CopyWithImpl$Input$ListActivityOptionInput<TRes>
     implements CopyWith$Input$ListActivityOptionInput<TRes> {
-  _CopyWithImpl$Input$ListActivityOptionInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$ListActivityOptionInput(this._instance, this._then);
 
   final Input$ListActivityOptionInput _instance;
 
@@ -884,15 +818,14 @@ class _CopyWithImpl$Input$ListActivityOptionInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? disabled = _undefined,
-    Object? type = _undefined,
-  }) =>
-      _then(Input$ListActivityOptionInput._({
-        ..._instance._$data,
-        if (disabled != _undefined) 'disabled': (disabled as bool?),
-        if (type != _undefined) 'type': (type as Enum$MediaListStatus?),
-      }));
+  TRes call({Object? disabled = _undefined, Object? type = _undefined}) =>
+      _then(
+        Input$ListActivityOptionInput._({
+          ..._instance._$data,
+          if (disabled != _undefined) 'disabled': (disabled as bool?),
+          if (type != _undefined) 'type': (type as Enum$MediaListStatus?),
+        }),
+      );
 }
 
 class _CopyWithStubImpl$Input$ListActivityOptionInput<TRes>
@@ -901,11 +834,7 @@ class _CopyWithStubImpl$Input$ListActivityOptionInput<TRes>
 
   TRes _res;
 
-  call({
-    bool? disabled,
-    Enum$MediaListStatus? type,
-  }) =>
-      _res;
+  call({bool? disabled, Enum$MediaListStatus? type}) => _res;
 }
 
 class Input$MediaExternalLinkInput {
@@ -913,12 +842,7 @@ class Input$MediaExternalLinkInput {
     required int id,
     required String url,
     required String site,
-  }) =>
-      Input$MediaExternalLinkInput._({
-        r'id': id,
-        r'url': url,
-        r'site': site,
-      });
+  }) => Input$MediaExternalLinkInput._({r'id': id, r'url': url, r'site': site});
 
   Input$MediaExternalLinkInput._(this._$data);
 
@@ -953,10 +877,7 @@ class Input$MediaExternalLinkInput {
   }
 
   CopyWith$Input$MediaExternalLinkInput<Input$MediaExternalLinkInput>
-      get copyWith => CopyWith$Input$MediaExternalLinkInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaExternalLinkInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -990,11 +911,7 @@ class Input$MediaExternalLinkInput {
     final l$id = id;
     final l$url = url;
     final l$site = site;
-    return Object.hashAll([
-      l$id,
-      l$url,
-      l$site,
-    ]);
+    return Object.hashAll([l$id, l$url, l$site]);
   }
 }
 
@@ -1007,19 +924,12 @@ abstract class CopyWith$Input$MediaExternalLinkInput<TRes> {
   factory CopyWith$Input$MediaExternalLinkInput.stub(TRes res) =
       _CopyWithStubImpl$Input$MediaExternalLinkInput;
 
-  TRes call({
-    int? id,
-    String? url,
-    String? site,
-  });
+  TRes call({int? id, String? url, String? site});
 }
 
 class _CopyWithImpl$Input$MediaExternalLinkInput<TRes>
     implements CopyWith$Input$MediaExternalLinkInput<TRes> {
-  _CopyWithImpl$Input$MediaExternalLinkInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$MediaExternalLinkInput(this._instance, this._then);
 
   final Input$MediaExternalLinkInput _instance;
 
@@ -1031,13 +941,14 @@ class _CopyWithImpl$Input$MediaExternalLinkInput<TRes>
     Object? id = _undefined,
     Object? url = _undefined,
     Object? site = _undefined,
-  }) =>
-      _then(Input$MediaExternalLinkInput._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as int),
-        if (url != _undefined && url != null) 'url': (url as String),
-        if (site != _undefined && site != null) 'site': (site as String),
-      }));
+  }) => _then(
+    Input$MediaExternalLinkInput._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as int),
+      if (url != _undefined && url != null) 'url': (url as String),
+      if (site != _undefined && site != null) 'site': (site as String),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaExternalLinkInput<TRes>
@@ -1046,12 +957,7 @@ class _CopyWithStubImpl$Input$MediaExternalLinkInput<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    String? url,
-    String? site,
-  }) =>
-      _res;
+  call({int? id, String? url, String? site}) => _res;
 }
 
 class Input$MediaListOptionsInput {
@@ -1062,17 +968,16 @@ class Input$MediaListOptionsInput {
     List<String?>? advancedScoring,
     bool? advancedScoringEnabled,
     String? theme,
-  }) =>
-      Input$MediaListOptionsInput._({
-        if (sectionOrder != null) r'sectionOrder': sectionOrder,
-        if (splitCompletedSectionByFormat != null)
-          r'splitCompletedSectionByFormat': splitCompletedSectionByFormat,
-        if (customLists != null) r'customLists': customLists,
-        if (advancedScoring != null) r'advancedScoring': advancedScoring,
-        if (advancedScoringEnabled != null)
-          r'advancedScoringEnabled': advancedScoringEnabled,
-        if (theme != null) r'theme': theme,
-      });
+  }) => Input$MediaListOptionsInput._({
+    if (sectionOrder != null) r'sectionOrder': sectionOrder,
+    if (splitCompletedSectionByFormat != null)
+      r'splitCompletedSectionByFormat': splitCompletedSectionByFormat,
+    if (customLists != null) r'customLists': customLists,
+    if (advancedScoring != null) r'advancedScoring': advancedScoring,
+    if (advancedScoringEnabled != null)
+      r'advancedScoringEnabled': advancedScoringEnabled,
+    if (theme != null) r'theme': theme,
+  });
 
   Input$MediaListOptionsInput._(this._$data);
 
@@ -1148,8 +1053,9 @@ class Input$MediaListOptionsInput {
     }
     if (_$data.containsKey('advancedScoring')) {
       final l$advancedScoring = advancedScoring;
-      result$data['advancedScoring'] =
-          l$advancedScoring?.map((e) => e).toList();
+      result$data['advancedScoring'] = l$advancedScoring
+          ?.map((e) => e)
+          .toList();
     }
     if (_$data.containsKey('advancedScoringEnabled')) {
       final l$advancedScoringEnabled = advancedScoringEnabled;
@@ -1163,10 +1069,7 @@ class Input$MediaListOptionsInput {
   }
 
   CopyWith$Input$MediaListOptionsInput<Input$MediaListOptionsInput>
-      get copyWith => CopyWith$Input$MediaListOptionsInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$MediaListOptionsInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1279,21 +1182,21 @@ class Input$MediaListOptionsInput {
     return Object.hashAll([
       _$data.containsKey('sectionOrder')
           ? l$sectionOrder == null
-              ? null
-              : Object.hashAll(l$sectionOrder.map((v) => v))
+                ? null
+                : Object.hashAll(l$sectionOrder.map((v) => v))
           : const {},
       _$data.containsKey('splitCompletedSectionByFormat')
           ? l$splitCompletedSectionByFormat
           : const {},
       _$data.containsKey('customLists')
           ? l$customLists == null
-              ? null
-              : Object.hashAll(l$customLists.map((v) => v))
+                ? null
+                : Object.hashAll(l$customLists.map((v) => v))
           : const {},
       _$data.containsKey('advancedScoring')
           ? l$advancedScoring == null
-              ? null
-              : Object.hashAll(l$advancedScoring.map((v) => v))
+                ? null
+                : Object.hashAll(l$advancedScoring.map((v) => v))
           : const {},
       _$data.containsKey('advancedScoringEnabled')
           ? l$advancedScoringEnabled
@@ -1324,10 +1227,7 @@ abstract class CopyWith$Input$MediaListOptionsInput<TRes> {
 
 class _CopyWithImpl$Input$MediaListOptionsInput<TRes>
     implements CopyWith$Input$MediaListOptionsInput<TRes> {
-  _CopyWithImpl$Input$MediaListOptionsInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$MediaListOptionsInput(this._instance, this._then);
 
   final Input$MediaListOptionsInput _instance;
 
@@ -1342,22 +1242,23 @@ class _CopyWithImpl$Input$MediaListOptionsInput<TRes>
     Object? advancedScoring = _undefined,
     Object? advancedScoringEnabled = _undefined,
     Object? theme = _undefined,
-  }) =>
-      _then(Input$MediaListOptionsInput._({
-        ..._instance._$data,
-        if (sectionOrder != _undefined)
-          'sectionOrder': (sectionOrder as List<String?>?),
-        if (splitCompletedSectionByFormat != _undefined)
-          'splitCompletedSectionByFormat':
-              (splitCompletedSectionByFormat as bool?),
-        if (customLists != _undefined)
-          'customLists': (customLists as List<String?>?),
-        if (advancedScoring != _undefined)
-          'advancedScoring': (advancedScoring as List<String?>?),
-        if (advancedScoringEnabled != _undefined)
-          'advancedScoringEnabled': (advancedScoringEnabled as bool?),
-        if (theme != _undefined) 'theme': (theme as String?),
-      }));
+  }) => _then(
+    Input$MediaListOptionsInput._({
+      ..._instance._$data,
+      if (sectionOrder != _undefined)
+        'sectionOrder': (sectionOrder as List<String?>?),
+      if (splitCompletedSectionByFormat != _undefined)
+        'splitCompletedSectionByFormat':
+            (splitCompletedSectionByFormat as bool?),
+      if (customLists != _undefined)
+        'customLists': (customLists as List<String?>?),
+      if (advancedScoring != _undefined)
+        'advancedScoring': (advancedScoring as List<String?>?),
+      if (advancedScoringEnabled != _undefined)
+        'advancedScoringEnabled': (advancedScoringEnabled as bool?),
+      if (theme != _undefined) 'theme': (theme as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaListOptionsInput<TRes>
@@ -1373,8 +1274,7 @@ class _CopyWithStubImpl$Input$MediaListOptionsInput<TRes>
     List<String?>? advancedScoring,
     bool? advancedScoringEnabled,
     String? theme,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Input$MediaTitleInput {
@@ -1382,12 +1282,11 @@ class Input$MediaTitleInput {
     String? romaji,
     String? english,
     String? native,
-  }) =>
-      Input$MediaTitleInput._({
-        if (romaji != null) r'romaji': romaji,
-        if (english != null) r'english': english,
-        if (native != null) r'native': native,
-      });
+  }) => Input$MediaTitleInput._({
+    if (romaji != null) r'romaji': romaji,
+    if (english != null) r'english': english,
+    if (native != null) r'native': native,
+  });
 
   Input$MediaTitleInput._(this._$data);
 
@@ -1434,10 +1333,7 @@ class Input$MediaTitleInput {
   }
 
   CopyWith$Input$MediaTitleInput<Input$MediaTitleInput> get copyWith =>
-      CopyWith$Input$MediaTitleInput(
-        this,
-        (i) => i,
-      );
+      CopyWith$Input$MediaTitleInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1496,19 +1392,12 @@ abstract class CopyWith$Input$MediaTitleInput<TRes> {
   factory CopyWith$Input$MediaTitleInput.stub(TRes res) =
       _CopyWithStubImpl$Input$MediaTitleInput;
 
-  TRes call({
-    String? romaji,
-    String? english,
-    String? native,
-  });
+  TRes call({String? romaji, String? english, String? native});
 }
 
 class _CopyWithImpl$Input$MediaTitleInput<TRes>
     implements CopyWith$Input$MediaTitleInput<TRes> {
-  _CopyWithImpl$Input$MediaTitleInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$MediaTitleInput(this._instance, this._then);
 
   final Input$MediaTitleInput _instance;
 
@@ -1520,13 +1409,14 @@ class _CopyWithImpl$Input$MediaTitleInput<TRes>
     Object? romaji = _undefined,
     Object? english = _undefined,
     Object? native = _undefined,
-  }) =>
-      _then(Input$MediaTitleInput._({
-        ..._instance._$data,
-        if (romaji != _undefined) 'romaji': (romaji as String?),
-        if (english != _undefined) 'english': (english as String?),
-        if (native != _undefined) 'native': (native as String?),
-      }));
+  }) => _then(
+    Input$MediaTitleInput._({
+      ..._instance._$data,
+      if (romaji != _undefined) 'romaji': (romaji as String?),
+      if (english != _undefined) 'english': (english as String?),
+      if (native != _undefined) 'native': (native as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$MediaTitleInput<TRes>
@@ -1535,23 +1425,17 @@ class _CopyWithStubImpl$Input$MediaTitleInput<TRes>
 
   TRes _res;
 
-  call({
-    String? romaji,
-    String? english,
-    String? native,
-  }) =>
-      _res;
+  call({String? romaji, String? english, String? native}) => _res;
 }
 
 class Input$NotificationOptionInput {
   factory Input$NotificationOptionInput({
     Enum$NotificationType? type,
     bool? enabled,
-  }) =>
-      Input$NotificationOptionInput._({
-        if (type != null) r'type': type,
-        if (enabled != null) r'enabled': enabled,
-      });
+  }) => Input$NotificationOptionInput._({
+    if (type != null) r'type': type,
+    if (enabled != null) r'enabled': enabled,
+  });
 
   Input$NotificationOptionInput._(this._$data);
 
@@ -1580,8 +1464,9 @@ class Input$NotificationOptionInput {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('type')) {
       final l$type = type;
-      result$data['type'] =
-          l$type == null ? null : toJson$Enum$NotificationType(l$type);
+      result$data['type'] = l$type == null
+          ? null
+          : toJson$Enum$NotificationType(l$type);
     }
     if (_$data.containsKey('enabled')) {
       final l$enabled = enabled;
@@ -1591,10 +1476,7 @@ class Input$NotificationOptionInput {
   }
 
   CopyWith$Input$NotificationOptionInput<Input$NotificationOptionInput>
-      get copyWith => CopyWith$Input$NotificationOptionInput(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Input$NotificationOptionInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1644,18 +1526,12 @@ abstract class CopyWith$Input$NotificationOptionInput<TRes> {
   factory CopyWith$Input$NotificationOptionInput.stub(TRes res) =
       _CopyWithStubImpl$Input$NotificationOptionInput;
 
-  TRes call({
-    Enum$NotificationType? type,
-    bool? enabled,
-  });
+  TRes call({Enum$NotificationType? type, bool? enabled});
 }
 
 class _CopyWithImpl$Input$NotificationOptionInput<TRes>
     implements CopyWith$Input$NotificationOptionInput<TRes> {
-  _CopyWithImpl$Input$NotificationOptionInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$NotificationOptionInput(this._instance, this._then);
 
   final Input$NotificationOptionInput _instance;
 
@@ -1663,15 +1539,13 @@ class _CopyWithImpl$Input$NotificationOptionInput<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? type = _undefined,
-    Object? enabled = _undefined,
-  }) =>
-      _then(Input$NotificationOptionInput._({
-        ..._instance._$data,
-        if (type != _undefined) 'type': (type as Enum$NotificationType?),
-        if (enabled != _undefined) 'enabled': (enabled as bool?),
-      }));
+  TRes call({Object? type = _undefined, Object? enabled = _undefined}) => _then(
+    Input$NotificationOptionInput._({
+      ..._instance._$data,
+      if (type != _undefined) 'type': (type as Enum$NotificationType?),
+      if (enabled != _undefined) 'enabled': (enabled as bool?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$NotificationOptionInput<TRes>
@@ -1680,11 +1554,7 @@ class _CopyWithStubImpl$Input$NotificationOptionInput<TRes>
 
   TRes _res;
 
-  call({
-    Enum$NotificationType? type,
-    bool? enabled,
-  }) =>
-      _res;
+  call({Enum$NotificationType? type, bool? enabled}) => _res;
 }
 
 class Input$StaffNameInput {
@@ -1694,14 +1564,13 @@ class Input$StaffNameInput {
     String? last,
     String? native,
     List<String?>? alternative,
-  }) =>
-      Input$StaffNameInput._({
-        if (first != null) r'first': first,
-        if (middle != null) r'middle': middle,
-        if (last != null) r'last': last,
-        if (native != null) r'native': native,
-        if (alternative != null) r'alternative': alternative,
-      });
+  }) => Input$StaffNameInput._({
+    if (first != null) r'first': first,
+    if (middle != null) r'middle': middle,
+    if (last != null) r'last': last,
+    if (native != null) r'native': native,
+    if (alternative != null) r'alternative': alternative,
+  });
 
   Input$StaffNameInput._(this._$data);
 
@@ -1770,10 +1639,7 @@ class Input$StaffNameInput {
   }
 
   CopyWith$Input$StaffNameInput<Input$StaffNameInput> get copyWith =>
-      CopyWith$Input$StaffNameInput(
-        this,
-        (i) => i,
-      );
+      CopyWith$Input$StaffNameInput(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1852,8 +1718,8 @@ class Input$StaffNameInput {
       _$data.containsKey('native') ? l$native : const {},
       _$data.containsKey('alternative')
           ? l$alternative == null
-              ? null
-              : Object.hashAll(l$alternative.map((v) => v))
+                ? null
+                : Object.hashAll(l$alternative.map((v) => v))
           : const {},
     ]);
   }
@@ -1879,10 +1745,7 @@ abstract class CopyWith$Input$StaffNameInput<TRes> {
 
 class _CopyWithImpl$Input$StaffNameInput<TRes>
     implements CopyWith$Input$StaffNameInput<TRes> {
-  _CopyWithImpl$Input$StaffNameInput(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Input$StaffNameInput(this._instance, this._then);
 
   final Input$StaffNameInput _instance;
 
@@ -1896,16 +1759,17 @@ class _CopyWithImpl$Input$StaffNameInput<TRes>
     Object? last = _undefined,
     Object? native = _undefined,
     Object? alternative = _undefined,
-  }) =>
-      _then(Input$StaffNameInput._({
-        ..._instance._$data,
-        if (first != _undefined) 'first': (first as String?),
-        if (middle != _undefined) 'middle': (middle as String?),
-        if (last != _undefined) 'last': (last as String?),
-        if (native != _undefined) 'native': (native as String?),
-        if (alternative != _undefined)
-          'alternative': (alternative as List<String?>?),
-      }));
+  }) => _then(
+    Input$StaffNameInput._({
+      ..._instance._$data,
+      if (first != _undefined) 'first': (first as String?),
+      if (middle != _undefined) 'middle': (middle as String?),
+      if (last != _undefined) 'last': (last as String?),
+      if (native != _undefined) 'native': (native as String?),
+      if (alternative != _undefined)
+        'alternative': (alternative as List<String?>?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Input$StaffNameInput<TRes>
@@ -1920,8 +1784,7 @@ class _CopyWithStubImpl$Input$StaffNameInput<TRes>
     String? last,
     String? native,
     List<String?>? alternative,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 enum Enum$ActivitySort {
@@ -4649,11 +4512,7 @@ Enum$__DirectiveLocation fromJson$Enum$__DirectiveLocation(String value) {
 }
 
 const possibleTypesMap = <String, Set<String>>{
-  'ActivityUnion': {
-    'TextActivity',
-    'ListActivity',
-    'MessageActivity',
-  },
+  'ActivityUnion': {'TextActivity', 'ListActivity', 'MessageActivity'},
   'LikeableUnion': {
     'ListActivity',
     'TextActivity',

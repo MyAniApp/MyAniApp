@@ -5,9 +5,7 @@ import 'package:gql/ast.dart';
 
 class Variables$Query$ReleasesList {
   factory Variables$Query$ReleasesList({int? page}) =>
-      Variables$Query$ReleasesList._({
-        if (page != null) r'page': page,
-      });
+      Variables$Query$ReleasesList._({if (page != null) r'page': page});
 
   Variables$Query$ReleasesList._(this._$data);
 
@@ -34,10 +32,7 @@ class Variables$Query$ReleasesList {
   }
 
   CopyWith$Variables$Query$ReleasesList<Variables$Query$ReleasesList>
-      get copyWith => CopyWith$Variables$Query$ReleasesList(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$ReleasesList(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -80,10 +75,7 @@ abstract class CopyWith$Variables$Query$ReleasesList<TRes> {
 
 class _CopyWithImpl$Variables$Query$ReleasesList<TRes>
     implements CopyWith$Variables$Query$ReleasesList<TRes> {
-  _CopyWithImpl$Variables$Query$ReleasesList(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$ReleasesList(this._instance, this._then);
 
   final Variables$Query$ReleasesList _instance;
 
@@ -91,11 +83,12 @@ class _CopyWithImpl$Variables$Query$ReleasesList<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? page = _undefined}) =>
-      _then(Variables$Query$ReleasesList._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  TRes call({Object? page = _undefined}) => _then(
+    Variables$Query$ReleasesList._({
+      ..._instance._$data,
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$ReleasesList<TRes>
@@ -108,10 +101,7 @@ class _CopyWithStubImpl$Variables$Query$ReleasesList<TRes>
 }
 
 class Query$ReleasesList {
-  Query$ReleasesList({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$ReleasesList({this.Page, this.$__typename = 'Query'});
 
   factory Query$ReleasesList.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -141,10 +131,7 @@ class Query$ReleasesList {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -171,10 +158,7 @@ class Query$ReleasesList {
 
 extension UtilityExtension$Query$ReleasesList on Query$ReleasesList {
   CopyWith$Query$ReleasesList<Query$ReleasesList> get copyWith =>
-      CopyWith$Query$ReleasesList(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$ReleasesList(this, (i) => i);
 }
 
 abstract class CopyWith$Query$ReleasesList<TRes> {
@@ -186,19 +170,13 @@ abstract class CopyWith$Query$ReleasesList<TRes> {
   factory CopyWith$Query$ReleasesList.stub(TRes res) =
       _CopyWithStubImpl$Query$ReleasesList;
 
-  TRes call({
-    Query$ReleasesList$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$ReleasesList$Page? Page, String? $__typename});
   CopyWith$Query$ReleasesList$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$ReleasesList<TRes>
     implements CopyWith$Query$ReleasesList<TRes> {
-  _CopyWithImpl$Query$ReleasesList(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$ReleasesList(this._instance, this._then);
 
   final Query$ReleasesList _instance;
 
@@ -206,18 +184,17 @@ class _CopyWithImpl$Query$ReleasesList<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$ReleasesList(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$ReleasesList$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$ReleasesList(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$ReleasesList$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$ReleasesList$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -233,97 +210,113 @@ class _CopyWithStubImpl$Query$ReleasesList<TRes>
 
   TRes _res;
 
-  call({
-    Query$ReleasesList$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$ReleasesList$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$ReleasesList$Page<TRes> get Page =>
       CopyWith$Query$ReleasesList$Page.stub(_res);
 }
 
-const documentNodeQueryReleasesList = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'ReleasesList'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryReleasesList = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'ReleasesList'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'media'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'onList'),
-                value: BooleanValueNode(value: true),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'status_in'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'RELEASING')),
-                  EnumValueNode(name: NameNode(value: 'NOT_YET_RELEASED')),
-                ]),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'START_DATE_DESC')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ReleasingMedia'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'onList'),
+                      value: BooleanValueNode(value: true),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'status_in'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'RELEASING')),
+                          EnumValueNode(
+                            name: NameNode(value: 'NOT_YET_RELEASED'),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(
+                        name: NameNode(value: 'START_DATE_DESC'),
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ReleasingMedia'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -332,21 +325,14 @@ const documentNodeQueryReleasesList = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionReleasingMedia,
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionReleasingMedia,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Query$ReleasesList$Page {
   Query$ReleasesList$Page({
@@ -364,9 +350,11 @@ class Query$ReleasesList$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       media: (l$media as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ReleasingMedia.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ReleasingMedia.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -441,10 +429,7 @@ class Query$ReleasesList$Page {
 
 extension UtilityExtension$Query$ReleasesList$Page on Query$ReleasesList$Page {
   CopyWith$Query$ReleasesList$Page<Query$ReleasesList$Page> get copyWith =>
-      CopyWith$Query$ReleasesList$Page(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$ReleasesList$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$ReleasesList$Page<TRes> {
@@ -463,18 +448,16 @@ abstract class CopyWith$Query$ReleasesList$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes media(
-      Iterable<Fragment$ReleasingMedia?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ReleasingMedia<Fragment$ReleasingMedia>?>?)
-          _fn);
+    Iterable<Fragment$ReleasingMedia?>? Function(
+      Iterable<CopyWith$Fragment$ReleasingMedia<Fragment$ReleasingMedia>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$ReleasesList$Page<TRes>
     implements CopyWith$Query$ReleasesList$Page<TRes> {
-  _CopyWithImpl$Query$ReleasesList$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$ReleasesList$Page(this._instance, this._then);
 
   final Query$ReleasesList$Page _instance;
 
@@ -486,18 +469,19 @@ class _CopyWithImpl$Query$ReleasesList$Page<TRes>
     Object? pageInfo = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$ReleasesList$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as List<Fragment$ReleasingMedia?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$ReleasesList$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as List<Fragment$ReleasingMedia?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -507,18 +491,17 @@ class _CopyWithImpl$Query$ReleasesList$Page<TRes>
   }
 
   TRes media(
-          Iterable<Fragment$ReleasingMedia?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ReleasingMedia<
-                          Fragment$ReleasingMedia>?>?)
-              _fn) =>
-      call(
-          media: _fn(_instance.media?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ReleasingMedia(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ReleasingMedia?>? Function(
+      Iterable<CopyWith$Fragment$ReleasingMedia<Fragment$ReleasingMedia>?>?,
+    )
+    _fn,
+  ) => call(
+    media: _fn(
+      _instance.media?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ReleasingMedia(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$ReleasesList$Page<TRes>
@@ -531,8 +514,7 @@ class _CopyWithStubImpl$Query$ReleasesList$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$ReleasingMedia?>? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);

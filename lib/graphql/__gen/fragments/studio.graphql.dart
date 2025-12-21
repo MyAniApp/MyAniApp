@@ -40,11 +40,7 @@ class Fragment$StudioFragment {
     final l$id = id;
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$name, l$$__typename]);
   }
 
   @override
@@ -76,10 +72,7 @@ class Fragment$StudioFragment {
 
 extension UtilityExtension$Fragment$StudioFragment on Fragment$StudioFragment {
   CopyWith$Fragment$StudioFragment<Fragment$StudioFragment> get copyWith =>
-      CopyWith$Fragment$StudioFragment(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$StudioFragment(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$StudioFragment<TRes> {
@@ -91,19 +84,12 @@ abstract class CopyWith$Fragment$StudioFragment<TRes> {
   factory CopyWith$Fragment$StudioFragment.stub(TRes res) =
       _CopyWithStubImpl$Fragment$StudioFragment;
 
-  TRes call({
-    int? id,
-    String? name,
-    String? $__typename,
-  });
+  TRes call({int? id, String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$StudioFragment<TRes>
     implements CopyWith$Fragment$StudioFragment<TRes> {
-  _CopyWithImpl$Fragment$StudioFragment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$StudioFragment(this._instance, this._then);
 
   final Fragment$StudioFragment _instance;
 
@@ -115,16 +101,17 @@ class _CopyWithImpl$Fragment$StudioFragment<TRes>
     Object? id = _undefined,
     Object? name = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$StudioFragment(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$StudioFragment(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$StudioFragment<TRes>
@@ -133,46 +120,41 @@ class _CopyWithStubImpl$Fragment$StudioFragment<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, String? name, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionStudioFragment = FragmentDefinitionNode(
   name: NameNode(value: 'StudioFragment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Studio'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Studio'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentStudioFragment = DocumentNode(definitions: [
-  fragmentDefinitionStudioFragment,
-]);
+const documentNodeFragmentStudioFragment = DocumentNode(
+  definitions: [fragmentDefinitionStudioFragment],
+);

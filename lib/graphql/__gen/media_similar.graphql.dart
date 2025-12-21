@@ -3,10 +3,7 @@ import 'fragments/page_info.graphql.dart';
 import 'package:gql/ast.dart';
 
 class Variables$Query$MediaSimilar {
-  factory Variables$Query$MediaSimilar({
-    int? mediaId,
-    int? page,
-  }) =>
+  factory Variables$Query$MediaSimilar({int? mediaId, int? page}) =>
       Variables$Query$MediaSimilar._({
         if (mediaId != null) r'mediaId': mediaId,
         if (page != null) r'page': page,
@@ -47,10 +44,7 @@ class Variables$Query$MediaSimilar {
   }
 
   CopyWith$Variables$Query$MediaSimilar<Variables$Query$MediaSimilar>
-      get copyWith => CopyWith$Variables$Query$MediaSimilar(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$MediaSimilar(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -100,18 +94,12 @@ abstract class CopyWith$Variables$Query$MediaSimilar<TRes> {
   factory CopyWith$Variables$Query$MediaSimilar.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$MediaSimilar;
 
-  TRes call({
-    int? mediaId,
-    int? page,
-  });
+  TRes call({int? mediaId, int? page});
 }
 
 class _CopyWithImpl$Variables$Query$MediaSimilar<TRes>
     implements CopyWith$Variables$Query$MediaSimilar<TRes> {
-  _CopyWithImpl$Variables$Query$MediaSimilar(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$MediaSimilar(this._instance, this._then);
 
   final Variables$Query$MediaSimilar _instance;
 
@@ -119,15 +107,13 @@ class _CopyWithImpl$Variables$Query$MediaSimilar<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? mediaId = _undefined,
-    Object? page = _undefined,
-  }) =>
-      _then(Variables$Query$MediaSimilar._({
-        ..._instance._$data,
-        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  TRes call({Object? mediaId = _undefined, Object? page = _undefined}) => _then(
+    Variables$Query$MediaSimilar._({
+      ..._instance._$data,
+      if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$MediaSimilar<TRes>
@@ -136,18 +122,11 @@ class _CopyWithStubImpl$Variables$Query$MediaSimilar<TRes>
 
   TRes _res;
 
-  call({
-    int? mediaId,
-    int? page,
-  }) =>
-      _res;
+  call({int? mediaId, int? page}) => _res;
 }
 
 class Query$MediaSimilar {
-  Query$MediaSimilar({
-    this.Media,
-    this.$__typename = 'Query',
-  });
+  Query$MediaSimilar({this.Media, this.$__typename = 'Query'});
 
   factory Query$MediaSimilar.fromJson(Map<String, dynamic> json) {
     final l$Media = json['Media'];
@@ -156,7 +135,8 @@ class Query$MediaSimilar {
       Media: l$Media == null
           ? null
           : Query$MediaSimilar$Media.fromJson(
-              (l$Media as Map<String, dynamic>)),
+              (l$Media as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -178,10 +158,7 @@ class Query$MediaSimilar {
   int get hashCode {
     final l$Media = Media;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Media,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Media, l$$__typename]);
   }
 
   @override
@@ -208,10 +185,7 @@ class Query$MediaSimilar {
 
 extension UtilityExtension$Query$MediaSimilar on Query$MediaSimilar {
   CopyWith$Query$MediaSimilar<Query$MediaSimilar> get copyWith =>
-      CopyWith$Query$MediaSimilar(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaSimilar(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaSimilar<TRes> {
@@ -223,19 +197,13 @@ abstract class CopyWith$Query$MediaSimilar<TRes> {
   factory CopyWith$Query$MediaSimilar.stub(TRes res) =
       _CopyWithStubImpl$Query$MediaSimilar;
 
-  TRes call({
-    Query$MediaSimilar$Media? Media,
-    String? $__typename,
-  });
+  TRes call({Query$MediaSimilar$Media? Media, String? $__typename});
   CopyWith$Query$MediaSimilar$Media<TRes> get Media;
 }
 
 class _CopyWithImpl$Query$MediaSimilar<TRes>
     implements CopyWith$Query$MediaSimilar<TRes> {
-  _CopyWithImpl$Query$MediaSimilar(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaSimilar(this._instance, this._then);
 
   final Query$MediaSimilar _instance;
 
@@ -243,18 +211,17 @@ class _CopyWithImpl$Query$MediaSimilar<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaSimilar(
-        Media: Media == _undefined
-            ? _instance.Media
-            : (Media as Query$MediaSimilar$Media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$MediaSimilar(
+          Media: Media == _undefined
+              ? _instance.Media
+              : (Media as Query$MediaSimilar$Media?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$MediaSimilar$Media<TRes> get Media {
     final local$Media = _instance.Media;
@@ -270,112 +237,132 @@ class _CopyWithStubImpl$Query$MediaSimilar<TRes>
 
   TRes _res;
 
-  call({
-    Query$MediaSimilar$Media? Media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$MediaSimilar$Media? Media, String? $__typename}) => _res;
 
   CopyWith$Query$MediaSimilar$Media<TRes> get Media =>
       CopyWith$Query$MediaSimilar$Media.stub(_res);
 }
 
-const documentNodeQueryMediaSimilar = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'MediaSimilar'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mediaId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryMediaSimilar = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'MediaSimilar'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'mediaId')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Media'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'mediaId')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'recommendations'),
+            name: NameNode(value: 'Media'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'page'),
-                value: VariableNode(name: NameNode(value: 'page')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'RATING_DESC')),
-                  EnumValueNode(name: NameNode(value: 'ID')),
-                ]),
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'mediaId')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'pageInfo'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'PageInfo'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'nodes'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'mediaRecommendation'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'id'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'recommendations'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'page'),
+                      value: VariableNode(name: NameNode(value: 'page')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'RATING_DESC')),
+                          EnumValueNode(name: NameNode(value: 'ID')),
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'pageInfo'),
+                        alias: null,
+                        arguments: [],
                         directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'PageInfo'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'nodes'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'mediaRecommendation'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -384,25 +371,18 @@ const documentNodeQueryMediaSimilar = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -411,20 +391,13 @@ const documentNodeQueryMediaSimilar = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Query$MediaSimilar$Media {
   Query$MediaSimilar$Media({
@@ -442,7 +415,8 @@ class Query$MediaSimilar$Media {
       recommendations: l$recommendations == null
           ? null
           : Query$MediaSimilar$Media$recommendations.fromJson(
-              (l$recommendations as Map<String, dynamic>)),
+              (l$recommendations as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -469,11 +443,7 @@ class Query$MediaSimilar$Media {
     final l$id = id;
     final l$recommendations = recommendations;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$recommendations,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$recommendations, l$$__typename]);
   }
 
   @override
@@ -507,10 +477,7 @@ class Query$MediaSimilar$Media {
 extension UtilityExtension$Query$MediaSimilar$Media
     on Query$MediaSimilar$Media {
   CopyWith$Query$MediaSimilar$Media<Query$MediaSimilar$Media> get copyWith =>
-      CopyWith$Query$MediaSimilar$Media(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaSimilar$Media(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaSimilar$Media<TRes> {
@@ -532,10 +499,7 @@ abstract class CopyWith$Query$MediaSimilar$Media<TRes> {
 
 class _CopyWithImpl$Query$MediaSimilar$Media<TRes>
     implements CopyWith$Query$MediaSimilar$Media<TRes> {
-  _CopyWithImpl$Query$MediaSimilar$Media(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaSimilar$Media(this._instance, this._then);
 
   final Query$MediaSimilar$Media _instance;
 
@@ -547,24 +511,28 @@ class _CopyWithImpl$Query$MediaSimilar$Media<TRes>
     Object? id = _undefined,
     Object? recommendations = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaSimilar$Media(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        recommendations: recommendations == _undefined
-            ? _instance.recommendations
-            : (recommendations as Query$MediaSimilar$Media$recommendations?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaSimilar$Media(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      recommendations: recommendations == _undefined
+          ? _instance.recommendations
+          : (recommendations as Query$MediaSimilar$Media$recommendations?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$MediaSimilar$Media$recommendations<TRes> get recommendations {
     final local$recommendations = _instance.recommendations;
     return local$recommendations == null
         ? CopyWith$Query$MediaSimilar$Media$recommendations.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$MediaSimilar$Media$recommendations(
-            local$recommendations, (e) => call(recommendations: e));
+            local$recommendations,
+            (e) => call(recommendations: e),
+          );
   }
 }
 
@@ -578,8 +546,7 @@ class _CopyWithStubImpl$Query$MediaSimilar$Media<TRes>
     int? id,
     Query$MediaSimilar$Media$recommendations? recommendations,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$MediaSimilar$Media$recommendations<TRes> get recommendations =>
       CopyWith$Query$MediaSimilar$Media$recommendations.stub(_res);
@@ -593,7 +560,8 @@ class Query$MediaSimilar$Media$recommendations {
   });
 
   factory Query$MediaSimilar$Media$recommendations.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$pageInfo = json['pageInfo'];
     final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
@@ -602,10 +570,13 @@ class Query$MediaSimilar$Media$recommendations {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$MediaSimilar$Media$recommendations$nodes.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$MediaSimilar$Media$recommendations$nodes.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -682,11 +653,10 @@ class Query$MediaSimilar$Media$recommendations {
 extension UtilityExtension$Query$MediaSimilar$Media$recommendations
     on Query$MediaSimilar$Media$recommendations {
   CopyWith$Query$MediaSimilar$Media$recommendations<
-          Query$MediaSimilar$Media$recommendations>
-      get copyWith => CopyWith$Query$MediaSimilar$Media$recommendations(
-            this,
-            (i) => i,
-          );
+    Query$MediaSimilar$Media$recommendations
+  >
+  get copyWith =>
+      CopyWith$Query$MediaSimilar$Media$recommendations(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaSimilar$Media$recommendations<TRes> {
@@ -705,11 +675,15 @@ abstract class CopyWith$Query$MediaSimilar$Media$recommendations<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes nodes(
-      Iterable<Query$MediaSimilar$Media$recommendations$nodes?>? Function(
-              Iterable<
-                  CopyWith$Query$MediaSimilar$Media$recommendations$nodes<
-                      Query$MediaSimilar$Media$recommendations$nodes>?>?)
-          _fn);
+    Iterable<Query$MediaSimilar$Media$recommendations$nodes?>? Function(
+      Iterable<
+        CopyWith$Query$MediaSimilar$Media$recommendations$nodes<
+          Query$MediaSimilar$Media$recommendations$nodes
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$MediaSimilar$Media$recommendations<TRes>
@@ -729,18 +703,19 @@ class _CopyWithImpl$Query$MediaSimilar$Media$recommendations<TRes>
     Object? pageInfo = _undefined,
     Object? nodes = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaSimilar$Media$recommendations(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Query$MediaSimilar$Media$recommendations$nodes?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaSimilar$Media$recommendations(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      nodes: nodes == _undefined
+          ? _instance.nodes
+          : (nodes as List<Query$MediaSimilar$Media$recommendations$nodes?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -750,18 +725,26 @@ class _CopyWithImpl$Query$MediaSimilar$Media$recommendations<TRes>
   }
 
   TRes nodes(
-          Iterable<Query$MediaSimilar$Media$recommendations$nodes?>? Function(
-                  Iterable<
-                      CopyWith$Query$MediaSimilar$Media$recommendations$nodes<
-                          Query$MediaSimilar$Media$recommendations$nodes>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Query$MediaSimilar$Media$recommendations$nodes(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$MediaSimilar$Media$recommendations$nodes?>? Function(
+      Iterable<
+        CopyWith$Query$MediaSimilar$Media$recommendations$nodes<
+          Query$MediaSimilar$Media$recommendations$nodes
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$MediaSimilar$Media$recommendations$nodes(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$MediaSimilar$Media$recommendations<TRes>
@@ -774,8 +757,7 @@ class _CopyWithStubImpl$Query$MediaSimilar$Media$recommendations<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$MediaSimilar$Media$recommendations$nodes?>? nodes,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -790,14 +772,16 @@ class Query$MediaSimilar$Media$recommendations$nodes {
   });
 
   factory Query$MediaSimilar$Media$recommendations$nodes.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$mediaRecommendation = json['mediaRecommendation'];
     final l$$__typename = json['__typename'];
     return Query$MediaSimilar$Media$recommendations$nodes(
       mediaRecommendation: l$mediaRecommendation == null
           ? null
           : Fragment$MediaFragment.fromJson(
-              (l$mediaRecommendation as Map<String, dynamic>)),
+              (l$mediaRecommendation as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -819,10 +803,7 @@ class Query$MediaSimilar$Media$recommendations$nodes {
   int get hashCode {
     final l$mediaRecommendation = mediaRecommendation;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$mediaRecommendation,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$mediaRecommendation, l$$__typename]);
   }
 
   @override
@@ -851,11 +832,10 @@ class Query$MediaSimilar$Media$recommendations$nodes {
 extension UtilityExtension$Query$MediaSimilar$Media$recommendations$nodes
     on Query$MediaSimilar$Media$recommendations$nodes {
   CopyWith$Query$MediaSimilar$Media$recommendations$nodes<
-          Query$MediaSimilar$Media$recommendations$nodes>
-      get copyWith => CopyWith$Query$MediaSimilar$Media$recommendations$nodes(
-            this,
-            (i) => i,
-          );
+    Query$MediaSimilar$Media$recommendations$nodes
+  >
+  get copyWith =>
+      CopyWith$Query$MediaSimilar$Media$recommendations$nodes(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaSimilar$Media$recommendations$nodes<TRes> {
@@ -865,13 +845,10 @@ abstract class CopyWith$Query$MediaSimilar$Media$recommendations$nodes<TRes> {
   ) = _CopyWithImpl$Query$MediaSimilar$Media$recommendations$nodes;
 
   factory CopyWith$Query$MediaSimilar$Media$recommendations$nodes.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$MediaSimilar$Media$recommendations$nodes;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$MediaSimilar$Media$recommendations$nodes;
 
-  TRes call({
-    Fragment$MediaFragment? mediaRecommendation,
-    String? $__typename,
-  });
+  TRes call({Fragment$MediaFragment? mediaRecommendation, String? $__typename});
   CopyWith$Fragment$MediaFragment<TRes> get mediaRecommendation;
 }
 
@@ -891,22 +868,25 @@ class _CopyWithImpl$Query$MediaSimilar$Media$recommendations$nodes<TRes>
   TRes call({
     Object? mediaRecommendation = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaSimilar$Media$recommendations$nodes(
-        mediaRecommendation: mediaRecommendation == _undefined
-            ? _instance.mediaRecommendation
-            : (mediaRecommendation as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaSimilar$Media$recommendations$nodes(
+      mediaRecommendation: mediaRecommendation == _undefined
+          ? _instance.mediaRecommendation
+          : (mediaRecommendation as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get mediaRecommendation {
     final local$mediaRecommendation = _instance.mediaRecommendation;
     return local$mediaRecommendation == null
         ? CopyWith$Fragment$MediaFragment.stub(_then(_instance))
         : CopyWith$Fragment$MediaFragment(
-            local$mediaRecommendation, (e) => call(mediaRecommendation: e));
+            local$mediaRecommendation,
+            (e) => call(mediaRecommendation: e),
+          );
   }
 }
 
@@ -916,10 +896,7 @@ class _CopyWithStubImpl$Query$MediaSimilar$Media$recommendations$nodes<TRes>
 
   TRes _res;
 
-  call({
-    Fragment$MediaFragment? mediaRecommendation,
-    String? $__typename,
-  }) =>
+  call({Fragment$MediaFragment? mediaRecommendation, String? $__typename}) =>
       _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get mediaRecommendation =>

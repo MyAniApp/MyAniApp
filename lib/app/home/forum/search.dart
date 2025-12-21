@@ -43,16 +43,18 @@ class _ForumSearchPageState extends State<ForumSearchTab> {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      forumsQuery,
-      variables: Variables$Query$Forums(
-        id: widget.categoryId,
-        sort: [Enum$ThreadSort.ID_DESC],
-        search: widget.search,
-      ).toJson(),
-      parseData: Query$Forums.fromJson,
-      mergeResults: defaultMergeResults("Page.threads"),
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        forumsQuery,
+        variables: Variables$Query$Forums(
+          id: widget.categoryId,
+          sort: [Enum$ThreadSort.ID_DESC],
+          search: widget.search,
+        ).toJson(),
+        parseData: Query$Forums.fromJson,
+        mergeResults: defaultMergeResults("Page.threads"),
+      ),
+    );
 
     if (widget.search?.isNotEmpty == true) {
       return GQLWidget(
@@ -63,10 +65,9 @@ class _ForumSearchPageState extends State<ForumSearchTab> {
           child: PaginationView.list(
             pageInfo: snapshot.parsedData!.Page!.pageInfo!,
             req: (nextPage) => fetchMore(
-              variables:
-                  Variables$Query$Forums.fromJson(snapshot.request!.variables)
-                      .copyWith(page: nextPage)
-                      .toJson(),
+              variables: Variables$Query$Forums.fromJson(
+                snapshot.request!.variables,
+              ).copyWith(page: nextPage).toJson(),
             ),
             trailing: SliverPadding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
@@ -83,7 +84,7 @@ class _ForumSearchPageState extends State<ForumSearchTab> {
                 ),
               ),
             ),
-            builder: (context, index) {
+            itemBuilder: (context, index) {
               var thread = snapshot.parsedData!.Page!.threads![index]!;
 
               return ThreadCard(thread: thread);
@@ -100,9 +101,7 @@ class _ForumSearchPageState extends State<ForumSearchTab> {
         controller: _controller,
         onSubmitted: widget.onChange,
         decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
           hintText: 'Search...',
         ),
       ),

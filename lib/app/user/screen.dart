@@ -40,7 +40,7 @@ class _UserScreenState extends State<UserScreen>
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
       userQuery,
       variables: Variables$Query$User(name: widget.name).toJson(),
       parseData: Query$User.fromJson,

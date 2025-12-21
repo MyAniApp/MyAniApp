@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
@@ -14,6 +15,7 @@ import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/graphql/__gen/fragments/list_group.graphql.dart';
+import 'package:myaniapp/graphql/__gen/fragments/media_entry.graphql.dart';
 import 'package:myaniapp/graphql/__gen/media_list.graphql.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/providers/list_settings.dart';
@@ -50,7 +52,7 @@ class MediaListView extends ConsumerStatefulWidget {
 
 class _MediaListViewState extends ConsumerState<MediaListView>
     with TickerProviderStateMixin {
-  TabController? _tabController;
+  late TabController _tabController = TabController(length: 0, vsync: this);
   List<Fragment$ListGroup> groups = [];
   late Enum$MediaListSort sort;
 
@@ -59,16 +61,19 @@ class _MediaListViewState extends ConsumerState<MediaListView>
     super.didUpdateWidget(oldWidget);
     if (widget.response.parsedData?.MediaListCollection?.lists != null &&
         (!jsonMapEquals(
-                oldWidget.response.parsedData?.MediaListCollection?.lists,
-                widget.response.parsedData?.MediaListCollection?.lists) ||
+              oldWidget.response.parsedData?.MediaListCollection?.lists,
+              widget.response.parsedData?.MediaListCollection?.lists,
+            ) ||
             !jsonMapEquals(
-                oldWidget.response.parsedData?.MediaListCollection?.user
-                    ?.toJson(),
-                widget.response.parsedData?.MediaListCollection?.user
-                    ?.toJson()))) {
-      setGroups(widget.response.parsedData!.MediaListCollection!.lists!
-          .whereType<Fragment$ListGroup>()
-          .toList());
+              oldWidget.response.parsedData?.MediaListCollection?.user
+                  ?.toJson(),
+              widget.response.parsedData?.MediaListCollection?.user?.toJson(),
+            ))) {
+      setGroups(
+        widget.response.parsedData!.MediaListCollection!.lists!
+            .whereType<Fragment$ListGroup>()
+            .toList(),
+      );
     }
   }
 
@@ -76,9 +81,11 @@ class _MediaListViewState extends ConsumerState<MediaListView>
   void initState() {
     super.initState();
     if (widget.response.parsedData?.MediaListCollection?.lists != null) {
-      setGroups(widget.response.parsedData!.MediaListCollection!.lists!
-          .whereType<Fragment$ListGroup>()
-          .toList());
+      setGroups(
+        widget.response.parsedData!.MediaListCollection!.lists!
+            .whereType<Fragment$ListGroup>()
+            .toList(),
+      );
     }
   }
 
@@ -88,34 +95,47 @@ class _MediaListViewState extends ConsumerState<MediaListView>
     if (groups.isNotEmpty) groups.clear();
     if (widget.type == Enum$MediaType.ANIME) {
       for (var section in user.mediaListOptions!.animeList!.sectionOrder!) {
-        var entry =
-            listGroups.firstWhereOrNull((element) => element.name! == section);
+        var entry = listGroups.firstWhereOrNull(
+          (element) => element.name! == section,
+        );
 
         if (entry != null) groups.add(entry);
       }
       if (listGroups.length != groups.length) {
-        var leftover = listGroups.where((p0) =>
-            !user.mediaListOptions!.animeList!.sectionOrder!.contains(p0.name));
+        var leftover = listGroups.where(
+          (p0) => !user.mediaListOptions!.animeList!.sectionOrder!.contains(
+            p0.name,
+          ),
+        );
         groups.addAll(leftover);
       }
     } else {
       for (var section in user.mediaListOptions!.mangaList!.sectionOrder!) {
-        var entry =
-            listGroups.firstWhereOrNull((element) => element.name! == section);
+        var entry = listGroups.firstWhereOrNull(
+          (element) => element.name! == section,
+        );
 
         if (entry != null) groups.add(entry);
       }
       if (listGroups.length != groups.length) {
-        var leftover = listGroups.where((p0) =>
-            !user.mediaListOptions!.mangaList!.sectionOrder!.contains(p0.name));
+        var leftover = listGroups.where(
+          (p0) => !user.mediaListOptions!.mangaList!.sectionOrder!.contains(
+            p0.name,
+          ),
+        );
         groups.addAll(leftover);
       }
     }
     if (_tabController?.length != groups.length) {
       _tabController = TabController(length: groups.length, vsync: this);
     }
-    sort = switch (widget.response.parsedData!.MediaListCollection!.user!
-        .mediaListOptions!.rowOrder!) {
+    sort = switch (widget
+        .response
+        .parsedData!
+        .MediaListCollection!
+        .user!
+        .mediaListOptions!
+        .rowOrder!) {
       'score' => Enum$MediaListSort.SCORE_DESC,
       'title' => Enum$MediaListSort.MEDIA_TITLE_NATIVE_DESC,
       'updatedAt' => Enum$MediaListSort.UPDATED_TIME_DESC,
@@ -135,41 +155,36 @@ class _MediaListViewState extends ConsumerState<MediaListView>
     for (var group in groups) {
       switch (sort) {
         case Enum$MediaListSort.SCORE_DESC:
-          group.entries!.sort(
-            (a, b) {
-              if (a!.score == b!.score) {
-                return a.media!.title!.userPreferred!
-                    .toLowerCase()
-                    .compareTo(b.media!.title!.userPreferred!.toLowerCase());
-              }
+          group.entries!.sort((a, b) {
+            if (a!.score == b!.score) {
+              return a.media!.title!.userPreferred!.toLowerCase().compareTo(
+                b.media!.title!.userPreferred!.toLowerCase(),
+              );
+            }
 
-              return (b.score ?? 0).compareTo(a.score ?? 0);
-            },
-          );
+            return (b.score ?? 0).compareTo(a.score ?? 0);
+          });
           break;
         case Enum$MediaListSort.MEDIA_TITLE_NATIVE_DESC:
           group.entries!.sort(
-            (a, b) => a!.media!.title!.userPreferred!
-                .compareTo(b!.media!.title!.userPreferred!),
+            (a, b) => a!.media!.title!.userPreferred!.compareTo(
+              b!.media!.title!.userPreferred!,
+            ),
           );
           break;
         case Enum$MediaListSort.ADDED_TIME_DESC:
-          group.entries!.sort(
-            (a, b) => b!.id.compareTo(a!.id),
-          );
+          group.entries!.sort((a, b) => b!.id.compareTo(a!.id));
           break;
         default:
-          group.entries!.sort(
-            (a, b) {
-              if (a!.updatedAt == b!.updatedAt) {
-                return a.media!.title!.userPreferred!
-                    .toLowerCase()
-                    .compareTo(b.media!.title!.userPreferred!.toLowerCase());
-              }
+          group.entries!.sort((a, b) {
+            if (a!.updatedAt == b!.updatedAt) {
+              return a.media!.title!.userPreferred!.toLowerCase().compareTo(
+                b.media!.title!.userPreferred!.toLowerCase(),
+              );
+            }
 
-              return b.updatedAt?.compareTo(a.updatedAt ?? 0) ?? 0;
-            },
-          );
+            return b.updatedAt?.compareTo(a.updatedAt ?? 0) ?? 0;
+          });
           break;
       }
 
@@ -200,101 +215,17 @@ class _MediaListViewState extends ConsumerState<MediaListView>
 
                 showDialog(
                   context: context,
-                  builder: (context) => Dialog(
-                    shape: RoundedRectangleBorder(borderRadius: imageRadius),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
-                      child: Wrap(
-                        // crossAxisAlignment: CrossAxisAlignment.start,
-                        // mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 4),
-                            child: SizedBox(
-                              height: 120,
-                              child: MediaCard(
-                                listType: ListType.grid,
-                                image: entry.media!.coverImage!.extraLarge!,
-                                onLongPress: () =>
-                                    MediaSheet.show(context, entry.media!),
-                                onTap: () => context.push(
-                                    Routes.media(entry.mediaId),
-                                    extra: {"placeholder": entry.media}),
-                                onDoubleTap: () => MediaEditorDialog.show(
-                                  context,
-                                  entry.media!,
-                                  widget.response.parsedData!
-                                      .MediaListCollection!.user!.id,
-                                  onSave: () =>
-                                      widget.refetch(FetchPolicy.cacheOnly),
-                                  onDelete: () => widget.refetch(),
-                                ),
-                                blur: entry.media!.isAdult!,
-                                chips: [
-                                  if (entry.private == true)
-                                    GridChip(
-                                      top: entry.score != 0 ? 30 : 5,
-                                      left: 5,
-                                      child: const Tooltip(
-                                        message: "Private",
-                                        child: Icon(
-                                          Icons.lock,
-                                          size: 15,
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                entry.media!.title!.userPreferred!,
-                                style: context.theme.textTheme.labelLarge
-                                    ?.copyWith(fontWeight: FontWeight.bold),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 3,
-                              ),
-                              Text(
-                                  "Status: ${entry.status!.name.capitalize()}"),
-                              Text(
-                                "Rating: ${scoreToText(widget.response.parsedData!.MediaListCollection!.user!.mediaListOptions?.scoreFormat ?? Enum$ScoreFormat.POINT_10, entry.score ?? 0, fallback: "N/A")}",
-                              ),
-                              Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: entry.media!.type ==
-                                              Enum$MediaType.ANIME
-                                          ? "Episodes Watched: "
-                                          : "Chapters Read",
-                                    ),
-                                    TextSpan(text: "${entry.progress ?? 0}/"),
-                                    TextSpan(
-                                        text:
-                                            "${entry.media!.episodes ?? entry.media!.chapters ?? 'N/A'}")
-                                  ],
-                                ),
-                              ),
-                              if (entry.notes != null)
-                                Text("Notes: ${entry.notes}"),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                  builder: (context) => RandomMediaEntry(
+                    entry: entry,
+                    refetch: widget.refetch,
+                    user:
+                        widget.response.parsedData!.MediaListCollection!.user!,
                   ),
                 );
               },
               icon: const Icon(Icons.shuffle),
             ),
-            const SizedBox(
-              width: 5,
-            ),
+            const SizedBox(width: 5),
             IconButton(
               onPressed: () => showModalBottomSheet(
                 context: context,
@@ -302,37 +233,40 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                 isScrollControlled: true,
                 builder: (context) => DraggableScrollableSheet(
                   expand: false,
-                  builder: (context, scrollController) =>
-                      ListView(controller: scrollController, children: [
-                    for (var e in (listSortingOptions.entries))
-                      RadioListTile<Enum$MediaListSort>.adaptive(
-                        value: e.key,
-                        groupValue: sort,
-                        title: Text(e.value),
-                        onChanged: (value) {
-                          sort = value ?? Enum$MediaListSort.UPDATED_TIME_DESC;
-                          sortEntries();
-                          context.pop();
-                        },
-                      ),
-                  ]),
+                  builder: (context, scrollController) => ListView(
+                    controller: scrollController,
+                    children: [
+                      for (var e in (listSortingOptions.entries))
+                        RadioListTile<Enum$MediaListSort>.adaptive(
+                          value: e.key,
+                          groupValue: sort,
+                          title: Text(e.value),
+                          onChanged: (value) {
+                            sort =
+                                value ?? Enum$MediaListSort.UPDATED_TIME_DESC;
+                            sortEntries();
+                            context.pop();
+                          },
+                        ),
+                    ],
+                  ),
                 ),
               ),
               icon: const Icon(Icons.sort),
             ),
-            const SizedBox(
-              width: 5,
-            ),
+            const SizedBox(width: 5),
           ],
           ListSettingButton(
             type: setting,
-            onUpdate: (type) => ref.read(listSettingsProvider.notifier).update(
+            onUpdate: (type) => ref
+                .read(listSettingsProvider.notifier)
+                .update(
                   widget.type == Enum$MediaType.ANIME
                       ? listSettings.copyWith(animeList: type)
                       : listSettings.copyWith(mangaList: type),
                 ),
           ),
-          ...?widget.appBarActions
+          ...?widget.appBarActions,
         ],
         bottom: widget.response.parsedData?.MediaListCollection?.lists != null
             ? TabBar(
@@ -340,7 +274,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                 isScrollable: true,
                 tabs: [
                   for (var group in groups)
-                    Tab(text: "${group.name} (${group.entries!.length})")
+                    Tab(text: "${group.name} (${group.entries!.length})"),
                 ],
               )
             : null,
@@ -370,6 +304,22 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                         when: setting == ListType.simple,
                         child: () => Row(
                           children: [
+                            IconButton(
+                              icon: Icon(Icons.edit),
+                              iconSize: 20,
+                              onPressed: () => MediaEditorDialog.show(
+                                context,
+                                entry.media!,
+                                widget
+                                    .response
+                                    .parsedData!
+                                    .MediaListCollection!
+                                    .user!
+                                    .id,
+                                onSave: widget.refetch,
+                                onDelete: widget.refetch,
+                              ),
+                            ),
                             if ((entry.score ?? 0) != 0)
                               Tooltip(
                                 message: scoreToText(
@@ -421,12 +371,28 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                                   Text(
                                     "${entry.progress} / ${entry.media!.chapters ?? entry.media!.episodes}",
                                     style: context.theme.textTheme.labelMedium,
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
                             Row(
                               children: [
+                                IconButton(
+                                  icon: Icon(Icons.edit),
+                                  iconSize: 20,
+                                  onPressed: () => MediaEditorDialog.show(
+                                    context,
+                                    entry.media!,
+                                    widget
+                                        .response
+                                        .parsedData!
+                                        .MediaListCollection!
+                                        .user!
+                                        .id,
+                                    onSave: widget.refetch,
+                                    onDelete: widget.refetch,
+                                  ),
+                                ),
                                 if ((entry.score ?? 0) != 0)
                                   Tooltip(
                                     message: scoreToText(
@@ -459,77 +425,92 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                       ),
                     ),
                     onLongPress: () => MediaSheet.show(context, entry.media!),
-                    onTap: () => context.push(Routes.media(entry.mediaId),
-                        extra: {"placeholder": entry.media}),
-                    onDoubleTap: () => MediaEditorDialog.show(
-                      context,
-                      entry.media!,
-                      widget.response.parsedData!.MediaListCollection!.user!.id,
-                      onSave: () => widget.refetch(FetchPolicy.cacheOnly),
-                      onDelete: () => widget.refetch(),
+                    onTap: () => context.push(
+                      Routes.media(entry.mediaId),
+                      extra: {"placeholder": entry.media},
                     ),
                     blur: entry.media!.isAdult!,
                     chips: [
-                      if ((entry.score ?? 0) != 0)
-                        GridChip(
-                          top: 5,
-                          left: 5,
-                          child: Row(
-                            children: [
-                              const Icon(
-                                Icons.star,
-                                size: 15,
-                              ),
-                              const SizedBox(
-                                width: 2,
-                              ),
-                              Text(
-                                scoreToText(
+                      GridChip(
+                        color: Colors.transparent,
+                        child: Wrap(
+                          spacing: 5,
+                          runSpacing: 5,
+                          children: [
+                            GridChip.nonPositioned(
+                              padding: EdgeInsets.zero,
+                              child: InkWellImage(
+                                borderRadius: imageRadius,
+                                onTap: () => MediaEditorDialog.show(
+                                  context,
+                                  entry.media!,
                                   widget
-                                          .response
-                                          .parsedData!
-                                          .MediaListCollection!
-                                          .user!
-                                          .mediaListOptions
-                                          ?.scoreFormat ??
-                                      Enum$ScoreFormat.POINT_10,
-                                  entry.score ?? 0,
+                                      .response
+                                      .parsedData!
+                                      .MediaListCollection!
+                                      .user!
+                                      .id,
+                                  onSave: widget.refetch,
+                                  onDelete: widget.refetch,
                                 ),
-                                style: context.theme.textTheme.labelMedium,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 4,
+                                  ),
+                                  child: Icon(Icons.edit, size: 15),
+                                ),
                               ),
-                            ],
-                          ),
-                        ),
-                      if (entry.notes != null)
-                        GridChip(
-                          top: entry.score != 0 ? 30 : 5,
-                          left: entry.private == true ? 40 : 5,
-                          child: Tooltip(
-                            message: entry.notes,
-                            child: const Icon(
-                              Icons.note_alt,
-                              size: 15,
                             ),
-                          ),
+                            if ((entry.score ?? 0) != 0)
+                              GridChip.nonPositioned(
+                                child: Row(
+                                  mainAxisSize: .min,
+                                  spacing: 2,
+                                  children: [
+                                    const Icon(Icons.star, size: 15),
+                                    Text(
+                                      scoreToText(
+                                        widget
+                                                .response
+                                                .parsedData!
+                                                .MediaListCollection!
+                                                .user!
+                                                .mediaListOptions
+                                                ?.scoreFormat ??
+                                            Enum$ScoreFormat.POINT_10,
+                                        entry.score ?? 0,
+                                      ),
+                                      style:
+                                          context.theme.textTheme.labelMedium,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            if (entry.notes != null)
+                              GridChip.nonPositioned(
+                                child: Tooltip(
+                                  message: entry.notes,
+                                  child: const Icon(Icons.note_alt, size: 15),
+                                ),
+                              ),
+                            if (entry.private == true)
+                              GridChip.nonPositioned(
+                                child: const Tooltip(
+                                  message: "Private",
+                                  child: Icon(Icons.lock, size: 15),
+                                ),
+                              ),
+                          ],
                         ),
-                      if (entry.private == true)
-                        GridChip(
-                          top: entry.score != 0 ? 30 : 5,
-                          left: 5,
-                          child: const Tooltip(
-                            message: "Private",
-                            child: Icon(
-                              Icons.lock,
-                              size: 15,
-                            ),
-                          ),
-                        ),
+                      ),
                     ],
                   );
                 },
                 itemCount: group.entries!.length,
-                padding:
-                    setting == ListType.grid ? const EdgeInsets.all(8) : null,
+                padding: setting == ListType.grid
+                    ? const EdgeInsets.all(8)
+                    : null,
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 150,
                   childAspectRatio: GridCard.listRatio,
@@ -537,6 +518,102 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                   crossAxisSpacing: 10,
                 ),
               ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RandomMediaEntry extends StatelessWidget {
+  const RandomMediaEntry({
+    super.key,
+    required this.entry,
+    required this.user,
+    required this.refetch,
+  });
+
+  final Fragment$MediaListEntry entry;
+  final Query$MediaList$MediaListCollection$user user;
+  final QueryRefetch refetch;
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(borderRadius: imageRadius),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: Wrap(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 4),
+              child: SizedBox(
+                height: 120,
+                child: MediaCard(
+                  listType: ListType.grid,
+                  image: entry.media!.coverImage!.extraLarge!,
+                  onLongPress: () => MediaSheet.show(context, entry.media!),
+                  onTap: () => context.push(
+                    Routes.media(entry.mediaId),
+                    extra: {"placeholder": entry.media},
+                  ),
+                  onDoubleTap: () => MediaEditorDialog.show(
+                    context,
+                    entry.media!,
+                    user.id,
+                    onSave: () => refetch(FetchPolicy.cacheOnly),
+                    onDelete: () => refetch(),
+                  ),
+                  blur: entry.media!.isAdult!,
+                  chips: [
+                    if (entry.private == true)
+                      GridChip(
+                        top: entry.score != 0 ? 30 : 5,
+                        left: 5,
+                        child: const Tooltip(
+                          message: "Private",
+                          child: Icon(Icons.lock, size: 15),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  entry.media!.title!.userPreferred!,
+                  style: context.theme.textTheme.labelLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                ),
+                Text("Status: ${entry.status!.name.capitalize()}"),
+                Text(
+                  "Rating: ${scoreToText(user.mediaListOptions?.scoreFormat ?? Enum$ScoreFormat.POINT_10, entry.score ?? 0, fallback: "N/A")}",
+                ),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: entry.media!.type == Enum$MediaType.ANIME
+                            ? "Episodes Watched: "
+                            : "Chapters Read",
+                      ),
+                      TextSpan(text: "${entry.progress ?? 0}/"),
+                      TextSpan(
+                        text:
+                            "${entry.media!.episodes ?? entry.media!.chapters ?? 'N/A'}",
+                      ),
+                    ],
+                  ),
+                ),
+                if (entry.notes != null) Text("Notes: ${entry.notes}"),
+              ],
+            ),
           ],
         ),
       ),

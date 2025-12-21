@@ -3,10 +3,7 @@ import 'fragments/staff.graphql.dart';
 import 'package:gql/ast.dart';
 
 class Variables$Query$MediaStaff {
-  factory Variables$Query$MediaStaff({
-    int? mediaId,
-    int? page,
-  }) =>
+  factory Variables$Query$MediaStaff({int? mediaId, int? page}) =>
       Variables$Query$MediaStaff._({
         if (mediaId != null) r'mediaId': mediaId,
         if (page != null) r'page': page,
@@ -47,10 +44,7 @@ class Variables$Query$MediaStaff {
   }
 
   CopyWith$Variables$Query$MediaStaff<Variables$Query$MediaStaff>
-      get copyWith => CopyWith$Variables$Query$MediaStaff(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$MediaStaff(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -100,18 +94,12 @@ abstract class CopyWith$Variables$Query$MediaStaff<TRes> {
   factory CopyWith$Variables$Query$MediaStaff.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$MediaStaff;
 
-  TRes call({
-    int? mediaId,
-    int? page,
-  });
+  TRes call({int? mediaId, int? page});
 }
 
 class _CopyWithImpl$Variables$Query$MediaStaff<TRes>
     implements CopyWith$Variables$Query$MediaStaff<TRes> {
-  _CopyWithImpl$Variables$Query$MediaStaff(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$MediaStaff(this._instance, this._then);
 
   final Variables$Query$MediaStaff _instance;
 
@@ -119,15 +107,13 @@ class _CopyWithImpl$Variables$Query$MediaStaff<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? mediaId = _undefined,
-    Object? page = _undefined,
-  }) =>
-      _then(Variables$Query$MediaStaff._({
-        ..._instance._$data,
-        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  TRes call({Object? mediaId = _undefined, Object? page = _undefined}) => _then(
+    Variables$Query$MediaStaff._({
+      ..._instance._$data,
+      if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$MediaStaff<TRes>
@@ -136,18 +122,11 @@ class _CopyWithStubImpl$Variables$Query$MediaStaff<TRes>
 
   TRes _res;
 
-  call({
-    int? mediaId,
-    int? page,
-  }) =>
-      _res;
+  call({int? mediaId, int? page}) => _res;
 }
 
 class Query$MediaStaff {
-  Query$MediaStaff({
-    this.Media,
-    this.$__typename = 'Query',
-  });
+  Query$MediaStaff({this.Media, this.$__typename = 'Query'});
 
   factory Query$MediaStaff.fromJson(Map<String, dynamic> json) {
     final l$Media = json['Media'];
@@ -177,10 +156,7 @@ class Query$MediaStaff {
   int get hashCode {
     final l$Media = Media;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Media,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Media, l$$__typename]);
   }
 
   @override
@@ -207,10 +183,7 @@ class Query$MediaStaff {
 
 extension UtilityExtension$Query$MediaStaff on Query$MediaStaff {
   CopyWith$Query$MediaStaff<Query$MediaStaff> get copyWith =>
-      CopyWith$Query$MediaStaff(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaStaff(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaStaff<TRes> {
@@ -222,19 +195,13 @@ abstract class CopyWith$Query$MediaStaff<TRes> {
   factory CopyWith$Query$MediaStaff.stub(TRes res) =
       _CopyWithStubImpl$Query$MediaStaff;
 
-  TRes call({
-    Query$MediaStaff$Media? Media,
-    String? $__typename,
-  });
+  TRes call({Query$MediaStaff$Media? Media, String? $__typename});
   CopyWith$Query$MediaStaff$Media<TRes> get Media;
 }
 
 class _CopyWithImpl$Query$MediaStaff<TRes>
     implements CopyWith$Query$MediaStaff<TRes> {
-  _CopyWithImpl$Query$MediaStaff(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaStaff(this._instance, this._then);
 
   final Query$MediaStaff _instance;
 
@@ -242,18 +209,17 @@ class _CopyWithImpl$Query$MediaStaff<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaStaff(
-        Media: Media == _undefined
-            ? _instance.Media
-            : (Media as Query$MediaStaff$Media?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$MediaStaff(
+          Media: Media == _undefined
+              ? _instance.Media
+              : (Media as Query$MediaStaff$Media?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$MediaStaff$Media<TRes> get Media {
     final local$Media = _instance.Media;
@@ -269,119 +235,139 @@ class _CopyWithStubImpl$Query$MediaStaff<TRes>
 
   TRes _res;
 
-  call({
-    Query$MediaStaff$Media? Media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$MediaStaff$Media? Media, String? $__typename}) => _res;
 
   CopyWith$Query$MediaStaff$Media<TRes> get Media =>
       CopyWith$Query$MediaStaff$Media.stub(_res);
 }
 
-const documentNodeQueryMediaStaff = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'MediaStaff'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mediaId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryMediaStaff = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'MediaStaff'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'mediaId')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Media'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'mediaId')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'staff'),
+            name: NameNode(value: 'Media'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'page'),
-                value: VariableNode(name: NameNode(value: 'page')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'RELEVANCE')),
-                  EnumValueNode(name: NameNode(value: 'ID')),
-                ]),
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'mediaId')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'pageInfo'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'PageInfo'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'edges'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'role'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'node'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'StaffFragment'),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'id'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'staff'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'page'),
+                      value: VariableNode(name: NameNode(value: 'page')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'RELEVANCE')),
+                          EnumValueNode(name: NameNode(value: 'ID')),
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'pageInfo'),
+                        alias: null,
+                        arguments: [],
                         directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'PageInfo'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'edges'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'role'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'node'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'StaffFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -390,25 +376,18 @@ const documentNodeQueryMediaStaff = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -417,20 +396,13 @@ const documentNodeQueryMediaStaff = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionStaffFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionStaffFragment,
+  ],
+);
 
 class Query$MediaStaff$Media {
   Query$MediaStaff$Media({
@@ -448,7 +420,8 @@ class Query$MediaStaff$Media {
       staff: l$staff == null
           ? null
           : Query$MediaStaff$Media$staff.fromJson(
-              (l$staff as Map<String, dynamic>)),
+              (l$staff as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -475,11 +448,7 @@ class Query$MediaStaff$Media {
     final l$id = id;
     final l$staff = staff;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$staff,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$staff, l$$__typename]);
   }
 
   @override
@@ -511,10 +480,7 @@ class Query$MediaStaff$Media {
 
 extension UtilityExtension$Query$MediaStaff$Media on Query$MediaStaff$Media {
   CopyWith$Query$MediaStaff$Media<Query$MediaStaff$Media> get copyWith =>
-      CopyWith$Query$MediaStaff$Media(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaStaff$Media(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaStaff$Media<TRes> {
@@ -536,10 +502,7 @@ abstract class CopyWith$Query$MediaStaff$Media<TRes> {
 
 class _CopyWithImpl$Query$MediaStaff$Media<TRes>
     implements CopyWith$Query$MediaStaff$Media<TRes> {
-  _CopyWithImpl$Query$MediaStaff$Media(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaStaff$Media(this._instance, this._then);
 
   final Query$MediaStaff$Media _instance;
 
@@ -551,23 +514,26 @@ class _CopyWithImpl$Query$MediaStaff$Media<TRes>
     Object? id = _undefined,
     Object? staff = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaStaff$Media(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        staff: staff == _undefined
-            ? _instance.staff
-            : (staff as Query$MediaStaff$Media$staff?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaStaff$Media(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      staff: staff == _undefined
+          ? _instance.staff
+          : (staff as Query$MediaStaff$Media$staff?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$MediaStaff$Media$staff<TRes> get staff {
     final local$staff = _instance.staff;
     return local$staff == null
         ? CopyWith$Query$MediaStaff$Media$staff.stub(_then(_instance))
         : CopyWith$Query$MediaStaff$Media$staff(
-            local$staff, (e) => call(staff: e));
+            local$staff,
+            (e) => call(staff: e),
+          );
   }
 }
 
@@ -577,11 +543,7 @@ class _CopyWithStubImpl$Query$MediaStaff$Media<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    Query$MediaStaff$Media$staff? staff,
-    String? $__typename,
-  }) =>
+  call({int? id, Query$MediaStaff$Media$staff? staff, String? $__typename}) =>
       _res;
 
   CopyWith$Query$MediaStaff$Media$staff<TRes> get staff =>
@@ -604,10 +566,13 @@ class Query$MediaStaff$Media$staff {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$MediaStaff$Media$staff$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$MediaStaff$Media$staff$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -684,10 +649,7 @@ class Query$MediaStaff$Media$staff {
 extension UtilityExtension$Query$MediaStaff$Media$staff
     on Query$MediaStaff$Media$staff {
   CopyWith$Query$MediaStaff$Media$staff<Query$MediaStaff$Media$staff>
-      get copyWith => CopyWith$Query$MediaStaff$Media$staff(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$MediaStaff$Media$staff(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaStaff$Media$staff<TRes> {
@@ -706,19 +668,20 @@ abstract class CopyWith$Query$MediaStaff$Media$staff<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<Query$MediaStaff$Media$staff$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$MediaStaff$Media$staff$edges<
-                      Query$MediaStaff$Media$staff$edges>?>?)
-          _fn);
+    Iterable<Query$MediaStaff$Media$staff$edges?>? Function(
+      Iterable<
+        CopyWith$Query$MediaStaff$Media$staff$edges<
+          Query$MediaStaff$Media$staff$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$MediaStaff$Media$staff<TRes>
     implements CopyWith$Query$MediaStaff$Media$staff<TRes> {
-  _CopyWithImpl$Query$MediaStaff$Media$staff(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaStaff$Media$staff(this._instance, this._then);
 
   final Query$MediaStaff$Media$staff _instance;
 
@@ -730,18 +693,19 @@ class _CopyWithImpl$Query$MediaStaff$Media$staff<TRes>
     Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaStaff$Media$staff(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges as List<Query$MediaStaff$Media$staff$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaStaff$Media$staff(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      edges: edges == _undefined
+          ? _instance.edges
+          : (edges as List<Query$MediaStaff$Media$staff$edges?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -751,18 +715,23 @@ class _CopyWithImpl$Query$MediaStaff$Media$staff<TRes>
   }
 
   TRes edges(
-          Iterable<Query$MediaStaff$Media$staff$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$MediaStaff$Media$staff$edges<
-                          Query$MediaStaff$Media$staff$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Query$MediaStaff$Media$staff$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$MediaStaff$Media$staff$edges?>? Function(
+      Iterable<
+        CopyWith$Query$MediaStaff$Media$staff$edges<
+          Query$MediaStaff$Media$staff$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$MediaStaff$Media$staff$edges(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$MediaStaff$Media$staff<TRes>
@@ -775,8 +744,7 @@ class _CopyWithStubImpl$Query$MediaStaff$Media$staff<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$MediaStaff$Media$staff$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -792,7 +760,8 @@ class Query$MediaStaff$Media$staff$edges {
   });
 
   factory Query$MediaStaff$Media$staff$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$role = json['role'];
     final l$node = json['node'];
     final l$$__typename = json['__typename'];
@@ -827,11 +796,7 @@ class Query$MediaStaff$Media$staff$edges {
     final l$role = role;
     final l$node = node;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$role,
-      l$node,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$role, l$node, l$$__typename]);
   }
 
   @override
@@ -865,11 +830,9 @@ class Query$MediaStaff$Media$staff$edges {
 extension UtilityExtension$Query$MediaStaff$Media$staff$edges
     on Query$MediaStaff$Media$staff$edges {
   CopyWith$Query$MediaStaff$Media$staff$edges<
-          Query$MediaStaff$Media$staff$edges>
-      get copyWith => CopyWith$Query$MediaStaff$Media$staff$edges(
-            this,
-            (i) => i,
-          );
+    Query$MediaStaff$Media$staff$edges
+  >
+  get copyWith => CopyWith$Query$MediaStaff$Media$staff$edges(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaStaff$Media$staff$edges<TRes> {
@@ -881,20 +844,13 @@ abstract class CopyWith$Query$MediaStaff$Media$staff$edges<TRes> {
   factory CopyWith$Query$MediaStaff$Media$staff$edges.stub(TRes res) =
       _CopyWithStubImpl$Query$MediaStaff$Media$staff$edges;
 
-  TRes call({
-    String? role,
-    Fragment$StaffFragment? node,
-    String? $__typename,
-  });
+  TRes call({String? role, Fragment$StaffFragment? node, String? $__typename});
   CopyWith$Fragment$StaffFragment<TRes> get node;
 }
 
 class _CopyWithImpl$Query$MediaStaff$Media$staff$edges<TRes>
     implements CopyWith$Query$MediaStaff$Media$staff$edges<TRes> {
-  _CopyWithImpl$Query$MediaStaff$Media$staff$edges(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaStaff$Media$staff$edges(this._instance, this._then);
 
   final Query$MediaStaff$Media$staff$edges _instance;
 
@@ -906,16 +862,17 @@ class _CopyWithImpl$Query$MediaStaff$Media$staff$edges<TRes>
     Object? role = _undefined,
     Object? node = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaStaff$Media$staff$edges(
-        role: role == _undefined ? _instance.role : (role as String?),
-        node: node == _undefined
-            ? _instance.node
-            : (node as Fragment$StaffFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaStaff$Media$staff$edges(
+      role: role == _undefined ? _instance.role : (role as String?),
+      node: node == _undefined
+          ? _instance.node
+          : (node as Fragment$StaffFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$StaffFragment<TRes> get node {
     final local$node = _instance.node;
@@ -931,11 +888,7 @@ class _CopyWithStubImpl$Query$MediaStaff$Media$staff$edges<TRes>
 
   TRes _res;
 
-  call({
-    String? role,
-    Fragment$StaffFragment? node,
-    String? $__typename,
-  }) =>
+  call({String? role, Fragment$StaffFragment? node, String? $__typename}) =>
       _res;
 
   CopyWith$Fragment$StaffFragment<TRes> get node =>

@@ -12,12 +12,11 @@ class Variables$Query$UserActivities {
     int? userId,
     Enum$ActivityType? activityType,
     int? page,
-  }) =>
-      Variables$Query$UserActivities._({
-        if (userId != null) r'userId': userId,
-        if (activityType != null) r'activityType': activityType,
-        if (page != null) r'page': page,
-      });
+  }) => Variables$Query$UserActivities._({
+    if (userId != null) r'userId': userId,
+    if (activityType != null) r'activityType': activityType,
+    if (page != null) r'page': page,
+  });
 
   Variables$Query$UserActivities._(this._$data);
 
@@ -69,10 +68,7 @@ class Variables$Query$UserActivities {
   }
 
   CopyWith$Variables$Query$UserActivities<Variables$Query$UserActivities>
-      get copyWith => CopyWith$Variables$Query$UserActivities(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$UserActivities(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -133,19 +129,12 @@ abstract class CopyWith$Variables$Query$UserActivities<TRes> {
   factory CopyWith$Variables$Query$UserActivities.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$UserActivities;
 
-  TRes call({
-    int? userId,
-    Enum$ActivityType? activityType,
-    int? page,
-  });
+  TRes call({int? userId, Enum$ActivityType? activityType, int? page});
 }
 
 class _CopyWithImpl$Variables$Query$UserActivities<TRes>
     implements CopyWith$Variables$Query$UserActivities<TRes> {
-  _CopyWithImpl$Variables$Query$UserActivities(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$UserActivities(this._instance, this._then);
 
   final Variables$Query$UserActivities _instance;
 
@@ -157,14 +146,15 @@ class _CopyWithImpl$Variables$Query$UserActivities<TRes>
     Object? userId = _undefined,
     Object? activityType = _undefined,
     Object? page = _undefined,
-  }) =>
-      _then(Variables$Query$UserActivities._({
-        ..._instance._$data,
-        if (userId != _undefined) 'userId': (userId as int?),
-        if (activityType != _undefined)
-          'activityType': (activityType as Enum$ActivityType?),
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  }) => _then(
+    Variables$Query$UserActivities._({
+      ..._instance._$data,
+      if (userId != _undefined) 'userId': (userId as int?),
+      if (activityType != _undefined)
+        'activityType': (activityType as Enum$ActivityType?),
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$UserActivities<TRes>
@@ -173,19 +163,11 @@ class _CopyWithStubImpl$Variables$Query$UserActivities<TRes>
 
   TRes _res;
 
-  call({
-    int? userId,
-    Enum$ActivityType? activityType,
-    int? page,
-  }) =>
-      _res;
+  call({int? userId, Enum$ActivityType? activityType, int? page}) => _res;
 }
 
 class Query$UserActivities {
-  Query$UserActivities({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$UserActivities({this.Page, this.$__typename = 'Query'});
 
   factory Query$UserActivities.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -194,7 +176,8 @@ class Query$UserActivities {
       Page: l$Page == null
           ? null
           : Query$UserActivities$Page.fromJson(
-              (l$Page as Map<String, dynamic>)),
+              (l$Page as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -216,10 +199,7 @@ class Query$UserActivities {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -246,10 +226,7 @@ class Query$UserActivities {
 
 extension UtilityExtension$Query$UserActivities on Query$UserActivities {
   CopyWith$Query$UserActivities<Query$UserActivities> get copyWith =>
-      CopyWith$Query$UserActivities(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$UserActivities(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserActivities<TRes> {
@@ -261,19 +238,13 @@ abstract class CopyWith$Query$UserActivities<TRes> {
   factory CopyWith$Query$UserActivities.stub(TRes res) =
       _CopyWithStubImpl$Query$UserActivities;
 
-  TRes call({
-    Query$UserActivities$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$UserActivities$Page? Page, String? $__typename});
   CopyWith$Query$UserActivities$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$UserActivities<TRes>
     implements CopyWith$Query$UserActivities<TRes> {
-  _CopyWithImpl$Query$UserActivities(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserActivities(this._instance, this._then);
 
   final Query$UserActivities _instance;
 
@@ -281,18 +252,17 @@ class _CopyWithImpl$Query$UserActivities<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserActivities(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$UserActivities$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$UserActivities(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$UserActivities$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$UserActivities$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -308,178 +278,198 @@ class _CopyWithStubImpl$Query$UserActivities<TRes>
 
   TRes _res;
 
-  call({
-    Query$UserActivities$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$UserActivities$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$UserActivities$Page<TRes> get Page =>
       CopyWith$Query$UserActivities$Page.stub(_res);
 }
 
-const documentNodeQueryUserActivities = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'UserActivities'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryUserActivities = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'UserActivities'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'userId')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'activityType')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ActivityType'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'activityType')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'ActivityType'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '25'),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'activities'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'userId'),
-                value: VariableNode(name: NameNode(value: 'userId')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
               ArgumentNode(
-                name: NameNode(value: 'type'),
-                value: VariableNode(name: NameNode(value: 'activityType')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'PINNED')),
-                  EnumValueNode(name: NameNode(value: 'ID_DESC')),
-                ]),
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '25'),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'TextActivity'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'TextActivity'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'activities'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'userId'),
+                      value: VariableNode(name: NameNode(value: 'userId')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type'),
+                      value: VariableNode(
+                        name: NameNode(value: 'activityType'),
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'PINNED')),
+                          EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'TextActivity'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'TextActivity'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'ListActivity'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'ListActivity'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      InlineFragmentNode(
+                        typeCondition: TypeConditionNode(
+                          on: NamedTypeNode(
+                            name: NameNode(value: 'MessageActivity'),
+                            isNonNull: false,
+                          ),
+                        ),
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'MessageActivity'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ListActivity'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'ListActivity'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'MessageActivity'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'MessageActivity'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -488,24 +478,17 @@ const documentNodeQueryUserActivities = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionTextActivity,
-  fragmentDefinitionUserFragment,
-  fragmentDefinitionListActivity,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionMessageActivity,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionTextActivity,
+    fragmentDefinitionUserFragment,
+    fragmentDefinitionListActivity,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionMessageActivity,
+  ],
+);
 
 class Query$UserActivities$Page {
   Query$UserActivities$Page({
@@ -523,10 +506,13 @@ class Query$UserActivities$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       activities: (l$activities as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$UserActivities$Page$activities.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$UserActivities$Page$activities.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -603,10 +589,7 @@ class Query$UserActivities$Page {
 extension UtilityExtension$Query$UserActivities$Page
     on Query$UserActivities$Page {
   CopyWith$Query$UserActivities$Page<Query$UserActivities$Page> get copyWith =>
-      CopyWith$Query$UserActivities$Page(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$UserActivities$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserActivities$Page<TRes> {
@@ -625,19 +608,20 @@ abstract class CopyWith$Query$UserActivities$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes activities(
-      Iterable<Query$UserActivities$Page$activities?>? Function(
-              Iterable<
-                  CopyWith$Query$UserActivities$Page$activities<
-                      Query$UserActivities$Page$activities>?>?)
-          _fn);
+    Iterable<Query$UserActivities$Page$activities?>? Function(
+      Iterable<
+        CopyWith$Query$UserActivities$Page$activities<
+          Query$UserActivities$Page$activities
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserActivities$Page<TRes>
     implements CopyWith$Query$UserActivities$Page<TRes> {
-  _CopyWithImpl$Query$UserActivities$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserActivities$Page(this._instance, this._then);
 
   final Query$UserActivities$Page _instance;
 
@@ -649,18 +633,19 @@ class _CopyWithImpl$Query$UserActivities$Page<TRes>
     Object? pageInfo = _undefined,
     Object? activities = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserActivities$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        activities: activities == _undefined
-            ? _instance.activities
-            : (activities as List<Query$UserActivities$Page$activities?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserActivities$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      activities: activities == _undefined
+          ? _instance.activities
+          : (activities as List<Query$UserActivities$Page$activities?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -670,18 +655,23 @@ class _CopyWithImpl$Query$UserActivities$Page<TRes>
   }
 
   TRes activities(
-          Iterable<Query$UserActivities$Page$activities?>? Function(
-                  Iterable<
-                      CopyWith$Query$UserActivities$Page$activities<
-                          Query$UserActivities$Page$activities>?>?)
-              _fn) =>
-      call(
-          activities: _fn(_instance.activities?.map((e) => e == null
-              ? null
-              : CopyWith$Query$UserActivities$Page$activities(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$UserActivities$Page$activities?>? Function(
+      Iterable<
+        CopyWith$Query$UserActivities$Page$activities<
+          Query$UserActivities$Page$activities
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    activities: _fn(
+      _instance.activities?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$UserActivities$Page$activities(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserActivities$Page<TRes>
@@ -694,8 +684,7 @@ class _CopyWithStubImpl$Query$UserActivities$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$UserActivities$Page$activities?>? activities,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -707,24 +696,29 @@ class Query$UserActivities$Page$activities {
   Query$UserActivities$Page$activities({required this.$__typename});
 
   factory Query$UserActivities$Page$activities.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     switch (json["__typename"] as String) {
       case "TextActivity":
         return Query$UserActivities$Page$activities$$TextActivity.fromJson(
-            json);
+          json,
+        );
 
       case "ListActivity":
         return Query$UserActivities$Page$activities$$ListActivity.fromJson(
-            json);
+          json,
+        );
 
       case "MessageActivity":
         return Query$UserActivities$Page$activities$$MessageActivity.fromJson(
-            json);
+          json,
+        );
 
       default:
         final l$$__typename = json['__typename'];
         return Query$UserActivities$Page$activities(
-            $__typename: (l$$__typename as String));
+          $__typename: (l$$__typename as String),
+        );
     }
   }
 
@@ -764,32 +758,34 @@ class Query$UserActivities$Page$activities {
 extension UtilityExtension$Query$UserActivities$Page$activities
     on Query$UserActivities$Page$activities {
   CopyWith$Query$UserActivities$Page$activities<
-          Query$UserActivities$Page$activities>
-      get copyWith => CopyWith$Query$UserActivities$Page$activities(
-            this,
-            (i) => i,
-          );
+    Query$UserActivities$Page$activities
+  >
+  get copyWith => CopyWith$Query$UserActivities$Page$activities(this, (i) => i);
+
   _T when<_T>({
     required _T Function(Query$UserActivities$Page$activities$$TextActivity)
-        textActivity,
+    textActivity,
     required _T Function(Query$UserActivities$Page$activities$$ListActivity)
-        listActivity,
+    listActivity,
     required _T Function(Query$UserActivities$Page$activities$$MessageActivity)
-        messageActivity,
+    messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "TextActivity":
         return textActivity(
-            this as Query$UserActivities$Page$activities$$TextActivity);
+          this as Query$UserActivities$Page$activities$$TextActivity,
+        );
 
       case "ListActivity":
         return listActivity(
-            this as Query$UserActivities$Page$activities$$ListActivity);
+          this as Query$UserActivities$Page$activities$$ListActivity,
+        );
 
       case "MessageActivity":
         return messageActivity(
-            this as Query$UserActivities$Page$activities$$MessageActivity);
+          this as Query$UserActivities$Page$activities$$MessageActivity,
+        );
 
       default:
         return orElse();
@@ -798,18 +794,19 @@ extension UtilityExtension$Query$UserActivities$Page$activities
 
   _T maybeWhen<_T>({
     _T Function(Query$UserActivities$Page$activities$$TextActivity)?
-        textActivity,
+    textActivity,
     _T Function(Query$UserActivities$Page$activities$$ListActivity)?
-        listActivity,
+    listActivity,
     _T Function(Query$UserActivities$Page$activities$$MessageActivity)?
-        messageActivity,
+    messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "TextActivity":
         if (textActivity != null) {
           return textActivity(
-              this as Query$UserActivities$Page$activities$$TextActivity);
+            this as Query$UserActivities$Page$activities$$TextActivity,
+          );
         } else {
           return orElse();
         }
@@ -817,7 +814,8 @@ extension UtilityExtension$Query$UserActivities$Page$activities
       case "ListActivity":
         if (listActivity != null) {
           return listActivity(
-              this as Query$UserActivities$Page$activities$$ListActivity);
+            this as Query$UserActivities$Page$activities$$ListActivity,
+          );
         } else {
           return orElse();
         }
@@ -825,7 +823,8 @@ extension UtilityExtension$Query$UserActivities$Page$activities
       case "MessageActivity":
         if (messageActivity != null) {
           return messageActivity(
-              this as Query$UserActivities$Page$activities$$MessageActivity);
+            this as Query$UserActivities$Page$activities$$MessageActivity,
+          );
         } else {
           return orElse();
         }
@@ -861,11 +860,13 @@ class _CopyWithImpl$Query$UserActivities$Page$activities<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(Query$UserActivities$Page$activities(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$UserActivities$Page$activities(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserActivities$Page$activities<TRes>
@@ -895,7 +896,8 @@ class Query$UserActivities$Page$activities$$TextActivity
   });
 
   factory Query$UserActivities$Page$activities$$TextActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$userId = json['userId'];
     final l$type = json['type'];
@@ -959,8 +961,9 @@ class Query$UserActivities$Page$activities$$TextActivity
     final l$userId = userId;
     _resultData['userId'] = l$userId;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$replyCount = replyCount;
     _resultData['replyCount'] = l$replyCount;
     final l$text = text;
@@ -1088,24 +1091,25 @@ class Query$UserActivities$Page$activities$$TextActivity
 extension UtilityExtension$Query$UserActivities$Page$activities$$TextActivity
     on Query$UserActivities$Page$activities$$TextActivity {
   CopyWith$Query$UserActivities$Page$activities$$TextActivity<
-          Query$UserActivities$Page$activities$$TextActivity>
-      get copyWith =>
-          CopyWith$Query$UserActivities$Page$activities$$TextActivity(
-            this,
-            (i) => i,
-          );
+    Query$UserActivities$Page$activities$$TextActivity
+  >
+  get copyWith => CopyWith$Query$UserActivities$Page$activities$$TextActivity(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$UserActivities$Page$activities$$TextActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$UserActivities$Page$activities$$TextActivity(
     Query$UserActivities$Page$activities$$TextActivity instance,
     TRes Function(Query$UserActivities$Page$activities$$TextActivity) then,
   ) = _CopyWithImpl$Query$UserActivities$Page$activities$$TextActivity;
 
   factory CopyWith$Query$UserActivities$Page$activities$$TextActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserActivities$Page$activities$$TextActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserActivities$Page$activities$$TextActivity;
 
   TRes call({
     int? id,
@@ -1151,35 +1155,36 @@ class _CopyWithImpl$Query$UserActivities$Page$activities$$TextActivity<TRes>
     Object? createdAt = _undefined,
     Object? user = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserActivities$Page$activities$$TextActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        text: text == _undefined ? _instance.text : (text as String?),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserActivities$Page$activities$$TextActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      userId: userId == _undefined ? _instance.userId : (userId as int?),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      replyCount: replyCount == _undefined || replyCount == null
+          ? _instance.replyCount
+          : (replyCount as int),
+      text: text == _undefined ? _instance.text : (text as String?),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      isSubscribed: isSubscribed == _undefined
+          ? _instance.isSubscribed
+          : (isSubscribed as bool?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -1193,7 +1198,8 @@ class _CopyWithStubImpl$Query$UserActivities$Page$activities$$TextActivity<TRes>
     implements
         CopyWith$Query$UserActivities$Page$activities$$TextActivity<TRes> {
   _CopyWithStubImpl$Query$UserActivities$Page$activities$$TextActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1210,8 +1216,7 @@ class _CopyWithStubImpl$Query$UserActivities$Page$activities$$TextActivity<TRes>
     int? createdAt,
     Fragment$UserFragment? user,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -1237,7 +1242,8 @@ class Query$UserActivities$Page$activities$$ListActivity
   });
 
   factory Query$UserActivities$Page$activities$$ListActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$userId = json['userId'];
     final l$type = json['type'];
@@ -1311,8 +1317,9 @@ class Query$UserActivities$Page$activities$$ListActivity
     final l$userId = userId;
     _resultData['userId'] = l$userId;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$status = status;
     _resultData['status'] = l$status;
     final l$progress = progress;
@@ -1458,24 +1465,25 @@ class Query$UserActivities$Page$activities$$ListActivity
 extension UtilityExtension$Query$UserActivities$Page$activities$$ListActivity
     on Query$UserActivities$Page$activities$$ListActivity {
   CopyWith$Query$UserActivities$Page$activities$$ListActivity<
-          Query$UserActivities$Page$activities$$ListActivity>
-      get copyWith =>
-          CopyWith$Query$UserActivities$Page$activities$$ListActivity(
-            this,
-            (i) => i,
-          );
+    Query$UserActivities$Page$activities$$ListActivity
+  >
+  get copyWith => CopyWith$Query$UserActivities$Page$activities$$ListActivity(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$UserActivities$Page$activities$$ListActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$UserActivities$Page$activities$$ListActivity(
     Query$UserActivities$Page$activities$$ListActivity instance,
     TRes Function(Query$UserActivities$Page$activities$$ListActivity) then,
   ) = _CopyWithImpl$Query$UserActivities$Page$activities$$ListActivity;
 
   factory CopyWith$Query$UserActivities$Page$activities$$ListActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserActivities$Page$activities$$ListActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserActivities$Page$activities$$ListActivity;
 
   TRes call({
     int? id,
@@ -1526,40 +1534,42 @@ class _CopyWithImpl$Query$UserActivities$Page$activities$$ListActivity<TRes>
     Object? user = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserActivities$Page$activities$$ListActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        status: status == _undefined ? _instance.status : (status as String?),
-        progress:
-            progress == _undefined ? _instance.progress : (progress as String?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserActivities$Page$activities$$ListActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      userId: userId == _undefined ? _instance.userId : (userId as int?),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      status: status == _undefined ? _instance.status : (status as String?),
+      progress: progress == _undefined
+          ? _instance.progress
+          : (progress as String?),
+      replyCount: replyCount == _undefined || replyCount == null
+          ? _instance.replyCount
+          : (replyCount as int),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      isSubscribed: isSubscribed == _undefined
+          ? _instance.isSubscribed
+          : (isSubscribed as bool?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -1580,7 +1590,8 @@ class _CopyWithStubImpl$Query$UserActivities$Page$activities$$ListActivity<TRes>
     implements
         CopyWith$Query$UserActivities$Page$activities$$ListActivity<TRes> {
   _CopyWithStubImpl$Query$UserActivities$Page$activities$$ListActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1599,8 +1610,7 @@ class _CopyWithStubImpl$Query$UserActivities$Page$activities$$ListActivity<TRes>
     Fragment$UserFragment? user,
     Fragment$MediaFragment? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -1629,7 +1639,8 @@ class Query$UserActivities$Page$activities$$MessageActivity
   });
 
   factory Query$UserActivities$Page$activities$$MessageActivity.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$message = json['message'];
@@ -1661,11 +1672,13 @@ class Query$UserActivities$Page$activities$$MessageActivity
       messenger: l$messenger == null
           ? null
           : Fragment$UserFragment.fromJson(
-              (l$messenger as Map<String, dynamic>)),
+              (l$messenger as Map<String, dynamic>),
+            ),
       recipient: l$recipient == null
           ? null
           : Fragment$UserFragment.fromJson(
-              (l$recipient as Map<String, dynamic>)),
+              (l$recipient as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1703,8 +1716,9 @@ class Query$UserActivities$Page$activities$$MessageActivity
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$message = message;
     _resultData['message'] = l$message;
     final l$replyCount = replyCount;
@@ -1852,24 +1866,26 @@ class Query$UserActivities$Page$activities$$MessageActivity
 extension UtilityExtension$Query$UserActivities$Page$activities$$MessageActivity
     on Query$UserActivities$Page$activities$$MessageActivity {
   CopyWith$Query$UserActivities$Page$activities$$MessageActivity<
-          Query$UserActivities$Page$activities$$MessageActivity>
-      get copyWith =>
-          CopyWith$Query$UserActivities$Page$activities$$MessageActivity(
-            this,
-            (i) => i,
-          );
+    Query$UserActivities$Page$activities$$MessageActivity
+  >
+  get copyWith =>
+      CopyWith$Query$UserActivities$Page$activities$$MessageActivity(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$UserActivities$Page$activities$$MessageActivity<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$UserActivities$Page$activities$$MessageActivity(
     Query$UserActivities$Page$activities$$MessageActivity instance,
     TRes Function(Query$UserActivities$Page$activities$$MessageActivity) then,
   ) = _CopyWithImpl$Query$UserActivities$Page$activities$$MessageActivity;
 
   factory CopyWith$Query$UserActivities$Page$activities$$MessageActivity.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserActivities$Page$activities$$MessageActivity;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserActivities$Page$activities$$MessageActivity;
 
   TRes call({
     int? id,
@@ -1902,7 +1918,7 @@ class _CopyWithImpl$Query$UserActivities$Page$activities$$MessageActivity<TRes>
   final Query$UserActivities$Page$activities$$MessageActivity _instance;
 
   final TRes Function(Query$UserActivities$Page$activities$$MessageActivity)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1921,49 +1937,51 @@ class _CopyWithImpl$Query$UserActivities$Page$activities$$MessageActivity<TRes>
     Object? messenger = _undefined,
     Object? recipient = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserActivities$Page$activities$$MessageActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        message:
-            message == _undefined ? _instance.message : (message as String?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        isPrivate: isPrivate == _undefined
-            ? _instance.isPrivate
-            : (isPrivate as bool?),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        messenger: messenger == _undefined
-            ? _instance.messenger
-            : (messenger as Fragment$UserFragment?),
-        recipient: recipient == _undefined
-            ? _instance.recipient
-            : (recipient as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserActivities$Page$activities$$MessageActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      message: message == _undefined ? _instance.message : (message as String?),
+      replyCount: replyCount == _undefined || replyCount == null
+          ? _instance.replyCount
+          : (replyCount as int),
+      isPrivate: isPrivate == _undefined
+          ? _instance.isPrivate
+          : (isPrivate as bool?),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      isSubscribed: isSubscribed == _undefined
+          ? _instance.isSubscribed
+          : (isSubscribed as bool?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      userId: userId == _undefined ? _instance.userId : (userId as int?),
+      messenger: messenger == _undefined
+          ? _instance.messenger
+          : (messenger as Fragment$UserFragment?),
+      recipient: recipient == _undefined
+          ? _instance.recipient
+          : (recipient as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get messenger {
     final local$messenger = _instance.messenger;
     return local$messenger == null
         ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
         : CopyWith$Fragment$UserFragment(
-            local$messenger, (e) => call(messenger: e));
+            local$messenger,
+            (e) => call(messenger: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get recipient {
@@ -1971,16 +1989,20 @@ class _CopyWithImpl$Query$UserActivities$Page$activities$$MessageActivity<TRes>
     return local$recipient == null
         ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
         : CopyWith$Fragment$UserFragment(
-            local$recipient, (e) => call(recipient: e));
+            local$recipient,
+            (e) => call(recipient: e),
+          );
   }
 }
 
 class _CopyWithStubImpl$Query$UserActivities$Page$activities$$MessageActivity<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$UserActivities$Page$activities$$MessageActivity<TRes> {
   _CopyWithStubImpl$Query$UserActivities$Page$activities$$MessageActivity(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1999,8 +2021,7 @@ class _CopyWithStubImpl$Query$UserActivities$Page$activities$$MessageActivity<
     Fragment$UserFragment? messenger,
     Fragment$UserFragment? recipient,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get messenger =>
       CopyWith$Fragment$UserFragment.stub(_res);

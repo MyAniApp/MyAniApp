@@ -17,17 +17,17 @@ class ForumOverviewTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      forumOverviewQuery,
-      parseData: Query$ForumOverview.fromJson,
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(forumOverviewQuery, parseData: Query$ForumOverview.fromJson),
+    );
 
     return GQLWidget(
       refetch: refetch,
       response: snapshot,
       builder: () {
-        var pinned = snapshot.parsedData!.recent!.threads!
-            .where((e) => e!.isSticky == true);
+        var pinned = snapshot.parsedData!.recent!.threads!.where(
+          (e) => e!.isSticky == true,
+        );
         var recent = snapshot.parsedData!.recent!.threads!
             .where((e) => e!.isSticky != true)
             .take(4);
@@ -37,18 +37,22 @@ class ForumOverviewTab extends HookWidget {
           child: ListView(
             padding: const EdgeInsets.all(0),
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Pinned",
+                  style: context.theme.textTheme.titleLarge?.bold,
+                ),
+              ),
+              GridView(
+                primary: false,
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 400,
+                  mainAxisExtent: 100,
+                ),
+                shrinkWrap: true,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Pinned",
-                      style: context.theme.textTheme.titleLarge?.bold,
-                    ),
-                  ),
-                  ...pinned.map((e) => ThreadCard(thread: e!))
+                  for (var thread in pinned) ThreadCard(thread: thread!),
                 ],
               ),
               Column(
@@ -62,7 +66,7 @@ class ForumOverviewTab extends HookWidget {
                       onTap: () => context.go(Routes.forums(ForumTabs.recent)),
                     ),
                   ),
-                  ...recent.map((e) => ThreadCard(thread: e!))
+                  ...recent.map((e) => ThreadCard(thread: e!)),
                 ],
               ),
               Column(
@@ -73,12 +77,14 @@ class ForumOverviewTab extends HookWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: TextViewAllButton(
                       title: "Release Discussion",
-                      onTap: () => context
-                          .go(Routes.forums(ForumTabs.recent, category: 5)),
+                      onTap: () => context.go(
+                        Routes.forums(ForumTabs.recent, category: 5),
+                      ),
                     ),
                   ),
-                  ...snapshot.parsedData!.release!.threads!
-                      .map((e) => ThreadCard(thread: e!))
+                  ...snapshot.parsedData!.release!.threads!.map(
+                    (e) => ThreadCard(thread: e!),
+                  ),
                 ],
               ),
               Column(
@@ -92,10 +98,11 @@ class ForumOverviewTab extends HookWidget {
                       onTap: () => context.go(Routes.forums(ForumTabs.$new)),
                     ),
                   ),
-                  ...snapshot.parsedData!.$new!.threads!
-                      .map((e) => ThreadCard(thread: e!))
+                  ...snapshot.parsedData!.$new!.threads!.map(
+                    (e) => ThreadCard(thread: e!),
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         );

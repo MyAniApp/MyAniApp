@@ -7,7 +7,6 @@ import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/image_viewer.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
-import 'package:myaniapp/common/invisible_expanded_title.dart';
 import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/common/pagination.dart';
@@ -34,7 +33,7 @@ class StaffScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
       staffQuery,
       variables: Variables$Query$Staff(id: id).toJson(),
       parseData: Query$Staff.fromJson,
@@ -158,7 +157,7 @@ class _StaffViewState extends ConsumerState<StaffView>
           heroTag: null,
           onPressed: widget.staff!.isFavouriteBlocked
               ? null
-              : () => c
+              : () => gqlClient
                   .query(GQLRequest(
                     toggleFavoriteQuery,
                     variables: Variables$Mutation$ToggleFavorite(

@@ -108,10 +108,7 @@ class Fragment$MediaListOptions {
 extension UtilityExtension$Fragment$MediaListOptions
     on Fragment$MediaListOptions {
   CopyWith$Fragment$MediaListOptions<Fragment$MediaListOptions> get copyWith =>
-      CopyWith$Fragment$MediaListOptions(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$MediaListOptions(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MediaListOptions<TRes> {
@@ -132,10 +129,7 @@ abstract class CopyWith$Fragment$MediaListOptions<TRes> {
 
 class _CopyWithImpl$Fragment$MediaListOptions<TRes>
     implements CopyWith$Fragment$MediaListOptions<TRes> {
-  _CopyWithImpl$Fragment$MediaListOptions(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MediaListOptions(this._instance, this._then);
 
   final Fragment$MediaListOptions _instance;
 
@@ -147,18 +141,19 @@ class _CopyWithImpl$Fragment$MediaListOptions<TRes>
     Object? sectionOrder = _undefined,
     Object? customLists = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MediaListOptions(
-        sectionOrder: sectionOrder == _undefined
-            ? _instance.sectionOrder
-            : (sectionOrder as List<String?>?),
-        customLists: customLists == _undefined
-            ? _instance.customLists
-            : (customLists as List<String?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MediaListOptions(
+      sectionOrder: sectionOrder == _undefined
+          ? _instance.sectionOrder
+          : (sectionOrder as List<String?>?),
+      customLists: customLists == _undefined
+          ? _instance.customLists
+          : (customLists as List<String?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$MediaListOptions<TRes>
@@ -171,42 +166,44 @@ class _CopyWithStubImpl$Fragment$MediaListOptions<TRes>
     List<String?>? sectionOrder,
     List<String?>? customLists,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 const fragmentDefinitionMediaListOptions = FragmentDefinitionNode(
   name: NameNode(value: 'MediaListOptions'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'MediaListTypeOptions'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'MediaListTypeOptions'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'sectionOrder'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'customLists'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'sectionOrder'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'customLists'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentMediaListOptions = DocumentNode(definitions: [
-  fragmentDefinitionMediaListOptions,
-]);
+const documentNodeFragmentMediaListOptions = DocumentNode(
+  definitions: [fragmentDefinitionMediaListOptions],
+);

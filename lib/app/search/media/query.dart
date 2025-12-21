@@ -62,7 +62,7 @@ class MediaSearchQuery {
     if (query["withTags"] != null ||
         query["withoutTags"] != null ||
         query["genre"] != null) {
-      collection = (await c
+      collection = (await gqlClient
               .query(GQLRequest(genreCollectionQuery,
                   fetchPolicy: FetchPolicy.cacheFirst,
                   parseData: Query$GenreCollection.fromJson))

@@ -67,7 +67,7 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     var scrollController = useScrollController();
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
       calendarScheduleQuery,
       variables: Variables$Query$CalendarSchedule(
               start: day.millisecondsSinceEpoch ~/ 1000,

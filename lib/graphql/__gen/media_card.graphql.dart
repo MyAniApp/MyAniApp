@@ -3,9 +3,7 @@ import 'package:gql/ast.dart';
 
 class Variables$Query$EmbedMediaCard {
   factory Variables$Query$EmbedMediaCard({int? id}) =>
-      Variables$Query$EmbedMediaCard._({
-        if (id != null) r'id': id,
-      });
+      Variables$Query$EmbedMediaCard._({if (id != null) r'id': id});
 
   Variables$Query$EmbedMediaCard._(this._$data);
 
@@ -32,10 +30,7 @@ class Variables$Query$EmbedMediaCard {
   }
 
   CopyWith$Variables$Query$EmbedMediaCard<Variables$Query$EmbedMediaCard>
-      get copyWith => CopyWith$Variables$Query$EmbedMediaCard(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$EmbedMediaCard(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -78,10 +73,7 @@ abstract class CopyWith$Variables$Query$EmbedMediaCard<TRes> {
 
 class _CopyWithImpl$Variables$Query$EmbedMediaCard<TRes>
     implements CopyWith$Variables$Query$EmbedMediaCard<TRes> {
-  _CopyWithImpl$Variables$Query$EmbedMediaCard(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$EmbedMediaCard(this._instance, this._then);
 
   final Variables$Query$EmbedMediaCard _instance;
 
@@ -89,11 +81,12 @@ class _CopyWithImpl$Variables$Query$EmbedMediaCard<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? id = _undefined}) =>
-      _then(Variables$Query$EmbedMediaCard._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-      }));
+  TRes call({Object? id = _undefined}) => _then(
+    Variables$Query$EmbedMediaCard._({
+      ..._instance._$data,
+      if (id != _undefined) 'id': (id as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$EmbedMediaCard<TRes>
@@ -106,10 +99,7 @@ class _CopyWithStubImpl$Variables$Query$EmbedMediaCard<TRes>
 }
 
 class Query$EmbedMediaCard {
-  Query$EmbedMediaCard({
-    this.Media,
-    this.$__typename = 'Query',
-  });
+  Query$EmbedMediaCard({this.Media, this.$__typename = 'Query'});
 
   factory Query$EmbedMediaCard.fromJson(Map<String, dynamic> json) {
     final l$Media = json['Media'];
@@ -139,10 +129,7 @@ class Query$EmbedMediaCard {
   int get hashCode {
     final l$Media = Media;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Media,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Media, l$$__typename]);
   }
 
   @override
@@ -169,10 +156,7 @@ class Query$EmbedMediaCard {
 
 extension UtilityExtension$Query$EmbedMediaCard on Query$EmbedMediaCard {
   CopyWith$Query$EmbedMediaCard<Query$EmbedMediaCard> get copyWith =>
-      CopyWith$Query$EmbedMediaCard(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$EmbedMediaCard(this, (i) => i);
 }
 
 abstract class CopyWith$Query$EmbedMediaCard<TRes> {
@@ -184,19 +168,13 @@ abstract class CopyWith$Query$EmbedMediaCard<TRes> {
   factory CopyWith$Query$EmbedMediaCard.stub(TRes res) =
       _CopyWithStubImpl$Query$EmbedMediaCard;
 
-  TRes call({
-    Fragment$MediaFragment? Media,
-    String? $__typename,
-  });
+  TRes call({Fragment$MediaFragment? Media, String? $__typename});
   CopyWith$Fragment$MediaFragment<TRes> get Media;
 }
 
 class _CopyWithImpl$Query$EmbedMediaCard<TRes>
     implements CopyWith$Query$EmbedMediaCard<TRes> {
-  _CopyWithImpl$Query$EmbedMediaCard(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$EmbedMediaCard(this._instance, this._then);
 
   final Query$EmbedMediaCard _instance;
 
@@ -204,18 +182,17 @@ class _CopyWithImpl$Query$EmbedMediaCard<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$EmbedMediaCard(
-        Media: Media == _undefined
-            ? _instance.Media
-            : (Media as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$EmbedMediaCard(
+          Media: Media == _undefined
+              ? _instance.Media
+              : (Media as Fragment$MediaFragment?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Fragment$MediaFragment<TRes> get Media {
     final local$Media = _instance.Media;
@@ -231,47 +208,53 @@ class _CopyWithStubImpl$Query$EmbedMediaCard<TRes>
 
   TRes _res;
 
-  call({
-    Fragment$MediaFragment? Media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Fragment$MediaFragment? Media, String? $__typename}) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get Media =>
       CopyWith$Fragment$MediaFragment.stub(_res);
 }
 
-const documentNodeQueryEmbedMediaCard = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'EmbedMediaCard'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryEmbedMediaCard = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'EmbedMediaCard'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Media'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'MediaFragment'),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'Media'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
+              ),
+            ],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'MediaFragment'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -280,16 +263,9 @@ const documentNodeQueryEmbedMediaCard = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionMediaFragment,
+  ],
+);

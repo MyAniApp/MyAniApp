@@ -9,13 +9,12 @@ class Variables$Query$Recommendations {
     int? perPage,
     List<Enum$RecommendationSort?>? sort,
     bool? onList,
-  }) =>
-      Variables$Query$Recommendations._({
-        if (page != null) r'page': page,
-        if (perPage != null) r'perPage': perPage,
-        if (sort != null) r'sort': sort,
-        if (onList != null) r'onList': onList,
-      });
+  }) => Variables$Query$Recommendations._({
+    if (page != null) r'page': page,
+    if (perPage != null) r'perPage': perPage,
+    if (sort != null) r'sort': sort,
+    if (onList != null) r'onList': onList,
+  });
 
   Variables$Query$Recommendations._(this._$data);
 
@@ -32,9 +31,11 @@ class Variables$Query$Recommendations {
     if (data.containsKey('sort')) {
       final l$sort = data['sort'];
       result$data['sort'] = (l$sort as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : fromJson$Enum$RecommendationSort((e as String)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : fromJson$Enum$RecommendationSort((e as String)),
+          )
           .toList();
     }
     if (data.containsKey('onList')) {
@@ -79,10 +80,7 @@ class Variables$Query$Recommendations {
   }
 
   CopyWith$Variables$Query$Recommendations<Variables$Query$Recommendations>
-      get copyWith => CopyWith$Variables$Query$Recommendations(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$Recommendations(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -150,8 +148,8 @@ class Variables$Query$Recommendations {
       _$data.containsKey('perPage') ? l$perPage : const {},
       _$data.containsKey('sort')
           ? l$sort == null
-              ? null
-              : Object.hashAll(l$sort.map((v) => v))
+                ? null
+                : Object.hashAll(l$sort.map((v) => v))
           : const {},
       _$data.containsKey('onList') ? l$onList : const {},
     ]);
@@ -177,10 +175,7 @@ abstract class CopyWith$Variables$Query$Recommendations<TRes> {
 
 class _CopyWithImpl$Variables$Query$Recommendations<TRes>
     implements CopyWith$Variables$Query$Recommendations<TRes> {
-  _CopyWithImpl$Variables$Query$Recommendations(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Recommendations(this._instance, this._then);
 
   final Variables$Query$Recommendations _instance;
 
@@ -193,15 +188,15 @@ class _CopyWithImpl$Variables$Query$Recommendations<TRes>
     Object? perPage = _undefined,
     Object? sort = _undefined,
     Object? onList = _undefined,
-  }) =>
-      _then(Variables$Query$Recommendations._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-        if (perPage != _undefined) 'perPage': (perPage as int?),
-        if (sort != _undefined)
-          'sort': (sort as List<Enum$RecommendationSort?>?),
-        if (onList != _undefined) 'onList': (onList as bool?),
-      }));
+  }) => _then(
+    Variables$Query$Recommendations._({
+      ..._instance._$data,
+      if (page != _undefined) 'page': (page as int?),
+      if (perPage != _undefined) 'perPage': (perPage as int?),
+      if (sort != _undefined) 'sort': (sort as List<Enum$RecommendationSort?>?),
+      if (onList != _undefined) 'onList': (onList as bool?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Recommendations<TRes>
@@ -215,15 +210,11 @@ class _CopyWithStubImpl$Variables$Query$Recommendations<TRes>
     int? perPage,
     List<Enum$RecommendationSort?>? sort,
     bool? onList,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Recommendations {
-  Query$Recommendations({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$Recommendations({this.Page, this.$__typename = 'Query'});
 
   factory Query$Recommendations.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -232,7 +223,8 @@ class Query$Recommendations {
       Page: l$Page == null
           ? null
           : Query$Recommendations$Page.fromJson(
-              (l$Page as Map<String, dynamic>)),
+              (l$Page as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -254,10 +246,7 @@ class Query$Recommendations {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -284,10 +273,7 @@ class Query$Recommendations {
 
 extension UtilityExtension$Query$Recommendations on Query$Recommendations {
   CopyWith$Query$Recommendations<Query$Recommendations> get copyWith =>
-      CopyWith$Query$Recommendations(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Recommendations(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Recommendations<TRes> {
@@ -299,19 +285,13 @@ abstract class CopyWith$Query$Recommendations<TRes> {
   factory CopyWith$Query$Recommendations.stub(TRes res) =
       _CopyWithStubImpl$Query$Recommendations;
 
-  TRes call({
-    Query$Recommendations$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$Recommendations$Page? Page, String? $__typename});
   CopyWith$Query$Recommendations$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$Recommendations<TRes>
     implements CopyWith$Query$Recommendations<TRes> {
-  _CopyWithImpl$Query$Recommendations(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Recommendations(this._instance, this._then);
 
   final Query$Recommendations _instance;
 
@@ -319,18 +299,17 @@ class _CopyWithImpl$Query$Recommendations<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Recommendations(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$Recommendations$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Recommendations(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$Recommendations$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$Recommendations$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -346,179 +325,190 @@ class _CopyWithStubImpl$Query$Recommendations<TRes>
 
   TRes _res;
 
-  call({
-    Query$Recommendations$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$Recommendations$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$Recommendations$Page<TRes> get Page =>
       CopyWith$Query$Recommendations$Page.stub(_res);
 }
 
-const documentNodeQueryRecommendations = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Recommendations'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryRecommendations = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Recommendations'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'perPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'perPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'sort')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'RecommendationSort'),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'sort')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'RecommendationSort'),
+              isNonNull: false,
+            ),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'onList')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'onList')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: VariableNode(name: NameNode(value: 'perPage')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'recommendations'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'onList'),
-                value: VariableNode(name: NameNode(value: 'onList')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: VariableNode(name: NameNode(value: 'sort')),
+                name: NameNode(value: 'perPage'),
+                value: VariableNode(name: NameNode(value: 'perPage')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'rating'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'userRating'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'media'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'MediaFragment'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'recommendations'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'onList'),
+                      value: VariableNode(name: NameNode(value: 'onList')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: VariableNode(name: NameNode(value: 'sort')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'rating'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'userRating'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'media'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'MediaFragment'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'mediaRecommendation'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'MediaFragment'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'mediaRecommendation'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'MediaFragment'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -527,20 +517,13 @@ const documentNodeQueryRecommendations = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Query$Recommendations$Page {
   Query$Recommendations$Page({
@@ -558,10 +541,13 @@ class Query$Recommendations$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       recommendations: (l$recommendations as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Recommendations$Page$recommendations.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Recommendations$Page$recommendations.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -578,8 +564,9 @@ class Query$Recommendations$Page {
     final l$pageInfo = pageInfo;
     _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$recommendations = recommendations;
-    _resultData['recommendations'] =
-        l$recommendations?.map((e) => e?.toJson()).toList();
+    _resultData['recommendations'] = l$recommendations
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -641,10 +628,7 @@ class Query$Recommendations$Page {
 extension UtilityExtension$Query$Recommendations$Page
     on Query$Recommendations$Page {
   CopyWith$Query$Recommendations$Page<Query$Recommendations$Page>
-      get copyWith => CopyWith$Query$Recommendations$Page(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Recommendations$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Recommendations$Page<TRes> {
@@ -663,19 +647,20 @@ abstract class CopyWith$Query$Recommendations$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes recommendations(
-      Iterable<Query$Recommendations$Page$recommendations?>? Function(
-              Iterable<
-                  CopyWith$Query$Recommendations$Page$recommendations<
-                      Query$Recommendations$Page$recommendations>?>?)
-          _fn);
+    Iterable<Query$Recommendations$Page$recommendations?>? Function(
+      Iterable<
+        CopyWith$Query$Recommendations$Page$recommendations<
+          Query$Recommendations$Page$recommendations
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Recommendations$Page<TRes>
     implements CopyWith$Query$Recommendations$Page<TRes> {
-  _CopyWithImpl$Query$Recommendations$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Recommendations$Page(this._instance, this._then);
 
   final Query$Recommendations$Page _instance;
 
@@ -687,19 +672,20 @@ class _CopyWithImpl$Query$Recommendations$Page<TRes>
     Object? pageInfo = _undefined,
     Object? recommendations = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Recommendations$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        recommendations: recommendations == _undefined
-            ? _instance.recommendations
-            : (recommendations
+  }) => _then(
+    Query$Recommendations$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      recommendations: recommendations == _undefined
+          ? _instance.recommendations
+          : (recommendations
                 as List<Query$Recommendations$Page$recommendations?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -709,18 +695,23 @@ class _CopyWithImpl$Query$Recommendations$Page<TRes>
   }
 
   TRes recommendations(
-          Iterable<Query$Recommendations$Page$recommendations?>? Function(
-                  Iterable<
-                      CopyWith$Query$Recommendations$Page$recommendations<
-                          Query$Recommendations$Page$recommendations>?>?)
-              _fn) =>
-      call(
-          recommendations: _fn(_instance.recommendations?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Recommendations$Page$recommendations(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Recommendations$Page$recommendations?>? Function(
+      Iterable<
+        CopyWith$Query$Recommendations$Page$recommendations<
+          Query$Recommendations$Page$recommendations
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    recommendations: _fn(
+      _instance.recommendations?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Recommendations$Page$recommendations(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Recommendations$Page<TRes>
@@ -733,8 +724,7 @@ class _CopyWithStubImpl$Query$Recommendations$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$Recommendations$Page$recommendations?>? recommendations,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -753,7 +743,8 @@ class Query$Recommendations$Page$recommendations {
   });
 
   factory Query$Recommendations$Page$recommendations.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$rating = json['rating'];
     final l$userRating = json['userRating'];
@@ -772,7 +763,8 @@ class Query$Recommendations$Page$recommendations {
       mediaRecommendation: l$mediaRecommendation == null
           ? null
           : Fragment$MediaFragment.fromJson(
-              (l$mediaRecommendation as Map<String, dynamic>)),
+              (l$mediaRecommendation as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -872,11 +864,10 @@ class Query$Recommendations$Page$recommendations {
 extension UtilityExtension$Query$Recommendations$Page$recommendations
     on Query$Recommendations$Page$recommendations {
   CopyWith$Query$Recommendations$Page$recommendations<
-          Query$Recommendations$Page$recommendations>
-      get copyWith => CopyWith$Query$Recommendations$Page$recommendations(
-            this,
-            (i) => i,
-          );
+    Query$Recommendations$Page$recommendations
+  >
+  get copyWith =>
+      CopyWith$Query$Recommendations$Page$recommendations(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Recommendations$Page$recommendations<TRes> {
@@ -920,23 +911,24 @@ class _CopyWithImpl$Query$Recommendations$Page$recommendations<TRes>
     Object? media = _undefined,
     Object? mediaRecommendation = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Recommendations$Page$recommendations(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        rating: rating == _undefined ? _instance.rating : (rating as int?),
-        userRating: userRating == _undefined
-            ? _instance.userRating
-            : (userRating as Enum$RecommendationRating?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        mediaRecommendation: mediaRecommendation == _undefined
-            ? _instance.mediaRecommendation
-            : (mediaRecommendation as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Recommendations$Page$recommendations(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      rating: rating == _undefined ? _instance.rating : (rating as int?),
+      userRating: userRating == _undefined
+          ? _instance.userRating
+          : (userRating as Enum$RecommendationRating?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      mediaRecommendation: mediaRecommendation == _undefined
+          ? _instance.mediaRecommendation
+          : (mediaRecommendation as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get media {
     final local$media = _instance.media;
@@ -950,7 +942,9 @@ class _CopyWithImpl$Query$Recommendations$Page$recommendations<TRes>
     return local$mediaRecommendation == null
         ? CopyWith$Fragment$MediaFragment.stub(_then(_instance))
         : CopyWith$Fragment$MediaFragment(
-            local$mediaRecommendation, (e) => call(mediaRecommendation: e));
+            local$mediaRecommendation,
+            (e) => call(mediaRecommendation: e),
+          );
   }
 }
 
@@ -967,8 +961,7 @@ class _CopyWithStubImpl$Query$Recommendations$Page$recommendations<TRes>
     Fragment$MediaFragment? media,
     Fragment$MediaFragment? mediaRecommendation,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get media =>
       CopyWith$Fragment$MediaFragment.stub(_res);
@@ -982,18 +975,18 @@ class Variables$Mutation$SaveRecommendation {
     int? mediaId,
     int? mediaRecommendationId,
     Enum$RecommendationRating? rating,
-  }) =>
-      Variables$Mutation$SaveRecommendation._({
-        if (mediaId != null) r'mediaId': mediaId,
-        if (mediaRecommendationId != null)
-          r'mediaRecommendationId': mediaRecommendationId,
-        if (rating != null) r'rating': rating,
-      });
+  }) => Variables$Mutation$SaveRecommendation._({
+    if (mediaId != null) r'mediaId': mediaId,
+    if (mediaRecommendationId != null)
+      r'mediaRecommendationId': mediaRecommendationId,
+    if (rating != null) r'rating': rating,
+  });
 
   Variables$Mutation$SaveRecommendation._(this._$data);
 
   factory Variables$Mutation$SaveRecommendation.fromJson(
-      Map<String, dynamic> data) {
+    Map<String, dynamic> data,
+  ) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('mediaId')) {
       final l$mediaId = data['mediaId'];
@@ -1033,18 +1026,18 @@ class Variables$Mutation$SaveRecommendation {
     }
     if (_$data.containsKey('rating')) {
       final l$rating = rating;
-      result$data['rating'] =
-          l$rating == null ? null : toJson$Enum$RecommendationRating(l$rating);
+      result$data['rating'] = l$rating == null
+          ? null
+          : toJson$Enum$RecommendationRating(l$rating);
     }
     return result$data;
   }
 
   CopyWith$Variables$Mutation$SaveRecommendation<
-          Variables$Mutation$SaveRecommendation>
-      get copyWith => CopyWith$Variables$Mutation$SaveRecommendation(
-            this,
-            (i) => i,
-          );
+    Variables$Mutation$SaveRecommendation
+  >
+  get copyWith =>
+      CopyWith$Variables$Mutation$SaveRecommendation(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -1131,15 +1124,16 @@ class _CopyWithImpl$Variables$Mutation$SaveRecommendation<TRes>
     Object? mediaId = _undefined,
     Object? mediaRecommendationId = _undefined,
     Object? rating = _undefined,
-  }) =>
-      _then(Variables$Mutation$SaveRecommendation._({
-        ..._instance._$data,
-        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
-        if (mediaRecommendationId != _undefined)
-          'mediaRecommendationId': (mediaRecommendationId as int?),
-        if (rating != _undefined)
-          'rating': (rating as Enum$RecommendationRating?),
-      }));
+  }) => _then(
+    Variables$Mutation$SaveRecommendation._({
+      ..._instance._$data,
+      if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+      if (mediaRecommendationId != _undefined)
+        'mediaRecommendationId': (mediaRecommendationId as int?),
+      if (rating != _undefined)
+        'rating': (rating as Enum$RecommendationRating?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Mutation$SaveRecommendation<TRes>
@@ -1152,8 +1146,7 @@ class _CopyWithStubImpl$Variables$Mutation$SaveRecommendation<TRes>
     int? mediaId,
     int? mediaRecommendationId,
     Enum$RecommendationRating? rating,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Mutation$SaveRecommendation {
@@ -1169,7 +1162,8 @@ class Mutation$SaveRecommendation {
       SaveRecommendation: l$SaveRecommendation == null
           ? null
           : Mutation$SaveRecommendation$SaveRecommendation.fromJson(
-              (l$SaveRecommendation as Map<String, dynamic>)),
+              (l$SaveRecommendation as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1191,10 +1185,7 @@ class Mutation$SaveRecommendation {
   int get hashCode {
     final l$SaveRecommendation = SaveRecommendation;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$SaveRecommendation,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$SaveRecommendation, l$$__typename]);
   }
 
   @override
@@ -1223,10 +1214,7 @@ class Mutation$SaveRecommendation {
 extension UtilityExtension$Mutation$SaveRecommendation
     on Mutation$SaveRecommendation {
   CopyWith$Mutation$SaveRecommendation<Mutation$SaveRecommendation>
-      get copyWith => CopyWith$Mutation$SaveRecommendation(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Mutation$SaveRecommendation(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$SaveRecommendation<TRes> {
@@ -1243,15 +1231,12 @@ abstract class CopyWith$Mutation$SaveRecommendation<TRes> {
     String? $__typename,
   });
   CopyWith$Mutation$SaveRecommendation$SaveRecommendation<TRes>
-      get SaveRecommendation;
+  get SaveRecommendation;
 }
 
 class _CopyWithImpl$Mutation$SaveRecommendation<TRes>
     implements CopyWith$Mutation$SaveRecommendation<TRes> {
-  _CopyWithImpl$Mutation$SaveRecommendation(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$SaveRecommendation(this._instance, this._then);
 
   final Mutation$SaveRecommendation _instance;
 
@@ -1262,25 +1247,29 @@ class _CopyWithImpl$Mutation$SaveRecommendation<TRes>
   TRes call({
     Object? SaveRecommendation = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$SaveRecommendation(
-        SaveRecommendation: SaveRecommendation == _undefined
-            ? _instance.SaveRecommendation
-            : (SaveRecommendation
+  }) => _then(
+    Mutation$SaveRecommendation(
+      SaveRecommendation: SaveRecommendation == _undefined
+          ? _instance.SaveRecommendation
+          : (SaveRecommendation
                 as Mutation$SaveRecommendation$SaveRecommendation?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Mutation$SaveRecommendation$SaveRecommendation<TRes>
-      get SaveRecommendation {
+  get SaveRecommendation {
     final local$SaveRecommendation = _instance.SaveRecommendation;
     return local$SaveRecommendation == null
         ? CopyWith$Mutation$SaveRecommendation$SaveRecommendation.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Mutation$SaveRecommendation$SaveRecommendation(
-            local$SaveRecommendation, (e) => call(SaveRecommendation: e));
+            local$SaveRecommendation,
+            (e) => call(SaveRecommendation: e),
+          );
   }
 }
 
@@ -1293,126 +1282,140 @@ class _CopyWithStubImpl$Mutation$SaveRecommendation<TRes>
   call({
     Mutation$SaveRecommendation$SaveRecommendation? SaveRecommendation,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Mutation$SaveRecommendation$SaveRecommendation<TRes>
-      get SaveRecommendation =>
-          CopyWith$Mutation$SaveRecommendation$SaveRecommendation.stub(_res);
+  get SaveRecommendation =>
+      CopyWith$Mutation$SaveRecommendation$SaveRecommendation.stub(_res);
 }
 
-const documentNodeMutationSaveRecommendation = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'SaveRecommendation'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mediaId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeMutationSaveRecommendation = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'SaveRecommendation'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'mediaId')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mediaRecommendationId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'rating')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'RecommendationRating'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'SaveRecommendation'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'mediaId'),
-            value: VariableNode(name: NameNode(value: 'mediaId')),
-          ),
-          ArgumentNode(
+        VariableDefinitionNode(
+          variable: VariableNode(
             name: NameNode(value: 'mediaRecommendationId'),
-            value: VariableNode(name: NameNode(value: 'mediaRecommendationId')),
           ),
-          ArgumentNode(
-            name: NameNode(value: 'rating'),
-            value: VariableNode(name: NameNode(value: 'rating')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'rating')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'RecommendationRating'),
+            isNonNull: false,
           ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'id'),
+            name: NameNode(value: 'SaveRecommendation'),
             alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'rating'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'userRating'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'media'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MediaFragment'),
-                directives: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'mediaId'),
+                value: VariableNode(name: NameNode(value: 'mediaId')),
               ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
+              ArgumentNode(
+                name: NameNode(value: 'mediaRecommendationId'),
+                value: VariableNode(
+                  name: NameNode(value: 'mediaRecommendationId'),
+                ),
               ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'mediaRecommendation'),
-            alias: null,
-            arguments: [],
+              ArgumentNode(
+                name: NameNode(value: 'rating'),
+                value: VariableNode(name: NameNode(value: 'rating')),
+              ),
+            ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MediaFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'id'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'rating'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'userRating'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'mediaRecommendation'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1421,19 +1424,12 @@ const documentNodeMutationSaveRecommendation = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Mutation$SaveRecommendation$SaveRecommendation {
   Mutation$SaveRecommendation$SaveRecommendation({
@@ -1446,7 +1442,8 @@ class Mutation$SaveRecommendation$SaveRecommendation {
   });
 
   factory Mutation$SaveRecommendation$SaveRecommendation.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$rating = json['rating'];
     final l$userRating = json['userRating'];
@@ -1465,7 +1462,8 @@ class Mutation$SaveRecommendation$SaveRecommendation {
       mediaRecommendation: l$mediaRecommendation == null
           ? null
           : Fragment$MediaFragment.fromJson(
-              (l$mediaRecommendation as Map<String, dynamic>)),
+              (l$mediaRecommendation as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1565,11 +1563,10 @@ class Mutation$SaveRecommendation$SaveRecommendation {
 extension UtilityExtension$Mutation$SaveRecommendation$SaveRecommendation
     on Mutation$SaveRecommendation$SaveRecommendation {
   CopyWith$Mutation$SaveRecommendation$SaveRecommendation<
-          Mutation$SaveRecommendation$SaveRecommendation>
-      get copyWith => CopyWith$Mutation$SaveRecommendation$SaveRecommendation(
-            this,
-            (i) => i,
-          );
+    Mutation$SaveRecommendation$SaveRecommendation
+  >
+  get copyWith =>
+      CopyWith$Mutation$SaveRecommendation$SaveRecommendation(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$SaveRecommendation$SaveRecommendation<TRes> {
@@ -1579,8 +1576,8 @@ abstract class CopyWith$Mutation$SaveRecommendation$SaveRecommendation<TRes> {
   ) = _CopyWithImpl$Mutation$SaveRecommendation$SaveRecommendation;
 
   factory CopyWith$Mutation$SaveRecommendation$SaveRecommendation.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$SaveRecommendation$SaveRecommendation;
+    TRes res,
+  ) = _CopyWithStubImpl$Mutation$SaveRecommendation$SaveRecommendation;
 
   TRes call({
     int? id,
@@ -1614,23 +1611,24 @@ class _CopyWithImpl$Mutation$SaveRecommendation$SaveRecommendation<TRes>
     Object? media = _undefined,
     Object? mediaRecommendation = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$SaveRecommendation$SaveRecommendation(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        rating: rating == _undefined ? _instance.rating : (rating as int?),
-        userRating: userRating == _undefined
-            ? _instance.userRating
-            : (userRating as Enum$RecommendationRating?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        mediaRecommendation: mediaRecommendation == _undefined
-            ? _instance.mediaRecommendation
-            : (mediaRecommendation as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$SaveRecommendation$SaveRecommendation(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      rating: rating == _undefined ? _instance.rating : (rating as int?),
+      userRating: userRating == _undefined
+          ? _instance.userRating
+          : (userRating as Enum$RecommendationRating?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      mediaRecommendation: mediaRecommendation == _undefined
+          ? _instance.mediaRecommendation
+          : (mediaRecommendation as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get media {
     final local$media = _instance.media;
@@ -1644,7 +1642,9 @@ class _CopyWithImpl$Mutation$SaveRecommendation$SaveRecommendation<TRes>
     return local$mediaRecommendation == null
         ? CopyWith$Fragment$MediaFragment.stub(_then(_instance))
         : CopyWith$Fragment$MediaFragment(
-            local$mediaRecommendation, (e) => call(mediaRecommendation: e));
+            local$mediaRecommendation,
+            (e) => call(mediaRecommendation: e),
+          );
   }
 }
 
@@ -1661,8 +1661,7 @@ class _CopyWithStubImpl$Mutation$SaveRecommendation$SaveRecommendation<TRes>
     Fragment$MediaFragment? media,
     Fragment$MediaFragment? mediaRecommendation,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get media =>
       CopyWith$Fragment$MediaFragment.stub(_res);

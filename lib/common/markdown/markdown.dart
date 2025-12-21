@@ -71,16 +71,16 @@ var markdownConfig = md.MarkdownConfig(
         var uri = Uri.tryParse(value);
         if (uri?.host == 'anilist.co') {
           try {
-            var context = goRouter.configuration.navigatorKey!.currentContext!;
+            var context = goRouter.configuration.navigatorKey.currentContext!;
             if (['anime', 'manga'].contains(uri!.pathSegments.first)) {
               context.push(Routes.media(int.parse(uri.pathSegments[1])));
               return;
             } else if (['character', 'staff']
                 .contains(uri.pathSegments.first)) {
               if (uri.pathSegments[1] == "staff") {
-                context.push(Routes.staff(int.parse(uri.pathSegments[1]!)));
+                context.push(Routes.staff(int.parse(uri.pathSegments[1])));
               } else {
-                context.push(Routes.character(int.parse(uri.pathSegments[1]!)));
+                context.push(Routes.character(int.parse(uri.pathSegments[1])));
               }
               return;
             } else if (uri.pathSegments.first == 'forum' &&

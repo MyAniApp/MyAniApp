@@ -10,13 +10,12 @@ class Variables$Query$Studio {
     int? page,
     List<Enum$MediaSort?>? sort,
     bool? onList,
-  }) =>
-      Variables$Query$Studio._({
-        r'id': id,
-        if (page != null) r'page': page,
-        if (sort != null) r'sort': sort,
-        if (onList != null) r'onList': onList,
-      });
+  }) => Variables$Query$Studio._({
+    r'id': id,
+    if (page != null) r'page': page,
+    if (sort != null) r'sort': sort,
+    if (onList != null) r'onList': onList,
+  });
 
   Variables$Query$Studio._(this._$data);
 
@@ -32,7 +31,8 @@ class Variables$Query$Studio {
       final l$sort = data['sort'];
       result$data['sort'] = (l$sort as List<dynamic>?)
           ?.map(
-              (e) => e == null ? null : fromJson$Enum$MediaSort((e as String)))
+            (e) => e == null ? null : fromJson$Enum$MediaSort((e as String)),
+          )
           .toList();
     }
     if (data.containsKey('onList')) {
@@ -74,10 +74,7 @@ class Variables$Query$Studio {
   }
 
   CopyWith$Variables$Query$Studio<Variables$Query$Studio> get copyWith =>
-      CopyWith$Variables$Query$Studio(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$Studio(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -141,8 +138,8 @@ class Variables$Query$Studio {
       _$data.containsKey('page') ? l$page : const {},
       _$data.containsKey('sort')
           ? l$sort == null
-              ? null
-              : Object.hashAll(l$sort.map((v) => v))
+                ? null
+                : Object.hashAll(l$sort.map((v) => v))
           : const {},
       _$data.containsKey('onList') ? l$onList : const {},
     ]);
@@ -158,20 +155,12 @@ abstract class CopyWith$Variables$Query$Studio<TRes> {
   factory CopyWith$Variables$Query$Studio.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$Studio;
 
-  TRes call({
-    int? id,
-    int? page,
-    List<Enum$MediaSort?>? sort,
-    bool? onList,
-  });
+  TRes call({int? id, int? page, List<Enum$MediaSort?>? sort, bool? onList});
 }
 
 class _CopyWithImpl$Variables$Query$Studio<TRes>
     implements CopyWith$Variables$Query$Studio<TRes> {
-  _CopyWithImpl$Variables$Query$Studio(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Studio(this._instance, this._then);
 
   final Variables$Query$Studio _instance;
 
@@ -184,14 +173,15 @@ class _CopyWithImpl$Variables$Query$Studio<TRes>
     Object? page = _undefined,
     Object? sort = _undefined,
     Object? onList = _undefined,
-  }) =>
-      _then(Variables$Query$Studio._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as int),
-        if (page != _undefined) 'page': (page as int?),
-        if (sort != _undefined) 'sort': (sort as List<Enum$MediaSort?>?),
-        if (onList != _undefined) 'onList': (onList as bool?),
-      }));
+  }) => _then(
+    Variables$Query$Studio._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as int),
+      if (page != _undefined) 'page': (page as int?),
+      if (sort != _undefined) 'sort': (sort as List<Enum$MediaSort?>?),
+      if (onList != _undefined) 'onList': (onList as bool?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Studio<TRes>
@@ -200,20 +190,11 @@ class _CopyWithStubImpl$Variables$Query$Studio<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    int? page,
-    List<Enum$MediaSort?>? sort,
-    bool? onList,
-  }) =>
-      _res;
+  call({int? id, int? page, List<Enum$MediaSort?>? sort, bool? onList}) => _res;
 }
 
 class Query$Studio {
-  Query$Studio({
-    this.Studio,
-    this.$__typename = 'Query',
-  });
+  Query$Studio({this.Studio, this.$__typename = 'Query'});
 
   factory Query$Studio.fromJson(Map<String, dynamic> json) {
     final l$Studio = json['Studio'];
@@ -243,10 +224,7 @@ class Query$Studio {
   int get hashCode {
     final l$Studio = Studio;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Studio,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Studio, l$$__typename]);
   }
 
   @override
@@ -272,10 +250,8 @@ class Query$Studio {
 }
 
 extension UtilityExtension$Query$Studio on Query$Studio {
-  CopyWith$Query$Studio<Query$Studio> get copyWith => CopyWith$Query$Studio(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Studio<Query$Studio> get copyWith =>
+      CopyWith$Query$Studio(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Studio<TRes> {
@@ -286,18 +262,12 @@ abstract class CopyWith$Query$Studio<TRes> {
 
   factory CopyWith$Query$Studio.stub(TRes res) = _CopyWithStubImpl$Query$Studio;
 
-  TRes call({
-    Query$Studio$Studio? Studio,
-    String? $__typename,
-  });
+  TRes call({Query$Studio$Studio? Studio, String? $__typename});
   CopyWith$Query$Studio$Studio<TRes> get Studio;
 }
 
 class _CopyWithImpl$Query$Studio<TRes> implements CopyWith$Query$Studio<TRes> {
-  _CopyWithImpl$Query$Studio(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Studio(this._instance, this._then);
 
   final Query$Studio _instance;
 
@@ -305,18 +275,17 @@ class _CopyWithImpl$Query$Studio<TRes> implements CopyWith$Query$Studio<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Studio = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Studio(
-        Studio: Studio == _undefined
-            ? _instance.Studio
-            : (Studio as Query$Studio$Studio?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Studio = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Studio(
+          Studio: Studio == _undefined
+              ? _instance.Studio
+              : (Studio as Query$Studio$Studio?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$Studio$Studio<TRes> get Studio {
     final local$Studio = _instance.Studio;
@@ -332,143 +301,152 @@ class _CopyWithStubImpl$Query$Studio<TRes>
 
   TRes _res;
 
-  call({
-    Query$Studio$Studio? Studio,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$Studio$Studio? Studio, String? $__typename}) => _res;
 
   CopyWith$Query$Studio$Studio<TRes> get Studio =>
       CopyWith$Query$Studio$Studio.stub(_res);
 }
 
-const documentNodeQueryStudio = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Studio'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: true,
+const documentNodeQueryStudio = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Studio'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'sort')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'MediaSort'),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'sort')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'MediaSort'),
+              isNonNull: false,
+            ),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'onList')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Studio'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'StudioFragment'),
-            directives: [],
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'onList')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'media'),
+            name: NameNode(value: 'Studio'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'page'),
-                value: VariableNode(name: NameNode(value: 'page')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: VariableNode(name: NameNode(value: 'sort')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'onList'),
-                value: VariableNode(name: NameNode(value: 'onList')),
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'pageInfo'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'PageInfo'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'StudioFragment'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'page'),
+                      value: VariableNode(name: NameNode(value: 'page')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: VariableNode(name: NameNode(value: 'sort')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'onList'),
+                      value: VariableNode(name: NameNode(value: 'onList')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'pageInfo'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'PageInfo'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'nodes'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'MediaFragment'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'nodes'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'MediaFragment'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -477,21 +455,14 @@ const documentNodeQueryStudio = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionStudioFragment,
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionStudioFragment,
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Query$Studio$Studio implements Fragment$StudioFragment {
   Query$Studio$Studio({
@@ -513,7 +484,8 @@ class Query$Studio$Studio implements Fragment$StudioFragment {
       media: l$media == null
           ? null
           : Query$Studio$Studio$media.fromJson(
-              (l$media as Map<String, dynamic>)),
+              (l$media as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -544,12 +516,7 @@ class Query$Studio$Studio implements Fragment$StudioFragment {
     final l$name = name;
     final l$$__typename = $__typename;
     final l$media = media;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$$__typename,
-      l$media,
-    ]);
+    return Object.hashAll([l$id, l$name, l$$__typename, l$media]);
   }
 
   @override
@@ -586,10 +553,7 @@ class Query$Studio$Studio implements Fragment$StudioFragment {
 
 extension UtilityExtension$Query$Studio$Studio on Query$Studio$Studio {
   CopyWith$Query$Studio$Studio<Query$Studio$Studio> get copyWith =>
-      CopyWith$Query$Studio$Studio(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Studio$Studio(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Studio$Studio<TRes> {
@@ -612,10 +576,7 @@ abstract class CopyWith$Query$Studio$Studio<TRes> {
 
 class _CopyWithImpl$Query$Studio$Studio<TRes>
     implements CopyWith$Query$Studio$Studio<TRes> {
-  _CopyWithImpl$Query$Studio$Studio(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Studio$Studio(this._instance, this._then);
 
   final Query$Studio$Studio _instance;
 
@@ -628,26 +589,29 @@ class _CopyWithImpl$Query$Studio$Studio<TRes>
     Object? name = _undefined,
     Object? $__typename = _undefined,
     Object? media = _undefined,
-  }) =>
-      _then(Query$Studio$Studio(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Query$Studio$Studio$media?),
-      ));
+  }) => _then(
+    Query$Studio$Studio(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Query$Studio$Studio$media?),
+    ),
+  );
 
   CopyWith$Query$Studio$Studio$media<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
         ? CopyWith$Query$Studio$Studio$media.stub(_then(_instance))
         : CopyWith$Query$Studio$Studio$media(
-            local$media, (e) => call(media: e));
+            local$media,
+            (e) => call(media: e),
+          );
   }
 }
 
@@ -662,8 +626,7 @@ class _CopyWithStubImpl$Query$Studio$Studio<TRes>
     String? name,
     String? $__typename,
     Query$Studio$Studio$media? media,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Studio$Studio$media<TRes> get media =>
       CopyWith$Query$Studio$Studio$media.stub(_res);
@@ -685,9 +648,11 @@ class Query$Studio$Studio$media {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -764,10 +729,7 @@ class Query$Studio$Studio$media {
 extension UtilityExtension$Query$Studio$Studio$media
     on Query$Studio$Studio$media {
   CopyWith$Query$Studio$Studio$media<Query$Studio$Studio$media> get copyWith =>
-      CopyWith$Query$Studio$Studio$media(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Studio$Studio$media(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Studio$Studio$media<TRes> {
@@ -786,18 +748,16 @@ abstract class CopyWith$Query$Studio$Studio$media<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes nodes(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Studio$Studio$media<TRes>
     implements CopyWith$Query$Studio$Studio$media<TRes> {
-  _CopyWithImpl$Query$Studio$Studio$media(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Studio$Studio$media(this._instance, this._then);
 
   final Query$Studio$Studio$media _instance;
 
@@ -809,18 +769,19 @@ class _CopyWithImpl$Query$Studio$Studio$media<TRes>
     Object? pageInfo = _undefined,
     Object? nodes = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Studio$Studio$media(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes as List<Fragment$MediaFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Studio$Studio$media(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      nodes: nodes == _undefined
+          ? _instance.nodes
+          : (nodes as List<Fragment$MediaFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -830,18 +791,17 @@ class _CopyWithImpl$Query$Studio$Studio$media<TRes>
   }
 
   TRes nodes(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    nodes: _fn(
+      _instance.nodes?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Studio$Studio$media<TRes>
@@ -854,8 +814,7 @@ class _CopyWithStubImpl$Query$Studio$Studio$media<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$MediaFragment?>? nodes,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);

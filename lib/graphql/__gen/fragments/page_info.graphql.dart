@@ -40,11 +40,7 @@ class Fragment$PageInfo {
     final l$currentPage = currentPage;
     final l$hasNextPage = hasNextPage;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$currentPage,
-      l$hasNextPage,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$currentPage, l$hasNextPage, l$$__typename]);
   }
 
   @override
@@ -76,10 +72,7 @@ class Fragment$PageInfo {
 
 extension UtilityExtension$Fragment$PageInfo on Fragment$PageInfo {
   CopyWith$Fragment$PageInfo<Fragment$PageInfo> get copyWith =>
-      CopyWith$Fragment$PageInfo(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$PageInfo(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$PageInfo<TRes> {
@@ -91,19 +84,12 @@ abstract class CopyWith$Fragment$PageInfo<TRes> {
   factory CopyWith$Fragment$PageInfo.stub(TRes res) =
       _CopyWithStubImpl$Fragment$PageInfo;
 
-  TRes call({
-    int? currentPage,
-    bool? hasNextPage,
-    String? $__typename,
-  });
+  TRes call({int? currentPage, bool? hasNextPage, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$PageInfo<TRes>
     implements CopyWith$Fragment$PageInfo<TRes> {
-  _CopyWithImpl$Fragment$PageInfo(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$PageInfo(this._instance, this._then);
 
   final Fragment$PageInfo _instance;
 
@@ -115,18 +101,19 @@ class _CopyWithImpl$Fragment$PageInfo<TRes>
     Object? currentPage = _undefined,
     Object? hasNextPage = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$PageInfo(
-        currentPage: currentPage == _undefined
-            ? _instance.currentPage
-            : (currentPage as int?),
-        hasNextPage: hasNextPage == _undefined
-            ? _instance.hasNextPage
-            : (hasNextPage as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$PageInfo(
+      currentPage: currentPage == _undefined
+          ? _instance.currentPage
+          : (currentPage as int?),
+      hasNextPage: hasNextPage == _undefined
+          ? _instance.hasNextPage
+          : (hasNextPage as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$PageInfo<TRes>
@@ -135,46 +122,41 @@ class _CopyWithStubImpl$Fragment$PageInfo<TRes>
 
   TRes _res;
 
-  call({
-    int? currentPage,
-    bool? hasNextPage,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? currentPage, bool? hasNextPage, String? $__typename}) => _res;
 }
 
 const fragmentDefinitionPageInfo = FragmentDefinitionNode(
   name: NameNode(value: 'PageInfo'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'PageInfo'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'PageInfo'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'currentPage'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'hasNextPage'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'currentPage'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'hasNextPage'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentPageInfo = DocumentNode(definitions: [
-  fragmentDefinitionPageInfo,
-]);
+const documentNodeFragmentPageInfo = DocumentNode(
+  definitions: [fragmentDefinitionPageInfo],
+);

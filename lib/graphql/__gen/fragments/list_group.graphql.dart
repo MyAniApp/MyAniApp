@@ -29,9 +29,11 @@ class Fragment$ListGroup {
           ? null
           : fromJson$Enum$MediaListStatus((l$status as String)),
       entries: (l$entries as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaListEntry.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaListEntry.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -58,8 +60,9 @@ class Fragment$ListGroup {
     final l$isSplitCompletedList = isSplitCompletedList;
     _resultData['isSplitCompletedList'] = l$isSplitCompletedList;
     final l$status = status;
-    _resultData['status'] =
-        l$status == null ? null : toJson$Enum$MediaListStatus(l$status);
+    _resultData['status'] = l$status == null
+        ? null
+        : toJson$Enum$MediaListStatus(l$status);
     final l$entries = entries;
     _resultData['entries'] = l$entries?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
@@ -140,10 +143,7 @@ class Fragment$ListGroup {
 
 extension UtilityExtension$Fragment$ListGroup on Fragment$ListGroup {
   CopyWith$Fragment$ListGroup<Fragment$ListGroup> get copyWith =>
-      CopyWith$Fragment$ListGroup(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$ListGroup(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ListGroup<TRes> {
@@ -164,18 +164,16 @@ abstract class CopyWith$Fragment$ListGroup<TRes> {
     String? $__typename,
   });
   TRes entries(
-      Iterable<Fragment$MediaListEntry?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaListEntry<Fragment$MediaListEntry>?>?)
-          _fn);
+    Iterable<Fragment$MediaListEntry?>? Function(
+      Iterable<CopyWith$Fragment$MediaListEntry<Fragment$MediaListEntry>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Fragment$ListGroup<TRes>
     implements CopyWith$Fragment$ListGroup<TRes> {
-  _CopyWithImpl$Fragment$ListGroup(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ListGroup(this._instance, this._then);
 
   final Fragment$ListGroup _instance;
 
@@ -190,39 +188,39 @@ class _CopyWithImpl$Fragment$ListGroup<TRes>
     Object? status = _undefined,
     Object? entries = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ListGroup(
-        name: name == _undefined ? _instance.name : (name as String?),
-        isCustomList: isCustomList == _undefined
-            ? _instance.isCustomList
-            : (isCustomList as bool?),
-        isSplitCompletedList: isSplitCompletedList == _undefined
-            ? _instance.isSplitCompletedList
-            : (isSplitCompletedList as bool?),
-        status: status == _undefined
-            ? _instance.status
-            : (status as Enum$MediaListStatus?),
-        entries: entries == _undefined
-            ? _instance.entries
-            : (entries as List<Fragment$MediaListEntry?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ListGroup(
+      name: name == _undefined ? _instance.name : (name as String?),
+      isCustomList: isCustomList == _undefined
+          ? _instance.isCustomList
+          : (isCustomList as bool?),
+      isSplitCompletedList: isSplitCompletedList == _undefined
+          ? _instance.isSplitCompletedList
+          : (isSplitCompletedList as bool?),
+      status: status == _undefined
+          ? _instance.status
+          : (status as Enum$MediaListStatus?),
+      entries: entries == _undefined
+          ? _instance.entries
+          : (entries as List<Fragment$MediaListEntry?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes entries(
-          Iterable<Fragment$MediaListEntry?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaListEntry<
-                          Fragment$MediaListEntry>?>?)
-              _fn) =>
-      call(
-          entries: _fn(_instance.entries?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaListEntry(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaListEntry?>? Function(
+      Iterable<CopyWith$Fragment$MediaListEntry<Fragment$MediaListEntry>?>?,
+    )
+    _fn,
+  ) => call(
+    entries: _fn(
+      _instance.entries?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaListEntry(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ListGroup<TRes>
@@ -238,8 +236,7 @@ class _CopyWithStubImpl$Fragment$ListGroup<TRes>
     Enum$MediaListStatus? status,
     List<Fragment$MediaListEntry?>? entries,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   entries(_fn) => _res;
 }
@@ -247,71 +244,78 @@ class _CopyWithStubImpl$Fragment$ListGroup<TRes>
 const fragmentDefinitionListGroup = FragmentDefinitionNode(
   name: NameNode(value: 'ListGroup'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'MediaListGroup'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'MediaListGroup'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isCustomList'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isSplitCompletedList'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'status'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'entries'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'MediaListEntry'),
-          directives: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isCustomList'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isSplitCompletedList'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'status'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'entries'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'MediaListEntry'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentListGroup = DocumentNode(definitions: [
-  fragmentDefinitionListGroup,
-  fragmentDefinitionMediaListEntry,
-  fragmentDefinitionFuzzyDate,
-  fragmentDefinitionMediaFragment,
-]);
+const documentNodeFragmentListGroup = DocumentNode(
+  definitions: [
+    fragmentDefinitionListGroup,
+    fragmentDefinitionMediaListEntry,
+    fragmentDefinitionFuzzyDate,
+    fragmentDefinitionMediaFragment,
+  ],
+);

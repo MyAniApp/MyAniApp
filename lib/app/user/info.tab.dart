@@ -27,7 +27,8 @@ class UserInfoTab extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
             decoration: BoxDecoration(
               border: Border.all(
-                  color: context.theme.colorScheme.surfaceContainerHighest),
+                color: context.theme.colorScheme.surfaceContainerHighest,
+              ),
               borderRadius: imageRadius,
             ),
             child: MarkdownWidget(
@@ -67,7 +68,8 @@ class UserInfoTab extends StatelessWidget {
                   title: "Favorite Anime",
                   style: context.theme.textTheme.titleMedium,
                   onTap: () => context.push(
-                      Routes.userFavorites(user.name, FavoriteTabs.anime)),
+                    Routes.userFavorites(user.name, FavoriteTabs.anime),
+                  ),
                 ),
               ),
               SizedBox(
@@ -83,8 +85,10 @@ class UserInfoTab extends StatelessWidget {
                           blur: media!.isAdult ?? false,
                           image: media.coverImage!.extraLarge!,
                           title: media.title!.userPreferred!,
-                          onTap: () => context.push(Routes.media(media.id),
-                              extra: {"placeholder": media}),
+                          onTap: () => context.push(
+                            Routes.media(media.id),
+                            extra: {"placeholder": media},
+                          ),
                           onLongPress: () => MediaSheet.show(context, media),
                           aspectRatio: GridCard.listRatio,
                         ),
@@ -103,7 +107,8 @@ class UserInfoTab extends StatelessWidget {
                   title: "Favorite Manga",
                   style: context.theme.textTheme.titleMedium,
                   onTap: () => context.push(
-                      Routes.userFavorites(user.name, FavoriteTabs.manga)),
+                    Routes.userFavorites(user.name, FavoriteTabs.manga),
+                  ),
                 ),
               ),
               SizedBox(
@@ -119,8 +124,10 @@ class UserInfoTab extends StatelessWidget {
                           blur: media!.isAdult ?? false,
                           image: media.coverImage!.extraLarge!,
                           title: media.title!.userPreferred!,
-                          onTap: () => context.push(Routes.media(media.id),
-                              extra: {"placeholder": media}),
+                          onTap: () => context.push(
+                            Routes.media(media.id),
+                            extra: {"placeholder": media},
+                          ),
                           onLongPress: () => MediaSheet.show(context, media),
                           aspectRatio: GridCard.listRatio,
                         ),
@@ -139,7 +146,8 @@ class UserInfoTab extends StatelessWidget {
                   title: "Favorite Characters",
                   style: context.theme.textTheme.titleMedium,
                   onTap: () => context.push(
-                      Routes.userFavorites(user.name, FavoriteTabs.characters)),
+                    Routes.userFavorites(user.name, FavoriteTabs.characters),
+                  ),
                 ),
               ),
               SizedBox(
@@ -155,8 +163,9 @@ class UserInfoTab extends StatelessWidget {
                           image: character!.image!.large!,
                           title: character.name!.userPreferred!,
                           onTap: () => context.push(
-                              Routes.character(character.id),
-                              extra: {"placeholder": character}),
+                            Routes.character(character.id),
+                            extra: {"placeholder": character},
+                          ),
                           aspectRatio: GridCard.listRatio,
                         ),
                       ),
@@ -171,8 +180,9 @@ class UserInfoTab extends StatelessWidget {
                       child: TextViewAllButton(
                         title: "Favorite Staff",
                         style: context.theme.textTheme.titleMedium,
-                        onTap: () => context.push(Routes.userFavorites(
-                            user.name, FavoriteTabs.staff)),
+                        onTap: () => context.push(
+                          Routes.userFavorites(user.name, FavoriteTabs.staff),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -183,14 +193,16 @@ class UserInfoTab extends StatelessWidget {
                         children: [
                           for (var staff in user.favourites!.staff!.nodes!)
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 4,
+                              ),
                               child: GridCard(
                                 image: staff!.image!.large!,
                                 title: staff.name!.userPreferred!,
                                 onTap: () => context.push(
-                                    Routes.staff(staff.id),
-                                    extra: {"placeholder": staff}),
+                                  Routes.staff(staff.id),
+                                  extra: {"placeholder": staff},
+                                ),
                                 aspectRatio: GridCard.listRatio,
                               ),
                             ),
@@ -207,8 +219,9 @@ class UserInfoTab extends StatelessWidget {
                       child: TextViewAllButton(
                         title: "Favorite Studios",
                         style: context.theme.textTheme.titleMedium,
-                        onTap: () => context.push(Routes.userFavorites(
-                            user.name, FavoriteTabs.studios)),
+                        onTap: () => context.push(
+                          Routes.userFavorites(user.name, FavoriteTabs.studios),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -219,14 +232,15 @@ class UserInfoTab extends StatelessWidget {
                         children: [
                           for (var studio in user.favourites!.studios!.nodes!)
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 4,
+                              ),
                               child: ActionChip(
                                 label: Text(studio!.name),
                                 onPressed: () =>
                                     context.push(Routes.studio(studio.id)),
                               ),
-                            )
+                            ),
                         ],
                       ),
                     ),
@@ -256,29 +270,19 @@ class _StatsBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+    return Card(
       child: InkWell(
         borderRadius: imageRadius,
         onTap: onTap,
-        child: Container(
-          width: double.maxFinite,
-          decoration: BoxDecoration(
-            border: Border.all(
-                color: context.theme.colorScheme.surfaceContainerHighest),
-            borderRadius: imageRadius,
-          ),
-          // margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-          padding: const EdgeInsets.all(8),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               Text(
                 '${type == Enum$MediaType.ANIME ? "Anime Stats" : "Manga Stats"} (click to view list)',
                 style: context.theme.textTheme.labelSmall,
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               Wrap(
                 runSpacing: 10,
                 spacing: 40,
@@ -295,12 +299,9 @@ class _StatsBox extends StatelessWidget {
                         ? "Days watched"
                         : "Chapters read",
                   ),
-                  _stat(
-                    right,
-                    "Mean Score",
-                  )
+                  _stat(right, "Mean Score"),
                 ],
-              )
+              ),
             ],
           ),
         ),
@@ -309,12 +310,7 @@ class _StatsBox extends StatelessWidget {
   }
 
   Widget _stat(String top, String bottom) {
-    return Column(
-      children: [
-        Text(top),
-        Text(bottom),
-      ],
-    );
+    return Column(children: [Text(top), Text(bottom)]);
   }
 }
 
@@ -334,11 +330,13 @@ class _GenreOverview extends StatelessWidget {
       if (genres.isNotEmpty) {
         for (var genre in mangaStats!.genres!) {
           if (genres.any((element) => element.genre == genre!.genre)) {
-            var idx =
-                genres.indexWhere((element) => element.genre == genre!.genre);
+            var idx = genres.indexWhere(
+              (element) => element.genre == genre!.genre,
+            );
 
-            genres[idx] =
-                genres[idx].copyWith(count: genres[idx].count + genre!.count);
+            genres[idx] = genres[idx].copyWith(
+              count: genres[idx].count + genre!.count,
+            );
           } else {
             genres.add(genre!);
           }
@@ -348,9 +346,7 @@ class _GenreOverview extends StatelessWidget {
       }
     }
 
-    genres.sort(
-      (a, b) => b.count.compareTo(a.count),
-    );
+    genres.sort((a, b) => b.count.compareTo(a.count));
 
     return genres.take(5).toList();
   }
@@ -363,42 +359,41 @@ class _GenreOverview extends StatelessWidget {
 
     if (genres.isEmpty) return const SizedBox();
 
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-            color: context.theme.colorScheme.surfaceContainerHighest),
-        borderRadius: imageRadius,
-      ),
-      margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-      padding: const EdgeInsets.all(8),
+    return Card(
+      // decoration: BoxDecoration(
+      //   border: Border.all(
+      //     color: context.theme.colorScheme.surfaceContainerHighest,
+      //   ),
+      //   borderRadius: imageRadius,
+      // ),
+      // margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+      // padding: const EdgeInsets.all(8),
       // height: 100,
-      child: Column(
-        children: [
-          Text(
-            "Top Genres",
-            style: context.theme.textTheme.titleMedium,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Wrap(
-            // alignment: WrapAlignment.spaceBetween,
-            runSpacing: 5,
-            spacing: 10,
-            children: [
-              for (var genre in genres)
-                Chip(
-                  label: Column(
-                    children: [
-                      Text(genre.genre!),
-                      Text(genre.count.toString()),
-                    ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text("Top Genres", style: context.theme.textTheme.titleMedium),
+            const SizedBox(height: 10),
+            Wrap(
+              // alignment: WrapAlignment.spaceBetween,
+              runSpacing: 5,
+              spacing: 10,
+              children: [
+                for (var genre in genres)
+                  Chip(
+                    label: Column(
+                      children: [
+                        Text(genre.genre!),
+                        Text(genre.count.toString()),
+                      ],
+                    ),
+                    // selected: true,
                   ),
-                  // selected: true,
-                ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

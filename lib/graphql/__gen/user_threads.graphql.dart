@@ -9,12 +9,11 @@ class Variables$Query$UserThreads {
     int? userId,
     int? threadPage,
     int? commentsPage,
-  }) =>
-      Variables$Query$UserThreads._({
-        if (userId != null) r'userId': userId,
-        if (threadPage != null) r'threadPage': threadPage,
-        if (commentsPage != null) r'commentsPage': commentsPage,
-      });
+  }) => Variables$Query$UserThreads._({
+    if (userId != null) r'userId': userId,
+    if (threadPage != null) r'threadPage': threadPage,
+    if (commentsPage != null) r'commentsPage': commentsPage,
+  });
 
   Variables$Query$UserThreads._(this._$data);
 
@@ -61,10 +60,7 @@ class Variables$Query$UserThreads {
   }
 
   CopyWith$Variables$Query$UserThreads<Variables$Query$UserThreads>
-      get copyWith => CopyWith$Variables$Query$UserThreads(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$UserThreads(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -126,19 +122,12 @@ abstract class CopyWith$Variables$Query$UserThreads<TRes> {
   factory CopyWith$Variables$Query$UserThreads.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$UserThreads;
 
-  TRes call({
-    int? userId,
-    int? threadPage,
-    int? commentsPage,
-  });
+  TRes call({int? userId, int? threadPage, int? commentsPage});
 }
 
 class _CopyWithImpl$Variables$Query$UserThreads<TRes>
     implements CopyWith$Variables$Query$UserThreads<TRes> {
-  _CopyWithImpl$Variables$Query$UserThreads(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$UserThreads(this._instance, this._then);
 
   final Variables$Query$UserThreads _instance;
 
@@ -150,13 +139,14 @@ class _CopyWithImpl$Variables$Query$UserThreads<TRes>
     Object? userId = _undefined,
     Object? threadPage = _undefined,
     Object? commentsPage = _undefined,
-  }) =>
-      _then(Variables$Query$UserThreads._({
-        ..._instance._$data,
-        if (userId != _undefined) 'userId': (userId as int?),
-        if (threadPage != _undefined) 'threadPage': (threadPage as int?),
-        if (commentsPage != _undefined) 'commentsPage': (commentsPage as int?),
-      }));
+  }) => _then(
+    Variables$Query$UserThreads._({
+      ..._instance._$data,
+      if (userId != _undefined) 'userId': (userId as int?),
+      if (threadPage != _undefined) 'threadPage': (threadPage as int?),
+      if (commentsPage != _undefined) 'commentsPage': (commentsPage as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$UserThreads<TRes>
@@ -165,20 +155,11 @@ class _CopyWithStubImpl$Variables$Query$UserThreads<TRes>
 
   TRes _res;
 
-  call({
-    int? userId,
-    int? threadPage,
-    int? commentsPage,
-  }) =>
-      _res;
+  call({int? userId, int? threadPage, int? commentsPage}) => _res;
 }
 
 class Query$UserThreads {
-  Query$UserThreads({
-    this.thread,
-    this.comments,
-    this.$__typename = 'Query',
-  });
+  Query$UserThreads({this.thread, this.comments, this.$__typename = 'Query'});
 
   factory Query$UserThreads.fromJson(Map<String, dynamic> json) {
     final l$thread = json['thread'];
@@ -188,11 +169,13 @@ class Query$UserThreads {
       thread: l$thread == null
           ? null
           : Query$UserThreads$thread.fromJson(
-              (l$thread as Map<String, dynamic>)),
+              (l$thread as Map<String, dynamic>),
+            ),
       comments: l$comments == null
           ? null
           : Query$UserThreads$comments.fromJson(
-              (l$comments as Map<String, dynamic>)),
+              (l$comments as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -219,11 +202,7 @@ class Query$UserThreads {
     final l$thread = thread;
     final l$comments = comments;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$thread,
-      l$comments,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$thread, l$comments, l$$__typename]);
   }
 
   @override
@@ -255,10 +234,7 @@ class Query$UserThreads {
 
 extension UtilityExtension$Query$UserThreads on Query$UserThreads {
   CopyWith$Query$UserThreads<Query$UserThreads> get copyWith =>
-      CopyWith$Query$UserThreads(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$UserThreads(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserThreads<TRes> {
@@ -281,10 +257,7 @@ abstract class CopyWith$Query$UserThreads<TRes> {
 
 class _CopyWithImpl$Query$UserThreads<TRes>
     implements CopyWith$Query$UserThreads<TRes> {
-  _CopyWithImpl$Query$UserThreads(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserThreads(this._instance, this._then);
 
   final Query$UserThreads _instance;
 
@@ -296,25 +269,28 @@ class _CopyWithImpl$Query$UserThreads<TRes>
     Object? thread = _undefined,
     Object? comments = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserThreads(
-        thread: thread == _undefined
-            ? _instance.thread
-            : (thread as Query$UserThreads$thread?),
-        comments: comments == _undefined
-            ? _instance.comments
-            : (comments as Query$UserThreads$comments?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserThreads(
+      thread: thread == _undefined
+          ? _instance.thread
+          : (thread as Query$UserThreads$thread?),
+      comments: comments == _undefined
+          ? _instance.comments
+          : (comments as Query$UserThreads$comments?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$UserThreads$thread<TRes> get thread {
     final local$thread = _instance.thread;
     return local$thread == null
         ? CopyWith$Query$UserThreads$thread.stub(_then(_instance))
         : CopyWith$Query$UserThreads$thread(
-            local$thread, (e) => call(thread: e));
+            local$thread,
+            (e) => call(thread: e),
+          );
   }
 
   CopyWith$Query$UserThreads$comments<TRes> get comments {
@@ -322,7 +298,9 @@ class _CopyWithImpl$Query$UserThreads<TRes>
     return local$comments == null
         ? CopyWith$Query$UserThreads$comments.stub(_then(_instance))
         : CopyWith$Query$UserThreads$comments(
-            local$comments, (e) => call(comments: e));
+            local$comments,
+            (e) => call(comments: e),
+          );
   }
 }
 
@@ -336,8 +314,7 @@ class _CopyWithStubImpl$Query$UserThreads<TRes>
     Query$UserThreads$thread? thread,
     Query$UserThreads$comments? comments,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$UserThreads$thread<TRes> get thread =>
       CopyWith$Query$UserThreads$thread.stub(_res);
@@ -346,102 +323,273 @@ class _CopyWithStubImpl$Query$UserThreads<TRes>
       CopyWith$Query$UserThreads$comments.stub(_res);
 }
 
-const documentNodeQueryUserThreads = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'UserThreads'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryUserThreads = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'UserThreads'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'userId')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'threadPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'threadPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'commentsPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'commentsPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'thread'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'threadPage')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '30'),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'threads'),
-            alias: null,
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'thread'),
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'userId'),
-                value: VariableNode(name: NameNode(value: 'userId')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'threadPage')),
               ),
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '30'),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ThreadFragment'),
-                directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'threads'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'userId'),
+                      value: VariableNode(name: NameNode(value: 'userId')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ThreadFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'comments'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'commentsPage')),
               ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'threadComments'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'userId'),
+                      value: VariableNode(name: NameNode(value: 'userId')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'threadId'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'comment'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'isLiked'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'likeCount'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'createdAt'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'thread'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'id'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'title'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'user'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'UserFragment'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -450,175 +598,15 @@ const documentNodeQueryUserThreads = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'comments'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'commentsPage')),
-          )
         ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'threadComments'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'userId'),
-                value: VariableNode(name: NameNode(value: 'userId')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'threadId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'comment'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isLiked'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'likeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'createdAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'thread'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'title'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'user'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'UserFragment'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionThreadFragment,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionThreadFragment,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$UserThreads$thread {
   Query$UserThreads$thread({
@@ -636,9 +624,11 @@ class Query$UserThreads$thread {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       threads: (l$threads as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -715,10 +705,7 @@ class Query$UserThreads$thread {
 extension UtilityExtension$Query$UserThreads$thread
     on Query$UserThreads$thread {
   CopyWith$Query$UserThreads$thread<Query$UserThreads$thread> get copyWith =>
-      CopyWith$Query$UserThreads$thread(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$UserThreads$thread(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserThreads$thread<TRes> {
@@ -737,18 +724,16 @@ abstract class CopyWith$Query$UserThreads$thread<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes threads(
-      Iterable<Fragment$ThreadFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?)
-          _fn);
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserThreads$thread<TRes>
     implements CopyWith$Query$UserThreads$thread<TRes> {
-  _CopyWithImpl$Query$UserThreads$thread(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserThreads$thread(this._instance, this._then);
 
   final Query$UserThreads$thread _instance;
 
@@ -760,18 +745,19 @@ class _CopyWithImpl$Query$UserThreads$thread<TRes>
     Object? pageInfo = _undefined,
     Object? threads = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserThreads$thread(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        threads: threads == _undefined
-            ? _instance.threads
-            : (threads as List<Fragment$ThreadFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserThreads$thread(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      threads: threads == _undefined
+          ? _instance.threads
+          : (threads as List<Fragment$ThreadFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -781,18 +767,17 @@ class _CopyWithImpl$Query$UserThreads$thread<TRes>
   }
 
   TRes threads(
-          Iterable<Fragment$ThreadFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ThreadFragment<
-                          Fragment$ThreadFragment>?>?)
-              _fn) =>
-      call(
-          threads: _fn(_instance.threads?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ThreadFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    threads: _fn(
+      _instance.threads?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ThreadFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserThreads$thread<TRes>
@@ -805,8 +790,7 @@ class _CopyWithStubImpl$Query$UserThreads$thread<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$ThreadFragment?>? threads,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -830,10 +814,13 @@ class Query$UserThreads$comments {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       threadComments: (l$threadComments as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$UserThreads$comments$threadComments.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$UserThreads$comments$threadComments.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -850,8 +837,9 @@ class Query$UserThreads$comments {
     final l$pageInfo = pageInfo;
     _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$threadComments = threadComments;
-    _resultData['threadComments'] =
-        l$threadComments?.map((e) => e?.toJson()).toList();
+    _resultData['threadComments'] = l$threadComments
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -913,10 +901,7 @@ class Query$UserThreads$comments {
 extension UtilityExtension$Query$UserThreads$comments
     on Query$UserThreads$comments {
   CopyWith$Query$UserThreads$comments<Query$UserThreads$comments>
-      get copyWith => CopyWith$Query$UserThreads$comments(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$UserThreads$comments(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserThreads$comments<TRes> {
@@ -935,19 +920,20 @@ abstract class CopyWith$Query$UserThreads$comments<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes threadComments(
-      Iterable<Query$UserThreads$comments$threadComments?>? Function(
-              Iterable<
-                  CopyWith$Query$UserThreads$comments$threadComments<
-                      Query$UserThreads$comments$threadComments>?>?)
-          _fn);
+    Iterable<Query$UserThreads$comments$threadComments?>? Function(
+      Iterable<
+        CopyWith$Query$UserThreads$comments$threadComments<
+          Query$UserThreads$comments$threadComments
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserThreads$comments<TRes>
     implements CopyWith$Query$UserThreads$comments<TRes> {
-  _CopyWithImpl$Query$UserThreads$comments(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserThreads$comments(this._instance, this._then);
 
   final Query$UserThreads$comments _instance;
 
@@ -959,19 +945,20 @@ class _CopyWithImpl$Query$UserThreads$comments<TRes>
     Object? pageInfo = _undefined,
     Object? threadComments = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserThreads$comments(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        threadComments: threadComments == _undefined
-            ? _instance.threadComments
-            : (threadComments
+  }) => _then(
+    Query$UserThreads$comments(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      threadComments: threadComments == _undefined
+          ? _instance.threadComments
+          : (threadComments
                 as List<Query$UserThreads$comments$threadComments?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -981,18 +968,23 @@ class _CopyWithImpl$Query$UserThreads$comments<TRes>
   }
 
   TRes threadComments(
-          Iterable<Query$UserThreads$comments$threadComments?>? Function(
-                  Iterable<
-                      CopyWith$Query$UserThreads$comments$threadComments<
-                          Query$UserThreads$comments$threadComments>?>?)
-              _fn) =>
-      call(
-          threadComments: _fn(_instance.threadComments?.map((e) => e == null
-              ? null
-              : CopyWith$Query$UserThreads$comments$threadComments(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$UserThreads$comments$threadComments?>? Function(
+      Iterable<
+        CopyWith$Query$UserThreads$comments$threadComments<
+          Query$UserThreads$comments$threadComments
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    threadComments: _fn(
+      _instance.threadComments?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$UserThreads$comments$threadComments(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserThreads$comments<TRes>
@@ -1005,8 +997,7 @@ class _CopyWithStubImpl$Query$UserThreads$comments<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$UserThreads$comments$threadComments?>? threadComments,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -1028,7 +1019,8 @@ class Query$UserThreads$comments$threadComments {
   });
 
   factory Query$UserThreads$comments$threadComments.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$threadId = json['threadId'];
     final l$comment = json['comment'];
@@ -1048,7 +1040,8 @@ class Query$UserThreads$comments$threadComments {
       thread: l$thread == null
           ? null
           : Query$UserThreads$comments$threadComments$thread.fromJson(
-              (l$thread as Map<String, dynamic>)),
+              (l$thread as Map<String, dynamic>),
+            ),
       user: l$user == null
           ? null
           : Fragment$UserFragment.fromJson((l$user as Map<String, dynamic>)),
@@ -1182,11 +1175,10 @@ class Query$UserThreads$comments$threadComments {
 extension UtilityExtension$Query$UserThreads$comments$threadComments
     on Query$UserThreads$comments$threadComments {
   CopyWith$Query$UserThreads$comments$threadComments<
-          Query$UserThreads$comments$threadComments>
-      get copyWith => CopyWith$Query$UserThreads$comments$threadComments(
-            this,
-            (i) => i,
-          );
+    Query$UserThreads$comments$threadComments
+  >
+  get copyWith =>
+      CopyWith$Query$UserThreads$comments$threadComments(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserThreads$comments$threadComments<TRes> {
@@ -1236,38 +1228,42 @@ class _CopyWithImpl$Query$UserThreads$comments$threadComments<TRes>
     Object? thread = _undefined,
     Object? user = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserThreads$comments$threadComments(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        threadId:
-            threadId == _undefined ? _instance.threadId : (threadId as int?),
-        comment:
-            comment == _undefined ? _instance.comment : (comment as String?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        thread: thread == _undefined
-            ? _instance.thread
-            : (thread as Query$UserThreads$comments$threadComments$thread?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserThreads$comments$threadComments(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      threadId: threadId == _undefined
+          ? _instance.threadId
+          : (threadId as int?),
+      comment: comment == _undefined ? _instance.comment : (comment as String?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      thread: thread == _undefined
+          ? _instance.thread
+          : (thread as Query$UserThreads$comments$threadComments$thread?),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$UserThreads$comments$threadComments$thread<TRes> get thread {
     final local$thread = _instance.thread;
     return local$thread == null
         ? CopyWith$Query$UserThreads$comments$threadComments$thread.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$UserThreads$comments$threadComments$thread(
-            local$thread, (e) => call(thread: e));
+            local$thread,
+            (e) => call(thread: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get user {
@@ -1294,8 +1290,7 @@ class _CopyWithStubImpl$Query$UserThreads$comments$threadComments<TRes>
     Query$UserThreads$comments$threadComments$thread? thread,
     Fragment$UserFragment? user,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$UserThreads$comments$threadComments$thread<TRes> get thread =>
       CopyWith$Query$UserThreads$comments$threadComments$thread.stub(_res);
@@ -1312,7 +1307,8 @@ class Query$UserThreads$comments$threadComments$thread {
   });
 
   factory Query$UserThreads$comments$threadComments$thread.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$title = json['title'];
     final l$$__typename = json['__typename'];
@@ -1345,11 +1341,7 @@ class Query$UserThreads$comments$threadComments$thread {
     final l$id = id;
     final l$title = title;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$title,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$title, l$$__typename]);
   }
 
   @override
@@ -1383,11 +1375,10 @@ class Query$UserThreads$comments$threadComments$thread {
 extension UtilityExtension$Query$UserThreads$comments$threadComments$thread
     on Query$UserThreads$comments$threadComments$thread {
   CopyWith$Query$UserThreads$comments$threadComments$thread<
-          Query$UserThreads$comments$threadComments$thread>
-      get copyWith => CopyWith$Query$UserThreads$comments$threadComments$thread(
-            this,
-            (i) => i,
-          );
+    Query$UserThreads$comments$threadComments$thread
+  >
+  get copyWith =>
+      CopyWith$Query$UserThreads$comments$threadComments$thread(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserThreads$comments$threadComments$thread<TRes> {
@@ -1397,14 +1388,10 @@ abstract class CopyWith$Query$UserThreads$comments$threadComments$thread<TRes> {
   ) = _CopyWithImpl$Query$UserThreads$comments$threadComments$thread;
 
   factory CopyWith$Query$UserThreads$comments$threadComments$thread.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserThreads$comments$threadComments$thread;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$UserThreads$comments$threadComments$thread;
 
-  TRes call({
-    int? id,
-    String? title,
-    String? $__typename,
-  });
+  TRes call({int? id, String? title, String? $__typename});
 }
 
 class _CopyWithImpl$Query$UserThreads$comments$threadComments$thread<TRes>
@@ -1424,14 +1411,15 @@ class _CopyWithImpl$Query$UserThreads$comments$threadComments$thread<TRes>
     Object? id = _undefined,
     Object? title = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserThreads$comments$threadComments$thread(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined ? _instance.title : (title as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserThreads$comments$threadComments$thread(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined ? _instance.title : (title as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserThreads$comments$threadComments$thread<TRes>
@@ -1440,10 +1428,5 @@ class _CopyWithStubImpl$Query$UserThreads$comments$threadComments$thread<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    String? title,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, String? title, String? $__typename}) => _res;
 }

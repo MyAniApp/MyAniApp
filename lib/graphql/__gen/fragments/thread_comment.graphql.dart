@@ -163,10 +163,7 @@ class Fragment$ThreadComment {
 
 extension UtilityExtension$Fragment$ThreadComment on Fragment$ThreadComment {
   CopyWith$Fragment$ThreadComment<Fragment$ThreadComment> get copyWith =>
-      CopyWith$Fragment$ThreadComment(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$ThreadComment(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThreadComment<TRes> {
@@ -194,10 +191,7 @@ abstract class CopyWith$Fragment$ThreadComment<TRes> {
 
 class _CopyWithImpl$Fragment$ThreadComment<TRes>
     implements CopyWith$Fragment$ThreadComment<TRes> {
-  _CopyWithImpl$Fragment$ThreadComment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThreadComment(this._instance, this._then);
 
   final Fragment$ThreadComment _instance;
 
@@ -215,29 +209,31 @@ class _CopyWithImpl$Fragment$ThreadComment<TRes>
     Object? user = _undefined,
     Object? isLocked = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThreadComment(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        threadId:
-            threadId == _undefined ? _instance.threadId : (threadId as int?),
-        comment:
-            comment == _undefined ? _instance.comment : (comment as String?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThreadComment(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      threadId: threadId == _undefined
+          ? _instance.threadId
+          : (threadId as int?),
+      comment: comment == _undefined ? _instance.comment : (comment as String?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -263,8 +259,7 @@ class _CopyWithStubImpl$Fragment$ThreadComment<TRes>
     Fragment$UserFragment? user,
     bool? isLocked,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -273,90 +268,94 @@ class _CopyWithStubImpl$Fragment$ThreadComment<TRes>
 const fragmentDefinitionThreadComment = FragmentDefinitionNode(
   name: NameNode(value: 'ThreadComment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'ThreadComment'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'ThreadComment'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'threadId'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'comment'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isLiked'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'likeCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'createdAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'user'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'UserFragment'),
-          directives: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'threadId'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'comment'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isLiked'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'likeCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'createdAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'user'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'UserFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'isLocked'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'isLocked'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentThreadComment = DocumentNode(definitions: [
-  fragmentDefinitionThreadComment,
-  fragmentDefinitionUserFragment,
-]);
+const documentNodeFragmentThreadComment = DocumentNode(
+  definitions: [
+    fragmentDefinitionThreadComment,
+    fragmentDefinitionUserFragment,
+  ],
+);

@@ -51,7 +51,7 @@ class _TagsEditorSheetState extends State<TagsEditorSheet> {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
       genreCollectionQuery,
       parseData: Query$GenreCollection.fromJson,
       fetchPolicy: FetchPolicy.cacheOnly,

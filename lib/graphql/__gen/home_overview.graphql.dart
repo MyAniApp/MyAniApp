@@ -13,12 +13,11 @@ class Variables$Query$HomeOverview {
     int? page,
     required int userId,
     Enum$MediaType? type,
-  }) =>
-      Variables$Query$HomeOverview._({
-        if (page != null) r'page': page,
-        r'userId': userId,
-        if (type != null) r'type': type,
-      });
+  }) => Variables$Query$HomeOverview._({
+    if (page != null) r'page': page,
+    r'userId': userId,
+    if (type != null) r'type': type,
+  });
 
   Variables$Query$HomeOverview._(this._$data);
 
@@ -32,8 +31,9 @@ class Variables$Query$HomeOverview {
     result$data['userId'] = (l$userId as int);
     if (data.containsKey('type')) {
       final l$type = data['type'];
-      result$data['type'] =
-          l$type == null ? null : fromJson$Enum$MediaType((l$type as String));
+      result$data['type'] = l$type == null
+          ? null
+          : fromJson$Enum$MediaType((l$type as String));
     }
     return Variables$Query$HomeOverview._(result$data);
   }
@@ -56,17 +56,15 @@ class Variables$Query$HomeOverview {
     result$data['userId'] = l$userId;
     if (_$data.containsKey('type')) {
       final l$type = type;
-      result$data['type'] =
-          l$type == null ? null : toJson$Enum$MediaType(l$type);
+      result$data['type'] = l$type == null
+          ? null
+          : toJson$Enum$MediaType(l$type);
     }
     return result$data;
   }
 
   CopyWith$Variables$Query$HomeOverview<Variables$Query$HomeOverview>
-      get copyWith => CopyWith$Variables$Query$HomeOverview(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$HomeOverview(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -123,19 +121,12 @@ abstract class CopyWith$Variables$Query$HomeOverview<TRes> {
   factory CopyWith$Variables$Query$HomeOverview.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$HomeOverview;
 
-  TRes call({
-    int? page,
-    int? userId,
-    Enum$MediaType? type,
-  });
+  TRes call({int? page, int? userId, Enum$MediaType? type});
 }
 
 class _CopyWithImpl$Variables$Query$HomeOverview<TRes>
     implements CopyWith$Variables$Query$HomeOverview<TRes> {
-  _CopyWithImpl$Variables$Query$HomeOverview(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$HomeOverview(this._instance, this._then);
 
   final Variables$Query$HomeOverview _instance;
 
@@ -147,13 +138,14 @@ class _CopyWithImpl$Variables$Query$HomeOverview<TRes>
     Object? page = _undefined,
     Object? userId = _undefined,
     Object? type = _undefined,
-  }) =>
-      _then(Variables$Query$HomeOverview._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-        if (userId != _undefined && userId != null) 'userId': (userId as int),
-        if (type != _undefined) 'type': (type as Enum$MediaType?),
-      }));
+  }) => _then(
+    Variables$Query$HomeOverview._({
+      ..._instance._$data,
+      if (page != _undefined) 'page': (page as int?),
+      if (userId != _undefined && userId != null) 'userId': (userId as int),
+      if (type != _undefined) 'type': (type as Enum$MediaType?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$HomeOverview<TRes>
@@ -162,12 +154,7 @@ class _CopyWithStubImpl$Variables$Query$HomeOverview<TRes>
 
   TRes _res;
 
-  call({
-    int? page,
-    int? userId,
-    Enum$MediaType? type,
-  }) =>
-      _res;
+  call({int? page, int? userId, Enum$MediaType? type}) => _res;
 }
 
 class Query$HomeOverview {
@@ -189,18 +176,21 @@ class Query$HomeOverview {
       releasing: l$releasing == null
           ? null
           : Query$HomeOverview$releasing.fromJson(
-              (l$releasing as Map<String, dynamic>)),
+              (l$releasing as Map<String, dynamic>),
+            ),
       list: l$list == null
           ? null
           : Query$HomeOverview$list.fromJson((l$list as Map<String, dynamic>)),
       forums: l$forums == null
           ? null
           : Query$HomeOverview$forums.fromJson(
-              (l$forums as Map<String, dynamic>)),
+              (l$forums as Map<String, dynamic>),
+            ),
       reviews: l$reviews == null
           ? null
           : Query$HomeOverview$reviews.fromJson(
-              (l$reviews as Map<String, dynamic>)),
+              (l$reviews as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -285,10 +275,7 @@ class Query$HomeOverview {
 
 extension UtilityExtension$Query$HomeOverview on Query$HomeOverview {
   CopyWith$Query$HomeOverview<Query$HomeOverview> get copyWith =>
-      CopyWith$Query$HomeOverview(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$HomeOverview(this, (i) => i);
 }
 
 abstract class CopyWith$Query$HomeOverview<TRes> {
@@ -315,10 +302,7 @@ abstract class CopyWith$Query$HomeOverview<TRes> {
 
 class _CopyWithImpl$Query$HomeOverview<TRes>
     implements CopyWith$Query$HomeOverview<TRes> {
-  _CopyWithImpl$Query$HomeOverview(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$HomeOverview(this._instance, this._then);
 
   final Query$HomeOverview _instance;
 
@@ -332,31 +316,34 @@ class _CopyWithImpl$Query$HomeOverview<TRes>
     Object? forums = _undefined,
     Object? reviews = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$HomeOverview(
-        releasing: releasing == _undefined
-            ? _instance.releasing
-            : (releasing as Query$HomeOverview$releasing?),
-        list: list == _undefined
-            ? _instance.list
-            : (list as Query$HomeOverview$list?),
-        forums: forums == _undefined
-            ? _instance.forums
-            : (forums as Query$HomeOverview$forums?),
-        reviews: reviews == _undefined
-            ? _instance.reviews
-            : (reviews as Query$HomeOverview$reviews?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$HomeOverview(
+      releasing: releasing == _undefined
+          ? _instance.releasing
+          : (releasing as Query$HomeOverview$releasing?),
+      list: list == _undefined
+          ? _instance.list
+          : (list as Query$HomeOverview$list?),
+      forums: forums == _undefined
+          ? _instance.forums
+          : (forums as Query$HomeOverview$forums?),
+      reviews: reviews == _undefined
+          ? _instance.reviews
+          : (reviews as Query$HomeOverview$reviews?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$HomeOverview$releasing<TRes> get releasing {
     final local$releasing = _instance.releasing;
     return local$releasing == null
         ? CopyWith$Query$HomeOverview$releasing.stub(_then(_instance))
         : CopyWith$Query$HomeOverview$releasing(
-            local$releasing, (e) => call(releasing: e));
+            local$releasing,
+            (e) => call(releasing: e),
+          );
   }
 
   CopyWith$Query$HomeOverview$list<TRes> get list {
@@ -371,7 +358,9 @@ class _CopyWithImpl$Query$HomeOverview<TRes>
     return local$forums == null
         ? CopyWith$Query$HomeOverview$forums.stub(_then(_instance))
         : CopyWith$Query$HomeOverview$forums(
-            local$forums, (e) => call(forums: e));
+            local$forums,
+            (e) => call(forums: e),
+          );
   }
 
   CopyWith$Query$HomeOverview$reviews<TRes> get reviews {
@@ -379,7 +368,9 @@ class _CopyWithImpl$Query$HomeOverview<TRes>
     return local$reviews == null
         ? CopyWith$Query$HomeOverview$reviews.stub(_then(_instance))
         : CopyWith$Query$HomeOverview$reviews(
-            local$reviews, (e) => call(reviews: e));
+            local$reviews,
+            (e) => call(reviews: e),
+          );
   }
 }
 
@@ -395,8 +386,7 @@ class _CopyWithStubImpl$Query$HomeOverview<TRes>
     Query$HomeOverview$forums? forums,
     Query$HomeOverview$reviews? reviews,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$HomeOverview$releasing<TRes> get releasing =>
       CopyWith$Query$HomeOverview$releasing.stub(_res);
@@ -411,274 +401,300 @@ class _CopyWithStubImpl$Query$HomeOverview<TRes>
       CopyWith$Query$HomeOverview$reviews.stub(_res);
 }
 
-const documentNodeQueryHomeOverview = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'HomeOverview'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryHomeOverview = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'HomeOverview'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: IntValueNode(value: '1')),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: IntValueNode(value: '1')),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: true,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'userId')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'type')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MediaType'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'type')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaType'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'releasing'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'releasing'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'onList'),
+                      value: BooleanValueNode(value: true),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'status_in'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'RELEASING')),
+                          EnumValueNode(
+                            name: NameNode(value: 'NOT_YET_RELEASED'),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(
+                            name: NameNode(value: 'START_DATE_DESC'),
+                          ),
+                          EnumValueNode(name: NameNode(value: 'STATUS')),
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ReleasingMedia'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'list'),
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'mediaList'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'userId'),
+                      value: VariableNode(name: NameNode(value: 'userId')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'status_in'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(name: NameNode(value: 'CURRENT')),
+                          EnumValueNode(name: NameNode(value: 'REPEATING')),
+                        ],
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(
+                        name: NameNode(value: 'UPDATED_TIME_DESC'),
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type'),
+                      value: VariableNode(name: NameNode(value: 'type')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaListEntry'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'forums'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '5'),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'threads'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(
+                        name: NameNode(value: 'REPLIED_AT_DESC'),
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ThreadFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'reviews'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '6'),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'reviews'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ReviewFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
         ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'media'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'onList'),
-                value: BooleanValueNode(value: true),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'status_in'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'RELEASING')),
-                  EnumValueNode(name: NameNode(value: 'NOT_YET_RELEASED')),
-                ]),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'START_DATE_DESC')),
-                  EnumValueNode(name: NameNode(value: 'STATUS')),
-                ]),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ReleasingMedia'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
       ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'list'),
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'mediaList'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'userId'),
-                value: VariableNode(name: NameNode(value: 'userId')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'status_in'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'CURRENT')),
-                  EnumValueNode(name: NameNode(value: 'REPEATING')),
-                ]),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value:
-                    EnumValueNode(name: NameNode(value: 'UPDATED_TIME_DESC')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'type'),
-                value: VariableNode(name: NameNode(value: 'type')),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MediaListEntry'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'forums'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '5'),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'threads'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'REPLIED_AT_DESC')),
-              )
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ThreadFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'reviews'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '6'),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'reviews'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
-              )
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ReviewFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionReleasingMedia,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionMediaListEntry,
-  fragmentDefinitionFuzzyDate,
-  fragmentDefinitionThreadFragment,
-  fragmentDefinitionUserFragment,
-  fragmentDefinitionReviewFragment,
-]);
+    ),
+    fragmentDefinitionReleasingMedia,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionMediaListEntry,
+    fragmentDefinitionFuzzyDate,
+    fragmentDefinitionThreadFragment,
+    fragmentDefinitionUserFragment,
+    fragmentDefinitionReviewFragment,
+  ],
+);
 
 class Query$HomeOverview$releasing {
-  Query$HomeOverview$releasing({
-    this.media,
-    this.$__typename = 'Page',
-  });
+  Query$HomeOverview$releasing({this.media, this.$__typename = 'Page'});
 
   factory Query$HomeOverview$releasing.fromJson(Map<String, dynamic> json) {
     final l$media = json['media'];
     final l$$__typename = json['__typename'];
     return Query$HomeOverview$releasing(
       media: (l$media as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ReleasingMedia.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ReleasingMedia.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -744,10 +760,7 @@ class Query$HomeOverview$releasing {
 extension UtilityExtension$Query$HomeOverview$releasing
     on Query$HomeOverview$releasing {
   CopyWith$Query$HomeOverview$releasing<Query$HomeOverview$releasing>
-      get copyWith => CopyWith$Query$HomeOverview$releasing(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$HomeOverview$releasing(this, (i) => i);
 }
 
 abstract class CopyWith$Query$HomeOverview$releasing<TRes> {
@@ -759,23 +772,18 @@ abstract class CopyWith$Query$HomeOverview$releasing<TRes> {
   factory CopyWith$Query$HomeOverview$releasing.stub(TRes res) =
       _CopyWithStubImpl$Query$HomeOverview$releasing;
 
-  TRes call({
-    List<Fragment$ReleasingMedia?>? media,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$ReleasingMedia?>? media, String? $__typename});
   TRes media(
-      Iterable<Fragment$ReleasingMedia?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ReleasingMedia<Fragment$ReleasingMedia>?>?)
-          _fn);
+    Iterable<Fragment$ReleasingMedia?>? Function(
+      Iterable<CopyWith$Fragment$ReleasingMedia<Fragment$ReleasingMedia>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$HomeOverview$releasing<TRes>
     implements CopyWith$Query$HomeOverview$releasing<TRes> {
-  _CopyWithImpl$Query$HomeOverview$releasing(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$HomeOverview$releasing(this._instance, this._then);
 
   final Query$HomeOverview$releasing _instance;
 
@@ -783,32 +791,30 @@ class _CopyWithImpl$Query$HomeOverview$releasing<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$HomeOverview$releasing(
-        media: media == _undefined
-            ? _instance.media
-            : (media as List<Fragment$ReleasingMedia?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? media = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$HomeOverview$releasing(
+          media: media == _undefined
+              ? _instance.media
+              : (media as List<Fragment$ReleasingMedia?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes media(
-          Iterable<Fragment$ReleasingMedia?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ReleasingMedia<
-                          Fragment$ReleasingMedia>?>?)
-              _fn) =>
-      call(
-          media: _fn(_instance.media?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ReleasingMedia(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ReleasingMedia?>? Function(
+      Iterable<CopyWith$Fragment$ReleasingMedia<Fragment$ReleasingMedia>?>?,
+    )
+    _fn,
+  ) => call(
+    media: _fn(
+      _instance.media?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ReleasingMedia(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$HomeOverview$releasing<TRes>
@@ -817,29 +823,24 @@ class _CopyWithStubImpl$Query$HomeOverview$releasing<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$ReleasingMedia?>? media,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$ReleasingMedia?>? media, String? $__typename}) => _res;
 
   media(_fn) => _res;
 }
 
 class Query$HomeOverview$list {
-  Query$HomeOverview$list({
-    this.mediaList,
-    this.$__typename = 'Page',
-  });
+  Query$HomeOverview$list({this.mediaList, this.$__typename = 'Page'});
 
   factory Query$HomeOverview$list.fromJson(Map<String, dynamic> json) {
     final l$mediaList = json['mediaList'];
     final l$$__typename = json['__typename'];
     return Query$HomeOverview$list(
       mediaList: (l$mediaList as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaListEntry.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaListEntry.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -903,10 +904,7 @@ class Query$HomeOverview$list {
 
 extension UtilityExtension$Query$HomeOverview$list on Query$HomeOverview$list {
   CopyWith$Query$HomeOverview$list<Query$HomeOverview$list> get copyWith =>
-      CopyWith$Query$HomeOverview$list(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$HomeOverview$list(this, (i) => i);
 }
 
 abstract class CopyWith$Query$HomeOverview$list<TRes> {
@@ -918,23 +916,18 @@ abstract class CopyWith$Query$HomeOverview$list<TRes> {
   factory CopyWith$Query$HomeOverview$list.stub(TRes res) =
       _CopyWithStubImpl$Query$HomeOverview$list;
 
-  TRes call({
-    List<Fragment$MediaListEntry?>? mediaList,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$MediaListEntry?>? mediaList, String? $__typename});
   TRes mediaList(
-      Iterable<Fragment$MediaListEntry?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaListEntry<Fragment$MediaListEntry>?>?)
-          _fn);
+    Iterable<Fragment$MediaListEntry?>? Function(
+      Iterable<CopyWith$Fragment$MediaListEntry<Fragment$MediaListEntry>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$HomeOverview$list<TRes>
     implements CopyWith$Query$HomeOverview$list<TRes> {
-  _CopyWithImpl$Query$HomeOverview$list(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$HomeOverview$list(this._instance, this._then);
 
   final Query$HomeOverview$list _instance;
 
@@ -945,29 +938,29 @@ class _CopyWithImpl$Query$HomeOverview$list<TRes>
   TRes call({
     Object? mediaList = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$HomeOverview$list(
-        mediaList: mediaList == _undefined
-            ? _instance.mediaList
-            : (mediaList as List<Fragment$MediaListEntry?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$HomeOverview$list(
+      mediaList: mediaList == _undefined
+          ? _instance.mediaList
+          : (mediaList as List<Fragment$MediaListEntry?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes mediaList(
-          Iterable<Fragment$MediaListEntry?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaListEntry<
-                          Fragment$MediaListEntry>?>?)
-              _fn) =>
-      call(
-          mediaList: _fn(_instance.mediaList?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaListEntry(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaListEntry?>? Function(
+      Iterable<CopyWith$Fragment$MediaListEntry<Fragment$MediaListEntry>?>?,
+    )
+    _fn,
+  ) => call(
+    mediaList: _fn(
+      _instance.mediaList?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaListEntry(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$HomeOverview$list<TRes>
@@ -976,29 +969,25 @@ class _CopyWithStubImpl$Query$HomeOverview$list<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$MediaListEntry?>? mediaList,
-    String? $__typename,
-  }) =>
+  call({List<Fragment$MediaListEntry?>? mediaList, String? $__typename}) =>
       _res;
 
   mediaList(_fn) => _res;
 }
 
 class Query$HomeOverview$forums {
-  Query$HomeOverview$forums({
-    this.threads,
-    this.$__typename = 'Page',
-  });
+  Query$HomeOverview$forums({this.threads, this.$__typename = 'Page'});
 
   factory Query$HomeOverview$forums.fromJson(Map<String, dynamic> json) {
     final l$threads = json['threads'];
     final l$$__typename = json['__typename'];
     return Query$HomeOverview$forums(
       threads: (l$threads as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1064,10 +1053,7 @@ class Query$HomeOverview$forums {
 extension UtilityExtension$Query$HomeOverview$forums
     on Query$HomeOverview$forums {
   CopyWith$Query$HomeOverview$forums<Query$HomeOverview$forums> get copyWith =>
-      CopyWith$Query$HomeOverview$forums(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$HomeOverview$forums(this, (i) => i);
 }
 
 abstract class CopyWith$Query$HomeOverview$forums<TRes> {
@@ -1079,23 +1065,18 @@ abstract class CopyWith$Query$HomeOverview$forums<TRes> {
   factory CopyWith$Query$HomeOverview$forums.stub(TRes res) =
       _CopyWithStubImpl$Query$HomeOverview$forums;
 
-  TRes call({
-    List<Fragment$ThreadFragment?>? threads,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$ThreadFragment?>? threads, String? $__typename});
   TRes threads(
-      Iterable<Fragment$ThreadFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?)
-          _fn);
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$HomeOverview$forums<TRes>
     implements CopyWith$Query$HomeOverview$forums<TRes> {
-  _CopyWithImpl$Query$HomeOverview$forums(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$HomeOverview$forums(this._instance, this._then);
 
   final Query$HomeOverview$forums _instance;
 
@@ -1103,32 +1084,30 @@ class _CopyWithImpl$Query$HomeOverview$forums<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? threads = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$HomeOverview$forums(
-        threads: threads == _undefined
-            ? _instance.threads
-            : (threads as List<Fragment$ThreadFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? threads = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$HomeOverview$forums(
+          threads: threads == _undefined
+              ? _instance.threads
+              : (threads as List<Fragment$ThreadFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes threads(
-          Iterable<Fragment$ThreadFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ThreadFragment<
-                          Fragment$ThreadFragment>?>?)
-              _fn) =>
-      call(
-          threads: _fn(_instance.threads?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ThreadFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    threads: _fn(
+      _instance.threads?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ThreadFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$HomeOverview$forums<TRes>
@@ -1137,29 +1116,24 @@ class _CopyWithStubImpl$Query$HomeOverview$forums<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$ThreadFragment?>? threads,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$ThreadFragment?>? threads, String? $__typename}) => _res;
 
   threads(_fn) => _res;
 }
 
 class Query$HomeOverview$reviews {
-  Query$HomeOverview$reviews({
-    this.reviews,
-    this.$__typename = 'Page',
-  });
+  Query$HomeOverview$reviews({this.reviews, this.$__typename = 'Page'});
 
   factory Query$HomeOverview$reviews.fromJson(Map<String, dynamic> json) {
     final l$reviews = json['reviews'];
     final l$$__typename = json['__typename'];
     return Query$HomeOverview$reviews(
       reviews: (l$reviews as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ReviewFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ReviewFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1225,10 +1199,7 @@ class Query$HomeOverview$reviews {
 extension UtilityExtension$Query$HomeOverview$reviews
     on Query$HomeOverview$reviews {
   CopyWith$Query$HomeOverview$reviews<Query$HomeOverview$reviews>
-      get copyWith => CopyWith$Query$HomeOverview$reviews(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$HomeOverview$reviews(this, (i) => i);
 }
 
 abstract class CopyWith$Query$HomeOverview$reviews<TRes> {
@@ -1240,23 +1211,18 @@ abstract class CopyWith$Query$HomeOverview$reviews<TRes> {
   factory CopyWith$Query$HomeOverview$reviews.stub(TRes res) =
       _CopyWithStubImpl$Query$HomeOverview$reviews;
 
-  TRes call({
-    List<Fragment$ReviewFragment?>? reviews,
-    String? $__typename,
-  });
+  TRes call({List<Fragment$ReviewFragment?>? reviews, String? $__typename});
   TRes reviews(
-      Iterable<Fragment$ReviewFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ReviewFragment<Fragment$ReviewFragment>?>?)
-          _fn);
+    Iterable<Fragment$ReviewFragment?>? Function(
+      Iterable<CopyWith$Fragment$ReviewFragment<Fragment$ReviewFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$HomeOverview$reviews<TRes>
     implements CopyWith$Query$HomeOverview$reviews<TRes> {
-  _CopyWithImpl$Query$HomeOverview$reviews(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$HomeOverview$reviews(this._instance, this._then);
 
   final Query$HomeOverview$reviews _instance;
 
@@ -1264,32 +1230,30 @@ class _CopyWithImpl$Query$HomeOverview$reviews<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? reviews = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$HomeOverview$reviews(
-        reviews: reviews == _undefined
-            ? _instance.reviews
-            : (reviews as List<Fragment$ReviewFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? reviews = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$HomeOverview$reviews(
+          reviews: reviews == _undefined
+              ? _instance.reviews
+              : (reviews as List<Fragment$ReviewFragment?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes reviews(
-          Iterable<Fragment$ReviewFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ReviewFragment<
-                          Fragment$ReviewFragment>?>?)
-              _fn) =>
-      call(
-          reviews: _fn(_instance.reviews?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ReviewFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ReviewFragment?>? Function(
+      Iterable<CopyWith$Fragment$ReviewFragment<Fragment$ReviewFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    reviews: _fn(
+      _instance.reviews?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ReviewFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$HomeOverview$reviews<TRes>
@@ -1298,11 +1262,7 @@ class _CopyWithStubImpl$Query$HomeOverview$reviews<TRes>
 
   TRes _res;
 
-  call({
-    List<Fragment$ReviewFragment?>? reviews,
-    String? $__typename,
-  }) =>
-      _res;
+  call({List<Fragment$ReviewFragment?>? reviews, String? $__typename}) => _res;
 
   reviews(_fn) => _res;
 }

@@ -14,6 +14,7 @@ import 'package:myaniapp/graphql/__gen/fragments/message_activity.graphql.dart';
 import 'package:myaniapp/graphql/__gen/fragments/text_activity.graphql.dart';
 import 'package:myaniapp/graphql/__gen/home_activities.graphql.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
+import 'package:myaniapp/graphql/mutations.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/main.dart';
@@ -22,17 +23,17 @@ import 'package:myaniapp/utils.dart';
 import 'package:mygraphql/graphql.dart';
 
 class ActivityScreen extends HookConsumerWidget {
-  const ActivityScreen({
-    super.key,
-    required this.id,
-    this.placeholder,
-  });
+  const ActivityScreen({super.key, required this.id, this.placeholder});
 
   final int id;
   final dynamic placeholder;
 
-  void reply(WidgetRef ref, BuildContext context, dynamic activity,
-      QueryRefetch refetch) {
+  void reply(
+    WidgetRef ref,
+    BuildContext context,
+    dynamic activity,
+    QueryRefetch refetch,
+  ) {
     requiredLogin(
       ref,
       "reply",
@@ -43,28 +44,24 @@ class ActivityScreen extends HookConsumerWidget {
           hasTap: false,
           withFooter: false,
         ),
-        onSave: (text) => c
-            .query(GQLRequest(
-              saveActivityReplyQuery,
-              variables: Variables$Mutation$SaveActivityReply(
-                text: text,
-                activityId: activity.id,
-              ).toJson(),
-            ))
-            .last
-            .then(
-              (value) => refetch(),
-            ),
+        onSave: (text) => mutationSaveActivityReply(
+          activity.id,
+          text,
+        ).then((value) => refetch()),
       ),
     )();
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(activityQuery,
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        activityQuery,
         variables: Variables$Query$Activity(id: id).toJson(),
         parseData: Query$Activity.fromJson,
-        mergeResults: defaultMergeResults("replies.activityReplies")));
+        mergeResults: defaultMergeResults("replies.activityReplies"),
+      ),
+    );
 
     return GQLWidget(
       refetch: refetch,
@@ -78,8 +75,8 @@ class ActivityScreen extends HookConsumerWidget {
         ),
       ),
       builder: () {
-        // dynamic placeholder =
-        //     (GoRouterState.of(context).extra as Map?)?["activity"];
+        dynamic placeholder =
+            (GoRouterState.of(context).extra as Map?)?["activity"];
 
         if (snapshot.loading == true &&
             placeholder is! Fragment$ListActivity &&
@@ -87,9 +84,7 @@ class ActivityScreen extends HookConsumerWidget {
             placeholder is! Fragment$MessageActivity) {
           return Scaffold(
             appBar: AppBar(),
-            body: const Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
+            body: const Center(child: CircularProgressIndicator.adaptive()),
           );
         }
 
@@ -97,15 +92,17 @@ class ActivityScreen extends HookConsumerWidget {
 
         var view = CustomScrollView(
           slivers: [
-            const SliverAppBar(
-              pinned: true,
-            ),
+            const SliverAppBar(pinned: true),
             SliverToBoxAdapter(
               child: ActivityCard(
                 activity: data?.activity ?? placeholder,
                 hasTap: false,
                 onReply: () => reply(
-                    ref, context, (data?.activity ?? placeholder), refetch),
+                  ref,
+                  context,
+                  (data?.activity ?? placeholder),
+                  refetch,
+                ),
               ),
             ),
             SliverAppBar(
@@ -116,7 +113,11 @@ class ActivityScreen extends HookConsumerWidget {
               flexibleSpace: FlexibleSpaceBar(
                 background: InkWell(
                   onTap: () => reply(
-                      ref, context, (data?.activity ?? placeholder), refetch),
+                    ref,
+                    context,
+                    (data?.activity ?? placeholder),
+                    refetch,
+                  ),
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border(
@@ -132,8 +133,9 @@ class ActivityScreen extends HookConsumerWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Post a reply",
-                        style: context.theme.textTheme.bodyLarge
-                            ?.copyWith(color: context.theme.hintColor),
+                        style: context.theme.textTheme.bodyLarge?.copyWith(
+                          color: context.theme.hintColor,
+                        ),
                       ),
                     ),
                   ),
@@ -143,9 +145,7 @@ class ActivityScreen extends HookConsumerWidget {
             Show(
               when: data != null,
               fallback: const SliverFillRemaining(
-                child: Center(
-                  child: CircularProgressIndicator.adaptive(),
-                ),
+                child: Center(child: CircularProgressIndicator.adaptive()),
               ),
               child: () => SliverList.builder(
                 itemBuilder: (context, index) {
@@ -157,8 +157,9 @@ class ActivityScreen extends HookConsumerWidget {
                     username: comment.user!.name,
                     createdAt: comment.createdAt,
                     onAvatarTap: () => context.push(
-                        Routes.user(comment.user!.name),
-                        extra: {"placeholder": comment.user}),
+                      Routes.user(comment.user!.name),
+                      extra: {"placeholder": comment.user},
+                    ),
                     body: MarkdownWidget.body(
                       data: comment.text!,
                       selectable: true,
@@ -166,37 +167,28 @@ class ActivityScreen extends HookConsumerWidget {
                     ),
                     footer: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: IconButton(
-                        onPressed: () => c
-                            .query(GQLRequest(
-                              toggleLikeQuery,
-                              variables: Variables$Mutation$ToggleLike(
-                                id: comment.id,
-                                type: Enum$LikeableType.ACTIVITY_REPLY,
-                              ).toJson(),
-                            ))
-                            .last
-                            .then(
-                              (value) => refetch(FetchPolicy.cacheFirst),
-                            ),
-                        icon: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(Icons.favorite),
-                            const SizedBox(width: 2),
-                            Text(comment.likeCount.abbreviate())
-                          ],
-                        ),
-                        color: comment.isLiked == true ? Colors.red : null,
+                      child: CommentLikeButton(
+                        isLiked: comment.isLiked == true,
+                        likeCount: comment.likeCount,
+                        id: comment.id,
+                        type: .ACTIVITY_REPLY,
+                        onPressed: () => mutationToggleLike(
+                          .ACTIVITY_REPLY,
+                          comment.id,
+                        ).then((_) => refetch(.cacheFirst)),
                       ),
                     ),
                     badge: [
                       if (comment.user!.moderatorRoles?.isNotEmpty == true)
                         CommentBadge(
-                            text: comment.user!.moderatorRoles!.fold(
-                                [],
-                                (previousValue, element) =>
-                                    [...previousValue, element!.name])),
+                          text: comment.user!.moderatorRoles!.fold(
+                            [],
+                            (previousValue, element) => [
+                              ...previousValue,
+                              element!.name,
+                            ],
+                          ),
+                        ),
                       if (comment.user!.donatorTier != 0)
                         CommentBadge(text: [comment.user!.donatorBadge!]),
                     ],
@@ -204,7 +196,7 @@ class ActivityScreen extends HookConsumerWidget {
                 },
                 itemCount: data!.replies!.activityReplies!.length,
               ),
-            )
+            ),
           ],
         );
 
@@ -216,9 +208,8 @@ class ActivityScreen extends HookConsumerWidget {
               pageInfo: data!.replies!.pageInfo!,
               req: (nextPage) => fetchMore(
                 variables: Variables$Query$Activity.fromJson(
-                        snapshot.request!.variables)
-                    .copyWith(page: nextPage)
-                    .toJson(),
+                  snapshot.request!.variables,
+                ).copyWith(page: nextPage).toJson(),
               ),
               child: view,
             ),

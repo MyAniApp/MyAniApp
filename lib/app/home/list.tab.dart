@@ -23,8 +23,9 @@ class _HomeListTabState extends ConsumerState<HomeListTab> {
   @override
   void initState() {
     super.initState();
-    mediaType =
-        ref.read(settingsProvider.select((value) => value.defaultHomeList));
+    mediaType = ref.read(
+      settingsProvider.select((value) => value.defaultHomeList),
+    );
   }
 
   Icon getThumbIcon(Set<WidgetState> state) {
@@ -38,7 +39,7 @@ class _HomeListTabState extends ConsumerState<HomeListTab> {
   @override
   Widget build(BuildContext context) {
     var user = ref.watch(userProvider);
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
       GQLRequest(
         mediaListQuery,
         variables: Variables$Query$MediaList(
@@ -61,18 +62,15 @@ class _HomeListTabState extends ConsumerState<HomeListTab> {
                 "${mediaType == Enum$MediaType.ANIME ? "Anime" : "Manga"} List",
             child: Switch.adaptive(
               value: mediaType == Enum$MediaType.ANIME,
-              onChanged: (value) => setState(() => mediaType =
-                  mediaType == Enum$MediaType.ANIME
-                      ? Enum$MediaType.MANGA
-                      : Enum$MediaType.ANIME),
+              onChanged: (value) => setState(
+                () => mediaType = mediaType == Enum$MediaType.ANIME
+                    ? Enum$MediaType.MANGA
+                    : Enum$MediaType.ANIME,
+              ),
               thumbIcon: WidgetStateProperty.resolveWith(getThumbIcon),
             ),
           ),
         ],
-        // groups: snapshot.parsedData!.MediaListCollection!.lists!
-        //     .whereType<Fragment$ListGroup>()
-        //     .toList(),
-        // user: snapshot.parsedData!.MediaListCollection!.user!,
         type: mediaType,
         refetch: refetch,
       ),

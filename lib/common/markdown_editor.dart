@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:myaniapp/common/comment.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/extensions.dart';
+import 'package:myaniapp/providers/user.dart';
 
-class MarkdownEditor extends StatefulWidget {
+class MarkdownEditor extends HookConsumerWidget {
   const MarkdownEditor(
       {super.key, this.text, required this.onSave, this.hint, this.leading});
 
@@ -32,212 +36,338 @@ class MarkdownEditor extends StatefulWidget {
   }
 
   @override
-  State<MarkdownEditor> createState() => _MarkdownEditorState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    var pageController = usePageController();
+    var bodyController = useTextEditingController();
+    var focusNode = useFocusNode();
 
-class _MarkdownEditorState extends State<MarkdownEditor> {
-  late final PageController _pageController = PageController(
-    onAttach: (position) => Future(() => setState(
-          () {},
-        )),
-  );
-  late final TextEditingController _editingController =
-      TextEditingController(text: widget.text);
-  final FocusNode _focusNode = FocusNode();
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController.addListener(() => setState(() {}));
-    _focusNode.requestFocus();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _pageController.dispose();
-    _editingController.dispose();
-    _focusNode.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return PopScope(
-      canPop: _pageController.positions.isNotEmpty &&
-          (_pageController.page == _pageController.initialPage),
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          leading:
-              _pageController.positions.isNotEmpty && _pageController.page == 0
-                  ? IconButton(
-                      onPressed: () => context.pop(),
-                      icon: const Icon(Icons.cancel),
-                    )
-                  : IconButton(
-                      onPressed: () => _pageController.animateToPage(
-                        0,
-                        duration: const Duration(milliseconds: 200),
-                        curve: Curves.easeIn,
-                      ),
-                      icon: const Icon(Icons.arrow_back),
-                    ),
-          actions: [
-            if (_pageController.positions.isNotEmpty &&
-                _pageController.page == 0)
-              _PreviewButton(
-                editingController: _editingController,
-                onPressed: () => _pageController.animateToPage(
-                  1,
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeOut,
+    return Scaffold(
+      appBar: AppBar(
+        leading: _BackButton(pageController),
+        actions: [
+          _PageButton(
+            pageController,
+            onSave: () {
+              onSave(bodyController.text);
+              context.pop();
+            },
+          )
+        ],
+      ),
+      body: PageView(
+        controller: pageController,
+        children: [
+          ListView(
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (leading != null) leading!,
+              Container(
+                color: context.theme.colorScheme.surfaceContainerHigh,
+                child: MarkdownToolbar(
+                  controller: bodyController,
+                  focusNode: focusNode,
+                ),
+              ),
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: MediaQuery.sizeOf(context).shortestSide,
+                ),
+                child: TextArea(
+                  focusNode: focusNode,
+                  editingController: bodyController,
+                  hint: hint,
                 ),
               )
-            else
-              IconButton(
-                onPressed: () {
-                  widget.onSave(_editingController.text);
-                  context.pop();
-                },
-                icon: const Icon(Icons.send),
-              ),
-            const SizedBox(
-              width: 10,
-            ),
-          ],
-        ),
-        body: PageView(
-          controller: _pageController,
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 40),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        if (widget.leading != null) widget.leading!,
-                        TextArea(
-                          focusNode: _focusNode,
-                          editingController: _editingController,
-                          hint: widget.hint,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SafeArea(
-                  bottom: true,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      color: context.theme.colorScheme.surfaceContainerHighest,
-                      width: double.maxFinite,
-                      child: Row(
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              replaceAround(getSelectedText(), "__", "__");
-                              _focusNode.requestFocus();
-                            },
-                            icon: const Icon(Icons.format_bold),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              replaceAround(getSelectedText(), "_", "_");
-                              _focusNode.requestFocus();
-                            },
-                            icon: const Icon(Icons.format_italic),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              replaceAround(getSelectedText(), "~~", "~~");
-                              _focusNode.requestFocus();
-                            },
-                            icon: const Icon(Icons.format_strikethrough),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              replaceAround(getSelectedText(), "\n> ", "");
-                              _focusNode.requestFocus();
-                            },
-                            icon: const Icon(Icons.format_quote_sharp),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              replaceAround(getSelectedText(), "\n# ", "");
-                              _focusNode.requestFocus();
-                            },
-                            icon: Text(
-                              "H",
-                              style:
-                                  context.theme.textTheme.titleMedium?.copyWith(
-                                color:
-                                    context.theme.colorScheme.onSurfaceVariant,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            MarkdownWidget(
-              data: _editingController.text,
-              selectable: true,
-            )
-          ],
-        ),
+            ],
+          ),
+          _Preview(
+            bodyController: bodyController,
+          ),
+        ],
       ),
     );
   }
+}
 
-  bool onWillPop() {
-    if (_pageController.page == _pageController.initialPage) {
-      return true;
-    } else {
-      _pageController.previousPage(
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.linear,
-      );
-      return false;
-    }
-  }
+class _Preview extends HookConsumerWidget {
+  const _Preview({
+    super.key,
+    required this.bodyController,
+  });
 
-  (int start, int end) getSelectedText() {
-    // print(_editingController.selection.extentOffset);
-    int start = _editingController.selection.baseOffset <
-            _editingController.selection.extentOffset
-        ? _editingController.selection.baseOffset
-        : _editingController.selection.extentOffset;
+  final TextEditingController bodyController;
 
-    var end = _editingController.selection.baseOffset >
-            _editingController.selection.extentOffset
-        ? _editingController.selection.baseOffset
-        : _editingController.selection.extentOffset;
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    var text = useValueListenable(bodyController);
+    var user =
+        ref.read(userProvider.select((u) => u.value?.parsedData?.Viewer));
 
-    return (
-      start == -1 ? 0 : start,
-      end == -1 ? 0 : end,
+    return Comment(
+      avatar: user?.avatar?.large ??
+          'https://s4.anilist.co/file/anilistcdn/user/avatar/large/default.png',
+      body: MarkdownWidget.body(data: text.text),
+      collapsible: false,
+      createdAt: DateTime.now().millisecondsSinceEpoch ~/ 1000,
+      username: user?.name ?? 'Test',
     );
   }
+}
 
-  void replaceAround(
-      (int start, int end) range, String startStr, String endStr) {
-    var text = _editingController.text.substring(range.$1, range.$2);
-    _editingController.text = _editingController.text
-        .replaceRange(range.$1, range.$2, '$startStr$text$endStr');
+class _BackButton extends HookWidget {
+  const _BackButton(this.pageController, {super.key});
 
-    if (text.isEmpty) {
-      _editingController.selection = TextSelection.fromPosition(
-          TextPosition(offset: range.$1 + startStr.length));
+  final PageController pageController;
+
+  @override
+  Widget build(BuildContext context) {
+    final page =
+        useListenableSelector(pageController, () => pageController.page);
+
+    if (page == 0 || page == null) {
+      return IconButton(
+        icon: Icon(Icons.cancel),
+        onPressed: () => context.pop(),
+      );
     }
+
+    return BackButton(
+      onPressed: () => pageController.animateToPage(
+        0,
+        duration: Durations.medium2,
+        curve: Curves.easeOut,
+      ),
+    );
   }
 }
+
+class _PageButton extends HookWidget {
+  const _PageButton(this.pageController,
+      {super.key, this.onPreviewPress, this.onSave});
+
+  final PageController pageController;
+  final VoidCallback? onPreviewPress;
+  final VoidCallback? onSave;
+
+  @override
+  Widget build(BuildContext context) {
+    final page =
+        useListenableSelector(pageController, () => pageController.page);
+
+    if (page == 0 || page == null) {
+      return TextButton(
+        onPressed: () {
+          pageController.animateToPage(
+            2,
+            duration: Durations.medium2,
+            curve: Curves.easeIn,
+          );
+          onPreviewPress?.call();
+        },
+        child: Text('Preview'),
+      );
+    }
+    return IconButton(
+      icon: Icon(Icons.send),
+      onPressed: () {
+        onSave?.call();
+      },
+    );
+  }
+}
+
+// class MarkdownEditor extends StatefulWidget {
+//   const MarkdownEditor(
+//       {super.key, this.text, required this.onSave, this.hint, this.leading});
+
+//   final String? text;
+//   final String? hint;
+//   final Function(String text) onSave;
+//   final Widget? leading;
+
+//   static void show(BuildContext context,
+//       {String? text,
+//       required Function(String text) onSave,
+//       String? hint,
+//       Widget? leading}) {
+//     showDialog(
+//       context: context,
+//       useSafeArea: false,
+//       builder: (context) => Dialog.fullscreen(
+//         child: MarkdownEditor(
+//           onSave: onSave,
+//           text: text,
+//           hint: hint,
+//           leading: leading,
+//         ),
+//       ),
+//     );
+//   }
+
+//   @override
+//   State<MarkdownEditor> createState() => _MarkdownEditorState();
+// }
+
+// class _MarkdownEditorState extends State<MarkdownEditor> {
+//   late final PageController _pageController = PageController(
+//     onAttach: (position) => Future(() => setState(
+//           () {},
+//         )),
+//   );
+//   late final TextEditingController _editingController =
+//       TextEditingController(text: widget.text);
+//   final FocusNode _focusNode = FocusNode();
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _pageController.addListener(() => setState(() {}));
+//     _focusNode.requestFocus();
+//   }
+
+//   @override
+//   void dispose() {
+//     super.dispose();
+//     _pageController.dispose();
+//     _editingController.dispose();
+//     _focusNode.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return PopScope(
+//       canPop: _pageController.positions.isNotEmpty &&
+//           (_pageController.page == _pageController.initialPage),
+//       child: Scaffold(
+//         appBar: AppBar(
+//           automaticallyImplyLeading: false,
+//           leading:
+//               _pageController.positions.isNotEmpty && _pageController.page == 0
+//                   ? IconButton(
+//                       onPressed: () => context.pop(),
+//                       icon: const Icon(Icons.cancel),
+//                     )
+//                   : IconButton(
+//                       onPressed: () => _pageController.animateToPage(
+//                         0,
+//                         duration: const Duration(milliseconds: 200),
+//                         curve: Curves.easeIn,
+//                       ),
+//                       icon: const Icon(Icons.arrow_back),
+//                     ),
+//           actions: [
+//             if (_pageController.positions.isNotEmpty &&
+//                 _pageController.page == 0)
+//               _PreviewButton(
+//                 editingController: _editingController,
+//                 onPressed: () => _pageController.animateToPage(
+//                   1,
+//                   duration: const Duration(milliseconds: 200),
+//                   curve: Curves.easeOut,
+//                 ),
+//               )
+//             else
+//               IconButton(
+//                 onPressed: () {
+//                   widget.onSave(_editingController.text);
+//                   context.pop();
+//                 },
+//                 icon: const Icon(Icons.send),
+//               ),
+//             const SizedBox(
+//               width: 10,
+//             ),
+//           ],
+//         ),
+//         body: PageView(
+//           controller: _pageController,
+//           physics: const NeverScrollableScrollPhysics(),
+//           children: [
+//             Stack(
+//               children: [
+//                 Padding(
+//                   padding: const EdgeInsets.only(bottom: 40),
+//                   child: SingleChildScrollView(
+//                     child: Column(
+//                       children: [
+//                         if (widget.leading != null) widget.leading!,
+//                         TextArea(
+//                           focusNode: _focusNode,
+//                           editingController: _editingController,
+//                           hint: widget.hint,
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ),
+//                 SafeArea(
+//                   bottom: true,
+//                   child: Align(
+//                     alignment: Alignment.bottomCenter,
+//                     child: Container(
+//                       color: context.theme.colorScheme.surfaceContainerHighest,
+//                       width: double.maxFinite,
+//                       child: MarkdownToolbar(
+//                         controller: _editingController,
+//                         focusNode: _focusNode,
+//                       ),
+//                     ),
+//                   ),
+//                 )
+//               ],
+//             ),
+//             MarkdownWidget(
+//               data: _editingController.text,
+//               selectable: true,
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+//   bool onWillPop() {
+//     if (_pageController.page == _pageController.initialPage) {
+//       return true;
+//     } else {
+//       _pageController.previousPage(
+//         duration: const Duration(milliseconds: 200),
+//         curve: Curves.linear,
+//       );
+//       return false;
+//     }
+//   }
+
+//   (int start, int end) getSelectedText() {
+//     // print(_editingController.selection.extentOffset);
+//     int start = _editingController.selection.baseOffset <
+//             _editingController.selection.extentOffset
+//         ? _editingController.selection.baseOffset
+//         : _editingController.selection.extentOffset;
+
+//     var end = _editingController.selection.baseOffset >
+//             _editingController.selection.extentOffset
+//         ? _editingController.selection.baseOffset
+//         : _editingController.selection.extentOffset;
+
+//     return (
+//       start == -1 ? 0 : start,
+//       end == -1 ? 0 : end,
+//     );
+//   }
+
+//   void replaceAround(
+//       (int start, int end) range, String startStr, String endStr) {
+//     var text = _editingController.text.substring(range.$1, range.$2);
+//     _editingController.text = _editingController.text
+//         .replaceRange(range.$1, range.$2, '$startStr$text$endStr');
+
+//     if (text.isEmpty) {
+//       _editingController.selection = TextSelection.fromPosition(
+//           TextPosition(offset: range.$1 + startStr.length));
+//     }
+//   }
+// }
 
 class TextArea extends StatefulWidget {
   const TextArea({
@@ -314,5 +444,92 @@ class _PreviewButtonState extends State<_PreviewButton> {
           widget.editingController.text.length > 2 ? widget.onPressed : null,
       child: const Text("Preview"),
     );
+  }
+}
+
+class MarkdownToolbar extends StatelessWidget {
+  const MarkdownToolbar(
+      {super.key, required this.controller, required this.focusNode});
+
+  final TextEditingController controller;
+  final FocusNode focusNode;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedText(), "__", "__");
+            focusNode.requestFocus();
+          },
+          icon: const Icon(Icons.format_bold),
+        ),
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedText(), "_", "_");
+            focusNode.requestFocus();
+          },
+          icon: const Icon(Icons.format_italic),
+        ),
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedText(), "~~", "~~");
+            focusNode.requestFocus();
+          },
+          icon: const Icon(Icons.format_strikethrough),
+        ),
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedText(), "\n> ", "");
+            focusNode.requestFocus();
+          },
+          icon: const Icon(Icons.format_quote_sharp),
+        ),
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedText(), "\n# ", "");
+            focusNode.requestFocus();
+          },
+          icon: Text(
+            "H",
+            style: context.theme.textTheme.titleMedium?.copyWith(
+              color: context.theme.colorScheme.onSurfaceVariant,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  (int start, int end) getSelectedText() {
+    // print(_editingController.selection.extentOffset);
+    int start =
+        controller.selection.baseOffset < controller.selection.extentOffset
+            ? controller.selection.baseOffset
+            : controller.selection.extentOffset;
+
+    var end =
+        controller.selection.baseOffset > controller.selection.extentOffset
+            ? controller.selection.baseOffset
+            : controller.selection.extentOffset;
+
+    return (
+      start == -1 ? 0 : start,
+      end == -1 ? 0 : end,
+    );
+  }
+
+  void replaceAround(
+      (int start, int end) range, String startStr, String endStr) {
+    var text = controller.text.substring(range.$1, range.$2);
+    controller.text = controller.text
+        .replaceRange(range.$1, range.$2, '$startStr$text$endStr');
+
+    if (text.isEmpty) {
+      controller.selection = TextSelection.fromPosition(
+          TextPosition(offset: range.$1 + startStr.length));
+    }
   }
 }

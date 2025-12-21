@@ -21,7 +21,7 @@ class CharacterSearchScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
       GQLRequest(
         characterSearchQuery,
         parseData: Query$CharacterSearch.fromJson,

@@ -41,20 +41,24 @@ class Fragment$ReleasingMedia implements Fragment$MediaFragment {
       title: l$title == null
           ? null
           : Fragment$ReleasingMedia$title.fromJson(
-              (l$title as Map<String, dynamic>)),
+              (l$title as Map<String, dynamic>),
+            ),
       coverImage: l$coverImage == null
           ? null
           : Fragment$ReleasingMedia$coverImage.fromJson(
-              (l$coverImage as Map<String, dynamic>)),
+              (l$coverImage as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
       nextAiringEpisode: l$nextAiringEpisode == null
           ? null
           : Fragment$ReleasingMedia$nextAiringEpisode.fromJson(
-              (l$nextAiringEpisode as Map<String, dynamic>)),
+              (l$nextAiringEpisode as Map<String, dynamic>),
+            ),
       airingSchedule: l$airingSchedule == null
           ? null
           : Fragment$ReleasingMedia$airingSchedule.fromJson(
-              (l$airingSchedule as Map<String, dynamic>)),
+              (l$airingSchedule as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -91,8 +95,9 @@ class Fragment$ReleasingMedia implements Fragment$MediaFragment {
     final l$genres = genres;
     _resultData['genres'] = l$genres?.map((e) => e).toList();
     final l$format = format;
-    _resultData['format'] =
-        l$format == null ? null : toJson$Enum$MediaFormat(l$format);
+    _resultData['format'] = l$format == null
+        ? null
+        : toJson$Enum$MediaFormat(l$format);
     final l$description = description;
     _resultData['description'] = l$description;
     final l$title = title;
@@ -216,10 +221,7 @@ class Fragment$ReleasingMedia implements Fragment$MediaFragment {
 
 extension UtilityExtension$Fragment$ReleasingMedia on Fragment$ReleasingMedia {
   CopyWith$Fragment$ReleasingMedia<Fragment$ReleasingMedia> get copyWith =>
-      CopyWith$Fragment$ReleasingMedia(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$ReleasingMedia(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ReleasingMedia<TRes> {
@@ -247,16 +249,13 @@ abstract class CopyWith$Fragment$ReleasingMedia<TRes> {
   CopyWith$Fragment$ReleasingMedia$title<TRes> get title;
   CopyWith$Fragment$ReleasingMedia$coverImage<TRes> get coverImage;
   CopyWith$Fragment$ReleasingMedia$nextAiringEpisode<TRes>
-      get nextAiringEpisode;
+  get nextAiringEpisode;
   CopyWith$Fragment$ReleasingMedia$airingSchedule<TRes> get airingSchedule;
 }
 
 class _CopyWithImpl$Fragment$ReleasingMedia<TRes>
     implements CopyWith$Fragment$ReleasingMedia<TRes> {
-  _CopyWithImpl$Fragment$ReleasingMedia(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ReleasingMedia(this._instance, this._then);
 
   final Fragment$ReleasingMedia _instance;
 
@@ -276,43 +275,46 @@ class _CopyWithImpl$Fragment$ReleasingMedia<TRes>
     Object? $__typename = _undefined,
     Object? nextAiringEpisode = _undefined,
     Object? airingSchedule = _undefined,
-  }) =>
-      _then(Fragment$ReleasingMedia(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
-        isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
-        genres: genres == _undefined
-            ? _instance.genres
-            : (genres as List<String?>?),
-        format: format == _undefined
-            ? _instance.format
-            : (format as Enum$MediaFormat?),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Fragment$ReleasingMedia$title?),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage as Fragment$ReleasingMedia$coverImage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        nextAiringEpisode: nextAiringEpisode == _undefined
-            ? _instance.nextAiringEpisode
-            : (nextAiringEpisode as Fragment$ReleasingMedia$nextAiringEpisode?),
-        airingSchedule: airingSchedule == _undefined
-            ? _instance.airingSchedule
-            : (airingSchedule as Fragment$ReleasingMedia$airingSchedule?),
-      ));
+  }) => _then(
+    Fragment$ReleasingMedia(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
+      isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
+      genres: genres == _undefined
+          ? _instance.genres
+          : (genres as List<String?>?),
+      format: format == _undefined
+          ? _instance.format
+          : (format as Enum$MediaFormat?),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Fragment$ReleasingMedia$title?),
+      coverImage: coverImage == _undefined
+          ? _instance.coverImage
+          : (coverImage as Fragment$ReleasingMedia$coverImage?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      nextAiringEpisode: nextAiringEpisode == _undefined
+          ? _instance.nextAiringEpisode
+          : (nextAiringEpisode as Fragment$ReleasingMedia$nextAiringEpisode?),
+      airingSchedule: airingSchedule == _undefined
+          ? _instance.airingSchedule
+          : (airingSchedule as Fragment$ReleasingMedia$airingSchedule?),
+    ),
+  );
 
   CopyWith$Fragment$ReleasingMedia$title<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
         ? CopyWith$Fragment$ReleasingMedia$title.stub(_then(_instance))
         : CopyWith$Fragment$ReleasingMedia$title(
-            local$title, (e) => call(title: e));
+            local$title,
+            (e) => call(title: e),
+          );
   }
 
   CopyWith$Fragment$ReleasingMedia$coverImage<TRes> get coverImage {
@@ -320,17 +322,22 @@ class _CopyWithImpl$Fragment$ReleasingMedia<TRes>
     return local$coverImage == null
         ? CopyWith$Fragment$ReleasingMedia$coverImage.stub(_then(_instance))
         : CopyWith$Fragment$ReleasingMedia$coverImage(
-            local$coverImage, (e) => call(coverImage: e));
+            local$coverImage,
+            (e) => call(coverImage: e),
+          );
   }
 
   CopyWith$Fragment$ReleasingMedia$nextAiringEpisode<TRes>
-      get nextAiringEpisode {
+  get nextAiringEpisode {
     final local$nextAiringEpisode = _instance.nextAiringEpisode;
     return local$nextAiringEpisode == null
         ? CopyWith$Fragment$ReleasingMedia$nextAiringEpisode.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Fragment$ReleasingMedia$nextAiringEpisode(
-            local$nextAiringEpisode, (e) => call(nextAiringEpisode: e));
+            local$nextAiringEpisode,
+            (e) => call(nextAiringEpisode: e),
+          );
   }
 
   CopyWith$Fragment$ReleasingMedia$airingSchedule<TRes> get airingSchedule {
@@ -338,7 +345,9 @@ class _CopyWithImpl$Fragment$ReleasingMedia<TRes>
     return local$airingSchedule == null
         ? CopyWith$Fragment$ReleasingMedia$airingSchedule.stub(_then(_instance))
         : CopyWith$Fragment$ReleasingMedia$airingSchedule(
-            local$airingSchedule, (e) => call(airingSchedule: e));
+            local$airingSchedule,
+            (e) => call(airingSchedule: e),
+          );
   }
 }
 
@@ -360,8 +369,7 @@ class _CopyWithStubImpl$Fragment$ReleasingMedia<TRes>
     String? $__typename,
     Fragment$ReleasingMedia$nextAiringEpisode? nextAiringEpisode,
     Fragment$ReleasingMedia$airingSchedule? airingSchedule,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$ReleasingMedia$title<TRes> get title =>
       CopyWith$Fragment$ReleasingMedia$title.stub(_res);
@@ -370,8 +378,8 @@ class _CopyWithStubImpl$Fragment$ReleasingMedia<TRes>
       CopyWith$Fragment$ReleasingMedia$coverImage.stub(_res);
 
   CopyWith$Fragment$ReleasingMedia$nextAiringEpisode<TRes>
-      get nextAiringEpisode =>
-          CopyWith$Fragment$ReleasingMedia$nextAiringEpisode.stub(_res);
+  get nextAiringEpisode =>
+      CopyWith$Fragment$ReleasingMedia$nextAiringEpisode.stub(_res);
 
   CopyWith$Fragment$ReleasingMedia$airingSchedule<TRes> get airingSchedule =>
       CopyWith$Fragment$ReleasingMedia$airingSchedule.stub(_res);
@@ -380,104 +388,42 @@ class _CopyWithStubImpl$Fragment$ReleasingMedia<TRes>
 const fragmentDefinitionReleasingMedia = FragmentDefinitionNode(
   name: NameNode(value: 'ReleasingMedia'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Media'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Media'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FragmentSpreadNode(
-      name: NameNode(value: 'MediaFragment'),
-      directives: [],
-    ),
-    FieldNode(
-      name: NameNode(value: 'nextAiringEpisode'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'airingAt'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'timeUntilAiring'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'episode'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'airingSchedule'),
-      alias: null,
-      arguments: [
-        ArgumentNode(
-          name: NameNode(value: 'notYetAired'),
-          value: BooleanValueNode(value: false),
-        )
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'edges'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
+  selectionSet: SelectionSetNode(
+    selections: [
+      FragmentSpreadNode(
+        name: NameNode(value: 'MediaFragment'),
+        directives: [],
+      ),
+      FieldNode(
+        name: NameNode(value: 'nextAiringEpisode'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
             FieldNode(
-              name: NameNode(value: 'node'),
+              name: NameNode(value: 'airingAt'),
               alias: null,
               arguments: [],
               directives: [],
-              selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                  name: NameNode(value: 'airingAt'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-                FieldNode(
-                  name: NameNode(value: 'timeUntilAiring'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-                FieldNode(
-                  name: NameNode(value: 'episode'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-                FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null,
-                ),
-              ]),
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'timeUntilAiring'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'episode'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
             ),
             FieldNode(
               name: NameNode(value: '__typename'),
@@ -486,30 +432,102 @@ const fragmentDefinitionReleasingMedia = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'airingSchedule'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'notYetAired'),
+            value: BooleanValueNode(value: false),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'edges'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'node'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(
+                      selections: [
+                        FieldNode(
+                          name: NameNode(value: 'airingAt'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                        FieldNode(
+                          name: NameNode(value: 'timeUntilAiring'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                        FieldNode(
+                          name: NameNode(value: 'episode'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                        FieldNode(
+                          name: NameNode(value: '__typename'),
+                          alias: null,
+                          arguments: [],
+                          directives: [],
+                          selectionSet: null,
+                        ),
+                      ],
+                    ),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentReleasingMedia = DocumentNode(definitions: [
-  fragmentDefinitionReleasingMedia,
-  fragmentDefinitionMediaFragment,
-]);
+const documentNodeFragmentReleasingMedia = DocumentNode(
+  definitions: [
+    fragmentDefinitionReleasingMedia,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Fragment$ReleasingMedia$title implements Fragment$MediaFragment$title {
   Fragment$ReleasingMedia$title({
@@ -543,10 +561,7 @@ class Fragment$ReleasingMedia$title implements Fragment$MediaFragment$title {
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -575,10 +590,7 @@ class Fragment$ReleasingMedia$title implements Fragment$MediaFragment$title {
 extension UtilityExtension$Fragment$ReleasingMedia$title
     on Fragment$ReleasingMedia$title {
   CopyWith$Fragment$ReleasingMedia$title<Fragment$ReleasingMedia$title>
-      get copyWith => CopyWith$Fragment$ReleasingMedia$title(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$ReleasingMedia$title(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ReleasingMedia$title<TRes> {
@@ -590,18 +602,12 @@ abstract class CopyWith$Fragment$ReleasingMedia$title<TRes> {
   factory CopyWith$Fragment$ReleasingMedia$title.stub(TRes res) =
       _CopyWithStubImpl$Fragment$ReleasingMedia$title;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$ReleasingMedia$title<TRes>
     implements CopyWith$Fragment$ReleasingMedia$title<TRes> {
-  _CopyWithImpl$Fragment$ReleasingMedia$title(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ReleasingMedia$title(this._instance, this._then);
 
   final Fragment$ReleasingMedia$title _instance;
 
@@ -612,15 +618,16 @@ class _CopyWithImpl$Fragment$ReleasingMedia$title<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ReleasingMedia$title(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ReleasingMedia$title(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ReleasingMedia$title<TRes>
@@ -629,11 +636,7 @@ class _CopyWithStubImpl$Fragment$ReleasingMedia$title<TRes>
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }
 
 class Fragment$ReleasingMedia$coverImage
@@ -644,7 +647,8 @@ class Fragment$ReleasingMedia$coverImage
   });
 
   factory Fragment$ReleasingMedia$coverImage.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$extraLarge = json['extraLarge'];
     final l$$__typename = json['__typename'];
     return Fragment$ReleasingMedia$coverImage(
@@ -670,10 +674,7 @@ class Fragment$ReleasingMedia$coverImage
   int get hashCode {
     final l$extraLarge = extraLarge;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$extraLarge,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$extraLarge, l$$__typename]);
   }
 
   @override
@@ -702,11 +703,9 @@ class Fragment$ReleasingMedia$coverImage
 extension UtilityExtension$Fragment$ReleasingMedia$coverImage
     on Fragment$ReleasingMedia$coverImage {
   CopyWith$Fragment$ReleasingMedia$coverImage<
-          Fragment$ReleasingMedia$coverImage>
-      get copyWith => CopyWith$Fragment$ReleasingMedia$coverImage(
-            this,
-            (i) => i,
-          );
+    Fragment$ReleasingMedia$coverImage
+  >
+  get copyWith => CopyWith$Fragment$ReleasingMedia$coverImage(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ReleasingMedia$coverImage<TRes> {
@@ -718,18 +717,12 @@ abstract class CopyWith$Fragment$ReleasingMedia$coverImage<TRes> {
   factory CopyWith$Fragment$ReleasingMedia$coverImage.stub(TRes res) =
       _CopyWithStubImpl$Fragment$ReleasingMedia$coverImage;
 
-  TRes call({
-    String? extraLarge,
-    String? $__typename,
-  });
+  TRes call({String? extraLarge, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$ReleasingMedia$coverImage<TRes>
     implements CopyWith$Fragment$ReleasingMedia$coverImage<TRes> {
-  _CopyWithImpl$Fragment$ReleasingMedia$coverImage(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ReleasingMedia$coverImage(this._instance, this._then);
 
   final Fragment$ReleasingMedia$coverImage _instance;
 
@@ -740,15 +733,16 @@ class _CopyWithImpl$Fragment$ReleasingMedia$coverImage<TRes>
   TRes call({
     Object? extraLarge = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ReleasingMedia$coverImage(
-        extraLarge: extraLarge == _undefined
-            ? _instance.extraLarge
-            : (extraLarge as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ReleasingMedia$coverImage(
+      extraLarge: extraLarge == _undefined
+          ? _instance.extraLarge
+          : (extraLarge as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ReleasingMedia$coverImage<TRes>
@@ -757,11 +751,7 @@ class _CopyWithStubImpl$Fragment$ReleasingMedia$coverImage<TRes>
 
   TRes _res;
 
-  call({
-    String? extraLarge,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? extraLarge, String? $__typename}) => _res;
 }
 
 class Fragment$ReleasingMedia$nextAiringEpisode {
@@ -773,7 +763,8 @@ class Fragment$ReleasingMedia$nextAiringEpisode {
   });
 
   factory Fragment$ReleasingMedia$nextAiringEpisode.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$airingAt = json['airingAt'];
     final l$timeUntilAiring = json['timeUntilAiring'];
     final l$episode = json['episode'];
@@ -857,11 +848,10 @@ class Fragment$ReleasingMedia$nextAiringEpisode {
 extension UtilityExtension$Fragment$ReleasingMedia$nextAiringEpisode
     on Fragment$ReleasingMedia$nextAiringEpisode {
   CopyWith$Fragment$ReleasingMedia$nextAiringEpisode<
-          Fragment$ReleasingMedia$nextAiringEpisode>
-      get copyWith => CopyWith$Fragment$ReleasingMedia$nextAiringEpisode(
-            this,
-            (i) => i,
-          );
+    Fragment$ReleasingMedia$nextAiringEpisode
+  >
+  get copyWith =>
+      CopyWith$Fragment$ReleasingMedia$nextAiringEpisode(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ReleasingMedia$nextAiringEpisode<TRes> {
@@ -899,22 +889,22 @@ class _CopyWithImpl$Fragment$ReleasingMedia$nextAiringEpisode<TRes>
     Object? timeUntilAiring = _undefined,
     Object? episode = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ReleasingMedia$nextAiringEpisode(
-        airingAt: airingAt == _undefined || airingAt == null
-            ? _instance.airingAt
-            : (airingAt as int),
-        timeUntilAiring:
-            timeUntilAiring == _undefined || timeUntilAiring == null
-                ? _instance.timeUntilAiring
-                : (timeUntilAiring as int),
-        episode: episode == _undefined || episode == null
-            ? _instance.episode
-            : (episode as int),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ReleasingMedia$nextAiringEpisode(
+      airingAt: airingAt == _undefined || airingAt == null
+          ? _instance.airingAt
+          : (airingAt as int),
+      timeUntilAiring: timeUntilAiring == _undefined || timeUntilAiring == null
+          ? _instance.timeUntilAiring
+          : (timeUntilAiring as int),
+      episode: episode == _undefined || episode == null
+          ? _instance.episode
+          : (episode as int),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ReleasingMedia$nextAiringEpisode<TRes>
@@ -928,8 +918,7 @@ class _CopyWithStubImpl$Fragment$ReleasingMedia$nextAiringEpisode<TRes>
     int? timeUntilAiring,
     int? episode,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$ReleasingMedia$airingSchedule {
@@ -939,15 +928,19 @@ class Fragment$ReleasingMedia$airingSchedule {
   });
 
   factory Fragment$ReleasingMedia$airingSchedule.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$edges = json['edges'];
     final l$$__typename = json['__typename'];
     return Fragment$ReleasingMedia$airingSchedule(
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ReleasingMedia$airingSchedule$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ReleasingMedia$airingSchedule$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1013,11 +1006,10 @@ class Fragment$ReleasingMedia$airingSchedule {
 extension UtilityExtension$Fragment$ReleasingMedia$airingSchedule
     on Fragment$ReleasingMedia$airingSchedule {
   CopyWith$Fragment$ReleasingMedia$airingSchedule<
-          Fragment$ReleasingMedia$airingSchedule>
-      get copyWith => CopyWith$Fragment$ReleasingMedia$airingSchedule(
-            this,
-            (i) => i,
-          );
+    Fragment$ReleasingMedia$airingSchedule
+  >
+  get copyWith =>
+      CopyWith$Fragment$ReleasingMedia$airingSchedule(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ReleasingMedia$airingSchedule<TRes> {
@@ -1034,11 +1026,15 @@ abstract class CopyWith$Fragment$ReleasingMedia$airingSchedule<TRes> {
     String? $__typename,
   });
   TRes edges(
-      Iterable<Fragment$ReleasingMedia$airingSchedule$edges?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ReleasingMedia$airingSchedule$edges<
-                      Fragment$ReleasingMedia$airingSchedule$edges>?>?)
-          _fn);
+    Iterable<Fragment$ReleasingMedia$airingSchedule$edges?>? Function(
+      Iterable<
+        CopyWith$Fragment$ReleasingMedia$airingSchedule$edges<
+          Fragment$ReleasingMedia$airingSchedule$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Fragment$ReleasingMedia$airingSchedule<TRes>
@@ -1054,32 +1050,39 @@ class _CopyWithImpl$Fragment$ReleasingMedia$airingSchedule<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? edges = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ReleasingMedia$airingSchedule(
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges as List<Fragment$ReleasingMedia$airingSchedule$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? edges = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$ReleasingMedia$airingSchedule(
+          edges: edges == _undefined
+              ? _instance.edges
+              : (edges as List<Fragment$ReleasingMedia$airingSchedule$edges?>?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   TRes edges(
-          Iterable<Fragment$ReleasingMedia$airingSchedule$edges?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ReleasingMedia$airingSchedule$edges<
-                          Fragment$ReleasingMedia$airingSchedule$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ReleasingMedia$airingSchedule$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ReleasingMedia$airingSchedule$edges?>? Function(
+      Iterable<
+        CopyWith$Fragment$ReleasingMedia$airingSchedule$edges<
+          Fragment$ReleasingMedia$airingSchedule$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Fragment$ReleasingMedia$airingSchedule$edges(
+                e,
+                (i) => i,
+              ),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ReleasingMedia$airingSchedule<TRes>
@@ -1091,8 +1094,7 @@ class _CopyWithStubImpl$Fragment$ReleasingMedia$airingSchedule<TRes>
   call({
     List<Fragment$ReleasingMedia$airingSchedule$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   edges(_fn) => _res;
 }
@@ -1104,14 +1106,16 @@ class Fragment$ReleasingMedia$airingSchedule$edges {
   });
 
   factory Fragment$ReleasingMedia$airingSchedule$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$node = json['node'];
     final l$$__typename = json['__typename'];
     return Fragment$ReleasingMedia$airingSchedule$edges(
       node: l$node == null
           ? null
           : Fragment$ReleasingMedia$airingSchedule$edges$node.fromJson(
-              (l$node as Map<String, dynamic>)),
+              (l$node as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1133,10 +1137,7 @@ class Fragment$ReleasingMedia$airingSchedule$edges {
   int get hashCode {
     final l$node = node;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$node,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$node, l$$__typename]);
   }
 
   @override
@@ -1165,11 +1166,10 @@ class Fragment$ReleasingMedia$airingSchedule$edges {
 extension UtilityExtension$Fragment$ReleasingMedia$airingSchedule$edges
     on Fragment$ReleasingMedia$airingSchedule$edges {
   CopyWith$Fragment$ReleasingMedia$airingSchedule$edges<
-          Fragment$ReleasingMedia$airingSchedule$edges>
-      get copyWith => CopyWith$Fragment$ReleasingMedia$airingSchedule$edges(
-            this,
-            (i) => i,
-          );
+    Fragment$ReleasingMedia$airingSchedule$edges
+  >
+  get copyWith =>
+      CopyWith$Fragment$ReleasingMedia$airingSchedule$edges(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ReleasingMedia$airingSchedule$edges<TRes> {
@@ -1201,26 +1201,28 @@ class _CopyWithImpl$Fragment$ReleasingMedia$airingSchedule$edges<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? node = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ReleasingMedia$airingSchedule$edges(
-        node: node == _undefined
-            ? _instance.node
-            : (node as Fragment$ReleasingMedia$airingSchedule$edges$node?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? node = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$ReleasingMedia$airingSchedule$edges(
+          node: node == _undefined
+              ? _instance.node
+              : (node as Fragment$ReleasingMedia$airingSchedule$edges$node?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node<TRes> get node {
     final local$node = _instance.node;
     return local$node == null
         ? CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node(
-            local$node, (e) => call(node: e));
+            local$node,
+            (e) => call(node: e),
+          );
   }
 }
 
@@ -1233,8 +1235,7 @@ class _CopyWithStubImpl$Fragment$ReleasingMedia$airingSchedule$edges<TRes>
   call({
     Fragment$ReleasingMedia$airingSchedule$edges$node? node,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node<TRes> get node =>
       CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node.stub(_res);
@@ -1249,7 +1250,8 @@ class Fragment$ReleasingMedia$airingSchedule$edges$node {
   });
 
   factory Fragment$ReleasingMedia$airingSchedule$edges$node.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$airingAt = json['airingAt'];
     final l$timeUntilAiring = json['timeUntilAiring'];
     final l$episode = json['episode'];
@@ -1333,24 +1335,25 @@ class Fragment$ReleasingMedia$airingSchedule$edges$node {
 extension UtilityExtension$Fragment$ReleasingMedia$airingSchedule$edges$node
     on Fragment$ReleasingMedia$airingSchedule$edges$node {
   CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node<
-          Fragment$ReleasingMedia$airingSchedule$edges$node>
-      get copyWith =>
-          CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node(
-            this,
-            (i) => i,
-          );
+    Fragment$ReleasingMedia$airingSchedule$edges$node
+  >
+  get copyWith => CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node(
     Fragment$ReleasingMedia$airingSchedule$edges$node instance,
     TRes Function(Fragment$ReleasingMedia$airingSchedule$edges$node) then,
   ) = _CopyWithImpl$Fragment$ReleasingMedia$airingSchedule$edges$node;
 
   factory CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node.stub(
-          TRes res) =
-      _CopyWithStubImpl$Fragment$ReleasingMedia$airingSchedule$edges$node;
+    TRes res,
+  ) = _CopyWithStubImpl$Fragment$ReleasingMedia$airingSchedule$edges$node;
 
   TRes call({
     int? airingAt,
@@ -1379,29 +1382,30 @@ class _CopyWithImpl$Fragment$ReleasingMedia$airingSchedule$edges$node<TRes>
     Object? timeUntilAiring = _undefined,
     Object? episode = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ReleasingMedia$airingSchedule$edges$node(
-        airingAt: airingAt == _undefined || airingAt == null
-            ? _instance.airingAt
-            : (airingAt as int),
-        timeUntilAiring:
-            timeUntilAiring == _undefined || timeUntilAiring == null
-                ? _instance.timeUntilAiring
-                : (timeUntilAiring as int),
-        episode: episode == _undefined || episode == null
-            ? _instance.episode
-            : (episode as int),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ReleasingMedia$airingSchedule$edges$node(
+      airingAt: airingAt == _undefined || airingAt == null
+          ? _instance.airingAt
+          : (airingAt as int),
+      timeUntilAiring: timeUntilAiring == _undefined || timeUntilAiring == null
+          ? _instance.timeUntilAiring
+          : (timeUntilAiring as int),
+      episode: episode == _undefined || episode == null
+          ? _instance.episode
+          : (episode as int),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ReleasingMedia$airingSchedule$edges$node<TRes>
     implements
         CopyWith$Fragment$ReleasingMedia$airingSchedule$edges$node<TRes> {
   _CopyWithStubImpl$Fragment$ReleasingMedia$airingSchedule$edges$node(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
@@ -1410,6 +1414,5 @@ class _CopyWithStubImpl$Fragment$ReleasingMedia$airingSchedule$edges$node<TRes>
     int? timeUntilAiring,
     int? episode,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }

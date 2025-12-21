@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:gql_http_link/gql_http_link.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:myaniapp/background.dart';
@@ -23,7 +22,7 @@ import 'package:relative_time/relative_time.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
 
-late GraphqlClient c;
+late GraphqlClient gqlClient;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,11 +30,10 @@ void main() async {
   var instance = await SharedPreferences.getInstance();
   final appInfo = await PackageInfo.fromPlatform();
   await Hive.initFlutter();
-  GoRouter.optionURLReflectsImperativeAPIs = true;
 
   var box = await Hive.openBox("graphql");
 
-  c = GraphqlClient(
+  gqlClient = GraphqlClient(
     cache: Cache(store: HiveStore(box)),
     link: AuthLink(
       getToken: () async {
@@ -43,9 +41,7 @@ void main() async {
         return prefs.getString("token");
       },
       authHeader: "Authorization",
-    ).concat(
-      HttpLink("https://graphql.anilist.co"),
-    ),
+    ).concat(HttpLink("https://graphql.anilist.co")),
   );
 
   if (!kIsWeb) {
@@ -59,9 +55,7 @@ void main() async {
     Workmanager().registerPeriodicTask(
       'background-notifs',
       'simpleNotifsFetch',
-      constraints: Constraints(
-        networkType: NetworkType.connected,
-      ),
+      constraints: Constraints(networkType: NetworkType.connected),
       existingWorkPolicy: ExistingWorkPolicy.append,
     );
 
@@ -122,7 +116,9 @@ class _MainAppState extends ConsumerState<MainApp> {
           uri.path == "/auth") {
         var fragment = uri.fragment;
         var token = fragment.substring(
-            fragment.indexOf("=") + 1, fragment.indexOf("&"));
+          fragment.indexOf("=") + 1,
+          fragment.indexOf("&"),
+        );
 
         ref.read(settingsProvider.notifier).updateToken(token).then((value) {
           // router.navigate(const HomeRoute());
@@ -139,16 +135,21 @@ class _MainAppState extends ConsumerState<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    var themeMode =
-        ref.watch(settingsProvider.select((value) => value.themeMode));
-    var color =
-        ref.watch(settingsProvider.select((value) => value.primaryColor));
+    var themeMode = ref.watch(
+      settingsProvider.select((value) => value.themeMode),
+    );
+    var color = ref.watch(
+      settingsProvider.select((value) => value.primaryColor),
+    );
 
     return MaterialApp.router(
       routerConfig: goRouter,
-      localizationsDelegates: const [
-        RelativeTimeLocalizations.delegate,
-      ],
+      // routeInformationParser: QRouteInformationParser(),
+      // routerDelegate: QRouterDelegate(
+      //   QAppRouter().routes,
+      //   withWebBar: kDebugMode,
+      // ),
+      localizationsDelegates: const [RelativeTimeLocalizations.delegate],
       themeMode: themeMode,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(color),
@@ -160,29 +161,29 @@ class _MainAppState extends ConsumerState<MainApp> {
 
 class AppTheme {
   static ThemeData dark(Color? seed) => ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: seed ?? Colors.blue,
-          brightness: Brightness.dark,
-        ),
-        tabBarTheme: const TabBarThemeData(tabAlignment: TabAlignment.start),
-      );
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: seed ?? Colors.blue,
+      brightness: Brightness.dark,
+    ),
+    tabBarTheme: const TabBarThemeData(tabAlignment: TabAlignment.start),
+  );
 
   static ThemeData light(Color? seed) => ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: seed ?? Colors.blue,
-          brightness: Brightness.light,
-        ),
-        tabBarTheme: const TabBarThemeData(tabAlignment: TabAlignment.start),
-      );
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: seed ?? Colors.blue,
+      brightness: Brightness.light,
+    ),
+    tabBarTheme: const TabBarThemeData(tabAlignment: TabAlignment.start),
+  );
 }
 
 class _ScrollBehavior extends MaterialScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {
-        PointerDeviceKind.touch,
-        PointerDeviceKind.mouse,
-        PointerDeviceKind.stylus,
-        PointerDeviceKind.invertedStylus,
-        PointerDeviceKind.trackpad,
-      };
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.stylus,
+    PointerDeviceKind.invertedStylus,
+    PointerDeviceKind.trackpad,
+  };
 }

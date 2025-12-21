@@ -4,10 +4,7 @@ import 'fragments/user.graphql.dart';
 import 'package:gql/ast.dart';
 
 class Variables$Query$UserReviews {
-  factory Variables$Query$UserReviews({
-    int? userId,
-    int? page,
-  }) =>
+  factory Variables$Query$UserReviews({int? userId, int? page}) =>
       Variables$Query$UserReviews._({
         if (userId != null) r'userId': userId,
         if (page != null) r'page': page,
@@ -48,10 +45,7 @@ class Variables$Query$UserReviews {
   }
 
   CopyWith$Variables$Query$UserReviews<Variables$Query$UserReviews>
-      get copyWith => CopyWith$Variables$Query$UserReviews(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$UserReviews(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -101,18 +95,12 @@ abstract class CopyWith$Variables$Query$UserReviews<TRes> {
   factory CopyWith$Variables$Query$UserReviews.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$UserReviews;
 
-  TRes call({
-    int? userId,
-    int? page,
-  });
+  TRes call({int? userId, int? page});
 }
 
 class _CopyWithImpl$Variables$Query$UserReviews<TRes>
     implements CopyWith$Variables$Query$UserReviews<TRes> {
-  _CopyWithImpl$Variables$Query$UserReviews(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$UserReviews(this._instance, this._then);
 
   final Variables$Query$UserReviews _instance;
 
@@ -120,15 +108,13 @@ class _CopyWithImpl$Variables$Query$UserReviews<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? userId = _undefined,
-    Object? page = _undefined,
-  }) =>
-      _then(Variables$Query$UserReviews._({
-        ..._instance._$data,
-        if (userId != _undefined) 'userId': (userId as int?),
-        if (page != _undefined) 'page': (page as int?),
-      }));
+  TRes call({Object? userId = _undefined, Object? page = _undefined}) => _then(
+    Variables$Query$UserReviews._({
+      ..._instance._$data,
+      if (userId != _undefined) 'userId': (userId as int?),
+      if (page != _undefined) 'page': (page as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$UserReviews<TRes>
@@ -137,18 +123,11 @@ class _CopyWithStubImpl$Variables$Query$UserReviews<TRes>
 
   TRes _res;
 
-  call({
-    int? userId,
-    int? page,
-  }) =>
-      _res;
+  call({int? userId, int? page}) => _res;
 }
 
 class Query$UserReviews {
-  Query$UserReviews({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$UserReviews({this.Page, this.$__typename = 'Query'});
 
   factory Query$UserReviews.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -178,10 +157,7 @@ class Query$UserReviews {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -208,10 +184,7 @@ class Query$UserReviews {
 
 extension UtilityExtension$Query$UserReviews on Query$UserReviews {
   CopyWith$Query$UserReviews<Query$UserReviews> get copyWith =>
-      CopyWith$Query$UserReviews(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$UserReviews(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserReviews<TRes> {
@@ -223,19 +196,13 @@ abstract class CopyWith$Query$UserReviews<TRes> {
   factory CopyWith$Query$UserReviews.stub(TRes res) =
       _CopyWithStubImpl$Query$UserReviews;
 
-  TRes call({
-    Query$UserReviews$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$UserReviews$Page? Page, String? $__typename});
   CopyWith$Query$UserReviews$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$UserReviews<TRes>
     implements CopyWith$Query$UserReviews<TRes> {
-  _CopyWithImpl$Query$UserReviews(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserReviews(this._instance, this._then);
 
   final Query$UserReviews _instance;
 
@@ -243,18 +210,17 @@ class _CopyWithImpl$Query$UserReviews<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserReviews(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$UserReviews$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$UserReviews(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$UserReviews$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$UserReviews$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -270,99 +236,106 @@ class _CopyWithStubImpl$Query$UserReviews<TRes>
 
   TRes _res;
 
-  call({
-    Query$UserReviews$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$UserReviews$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$UserReviews$Page<TRes> get Page =>
       CopyWith$Query$UserReviews$Page.stub(_res);
 }
 
-const documentNodeQueryUserReviews = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'UserReviews'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryUserReviews = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'UserReviews'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'userId')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'reviews'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'userId'),
-                value: VariableNode(name: NameNode(value: 'userId')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ReviewFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'reviews'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'userId'),
+                      value: VariableNode(name: NameNode(value: 'userId')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ReviewFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -371,21 +344,14 @@ const documentNodeQueryUserReviews = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionReviewFragment,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionReviewFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$UserReviews$Page {
   Query$UserReviews$Page({
@@ -403,9 +369,11 @@ class Query$UserReviews$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       reviews: (l$reviews as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ReviewFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ReviewFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -480,10 +448,7 @@ class Query$UserReviews$Page {
 
 extension UtilityExtension$Query$UserReviews$Page on Query$UserReviews$Page {
   CopyWith$Query$UserReviews$Page<Query$UserReviews$Page> get copyWith =>
-      CopyWith$Query$UserReviews$Page(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$UserReviews$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserReviews$Page<TRes> {
@@ -502,18 +467,16 @@ abstract class CopyWith$Query$UserReviews$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes reviews(
-      Iterable<Fragment$ReviewFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ReviewFragment<Fragment$ReviewFragment>?>?)
-          _fn);
+    Iterable<Fragment$ReviewFragment?>? Function(
+      Iterable<CopyWith$Fragment$ReviewFragment<Fragment$ReviewFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserReviews$Page<TRes>
     implements CopyWith$Query$UserReviews$Page<TRes> {
-  _CopyWithImpl$Query$UserReviews$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserReviews$Page(this._instance, this._then);
 
   final Query$UserReviews$Page _instance;
 
@@ -525,18 +488,19 @@ class _CopyWithImpl$Query$UserReviews$Page<TRes>
     Object? pageInfo = _undefined,
     Object? reviews = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserReviews$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        reviews: reviews == _undefined
-            ? _instance.reviews
-            : (reviews as List<Fragment$ReviewFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserReviews$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      reviews: reviews == _undefined
+          ? _instance.reviews
+          : (reviews as List<Fragment$ReviewFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -546,18 +510,17 @@ class _CopyWithImpl$Query$UserReviews$Page<TRes>
   }
 
   TRes reviews(
-          Iterable<Fragment$ReviewFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ReviewFragment<
-                          Fragment$ReviewFragment>?>?)
-              _fn) =>
-      call(
-          reviews: _fn(_instance.reviews?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ReviewFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ReviewFragment?>? Function(
+      Iterable<CopyWith$Fragment$ReviewFragment<Fragment$ReviewFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    reviews: _fn(
+      _instance.reviews?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ReviewFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserReviews$Page<TRes>
@@ -570,8 +533,7 @@ class _CopyWithStubImpl$Query$UserReviews$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$ReviewFragment?>? reviews,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);

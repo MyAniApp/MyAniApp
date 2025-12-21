@@ -82,8 +82,9 @@ class Fragment$TextActivity {
     final l$userId = userId;
     _resultData['userId'] = l$userId;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$replyCount = replyCount;
     _resultData['replyCount'] = l$replyCount;
     final l$text = text;
@@ -209,10 +210,7 @@ class Fragment$TextActivity {
 
 extension UtilityExtension$Fragment$TextActivity on Fragment$TextActivity {
   CopyWith$Fragment$TextActivity<Fragment$TextActivity> get copyWith =>
-      CopyWith$Fragment$TextActivity(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$TextActivity(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$TextActivity<TRes> {
@@ -243,10 +241,7 @@ abstract class CopyWith$Fragment$TextActivity<TRes> {
 
 class _CopyWithImpl$Fragment$TextActivity<TRes>
     implements CopyWith$Fragment$TextActivity<TRes> {
-  _CopyWithImpl$Fragment$TextActivity(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$TextActivity(this._instance, this._then);
 
   final Fragment$TextActivity _instance;
 
@@ -267,35 +262,36 @@ class _CopyWithImpl$Fragment$TextActivity<TRes>
     Object? createdAt = _undefined,
     Object? user = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$TextActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        text: text == _undefined ? _instance.text : (text as String?),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$TextActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      userId: userId == _undefined ? _instance.userId : (userId as int?),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      replyCount: replyCount == _undefined || replyCount == null
+          ? _instance.replyCount
+          : (replyCount as int),
+      text: text == _undefined ? _instance.text : (text as String?),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      isSubscribed: isSubscribed == _undefined
+          ? _instance.isSubscribed
+          : (isSubscribed as bool?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -324,8 +320,7 @@ class _CopyWithStubImpl$Fragment$TextActivity<TRes>
     int? createdAt,
     Fragment$UserFragment? user,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get user =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -334,111 +329,112 @@ class _CopyWithStubImpl$Fragment$TextActivity<TRes>
 const fragmentDefinitionTextActivity = FragmentDefinitionNode(
   name: NameNode(value: 'TextActivity'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'TextActivity'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'TextActivity'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'userId'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'type'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'replyCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'text'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isLocked'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isSubscribed'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isLiked'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'likeCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'createdAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'user'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'UserFragment'),
-          directives: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'userId'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'type'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'replyCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'text'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isLocked'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isSubscribed'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isLiked'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'likeCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'createdAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'user'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'UserFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentTextActivity = DocumentNode(definitions: [
-  fragmentDefinitionTextActivity,
-  fragmentDefinitionUserFragment,
-]);
+const documentNodeFragmentTextActivity = DocumentNode(
+  definitions: [fragmentDefinitionTextActivity, fragmentDefinitionUserFragment],
+);

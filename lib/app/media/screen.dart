@@ -25,8 +25,12 @@ import 'package:myaniapp/providers/user.dart';
 import 'package:mygraphql/graphql.dart';
 
 class MediaScreen extends StatefulHookWidget {
-  const MediaScreen(
-      {super.key, required this.id, required this.tab, this.placeholder});
+  const MediaScreen({
+    super.key,
+    required this.id,
+    required this.tab,
+    this.placeholder,
+  });
 
   final int id;
   final String tab;
@@ -39,8 +43,10 @@ class MediaScreen extends StatefulHookWidget {
 class _MediaScreenState extends State<MediaScreen>
     with SingleTickerProviderStateMixin {
   List<(Widget, String)> tabs = [];
-  late final TabController _tabController =
-      TabController(length: 7, vsync: this);
+  late final TabController _tabController = TabController(
+    length: 7,
+    vsync: this,
+  );
 
   // just keeps the url with the tab for web users
   void updateTab() {
@@ -51,12 +57,20 @@ class _MediaScreenState extends State<MediaScreen>
   }
 
   @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      mediaQuery,
-      variables: Variables$Query$Media(id: widget.id).toJson(),
-      parseData: Query$Media.fromJson,
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        mediaQuery,
+        variables: Variables$Query$Media(id: widget.id).toJson(),
+        parseData: Query$Media.fromJson,
+      ),
+    );
 
     useEffect(() {
       if (snapshot.parsedData != null) _buildTabs(snapshot.parsedData!.Media!);
@@ -78,8 +92,8 @@ class _MediaScreenState extends State<MediaScreen>
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         body: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            MediaScreenAppBar(
-              data: snapshot.parsedData?.Media!,
+            MediaAppBar(
+              media: snapshot.parsedData?.Media!,
               tab: _tabController,
               tabs: tabs,
               placeholder: widget.placeholder,
@@ -90,9 +104,7 @@ class _MediaScreenState extends State<MediaScreen>
                   child: TabBar(
                     isScrollable: true,
                     controller: _tabController,
-                    tabs: [
-                      for (var tab in tabs) Tab(text: tab.$2),
-                    ],
+                    tabs: [for (var tab in tabs) Tab(text: tab.$2)],
                   ),
                 ),
               ),
@@ -102,9 +114,7 @@ class _MediaScreenState extends State<MediaScreen>
             response: snapshot,
             builder: () => TabBarView(
               controller: _tabController,
-              children: [
-                for (var tab in tabs) tab.$1,
-              ],
+              children: [for (var tab in tabs) tab.$1],
             ),
           ),
         ),
@@ -120,7 +130,7 @@ class _MediaScreenState extends State<MediaScreen>
       (MediaSimilarTab(mediaId: media.id), "Similar"),
       (MediaCharactersTab(mediaId: media.id), "Characters"),
       (MediaStaffTab(mediaId: media.id), "Staff"),
-      (MediaThreadsTab(mediaId: media.id), "Threads")
+      (MediaThreadsTab(mediaId: media.id), "Threads"),
     ];
   }
 }
@@ -155,9 +165,11 @@ class FloatingButtons extends ConsumerWidget {
                 onSave: onUpdate,
                 onDelete: onUpdate,
               ),
-              label: Text(media.mediaListEntry != null
-                  ? media.mediaListEntry!.status!.name.capitalize()
-                  : "Add to list"),
+              label: Text(
+                media.mediaListEntry != null
+                    ? media.mediaListEntry!.status!.name.capitalize()
+                    : "Add to list",
+              ),
             ),
           ),
           const SizedBox(width: 10),
@@ -165,19 +177,21 @@ class FloatingButtons extends ConsumerWidget {
             heroTag: null,
             onPressed: media.isFavouriteBlocked
                 ? null
-                : () => c
-                    .query(GQLRequest(
-                      toggleFavoriteQuery,
-                      variables: media.type == Enum$MediaType.ANIME
-                          ? Variables$Mutation$ToggleFavorite(
-                              animeId: media.id,
-                            ).toJson()
-                          : Variables$Mutation$ToggleFavorite(
-                              mangaId: media.id,
-                            ).toJson(),
-                    ))
-                    .last
-                    .then((_) => onUpdate()),
+                : () => gqlClient
+                      .query(
+                        GQLRequest(
+                          toggleFavoriteQuery,
+                          variables: media.type == Enum$MediaType.ANIME
+                              ? Variables$Mutation$ToggleFavorite(
+                                  animeId: media.id,
+                                ).toJson()
+                              : Variables$Mutation$ToggleFavorite(
+                                  mangaId: media.id,
+                                ).toJson(),
+                        ),
+                      )
+                      .last
+                      .then((_) => onUpdate()),
             label: Icon(
               Icons.favorite,
               color: media.isFavourite ? Colors.red[200] : null,

@@ -4,11 +4,7 @@ import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
 
 class Query$GenreCollection {
-  Query$GenreCollection({
-    this.genres,
-    this.tags,
-    this.$__typename = 'Query',
-  });
+  Query$GenreCollection({this.genres, this.tags, this.$__typename = 'Query'});
 
   factory Query$GenreCollection.fromJson(Map<String, dynamic> json) {
     final l$genres = json['genres'];
@@ -17,10 +13,13 @@ class Query$GenreCollection {
     return Query$GenreCollection(
       genres: (l$genres as List<dynamic>?)?.map((e) => (e as String?)).toList(),
       tags: (l$tags as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$GenreCollection$tags.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$GenreCollection$tags.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -106,10 +105,7 @@ class Query$GenreCollection {
 
 extension UtilityExtension$Query$GenreCollection on Query$GenreCollection {
   CopyWith$Query$GenreCollection<Query$GenreCollection> get copyWith =>
-      CopyWith$Query$GenreCollection(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$GenreCollection(this, (i) => i);
 }
 
 abstract class CopyWith$Query$GenreCollection<TRes> {
@@ -127,19 +123,18 @@ abstract class CopyWith$Query$GenreCollection<TRes> {
     String? $__typename,
   });
   TRes tags(
-      Iterable<Query$GenreCollection$tags?>? Function(
-              Iterable<
-                  CopyWith$Query$GenreCollection$tags<
-                      Query$GenreCollection$tags>?>?)
-          _fn);
+    Iterable<Query$GenreCollection$tags?>? Function(
+      Iterable<
+        CopyWith$Query$GenreCollection$tags<Query$GenreCollection$tags>?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$GenreCollection<TRes>
     implements CopyWith$Query$GenreCollection<TRes> {
-  _CopyWithImpl$Query$GenreCollection(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$GenreCollection(this._instance, this._then);
 
   final Query$GenreCollection _instance;
 
@@ -151,32 +146,35 @@ class _CopyWithImpl$Query$GenreCollection<TRes>
     Object? genres = _undefined,
     Object? tags = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GenreCollection(
-        genres: genres == _undefined
-            ? _instance.genres
-            : (genres as List<String?>?),
-        tags: tags == _undefined
-            ? _instance.tags
-            : (tags as List<Query$GenreCollection$tags?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GenreCollection(
+      genres: genres == _undefined
+          ? _instance.genres
+          : (genres as List<String?>?),
+      tags: tags == _undefined
+          ? _instance.tags
+          : (tags as List<Query$GenreCollection$tags?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes tags(
-          Iterable<Query$GenreCollection$tags?>? Function(
-                  Iterable<
-                      CopyWith$Query$GenreCollection$tags<
-                          Query$GenreCollection$tags>?>?)
-              _fn) =>
-      call(
-          tags: _fn(_instance.tags?.map((e) => e == null
-              ? null
-              : CopyWith$Query$GenreCollection$tags(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$GenreCollection$tags?>? Function(
+      Iterable<
+        CopyWith$Query$GenreCollection$tags<Query$GenreCollection$tags>?
+      >?,
+    )
+    _fn,
+  ) => call(
+    tags: _fn(
+      _instance.tags?.map(
+        (e) =>
+            e == null ? null : CopyWith$Query$GenreCollection$tags(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$GenreCollection<TRes>
@@ -189,59 +187,71 @@ class _CopyWithStubImpl$Query$GenreCollection<TRes>
     List<String?>? genres,
     List<Query$GenreCollection$tags?>? tags,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   tags(_fn) => _res;
 }
 
-const documentNodeQueryGenreCollection = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'GenreCollection'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'GenreCollection'),
-        alias: NameNode(value: 'genres'),
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-      FieldNode(
-        name: NameNode(value: 'MediaTagCollection'),
-        alias: NameNode(value: 'tags'),
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryGenreCollection = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'GenreCollection'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'name'),
-            alias: null,
+            name: NameNode(value: 'GenreCollection'),
+            alias: NameNode(value: 'genres'),
             arguments: [],
             directives: [],
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'description'),
-            alias: null,
+            name: NameNode(value: 'MediaTagCollection'),
+            alias: NameNode(value: 'tags'),
             arguments: [],
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'category'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'isAdult'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'name'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'description'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'category'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'isAdult'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -250,18 +260,11 @@ const documentNodeQueryGenreCollection = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 
 class Query$GenreCollection$tags {
   Query$GenreCollection$tags({
@@ -369,10 +372,7 @@ class Query$GenreCollection$tags {
 extension UtilityExtension$Query$GenreCollection$tags
     on Query$GenreCollection$tags {
   CopyWith$Query$GenreCollection$tags<Query$GenreCollection$tags>
-      get copyWith => CopyWith$Query$GenreCollection$tags(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$GenreCollection$tags(this, (i) => i);
 }
 
 abstract class CopyWith$Query$GenreCollection$tags<TRes> {
@@ -395,10 +395,7 @@ abstract class CopyWith$Query$GenreCollection$tags<TRes> {
 
 class _CopyWithImpl$Query$GenreCollection$tags<TRes>
     implements CopyWith$Query$GenreCollection$tags<TRes> {
-  _CopyWithImpl$Query$GenreCollection$tags(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$GenreCollection$tags(this._instance, this._then);
 
   final Query$GenreCollection$tags _instance;
 
@@ -412,21 +409,23 @@ class _CopyWithImpl$Query$GenreCollection$tags<TRes>
     Object? category = _undefined,
     Object? isAdult = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GenreCollection$tags(
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        category:
-            category == _undefined ? _instance.category : (category as String?),
-        isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$GenreCollection$tags(
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      category: category == _undefined
+          ? _instance.category
+          : (category as String?),
+      isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$GenreCollection$tags<TRes>
@@ -441,8 +440,7 @@ class _CopyWithStubImpl$Query$GenreCollection$tags<TRes>
     String? category,
     bool? isAdult,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Variables$Query$Search {
@@ -464,26 +462,25 @@ class Variables$Query$Search {
     bool? isAdult,
     bool? onList,
     String? countryOfOrigin,
-  }) =>
-      Variables$Query$Search._({
-        if (page != null) r'page': page,
-        if (perPage != null) r'perPage': perPage,
-        if (type != null) r'type': type,
-        if (format != null) r'format': format,
-        if (sort != null) r'sort': sort,
-        if (season != null) r'season': season,
-        if (seasonYear != null) r'seasonYear': seasonYear,
-        if (search != null) r'search': search,
-        if (year != null) r'year': year,
-        if (yearGreater != null) r'yearGreater': yearGreater,
-        if (yearLesser != null) r'yearLesser': yearLesser,
-        if (genres != null) r'genres': genres,
-        if (with_tags != null) r'with_tags': with_tags,
-        if (without_tags != null) r'without_tags': without_tags,
-        if (isAdult != null) r'isAdult': isAdult,
-        if (onList != null) r'onList': onList,
-        if (countryOfOrigin != null) r'countryOfOrigin': countryOfOrigin,
-      });
+  }) => Variables$Query$Search._({
+    if (page != null) r'page': page,
+    if (perPage != null) r'perPage': perPage,
+    if (type != null) r'type': type,
+    if (format != null) r'format': format,
+    if (sort != null) r'sort': sort,
+    if (season != null) r'season': season,
+    if (seasonYear != null) r'seasonYear': seasonYear,
+    if (search != null) r'search': search,
+    if (year != null) r'year': year,
+    if (yearGreater != null) r'yearGreater': yearGreater,
+    if (yearLesser != null) r'yearLesser': yearLesser,
+    if (genres != null) r'genres': genres,
+    if (with_tags != null) r'with_tags': with_tags,
+    if (without_tags != null) r'without_tags': without_tags,
+    if (isAdult != null) r'isAdult': isAdult,
+    if (onList != null) r'onList': onList,
+    if (countryOfOrigin != null) r'countryOfOrigin': countryOfOrigin,
+  });
 
   Variables$Query$Search._(this._$data);
 
@@ -499,21 +496,24 @@ class Variables$Query$Search {
     }
     if (data.containsKey('type')) {
       final l$type = data['type'];
-      result$data['type'] =
-          l$type == null ? null : fromJson$Enum$MediaType((l$type as String));
+      result$data['type'] = l$type == null
+          ? null
+          : fromJson$Enum$MediaType((l$type as String));
     }
     if (data.containsKey('format')) {
       final l$format = data['format'];
       result$data['format'] = (l$format as List<dynamic>?)
-          ?.map((e) =>
-              e == null ? null : fromJson$Enum$MediaFormat((e as String)))
+          ?.map(
+            (e) => e == null ? null : fromJson$Enum$MediaFormat((e as String)),
+          )
           .toList();
     }
     if (data.containsKey('sort')) {
       final l$sort = data['sort'];
       result$data['sort'] = (l$sort as List<dynamic>?)
           ?.map(
-              (e) => e == null ? null : fromJson$Enum$MediaSort((e as String)))
+            (e) => e == null ? null : fromJson$Enum$MediaSort((e as String)),
+          )
           .toList();
     }
     if (data.containsKey('season')) {
@@ -544,13 +544,15 @@ class Variables$Query$Search {
     }
     if (data.containsKey('genres')) {
       final l$genres = data['genres'];
-      result$data['genres'] =
-          (l$genres as List<dynamic>?)?.map((e) => (e as String?)).toList();
+      result$data['genres'] = (l$genres as List<dynamic>?)
+          ?.map((e) => (e as String?))
+          .toList();
     }
     if (data.containsKey('with_tags')) {
       final l$with_tags = data['with_tags'];
-      result$data['with_tags'] =
-          (l$with_tags as List<dynamic>?)?.map((e) => (e as String?)).toList();
+      result$data['with_tags'] = (l$with_tags as List<dynamic>?)
+          ?.map((e) => (e as String?))
+          .toList();
     }
     if (data.containsKey('without_tags')) {
       final l$without_tags = data['without_tags'];
@@ -622,8 +624,9 @@ class Variables$Query$Search {
     }
     if (_$data.containsKey('type')) {
       final l$type = type;
-      result$data['type'] =
-          l$type == null ? null : toJson$Enum$MediaType(l$type);
+      result$data['type'] = l$type == null
+          ? null
+          : toJson$Enum$MediaType(l$type);
     }
     if (_$data.containsKey('format')) {
       final l$format = format;
@@ -639,8 +642,9 @@ class Variables$Query$Search {
     }
     if (_$data.containsKey('season')) {
       final l$season = season;
-      result$data['season'] =
-          l$season == null ? null : toJson$Enum$MediaSeason(l$season);
+      result$data['season'] = l$season == null
+          ? null
+          : toJson$Enum$MediaSeason(l$season);
     }
     if (_$data.containsKey('seasonYear')) {
       final l$seasonYear = seasonYear;
@@ -690,10 +694,7 @@ class Variables$Query$Search {
   }
 
   CopyWith$Variables$Query$Search<Variables$Query$Search> get copyWith =>
-      CopyWith$Variables$Query$Search(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$Search(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -928,13 +929,13 @@ class Variables$Query$Search {
       _$data.containsKey('type') ? l$type : const {},
       _$data.containsKey('format')
           ? l$format == null
-              ? null
-              : Object.hashAll(l$format.map((v) => v))
+                ? null
+                : Object.hashAll(l$format.map((v) => v))
           : const {},
       _$data.containsKey('sort')
           ? l$sort == null
-              ? null
-              : Object.hashAll(l$sort.map((v) => v))
+                ? null
+                : Object.hashAll(l$sort.map((v) => v))
           : const {},
       _$data.containsKey('season') ? l$season : const {},
       _$data.containsKey('seasonYear') ? l$seasonYear : const {},
@@ -944,18 +945,18 @@ class Variables$Query$Search {
       _$data.containsKey('yearLesser') ? l$yearLesser : const {},
       _$data.containsKey('genres')
           ? l$genres == null
-              ? null
-              : Object.hashAll(l$genres.map((v) => v))
+                ? null
+                : Object.hashAll(l$genres.map((v) => v))
           : const {},
       _$data.containsKey('with_tags')
           ? l$with_tags == null
-              ? null
-              : Object.hashAll(l$with_tags.map((v) => v))
+                ? null
+                : Object.hashAll(l$with_tags.map((v) => v))
           : const {},
       _$data.containsKey('without_tags')
           ? l$without_tags == null
-              ? null
-              : Object.hashAll(l$without_tags.map((v) => v))
+                ? null
+                : Object.hashAll(l$without_tags.map((v) => v))
           : const {},
       _$data.containsKey('isAdult') ? l$isAdult : const {},
       _$data.containsKey('onList') ? l$onList : const {},
@@ -996,10 +997,7 @@ abstract class CopyWith$Variables$Query$Search<TRes> {
 
 class _CopyWithImpl$Variables$Query$Search<TRes>
     implements CopyWith$Variables$Query$Search<TRes> {
-  _CopyWithImpl$Variables$Query$Search(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Search(this._instance, this._then);
 
   final Variables$Query$Search _instance;
 
@@ -1025,30 +1023,30 @@ class _CopyWithImpl$Variables$Query$Search<TRes>
     Object? isAdult = _undefined,
     Object? onList = _undefined,
     Object? countryOfOrigin = _undefined,
-  }) =>
-      _then(Variables$Query$Search._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-        if (perPage != _undefined) 'perPage': (perPage as int?),
-        if (type != _undefined) 'type': (type as Enum$MediaType?),
-        if (format != _undefined)
-          'format': (format as List<Enum$MediaFormat?>?),
-        if (sort != _undefined) 'sort': (sort as List<Enum$MediaSort?>?),
-        if (season != _undefined) 'season': (season as Enum$MediaSeason?),
-        if (seasonYear != _undefined) 'seasonYear': (seasonYear as int?),
-        if (search != _undefined) 'search': (search as String?),
-        if (year != _undefined) 'year': (year as String?),
-        if (yearGreater != _undefined) 'yearGreater': (yearGreater as String?),
-        if (yearLesser != _undefined) 'yearLesser': (yearLesser as String?),
-        if (genres != _undefined) 'genres': (genres as List<String?>?),
-        if (with_tags != _undefined) 'with_tags': (with_tags as List<String?>?),
-        if (without_tags != _undefined)
-          'without_tags': (without_tags as List<String?>?),
-        if (isAdult != _undefined) 'isAdult': (isAdult as bool?),
-        if (onList != _undefined) 'onList': (onList as bool?),
-        if (countryOfOrigin != _undefined)
-          'countryOfOrigin': (countryOfOrigin as String?),
-      }));
+  }) => _then(
+    Variables$Query$Search._({
+      ..._instance._$data,
+      if (page != _undefined) 'page': (page as int?),
+      if (perPage != _undefined) 'perPage': (perPage as int?),
+      if (type != _undefined) 'type': (type as Enum$MediaType?),
+      if (format != _undefined) 'format': (format as List<Enum$MediaFormat?>?),
+      if (sort != _undefined) 'sort': (sort as List<Enum$MediaSort?>?),
+      if (season != _undefined) 'season': (season as Enum$MediaSeason?),
+      if (seasonYear != _undefined) 'seasonYear': (seasonYear as int?),
+      if (search != _undefined) 'search': (search as String?),
+      if (year != _undefined) 'year': (year as String?),
+      if (yearGreater != _undefined) 'yearGreater': (yearGreater as String?),
+      if (yearLesser != _undefined) 'yearLesser': (yearLesser as String?),
+      if (genres != _undefined) 'genres': (genres as List<String?>?),
+      if (with_tags != _undefined) 'with_tags': (with_tags as List<String?>?),
+      if (without_tags != _undefined)
+        'without_tags': (without_tags as List<String?>?),
+      if (isAdult != _undefined) 'isAdult': (isAdult as bool?),
+      if (onList != _undefined) 'onList': (onList as bool?),
+      if (countryOfOrigin != _undefined)
+        'countryOfOrigin': (countryOfOrigin as String?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Search<TRes>
@@ -1075,15 +1073,11 @@ class _CopyWithStubImpl$Variables$Query$Search<TRes>
     bool? isAdult,
     bool? onList,
     String? countryOfOrigin,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Search {
-  Query$Search({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$Search({this.Page, this.$__typename = 'Query'});
 
   factory Query$Search.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -1113,10 +1107,7 @@ class Query$Search {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -1142,10 +1133,8 @@ class Query$Search {
 }
 
 extension UtilityExtension$Query$Search on Query$Search {
-  CopyWith$Query$Search<Query$Search> get copyWith => CopyWith$Query$Search(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Search<Query$Search> get copyWith =>
+      CopyWith$Query$Search(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Search<TRes> {
@@ -1156,18 +1145,12 @@ abstract class CopyWith$Query$Search<TRes> {
 
   factory CopyWith$Query$Search.stub(TRes res) = _CopyWithStubImpl$Query$Search;
 
-  TRes call({
-    Query$Search$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$Search$Page? Page, String? $__typename});
   CopyWith$Query$Search$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$Search<TRes> implements CopyWith$Query$Search<TRes> {
-  _CopyWithImpl$Query$Search(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Search(this._instance, this._then);
 
   final Query$Search _instance;
 
@@ -1175,17 +1158,17 @@ class _CopyWithImpl$Query$Search<TRes> implements CopyWith$Query$Search<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search(
-        Page:
-            Page == _undefined ? _instance.Page : (Page as Query$Search$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Search(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$Search$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$Search$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -1201,309 +1184,320 @@ class _CopyWithStubImpl$Query$Search<TRes>
 
   TRes _res;
 
-  call({
-    Query$Search$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$Search$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$Search$Page<TRes> get Page =>
       CopyWith$Query$Search$Page.stub(_res);
 }
 
-const documentNodeQuerySearch = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Search'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQuerySearch = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Search'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'perPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'perPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'type')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MediaType'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'format')),
-        type: ListTypeNode(
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'type')),
           type: NamedTypeNode(
-            name: NameNode(value: 'MediaFormat'),
+            name: NameNode(value: 'MediaType'),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'sort')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'MediaSort'),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'format')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'MediaFormat'),
+              isNonNull: false,
+            ),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(
-            value: ListValueNode(values: [
-          EnumValueNode(name: NameNode(value: 'POPULARITY_DESC')),
-          EnumValueNode(name: NameNode(value: 'SCORE_DESC')),
-        ])),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'season')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MediaSeason'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'sort')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'MediaSort'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(
+            value: ListValueNode(
+              values: [
+                EnumValueNode(name: NameNode(value: 'POPULARITY_DESC')),
+                EnumValueNode(name: NameNode(value: 'SCORE_DESC')),
+              ],
+            ),
+          ),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'seasonYear')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'season')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaSeason'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'search')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'seasonYear')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'year')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'yearGreater')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'FuzzyDateInt'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'yearLesser')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'FuzzyDateInt'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'genres')),
-        type: ListTypeNode(
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'search')),
           type: NamedTypeNode(
             name: NameNode(value: 'String'),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'with_tags')),
-        type: ListTypeNode(
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'year')),
           type: NamedTypeNode(
             name: NameNode(value: 'String'),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'without_tags')),
-        type: ListTypeNode(
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'yearGreater')),
           type: NamedTypeNode(
-            name: NameNode(value: 'String'),
+            name: NameNode(value: 'FuzzyDateInt'),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'isAdult')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'onList')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'countryOfOrigin')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'CountryCode'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'yearLesser')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'FuzzyDateInt'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: VariableNode(name: NameNode(value: 'perPage')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'genres')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'String'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
           ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'with_tags')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'String'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'without_tags')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'String'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'isAdult')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'onList')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'countryOfOrigin')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'CountryCode'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'media'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'isAdult'),
-                value: VariableNode(name: NameNode(value: 'isAdult')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
               ArgumentNode(
-                name: NameNode(value: 'type'),
-                value: VariableNode(name: NameNode(value: 'type')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: VariableNode(name: NameNode(value: 'sort')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'format_in'),
-                value: VariableNode(name: NameNode(value: 'format')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'season'),
-                value: VariableNode(name: NameNode(value: 'season')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'seasonYear'),
-                value: VariableNode(name: NameNode(value: 'seasonYear')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'startDate_like'),
-                value: VariableNode(name: NameNode(value: 'year')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'startDate_greater'),
-                value: VariableNode(name: NameNode(value: 'yearGreater')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'startDate_lesser'),
-                value: VariableNode(name: NameNode(value: 'yearLesser')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'search'),
-                value: VariableNode(name: NameNode(value: 'search')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'genre_in'),
-                value: VariableNode(name: NameNode(value: 'genres')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'tag_in'),
-                value: VariableNode(name: NameNode(value: 'with_tags')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'tag_not_in'),
-                value: VariableNode(name: NameNode(value: 'without_tags')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'onList'),
-                value: VariableNode(name: NameNode(value: 'onList')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'countryOfOrigin'),
-                value: VariableNode(name: NameNode(value: 'countryOfOrigin')),
+                name: NameNode(value: 'perPage'),
+                value: VariableNode(name: NameNode(value: 'perPage')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MediaFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'media'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'isAdult'),
+                      value: VariableNode(name: NameNode(value: 'isAdult')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'type'),
+                      value: VariableNode(name: NameNode(value: 'type')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: VariableNode(name: NameNode(value: 'sort')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'format_in'),
+                      value: VariableNode(name: NameNode(value: 'format')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'season'),
+                      value: VariableNode(name: NameNode(value: 'season')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'seasonYear'),
+                      value: VariableNode(name: NameNode(value: 'seasonYear')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'startDate_like'),
+                      value: VariableNode(name: NameNode(value: 'year')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'startDate_greater'),
+                      value: VariableNode(name: NameNode(value: 'yearGreater')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'startDate_lesser'),
+                      value: VariableNode(name: NameNode(value: 'yearLesser')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'search'),
+                      value: VariableNode(name: NameNode(value: 'search')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'genre_in'),
+                      value: VariableNode(name: NameNode(value: 'genres')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'tag_in'),
+                      value: VariableNode(name: NameNode(value: 'with_tags')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'tag_not_in'),
+                      value: VariableNode(
+                        name: NameNode(value: 'without_tags'),
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'onList'),
+                      value: VariableNode(name: NameNode(value: 'onList')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'countryOfOrigin'),
+                      value: VariableNode(
+                        name: NameNode(value: 'countryOfOrigin'),
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'MediaFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1512,27 +1506,16 @@ const documentNodeQuerySearch = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Query$Search$Page {
-  Query$Search$Page({
-    this.pageInfo,
-    this.media,
-    this.$__typename = 'Page',
-  });
+  Query$Search$Page({this.pageInfo, this.media, this.$__typename = 'Page'});
 
   factory Query$Search$Page.fromJson(Map<String, dynamic> json) {
     final l$pageInfo = json['pageInfo'];
@@ -1543,9 +1526,11 @@ class Query$Search$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       media: (l$media as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1620,10 +1605,7 @@ class Query$Search$Page {
 
 extension UtilityExtension$Query$Search$Page on Query$Search$Page {
   CopyWith$Query$Search$Page<Query$Search$Page> get copyWith =>
-      CopyWith$Query$Search$Page(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Search$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Search$Page<TRes> {
@@ -1642,18 +1624,16 @@ abstract class CopyWith$Query$Search$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes media(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Search$Page<TRes>
     implements CopyWith$Query$Search$Page<TRes> {
-  _CopyWithImpl$Query$Search$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Search$Page(this._instance, this._then);
 
   final Query$Search$Page _instance;
 
@@ -1665,18 +1645,19 @@ class _CopyWithImpl$Query$Search$Page<TRes>
     Object? pageInfo = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Search$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as List<Fragment$MediaFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Search$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      media: media == _undefined
+          ? _instance.media
+          : (media as List<Fragment$MediaFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -1686,18 +1667,17 @@ class _CopyWithImpl$Query$Search$Page<TRes>
   }
 
   TRes media(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          media: _fn(_instance.media?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    media: _fn(
+      _instance.media?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Search$Page<TRes>
@@ -1710,8 +1690,7 @@ class _CopyWithStubImpl$Query$Search$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$MediaFragment?>? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);

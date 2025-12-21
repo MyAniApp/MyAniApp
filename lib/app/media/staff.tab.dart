@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/pagination.dart';
+import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/media_staff.graphql.dart';
@@ -20,66 +21,83 @@ class MediaStaffTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      mediaStaffQuery,
-      variables: Variables$Query$MediaStaff(mediaId: mediaId).toJson(),
-      parseData: Query$MediaStaff.fromJson,
-      mergeResults: defaultMergeResults("Media.staff.edges"),
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        mediaStaffQuery,
+        variables: Variables$Query$MediaStaff(mediaId: mediaId).toJson(),
+        parseData: Query$MediaStaff.fromJson,
+        mergeResults: defaultMergeResults("Media.staff.edges"),
+      ),
+    );
 
     return GQLWidget(
       refetch: refetch,
       response: snapshot,
-      builder: () => PaginationView.list(
-        pageInfo: snapshot.parsedData!.Media!.staff!.pageInfo!,
-        req: (nextPage) => fetchMore(
-            variables:
-                Variables$Query$MediaStaff.fromJson(snapshot.request!.variables)
-                    .copyWith(page: nextPage)
-                    .toJson()),
-        builder: (context, index) {
-          var staff = snapshot.parsedData!.Media!.staff!.edges![index]!;
+      builder: () => Show(
+        when: snapshot.parsedData!.Media!.staff!.edges!.isNotEmpty,
+        fallback: Center(child: Text("No staff")),
+        child: () => PaginationView.grid(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 500,
+            mainAxisExtent: 130,
+          ),
+          pageInfo: snapshot.parsedData!.Media!.staff!.pageInfo!,
+          req: (nextPage) => fetchMore(
+            variables: Variables$Query$MediaStaff.fromJson(
+              snapshot.request!.variables,
+            ).copyWith(page: nextPage).toJson(),
+          ),
+          itemBuilder: (context, index) {
+            var staff = snapshot.parsedData!.Media!.staff!.edges![index]!;
 
-          return Card.outlined(
-            child: InkWellImage(
-              onTap: () => context.push(Routes.staff(staff.node!.id),
-                  extra: {"placeholder": staff.node}),
-              borderRadius: imageRadius,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: imageRadius,
-                    child: CachedImage(
-                      staff.node!.image!.large!,
-                      height: 150,
-                      width: 100,
-                      fit: BoxFit.fill,
+            return Card(
+              child: InkWellImage(
+                onTap: () => context.push(
+                  Routes.staff(staff.node!.id),
+                  extra: {"placeholder": staff.node},
+                ),
+                borderRadius: imageRadius,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: imageRadius,
+                      child: CachedImage(
+                        staff.node!.image!.large!,
+                        height: double.maxFinite,
+                        width: 90,
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          staff.node!.name!.userPreferred!,
-                          style: context.theme.textTheme.labelLarge,
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              staff.node!.name!.userPreferred!,
+                              style: context.theme.textTheme.labelLarge,
+                            ),
+                            if (staff.role != null)
+                              Tooltip(
+                                message: staff.role!,
+                                child: Text(
+                                  staff.role!,
+                                  style: context.theme.textTheme.labelMedium,
+                                ),
+                              ),
+                          ],
                         ),
-                        if (staff.role != null)
-                          Text(
-                            staff.role!,
-                            style: context.theme.textTheme.labelMedium,
-                          )
-                      ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          );
-        },
-        itemCount: snapshot.parsedData!.Media!.staff!.edges!.length,
+            );
+          },
+          itemCount: snapshot.parsedData!.Media!.staff!.edges!.length,
+        ),
       ),
     );
   }

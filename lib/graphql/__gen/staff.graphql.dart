@@ -12,13 +12,12 @@ class Variables$Query$Staff {
     bool? onList,
     int? characterPage,
     int? staffPage,
-  }) =>
-      Variables$Query$Staff._({
-        if (id != null) r'id': id,
-        if (onList != null) r'onList': onList,
-        if (characterPage != null) r'characterPage': characterPage,
-        if (staffPage != null) r'staffPage': staffPage,
-      });
+  }) => Variables$Query$Staff._({
+    if (id != null) r'id': id,
+    if (onList != null) r'onList': onList,
+    if (characterPage != null) r'characterPage': characterPage,
+    if (staffPage != null) r'staffPage': staffPage,
+  });
 
   Variables$Query$Staff._(this._$data);
 
@@ -75,10 +74,7 @@ class Variables$Query$Staff {
   }
 
   CopyWith$Variables$Query$Staff<Variables$Query$Staff> get copyWith =>
-      CopyWith$Variables$Query$Staff(
-        this,
-        (i) => i,
-      );
+      CopyWith$Variables$Query$Staff(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -149,20 +145,12 @@ abstract class CopyWith$Variables$Query$Staff<TRes> {
   factory CopyWith$Variables$Query$Staff.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$Staff;
 
-  TRes call({
-    int? id,
-    bool? onList,
-    int? characterPage,
-    int? staffPage,
-  });
+  TRes call({int? id, bool? onList, int? characterPage, int? staffPage});
 }
 
 class _CopyWithImpl$Variables$Query$Staff<TRes>
     implements CopyWith$Variables$Query$Staff<TRes> {
-  _CopyWithImpl$Variables$Query$Staff(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$Staff(this._instance, this._then);
 
   final Variables$Query$Staff _instance;
 
@@ -175,15 +163,15 @@ class _CopyWithImpl$Variables$Query$Staff<TRes>
     Object? onList = _undefined,
     Object? characterPage = _undefined,
     Object? staffPage = _undefined,
-  }) =>
-      _then(Variables$Query$Staff._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-        if (onList != _undefined) 'onList': (onList as bool?),
-        if (characterPage != _undefined)
-          'characterPage': (characterPage as int?),
-        if (staffPage != _undefined) 'staffPage': (staffPage as int?),
-      }));
+  }) => _then(
+    Variables$Query$Staff._({
+      ..._instance._$data,
+      if (id != _undefined) 'id': (id as int?),
+      if (onList != _undefined) 'onList': (onList as bool?),
+      if (characterPage != _undefined) 'characterPage': (characterPage as int?),
+      if (staffPage != _undefined) 'staffPage': (staffPage as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$Staff<TRes>
@@ -192,20 +180,11 @@ class _CopyWithStubImpl$Variables$Query$Staff<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    bool? onList,
-    int? characterPage,
-    int? staffPage,
-  }) =>
-      _res;
+  call({int? id, bool? onList, int? characterPage, int? staffPage}) => _res;
 }
 
 class Query$Staff {
-  Query$Staff({
-    this.Staff,
-    this.$__typename = 'Query',
-  });
+  Query$Staff({this.Staff, this.$__typename = 'Query'});
 
   factory Query$Staff.fromJson(Map<String, dynamic> json) {
     final l$Staff = json['Staff'];
@@ -235,10 +214,7 @@ class Query$Staff {
   int get hashCode {
     final l$Staff = Staff;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Staff,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Staff, l$$__typename]);
   }
 
   @override
@@ -264,10 +240,8 @@ class Query$Staff {
 }
 
 extension UtilityExtension$Query$Staff on Query$Staff {
-  CopyWith$Query$Staff<Query$Staff> get copyWith => CopyWith$Query$Staff(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Staff<Query$Staff> get copyWith =>
+      CopyWith$Query$Staff(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Staff<TRes> {
@@ -278,18 +252,12 @@ abstract class CopyWith$Query$Staff<TRes> {
 
   factory CopyWith$Query$Staff.stub(TRes res) = _CopyWithStubImpl$Query$Staff;
 
-  TRes call({
-    Query$Staff$Staff? Staff,
-    String? $__typename,
-  });
+  TRes call({Query$Staff$Staff? Staff, String? $__typename});
   CopyWith$Query$Staff$Staff<TRes> get Staff;
 }
 
 class _CopyWithImpl$Query$Staff<TRes> implements CopyWith$Query$Staff<TRes> {
-  _CopyWithImpl$Query$Staff(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Staff(this._instance, this._then);
 
   final Query$Staff _instance;
 
@@ -297,18 +265,17 @@ class _CopyWithImpl$Query$Staff<TRes> implements CopyWith$Query$Staff<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Staff = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff(
-        Staff: Staff == _undefined
-            ? _instance.Staff
-            : (Staff as Query$Staff$Staff?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Staff = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Staff(
+          Staff: Staff == _undefined
+              ? _instance.Staff
+              : (Staff as Query$Staff$Staff?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$Staff$Staff<TRes> get Staff {
     final local$Staff = _instance.Staff;
@@ -324,260 +291,410 @@ class _CopyWithStubImpl$Query$Staff<TRes>
 
   TRes _res;
 
-  call({
-    Query$Staff$Staff? Staff,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$Staff$Staff? Staff, String? $__typename}) => _res;
 
   CopyWith$Query$Staff$Staff<TRes> get Staff =>
       CopyWith$Query$Staff$Staff.stub(_res);
 }
 
-const documentNodeQueryStaff = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Staff'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryStaff = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Staff'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'onList')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'onList')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'characterPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'characterPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'staffPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'staffPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Staff'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'StaffFragment'),
-            directives: [],
-          ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'description'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'gender'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'languageV2'),
-            alias: NameNode(value: 'language'),
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'dateOfBirth'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'FuzzyDate'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'dateOfDeath'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'FuzzyDate'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'age'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'yearsActive'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'homeTown'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'bloodType'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'favourites'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'isFavourite'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'isFavouriteBlocked'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'characterMedia'),
+            name: NameNode(value: 'Staff'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'page'),
-                value: VariableNode(name: NameNode(value: 'characterPage')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'onList'),
-                value: VariableNode(name: NameNode(value: 'onList')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'START_DATE_DESC'))
-                ]),
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'pageInfo'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'PageInfo'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'edges'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'node'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'StaffFragment'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: 'description'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'gender'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'languageV2'),
+                  alias: NameNode(value: 'language'),
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'dateOfBirth'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
+                        name: NameNode(value: 'FuzzyDate'),
                         directives: [],
                       ),
                       FieldNode(
-                        name: NameNode(value: 'startDate'),
+                        name: NameNode(value: '__typename'),
                         alias: null,
                         arguments: [],
                         directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FieldNode(
-                            name: NameNode(value: 'year'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'dateOfDeath'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'FuzzyDate'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'age'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'yearsActive'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'homeTown'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'bloodType'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'favourites'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'isFavourite'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'isFavouriteBlocked'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'characterMedia'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'page'),
+                      value: VariableNode(
+                        name: NameNode(value: 'characterPage'),
+                      ),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'onList'),
+                      value: VariableNode(name: NameNode(value: 'onList')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(
+                            name: NameNode(value: 'START_DATE_DESC'),
                           ),
-                          FieldNode(
-                            name: NameNode(value: '__typename'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null,
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'pageInfo'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'PageInfo'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'edges'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'node'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: 'startDate'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: SelectionSetNode(
+                                      selections: [
+                                        FieldNode(
+                                          name: NameNode(value: 'year'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null,
+                                        ),
+                                        FieldNode(
+                                          name: NameNode(value: '__typename'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'characters'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'CharacterFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'staffMedia'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'page'),
+                      value: VariableNode(name: NameNode(value: 'staffPage')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'onList'),
+                      value: VariableNode(name: NameNode(value: 'onList')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: ListValueNode(
+                        values: [
+                          EnumValueNode(
+                            name: NameNode(value: 'START_DATE_DESC'),
                           ),
-                        ]),
+                        ],
+                      ),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'pageInfo'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'PageInfo'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'edges'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FieldNode(
+                              name: NameNode(value: 'node'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: SelectionSetNode(
+                                selections: [
+                                  FragmentSpreadNode(
+                                    name: NameNode(value: 'MediaFragment'),
+                                    directives: [],
+                                  ),
+                                  FieldNode(
+                                    name: NameNode(value: '__typename'),
+                                    alias: null,
+                                    arguments: [],
+                                    directives: [],
+                                    selectionSet: null,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            FieldNode(
+                              name: NameNode(value: 'staffRole'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
                       ),
                       FieldNode(
                         name: NameNode(value: '__typename'),
@@ -586,134 +703,18 @@ const documentNodeQueryStaff = DocumentNode(definitions: [
                         directives: [],
                         selectionSet: null,
                       ),
-                    ]),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: 'characters'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'CharacterFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'staffMedia'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'page'),
-                value: VariableNode(name: NameNode(value: 'staffPage')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'onList'),
-                value: VariableNode(name: NameNode(value: 'onList')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'START_DATE_DESC'))
-                ]),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'pageInfo'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'PageInfo'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'edges'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'node'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FragmentSpreadNode(
-                        name: NameNode(value: 'MediaFragment'),
-                        directives: [],
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'staffRole'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -722,23 +723,16 @@ const documentNodeQueryStaff = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionStaffFragment,
-  fragmentDefinitionFuzzyDate,
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionCharacterFragment,
-]);
+    ),
+    fragmentDefinitionStaffFragment,
+    fragmentDefinitionFuzzyDate,
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionCharacterFragment,
+  ],
+);
 
 class Query$Staff$Staff implements Fragment$StaffFragment {
   Query$Staff$Staff({
@@ -796,14 +790,17 @@ class Query$Staff$Staff implements Fragment$StaffFragment {
       dateOfBirth: l$dateOfBirth == null
           ? null
           : Fragment$FuzzyDate.fromJson(
-              (l$dateOfBirth as Map<String, dynamic>)),
+              (l$dateOfBirth as Map<String, dynamic>),
+            ),
       dateOfDeath: l$dateOfDeath == null
           ? null
           : Fragment$FuzzyDate.fromJson(
-              (l$dateOfDeath as Map<String, dynamic>)),
+              (l$dateOfDeath as Map<String, dynamic>),
+            ),
       age: (l$age as int?),
-      yearsActive:
-          (l$yearsActive as List<dynamic>?)?.map((e) => (e as int?)).toList(),
+      yearsActive: (l$yearsActive as List<dynamic>?)
+          ?.map((e) => (e as int?))
+          .toList(),
       homeTown: (l$homeTown as String?),
       bloodType: (l$bloodType as String?),
       favourites: (l$favourites as int?),
@@ -812,11 +809,13 @@ class Query$Staff$Staff implements Fragment$StaffFragment {
       characterMedia: l$characterMedia == null
           ? null
           : Query$Staff$Staff$characterMedia.fromJson(
-              (l$characterMedia as Map<String, dynamic>)),
+              (l$characterMedia as Map<String, dynamic>),
+            ),
       staffMedia: l$staffMedia == null
           ? null
           : Query$Staff$Staff$staffMedia.fromJson(
-              (l$staffMedia as Map<String, dynamic>)),
+              (l$staffMedia as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -1056,10 +1055,7 @@ class Query$Staff$Staff implements Fragment$StaffFragment {
 
 extension UtilityExtension$Query$Staff$Staff on Query$Staff$Staff {
   CopyWith$Query$Staff$Staff<Query$Staff$Staff> get copyWith =>
-      CopyWith$Query$Staff$Staff(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Staff$Staff(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Staff$Staff<TRes> {
@@ -1101,10 +1097,7 @@ abstract class CopyWith$Query$Staff$Staff<TRes> {
 
 class _CopyWithImpl$Query$Staff$Staff<TRes>
     implements CopyWith$Query$Staff$Staff<TRes> {
-  _CopyWithImpl$Query$Staff$Staff(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Staff$Staff(this._instance, this._then);
 
   final Query$Staff$Staff _instance;
 
@@ -1131,56 +1124,59 @@ class _CopyWithImpl$Query$Staff$Staff<TRes>
     Object? isFavouriteBlocked = _undefined,
     Object? characterMedia = _undefined,
     Object? staffMedia = _undefined,
-  }) =>
-      _then(Query$Staff$Staff(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined
-            ? _instance.name
-            : (name as Query$Staff$Staff$name?),
-        image: image == _undefined
-            ? _instance.image
-            : (image as Query$Staff$Staff$image?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        gender: gender == _undefined ? _instance.gender : (gender as String?),
-        language:
-            language == _undefined ? _instance.language : (language as String?),
-        dateOfBirth: dateOfBirth == _undefined
-            ? _instance.dateOfBirth
-            : (dateOfBirth as Fragment$FuzzyDate?),
-        dateOfDeath: dateOfDeath == _undefined
-            ? _instance.dateOfDeath
-            : (dateOfDeath as Fragment$FuzzyDate?),
-        age: age == _undefined ? _instance.age : (age as int?),
-        yearsActive: yearsActive == _undefined
-            ? _instance.yearsActive
-            : (yearsActive as List<int?>?),
-        homeTown:
-            homeTown == _undefined ? _instance.homeTown : (homeTown as String?),
-        bloodType: bloodType == _undefined
-            ? _instance.bloodType
-            : (bloodType as String?),
-        favourites: favourites == _undefined
-            ? _instance.favourites
-            : (favourites as int?),
-        isFavourite: isFavourite == _undefined || isFavourite == null
-            ? _instance.isFavourite
-            : (isFavourite as bool),
-        isFavouriteBlocked:
-            isFavouriteBlocked == _undefined || isFavouriteBlocked == null
-                ? _instance.isFavouriteBlocked
-                : (isFavouriteBlocked as bool),
-        characterMedia: characterMedia == _undefined
-            ? _instance.characterMedia
-            : (characterMedia as Query$Staff$Staff$characterMedia?),
-        staffMedia: staffMedia == _undefined
-            ? _instance.staffMedia
-            : (staffMedia as Query$Staff$Staff$staffMedia?),
-      ));
+  }) => _then(
+    Query$Staff$Staff(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined
+          ? _instance.name
+          : (name as Query$Staff$Staff$name?),
+      image: image == _undefined
+          ? _instance.image
+          : (image as Query$Staff$Staff$image?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      gender: gender == _undefined ? _instance.gender : (gender as String?),
+      language: language == _undefined
+          ? _instance.language
+          : (language as String?),
+      dateOfBirth: dateOfBirth == _undefined
+          ? _instance.dateOfBirth
+          : (dateOfBirth as Fragment$FuzzyDate?),
+      dateOfDeath: dateOfDeath == _undefined
+          ? _instance.dateOfDeath
+          : (dateOfDeath as Fragment$FuzzyDate?),
+      age: age == _undefined ? _instance.age : (age as int?),
+      yearsActive: yearsActive == _undefined
+          ? _instance.yearsActive
+          : (yearsActive as List<int?>?),
+      homeTown: homeTown == _undefined
+          ? _instance.homeTown
+          : (homeTown as String?),
+      bloodType: bloodType == _undefined
+          ? _instance.bloodType
+          : (bloodType as String?),
+      favourites: favourites == _undefined
+          ? _instance.favourites
+          : (favourites as int?),
+      isFavourite: isFavourite == _undefined || isFavourite == null
+          ? _instance.isFavourite
+          : (isFavourite as bool),
+      isFavouriteBlocked:
+          isFavouriteBlocked == _undefined || isFavouriteBlocked == null
+          ? _instance.isFavouriteBlocked
+          : (isFavouriteBlocked as bool),
+      characterMedia: characterMedia == _undefined
+          ? _instance.characterMedia
+          : (characterMedia as Query$Staff$Staff$characterMedia?),
+      staffMedia: staffMedia == _undefined
+          ? _instance.staffMedia
+          : (staffMedia as Query$Staff$Staff$staffMedia?),
+    ),
+  );
 
   CopyWith$Query$Staff$Staff$name<TRes> get name {
     final local$name = _instance.name;
@@ -1201,7 +1197,9 @@ class _CopyWithImpl$Query$Staff$Staff<TRes>
     return local$dateOfBirth == null
         ? CopyWith$Fragment$FuzzyDate.stub(_then(_instance))
         : CopyWith$Fragment$FuzzyDate(
-            local$dateOfBirth, (e) => call(dateOfBirth: e));
+            local$dateOfBirth,
+            (e) => call(dateOfBirth: e),
+          );
   }
 
   CopyWith$Fragment$FuzzyDate<TRes> get dateOfDeath {
@@ -1209,7 +1207,9 @@ class _CopyWithImpl$Query$Staff$Staff<TRes>
     return local$dateOfDeath == null
         ? CopyWith$Fragment$FuzzyDate.stub(_then(_instance))
         : CopyWith$Fragment$FuzzyDate(
-            local$dateOfDeath, (e) => call(dateOfDeath: e));
+            local$dateOfDeath,
+            (e) => call(dateOfDeath: e),
+          );
   }
 
   CopyWith$Query$Staff$Staff$characterMedia<TRes> get characterMedia {
@@ -1217,7 +1217,9 @@ class _CopyWithImpl$Query$Staff$Staff<TRes>
     return local$characterMedia == null
         ? CopyWith$Query$Staff$Staff$characterMedia.stub(_then(_instance))
         : CopyWith$Query$Staff$Staff$characterMedia(
-            local$characterMedia, (e) => call(characterMedia: e));
+            local$characterMedia,
+            (e) => call(characterMedia: e),
+          );
   }
 
   CopyWith$Query$Staff$Staff$staffMedia<TRes> get staffMedia {
@@ -1225,7 +1227,9 @@ class _CopyWithImpl$Query$Staff$Staff<TRes>
     return local$staffMedia == null
         ? CopyWith$Query$Staff$Staff$staffMedia.stub(_then(_instance))
         : CopyWith$Query$Staff$Staff$staffMedia(
-            local$staffMedia, (e) => call(staffMedia: e));
+            local$staffMedia,
+            (e) => call(staffMedia: e),
+          );
   }
 }
 
@@ -1254,8 +1258,7 @@ class _CopyWithStubImpl$Query$Staff$Staff<TRes>
     bool? isFavouriteBlocked,
     Query$Staff$Staff$characterMedia? characterMedia,
     Query$Staff$Staff$staffMedia? staffMedia,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Staff$Staff$name<TRes> get name =>
       CopyWith$Query$Staff$Staff$name.stub(_res);
@@ -1277,10 +1280,7 @@ class _CopyWithStubImpl$Query$Staff$Staff<TRes>
 }
 
 class Query$Staff$Staff$name implements Fragment$StaffFragment$name {
-  Query$Staff$Staff$name({
-    this.userPreferred,
-    this.$__typename = 'StaffName',
-  });
+  Query$Staff$Staff$name({this.userPreferred, this.$__typename = 'StaffName'});
 
   factory Query$Staff$Staff$name.fromJson(Map<String, dynamic> json) {
     final l$userPreferred = json['userPreferred'];
@@ -1308,10 +1308,7 @@ class Query$Staff$Staff$name implements Fragment$StaffFragment$name {
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -1338,10 +1335,7 @@ class Query$Staff$Staff$name implements Fragment$StaffFragment$name {
 
 extension UtilityExtension$Query$Staff$Staff$name on Query$Staff$Staff$name {
   CopyWith$Query$Staff$Staff$name<Query$Staff$Staff$name> get copyWith =>
-      CopyWith$Query$Staff$Staff$name(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Staff$Staff$name(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Staff$Staff$name<TRes> {
@@ -1353,18 +1347,12 @@ abstract class CopyWith$Query$Staff$Staff$name<TRes> {
   factory CopyWith$Query$Staff$Staff$name.stub(TRes res) =
       _CopyWithStubImpl$Query$Staff$Staff$name;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Staff$Staff$name<TRes>
     implements CopyWith$Query$Staff$Staff$name<TRes> {
-  _CopyWithImpl$Query$Staff$Staff$name(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Staff$Staff$name(this._instance, this._then);
 
   final Query$Staff$Staff$name _instance;
 
@@ -1375,15 +1363,16 @@ class _CopyWithImpl$Query$Staff$Staff$name<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$name(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Staff$Staff$name(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Staff$Staff$name<TRes>
@@ -1392,18 +1381,11 @@ class _CopyWithStubImpl$Query$Staff$Staff$name<TRes>
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }
 
 class Query$Staff$Staff$image implements Fragment$StaffFragment$image {
-  Query$Staff$Staff$image({
-    this.large,
-    this.$__typename = 'StaffImage',
-  });
+  Query$Staff$Staff$image({this.large, this.$__typename = 'StaffImage'});
 
   factory Query$Staff$Staff$image.fromJson(Map<String, dynamic> json) {
     final l$large = json['large'];
@@ -1431,10 +1413,7 @@ class Query$Staff$Staff$image implements Fragment$StaffFragment$image {
   int get hashCode {
     final l$large = large;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$$__typename]);
   }
 
   @override
@@ -1461,10 +1440,7 @@ class Query$Staff$Staff$image implements Fragment$StaffFragment$image {
 
 extension UtilityExtension$Query$Staff$Staff$image on Query$Staff$Staff$image {
   CopyWith$Query$Staff$Staff$image<Query$Staff$Staff$image> get copyWith =>
-      CopyWith$Query$Staff$Staff$image(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$Staff$Staff$image(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Staff$Staff$image<TRes> {
@@ -1476,18 +1452,12 @@ abstract class CopyWith$Query$Staff$Staff$image<TRes> {
   factory CopyWith$Query$Staff$Staff$image.stub(TRes res) =
       _CopyWithStubImpl$Query$Staff$Staff$image;
 
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
+  TRes call({String? large, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Staff$Staff$image<TRes>
     implements CopyWith$Query$Staff$Staff$image<TRes> {
-  _CopyWithImpl$Query$Staff$Staff$image(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Staff$Staff$image(this._instance, this._then);
 
   final Query$Staff$Staff$image _instance;
 
@@ -1495,16 +1465,15 @@ class _CopyWithImpl$Query$Staff$Staff$image<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$image(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? large = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Staff$Staff$image(
+          large: large == _undefined ? _instance.large : (large as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Staff$Staff$image<TRes>
@@ -1513,11 +1482,7 @@ class _CopyWithStubImpl$Query$Staff$Staff$image<TRes>
 
   TRes _res;
 
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? $__typename}) => _res;
 }
 
 class Query$Staff$Staff$characterMedia {
@@ -1536,10 +1501,13 @@ class Query$Staff$Staff$characterMedia {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Staff$Staff$characterMedia$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Staff$Staff$characterMedia$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1616,10 +1584,7 @@ class Query$Staff$Staff$characterMedia {
 extension UtilityExtension$Query$Staff$Staff$characterMedia
     on Query$Staff$Staff$characterMedia {
   CopyWith$Query$Staff$Staff$characterMedia<Query$Staff$Staff$characterMedia>
-      get copyWith => CopyWith$Query$Staff$Staff$characterMedia(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Staff$Staff$characterMedia(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Staff$Staff$characterMedia<TRes> {
@@ -1638,19 +1603,20 @@ abstract class CopyWith$Query$Staff$Staff$characterMedia<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<Query$Staff$Staff$characterMedia$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$Staff$Staff$characterMedia$edges<
-                      Query$Staff$Staff$characterMedia$edges>?>?)
-          _fn);
+    Iterable<Query$Staff$Staff$characterMedia$edges?>? Function(
+      Iterable<
+        CopyWith$Query$Staff$Staff$characterMedia$edges<
+          Query$Staff$Staff$characterMedia$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Staff$Staff$characterMedia<TRes>
     implements CopyWith$Query$Staff$Staff$characterMedia<TRes> {
-  _CopyWithImpl$Query$Staff$Staff$characterMedia(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Staff$Staff$characterMedia(this._instance, this._then);
 
   final Query$Staff$Staff$characterMedia _instance;
 
@@ -1662,18 +1628,19 @@ class _CopyWithImpl$Query$Staff$Staff$characterMedia<TRes>
     Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$characterMedia(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges as List<Query$Staff$Staff$characterMedia$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Staff$Staff$characterMedia(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      edges: edges == _undefined
+          ? _instance.edges
+          : (edges as List<Query$Staff$Staff$characterMedia$edges?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -1683,18 +1650,23 @@ class _CopyWithImpl$Query$Staff$Staff$characterMedia<TRes>
   }
 
   TRes edges(
-          Iterable<Query$Staff$Staff$characterMedia$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$Staff$Staff$characterMedia$edges<
-                          Query$Staff$Staff$characterMedia$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Staff$Staff$characterMedia$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Staff$Staff$characterMedia$edges?>? Function(
+      Iterable<
+        CopyWith$Query$Staff$Staff$characterMedia$edges<
+          Query$Staff$Staff$characterMedia$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Staff$Staff$characterMedia$edges(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Staff$Staff$characterMedia<TRes>
@@ -1707,8 +1679,7 @@ class _CopyWithStubImpl$Query$Staff$Staff$characterMedia<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$Staff$Staff$characterMedia$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -1724,7 +1695,8 @@ class Query$Staff$Staff$characterMedia$edges {
   });
 
   factory Query$Staff$Staff$characterMedia$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$node = json['node'];
     final l$characters = json['characters'];
     final l$$__typename = json['__typename'];
@@ -1732,12 +1704,16 @@ class Query$Staff$Staff$characterMedia$edges {
       node: l$node == null
           ? null
           : Query$Staff$Staff$characterMedia$edges$node.fromJson(
-              (l$node as Map<String, dynamic>)),
+              (l$node as Map<String, dynamic>),
+            ),
       characters: (l$characters as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$CharacterFragment.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$CharacterFragment.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1814,11 +1790,10 @@ class Query$Staff$Staff$characterMedia$edges {
 extension UtilityExtension$Query$Staff$Staff$characterMedia$edges
     on Query$Staff$Staff$characterMedia$edges {
   CopyWith$Query$Staff$Staff$characterMedia$edges<
-          Query$Staff$Staff$characterMedia$edges>
-      get copyWith => CopyWith$Query$Staff$Staff$characterMedia$edges(
-            this,
-            (i) => i,
-          );
+    Query$Staff$Staff$characterMedia$edges
+  >
+  get copyWith =>
+      CopyWith$Query$Staff$Staff$characterMedia$edges(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Staff$Staff$characterMedia$edges<TRes> {
@@ -1837,11 +1812,13 @@ abstract class CopyWith$Query$Staff$Staff$characterMedia$edges<TRes> {
   });
   CopyWith$Query$Staff$Staff$characterMedia$edges$node<TRes> get node;
   TRes characters(
-      Iterable<Fragment$CharacterFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$CharacterFragment<
-                      Fragment$CharacterFragment>?>?)
-          _fn);
+    Iterable<Fragment$CharacterFragment?>? Function(
+      Iterable<
+        CopyWith$Fragment$CharacterFragment<Fragment$CharacterFragment>?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges<TRes>
@@ -1861,41 +1838,47 @@ class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges<TRes>
     Object? node = _undefined,
     Object? characters = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$characterMedia$edges(
-        node: node == _undefined
-            ? _instance.node
-            : (node as Query$Staff$Staff$characterMedia$edges$node?),
-        characters: characters == _undefined
-            ? _instance.characters
-            : (characters as List<Fragment$CharacterFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Staff$Staff$characterMedia$edges(
+      node: node == _undefined
+          ? _instance.node
+          : (node as Query$Staff$Staff$characterMedia$edges$node?),
+      characters: characters == _undefined
+          ? _instance.characters
+          : (characters as List<Fragment$CharacterFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$Staff$Staff$characterMedia$edges$node<TRes> get node {
     final local$node = _instance.node;
     return local$node == null
         ? CopyWith$Query$Staff$Staff$characterMedia$edges$node.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$Staff$Staff$characterMedia$edges$node(
-            local$node, (e) => call(node: e));
+            local$node,
+            (e) => call(node: e),
+          );
   }
 
   TRes characters(
-          Iterable<Fragment$CharacterFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$CharacterFragment<
-                          Fragment$CharacterFragment>?>?)
-              _fn) =>
-      call(
-          characters: _fn(_instance.characters?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$CharacterFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$CharacterFragment?>? Function(
+      Iterable<
+        CopyWith$Fragment$CharacterFragment<Fragment$CharacterFragment>?
+      >?,
+    )
+    _fn,
+  ) => call(
+    characters: _fn(
+      _instance.characters?.map(
+        (e) =>
+            e == null ? null : CopyWith$Fragment$CharacterFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges<TRes>
@@ -1908,8 +1891,7 @@ class _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges<TRes>
     Query$Staff$Staff$characterMedia$edges$node? node,
     List<Fragment$CharacterFragment?>? characters,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Staff$Staff$characterMedia$edges$node<TRes> get node =>
       CopyWith$Query$Staff$Staff$characterMedia$edges$node.stub(_res);
@@ -1933,7 +1915,8 @@ class Query$Staff$Staff$characterMedia$edges$node
   });
 
   factory Query$Staff$Staff$characterMedia$edges$node.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$isAdult = json['isAdult'];
@@ -1956,16 +1939,19 @@ class Query$Staff$Staff$characterMedia$edges$node
       title: l$title == null
           ? null
           : Query$Staff$Staff$characterMedia$edges$node$title.fromJson(
-              (l$title as Map<String, dynamic>)),
+              (l$title as Map<String, dynamic>),
+            ),
       coverImage: l$coverImage == null
           ? null
           : Query$Staff$Staff$characterMedia$edges$node$coverImage.fromJson(
-              (l$coverImage as Map<String, dynamic>)),
+              (l$coverImage as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
       startDate: l$startDate == null
           ? null
           : Query$Staff$Staff$characterMedia$edges$node$startDate.fromJson(
-              (l$startDate as Map<String, dynamic>)),
+              (l$startDate as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -2000,8 +1986,9 @@ class Query$Staff$Staff$characterMedia$edges$node
     final l$genres = genres;
     _resultData['genres'] = l$genres?.map((e) => e).toList();
     final l$format = format;
-    _resultData['format'] =
-        l$format == null ? null : toJson$Enum$MediaFormat(l$format);
+    _resultData['format'] = l$format == null
+        ? null
+        : toJson$Enum$MediaFormat(l$format);
     final l$description = description;
     _resultData['description'] = l$description;
     final l$title = title;
@@ -2118,11 +2105,10 @@ class Query$Staff$Staff$characterMedia$edges$node
 extension UtilityExtension$Query$Staff$Staff$characterMedia$edges$node
     on Query$Staff$Staff$characterMedia$edges$node {
   CopyWith$Query$Staff$Staff$characterMedia$edges$node<
-          Query$Staff$Staff$characterMedia$edges$node>
-      get copyWith => CopyWith$Query$Staff$Staff$characterMedia$edges$node(
-            this,
-            (i) => i,
-          );
+    Query$Staff$Staff$characterMedia$edges$node
+  >
+  get copyWith =>
+      CopyWith$Query$Staff$Staff$characterMedia$edges$node(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Staff$Staff$characterMedia$edges$node<TRes> {
@@ -2148,9 +2134,9 @@ abstract class CopyWith$Query$Staff$Staff$characterMedia$edges$node<TRes> {
   });
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$title<TRes> get title;
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage<TRes>
-      get coverImage;
+  get coverImage;
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate<TRes>
-      get startDate;
+  get startDate;
 }
 
 class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node<TRes>
@@ -2177,63 +2163,73 @@ class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node<TRes>
     Object? coverImage = _undefined,
     Object? $__typename = _undefined,
     Object? startDate = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$characterMedia$edges$node(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
-        isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
-        genres: genres == _undefined
-            ? _instance.genres
-            : (genres as List<String?>?),
-        format: format == _undefined
-            ? _instance.format
-            : (format as Enum$MediaFormat?),
-        description: description == _undefined
-            ? _instance.description
-            : (description as String?),
-        title: title == _undefined
-            ? _instance.title
-            : (title as Query$Staff$Staff$characterMedia$edges$node$title?),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage
+  }) => _then(
+    Query$Staff$Staff$characterMedia$edges$node(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined ? _instance.type : (type as Enum$MediaType?),
+      isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
+      genres: genres == _undefined
+          ? _instance.genres
+          : (genres as List<String?>?),
+      format: format == _undefined
+          ? _instance.format
+          : (format as Enum$MediaFormat?),
+      description: description == _undefined
+          ? _instance.description
+          : (description as String?),
+      title: title == _undefined
+          ? _instance.title
+          : (title as Query$Staff$Staff$characterMedia$edges$node$title?),
+      coverImage: coverImage == _undefined
+          ? _instance.coverImage
+          : (coverImage
                 as Query$Staff$Staff$characterMedia$edges$node$coverImage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        startDate: startDate == _undefined
-            ? _instance.startDate
-            : (startDate
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      startDate: startDate == _undefined
+          ? _instance.startDate
+          : (startDate
                 as Query$Staff$Staff$characterMedia$edges$node$startDate?),
-      ));
+    ),
+  );
 
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$title<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
         ? CopyWith$Query$Staff$Staff$characterMedia$edges$node$title.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$Staff$Staff$characterMedia$edges$node$title(
-            local$title, (e) => call(title: e));
+            local$title,
+            (e) => call(title: e),
+          );
   }
 
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage<TRes>
-      get coverImage {
+  get coverImage {
     final local$coverImage = _instance.coverImage;
     return local$coverImage == null
         ? CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage(
-            local$coverImage, (e) => call(coverImage: e));
+            local$coverImage,
+            (e) => call(coverImage: e),
+          );
   }
 
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate<TRes>
-      get startDate {
+  get startDate {
     final local$startDate = _instance.startDate;
     return local$startDate == null
         ? CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate(
-            local$startDate, (e) => call(startDate: e));
+            local$startDate,
+            (e) => call(startDate: e),
+          );
   }
 }
 
@@ -2254,21 +2250,20 @@ class _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node<TRes>
     Query$Staff$Staff$characterMedia$edges$node$coverImage? coverImage,
     String? $__typename,
     Query$Staff$Staff$characterMedia$edges$node$startDate? startDate,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$title<TRes> get title =>
       CopyWith$Query$Staff$Staff$characterMedia$edges$node$title.stub(_res);
 
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage<TRes>
-      get coverImage =>
-          CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage.stub(
-              _res);
+  get coverImage =>
+      CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage.stub(
+        _res,
+      );
 
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate<TRes>
-      get startDate =>
-          CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate.stub(
-              _res);
+  get startDate =>
+      CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate.stub(_res);
 }
 
 class Query$Staff$Staff$characterMedia$edges$node$title
@@ -2279,7 +2274,8 @@ class Query$Staff$Staff$characterMedia$edges$node$title
   });
 
   factory Query$Staff$Staff$characterMedia$edges$node$title.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$userPreferred = json['userPreferred'];
     final l$$__typename = json['__typename'];
     return Query$Staff$Staff$characterMedia$edges$node$title(
@@ -2305,10 +2301,7 @@ class Query$Staff$Staff$characterMedia$edges$node$title
   int get hashCode {
     final l$userPreferred = userPreferred;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$userPreferred, l$$__typename]);
   }
 
   @override
@@ -2337,29 +2330,27 @@ class Query$Staff$Staff$characterMedia$edges$node$title
 extension UtilityExtension$Query$Staff$Staff$characterMedia$edges$node$title
     on Query$Staff$Staff$characterMedia$edges$node$title {
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$title<
-          Query$Staff$Staff$characterMedia$edges$node$title>
-      get copyWith =>
-          CopyWith$Query$Staff$Staff$characterMedia$edges$node$title(
-            this,
-            (i) => i,
-          );
+    Query$Staff$Staff$characterMedia$edges$node$title
+  >
+  get copyWith => CopyWith$Query$Staff$Staff$characterMedia$edges$node$title(
+    this,
+    (i) => i,
+  );
 }
 
 abstract class CopyWith$Query$Staff$Staff$characterMedia$edges$node$title<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Staff$Staff$characterMedia$edges$node$title(
     Query$Staff$Staff$characterMedia$edges$node$title instance,
     TRes Function(Query$Staff$Staff$characterMedia$edges$node$title) then,
   ) = _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node$title;
 
   factory CopyWith$Query$Staff$Staff$characterMedia$edges$node$title.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$title;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$title;
 
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
+  TRes call({String? userPreferred, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node$title<TRes>
@@ -2379,30 +2370,28 @@ class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node$title<TRes>
   TRes call({
     Object? userPreferred = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$characterMedia$edges$node$title(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Staff$Staff$characterMedia$edges$node$title(
+      userPreferred: userPreferred == _undefined
+          ? _instance.userPreferred
+          : (userPreferred as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$title<TRes>
     implements
         CopyWith$Query$Staff$Staff$characterMedia$edges$node$title<TRes> {
   _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$title(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? userPreferred, String? $__typename}) => _res;
 }
 
 class Query$Staff$Staff$characterMedia$edges$node$coverImage
@@ -2413,7 +2402,8 @@ class Query$Staff$Staff$characterMedia$edges$node$coverImage
   });
 
   factory Query$Staff$Staff$characterMedia$edges$node$coverImage.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$extraLarge = json['extraLarge'];
     final l$$__typename = json['__typename'];
     return Query$Staff$Staff$characterMedia$edges$node$coverImage(
@@ -2439,10 +2429,7 @@ class Query$Staff$Staff$characterMedia$edges$node$coverImage
   int get hashCode {
     final l$extraLarge = extraLarge;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$extraLarge,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$extraLarge, l$$__typename]);
   }
 
   @override
@@ -2471,29 +2458,28 @@ class Query$Staff$Staff$characterMedia$edges$node$coverImage
 extension UtilityExtension$Query$Staff$Staff$characterMedia$edges$node$coverImage
     on Query$Staff$Staff$characterMedia$edges$node$coverImage {
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage<
-          Query$Staff$Staff$characterMedia$edges$node$coverImage>
-      get copyWith =>
-          CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage(
-            this,
-            (i) => i,
-          );
+    Query$Staff$Staff$characterMedia$edges$node$coverImage
+  >
+  get copyWith =>
+      CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage(
     Query$Staff$Staff$characterMedia$edges$node$coverImage instance,
     TRes Function(Query$Staff$Staff$characterMedia$edges$node$coverImage) then,
   ) = _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node$coverImage;
 
   factory CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$coverImage;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$coverImage;
 
-  TRes call({
-    String? extraLarge,
-    String? $__typename,
-  });
+  TRes call({String? extraLarge, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node$coverImage<TRes>
@@ -2507,38 +2493,37 @@ class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node$coverImage<TRes>
   final Query$Staff$Staff$characterMedia$edges$node$coverImage _instance;
 
   final TRes Function(Query$Staff$Staff$characterMedia$edges$node$coverImage)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? extraLarge = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$characterMedia$edges$node$coverImage(
-        extraLarge: extraLarge == _undefined
-            ? _instance.extraLarge
-            : (extraLarge as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Staff$Staff$characterMedia$edges$node$coverImage(
+      extraLarge: extraLarge == _undefined
+          ? _instance.extraLarge
+          : (extraLarge as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$coverImage<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Staff$Staff$characterMedia$edges$node$coverImage<TRes> {
   _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$coverImage(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    String? extraLarge,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? extraLarge, String? $__typename}) => _res;
 }
 
 class Query$Staff$Staff$characterMedia$edges$node$startDate {
@@ -2548,7 +2533,8 @@ class Query$Staff$Staff$characterMedia$edges$node$startDate {
   });
 
   factory Query$Staff$Staff$characterMedia$edges$node$startDate.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$year = json['year'];
     final l$$__typename = json['__typename'];
     return Query$Staff$Staff$characterMedia$edges$node$startDate(
@@ -2574,10 +2560,7 @@ class Query$Staff$Staff$characterMedia$edges$node$startDate {
   int get hashCode {
     final l$year = year;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$year,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$year, l$$__typename]);
   }
 
   @override
@@ -2606,29 +2589,28 @@ class Query$Staff$Staff$characterMedia$edges$node$startDate {
 extension UtilityExtension$Query$Staff$Staff$characterMedia$edges$node$startDate
     on Query$Staff$Staff$characterMedia$edges$node$startDate {
   CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate<
-          Query$Staff$Staff$characterMedia$edges$node$startDate>
-      get copyWith =>
-          CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate(
-            this,
-            (i) => i,
-          );
+    Query$Staff$Staff$characterMedia$edges$node$startDate
+  >
+  get copyWith =>
+      CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate<
-    TRes> {
+  TRes
+> {
   factory CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate(
     Query$Staff$Staff$characterMedia$edges$node$startDate instance,
     TRes Function(Query$Staff$Staff$characterMedia$edges$node$startDate) then,
   ) = _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node$startDate;
 
   factory CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$startDate;
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$startDate;
 
-  TRes call({
-    int? year,
-    String? $__typename,
-  });
+  TRes call({int? year, String? $__typename});
 }
 
 class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node$startDate<TRes>
@@ -2642,36 +2624,33 @@ class _CopyWithImpl$Query$Staff$Staff$characterMedia$edges$node$startDate<TRes>
   final Query$Staff$Staff$characterMedia$edges$node$startDate _instance;
 
   final TRes Function(Query$Staff$Staff$characterMedia$edges$node$startDate)
-      _then;
+  _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? year = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$characterMedia$edges$node$startDate(
-        year: year == _undefined ? _instance.year : (year as int?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? year = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Staff$Staff$characterMedia$edges$node$startDate(
+          year: year == _undefined ? _instance.year : (year as int?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$startDate<
-        TRes>
+  TRes
+>
     implements
         CopyWith$Query$Staff$Staff$characterMedia$edges$node$startDate<TRes> {
   _CopyWithStubImpl$Query$Staff$Staff$characterMedia$edges$node$startDate(
-      this._res);
+    this._res,
+  );
 
   TRes _res;
 
-  call({
-    int? year,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? year, String? $__typename}) => _res;
 }
 
 class Query$Staff$Staff$staffMedia {
@@ -2690,10 +2669,13 @@ class Query$Staff$Staff$staffMedia {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$Staff$Staff$staffMedia$edges.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$Staff$Staff$staffMedia$edges.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2770,10 +2752,7 @@ class Query$Staff$Staff$staffMedia {
 extension UtilityExtension$Query$Staff$Staff$staffMedia
     on Query$Staff$Staff$staffMedia {
   CopyWith$Query$Staff$Staff$staffMedia<Query$Staff$Staff$staffMedia>
-      get copyWith => CopyWith$Query$Staff$Staff$staffMedia(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$Staff$Staff$staffMedia(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Staff$Staff$staffMedia<TRes> {
@@ -2792,19 +2771,20 @@ abstract class CopyWith$Query$Staff$Staff$staffMedia<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<Query$Staff$Staff$staffMedia$edges?>? Function(
-              Iterable<
-                  CopyWith$Query$Staff$Staff$staffMedia$edges<
-                      Query$Staff$Staff$staffMedia$edges>?>?)
-          _fn);
+    Iterable<Query$Staff$Staff$staffMedia$edges?>? Function(
+      Iterable<
+        CopyWith$Query$Staff$Staff$staffMedia$edges<
+          Query$Staff$Staff$staffMedia$edges
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$Staff$Staff$staffMedia<TRes>
     implements CopyWith$Query$Staff$Staff$staffMedia<TRes> {
-  _CopyWithImpl$Query$Staff$Staff$staffMedia(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Staff$Staff$staffMedia(this._instance, this._then);
 
   final Query$Staff$Staff$staffMedia _instance;
 
@@ -2816,18 +2796,19 @@ class _CopyWithImpl$Query$Staff$Staff$staffMedia<TRes>
     Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$staffMedia(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        edges: edges == _undefined
-            ? _instance.edges
-            : (edges as List<Query$Staff$Staff$staffMedia$edges?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Staff$Staff$staffMedia(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      edges: edges == _undefined
+          ? _instance.edges
+          : (edges as List<Query$Staff$Staff$staffMedia$edges?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -2837,18 +2818,23 @@ class _CopyWithImpl$Query$Staff$Staff$staffMedia<TRes>
   }
 
   TRes edges(
-          Iterable<Query$Staff$Staff$staffMedia$edges?>? Function(
-                  Iterable<
-                      CopyWith$Query$Staff$Staff$staffMedia$edges<
-                          Query$Staff$Staff$staffMedia$edges>?>?)
-              _fn) =>
-      call(
-          edges: _fn(_instance.edges?.map((e) => e == null
-              ? null
-              : CopyWith$Query$Staff$Staff$staffMedia$edges(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$Staff$Staff$staffMedia$edges?>? Function(
+      Iterable<
+        CopyWith$Query$Staff$Staff$staffMedia$edges<
+          Query$Staff$Staff$staffMedia$edges
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    edges: _fn(
+      _instance.edges?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$Staff$Staff$staffMedia$edges(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$Staff$Staff$staffMedia<TRes>
@@ -2861,8 +2847,7 @@ class _CopyWithStubImpl$Query$Staff$Staff$staffMedia<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$Staff$Staff$staffMedia$edges?>? edges,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -2878,7 +2863,8 @@ class Query$Staff$Staff$staffMedia$edges {
   });
 
   factory Query$Staff$Staff$staffMedia$edges.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$node = json['node'];
     final l$staffRole = json['staffRole'];
     final l$$__typename = json['__typename'];
@@ -2913,11 +2899,7 @@ class Query$Staff$Staff$staffMedia$edges {
     final l$node = node;
     final l$staffRole = staffRole;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$node,
-      l$staffRole,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$node, l$staffRole, l$$__typename]);
   }
 
   @override
@@ -2951,11 +2933,9 @@ class Query$Staff$Staff$staffMedia$edges {
 extension UtilityExtension$Query$Staff$Staff$staffMedia$edges
     on Query$Staff$Staff$staffMedia$edges {
   CopyWith$Query$Staff$Staff$staffMedia$edges<
-          Query$Staff$Staff$staffMedia$edges>
-      get copyWith => CopyWith$Query$Staff$Staff$staffMedia$edges(
-            this,
-            (i) => i,
-          );
+    Query$Staff$Staff$staffMedia$edges
+  >
+  get copyWith => CopyWith$Query$Staff$Staff$staffMedia$edges(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Staff$Staff$staffMedia$edges<TRes> {
@@ -2977,10 +2957,7 @@ abstract class CopyWith$Query$Staff$Staff$staffMedia$edges<TRes> {
 
 class _CopyWithImpl$Query$Staff$Staff$staffMedia$edges<TRes>
     implements CopyWith$Query$Staff$Staff$staffMedia$edges<TRes> {
-  _CopyWithImpl$Query$Staff$Staff$staffMedia$edges(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Staff$Staff$staffMedia$edges(this._instance, this._then);
 
   final Query$Staff$Staff$staffMedia$edges _instance;
 
@@ -2992,18 +2969,19 @@ class _CopyWithImpl$Query$Staff$Staff$staffMedia$edges<TRes>
     Object? node = _undefined,
     Object? staffRole = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Staff$Staff$staffMedia$edges(
-        node: node == _undefined
-            ? _instance.node
-            : (node as Fragment$MediaFragment?),
-        staffRole: staffRole == _undefined
-            ? _instance.staffRole
-            : (staffRole as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$Staff$Staff$staffMedia$edges(
+      node: node == _undefined
+          ? _instance.node
+          : (node as Fragment$MediaFragment?),
+      staffRole: staffRole == _undefined
+          ? _instance.staffRole
+          : (staffRole as String?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get node {
     final local$node = _instance.node;
@@ -3023,8 +3001,7 @@ class _CopyWithStubImpl$Query$Staff$Staff$staffMedia$edges<TRes>
     Fragment$MediaFragment? node,
     String? staffRole,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get node =>
       CopyWith$Fragment$MediaFragment.stub(_res);

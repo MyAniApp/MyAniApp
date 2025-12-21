@@ -15,12 +15,14 @@ class UserReviewsTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      userReviewsQuery,
-      variables: Variables$Query$UserReviews(userId: id).toJson(),
-      parseData: Query$UserReviews.fromJson,
-      mergeResults: defaultMergeResults("Page.reviews"),
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        userReviewsQuery,
+        variables: Variables$Query$UserReviews(userId: id).toJson(),
+        parseData: Query$UserReviews.fromJson,
+        mergeResults: defaultMergeResults("Page.reviews"),
+      ),
+    );
 
     return GQLWidget(
       refetch: refetch,
@@ -28,16 +30,15 @@ class UserReviewsTab extends HookWidget {
       builder: () => PaginationView.grid(
         pageInfo: snapshot.parsedData!.Page!.pageInfo!,
         req: (nextPage) => fetchMore(
-          variables:
-              Variables$Query$UserReviews.fromJson(snapshot.request!.variables)
-                  .copyWith(page: nextPage)
-                  .toJson(),
+          variables: Variables$Query$UserReviews.fromJson(
+            snapshot.request!.variables,
+          ).copyWith(page: nextPage).toJson(),
         ),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 300,
           mainAxisExtent: 200,
         ),
-        builder: (context, index) {
+        itemBuilder: (context, index) {
           var review = snapshot.parsedData!.Page!.reviews![index]!;
 
           return ReviewCard(review: review);

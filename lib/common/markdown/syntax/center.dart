@@ -1,5 +1,5 @@
 import 'package:markdown/markdown.dart';
-import 'package:markdown_widget/markdown_widget.dart';
+
 import 'package:myaniapp/common/markdown/generator/center.dart';
 
 class CenterInlineSyntax extends InlineSyntax {

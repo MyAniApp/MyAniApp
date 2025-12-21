@@ -9,13 +9,12 @@ class Variables$Query$StaffSearch {
     String? search,
     bool? isBirthday,
     List<Enum$StaffSort?>? sort,
-  }) =>
-      Variables$Query$StaffSearch._({
-        if (page != null) r'page': page,
-        if (search != null) r'search': search,
-        if (isBirthday != null) r'isBirthday': isBirthday,
-        if (sort != null) r'sort': sort,
-      });
+  }) => Variables$Query$StaffSearch._({
+    if (page != null) r'page': page,
+    if (search != null) r'search': search,
+    if (isBirthday != null) r'isBirthday': isBirthday,
+    if (sort != null) r'sort': sort,
+  });
 
   Variables$Query$StaffSearch._(this._$data);
 
@@ -37,7 +36,8 @@ class Variables$Query$StaffSearch {
       final l$sort = data['sort'];
       result$data['sort'] = (l$sort as List<dynamic>?)
           ?.map(
-              (e) => e == null ? null : fromJson$Enum$StaffSort((e as String)))
+            (e) => e == null ? null : fromJson$Enum$StaffSort((e as String)),
+          )
           .toList();
     }
     return Variables$Query$StaffSearch._(result$data);
@@ -77,10 +77,7 @@ class Variables$Query$StaffSearch {
   }
 
   CopyWith$Variables$Query$StaffSearch<Variables$Query$StaffSearch>
-      get copyWith => CopyWith$Variables$Query$StaffSearch(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$StaffSearch(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -150,8 +147,8 @@ class Variables$Query$StaffSearch {
       _$data.containsKey('isBirthday') ? l$isBirthday : const {},
       _$data.containsKey('sort')
           ? l$sort == null
-              ? null
-              : Object.hashAll(l$sort.map((v) => v))
+                ? null
+                : Object.hashAll(l$sort.map((v) => v))
           : const {},
     ]);
   }
@@ -176,10 +173,7 @@ abstract class CopyWith$Variables$Query$StaffSearch<TRes> {
 
 class _CopyWithImpl$Variables$Query$StaffSearch<TRes>
     implements CopyWith$Variables$Query$StaffSearch<TRes> {
-  _CopyWithImpl$Variables$Query$StaffSearch(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$StaffSearch(this._instance, this._then);
 
   final Variables$Query$StaffSearch _instance;
 
@@ -192,14 +186,15 @@ class _CopyWithImpl$Variables$Query$StaffSearch<TRes>
     Object? search = _undefined,
     Object? isBirthday = _undefined,
     Object? sort = _undefined,
-  }) =>
-      _then(Variables$Query$StaffSearch._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-        if (search != _undefined) 'search': (search as String?),
-        if (isBirthday != _undefined) 'isBirthday': (isBirthday as bool?),
-        if (sort != _undefined) 'sort': (sort as List<Enum$StaffSort?>?),
-      }));
+  }) => _then(
+    Variables$Query$StaffSearch._({
+      ..._instance._$data,
+      if (page != _undefined) 'page': (page as int?),
+      if (search != _undefined) 'search': (search as String?),
+      if (isBirthday != _undefined) 'isBirthday': (isBirthday as bool?),
+      if (sort != _undefined) 'sort': (sort as List<Enum$StaffSort?>?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$StaffSearch<TRes>
@@ -213,15 +208,11 @@ class _CopyWithStubImpl$Variables$Query$StaffSearch<TRes>
     String? search,
     bool? isBirthday,
     List<Enum$StaffSort?>? sort,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$StaffSearch {
-  Query$StaffSearch({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$StaffSearch({this.Page, this.$__typename = 'Query'});
 
   factory Query$StaffSearch.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -251,10 +242,7 @@ class Query$StaffSearch {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -281,10 +269,7 @@ class Query$StaffSearch {
 
 extension UtilityExtension$Query$StaffSearch on Query$StaffSearch {
   CopyWith$Query$StaffSearch<Query$StaffSearch> get copyWith =>
-      CopyWith$Query$StaffSearch(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$StaffSearch(this, (i) => i);
 }
 
 abstract class CopyWith$Query$StaffSearch<TRes> {
@@ -296,19 +281,13 @@ abstract class CopyWith$Query$StaffSearch<TRes> {
   factory CopyWith$Query$StaffSearch.stub(TRes res) =
       _CopyWithStubImpl$Query$StaffSearch;
 
-  TRes call({
-    Query$StaffSearch$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$StaffSearch$Page? Page, String? $__typename});
   CopyWith$Query$StaffSearch$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$StaffSearch<TRes>
     implements CopyWith$Query$StaffSearch<TRes> {
-  _CopyWithImpl$Query$StaffSearch(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$StaffSearch(this._instance, this._then);
 
   final Query$StaffSearch _instance;
 
@@ -316,18 +295,17 @@ class _CopyWithImpl$Query$StaffSearch<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$StaffSearch(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$StaffSearch$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$StaffSearch(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$StaffSearch$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$StaffSearch$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -343,132 +321,145 @@ class _CopyWithStubImpl$Query$StaffSearch<TRes>
 
   TRes _res;
 
-  call({
-    Query$StaffSearch$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$StaffSearch$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$StaffSearch$Page<TRes> get Page =>
       CopyWith$Query$StaffSearch$Page.stub(_res);
 }
 
-const documentNodeQueryStaffSearch = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'StaffSearch'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryStaffSearch = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'StaffSearch'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: IntValueNode(value: '1')),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: IntValueNode(value: '1')),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'search')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'isBirthday')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'sort')),
-        type: ListTypeNode(
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'search')),
           type: NamedTypeNode(
-            name: NameNode(value: 'StaffSort'),
+            name: NameNode(value: 'String'),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(
-            value: ListValueNode(values: [
-          EnumValueNode(name: NameNode(value: 'FAVOURITES_DESC')),
-          EnumValueNode(name: NameNode(value: 'ID_DESC')),
-        ])),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'isBirthday')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '30'),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'sort')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'StaffSort'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
           ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+          defaultValue: DefaultValueNode(
+            value: ListValueNode(
+              values: [
+                EnumValueNode(name: NameNode(value: 'FAVOURITES_DESC')),
+                EnumValueNode(name: NameNode(value: 'ID_DESC')),
+              ],
+            ),
+          ),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'staff'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'isBirthday'),
-                value: VariableNode(name: NameNode(value: 'isBirthday')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: VariableNode(name: NameNode(value: 'sort')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'search'),
-                value: VariableNode(name: NameNode(value: 'search')),
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '30'),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'StaffFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'staff'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'isBirthday'),
+                      value: VariableNode(name: NameNode(value: 'isBirthday')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: VariableNode(name: NameNode(value: 'sort')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'search'),
+                      value: VariableNode(name: NameNode(value: 'search')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'StaffFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -477,20 +468,13 @@ const documentNodeQueryStaffSearch = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionStaffFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionStaffFragment,
+  ],
+);
 
 class Query$StaffSearch$Page {
   Query$StaffSearch$Page({
@@ -508,9 +492,11 @@ class Query$StaffSearch$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       staff: (l$staff as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$StaffFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$StaffFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -585,10 +571,7 @@ class Query$StaffSearch$Page {
 
 extension UtilityExtension$Query$StaffSearch$Page on Query$StaffSearch$Page {
   CopyWith$Query$StaffSearch$Page<Query$StaffSearch$Page> get copyWith =>
-      CopyWith$Query$StaffSearch$Page(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$StaffSearch$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$StaffSearch$Page<TRes> {
@@ -607,18 +590,16 @@ abstract class CopyWith$Query$StaffSearch$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes staff(
-      Iterable<Fragment$StaffFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$StaffFragment<Fragment$StaffFragment>?>?)
-          _fn);
+    Iterable<Fragment$StaffFragment?>? Function(
+      Iterable<CopyWith$Fragment$StaffFragment<Fragment$StaffFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$StaffSearch$Page<TRes>
     implements CopyWith$Query$StaffSearch$Page<TRes> {
-  _CopyWithImpl$Query$StaffSearch$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$StaffSearch$Page(this._instance, this._then);
 
   final Query$StaffSearch$Page _instance;
 
@@ -630,18 +611,19 @@ class _CopyWithImpl$Query$StaffSearch$Page<TRes>
     Object? pageInfo = _undefined,
     Object? staff = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$StaffSearch$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        staff: staff == _undefined
-            ? _instance.staff
-            : (staff as List<Fragment$StaffFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$StaffSearch$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      staff: staff == _undefined
+          ? _instance.staff
+          : (staff as List<Fragment$StaffFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -651,18 +633,17 @@ class _CopyWithImpl$Query$StaffSearch$Page<TRes>
   }
 
   TRes staff(
-          Iterable<Fragment$StaffFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$StaffFragment<
-                          Fragment$StaffFragment>?>?)
-              _fn) =>
-      call(
-          staff: _fn(_instance.staff?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$StaffFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$StaffFragment?>? Function(
+      Iterable<CopyWith$Fragment$StaffFragment<Fragment$StaffFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    staff: _fn(
+      _instance.staff?.map(
+        (e) => e == null ? null : CopyWith$Fragment$StaffFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$StaffSearch$Page<TRes>
@@ -675,8 +656,7 @@ class _CopyWithStubImpl$Query$StaffSearch$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$StaffFragment?>? staff,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);

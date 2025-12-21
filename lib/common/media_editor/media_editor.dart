@@ -56,32 +56,27 @@ class MediaEditorDialog extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      mediaEntryQuery,
-      variables: Variables$Query$MediaEntry(mediaId: media.id, userId: userId)
-          .toJson(),
-      parseData: Query$MediaEntry.fromJson,
-      fetchPolicy: FetchPolicy.networkOnly,
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        mediaEntryQuery,
+        variables: Variables$Query$MediaEntry(
+          mediaId: media.id,
+          userId: userId,
+        ).toJson(),
+        parseData: Query$MediaEntry.fromJson,
+        fetchPolicy: FetchPolicy.networkOnly,
+      ),
+    );
 
     return GQLWidget(
-      // operationRequest: GMediaEntryReq(
-      //   (b) => b
-      //     ..requestId = "mediaListEntry$media$userId"
-      //     ..vars.mediaId = media.id
-      //     ..vars.userId = userId,
-      // ),
       refetch: refetch,
       response: snapshot,
       loading: Scaffold(
         appBar: AppBar(),
-        body: const Center(
-          child: CircularProgressIndicator.adaptive(),
-        ),
+        body: const Center(child: CircularProgressIndicator.adaptive()),
       ),
       errorWidget: false,
       builder: () {
-        // var mediaList = ;
         var mediaList = (snapshot.parsedData?.MediaList);
 
         if (mediaList == null) {
@@ -96,7 +91,8 @@ class MediaEditorDialog extends HookConsumerWidget {
               user.value!.parsedData!.Viewer!.id == userId) {
             mediaList = mediaList.copyWith(
               user: Query$MediaEntry$MediaList$user.fromJson(
-                  user.value!.parsedData!.Viewer!.toJson()),
+                user.value!.parsedData!.Viewer!.toJson(),
+              ),
             );
           }
         }
@@ -176,7 +172,8 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
   @override
   Widget build(BuildContext context) {
     var userId = ref.watch(
-        userProvider.select((value) => value.value?.parsedData?.Viewer?.id));
+      userProvider.select((value) => value.value?.parsedData?.Viewer?.id),
+    );
     var enabled = userId == widget.entry.user?.id;
     // print(widget.entry.customLists);
     // var builtCustomList = options.customLists.build();
@@ -193,9 +190,13 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                 "media from your list",
                 () async {
                   if (widget.entry.id != -1) {
-                    await c
-                        .query(GQLRequest(deleteMediaListEntryQuery,
-                            variables: {'id': widget.entry.id}))
+                    await gqlClient
+                        .query(
+                          GQLRequest(
+                            deleteMediaListEntryQuery,
+                            variables: {'id': widget.entry.id},
+                          ),
+                        )
                         .last;
                     widget.onDelete!();
                   }
@@ -216,9 +217,13 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                   } else {
                     options = options.copyWith(id: widget.entry.id);
                   }
-                  await c
-                      .query(GQLRequest(saveMediaListEntryQuery,
-                          variables: options.toJson()))
+                  await gqlClient
+                      .query(
+                        GQLRequest(
+                          saveMediaListEntryQuery,
+                          variables: options.toJson(),
+                        ),
+                      )
                       .last;
                   widget.onSave();
                 }
@@ -242,10 +247,7 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                 value: options.status,
                 items: [
                   for (var s in Enum$MediaListStatus.values)
-                    PopupSettingItem(
-                      value: s,
-                      label: s.name.capitalize(),
-                    )
+                    PopupSettingItem(value: s, label: s.name.capitalize()),
                 ],
                 onSelected: (value) =>
                     setState(() => options = options.copyWith(status: value)),
@@ -274,7 +276,8 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                 value: options.progress ?? 0,
                 onChanged: (value) =>
                     setState(() => options = options.copyWith(progress: value)),
-                max: widget.entry.media?.episodes ??
+                max:
+                    widget.entry.media?.episodes ??
                     widget.entry.media?.chapters,
               ),
               SettingIntNumber(
@@ -297,12 +300,14 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                         onSelected: enabled
                             ? (value) {
                                 if (value == true) {
-                                  setState(() =>
-                                      options = options.copyWith(score: 1));
+                                  setState(
+                                    () => options = options.copyWith(score: 1),
+                                  );
                                 }
                                 if (value == false) {
-                                  setState(() =>
-                                      options = options.copyWith(score: 0));
+                                  setState(
+                                    () => options = options.copyWith(score: 0),
+                                  );
                                 }
                               }
                             : null,
@@ -315,12 +320,14 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                         onSelected: enabled
                             ? (value) {
                                 if (value == true) {
-                                  setState(() =>
-                                      options = options.copyWith(score: 2));
+                                  setState(
+                                    () => options = options.copyWith(score: 2),
+                                  );
                                 }
                                 if (value == false) {
-                                  setState(() =>
-                                      options = options.copyWith(score: 0));
+                                  setState(
+                                    () => options = options.copyWith(score: 0),
+                                  );
                                 }
                               }
                             : null,
@@ -333,12 +340,14 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                         onSelected: enabled
                             ? (value) {
                                 if (value == true) {
-                                  setState(() =>
-                                      options = options.copyWith(score: 3));
+                                  setState(
+                                    () => options = options.copyWith(score: 3),
+                                  );
                                 }
                                 if (value == false) {
-                                  setState(() =>
-                                      options = options.copyWith(score: 0));
+                                  setState(
+                                    () => options = options.copyWith(score: 0),
+                                  );
                                 }
                               }
                             : null,
@@ -350,8 +359,11 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                 SettingTileNumber(
                   title: "Score",
                   enabled: enabled,
-                  value: switch (
-                      widget.entry.user!.mediaListOptions!.scoreFormat!) {
+                  value: switch (widget
+                      .entry
+                      .user!
+                      .mediaListOptions!
+                      .scoreFormat!) {
                     (Enum$ScoreFormat.POINT_3) => options.score ?? 0,
                     (Enum$ScoreFormat.POINT_5) => (options.score ?? 0).toInt(),
                     (Enum$ScoreFormat.POINT_10) => (options.score ?? 0).toInt(),
@@ -360,8 +372,11 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                       (options.score ?? 0).toInt(),
                     _ => options.score ?? 0,
                   },
-                  max: switch (
-                      widget.entry.user!.mediaListOptions!.scoreFormat!) {
+                  max: switch (widget
+                      .entry
+                      .user!
+                      .mediaListOptions!
+                      .scoreFormat!) {
                     (Enum$ScoreFormat.POINT_3) => 3,
                     (Enum$ScoreFormat.POINT_5) => 5,
                     (Enum$ScoreFormat.POINT_10) => 10,
@@ -370,8 +385,9 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                     Enum$ScoreFormat() => throw UnimplementedError(),
                   },
                   onChanged: (value) {
-                    setState(() =>
-                        options = options.copyWith(score: value.toDouble()));
+                    setState(
+                      () => options = options.copyWith(score: value.toDouble()),
+                    );
                   },
                 ),
               SettingsTile(
@@ -385,22 +401,30 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                   );
 
                   if (selectedDate != null) {
-                    setState(() => options = options.copyWith(
+                    setState(
+                      () => options = options.copyWith(
                         startedAt: Input$FuzzyDateInput(
-                            day: selectedDate.day,
-                            month: selectedDate.month,
-                            year: selectedDate.year)));
+                          day: selectedDate.day,
+                          month: selectedDate.month,
+                          year: selectedDate.year,
+                        ),
+                      ),
+                    );
                   }
                 },
                 enabled: enabled,
                 subtitle: options.startedAt?.toDate() != null
-                    ? Text(DateFormat.yMMMMd()
-                        .format(options.startedAt!.toDate()!))
+                    ? Text(
+                        DateFormat.yMMMMd().format(
+                          options.startedAt!.toDate()!,
+                        ),
+                      )
                     : null,
                 child: options.startedAt?.toDate() != null && enabled
                     ? IconButton(
                         onPressed: () => setState(
-                            () => options = options.copyWith(startedAt: null)),
+                          () => options = options.copyWith(startedAt: null),
+                        ),
                         icon: const Icon(Icons.clear),
                       )
                     : null,
@@ -416,22 +440,30 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                   );
 
                   if (selectedDate != null) {
-                    setState(() => options = options.copyWith(
+                    setState(
+                      () => options = options.copyWith(
                         completedAt: Input$FuzzyDateInput(
-                            day: selectedDate.day,
-                            month: selectedDate.month,
-                            year: selectedDate.year)));
+                          day: selectedDate.day,
+                          month: selectedDate.month,
+                          year: selectedDate.year,
+                        ),
+                      ),
+                    );
                   }
                 },
                 enabled: enabled,
                 subtitle: options.completedAt?.toDate() != null
-                    ? Text(DateFormat.yMMMMd()
-                        .format(options.completedAt!.toDate()!))
+                    ? Text(
+                        DateFormat.yMMMMd().format(
+                          options.completedAt!.toDate()!,
+                        ),
+                      )
                     : null,
                 child: options.completedAt?.toDate() != null && enabled
                     ? IconButton(
                         onPressed: () => setState(
-                            () => options = options.copyWith(startedAt: null)),
+                          () => options = options.copyWith(startedAt: null),
+                        ),
                         icon: const Icon(Icons.clear),
                       )
                     : null,
@@ -442,14 +474,18 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                   enabled: enabled,
                   value: options.private ?? false,
                   onChanged: (value) => setState(
-                      () => options = options.copyWith(private: value)),
+                    () => options = options.copyWith(private: value),
+                  ),
                 ),
                 SwitchSettingsTile(
                   title: "Hide From Statis List",
                   value: options.hiddenFromStatusLists ?? false,
                   enabled: enabled,
-                  onChanged: (value) => setState(() =>
-                      options = options.copyWith(hiddenFromStatusLists: value)),
+                  onChanged: (value) => setState(
+                    () => options = options.copyWith(
+                      hiddenFromStatusLists: value,
+                    ),
+                  ),
                 ),
                 MultiPopupSettingsTile<String>(
                   title: "Custom List",
@@ -459,13 +495,14 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
                       PopupSettingCheckbox(
                         value: list['name'],
                         label: list['name'],
-                      )
+                      ),
                   ],
                   onSaved: (value) {
                     setState(
-                        () => options = options.copyWith(customLists: value));
+                      () => options = options.copyWith(customLists: value),
+                    );
                   },
-                )
+                ),
               ],
             ],
           ),
@@ -475,7 +512,7 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
               note: options.notes,
               onChanged: (note) => options = options.copyWith(notes: note),
               enabled: userId == widget.entry.user?.id,
-            )
+            ),
         ],
       ),
     );
@@ -483,13 +520,14 @@ class __MediaEditorViewState extends ConsumerState<_MediaEditorView> {
 }
 
 class SettingIntNumber extends StatelessWidget {
-  const SettingIntNumber(
-      {super.key,
-      required this.onChanged,
-      required this.value,
-      this.max,
-      required this.title,
-      this.enabled});
+  const SettingIntNumber({
+    super.key,
+    required this.onChanged,
+    required this.value,
+    this.max,
+    required this.title,
+    this.enabled,
+  });
 
   final void Function(int value) onChanged;
   final int value;
@@ -503,13 +541,12 @@ class SettingIntNumber extends StatelessWidget {
       title: Text(title),
       subtitle: Center(
         child: NumberPicker(
-          minValue: 0,
-          maxValue: max ?? value + 100,
+          minValue: enabled == false ? value : 0,
+          maxValue: enabled == false ? value : max ?? value + 100,
           onChanged: onChanged,
           value: value,
           axis: Axis.horizontal,
           itemWidth: 60,
-          // infiniteLoop: true,
           itemHeight: 40,
           decoration: BoxDecoration(
             border: Border.all(color: context.theme.colorScheme.primary),
@@ -539,37 +576,33 @@ class SettingTileNumber<T extends num> extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textEditingController =
-        useTextEditingController(text: value.toString());
+    var textEditingController = useTextEditingController(
+      text: value.toString(),
+    );
     final textEditingUpdate = useValueListenable(textEditingController);
 
-    useEffect(
-      () {
-        Future(
-          () {
-            if (textEditingController.text.isEmpty) {
-              onChanged(0 as T);
-            } else {
-              var num = value is int
-                  ? int.tryParse(textEditingController.text)
-                  : double.tryParse(textEditingController.text);
+    useEffect(() {
+      Future(() {
+        if (textEditingController.text.isEmpty) {
+          onChanged(0 as T);
+        } else {
+          var num = value is int
+              ? int.tryParse(textEditingController.text)
+              : double.tryParse(textEditingController.text);
 
-              // print(textEditingController.text);
-              if (num != null) {
-                if (max != null && num > max!) {
-                  onChanged(max!);
-                  textEditingController.text = max!.toString();
-                } else {
-                  onChanged(num as T);
-                }
-              }
+          // print(textEditingController.text);
+          if (num != null) {
+            if (max != null && num > max!) {
+              onChanged(max!);
+              textEditingController.text = max!.toString();
+            } else {
+              onChanged(num as T);
             }
-          },
-        );
-        return null;
-      },
-      [textEditingUpdate],
-    );
+          }
+        }
+      });
+      return null;
+    }, [textEditingUpdate]);
 
     return SettingsTile(
       title: Text(title),
@@ -587,7 +620,8 @@ class SettingTileNumber<T extends num> extends HookWidget {
                 inputFormatters: [
                   if (value is double)
                     FilteringTextInputFormatter.allow(
-                        RegExp(r"[0-9]*\.?[0-9]?"))
+                      RegExp(r"[0-9]*\.?[0-9]?"),
+                    )
                   else
                     FilteringTextInputFormatter.digitsOnly,
                 ],
@@ -636,8 +670,8 @@ class SettingTileNumber<T extends num> extends HookWidget {
                 if (num != null) {
                   if ((num - 1) < 0) {
                     onChanged(num is int ? 0 as T : 0.0 as T);
-                    textEditingController.text =
-                        (num is int ? 0 : 0.0).toString();
+                    textEditingController.text = (num is int ? 0 : 0.0)
+                        .toString();
                   } else {
                     onChanged(num - 1 as T);
                     textEditingController.text = (num - 1).toString();
@@ -646,7 +680,7 @@ class SettingTileNumber<T extends num> extends HookWidget {
               },
               icon: const Icon(Icons.arrow_downward),
             ),
-          ]
+          ],
         ],
       ),
     );
@@ -654,11 +688,7 @@ class SettingTileNumber<T extends num> extends HookWidget {
 }
 
 class _NoteBox extends StatefulWidget {
-  const _NoteBox({
-    this.note,
-    required this.onChanged,
-    this.enabled = true,
-  });
+  const _NoteBox({this.note, required this.onChanged, this.enabled = true});
 
   final String? note;
   final Function(String note) onChanged;
@@ -669,8 +699,9 @@ class _NoteBox extends StatefulWidget {
 }
 
 class __NoteBoxState extends State<_NoteBox> {
-  late final TextEditingController _controller =
-      TextEditingController(text: widget.note);
+  late final TextEditingController _controller = TextEditingController(
+    text: widget.note,
+  );
 
   @override
   void initState() {

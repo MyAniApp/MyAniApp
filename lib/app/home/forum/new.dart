@@ -16,15 +16,17 @@ class ForumNewTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      forumsQuery,
-      variables: Variables$Query$Forums(
-        id: categoryId,
-        sort: [Enum$ThreadSort.CREATED_AT_DESC],
-      ).toJson(),
-      parseData: Query$Forums.fromJson,
-      mergeResults: defaultMergeResults("Page.threads"),
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        forumsQuery,
+        variables: Variables$Query$Forums(
+          id: categoryId,
+          sort: [Enum$ThreadSort.CREATED_AT_DESC],
+        ).toJson(),
+        parseData: Query$Forums.fromJson,
+        mergeResults: defaultMergeResults("Page.threads"),
+      ),
+    );
 
     return GQLWidget(
       refetch: refetch,
@@ -34,14 +36,11 @@ class ForumNewTab extends HookWidget {
         child: PaginationView.list(
           pageInfo: snapshot.parsedData!.Page!.pageInfo!,
           req: (nextPage) => fetchMore(
-            variables:
-                Variables$Query$Forums.fromJson(snapshot.request!.variables)
-                    .copyWith(page: nextPage)
-                    .toJson(),
+            variables: Variables$Query$Forums.fromJson(
+              snapshot.request!.variables,
+            ).copyWith(page: nextPage).toJson(),
           ),
-          // child: ListView.builder(
-          //   padding: const EdgeInsets.all(0),
-          builder: (context, index) {
+          itemBuilder: (context, index) {
             var thread = snapshot.parsedData!.Page!.threads![index]!;
 
             return ThreadCard(thread: thread);

@@ -48,184 +48,174 @@ class NotificationScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     var s = useState<String?>(null);
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      notificationsQuery,
-      parseData: Query$Notifications.fromJson,
-      variables:
-          Variables$Query$Notifications(types: notificationSelection[s.value])
-              .toJson(),
-      mergeResults: (previousResult, result) {
-        result['data']['Page']['notifications'] = [
-          ...?previousResult?['data']?['Page']?['notifications'],
-          ...?result['data']?['Page']?['notifications']
-        ];
-        return result;
-      },
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        notificationsQuery,
+        parseData: Query$Notifications.fromJson,
+        variables: Variables$Query$Notifications(
+          types: notificationSelection[s.value],
+        ).toJson(),
+        mergeResults: defaultMergeResults('Page.notifications'),
+      ),
+    );
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Notifications"),
-      ),
+      appBar: AppBar(title: const Text("Notifications")),
       body: GQLWidget(
         response: snapshot,
         refetch: refetch,
         builder: () => RefreshIndicator.adaptive(
           onRefresh: refetch,
           child: PaginationView.list(
-              pageInfo: snapshot.parsedData!.Page!.pageInfo!,
-              req: (nextPage) => fetchMore(
-                  variables: Variables$Query$Notifications.fromJson(
-                          snapshot.request!.variables)
-                      .copyWith(page: nextPage)
-                      .toJson()),
-              trailing: SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: SegmentedButton(
-                      selected: {s.value},
-                      onSelectionChanged: (p0) => s.value = p0.first,
-                      segments: [
-                        const ButtonSegment(
-                          value: null,
-                          label: Text("All"),
-                        ),
-                        for (var y in notificationSelection.entries)
-                          ButtonSegment(
-                            value: y.key,
-                            label: Text(y.key),
-                          )
-                      ],
-                    ),
+            pageInfo: snapshot.parsedData!.Page!.pageInfo!,
+            req: (nextPage) => fetchMore(
+              variables: Variables$Query$Notifications.fromJson(
+                snapshot.request!.variables,
+              ).copyWith(page: nextPage).toJson(),
+            ),
+            trailing: SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: SegmentedButton(
+                    selected: {s.value},
+                    onSelectionChanged: (p0) => s.value = p0.first,
+                    segments: [
+                      const ButtonSegment(value: null, label: Text("All")),
+                      for (var y in notificationSelection.entries)
+                        ButtonSegment(value: y.key, label: Text(y.key)),
+                    ],
                   ),
                 ),
               ),
-              builder: (context, index) {
-                var notif = AnilistNotification(
-                    notification:
-                        snapshot.parsedData!.Page!.notifications![index]!);
+            ),
+            itemBuilder: (context, index) {
+              var notif = AnilistNotification(
+                notification: snapshot.parsedData!.Page!.notifications![index]!,
+              );
 
-                var n = notif.notification as dynamic;
+              var n = notif.notification as dynamic;
 
-                var onTap = (notif.isMedia &&
-                        n.type != Enum$NotificationType.MEDIA_DELETION)
-                    ? () {
-                        context.push(Routes.media(n.media.id),
-                            extra: {"placeholder": n.media});
-                      }
-                    : notif.isActivity
-                        ? () {
-                            context.push(Routes.activity(n.activityId));
-                          }
-                        : notif.isThread
-                            ? () {
-                                context.push(Routes.thread(n.thread.id));
-                              }
-                            : n.type == Enum$NotificationType.FOLLOWING
-                                ? () {
-                                    context.push(Routes.user(n.user.name),
-                                        extra: {"placeholder": n.user});
-                                  }
-                                : null;
+              var onTap =
+                  (notif.isMedia &&
+                      n.type != Enum$NotificationType.MEDIA_DELETION)
+                  ? () {
+                      context.push(
+                        Routes.media(n.media.id),
+                        extra: {"placeholder": n.media},
+                      );
+                    }
+                  : notif.isActivity
+                  ? () {
+                      context.push(Routes.activity(n.activityId));
+                    }
+                  : notif.isThread
+                  ? () {
+                      context.push(Routes.thread(n.thread.id));
+                    }
+                  : n.type == Enum$NotificationType.FOLLOWING
+                  ? () {
+                      context.push(
+                        Routes.user(n.user.name),
+                        extra: {"placeholder": n.user},
+                      );
+                    }
+                  : null;
 
-                return Card.outlined(
-                  child: InkWellImage(
-                    onTap: onTap,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        if (notif.isMedia &&
-                            n.type != Enum$NotificationType.MEDIA_DELETION)
-                          SizedBox(
-                            height: 120,
-                            width: 85,
-                            child: ClipRRect(
-                              borderRadius: imageRadius,
-                              child: CachedImage(
-                                n.media.coverImage.extraLarge,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          )
-                        else if (notif.isMedia)
-                          const SizedBox(
-                            height: 120,
-                            width: 85,
-                            child: ClipRRect(
-                              borderRadius: imageRadius,
-                              child: CachedImage(
-                                anilistDefaultImage,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          )
-                        else if (notif.isActivity)
-                          SizedBox(
-                            height: 120,
-                            width: 85,
-                            child: ClipRRect(
-                              borderRadius: imageRadius,
-                              child: CachedImage(
-                                n.user.avatar.large,
-                                // fit: BoxFit.fill,
-                              ),
-                            ),
-                          )
-                        else if (notif.isThread)
-                          SizedBox(
-                            height: 120,
-                            width: 85,
-                            child: ClipRRect(
-                              borderRadius: imageRadius,
-                              child: CachedImage(
-                                n.user.avatar.large,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                          )
-                        else if (n.type == Enum$NotificationType.FOLLOWING)
-                          SizedBox(
-                            height: 120,
-                            width: 85,
-                            child: ClipRRect(
-                              borderRadius: imageRadius,
-                              child: CachedImage(
-                                n.user.avatar.large,
-                                fit: BoxFit.fill,
-                              ),
+              return Card.outlined(
+                child: InkWellImage(
+                  onTap: onTap,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (notif.isMedia &&
+                          n.type != Enum$NotificationType.MEDIA_DELETION)
+                        SizedBox(
+                          height: 120,
+                          width: 85,
+                          child: ClipRRect(
+                            borderRadius: imageRadius,
+                            child: CachedImage(
+                              n.media.coverImage.extraLarge,
+                              fit: BoxFit.fill,
                             ),
                           ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  notif.toString(),
-                                  maxLines: 3,
-                                ),
-                                Text(
-                                  (n.createdAt as int)
-                                      .dateFromTimestamp()
-                                      .relativeTime(context),
-                                  style: context.theme.textTheme.labelLarge
-                                      ?.copyWith(
-                                          color: context.theme.hintColor),
-                                  maxLines: 2,
-                                ),
-                              ],
+                        )
+                      else if (notif.isMedia)
+                        const SizedBox(
+                          height: 120,
+                          width: 85,
+                          child: ClipRRect(
+                            borderRadius: imageRadius,
+                            child: CachedImage(
+                              anilistDefaultImage,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        )
+                      else if (notif.isActivity)
+                        SizedBox(
+                          height: 120,
+                          width: 85,
+                          child: ClipRRect(
+                            borderRadius: imageRadius,
+                            child: CachedImage(
+                              n.user.avatar.large,
+                              // fit: BoxFit.fill,
+                            ),
+                          ),
+                        )
+                      else if (notif.isThread)
+                        SizedBox(
+                          height: 120,
+                          width: 85,
+                          child: ClipRRect(
+                            borderRadius: imageRadius,
+                            child: CachedImage(
+                              n.user.avatar.large,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        )
+                      else if (n.type == Enum$NotificationType.FOLLOWING)
+                        SizedBox(
+                          height: 120,
+                          width: 85,
+                          child: ClipRRect(
+                            borderRadius: imageRadius,
+                            child: CachedImage(
+                              n.user.avatar.large,
+                              fit: BoxFit.fill,
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(notif.toString(), maxLines: 3),
+                              Text(
+                                (n.createdAt as int)
+                                    .dateFromTimestamp()
+                                    .relativeTime(context),
+                                style: context.theme.textTheme.labelLarge
+                                    ?.copyWith(color: context.theme.hintColor),
+                                maxLines: 2,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                );
-              },
-              itemCount: snapshot.parsedData!.Page!.notifications!.length),
+                ),
+              );
+            },
+            itemCount: snapshot.parsedData!.Page!.notifications!.length,
+          ),
         ),
       ),
     );

@@ -9,12 +9,11 @@ class Variables$Query$MediaThreads {
     int? mediaId,
     int? page,
     int? perPage,
-  }) =>
-      Variables$Query$MediaThreads._({
-        if (mediaId != null) r'mediaId': mediaId,
-        if (page != null) r'page': page,
-        if (perPage != null) r'perPage': perPage,
-      });
+  }) => Variables$Query$MediaThreads._({
+    if (mediaId != null) r'mediaId': mediaId,
+    if (page != null) r'page': page,
+    if (perPage != null) r'perPage': perPage,
+  });
 
   Variables$Query$MediaThreads._(this._$data);
 
@@ -61,10 +60,7 @@ class Variables$Query$MediaThreads {
   }
 
   CopyWith$Variables$Query$MediaThreads<Variables$Query$MediaThreads>
-      get copyWith => CopyWith$Variables$Query$MediaThreads(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$MediaThreads(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -124,19 +120,12 @@ abstract class CopyWith$Variables$Query$MediaThreads<TRes> {
   factory CopyWith$Variables$Query$MediaThreads.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$MediaThreads;
 
-  TRes call({
-    int? mediaId,
-    int? page,
-    int? perPage,
-  });
+  TRes call({int? mediaId, int? page, int? perPage});
 }
 
 class _CopyWithImpl$Variables$Query$MediaThreads<TRes>
     implements CopyWith$Variables$Query$MediaThreads<TRes> {
-  _CopyWithImpl$Variables$Query$MediaThreads(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$MediaThreads(this._instance, this._then);
 
   final Variables$Query$MediaThreads _instance;
 
@@ -148,13 +137,14 @@ class _CopyWithImpl$Variables$Query$MediaThreads<TRes>
     Object? mediaId = _undefined,
     Object? page = _undefined,
     Object? perPage = _undefined,
-  }) =>
-      _then(Variables$Query$MediaThreads._({
-        ..._instance._$data,
-        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
-        if (page != _undefined) 'page': (page as int?),
-        if (perPage != _undefined) 'perPage': (perPage as int?),
-      }));
+  }) => _then(
+    Variables$Query$MediaThreads._({
+      ..._instance._$data,
+      if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+      if (page != _undefined) 'page': (page as int?),
+      if (perPage != _undefined) 'perPage': (perPage as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$MediaThreads<TRes>
@@ -163,19 +153,11 @@ class _CopyWithStubImpl$Variables$Query$MediaThreads<TRes>
 
   TRes _res;
 
-  call({
-    int? mediaId,
-    int? page,
-    int? perPage,
-  }) =>
-      _res;
+  call({int? mediaId, int? page, int? perPage}) => _res;
 }
 
 class Query$MediaThreads {
-  Query$MediaThreads({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$MediaThreads({this.Page, this.$__typename = 'Query'});
 
   factory Query$MediaThreads.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -205,10 +187,7 @@ class Query$MediaThreads {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -235,10 +214,7 @@ class Query$MediaThreads {
 
 extension UtilityExtension$Query$MediaThreads on Query$MediaThreads {
   CopyWith$Query$MediaThreads<Query$MediaThreads> get copyWith =>
-      CopyWith$Query$MediaThreads(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaThreads(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaThreads<TRes> {
@@ -250,19 +226,13 @@ abstract class CopyWith$Query$MediaThreads<TRes> {
   factory CopyWith$Query$MediaThreads.stub(TRes res) =
       _CopyWithStubImpl$Query$MediaThreads;
 
-  TRes call({
-    Query$MediaThreads$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$MediaThreads$Page? Page, String? $__typename});
   CopyWith$Query$MediaThreads$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$MediaThreads<TRes>
     implements CopyWith$Query$MediaThreads<TRes> {
-  _CopyWithImpl$Query$MediaThreads(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaThreads(this._instance, this._then);
 
   final Query$MediaThreads _instance;
 
@@ -270,18 +240,17 @@ class _CopyWithImpl$Query$MediaThreads<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaThreads(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$MediaThreads$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$MediaThreads(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$MediaThreads$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$MediaThreads$Page<TRes> get Page {
     final local$Page = _instance.Page;
@@ -297,112 +266,116 @@ class _CopyWithStubImpl$Query$MediaThreads<TRes>
 
   TRes _res;
 
-  call({
-    Query$MediaThreads$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$MediaThreads$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$MediaThreads$Page<TRes> get Page =>
       CopyWith$Query$MediaThreads$Page.stub(_res);
 }
 
-const documentNodeQueryMediaThreads = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'MediaThreads'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mediaId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryMediaThreads = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'MediaThreads'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'mediaId')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'page')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'perPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'perPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: VariableNode(name: NameNode(value: 'perPage')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'threads'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'mediaCategoryId'),
-                value: VariableNode(name: NameNode(value: 'mediaId')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
               ),
               ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                name: NameNode(value: 'perPage'),
+                value: VariableNode(name: NameNode(value: 'perPage')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ThreadFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'threads'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'mediaCategoryId'),
+                      value: VariableNode(name: NameNode(value: 'mediaId')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'ThreadFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -411,22 +384,15 @@ const documentNodeQueryMediaThreads = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionThreadFragment,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionThreadFragment,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$MediaThreads$Page {
   Query$MediaThreads$Page({
@@ -444,9 +410,11 @@ class Query$MediaThreads$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       threads: (l$threads as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ThreadFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -521,10 +489,7 @@ class Query$MediaThreads$Page {
 
 extension UtilityExtension$Query$MediaThreads$Page on Query$MediaThreads$Page {
   CopyWith$Query$MediaThreads$Page<Query$MediaThreads$Page> get copyWith =>
-      CopyWith$Query$MediaThreads$Page(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$MediaThreads$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$MediaThreads$Page<TRes> {
@@ -543,18 +508,16 @@ abstract class CopyWith$Query$MediaThreads$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes threads(
-      Iterable<Fragment$ThreadFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?)
-          _fn);
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$MediaThreads$Page<TRes>
     implements CopyWith$Query$MediaThreads$Page<TRes> {
-  _CopyWithImpl$Query$MediaThreads$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$MediaThreads$Page(this._instance, this._then);
 
   final Query$MediaThreads$Page _instance;
 
@@ -566,18 +529,19 @@ class _CopyWithImpl$Query$MediaThreads$Page<TRes>
     Object? pageInfo = _undefined,
     Object? threads = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$MediaThreads$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        threads: threads == _undefined
-            ? _instance.threads
-            : (threads as List<Fragment$ThreadFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$MediaThreads$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      threads: threads == _undefined
+          ? _instance.threads
+          : (threads as List<Fragment$ThreadFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -587,18 +551,17 @@ class _CopyWithImpl$Query$MediaThreads$Page<TRes>
   }
 
   TRes threads(
-          Iterable<Fragment$ThreadFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ThreadFragment<
-                          Fragment$ThreadFragment>?>?)
-              _fn) =>
-      call(
-          threads: _fn(_instance.threads?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ThreadFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ThreadFragment?>? Function(
+      Iterable<CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    threads: _fn(
+      _instance.threads?.map(
+        (e) => e == null ? null : CopyWith$Fragment$ThreadFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$MediaThreads$Page<TRes>
@@ -611,8 +574,7 @@ class _CopyWithStubImpl$Query$MediaThreads$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$ThreadFragment?>? threads,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);

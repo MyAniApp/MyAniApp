@@ -15,7 +15,7 @@ class UserMangaScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
       mediaListQuery,
       variables:
           Variables$Query$MediaList(userName: name, type: Enum$MediaType.MANGA)

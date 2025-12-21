@@ -20,7 +20,7 @@ class UserThreadsTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
       userThreadsQuery,
       variables: Variables$Query$UserThreads(userId: id).toJson(),
       parseData: Query$UserThreads.fromJson,

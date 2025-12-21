@@ -31,7 +31,8 @@ class Fragment$UserFragment {
       avatar: l$avatar == null
           ? null
           : Fragment$UserFragment$avatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
+              (l$avatar as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -153,10 +154,7 @@ class Fragment$UserFragment {
 
 extension UtilityExtension$Fragment$UserFragment on Fragment$UserFragment {
   CopyWith$Fragment$UserFragment<Fragment$UserFragment> get copyWith =>
-      CopyWith$Fragment$UserFragment(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$UserFragment(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$UserFragment<TRes> {
@@ -182,10 +180,7 @@ abstract class CopyWith$Fragment$UserFragment<TRes> {
 
 class _CopyWithImpl$Fragment$UserFragment<TRes>
     implements CopyWith$Fragment$UserFragment<TRes> {
-  _CopyWithImpl$Fragment$UserFragment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$UserFragment(this._instance, this._then);
 
   final Fragment$UserFragment _instance;
 
@@ -201,35 +196,38 @@ class _CopyWithImpl$Fragment$UserFragment<TRes>
     Object? moderatorRoles = _undefined,
     Object? avatar = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$UserFragment(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        donatorTier: donatorTier == _undefined
-            ? _instance.donatorTier
-            : (donatorTier as int?),
-        donatorBadge: donatorBadge == _undefined
-            ? _instance.donatorBadge
-            : (donatorBadge as String?),
-        moderatorRoles: moderatorRoles == _undefined
-            ? _instance.moderatorRoles
-            : (moderatorRoles as List<Enum$ModRole?>?),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as Fragment$UserFragment$avatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$UserFragment(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      donatorTier: donatorTier == _undefined
+          ? _instance.donatorTier
+          : (donatorTier as int?),
+      donatorBadge: donatorBadge == _undefined
+          ? _instance.donatorBadge
+          : (donatorBadge as String?),
+      moderatorRoles: moderatorRoles == _undefined
+          ? _instance.moderatorRoles
+          : (moderatorRoles as List<Enum$ModRole?>?),
+      avatar: avatar == _undefined
+          ? _instance.avatar
+          : (avatar as Fragment$UserFragment$avatar?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment$avatar<TRes> get avatar {
     final local$avatar = _instance.avatar;
     return local$avatar == null
         ? CopyWith$Fragment$UserFragment$avatar.stub(_then(_instance))
         : CopyWith$Fragment$UserFragment$avatar(
-            local$avatar, (e) => call(avatar: e));
+            local$avatar,
+            (e) => call(avatar: e),
+          );
   }
 }
 
@@ -247,8 +245,7 @@ class _CopyWithStubImpl$Fragment$UserFragment<TRes>
     List<Enum$ModRole?>? moderatorRoles,
     Fragment$UserFragment$avatar? avatar,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment$avatar<TRes> get avatar =>
       CopyWith$Fragment$UserFragment$avatar.stub(_res);
@@ -257,87 +254,86 @@ class _CopyWithStubImpl$Fragment$UserFragment<TRes>
 const fragmentDefinitionUserFragment = FragmentDefinitionNode(
   name: NameNode(value: 'UserFragment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'User'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'User'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'donatorTier'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'donatorBadge'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'moderatorRoles'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'avatar'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'large'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'donatorTier'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'donatorBadge'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'moderatorRoles'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'avatar'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'large'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentUserFragment = DocumentNode(definitions: [
-  fragmentDefinitionUserFragment,
-]);
+const documentNodeFragmentUserFragment = DocumentNode(
+  definitions: [fragmentDefinitionUserFragment],
+);
 
 class Fragment$UserFragment$avatar {
-  Fragment$UserFragment$avatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
+  Fragment$UserFragment$avatar({this.large, this.$__typename = 'UserAvatar'});
 
   factory Fragment$UserFragment$avatar.fromJson(Map<String, dynamic> json) {
     final l$large = json['large'];
@@ -365,10 +361,7 @@ class Fragment$UserFragment$avatar {
   int get hashCode {
     final l$large = large;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$$__typename]);
   }
 
   @override
@@ -397,10 +390,7 @@ class Fragment$UserFragment$avatar {
 extension UtilityExtension$Fragment$UserFragment$avatar
     on Fragment$UserFragment$avatar {
   CopyWith$Fragment$UserFragment$avatar<Fragment$UserFragment$avatar>
-      get copyWith => CopyWith$Fragment$UserFragment$avatar(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$UserFragment$avatar(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$UserFragment$avatar<TRes> {
@@ -412,18 +402,12 @@ abstract class CopyWith$Fragment$UserFragment$avatar<TRes> {
   factory CopyWith$Fragment$UserFragment$avatar.stub(TRes res) =
       _CopyWithStubImpl$Fragment$UserFragment$avatar;
 
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
+  TRes call({String? large, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$UserFragment$avatar<TRes>
     implements CopyWith$Fragment$UserFragment$avatar<TRes> {
-  _CopyWithImpl$Fragment$UserFragment$avatar(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$UserFragment$avatar(this._instance, this._then);
 
   final Fragment$UserFragment$avatar _instance;
 
@@ -431,16 +415,15 @@ class _CopyWithImpl$Fragment$UserFragment$avatar<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$UserFragment$avatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? large = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$UserFragment$avatar(
+          large: large == _undefined ? _instance.large : (large as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$UserFragment$avatar<TRes>
@@ -449,9 +432,5 @@ class _CopyWithStubImpl$Fragment$UserFragment$avatar<TRes>
 
   TRes _res;
 
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? $__typename}) => _res;
 }

@@ -52,11 +52,13 @@ class Fragment$MessageActivity {
       messenger: l$messenger == null
           ? null
           : Fragment$UserFragment.fromJson(
-              (l$messenger as Map<String, dynamic>)),
+              (l$messenger as Map<String, dynamic>),
+            ),
       recipient: l$recipient == null
           ? null
           : Fragment$UserFragment.fromJson(
-              (l$recipient as Map<String, dynamic>)),
+              (l$recipient as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -94,8 +96,9 @@ class Fragment$MessageActivity {
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJson$Enum$ActivityType(l$type);
+    _resultData['type'] = l$type == null
+        ? null
+        : toJson$Enum$ActivityType(l$type);
     final l$message = message;
     _resultData['message'] = l$message;
     final l$replyCount = replyCount;
@@ -243,10 +246,7 @@ class Fragment$MessageActivity {
 extension UtilityExtension$Fragment$MessageActivity
     on Fragment$MessageActivity {
   CopyWith$Fragment$MessageActivity<Fragment$MessageActivity> get copyWith =>
-      CopyWith$Fragment$MessageActivity(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$MessageActivity(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$MessageActivity<TRes> {
@@ -280,10 +280,7 @@ abstract class CopyWith$Fragment$MessageActivity<TRes> {
 
 class _CopyWithImpl$Fragment$MessageActivity<TRes>
     implements CopyWith$Fragment$MessageActivity<TRes> {
-  _CopyWithImpl$Fragment$MessageActivity(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$MessageActivity(this._instance, this._then);
 
   final Fragment$MessageActivity _instance;
 
@@ -306,49 +303,51 @@ class _CopyWithImpl$Fragment$MessageActivity<TRes>
     Object? messenger = _undefined,
     Object? recipient = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$MessageActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type:
-            type == _undefined ? _instance.type : (type as Enum$ActivityType?),
-        message:
-            message == _undefined ? _instance.message : (message as String?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        isPrivate: isPrivate == _undefined
-            ? _instance.isPrivate
-            : (isPrivate as bool?),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        userId: userId == _undefined ? _instance.userId : (userId as int?),
-        messenger: messenger == _undefined
-            ? _instance.messenger
-            : (messenger as Fragment$UserFragment?),
-        recipient: recipient == _undefined
-            ? _instance.recipient
-            : (recipient as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$MessageActivity(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      type: type == _undefined ? _instance.type : (type as Enum$ActivityType?),
+      message: message == _undefined ? _instance.message : (message as String?),
+      replyCount: replyCount == _undefined || replyCount == null
+          ? _instance.replyCount
+          : (replyCount as int),
+      isPrivate: isPrivate == _undefined
+          ? _instance.isPrivate
+          : (isPrivate as bool?),
+      isLocked: isLocked == _undefined
+          ? _instance.isLocked
+          : (isLocked as bool?),
+      isSubscribed: isSubscribed == _undefined
+          ? _instance.isSubscribed
+          : (isSubscribed as bool?),
+      isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+      likeCount: likeCount == _undefined || likeCount == null
+          ? _instance.likeCount
+          : (likeCount as int),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      userId: userId == _undefined ? _instance.userId : (userId as int?),
+      messenger: messenger == _undefined
+          ? _instance.messenger
+          : (messenger as Fragment$UserFragment?),
+      recipient: recipient == _undefined
+          ? _instance.recipient
+          : (recipient as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get messenger {
     final local$messenger = _instance.messenger;
     return local$messenger == null
         ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
         : CopyWith$Fragment$UserFragment(
-            local$messenger, (e) => call(messenger: e));
+            local$messenger,
+            (e) => call(messenger: e),
+          );
   }
 
   CopyWith$Fragment$UserFragment<TRes> get recipient {
@@ -356,7 +355,9 @@ class _CopyWithImpl$Fragment$MessageActivity<TRes>
     return local$recipient == null
         ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
         : CopyWith$Fragment$UserFragment(
-            local$recipient, (e) => call(recipient: e));
+            local$recipient,
+            (e) => call(recipient: e),
+          );
   }
 }
 
@@ -381,8 +382,7 @@ class _CopyWithStubImpl$Fragment$MessageActivity<TRes>
     Fragment$UserFragment? messenger,
     Fragment$UserFragment? recipient,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$UserFragment<TRes> get messenger =>
       CopyWith$Fragment$UserFragment.stub(_res);
@@ -394,137 +394,146 @@ class _CopyWithStubImpl$Fragment$MessageActivity<TRes>
 const fragmentDefinitionMessageActivity = FragmentDefinitionNode(
   name: NameNode(value: 'MessageActivity'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'MessageActivity'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(
+      name: NameNode(value: 'MessageActivity'),
+      isNonNull: false,
+    ),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'type'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'message'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'replyCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isPrivate'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isLocked'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isSubscribed'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isLiked'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'likeCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'createdAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'messengerId'),
-      alias: NameNode(value: 'userId'),
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'messenger'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'UserFragment'),
-          directives: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'type'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'message'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'replyCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isPrivate'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isLocked'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isSubscribed'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isLiked'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'likeCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'createdAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'messengerId'),
+        alias: NameNode(value: 'userId'),
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'messenger'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'UserFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'recipient'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'UserFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'recipient'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'UserFragment'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentMessageActivity = DocumentNode(definitions: [
-  fragmentDefinitionMessageActivity,
-  fragmentDefinitionUserFragment,
-]);
+const documentNodeFragmentMessageActivity = DocumentNode(
+  definitions: [
+    fragmentDefinitionMessageActivity,
+    fragmentDefinitionUserFragment,
+  ],
+);

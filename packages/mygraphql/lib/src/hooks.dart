@@ -168,7 +168,7 @@ class _StreamHookState<T> extends HookState<QueryHookResult<T>, StreamHook<T>> {
             parsedData: _summary.request?.parseData?.call(data['data']),
           ));
 
-      return req.parsedData;
+      return _summary.parsedData;
     } catch (err) {
       setState(() => _summary = GQLResponse(
           response: {},

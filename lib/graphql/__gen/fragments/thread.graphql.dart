@@ -43,15 +43,20 @@ class Fragment$ThreadFragment {
       createdAt: (l$createdAt as int),
       isSticky: (l$isSticky as bool?),
       mediaCategories: (l$mediaCategories as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$MediaFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       categories: (l$categories as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$ThreadFragment$categories.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$ThreadFragment$categories.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       user: l$user == null
           ? null
@@ -59,7 +64,8 @@ class Fragment$ThreadFragment {
       replyUser: l$replyUser == null
           ? null
           : Fragment$UserFragment.fromJson(
-              (l$replyUser as Map<String, dynamic>)),
+              (l$replyUser as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -109,8 +115,9 @@ class Fragment$ThreadFragment {
     final l$isSticky = isSticky;
     _resultData['isSticky'] = l$isSticky;
     final l$mediaCategories = mediaCategories;
-    _resultData['mediaCategories'] =
-        l$mediaCategories?.map((e) => e?.toJson()).toList();
+    _resultData['mediaCategories'] = l$mediaCategories
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$categories = categories;
     _resultData['categories'] = l$categories?.map((e) => e?.toJson()).toList();
     final l$user = user;
@@ -257,10 +264,7 @@ class Fragment$ThreadFragment {
 
 extension UtilityExtension$Fragment$ThreadFragment on Fragment$ThreadFragment {
   CopyWith$Fragment$ThreadFragment<Fragment$ThreadFragment> get copyWith =>
-      CopyWith$Fragment$ThreadFragment(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$ThreadFragment(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThreadFragment<TRes> {
@@ -288,26 +292,28 @@ abstract class CopyWith$Fragment$ThreadFragment<TRes> {
     String? $__typename,
   });
   TRes mediaCategories(
-      Iterable<Fragment$MediaFragment?>? Function(
-              Iterable<
-                  CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?)
-          _fn);
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  );
   TRes categories(
-      Iterable<Fragment$ThreadFragment$categories?>? Function(
-              Iterable<
-                  CopyWith$Fragment$ThreadFragment$categories<
-                      Fragment$ThreadFragment$categories>?>?)
-          _fn);
+    Iterable<Fragment$ThreadFragment$categories?>? Function(
+      Iterable<
+        CopyWith$Fragment$ThreadFragment$categories<
+          Fragment$ThreadFragment$categories
+        >?
+      >?,
+    )
+    _fn,
+  );
   CopyWith$Fragment$UserFragment<TRes> get user;
   CopyWith$Fragment$UserFragment<TRes> get replyUser;
 }
 
 class _CopyWithImpl$Fragment$ThreadFragment<TRes>
     implements CopyWith$Fragment$ThreadFragment<TRes> {
-  _CopyWithImpl$Fragment$ThreadFragment(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThreadFragment(this._instance, this._then);
 
   final Fragment$ThreadFragment _instance;
 
@@ -329,69 +335,77 @@ class _CopyWithImpl$Fragment$ThreadFragment<TRes>
     Object? user = _undefined,
     Object? replyUser = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThreadFragment(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        title: title == _undefined ? _instance.title : (title as String?),
-        replyCount: replyCount == _undefined
-            ? _instance.replyCount
-            : (replyCount as int?),
-        viewCount:
-            viewCount == _undefined ? _instance.viewCount : (viewCount as int?),
-        replyCommentId: replyCommentId == _undefined
-            ? _instance.replyCommentId
-            : (replyCommentId as int?),
-        repliedAt:
-            repliedAt == _undefined ? _instance.repliedAt : (repliedAt as int?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        isSticky:
-            isSticky == _undefined ? _instance.isSticky : (isSticky as bool?),
-        mediaCategories: mediaCategories == _undefined
-            ? _instance.mediaCategories
-            : (mediaCategories as List<Fragment$MediaFragment?>?),
-        categories: categories == _undefined
-            ? _instance.categories
-            : (categories as List<Fragment$ThreadFragment$categories?>?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as Fragment$UserFragment?),
-        replyUser: replyUser == _undefined
-            ? _instance.replyUser
-            : (replyUser as Fragment$UserFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThreadFragment(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      title: title == _undefined ? _instance.title : (title as String?),
+      replyCount: replyCount == _undefined
+          ? _instance.replyCount
+          : (replyCount as int?),
+      viewCount: viewCount == _undefined
+          ? _instance.viewCount
+          : (viewCount as int?),
+      replyCommentId: replyCommentId == _undefined
+          ? _instance.replyCommentId
+          : (replyCommentId as int?),
+      repliedAt: repliedAt == _undefined
+          ? _instance.repliedAt
+          : (repliedAt as int?),
+      createdAt: createdAt == _undefined || createdAt == null
+          ? _instance.createdAt
+          : (createdAt as int),
+      isSticky: isSticky == _undefined
+          ? _instance.isSticky
+          : (isSticky as bool?),
+      mediaCategories: mediaCategories == _undefined
+          ? _instance.mediaCategories
+          : (mediaCategories as List<Fragment$MediaFragment?>?),
+      categories: categories == _undefined
+          ? _instance.categories
+          : (categories as List<Fragment$ThreadFragment$categories?>?),
+      user: user == _undefined
+          ? _instance.user
+          : (user as Fragment$UserFragment?),
+      replyUser: replyUser == _undefined
+          ? _instance.replyUser
+          : (replyUser as Fragment$UserFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   TRes mediaCategories(
-          Iterable<Fragment$MediaFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$MediaFragment<
-                          Fragment$MediaFragment>?>?)
-              _fn) =>
-      call(
-          mediaCategories: _fn(_instance.mediaCategories?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$MediaFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$MediaFragment?>? Function(
+      Iterable<CopyWith$Fragment$MediaFragment<Fragment$MediaFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    mediaCategories: _fn(
+      _instance.mediaCategories?.map(
+        (e) => e == null ? null : CopyWith$Fragment$MediaFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 
   TRes categories(
-          Iterable<Fragment$ThreadFragment$categories?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$ThreadFragment$categories<
-                          Fragment$ThreadFragment$categories>?>?)
-              _fn) =>
-      call(
-          categories: _fn(_instance.categories?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$ThreadFragment$categories(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$ThreadFragment$categories?>? Function(
+      Iterable<
+        CopyWith$Fragment$ThreadFragment$categories<
+          Fragment$ThreadFragment$categories
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    categories: _fn(
+      _instance.categories?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Fragment$ThreadFragment$categories(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 
   CopyWith$Fragment$UserFragment<TRes> get user {
     final local$user = _instance.user;
@@ -405,7 +419,9 @@ class _CopyWithImpl$Fragment$ThreadFragment<TRes>
     return local$replyUser == null
         ? CopyWith$Fragment$UserFragment.stub(_then(_instance))
         : CopyWith$Fragment$UserFragment(
-            local$replyUser, (e) => call(replyUser: e));
+            local$replyUser,
+            (e) => call(replyUser: e),
+          );
   }
 }
 
@@ -429,8 +445,7 @@ class _CopyWithStubImpl$Fragment$ThreadFragment<TRes>
     Fragment$UserFragment? user,
     Fragment$UserFragment? replyUser,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   mediaCategories(_fn) => _res;
 
@@ -446,168 +461,178 @@ class _CopyWithStubImpl$Fragment$ThreadFragment<TRes>
 const fragmentDefinitionThreadFragment = FragmentDefinitionNode(
   name: NameNode(value: 'ThreadFragment'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'Thread'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'Thread'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'title'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'replyCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'viewCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'replyCommentId'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'repliedAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'createdAt'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'isSticky'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'mediaCategories'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'MediaFragment'),
-          directives: [],
+  selectionSet: SelectionSetNode(
+    selections: [
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'title'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'replyCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'viewCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'replyCommentId'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'repliedAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'createdAt'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'isSticky'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'mediaCategories'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'MediaFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'categories'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'id'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'name'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'categories'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'user'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'UserFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'name'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'replyUser'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FragmentSpreadNode(
+              name: NameNode(value: 'UserFragment'),
+              directives: [],
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'user'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'UserFragment'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'replyUser'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FragmentSpreadNode(
-          name: NameNode(value: 'UserFragment'),
-          directives: [],
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentThreadFragment = DocumentNode(definitions: [
-  fragmentDefinitionThreadFragment,
-  fragmentDefinitionMediaFragment,
-  fragmentDefinitionUserFragment,
-]);
+const documentNodeFragmentThreadFragment = DocumentNode(
+  definitions: [
+    fragmentDefinitionThreadFragment,
+    fragmentDefinitionMediaFragment,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Fragment$ThreadFragment$categories {
   Fragment$ThreadFragment$categories({
@@ -617,7 +642,8 @@ class Fragment$ThreadFragment$categories {
   });
 
   factory Fragment$ThreadFragment$categories.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
@@ -650,11 +676,7 @@ class Fragment$ThreadFragment$categories {
     final l$id = id;
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$id, l$name, l$$__typename]);
   }
 
   @override
@@ -688,11 +710,9 @@ class Fragment$ThreadFragment$categories {
 extension UtilityExtension$Fragment$ThreadFragment$categories
     on Fragment$ThreadFragment$categories {
   CopyWith$Fragment$ThreadFragment$categories<
-          Fragment$ThreadFragment$categories>
-      get copyWith => CopyWith$Fragment$ThreadFragment$categories(
-            this,
-            (i) => i,
-          );
+    Fragment$ThreadFragment$categories
+  >
+  get copyWith => CopyWith$Fragment$ThreadFragment$categories(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThreadFragment$categories<TRes> {
@@ -704,19 +724,12 @@ abstract class CopyWith$Fragment$ThreadFragment$categories<TRes> {
   factory CopyWith$Fragment$ThreadFragment$categories.stub(TRes res) =
       _CopyWithStubImpl$Fragment$ThreadFragment$categories;
 
-  TRes call({
-    int? id,
-    String? name,
-    String? $__typename,
-  });
+  TRes call({int? id, String? name, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$ThreadFragment$categories<TRes>
     implements CopyWith$Fragment$ThreadFragment$categories<TRes> {
-  _CopyWithImpl$Fragment$ThreadFragment$categories(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThreadFragment$categories(this._instance, this._then);
 
   final Fragment$ThreadFragment$categories _instance;
 
@@ -728,16 +741,17 @@ class _CopyWithImpl$Fragment$ThreadFragment$categories<TRes>
     Object? id = _undefined,
     Object? name = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThreadFragment$categories(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThreadFragment$categories(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ThreadFragment$categories<TRes>
@@ -746,10 +760,5 @@ class _CopyWithStubImpl$Fragment$ThreadFragment$categories<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
+  call({int? id, String? name, String? $__typename}) => _res;
 }

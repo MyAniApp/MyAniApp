@@ -1,0 +1,14 @@
+query Likes($page: Int, $id: Int, $type: LikeableType) {
+    Page(page: $page) {
+        pageInfo {
+            ...PageInfo
+        }
+        likes(likeableId: $id, type: $type) {
+            id
+            name
+            avatar {
+                large
+            }
+        }
+    }
+}

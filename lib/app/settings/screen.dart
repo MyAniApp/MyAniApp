@@ -141,7 +141,7 @@ class SettingsScreen extends ConsumerWidget {
                       label: Enum$UserTitleLanguage.ENGLISH.name.capitalize(),
                     )
                   ],
-                  onSelected: (value) => c
+                  onSelected: (value) => gqlClient
                       .query(
                         GQLRequest(
                           updateUserQuery,
@@ -176,7 +176,7 @@ class SettingsScreen extends ConsumerWidget {
                           .capitalize(),
                     ),
                   ],
-                  onSelected: (value) => c
+                  onSelected: (value) => gqlClient
                       .query(
                         GQLRequest(
                           updateUserQuery,
@@ -217,7 +217,7 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                       )
                       .toList(),
-                  onSelected: (value) => c
+                  onSelected: (value) => gqlClient
                       .query(
                         GQLRequest(
                           updateUserQuery,
@@ -235,7 +235,7 @@ class SettingsScreen extends ConsumerWidget {
                   title: "Airing Anime Notifications",
                   value: user
                       .value!.parsedData!.Viewer!.options!.airingNotifications!,
-                  onChanged: (value) => c
+                  onChanged: (value) => gqlClient
                       .query(
                         GQLRequest(
                           updateUserQuery,
@@ -253,7 +253,7 @@ class SettingsScreen extends ConsumerWidget {
                   title: "Adult Content",
                   value: user
                       .value!.parsedData!.Viewer!.options!.displayAdultContent!,
-                  onChanged: (value) => c
+                  onChanged: (value) => gqlClient
                       .query(
                         GQLRequest(
                           updateUserQuery,
@@ -296,7 +296,7 @@ class SettingsScreen extends ConsumerWidget {
                         },
                       ),
                   ],
-                  onSelected: (value) => c
+                  onSelected: (value) => gqlClient
                       .query(
                         GQLRequest(
                           updateUserQuery,
@@ -332,7 +332,7 @@ class SettingsScreen extends ConsumerWidget {
                       label: "Last Added",
                     ),
                   ],
-                  onSelected: (value) => c
+                  onSelected: (value) => gqlClient
                       .query(
                         GQLRequest(
                           updateUserQuery,
@@ -372,7 +372,7 @@ class SettingsScreen extends ConsumerWidget {
                   ],
                   onSaved: (values) {
                     if (values.contains("anime")) {
-                      c
+                      gqlClient
                           .query(
                             GQLRequest(
                               updateUserQuery,
@@ -395,7 +395,7 @@ class SettingsScreen extends ConsumerWidget {
                           );
                     }
                     if (values.contains("manga")) {
-                      c
+                      gqlClient
                           .query(
                             GQLRequest(
                               updateUserQuery,
@@ -419,7 +419,7 @@ class SettingsScreen extends ConsumerWidget {
                     }
 
                     if (values.length == 1 && values.first == null) {
-                      c
+                      gqlClient
                           .query(
                             GQLRequest(
                               updateUserQuery,

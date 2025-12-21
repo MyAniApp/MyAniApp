@@ -22,11 +22,13 @@ class ThreadCommentScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      commentQuery,
-      variables: Variables$Query$Comment(id: commentId).toJson(),
-      parseData: Query$Comment.fromJson,
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        commentQuery,
+        variables: Variables$Query$Comment(id: commentId).toJson(),
+        parseData: Query$Comment.fromJson,
+      ),
+    );
 
     return Scaffold(
       appBar: AppBar(),
@@ -36,15 +38,24 @@ class ThreadCommentScreen extends HookWidget {
         builder: () => ListView(
           children: [
             ListTile(
-              title:
-                  const Text("Viewing a single comment, click to view thread"),
-              onTap: () => context.push(Routes.thread(
-                  snapshot.parsedData!.ThreadComment!.first!.threadId!)),
+              title: const Text(
+                "Viewing a single comment, click to view thread",
+              ),
+              onTap: () => context.push(
+                Routes.thread(
+                  snapshot.parsedData!.ThreadComment!.first!.threadId!,
+                ),
+              ),
             ),
             ThreadComment(
               comment: snapshot.parsedData!.ThreadComment!.first!.comment!,
               avatar: snapshot
-                  .parsedData!.ThreadComment!.first!.user!.avatar!.large!,
+                  .parsedData!
+                  .ThreadComment!
+                  .first!
+                  .user!
+                  .avatar!
+                  .large!,
               username: snapshot.parsedData!.ThreadComment!.first!.user!.name,
               createdAt: snapshot.parsedData!.ThreadComment!.first!.createdAt,
               isLiked:
@@ -53,29 +64,36 @@ class ThreadCommentScreen extends HookWidget {
               likeCount: snapshot.parsedData!.ThreadComment!.first!.likeCount,
               refetch: refetch,
               parentId: snapshot.parsedData!.ThreadComment!.first!.id,
-              replies: snapshot.parsedData!.ThreadComment!.first!.childComments
-                  as List?,
-              onAvatarTap: () => context.push(
-                Routes.user(
-                    snapshot.parsedData!.ThreadComment!.first!.user!.name),
-                extra: {
-                  "placeholder":
-                      snapshot.parsedData!.ThreadComment!.first!.user!
-                },
-              ),
-              donatorText: snapshot.parsedData!.ThreadComment!.first!.user!
+              replies: snapshot.parsedData!.ThreadComment!.first!.childComments,
+              donatorText:
+                  snapshot
+                          .parsedData!
+                          .ThreadComment!
+                          .first!
+                          .user!
                           .donatorTier !=
                       0
                   ? snapshot
-                      .parsedData!.ThreadComment!.first!.user!.donatorBadge
+                        .parsedData!
+                        .ThreadComment!
+                        .first!
+                        .user!
+                        .donatorBadge
                   : null,
               modRoles: snapshot
-                  .parsedData!.ThreadComment!.first!.user!.moderatorRoles
+                  .parsedData!
+                  .ThreadComment!
+                  .first!
+                  .user!
+                  .moderatorRoles
                   ?.fold(
-                      [],
-                      (previousValue, element) =>
-                          [...?previousValue, element!.name.capitalize()]),
-            )
+                    [],
+                    (previousValue, element) => [
+                      ...?previousValue,
+                      element!.name.capitalize(),
+                    ],
+                  ),
+            ),
           ],
         ),
       ),

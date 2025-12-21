@@ -44,7 +44,8 @@ class Fragment$ThisUser implements Fragment$UserFragment {
       avatar: l$avatar == null
           ? null
           : Fragment$ThisUser$avatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
+              (l$avatar as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
       about: (l$about as String?),
       bannerImage: (l$bannerImage as String?),
@@ -52,15 +53,18 @@ class Fragment$ThisUser implements Fragment$UserFragment {
       statistics: l$statistics == null
           ? null
           : Fragment$ThisUser$statistics.fromJson(
-              (l$statistics as Map<String, dynamic>)),
+              (l$statistics as Map<String, dynamic>),
+            ),
       options: l$options == null
           ? null
           : Fragment$ThisUser$options.fromJson(
-              (l$options as Map<String, dynamic>)),
+              (l$options as Map<String, dynamic>),
+            ),
       mediaListOptions: l$mediaListOptions == null
           ? null
           : Fragment$ThisUser$mediaListOptions.fromJson(
-              (l$mediaListOptions as Map<String, dynamic>)),
+              (l$mediaListOptions as Map<String, dynamic>),
+            ),
     );
   }
 
@@ -247,10 +251,7 @@ class Fragment$ThisUser implements Fragment$UserFragment {
 
 extension UtilityExtension$Fragment$ThisUser on Fragment$ThisUser {
   CopyWith$Fragment$ThisUser<Fragment$ThisUser> get copyWith =>
-      CopyWith$Fragment$ThisUser(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$ThisUser(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThisUser<TRes> {
@@ -285,10 +286,7 @@ abstract class CopyWith$Fragment$ThisUser<TRes> {
 
 class _CopyWithImpl$Fragment$ThisUser<TRes>
     implements CopyWith$Fragment$ThisUser<TRes> {
-  _CopyWithImpl$Fragment$ThisUser(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThisUser(this._instance, this._then);
 
   final Fragment$ThisUser _instance;
 
@@ -310,51 +308,54 @@ class _CopyWithImpl$Fragment$ThisUser<TRes>
     Object? statistics = _undefined,
     Object? options = _undefined,
     Object? mediaListOptions = _undefined,
-  }) =>
-      _then(Fragment$ThisUser(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        donatorTier: donatorTier == _undefined
-            ? _instance.donatorTier
-            : (donatorTier as int?),
-        donatorBadge: donatorBadge == _undefined
-            ? _instance.donatorBadge
-            : (donatorBadge as String?),
-        moderatorRoles: moderatorRoles == _undefined
-            ? _instance.moderatorRoles
-            : (moderatorRoles as List<Enum$ModRole?>?),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as Fragment$ThisUser$avatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-        about: about == _undefined ? _instance.about : (about as String?),
-        bannerImage: bannerImage == _undefined
-            ? _instance.bannerImage
-            : (bannerImage as String?),
-        unreadNotificationCount: unreadNotificationCount == _undefined
-            ? _instance.unreadNotificationCount
-            : (unreadNotificationCount as int?),
-        statistics: statistics == _undefined
-            ? _instance.statistics
-            : (statistics as Fragment$ThisUser$statistics?),
-        options: options == _undefined
-            ? _instance.options
-            : (options as Fragment$ThisUser$options?),
-        mediaListOptions: mediaListOptions == _undefined
-            ? _instance.mediaListOptions
-            : (mediaListOptions as Fragment$ThisUser$mediaListOptions?),
-      ));
+  }) => _then(
+    Fragment$ThisUser(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      name: name == _undefined || name == null
+          ? _instance.name
+          : (name as String),
+      donatorTier: donatorTier == _undefined
+          ? _instance.donatorTier
+          : (donatorTier as int?),
+      donatorBadge: donatorBadge == _undefined
+          ? _instance.donatorBadge
+          : (donatorBadge as String?),
+      moderatorRoles: moderatorRoles == _undefined
+          ? _instance.moderatorRoles
+          : (moderatorRoles as List<Enum$ModRole?>?),
+      avatar: avatar == _undefined
+          ? _instance.avatar
+          : (avatar as Fragment$ThisUser$avatar?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+      about: about == _undefined ? _instance.about : (about as String?),
+      bannerImage: bannerImage == _undefined
+          ? _instance.bannerImage
+          : (bannerImage as String?),
+      unreadNotificationCount: unreadNotificationCount == _undefined
+          ? _instance.unreadNotificationCount
+          : (unreadNotificationCount as int?),
+      statistics: statistics == _undefined
+          ? _instance.statistics
+          : (statistics as Fragment$ThisUser$statistics?),
+      options: options == _undefined
+          ? _instance.options
+          : (options as Fragment$ThisUser$options?),
+      mediaListOptions: mediaListOptions == _undefined
+          ? _instance.mediaListOptions
+          : (mediaListOptions as Fragment$ThisUser$mediaListOptions?),
+    ),
+  );
 
   CopyWith$Fragment$ThisUser$avatar<TRes> get avatar {
     final local$avatar = _instance.avatar;
     return local$avatar == null
         ? CopyWith$Fragment$ThisUser$avatar.stub(_then(_instance))
         : CopyWith$Fragment$ThisUser$avatar(
-            local$avatar, (e) => call(avatar: e));
+            local$avatar,
+            (e) => call(avatar: e),
+          );
   }
 
   CopyWith$Fragment$ThisUser$statistics<TRes> get statistics {
@@ -362,7 +363,9 @@ class _CopyWithImpl$Fragment$ThisUser<TRes>
     return local$statistics == null
         ? CopyWith$Fragment$ThisUser$statistics.stub(_then(_instance))
         : CopyWith$Fragment$ThisUser$statistics(
-            local$statistics, (e) => call(statistics: e));
+            local$statistics,
+            (e) => call(statistics: e),
+          );
   }
 
   CopyWith$Fragment$ThisUser$options<TRes> get options {
@@ -370,7 +373,9 @@ class _CopyWithImpl$Fragment$ThisUser<TRes>
     return local$options == null
         ? CopyWith$Fragment$ThisUser$options.stub(_then(_instance))
         : CopyWith$Fragment$ThisUser$options(
-            local$options, (e) => call(options: e));
+            local$options,
+            (e) => call(options: e),
+          );
   }
 
   CopyWith$Fragment$ThisUser$mediaListOptions<TRes> get mediaListOptions {
@@ -378,7 +383,9 @@ class _CopyWithImpl$Fragment$ThisUser<TRes>
     return local$mediaListOptions == null
         ? CopyWith$Fragment$ThisUser$mediaListOptions.stub(_then(_instance))
         : CopyWith$Fragment$ThisUser$mediaListOptions(
-            local$mediaListOptions, (e) => call(mediaListOptions: e));
+            local$mediaListOptions,
+            (e) => call(mediaListOptions: e),
+          );
   }
 }
 
@@ -402,8 +409,7 @@ class _CopyWithStubImpl$Fragment$ThisUser<TRes>
     Fragment$ThisUser$statistics? statistics,
     Fragment$ThisUser$options? options,
     Fragment$ThisUser$mediaListOptions? mediaListOptions,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$ThisUser$avatar<TRes> get avatar =>
       CopyWith$Fragment$ThisUser$avatar.stub(_res);
@@ -421,115 +427,59 @@ class _CopyWithStubImpl$Fragment$ThisUser<TRes>
 const fragmentDefinitionThisUser = FragmentDefinitionNode(
   name: NameNode(value: 'ThisUser'),
   typeCondition: TypeConditionNode(
-      on: NamedTypeNode(
-    name: NameNode(value: 'User'),
-    isNonNull: false,
-  )),
+    on: NamedTypeNode(name: NameNode(value: 'User'), isNonNull: false),
+  ),
   directives: [],
-  selectionSet: SelectionSetNode(selections: [
-    FragmentSpreadNode(
-      name: NameNode(value: 'UserFragment'),
-      directives: [],
-    ),
-    FieldNode(
-      name: NameNode(value: 'id'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'name'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'about'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'bannerImage'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'unreadNotificationCount'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'avatar'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'large'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'statistics'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'anime'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
+  selectionSet: SelectionSetNode(
+    selections: [
+      FragmentSpreadNode(
+        name: NameNode(value: 'UserFragment'),
+        directives: [],
+      ),
+      FieldNode(
+        name: NameNode(value: 'id'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'name'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'about'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'bannerImage'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'unreadNotificationCount'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'avatar'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
             FieldNode(
-              name: NameNode(value: 'count'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: 'episodesWatched'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: 'minutesWatched'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: 'meanScore'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: 'standardDeviation'),
+              name: NameNode(value: 'large'),
               alias: null,
               arguments: [],
               directives: [],
@@ -542,44 +492,174 @@ const fragmentDefinitionThisUser = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: 'manga'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
+      ),
+      FieldNode(
+        name: NameNode(value: 'statistics'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
             FieldNode(
-              name: NameNode(value: 'count'),
+              name: NameNode(value: 'anime'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'count'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'episodesWatched'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'minutesWatched'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'meanScore'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'standardDeviation'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: 'manga'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'count'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'chaptersRead'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'volumesRead'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'meanScore'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'standardDeviation'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ],
+        ),
+      ),
+      FieldNode(
+        name: NameNode(value: 'options'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
+            FieldNode(
+              name: NameNode(value: 'displayAdultContent'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: 'chaptersRead'),
+              name: NameNode(value: 'airingNotifications'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: 'volumesRead'),
+              name: NameNode(value: 'titleLanguage'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: 'meanScore'),
+              name: NameNode(value: 'staffNameLanguage'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: 'standardDeviation'),
+              name: NameNode(value: 'activityMergeTime'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'restrictMessagesToFollowing'),
               alias: null,
               arguments: [],
               directives: [],
@@ -592,184 +672,133 @@ const fragmentDefinitionThisUser = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'options'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'displayAdultContent'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'airingNotifications'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'titleLanguage'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'staffNameLanguage'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'activityMergeTime'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'restrictMessagesToFollowing'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: 'mediaListOptions'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'scoreFormat'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'rowOrder'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'animeList'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
+      ),
+      FieldNode(
+        name: NameNode(value: 'mediaListOptions'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(
+          selections: [
             FieldNode(
-              name: NameNode(value: 'customLists'),
+              name: NameNode(value: 'scoreFormat'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: 'sectionOrder'),
+              name: NameNode(value: 'rowOrder'),
               alias: null,
               arguments: [],
               directives: [],
               selectionSet: null,
             ),
             FieldNode(
-              name: NameNode(value: 'splitCompletedSectionByFormat'),
+              name: NameNode(value: 'animeList'),
               alias: null,
               arguments: [],
               directives: [],
-              selectionSet: null,
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'customLists'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'sectionOrder'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'splitCompletedSectionByFormat'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'advancedScoring'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'advancedScoringEnabled'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
             ),
             FieldNode(
-              name: NameNode(value: 'advancedScoring'),
+              name: NameNode(value: 'mangaList'),
               alias: null,
               arguments: [],
               directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: 'advancedScoringEnabled'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: '__typename'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-          ]),
-        ),
-        FieldNode(
-          name: NameNode(value: 'mangaList'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'customLists'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: 'sectionOrder'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: 'splitCompletedSectionByFormat'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: 'advancedScoring'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: 'advancedScoringEnabled'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
+              selectionSet: SelectionSetNode(
+                selections: [
+                  FieldNode(
+                    name: NameNode(value: 'customLists'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'sectionOrder'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'splitCompletedSectionByFormat'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'advancedScoring'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'advancedScoringEnabled'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ],
+              ),
             ),
             FieldNode(
               name: NameNode(value: '__typename'),
@@ -778,36 +807,25 @@ const fragmentDefinitionThisUser = FragmentDefinitionNode(
               directives: [],
               selectionSet: null,
             ),
-          ]),
+          ],
         ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
-      name: NameNode(value: '__typename'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-  ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ],
+  ),
 );
-const documentNodeFragmentThisUser = DocumentNode(definitions: [
-  fragmentDefinitionThisUser,
-  fragmentDefinitionUserFragment,
-]);
+const documentNodeFragmentThisUser = DocumentNode(
+  definitions: [fragmentDefinitionThisUser, fragmentDefinitionUserFragment],
+);
 
 class Fragment$ThisUser$avatar implements Fragment$UserFragment$avatar {
-  Fragment$ThisUser$avatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
+  Fragment$ThisUser$avatar({this.large, this.$__typename = 'UserAvatar'});
 
   factory Fragment$ThisUser$avatar.fromJson(Map<String, dynamic> json) {
     final l$large = json['large'];
@@ -835,10 +853,7 @@ class Fragment$ThisUser$avatar implements Fragment$UserFragment$avatar {
   int get hashCode {
     final l$large = large;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$large, l$$__typename]);
   }
 
   @override
@@ -867,10 +882,7 @@ class Fragment$ThisUser$avatar implements Fragment$UserFragment$avatar {
 extension UtilityExtension$Fragment$ThisUser$avatar
     on Fragment$ThisUser$avatar {
   CopyWith$Fragment$ThisUser$avatar<Fragment$ThisUser$avatar> get copyWith =>
-      CopyWith$Fragment$ThisUser$avatar(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$ThisUser$avatar(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThisUser$avatar<TRes> {
@@ -882,18 +894,12 @@ abstract class CopyWith$Fragment$ThisUser$avatar<TRes> {
   factory CopyWith$Fragment$ThisUser$avatar.stub(TRes res) =
       _CopyWithStubImpl$Fragment$ThisUser$avatar;
 
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
+  TRes call({String? large, String? $__typename});
 }
 
 class _CopyWithImpl$Fragment$ThisUser$avatar<TRes>
     implements CopyWith$Fragment$ThisUser$avatar<TRes> {
-  _CopyWithImpl$Fragment$ThisUser$avatar(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThisUser$avatar(this._instance, this._then);
 
   final Fragment$ThisUser$avatar _instance;
 
@@ -901,16 +907,15 @@ class _CopyWithImpl$Fragment$ThisUser$avatar<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThisUser$avatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? large = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Fragment$ThisUser$avatar(
+          large: large == _undefined ? _instance.large : (large as String?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 }
 
 class _CopyWithStubImpl$Fragment$ThisUser$avatar<TRes>
@@ -919,11 +924,7 @@ class _CopyWithStubImpl$Fragment$ThisUser$avatar<TRes>
 
   TRes _res;
 
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
+  call({String? large, String? $__typename}) => _res;
 }
 
 class Fragment$ThisUser$statistics {
@@ -941,11 +942,13 @@ class Fragment$ThisUser$statistics {
       anime: l$anime == null
           ? null
           : Fragment$ThisUser$statistics$anime.fromJson(
-              (l$anime as Map<String, dynamic>)),
+              (l$anime as Map<String, dynamic>),
+            ),
       manga: l$manga == null
           ? null
           : Fragment$ThisUser$statistics$manga.fromJson(
-              (l$manga as Map<String, dynamic>)),
+              (l$manga as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -972,11 +975,7 @@ class Fragment$ThisUser$statistics {
     final l$anime = anime;
     final l$manga = manga;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$anime,
-      l$manga,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$anime, l$manga, l$$__typename]);
   }
 
   @override
@@ -1010,10 +1009,7 @@ class Fragment$ThisUser$statistics {
 extension UtilityExtension$Fragment$ThisUser$statistics
     on Fragment$ThisUser$statistics {
   CopyWith$Fragment$ThisUser$statistics<Fragment$ThisUser$statistics>
-      get copyWith => CopyWith$Fragment$ThisUser$statistics(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Fragment$ThisUser$statistics(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThisUser$statistics<TRes> {
@@ -1036,10 +1032,7 @@ abstract class CopyWith$Fragment$ThisUser$statistics<TRes> {
 
 class _CopyWithImpl$Fragment$ThisUser$statistics<TRes>
     implements CopyWith$Fragment$ThisUser$statistics<TRes> {
-  _CopyWithImpl$Fragment$ThisUser$statistics(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThisUser$statistics(this._instance, this._then);
 
   final Fragment$ThisUser$statistics _instance;
 
@@ -1051,25 +1044,28 @@ class _CopyWithImpl$Fragment$ThisUser$statistics<TRes>
     Object? anime = _undefined,
     Object? manga = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThisUser$statistics(
-        anime: anime == _undefined
-            ? _instance.anime
-            : (anime as Fragment$ThisUser$statistics$anime?),
-        manga: manga == _undefined
-            ? _instance.manga
-            : (manga as Fragment$ThisUser$statistics$manga?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThisUser$statistics(
+      anime: anime == _undefined
+          ? _instance.anime
+          : (anime as Fragment$ThisUser$statistics$anime?),
+      manga: manga == _undefined
+          ? _instance.manga
+          : (manga as Fragment$ThisUser$statistics$manga?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$ThisUser$statistics$anime<TRes> get anime {
     final local$anime = _instance.anime;
     return local$anime == null
         ? CopyWith$Fragment$ThisUser$statistics$anime.stub(_then(_instance))
         : CopyWith$Fragment$ThisUser$statistics$anime(
-            local$anime, (e) => call(anime: e));
+            local$anime,
+            (e) => call(anime: e),
+          );
   }
 
   CopyWith$Fragment$ThisUser$statistics$manga<TRes> get manga {
@@ -1077,7 +1073,9 @@ class _CopyWithImpl$Fragment$ThisUser$statistics<TRes>
     return local$manga == null
         ? CopyWith$Fragment$ThisUser$statistics$manga.stub(_then(_instance))
         : CopyWith$Fragment$ThisUser$statistics$manga(
-            local$manga, (e) => call(manga: e));
+            local$manga,
+            (e) => call(manga: e),
+          );
   }
 }
 
@@ -1091,8 +1089,7 @@ class _CopyWithStubImpl$Fragment$ThisUser$statistics<TRes>
     Fragment$ThisUser$statistics$anime? anime,
     Fragment$ThisUser$statistics$manga? manga,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$ThisUser$statistics$anime<TRes> get anime =>
       CopyWith$Fragment$ThisUser$statistics$anime.stub(_res);
@@ -1112,7 +1109,8 @@ class Fragment$ThisUser$statistics$anime {
   });
 
   factory Fragment$ThisUser$statistics$anime.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$count = json['count'];
     final l$episodesWatched = json['episodesWatched'];
     final l$minutesWatched = json['minutesWatched'];
@@ -1222,11 +1220,9 @@ class Fragment$ThisUser$statistics$anime {
 extension UtilityExtension$Fragment$ThisUser$statistics$anime
     on Fragment$ThisUser$statistics$anime {
   CopyWith$Fragment$ThisUser$statistics$anime<
-          Fragment$ThisUser$statistics$anime>
-      get copyWith => CopyWith$Fragment$ThisUser$statistics$anime(
-            this,
-            (i) => i,
-          );
+    Fragment$ThisUser$statistics$anime
+  >
+  get copyWith => CopyWith$Fragment$ThisUser$statistics$anime(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThisUser$statistics$anime<TRes> {
@@ -1250,10 +1246,7 @@ abstract class CopyWith$Fragment$ThisUser$statistics$anime<TRes> {
 
 class _CopyWithImpl$Fragment$ThisUser$statistics$anime<TRes>
     implements CopyWith$Fragment$ThisUser$statistics$anime<TRes> {
-  _CopyWithImpl$Fragment$ThisUser$statistics$anime(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThisUser$statistics$anime(this._instance, this._then);
 
   final Fragment$ThisUser$statistics$anime _instance;
 
@@ -1268,29 +1261,29 @@ class _CopyWithImpl$Fragment$ThisUser$statistics$anime<TRes>
     Object? meanScore = _undefined,
     Object? standardDeviation = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThisUser$statistics$anime(
-        count: count == _undefined || count == null
-            ? _instance.count
-            : (count as int),
-        episodesWatched:
-            episodesWatched == _undefined || episodesWatched == null
-                ? _instance.episodesWatched
-                : (episodesWatched as int),
-        minutesWatched: minutesWatched == _undefined || minutesWatched == null
-            ? _instance.minutesWatched
-            : (minutesWatched as int),
-        meanScore: meanScore == _undefined || meanScore == null
-            ? _instance.meanScore
-            : (meanScore as double),
-        standardDeviation:
-            standardDeviation == _undefined || standardDeviation == null
-                ? _instance.standardDeviation
-                : (standardDeviation as double),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThisUser$statistics$anime(
+      count: count == _undefined || count == null
+          ? _instance.count
+          : (count as int),
+      episodesWatched: episodesWatched == _undefined || episodesWatched == null
+          ? _instance.episodesWatched
+          : (episodesWatched as int),
+      minutesWatched: minutesWatched == _undefined || minutesWatched == null
+          ? _instance.minutesWatched
+          : (minutesWatched as int),
+      meanScore: meanScore == _undefined || meanScore == null
+          ? _instance.meanScore
+          : (meanScore as double),
+      standardDeviation:
+          standardDeviation == _undefined || standardDeviation == null
+          ? _instance.standardDeviation
+          : (standardDeviation as double),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ThisUser$statistics$anime<TRes>
@@ -1306,8 +1299,7 @@ class _CopyWithStubImpl$Fragment$ThisUser$statistics$anime<TRes>
     double? meanScore,
     double? standardDeviation,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$ThisUser$statistics$manga {
@@ -1321,7 +1313,8 @@ class Fragment$ThisUser$statistics$manga {
   });
 
   factory Fragment$ThisUser$statistics$manga.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$count = json['count'];
     final l$chaptersRead = json['chaptersRead'];
     final l$volumesRead = json['volumesRead'];
@@ -1431,11 +1424,9 @@ class Fragment$ThisUser$statistics$manga {
 extension UtilityExtension$Fragment$ThisUser$statistics$manga
     on Fragment$ThisUser$statistics$manga {
   CopyWith$Fragment$ThisUser$statistics$manga<
-          Fragment$ThisUser$statistics$manga>
-      get copyWith => CopyWith$Fragment$ThisUser$statistics$manga(
-            this,
-            (i) => i,
-          );
+    Fragment$ThisUser$statistics$manga
+  >
+  get copyWith => CopyWith$Fragment$ThisUser$statistics$manga(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThisUser$statistics$manga<TRes> {
@@ -1459,10 +1450,7 @@ abstract class CopyWith$Fragment$ThisUser$statistics$manga<TRes> {
 
 class _CopyWithImpl$Fragment$ThisUser$statistics$manga<TRes>
     implements CopyWith$Fragment$ThisUser$statistics$manga<TRes> {
-  _CopyWithImpl$Fragment$ThisUser$statistics$manga(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThisUser$statistics$manga(this._instance, this._then);
 
   final Fragment$ThisUser$statistics$manga _instance;
 
@@ -1477,28 +1465,29 @@ class _CopyWithImpl$Fragment$ThisUser$statistics$manga<TRes>
     Object? meanScore = _undefined,
     Object? standardDeviation = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThisUser$statistics$manga(
-        count: count == _undefined || count == null
-            ? _instance.count
-            : (count as int),
-        chaptersRead: chaptersRead == _undefined || chaptersRead == null
-            ? _instance.chaptersRead
-            : (chaptersRead as int),
-        volumesRead: volumesRead == _undefined || volumesRead == null
-            ? _instance.volumesRead
-            : (volumesRead as int),
-        meanScore: meanScore == _undefined || meanScore == null
-            ? _instance.meanScore
-            : (meanScore as double),
-        standardDeviation:
-            standardDeviation == _undefined || standardDeviation == null
-                ? _instance.standardDeviation
-                : (standardDeviation as double),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThisUser$statistics$manga(
+      count: count == _undefined || count == null
+          ? _instance.count
+          : (count as int),
+      chaptersRead: chaptersRead == _undefined || chaptersRead == null
+          ? _instance.chaptersRead
+          : (chaptersRead as int),
+      volumesRead: volumesRead == _undefined || volumesRead == null
+          ? _instance.volumesRead
+          : (volumesRead as int),
+      meanScore: meanScore == _undefined || meanScore == null
+          ? _instance.meanScore
+          : (meanScore as double),
+      standardDeviation:
+          standardDeviation == _undefined || standardDeviation == null
+          ? _instance.standardDeviation
+          : (standardDeviation as double),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ThisUser$statistics$manga<TRes>
@@ -1514,8 +1503,7 @@ class _CopyWithStubImpl$Fragment$ThisUser$statistics$manga<TRes>
     double? meanScore,
     double? standardDeviation,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$ThisUser$options {
@@ -1546,7 +1534,8 @@ class Fragment$ThisUser$options {
       staffNameLanguage: l$staffNameLanguage == null
           ? null
           : fromJson$Enum$UserStaffNameLanguage(
-              (l$staffNameLanguage as String)),
+              (l$staffNameLanguage as String),
+            ),
       activityMergeTime: (l$activityMergeTime as int?),
       restrictMessagesToFollowing: (l$restrictMessagesToFollowing as bool?),
       $__typename: (l$$__typename as String),
@@ -1662,10 +1651,7 @@ class Fragment$ThisUser$options {
 extension UtilityExtension$Fragment$ThisUser$options
     on Fragment$ThisUser$options {
   CopyWith$Fragment$ThisUser$options<Fragment$ThisUser$options> get copyWith =>
-      CopyWith$Fragment$ThisUser$options(
-        this,
-        (i) => i,
-      );
+      CopyWith$Fragment$ThisUser$options(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThisUser$options<TRes> {
@@ -1690,10 +1676,7 @@ abstract class CopyWith$Fragment$ThisUser$options<TRes> {
 
 class _CopyWithImpl$Fragment$ThisUser$options<TRes>
     implements CopyWith$Fragment$ThisUser$options<TRes> {
-  _CopyWithImpl$Fragment$ThisUser$options(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThisUser$options(this._instance, this._then);
 
   final Fragment$ThisUser$options _instance;
 
@@ -1709,30 +1692,31 @@ class _CopyWithImpl$Fragment$ThisUser$options<TRes>
     Object? activityMergeTime = _undefined,
     Object? restrictMessagesToFollowing = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThisUser$options(
-        displayAdultContent: displayAdultContent == _undefined
-            ? _instance.displayAdultContent
-            : (displayAdultContent as bool?),
-        airingNotifications: airingNotifications == _undefined
-            ? _instance.airingNotifications
-            : (airingNotifications as bool?),
-        titleLanguage: titleLanguage == _undefined
-            ? _instance.titleLanguage
-            : (titleLanguage as Enum$UserTitleLanguage?),
-        staffNameLanguage: staffNameLanguage == _undefined
-            ? _instance.staffNameLanguage
-            : (staffNameLanguage as Enum$UserStaffNameLanguage?),
-        activityMergeTime: activityMergeTime == _undefined
-            ? _instance.activityMergeTime
-            : (activityMergeTime as int?),
-        restrictMessagesToFollowing: restrictMessagesToFollowing == _undefined
-            ? _instance.restrictMessagesToFollowing
-            : (restrictMessagesToFollowing as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThisUser$options(
+      displayAdultContent: displayAdultContent == _undefined
+          ? _instance.displayAdultContent
+          : (displayAdultContent as bool?),
+      airingNotifications: airingNotifications == _undefined
+          ? _instance.airingNotifications
+          : (airingNotifications as bool?),
+      titleLanguage: titleLanguage == _undefined
+          ? _instance.titleLanguage
+          : (titleLanguage as Enum$UserTitleLanguage?),
+      staffNameLanguage: staffNameLanguage == _undefined
+          ? _instance.staffNameLanguage
+          : (staffNameLanguage as Enum$UserStaffNameLanguage?),
+      activityMergeTime: activityMergeTime == _undefined
+          ? _instance.activityMergeTime
+          : (activityMergeTime as int?),
+      restrictMessagesToFollowing: restrictMessagesToFollowing == _undefined
+          ? _instance.restrictMessagesToFollowing
+          : (restrictMessagesToFollowing as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ThisUser$options<TRes>
@@ -1749,8 +1733,7 @@ class _CopyWithStubImpl$Fragment$ThisUser$options<TRes>
     int? activityMergeTime,
     bool? restrictMessagesToFollowing,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$ThisUser$mediaListOptions {
@@ -1763,7 +1746,8 @@ class Fragment$ThisUser$mediaListOptions {
   });
 
   factory Fragment$ThisUser$mediaListOptions.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$scoreFormat = json['scoreFormat'];
     final l$rowOrder = json['rowOrder'];
     final l$animeList = json['animeList'];
@@ -1777,11 +1761,13 @@ class Fragment$ThisUser$mediaListOptions {
       animeList: l$animeList == null
           ? null
           : Fragment$ThisUser$mediaListOptions$animeList.fromJson(
-              (l$animeList as Map<String, dynamic>)),
+              (l$animeList as Map<String, dynamic>),
+            ),
       mangaList: l$mangaList == null
           ? null
           : Fragment$ThisUser$mediaListOptions$mangaList.fromJson(
-              (l$mangaList as Map<String, dynamic>)),
+              (l$mangaList as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1799,8 +1785,9 @@ class Fragment$ThisUser$mediaListOptions {
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$scoreFormat = scoreFormat;
-    _resultData['scoreFormat'] =
-        l$scoreFormat == null ? null : toJson$Enum$ScoreFormat(l$scoreFormat);
+    _resultData['scoreFormat'] = l$scoreFormat == null
+        ? null
+        : toJson$Enum$ScoreFormat(l$scoreFormat);
     final l$rowOrder = rowOrder;
     _resultData['rowOrder'] = l$rowOrder;
     final l$animeList = animeList;
@@ -1869,11 +1856,9 @@ class Fragment$ThisUser$mediaListOptions {
 extension UtilityExtension$Fragment$ThisUser$mediaListOptions
     on Fragment$ThisUser$mediaListOptions {
   CopyWith$Fragment$ThisUser$mediaListOptions<
-          Fragment$ThisUser$mediaListOptions>
-      get copyWith => CopyWith$Fragment$ThisUser$mediaListOptions(
-            this,
-            (i) => i,
-          );
+    Fragment$ThisUser$mediaListOptions
+  >
+  get copyWith => CopyWith$Fragment$ThisUser$mediaListOptions(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThisUser$mediaListOptions<TRes> {
@@ -1898,10 +1883,7 @@ abstract class CopyWith$Fragment$ThisUser$mediaListOptions<TRes> {
 
 class _CopyWithImpl$Fragment$ThisUser$mediaListOptions<TRes>
     implements CopyWith$Fragment$ThisUser$mediaListOptions<TRes> {
-  _CopyWithImpl$Fragment$ThisUser$mediaListOptions(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Fragment$ThisUser$mediaListOptions(this._instance, this._then);
 
   final Fragment$ThisUser$mediaListOptions _instance;
 
@@ -1915,40 +1897,48 @@ class _CopyWithImpl$Fragment$ThisUser$mediaListOptions<TRes>
     Object? animeList = _undefined,
     Object? mangaList = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThisUser$mediaListOptions(
-        scoreFormat: scoreFormat == _undefined
-            ? _instance.scoreFormat
-            : (scoreFormat as Enum$ScoreFormat?),
-        rowOrder:
-            rowOrder == _undefined ? _instance.rowOrder : (rowOrder as String?),
-        animeList: animeList == _undefined
-            ? _instance.animeList
-            : (animeList as Fragment$ThisUser$mediaListOptions$animeList?),
-        mangaList: mangaList == _undefined
-            ? _instance.mangaList
-            : (mangaList as Fragment$ThisUser$mediaListOptions$mangaList?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThisUser$mediaListOptions(
+      scoreFormat: scoreFormat == _undefined
+          ? _instance.scoreFormat
+          : (scoreFormat as Enum$ScoreFormat?),
+      rowOrder: rowOrder == _undefined
+          ? _instance.rowOrder
+          : (rowOrder as String?),
+      animeList: animeList == _undefined
+          ? _instance.animeList
+          : (animeList as Fragment$ThisUser$mediaListOptions$animeList?),
+      mangaList: mangaList == _undefined
+          ? _instance.mangaList
+          : (mangaList as Fragment$ThisUser$mediaListOptions$mangaList?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$ThisUser$mediaListOptions$animeList<TRes> get animeList {
     final local$animeList = _instance.animeList;
     return local$animeList == null
         ? CopyWith$Fragment$ThisUser$mediaListOptions$animeList.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Fragment$ThisUser$mediaListOptions$animeList(
-            local$animeList, (e) => call(animeList: e));
+            local$animeList,
+            (e) => call(animeList: e),
+          );
   }
 
   CopyWith$Fragment$ThisUser$mediaListOptions$mangaList<TRes> get mangaList {
     final local$mangaList = _instance.mangaList;
     return local$mangaList == null
         ? CopyWith$Fragment$ThisUser$mediaListOptions$mangaList.stub(
-            _then(_instance))
+            _then(_instance),
+          )
         : CopyWith$Fragment$ThisUser$mediaListOptions$mangaList(
-            local$mangaList, (e) => call(mangaList: e));
+            local$mangaList,
+            (e) => call(mangaList: e),
+          );
   }
 }
 
@@ -1964,8 +1954,7 @@ class _CopyWithStubImpl$Fragment$ThisUser$mediaListOptions<TRes>
     Fragment$ThisUser$mediaListOptions$animeList? animeList,
     Fragment$ThisUser$mediaListOptions$mangaList? mangaList,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$ThisUser$mediaListOptions$animeList<TRes> get animeList =>
       CopyWith$Fragment$ThisUser$mediaListOptions$animeList.stub(_res);
@@ -1985,7 +1974,8 @@ class Fragment$ThisUser$mediaListOptions$animeList {
   });
 
   factory Fragment$ThisUser$mediaListOptions$animeList.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$customLists = json['customLists'];
     final l$sectionOrder = json['sectionOrder'];
     final l$splitCompletedSectionByFormat =
@@ -2144,11 +2134,10 @@ class Fragment$ThisUser$mediaListOptions$animeList {
 extension UtilityExtension$Fragment$ThisUser$mediaListOptions$animeList
     on Fragment$ThisUser$mediaListOptions$animeList {
   CopyWith$Fragment$ThisUser$mediaListOptions$animeList<
-          Fragment$ThisUser$mediaListOptions$animeList>
-      get copyWith => CopyWith$Fragment$ThisUser$mediaListOptions$animeList(
-            this,
-            (i) => i,
-          );
+    Fragment$ThisUser$mediaListOptions$animeList
+  >
+  get copyWith =>
+      CopyWith$Fragment$ThisUser$mediaListOptions$animeList(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThisUser$mediaListOptions$animeList<TRes> {
@@ -2190,28 +2179,28 @@ class _CopyWithImpl$Fragment$ThisUser$mediaListOptions$animeList<TRes>
     Object? advancedScoring = _undefined,
     Object? advancedScoringEnabled = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThisUser$mediaListOptions$animeList(
-        customLists: customLists == _undefined
-            ? _instance.customLists
-            : (customLists as List<String?>?),
-        sectionOrder: sectionOrder == _undefined
-            ? _instance.sectionOrder
-            : (sectionOrder as List<String?>?),
-        splitCompletedSectionByFormat:
-            splitCompletedSectionByFormat == _undefined
-                ? _instance.splitCompletedSectionByFormat
-                : (splitCompletedSectionByFormat as bool?),
-        advancedScoring: advancedScoring == _undefined
-            ? _instance.advancedScoring
-            : (advancedScoring as List<String?>?),
-        advancedScoringEnabled: advancedScoringEnabled == _undefined
-            ? _instance.advancedScoringEnabled
-            : (advancedScoringEnabled as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThisUser$mediaListOptions$animeList(
+      customLists: customLists == _undefined
+          ? _instance.customLists
+          : (customLists as List<String?>?),
+      sectionOrder: sectionOrder == _undefined
+          ? _instance.sectionOrder
+          : (sectionOrder as List<String?>?),
+      splitCompletedSectionByFormat: splitCompletedSectionByFormat == _undefined
+          ? _instance.splitCompletedSectionByFormat
+          : (splitCompletedSectionByFormat as bool?),
+      advancedScoring: advancedScoring == _undefined
+          ? _instance.advancedScoring
+          : (advancedScoring as List<String?>?),
+      advancedScoringEnabled: advancedScoringEnabled == _undefined
+          ? _instance.advancedScoringEnabled
+          : (advancedScoringEnabled as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ThisUser$mediaListOptions$animeList<TRes>
@@ -2227,8 +2216,7 @@ class _CopyWithStubImpl$Fragment$ThisUser$mediaListOptions$animeList<TRes>
     List<String?>? advancedScoring,
     bool? advancedScoringEnabled,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Fragment$ThisUser$mediaListOptions$mangaList {
@@ -2242,7 +2230,8 @@ class Fragment$ThisUser$mediaListOptions$mangaList {
   });
 
   factory Fragment$ThisUser$mediaListOptions$mangaList.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$customLists = json['customLists'];
     final l$sectionOrder = json['sectionOrder'];
     final l$splitCompletedSectionByFormat =
@@ -2401,11 +2390,10 @@ class Fragment$ThisUser$mediaListOptions$mangaList {
 extension UtilityExtension$Fragment$ThisUser$mediaListOptions$mangaList
     on Fragment$ThisUser$mediaListOptions$mangaList {
   CopyWith$Fragment$ThisUser$mediaListOptions$mangaList<
-          Fragment$ThisUser$mediaListOptions$mangaList>
-      get copyWith => CopyWith$Fragment$ThisUser$mediaListOptions$mangaList(
-            this,
-            (i) => i,
-          );
+    Fragment$ThisUser$mediaListOptions$mangaList
+  >
+  get copyWith =>
+      CopyWith$Fragment$ThisUser$mediaListOptions$mangaList(this, (i) => i);
 }
 
 abstract class CopyWith$Fragment$ThisUser$mediaListOptions$mangaList<TRes> {
@@ -2447,28 +2435,28 @@ class _CopyWithImpl$Fragment$ThisUser$mediaListOptions$mangaList<TRes>
     Object? advancedScoring = _undefined,
     Object? advancedScoringEnabled = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Fragment$ThisUser$mediaListOptions$mangaList(
-        customLists: customLists == _undefined
-            ? _instance.customLists
-            : (customLists as List<String?>?),
-        sectionOrder: sectionOrder == _undefined
-            ? _instance.sectionOrder
-            : (sectionOrder as List<String?>?),
-        splitCompletedSectionByFormat:
-            splitCompletedSectionByFormat == _undefined
-                ? _instance.splitCompletedSectionByFormat
-                : (splitCompletedSectionByFormat as bool?),
-        advancedScoring: advancedScoring == _undefined
-            ? _instance.advancedScoring
-            : (advancedScoring as List<String?>?),
-        advancedScoringEnabled: advancedScoringEnabled == _undefined
-            ? _instance.advancedScoringEnabled
-            : (advancedScoringEnabled as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Fragment$ThisUser$mediaListOptions$mangaList(
+      customLists: customLists == _undefined
+          ? _instance.customLists
+          : (customLists as List<String?>?),
+      sectionOrder: sectionOrder == _undefined
+          ? _instance.sectionOrder
+          : (sectionOrder as List<String?>?),
+      splitCompletedSectionByFormat: splitCompletedSectionByFormat == _undefined
+          ? _instance.splitCompletedSectionByFormat
+          : (splitCompletedSectionByFormat as bool?),
+      advancedScoring: advancedScoring == _undefined
+          ? _instance.advancedScoring
+          : (advancedScoring as List<String?>?),
+      advancedScoringEnabled: advancedScoringEnabled == _undefined
+          ? _instance.advancedScoringEnabled
+          : (advancedScoringEnabled as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Fragment$ThisUser$mediaListOptions$mangaList<TRes>
@@ -2484,15 +2472,11 @@ class _CopyWithStubImpl$Fragment$ThisUser$mediaListOptions$mangaList<TRes>
     List<String?>? advancedScoring,
     bool? advancedScoringEnabled,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Query$Viewer {
-  Query$Viewer({
-    this.Viewer,
-    this.$__typename = 'Query',
-  });
+  Query$Viewer({this.Viewer, this.$__typename = 'Query'});
 
   factory Query$Viewer.fromJson(Map<String, dynamic> json) {
     final l$Viewer = json['Viewer'];
@@ -2522,10 +2506,7 @@ class Query$Viewer {
   int get hashCode {
     final l$Viewer = Viewer;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Viewer,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Viewer, l$$__typename]);
   }
 
   @override
@@ -2551,10 +2532,8 @@ class Query$Viewer {
 }
 
 extension UtilityExtension$Query$Viewer on Query$Viewer {
-  CopyWith$Query$Viewer<Query$Viewer> get copyWith => CopyWith$Query$Viewer(
-        this,
-        (i) => i,
-      );
+  CopyWith$Query$Viewer<Query$Viewer> get copyWith =>
+      CopyWith$Query$Viewer(this, (i) => i);
 }
 
 abstract class CopyWith$Query$Viewer<TRes> {
@@ -2565,18 +2544,12 @@ abstract class CopyWith$Query$Viewer<TRes> {
 
   factory CopyWith$Query$Viewer.stub(TRes res) = _CopyWithStubImpl$Query$Viewer;
 
-  TRes call({
-    Fragment$ThisUser? Viewer,
-    String? $__typename,
-  });
+  TRes call({Fragment$ThisUser? Viewer, String? $__typename});
   CopyWith$Fragment$ThisUser<TRes> get Viewer;
 }
 
 class _CopyWithImpl$Query$Viewer<TRes> implements CopyWith$Query$Viewer<TRes> {
-  _CopyWithImpl$Query$Viewer(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$Viewer(this._instance, this._then);
 
   final Query$Viewer _instance;
 
@@ -2584,18 +2557,17 @@ class _CopyWithImpl$Query$Viewer<TRes> implements CopyWith$Query$Viewer<TRes> {
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Viewer = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$Viewer(
-        Viewer: Viewer == _undefined
-            ? _instance.Viewer
-            : (Viewer as Fragment$ThisUser?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Viewer = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$Viewer(
+          Viewer: Viewer == _undefined
+              ? _instance.Viewer
+              : (Viewer as Fragment$ThisUser?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Fragment$ThisUser<TRes> get Viewer {
     final local$Viewer = _instance.Viewer;
@@ -2611,32 +2583,41 @@ class _CopyWithStubImpl$Query$Viewer<TRes>
 
   TRes _res;
 
-  call({
-    Fragment$ThisUser? Viewer,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Fragment$ThisUser? Viewer, String? $__typename}) => _res;
 
   CopyWith$Fragment$ThisUser<TRes> get Viewer =>
       CopyWith$Fragment$ThisUser.stub(_res);
 }
 
-const documentNodeQueryViewer = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'Viewer'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Viewer'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'ThisUser'),
+const documentNodeQueryViewer = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'Viewer'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'Viewer'),
+            alias: null,
+            arguments: [],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'ThisUser'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -2645,26 +2626,16 @@ const documentNodeQueryViewer = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionThisUser,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionThisUser,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$NotificationCount {
-  Query$NotificationCount({
-    this.Viewer,
-    this.$__typename = 'Query',
-  });
+  Query$NotificationCount({this.Viewer, this.$__typename = 'Query'});
 
   factory Query$NotificationCount.fromJson(Map<String, dynamic> json) {
     final l$Viewer = json['Viewer'];
@@ -2673,7 +2644,8 @@ class Query$NotificationCount {
       Viewer: l$Viewer == null
           ? null
           : Query$NotificationCount$Viewer.fromJson(
-              (l$Viewer as Map<String, dynamic>)),
+              (l$Viewer as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2695,10 +2667,7 @@ class Query$NotificationCount {
   int get hashCode {
     final l$Viewer = Viewer;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Viewer,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Viewer, l$$__typename]);
   }
 
   @override
@@ -2725,10 +2694,7 @@ class Query$NotificationCount {
 
 extension UtilityExtension$Query$NotificationCount on Query$NotificationCount {
   CopyWith$Query$NotificationCount<Query$NotificationCount> get copyWith =>
-      CopyWith$Query$NotificationCount(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$NotificationCount(this, (i) => i);
 }
 
 abstract class CopyWith$Query$NotificationCount<TRes> {
@@ -2740,19 +2706,13 @@ abstract class CopyWith$Query$NotificationCount<TRes> {
   factory CopyWith$Query$NotificationCount.stub(TRes res) =
       _CopyWithStubImpl$Query$NotificationCount;
 
-  TRes call({
-    Query$NotificationCount$Viewer? Viewer,
-    String? $__typename,
-  });
+  TRes call({Query$NotificationCount$Viewer? Viewer, String? $__typename});
   CopyWith$Query$NotificationCount$Viewer<TRes> get Viewer;
 }
 
 class _CopyWithImpl$Query$NotificationCount<TRes>
     implements CopyWith$Query$NotificationCount<TRes> {
-  _CopyWithImpl$Query$NotificationCount(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$NotificationCount(this._instance, this._then);
 
   final Query$NotificationCount _instance;
 
@@ -2760,25 +2720,26 @@ class _CopyWithImpl$Query$NotificationCount<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Viewer = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$NotificationCount(
-        Viewer: Viewer == _undefined
-            ? _instance.Viewer
-            : (Viewer as Query$NotificationCount$Viewer?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Viewer = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$NotificationCount(
+          Viewer: Viewer == _undefined
+              ? _instance.Viewer
+              : (Viewer as Query$NotificationCount$Viewer?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$NotificationCount$Viewer<TRes> get Viewer {
     final local$Viewer = _instance.Viewer;
     return local$Viewer == null
         ? CopyWith$Query$NotificationCount$Viewer.stub(_then(_instance))
         : CopyWith$Query$NotificationCount$Viewer(
-            local$Viewer, (e) => call(Viewer: e));
+            local$Viewer,
+            (e) => call(Viewer: e),
+          );
   }
 }
 
@@ -2788,57 +2749,68 @@ class _CopyWithStubImpl$Query$NotificationCount<TRes>
 
   TRes _res;
 
-  call({
-    Query$NotificationCount$Viewer? Viewer,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$NotificationCount$Viewer? Viewer, String? $__typename}) => _res;
 
   CopyWith$Query$NotificationCount$Viewer<TRes> get Viewer =>
       CopyWith$Query$NotificationCount$Viewer.stub(_res);
 }
 
-const documentNodeQueryNotificationCount = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'NotificationCount'),
-    variableDefinitions: [],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Viewer'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+const documentNodeQueryNotificationCount = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'NotificationCount'),
+      variableDefinitions: [],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'unreadNotificationCount'),
+            name: NameNode(value: 'Viewer'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'options'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'airingNotifications'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'unreadNotificationCount'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'options'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'airingNotifications'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -2847,18 +2819,11 @@ const documentNodeQueryNotificationCount = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
+    ),
+  ],
+);
 
 class Query$NotificationCount$Viewer {
   Query$NotificationCount$Viewer({
@@ -2876,7 +2841,8 @@ class Query$NotificationCount$Viewer {
       options: l$options == null
           ? null
           : Query$NotificationCount$Viewer$options.fromJson(
-              (l$options as Map<String, dynamic>)),
+              (l$options as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2941,10 +2907,7 @@ class Query$NotificationCount$Viewer {
 extension UtilityExtension$Query$NotificationCount$Viewer
     on Query$NotificationCount$Viewer {
   CopyWith$Query$NotificationCount$Viewer<Query$NotificationCount$Viewer>
-      get copyWith => CopyWith$Query$NotificationCount$Viewer(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$NotificationCount$Viewer(this, (i) => i);
 }
 
 abstract class CopyWith$Query$NotificationCount$Viewer<TRes> {
@@ -2966,10 +2929,7 @@ abstract class CopyWith$Query$NotificationCount$Viewer<TRes> {
 
 class _CopyWithImpl$Query$NotificationCount$Viewer<TRes>
     implements CopyWith$Query$NotificationCount$Viewer<TRes> {
-  _CopyWithImpl$Query$NotificationCount$Viewer(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$NotificationCount$Viewer(this._instance, this._then);
 
   final Query$NotificationCount$Viewer _instance;
 
@@ -2981,25 +2941,28 @@ class _CopyWithImpl$Query$NotificationCount$Viewer<TRes>
     Object? unreadNotificationCount = _undefined,
     Object? options = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$NotificationCount$Viewer(
-        unreadNotificationCount: unreadNotificationCount == _undefined
-            ? _instance.unreadNotificationCount
-            : (unreadNotificationCount as int?),
-        options: options == _undefined
-            ? _instance.options
-            : (options as Query$NotificationCount$Viewer$options?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$NotificationCount$Viewer(
+      unreadNotificationCount: unreadNotificationCount == _undefined
+          ? _instance.unreadNotificationCount
+          : (unreadNotificationCount as int?),
+      options: options == _undefined
+          ? _instance.options
+          : (options as Query$NotificationCount$Viewer$options?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$NotificationCount$Viewer$options<TRes> get options {
     final local$options = _instance.options;
     return local$options == null
         ? CopyWith$Query$NotificationCount$Viewer$options.stub(_then(_instance))
         : CopyWith$Query$NotificationCount$Viewer$options(
-            local$options, (e) => call(options: e));
+            local$options,
+            (e) => call(options: e),
+          );
   }
 }
 
@@ -3013,8 +2976,7 @@ class _CopyWithStubImpl$Query$NotificationCount$Viewer<TRes>
     int? unreadNotificationCount,
     Query$NotificationCount$Viewer$options? options,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$NotificationCount$Viewer$options<TRes> get options =>
       CopyWith$Query$NotificationCount$Viewer$options.stub(_res);
@@ -3027,7 +2989,8 @@ class Query$NotificationCount$Viewer$options {
   });
 
   factory Query$NotificationCount$Viewer$options.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$airingNotifications = json['airingNotifications'];
     final l$$__typename = json['__typename'];
     return Query$NotificationCount$Viewer$options(
@@ -3053,10 +3016,7 @@ class Query$NotificationCount$Viewer$options {
   int get hashCode {
     final l$airingNotifications = airingNotifications;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$airingNotifications,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$airingNotifications, l$$__typename]);
   }
 
   @override
@@ -3085,11 +3045,10 @@ class Query$NotificationCount$Viewer$options {
 extension UtilityExtension$Query$NotificationCount$Viewer$options
     on Query$NotificationCount$Viewer$options {
   CopyWith$Query$NotificationCount$Viewer$options<
-          Query$NotificationCount$Viewer$options>
-      get copyWith => CopyWith$Query$NotificationCount$Viewer$options(
-            this,
-            (i) => i,
-          );
+    Query$NotificationCount$Viewer$options
+  >
+  get copyWith =>
+      CopyWith$Query$NotificationCount$Viewer$options(this, (i) => i);
 }
 
 abstract class CopyWith$Query$NotificationCount$Viewer$options<TRes> {
@@ -3101,10 +3060,7 @@ abstract class CopyWith$Query$NotificationCount$Viewer$options<TRes> {
   factory CopyWith$Query$NotificationCount$Viewer$options.stub(TRes res) =
       _CopyWithStubImpl$Query$NotificationCount$Viewer$options;
 
-  TRes call({
-    bool? airingNotifications,
-    String? $__typename,
-  });
+  TRes call({bool? airingNotifications, String? $__typename});
 }
 
 class _CopyWithImpl$Query$NotificationCount$Viewer$options<TRes>
@@ -3123,15 +3079,16 @@ class _CopyWithImpl$Query$NotificationCount$Viewer$options<TRes>
   TRes call({
     Object? airingNotifications = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$NotificationCount$Viewer$options(
-        airingNotifications: airingNotifications == _undefined
-            ? _instance.airingNotifications
-            : (airingNotifications as bool?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$NotificationCount$Viewer$options(
+      airingNotifications: airingNotifications == _undefined
+          ? _instance.airingNotifications
+          : (airingNotifications as bool?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 }
 
 class _CopyWithStubImpl$Query$NotificationCount$Viewer$options<TRes>
@@ -3140,11 +3097,7 @@ class _CopyWithStubImpl$Query$NotificationCount$Viewer$options<TRes>
 
   TRes _res;
 
-  call({
-    bool? airingNotifications,
-    String? $__typename,
-  }) =>
-      _res;
+  call({bool? airingNotifications, String? $__typename}) => _res;
 }
 
 class Variables$Mutation$UpdateUser {
@@ -3165,30 +3118,29 @@ class Variables$Mutation$UpdateUser {
     Enum$UserStaffNameLanguage? staffNameLanguage,
     bool? restrictMessagesToFollowing,
     List<Input$ListActivityOptionInput?>? disabledListActivity,
-  }) =>
-      Variables$Mutation$UpdateUser._({
-        if (about != null) r'about': about,
-        if (titleLanguage != null) r'titleLanguage': titleLanguage,
-        if (displayAdultContent != null)
-          r'displayAdultContent': displayAdultContent,
-        if (airingNotifications != null)
-          r'airingNotifications': airingNotifications,
-        if (scoreFormat != null) r'scoreFormat': scoreFormat,
-        if (rowOrder != null) r'rowOrder': rowOrder,
-        if (profileColor != null) r'profileColor': profileColor,
-        if (donatorBadge != null) r'donatorBadge': donatorBadge,
-        if (notificationOptions != null)
-          r'notificationOptions': notificationOptions,
-        if (timezone != null) r'timezone': timezone,
-        if (activityMergeTime != null) r'activityMergeTime': activityMergeTime,
-        if (animeListOptions != null) r'animeListOptions': animeListOptions,
-        if (mangaListOptions != null) r'mangaListOptions': mangaListOptions,
-        if (staffNameLanguage != null) r'staffNameLanguage': staffNameLanguage,
-        if (restrictMessagesToFollowing != null)
-          r'restrictMessagesToFollowing': restrictMessagesToFollowing,
-        if (disabledListActivity != null)
-          r'disabledListActivity': disabledListActivity,
-      });
+  }) => Variables$Mutation$UpdateUser._({
+    if (about != null) r'about': about,
+    if (titleLanguage != null) r'titleLanguage': titleLanguage,
+    if (displayAdultContent != null)
+      r'displayAdultContent': displayAdultContent,
+    if (airingNotifications != null)
+      r'airingNotifications': airingNotifications,
+    if (scoreFormat != null) r'scoreFormat': scoreFormat,
+    if (rowOrder != null) r'rowOrder': rowOrder,
+    if (profileColor != null) r'profileColor': profileColor,
+    if (donatorBadge != null) r'donatorBadge': donatorBadge,
+    if (notificationOptions != null)
+      r'notificationOptions': notificationOptions,
+    if (timezone != null) r'timezone': timezone,
+    if (activityMergeTime != null) r'activityMergeTime': activityMergeTime,
+    if (animeListOptions != null) r'animeListOptions': animeListOptions,
+    if (mangaListOptions != null) r'mangaListOptions': mangaListOptions,
+    if (staffNameLanguage != null) r'staffNameLanguage': staffNameLanguage,
+    if (restrictMessagesToFollowing != null)
+      r'restrictMessagesToFollowing': restrictMessagesToFollowing,
+    if (disabledListActivity != null)
+      r'disabledListActivity': disabledListActivity,
+  });
 
   Variables$Mutation$UpdateUser._(this._$data);
 
@@ -3234,10 +3186,13 @@ class Variables$Mutation$UpdateUser {
       final l$notificationOptions = data['notificationOptions'];
       result$data['notificationOptions'] =
           (l$notificationOptions as List<dynamic>?)
-              ?.map((e) => e == null
-                  ? null
-                  : Input$NotificationOptionInput.fromJson(
-                      (e as Map<String, dynamic>)))
+              ?.map(
+                (e) => e == null
+                    ? null
+                    : Input$NotificationOptionInput.fromJson(
+                        (e as Map<String, dynamic>),
+                      ),
+              )
               .toList();
     }
     if (data.containsKey('timezone')) {
@@ -3253,21 +3208,24 @@ class Variables$Mutation$UpdateUser {
       result$data['animeListOptions'] = l$animeListOptions == null
           ? null
           : Input$MediaListOptionsInput.fromJson(
-              (l$animeListOptions as Map<String, dynamic>));
+              (l$animeListOptions as Map<String, dynamic>),
+            );
     }
     if (data.containsKey('mangaListOptions')) {
       final l$mangaListOptions = data['mangaListOptions'];
       result$data['mangaListOptions'] = l$mangaListOptions == null
           ? null
           : Input$MediaListOptionsInput.fromJson(
-              (l$mangaListOptions as Map<String, dynamic>));
+              (l$mangaListOptions as Map<String, dynamic>),
+            );
     }
     if (data.containsKey('staffNameLanguage')) {
       final l$staffNameLanguage = data['staffNameLanguage'];
       result$data['staffNameLanguage'] = l$staffNameLanguage == null
           ? null
           : fromJson$Enum$UserStaffNameLanguage(
-              (l$staffNameLanguage as String));
+              (l$staffNameLanguage as String),
+            );
     }
     if (data.containsKey('restrictMessagesToFollowing')) {
       final l$restrictMessagesToFollowing = data['restrictMessagesToFollowing'];
@@ -3278,10 +3236,13 @@ class Variables$Mutation$UpdateUser {
       final l$disabledListActivity = data['disabledListActivity'];
       result$data['disabledListActivity'] =
           (l$disabledListActivity as List<dynamic>?)
-              ?.map((e) => e == null
-                  ? null
-                  : Input$ListActivityOptionInput.fromJson(
-                      (e as Map<String, dynamic>)))
+              ?.map(
+                (e) => e == null
+                    ? null
+                    : Input$ListActivityOptionInput.fromJson(
+                        (e as Map<String, dynamic>),
+                      ),
+              )
               .toList();
     }
     return Variables$Mutation$UpdateUser._(result$data);
@@ -3351,8 +3312,9 @@ class Variables$Mutation$UpdateUser {
     }
     if (_$data.containsKey('scoreFormat')) {
       final l$scoreFormat = scoreFormat;
-      result$data['scoreFormat'] =
-          l$scoreFormat == null ? null : toJson$Enum$ScoreFormat(l$scoreFormat);
+      result$data['scoreFormat'] = l$scoreFormat == null
+          ? null
+          : toJson$Enum$ScoreFormat(l$scoreFormat);
     }
     if (_$data.containsKey('rowOrder')) {
       final l$rowOrder = rowOrder;
@@ -3368,8 +3330,9 @@ class Variables$Mutation$UpdateUser {
     }
     if (_$data.containsKey('notificationOptions')) {
       final l$notificationOptions = notificationOptions;
-      result$data['notificationOptions'] =
-          l$notificationOptions?.map((e) => e?.toJson()).toList();
+      result$data['notificationOptions'] = l$notificationOptions
+          ?.map((e) => e?.toJson())
+          .toList();
     }
     if (_$data.containsKey('timezone')) {
       final l$timezone = timezone;
@@ -3400,17 +3363,15 @@ class Variables$Mutation$UpdateUser {
     }
     if (_$data.containsKey('disabledListActivity')) {
       final l$disabledListActivity = disabledListActivity;
-      result$data['disabledListActivity'] =
-          l$disabledListActivity?.map((e) => e?.toJson()).toList();
+      result$data['disabledListActivity'] = l$disabledListActivity
+          ?.map((e) => e?.toJson())
+          .toList();
     }
     return result$data;
   }
 
   CopyWith$Variables$Mutation$UpdateUser<Variables$Mutation$UpdateUser>
-      get copyWith => CopyWith$Variables$Mutation$UpdateUser(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Mutation$UpdateUser(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -3624,8 +3585,8 @@ class Variables$Mutation$UpdateUser {
       _$data.containsKey('donatorBadge') ? l$donatorBadge : const {},
       _$data.containsKey('notificationOptions')
           ? l$notificationOptions == null
-              ? null
-              : Object.hashAll(l$notificationOptions.map((v) => v))
+                ? null
+                : Object.hashAll(l$notificationOptions.map((v) => v))
           : const {},
       _$data.containsKey('timezone') ? l$timezone : const {},
       _$data.containsKey('activityMergeTime') ? l$activityMergeTime : const {},
@@ -3637,8 +3598,8 @@ class Variables$Mutation$UpdateUser {
           : const {},
       _$data.containsKey('disabledListActivity')
           ? l$disabledListActivity == null
-              ? null
-              : Object.hashAll(l$disabledListActivity.map((v) => v))
+                ? null
+                : Object.hashAll(l$disabledListActivity.map((v) => v))
           : const {},
     ]);
   }
@@ -3675,10 +3636,7 @@ abstract class CopyWith$Variables$Mutation$UpdateUser<TRes> {
 
 class _CopyWithImpl$Variables$Mutation$UpdateUser<TRes>
     implements CopyWith$Variables$Mutation$UpdateUser<TRes> {
-  _CopyWithImpl$Variables$Mutation$UpdateUser(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Mutation$UpdateUser(this._instance, this._then);
 
   final Variables$Mutation$UpdateUser _instance;
 
@@ -3703,44 +3661,40 @@ class _CopyWithImpl$Variables$Mutation$UpdateUser<TRes>
     Object? staffNameLanguage = _undefined,
     Object? restrictMessagesToFollowing = _undefined,
     Object? disabledListActivity = _undefined,
-  }) =>
-      _then(Variables$Mutation$UpdateUser._({
-        ..._instance._$data,
-        if (about != _undefined) 'about': (about as String?),
-        if (titleLanguage != _undefined)
-          'titleLanguage': (titleLanguage as Enum$UserTitleLanguage?),
-        if (displayAdultContent != _undefined)
-          'displayAdultContent': (displayAdultContent as bool?),
-        if (airingNotifications != _undefined)
-          'airingNotifications': (airingNotifications as bool?),
-        if (scoreFormat != _undefined)
-          'scoreFormat': (scoreFormat as Enum$ScoreFormat?),
-        if (rowOrder != _undefined) 'rowOrder': (rowOrder as String?),
-        if (profileColor != _undefined)
-          'profileColor': (profileColor as String?),
-        if (donatorBadge != _undefined)
-          'donatorBadge': (donatorBadge as String?),
-        if (notificationOptions != _undefined)
-          'notificationOptions':
-              (notificationOptions as List<Input$NotificationOptionInput?>?),
-        if (timezone != _undefined) 'timezone': (timezone as String?),
-        if (activityMergeTime != _undefined)
-          'activityMergeTime': (activityMergeTime as int?),
-        if (animeListOptions != _undefined)
-          'animeListOptions':
-              (animeListOptions as Input$MediaListOptionsInput?),
-        if (mangaListOptions != _undefined)
-          'mangaListOptions':
-              (mangaListOptions as Input$MediaListOptionsInput?),
-        if (staffNameLanguage != _undefined)
-          'staffNameLanguage':
-              (staffNameLanguage as Enum$UserStaffNameLanguage?),
-        if (restrictMessagesToFollowing != _undefined)
-          'restrictMessagesToFollowing': (restrictMessagesToFollowing as bool?),
-        if (disabledListActivity != _undefined)
-          'disabledListActivity':
-              (disabledListActivity as List<Input$ListActivityOptionInput?>?),
-      }));
+  }) => _then(
+    Variables$Mutation$UpdateUser._({
+      ..._instance._$data,
+      if (about != _undefined) 'about': (about as String?),
+      if (titleLanguage != _undefined)
+        'titleLanguage': (titleLanguage as Enum$UserTitleLanguage?),
+      if (displayAdultContent != _undefined)
+        'displayAdultContent': (displayAdultContent as bool?),
+      if (airingNotifications != _undefined)
+        'airingNotifications': (airingNotifications as bool?),
+      if (scoreFormat != _undefined)
+        'scoreFormat': (scoreFormat as Enum$ScoreFormat?),
+      if (rowOrder != _undefined) 'rowOrder': (rowOrder as String?),
+      if (profileColor != _undefined) 'profileColor': (profileColor as String?),
+      if (donatorBadge != _undefined) 'donatorBadge': (donatorBadge as String?),
+      if (notificationOptions != _undefined)
+        'notificationOptions':
+            (notificationOptions as List<Input$NotificationOptionInput?>?),
+      if (timezone != _undefined) 'timezone': (timezone as String?),
+      if (activityMergeTime != _undefined)
+        'activityMergeTime': (activityMergeTime as int?),
+      if (animeListOptions != _undefined)
+        'animeListOptions': (animeListOptions as Input$MediaListOptionsInput?),
+      if (mangaListOptions != _undefined)
+        'mangaListOptions': (mangaListOptions as Input$MediaListOptionsInput?),
+      if (staffNameLanguage != _undefined)
+        'staffNameLanguage': (staffNameLanguage as Enum$UserStaffNameLanguage?),
+      if (restrictMessagesToFollowing != _undefined)
+        'restrictMessagesToFollowing': (restrictMessagesToFollowing as bool?),
+      if (disabledListActivity != _undefined)
+        'disabledListActivity':
+            (disabledListActivity as List<Input$ListActivityOptionInput?>?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Mutation$UpdateUser<TRes>
@@ -3766,15 +3720,11 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateUser<TRes>
     Enum$UserStaffNameLanguage? staffNameLanguage,
     bool? restrictMessagesToFollowing,
     List<Input$ListActivityOptionInput?>? disabledListActivity,
-  }) =>
-      _res;
+  }) => _res;
 }
 
 class Mutation$UpdateUser {
-  Mutation$UpdateUser({
-    this.UpdateUser,
-    this.$__typename = 'Mutation',
-  });
+  Mutation$UpdateUser({this.UpdateUser, this.$__typename = 'Mutation'});
 
   factory Mutation$UpdateUser.fromJson(Map<String, dynamic> json) {
     final l$UpdateUser = json['UpdateUser'];
@@ -3804,10 +3754,7 @@ class Mutation$UpdateUser {
   int get hashCode {
     final l$UpdateUser = UpdateUser;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$UpdateUser,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$UpdateUser, l$$__typename]);
   }
 
   @override
@@ -3834,10 +3781,7 @@ class Mutation$UpdateUser {
 
 extension UtilityExtension$Mutation$UpdateUser on Mutation$UpdateUser {
   CopyWith$Mutation$UpdateUser<Mutation$UpdateUser> get copyWith =>
-      CopyWith$Mutation$UpdateUser(
-        this,
-        (i) => i,
-      );
+      CopyWith$Mutation$UpdateUser(this, (i) => i);
 }
 
 abstract class CopyWith$Mutation$UpdateUser<TRes> {
@@ -3849,19 +3793,13 @@ abstract class CopyWith$Mutation$UpdateUser<TRes> {
   factory CopyWith$Mutation$UpdateUser.stub(TRes res) =
       _CopyWithStubImpl$Mutation$UpdateUser;
 
-  TRes call({
-    Fragment$ThisUser? UpdateUser,
-    String? $__typename,
-  });
+  TRes call({Fragment$ThisUser? UpdateUser, String? $__typename});
   CopyWith$Fragment$ThisUser<TRes> get UpdateUser;
 }
 
 class _CopyWithImpl$Mutation$UpdateUser<TRes>
     implements CopyWith$Mutation$UpdateUser<TRes> {
-  _CopyWithImpl$Mutation$UpdateUser(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Mutation$UpdateUser(this._instance, this._then);
 
   final Mutation$UpdateUser _instance;
 
@@ -3872,22 +3810,25 @@ class _CopyWithImpl$Mutation$UpdateUser<TRes>
   TRes call({
     Object? UpdateUser = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$UpdateUser(
-        UpdateUser: UpdateUser == _undefined
-            ? _instance.UpdateUser
-            : (UpdateUser as Fragment$ThisUser?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Mutation$UpdateUser(
+      UpdateUser: UpdateUser == _undefined
+          ? _instance.UpdateUser
+          : (UpdateUser as Fragment$ThisUser?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$ThisUser<TRes> get UpdateUser {
     final local$UpdateUser = _instance.UpdateUser;
     return local$UpdateUser == null
         ? CopyWith$Fragment$ThisUser.stub(_then(_instance))
         : CopyWith$Fragment$ThisUser(
-            local$UpdateUser, (e) => call(UpdateUser: e));
+            local$UpdateUser,
+            (e) => call(UpdateUser: e),
+          );
   }
 }
 
@@ -3897,250 +3838,266 @@ class _CopyWithStubImpl$Mutation$UpdateUser<TRes>
 
   TRes _res;
 
-  call({
-    Fragment$ThisUser? UpdateUser,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Fragment$ThisUser? UpdateUser, String? $__typename}) => _res;
 
   CopyWith$Fragment$ThisUser<TRes> get UpdateUser =>
       CopyWith$Fragment$ThisUser.stub(_res);
 }
 
-const documentNodeMutationUpdateUser = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'UpdateUser'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'about')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'titleLanguage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'UserTitleLanguage'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'displayAdultContent')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'airingNotifications')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'scoreFormat')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ScoreFormat'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'rowOrder')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'profileColor')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'donatorBadge')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'notificationOptions')),
-        type: ListTypeNode(
+const documentNodeMutationUpdateUser = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.mutation,
+      name: NameNode(value: 'UpdateUser'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'about')),
           type: NamedTypeNode(
-            name: NameNode(value: 'NotificationOptionInput'),
+            name: NameNode(value: 'String'),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'timezone')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'activityMergeTime')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'animeListOptions')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MediaListOptionsInput'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'mangaListOptions')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MediaListOptionsInput'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'staffNameLanguage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'UserStaffNameLanguage'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable:
-            VariableNode(name: NameNode(value: 'restrictMessagesToFollowing')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'disabledListActivity')),
-        type: ListTypeNode(
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'titleLanguage')),
           type: NamedTypeNode(
-            name: NameNode(value: 'ListActivityOptionInput'),
+            name: NameNode(value: 'UserTitleLanguage'),
             isNonNull: false,
           ),
-          isNonNull: false,
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'UpdateUser'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'about'),
-            value: VariableNode(name: NameNode(value: 'about')),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'displayAdultContent')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'titleLanguage'),
-            value: VariableNode(name: NameNode(value: 'titleLanguage')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'airingNotifications')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'displayAdultContent'),
-            value: VariableNode(name: NameNode(value: 'displayAdultContent')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'scoreFormat')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'ScoreFormat'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'airingNotifications'),
-            value: VariableNode(name: NameNode(value: 'airingNotifications')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'rowOrder')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'scoreFormat'),
-            value: VariableNode(name: NameNode(value: 'scoreFormat')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'profileColor')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'rowOrder'),
-            value: VariableNode(name: NameNode(value: 'rowOrder')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'donatorBadge')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'profileColor'),
-            value: VariableNode(name: NameNode(value: 'profileColor')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'notificationOptions')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'NotificationOptionInput'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'donatorBadge'),
-            value: VariableNode(name: NameNode(value: 'donatorBadge')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'timezone')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'notificationOptions'),
-            value: VariableNode(name: NameNode(value: 'notificationOptions')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'activityMergeTime')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'animeListOptions')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaListOptionsInput'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'timezone'),
-            value: VariableNode(name: NameNode(value: 'timezone')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'mangaListOptions')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaListOptionsInput'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'activityMergeTime'),
-            value: VariableNode(name: NameNode(value: 'activityMergeTime')),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'staffNameLanguage')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'UserStaffNameLanguage'),
+            isNonNull: false,
           ),
-          ArgumentNode(
-            name: NameNode(value: 'animeListOptions'),
-            value: VariableNode(name: NameNode(value: 'animeListOptions')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'mangaListOptions'),
-            value: VariableNode(name: NameNode(value: 'mangaListOptions')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'staffNameLanguage'),
-            value: VariableNode(name: NameNode(value: 'staffNameLanguage')),
-          ),
-          ArgumentNode(
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(
             name: NameNode(value: 'restrictMessagesToFollowing'),
-            value: VariableNode(
-                name: NameNode(value: 'restrictMessagesToFollowing')),
           ),
-          ArgumentNode(
-            name: NameNode(value: 'disabledListActivity'),
-            value: VariableNode(name: NameNode(value: 'disabledListActivity')),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
           ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FragmentSpreadNode(
-            name: NameNode(value: 'ThisUser'),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'disabledListActivity')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'ListActivityOptionInput'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
+            name: NameNode(value: 'UpdateUser'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'about'),
+                value: VariableNode(name: NameNode(value: 'about')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'titleLanguage'),
+                value: VariableNode(name: NameNode(value: 'titleLanguage')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'displayAdultContent'),
+                value: VariableNode(
+                  name: NameNode(value: 'displayAdultContent'),
+                ),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'airingNotifications'),
+                value: VariableNode(
+                  name: NameNode(value: 'airingNotifications'),
+                ),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'scoreFormat'),
+                value: VariableNode(name: NameNode(value: 'scoreFormat')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'rowOrder'),
+                value: VariableNode(name: NameNode(value: 'rowOrder')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'profileColor'),
+                value: VariableNode(name: NameNode(value: 'profileColor')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'donatorBadge'),
+                value: VariableNode(name: NameNode(value: 'donatorBadge')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'notificationOptions'),
+                value: VariableNode(
+                  name: NameNode(value: 'notificationOptions'),
+                ),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'timezone'),
+                value: VariableNode(name: NameNode(value: 'timezone')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'activityMergeTime'),
+                value: VariableNode(name: NameNode(value: 'activityMergeTime')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'animeListOptions'),
+                value: VariableNode(name: NameNode(value: 'animeListOptions')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'mangaListOptions'),
+                value: VariableNode(name: NameNode(value: 'mangaListOptions')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'staffNameLanguage'),
+                value: VariableNode(name: NameNode(value: 'staffNameLanguage')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'restrictMessagesToFollowing'),
+                value: VariableNode(
+                  name: NameNode(value: 'restrictMessagesToFollowing'),
+                ),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'disabledListActivity'),
+                value: VariableNode(
+                  name: NameNode(value: 'disabledListActivity'),
+                ),
+              ),
+            ],
             directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'ThisUser'),
+                  directives: [],
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -4149,17 +4106,10 @@ const documentNodeMutationUpdateUser = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionThisUser,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionThisUser,
+    fragmentDefinitionUserFragment,
+  ],
+);

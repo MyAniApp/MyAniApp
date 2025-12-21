@@ -19,12 +19,14 @@ class MediaReviewsTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
-      mediaReviewsQuery,
-      variables: Variables$Query$MediaReviews(mediaId: mediaId).toJson(),
-      parseData: Query$MediaReviews.fromJson,
-      mergeResults: defaultMergeResults("Media.reviews"),
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        mediaReviewsQuery,
+        variables: Variables$Query$MediaReviews(mediaId: mediaId).toJson(),
+        parseData: Query$MediaReviews.fromJson,
+        mergeResults: defaultMergeResults("Media.reviews"),
+      ),
+    );
 
     return GQLWidget(
       refetch: refetch,
@@ -32,53 +34,72 @@ class MediaReviewsTab extends HookWidget {
       builder: () => Show(
         when: snapshot.parsedData!.Media!.reviews!.nodes!.isNotEmpty,
         fallback: Center(child: Text("No reviews")),
-        child: () => PaginationView.list(
+        child: () => PaginationView.grid(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 450,
+            mainAxisExtent: 155,
+          ),
           pageInfo: snapshot.parsedData!.Media!.reviews!.pageInfo!,
           req: (nextPage) => fetchMore(
-            variables:
-                Variables$Query$MediaReviews(mediaId: mediaId, page: nextPage)
-                    .toJson(),
+            variables: Variables$Query$MediaReviews(
+              mediaId: mediaId,
+              page: nextPage,
+            ).toJson(),
           ),
-          builder: (context, index) {
+          itemCount: snapshot.parsedData!.Media!.reviews!.nodes!.length,
+          itemBuilder: (context, index) {
             var review = snapshot.parsedData!.Media!.reviews!.nodes![index]!;
 
-            return ListTile(
-              onTap: () => context.push(Routes.review(review.id),
-                  extra: {"placeholder": review}),
-              title: Text(review.summary!),
-              subtitle: Row(
-                // mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(text: (review.rating ?? 0).toString()),
-                        const TextSpan(text: " / "),
-                        TextSpan(text: (review.ratingAmount ?? 0).toString())
-                      ],
-                    ),
+            return Card(
+              child: InkWell(
+                onTap: () => context.push(
+                  Routes.review(review.id),
+                  extra: {"placeholder": review},
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: .spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(
+                              maxHeight: 50,
+                              maxWidth: 50,
+                            ),
+                            child: ListTileCircleAvatar(
+                              url: review.user!.avatar!.large!,
+                            ),
+                          ),
+                          SizedBox(width: 5),
+                          Text(review.user!.name),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Text(review.summary!, maxLines: 3),
+                      ),
+                      // Spacer(),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.thumb_up,
+                            color:
+                                review.userRating == Enum$ReviewRating.UP_VOTE
+                                ? Colors.green
+                                : null,
+                          ),
+                          SizedBox(width: 5),
+                          Text((review.rating ?? 0).toString()),
+                        ],
+                      ),
+                    ],
                   ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Icon(
-                    Icons.thumb_up,
-                    size: 20,
-                    color: review.userRating == Enum$ReviewRating.UP_VOTE
-                        ? Colors.green
-                        : null,
-                  )
-                ],
+                ),
               ),
-              leading: ConstrainedBox(
-                  constraints:
-                      const BoxConstraints(maxHeight: 50, maxWidth: 50),
-                  child: ListTileCircleAvatar(
-                    url: review.user!.avatar!.large!,
-                  )),
             );
           },
-          itemCount: snapshot.parsedData!.Media!.reviews!.nodes!.length,
         ),
       ),
     );

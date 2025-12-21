@@ -19,7 +19,7 @@ class UserSocialTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
       userSocialsQuery,
       variables: Variables$Query$UserSocials(id: id).toJson(),
       parseData: Query$UserSocials.fromJson,
@@ -126,16 +126,16 @@ class _SocialsViewState extends State<SocialsView> {
                   title: Row(
                     children: [
                       Text(user.name),
-                      if (user!.moderatorRoles?.isNotEmpty == true)
+                      if (user.moderatorRoles?.isNotEmpty == true)
                         CommentBadge(
-                            text: user!.moderatorRoles!.fold(
+                            text: user.moderatorRoles!.fold(
                                 [],
                                 (previousValue, element) => [
                                       ...previousValue,
                                       element!.name.capitalize()
                                     ])),
-                      if (user!.donatorTier != 0)
-                        CommentBadge(text: [user!.donatorBadge!]),
+                      if (user.donatorTier != 0)
+                        CommentBadge(text: [user.donatorBadge!]),
                     ],
                   ),
                   onTap: () => context.push(Routes.user(user.name),

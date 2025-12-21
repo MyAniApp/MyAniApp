@@ -93,7 +93,7 @@ class MediaCard extends ConsumerWidget {
           .build()),
       child: () => HookBuilder(
         builder: (context) {
-          var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+          var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
             embedMediaCardQuery,
             variables: Variables$Query$EmbedMediaCard(id: id).toJson(),
             parseData: Query$EmbedMediaCard.fromJson,

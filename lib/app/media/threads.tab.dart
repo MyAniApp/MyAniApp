@@ -16,11 +16,14 @@ class MediaThreadsTab extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
         mediaThreadsQuery,
         variables: Variables$Query$MediaThreads(mediaId: mediaId).toJson(),
         parseData: Query$MediaThreads.fromJson,
-        mergeResults: defaultMergeResults("Page.threads")));
+        mergeResults: defaultMergeResults("Page.threads"),
+      ),
+    );
 
     return GQLWidget(
       refetch: refetch,
@@ -31,11 +34,11 @@ class MediaThreadsTab extends HookWidget {
         child: () => PaginationView.list(
           pageInfo: snapshot.parsedData!.Page!.pageInfo!,
           req: (nextPage) => fetchMore(
-              variables: Variables$Query$MediaThreads.fromJson(
-                      snapshot.request!.variables)
-                  .copyWith(page: nextPage)
-                  .toJson()),
-          builder: (context, index) {
+            variables: Variables$Query$MediaThreads.fromJson(
+              snapshot.request!.variables,
+            ).copyWith(page: nextPage).toJson(),
+          ),
+          itemBuilder: (context, index) {
             var thread = snapshot.parsedData!.Page!.threads![index]!;
 
             return ThreadCard(thread: thread);

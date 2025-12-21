@@ -26,7 +26,7 @@ class ListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card.outlined(
+    return Card(
       child: InkWell(
         onDoubleTap: onDoubleTap,
         onLongPress: onLongPress,

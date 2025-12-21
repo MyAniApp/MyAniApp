@@ -7,12 +7,11 @@ class Variables$Query$UserSocials {
     required int id,
     int? followersPage,
     int? followingPage,
-  }) =>
-      Variables$Query$UserSocials._({
-        r'id': id,
-        if (followersPage != null) r'followersPage': followersPage,
-        if (followingPage != null) r'followingPage': followingPage,
-      });
+  }) => Variables$Query$UserSocials._({
+    r'id': id,
+    if (followersPage != null) r'followersPage': followersPage,
+    if (followingPage != null) r'followingPage': followingPage,
+  });
 
   Variables$Query$UserSocials._(this._$data);
 
@@ -55,10 +54,7 @@ class Variables$Query$UserSocials {
   }
 
   CopyWith$Variables$Query$UserSocials<Variables$Query$UserSocials>
-      get copyWith => CopyWith$Variables$Query$UserSocials(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$UserSocials(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -117,19 +113,12 @@ abstract class CopyWith$Variables$Query$UserSocials<TRes> {
   factory CopyWith$Variables$Query$UserSocials.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$UserSocials;
 
-  TRes call({
-    int? id,
-    int? followersPage,
-    int? followingPage,
-  });
+  TRes call({int? id, int? followersPage, int? followingPage});
 }
 
 class _CopyWithImpl$Variables$Query$UserSocials<TRes>
     implements CopyWith$Variables$Query$UserSocials<TRes> {
-  _CopyWithImpl$Variables$Query$UserSocials(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$UserSocials(this._instance, this._then);
 
   final Variables$Query$UserSocials _instance;
 
@@ -141,15 +130,14 @@ class _CopyWithImpl$Variables$Query$UserSocials<TRes>
     Object? id = _undefined,
     Object? followersPage = _undefined,
     Object? followingPage = _undefined,
-  }) =>
-      _then(Variables$Query$UserSocials._({
-        ..._instance._$data,
-        if (id != _undefined && id != null) 'id': (id as int),
-        if (followersPage != _undefined)
-          'followersPage': (followersPage as int?),
-        if (followingPage != _undefined)
-          'followingPage': (followingPage as int?),
-      }));
+  }) => _then(
+    Variables$Query$UserSocials._({
+      ..._instance._$data,
+      if (id != _undefined && id != null) 'id': (id as int),
+      if (followersPage != _undefined) 'followersPage': (followersPage as int?),
+      if (followingPage != _undefined) 'followingPage': (followingPage as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$UserSocials<TRes>
@@ -158,12 +146,7 @@ class _CopyWithStubImpl$Variables$Query$UserSocials<TRes>
 
   TRes _res;
 
-  call({
-    int? id,
-    int? followersPage,
-    int? followingPage,
-  }) =>
-      _res;
+  call({int? id, int? followersPage, int? followingPage}) => _res;
 }
 
 class Query$UserSocials {
@@ -181,11 +164,13 @@ class Query$UserSocials {
       followers: l$followers == null
           ? null
           : Query$UserSocials$followers.fromJson(
-              (l$followers as Map<String, dynamic>)),
+              (l$followers as Map<String, dynamic>),
+            ),
       following: l$following == null
           ? null
           : Query$UserSocials$following.fromJson(
-              (l$following as Map<String, dynamic>)),
+              (l$following as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -212,11 +197,7 @@ class Query$UserSocials {
     final l$followers = followers;
     final l$following = following;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$followers,
-      l$following,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$followers, l$following, l$$__typename]);
   }
 
   @override
@@ -248,10 +229,7 @@ class Query$UserSocials {
 
 extension UtilityExtension$Query$UserSocials on Query$UserSocials {
   CopyWith$Query$UserSocials<Query$UserSocials> get copyWith =>
-      CopyWith$Query$UserSocials(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$UserSocials(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserSocials<TRes> {
@@ -274,10 +252,7 @@ abstract class CopyWith$Query$UserSocials<TRes> {
 
 class _CopyWithImpl$Query$UserSocials<TRes>
     implements CopyWith$Query$UserSocials<TRes> {
-  _CopyWithImpl$Query$UserSocials(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserSocials(this._instance, this._then);
 
   final Query$UserSocials _instance;
 
@@ -289,25 +264,28 @@ class _CopyWithImpl$Query$UserSocials<TRes>
     Object? followers = _undefined,
     Object? following = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserSocials(
-        followers: followers == _undefined
-            ? _instance.followers
-            : (followers as Query$UserSocials$followers?),
-        following: following == _undefined
-            ? _instance.following
-            : (following as Query$UserSocials$following?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserSocials(
+      followers: followers == _undefined
+          ? _instance.followers
+          : (followers as Query$UserSocials$followers?),
+      following: following == _undefined
+          ? _instance.following
+          : (following as Query$UserSocials$following?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Query$UserSocials$followers<TRes> get followers {
     final local$followers = _instance.followers;
     return local$followers == null
         ? CopyWith$Query$UserSocials$followers.stub(_then(_instance))
         : CopyWith$Query$UserSocials$followers(
-            local$followers, (e) => call(followers: e));
+            local$followers,
+            (e) => call(followers: e),
+          );
   }
 
   CopyWith$Query$UserSocials$following<TRes> get following {
@@ -315,7 +293,9 @@ class _CopyWithImpl$Query$UserSocials<TRes>
     return local$following == null
         ? CopyWith$Query$UserSocials$following.stub(_then(_instance))
         : CopyWith$Query$UserSocials$following(
-            local$following, (e) => call(following: e));
+            local$following,
+            (e) => call(following: e),
+          );
   }
 }
 
@@ -329,8 +309,7 @@ class _CopyWithStubImpl$Query$UserSocials<TRes>
     Query$UserSocials$followers? followers,
     Query$UserSocials$following? following,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Query$UserSocials$followers<TRes> get followers =>
       CopyWith$Query$UserSocials$followers.stub(_res);
@@ -339,98 +318,183 @@ class _CopyWithStubImpl$Query$UserSocials<TRes>
       CopyWith$Query$UserSocials$following.stub(_res);
 }
 
-const documentNodeQueryUserSocials = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'UserSocials'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: true,
+const documentNodeQueryUserSocials = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'UserSocials'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'id')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'followersPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'followersPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'followingPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'followingPage')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'followers'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'followersPage')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'followers'),
-            alias: null,
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'followers'),
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'userId'),
-                value: VariableNode(name: NameNode(value: 'id')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'USERNAME')),
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'followersPage')),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'UserFragment'),
-                directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'followers'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'userId'),
+                      value: VariableNode(name: NameNode(value: 'id')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'USERNAME')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'UserFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
+            name: NameNode(value: 'Page'),
+            alias: NameNode(value: 'following'),
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'followingPage')),
               ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '25'),
               ),
-            ]),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: 'following'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'userId'),
+                      value: VariableNode(name: NameNode(value: 'id')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'USERNAME')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'UserFragment'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -439,91 +503,13 @@ const documentNodeQueryUserSocials = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: NameNode(value: 'following'),
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'followingPage')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '25'),
-          ),
         ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'following'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'userId'),
-                value: VariableNode(name: NameNode(value: 'id')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'USERNAME')),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'UserFragment'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionUserFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionUserFragment,
+  ],
+);
 
 class Query$UserSocials$followers {
   Query$UserSocials$followers({
@@ -541,9 +527,11 @@ class Query$UserSocials$followers {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       followers: (l$followers as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$UserFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$UserFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -620,10 +608,7 @@ class Query$UserSocials$followers {
 extension UtilityExtension$Query$UserSocials$followers
     on Query$UserSocials$followers {
   CopyWith$Query$UserSocials$followers<Query$UserSocials$followers>
-      get copyWith => CopyWith$Query$UserSocials$followers(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$UserSocials$followers(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserSocials$followers<TRes> {
@@ -642,17 +627,16 @@ abstract class CopyWith$Query$UserSocials$followers<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes followers(
-      Iterable<Fragment$UserFragment?>? Function(
-              Iterable<CopyWith$Fragment$UserFragment<Fragment$UserFragment>?>?)
-          _fn);
+    Iterable<Fragment$UserFragment?>? Function(
+      Iterable<CopyWith$Fragment$UserFragment<Fragment$UserFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserSocials$followers<TRes>
     implements CopyWith$Query$UserSocials$followers<TRes> {
-  _CopyWithImpl$Query$UserSocials$followers(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserSocials$followers(this._instance, this._then);
 
   final Query$UserSocials$followers _instance;
 
@@ -664,18 +648,19 @@ class _CopyWithImpl$Query$UserSocials$followers<TRes>
     Object? pageInfo = _undefined,
     Object? followers = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserSocials$followers(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        followers: followers == _undefined
-            ? _instance.followers
-            : (followers as List<Fragment$UserFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserSocials$followers(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      followers: followers == _undefined
+          ? _instance.followers
+          : (followers as List<Fragment$UserFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -685,17 +670,17 @@ class _CopyWithImpl$Query$UserSocials$followers<TRes>
   }
 
   TRes followers(
-          Iterable<Fragment$UserFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$UserFragment<Fragment$UserFragment>?>?)
-              _fn) =>
-      call(
-          followers: _fn(_instance.followers?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$UserFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$UserFragment?>? Function(
+      Iterable<CopyWith$Fragment$UserFragment<Fragment$UserFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    followers: _fn(
+      _instance.followers?.map(
+        (e) => e == null ? null : CopyWith$Fragment$UserFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserSocials$followers<TRes>
@@ -708,8 +693,7 @@ class _CopyWithStubImpl$Query$UserSocials$followers<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$UserFragment?>? followers,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -733,9 +717,11 @@ class Query$UserSocials$following {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       following: (l$following as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Fragment$UserFragment.fromJson((e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Fragment$UserFragment.fromJson((e as Map<String, dynamic>)),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -812,10 +798,7 @@ class Query$UserSocials$following {
 extension UtilityExtension$Query$UserSocials$following
     on Query$UserSocials$following {
   CopyWith$Query$UserSocials$following<Query$UserSocials$following>
-      get copyWith => CopyWith$Query$UserSocials$following(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$UserSocials$following(this, (i) => i);
 }
 
 abstract class CopyWith$Query$UserSocials$following<TRes> {
@@ -834,17 +817,16 @@ abstract class CopyWith$Query$UserSocials$following<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes following(
-      Iterable<Fragment$UserFragment?>? Function(
-              Iterable<CopyWith$Fragment$UserFragment<Fragment$UserFragment>?>?)
-          _fn);
+    Iterable<Fragment$UserFragment?>? Function(
+      Iterable<CopyWith$Fragment$UserFragment<Fragment$UserFragment>?>?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$UserSocials$following<TRes>
     implements CopyWith$Query$UserSocials$following<TRes> {
-  _CopyWithImpl$Query$UserSocials$following(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$UserSocials$following(this._instance, this._then);
 
   final Query$UserSocials$following _instance;
 
@@ -856,18 +838,19 @@ class _CopyWithImpl$Query$UserSocials$following<TRes>
     Object? pageInfo = _undefined,
     Object? following = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserSocials$following(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        following: following == _undefined
-            ? _instance.following
-            : (following as List<Fragment$UserFragment?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$UserSocials$following(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      following: following == _undefined
+          ? _instance.following
+          : (following as List<Fragment$UserFragment?>?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -877,17 +860,17 @@ class _CopyWithImpl$Query$UserSocials$following<TRes>
   }
 
   TRes following(
-          Iterable<Fragment$UserFragment?>? Function(
-                  Iterable<
-                      CopyWith$Fragment$UserFragment<Fragment$UserFragment>?>?)
-              _fn) =>
-      call(
-          following: _fn(_instance.following?.map((e) => e == null
-              ? null
-              : CopyWith$Fragment$UserFragment(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Fragment$UserFragment?>? Function(
+      Iterable<CopyWith$Fragment$UserFragment<Fragment$UserFragment>?>?,
+    )
+    _fn,
+  ) => call(
+    following: _fn(
+      _instance.following?.map(
+        (e) => e == null ? null : CopyWith$Fragment$UserFragment(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$UserSocials$following<TRes>
@@ -900,8 +883,7 @@ class _CopyWithStubImpl$Query$UserSocials$following<TRes>
     Fragment$PageInfo? pageInfo,
     List<Fragment$UserFragment?>? following,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);

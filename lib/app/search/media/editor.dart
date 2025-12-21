@@ -327,7 +327,7 @@ class GenresButton extends HookConsumerWidget {
     var displayAdultContent = ref.watch(userProvider.select(
       (value) => value.value?.parsedData?.Viewer?.options?.displayAdultContent,
     ));
-    var (:snapshot, :fetchMore, :refetch) = c.useQuery(GQLRequest(
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
       genreCollectionQuery,
       parseData: Query$GenreCollection.fromJson,
     ));

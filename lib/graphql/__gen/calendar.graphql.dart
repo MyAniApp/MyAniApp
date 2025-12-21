@@ -3,10 +3,7 @@ import 'fragments/page_info.graphql.dart';
 import 'package:gql/ast.dart';
 
 class Variables$Query$CalendarSchedule {
-  factory Variables$Query$CalendarSchedule({
-    int? start,
-    int? end,
-  }) =>
+  factory Variables$Query$CalendarSchedule({int? start, int? end}) =>
       Variables$Query$CalendarSchedule._({
         if (start != null) r'start': start,
         if (end != null) r'end': end,
@@ -47,10 +44,7 @@ class Variables$Query$CalendarSchedule {
   }
 
   CopyWith$Variables$Query$CalendarSchedule<Variables$Query$CalendarSchedule>
-      get copyWith => CopyWith$Variables$Query$CalendarSchedule(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Variables$Query$CalendarSchedule(this, (i) => i);
 
   @override
   bool operator ==(Object other) {
@@ -100,18 +94,12 @@ abstract class CopyWith$Variables$Query$CalendarSchedule<TRes> {
   factory CopyWith$Variables$Query$CalendarSchedule.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$CalendarSchedule;
 
-  TRes call({
-    int? start,
-    int? end,
-  });
+  TRes call({int? start, int? end});
 }
 
 class _CopyWithImpl$Variables$Query$CalendarSchedule<TRes>
     implements CopyWith$Variables$Query$CalendarSchedule<TRes> {
-  _CopyWithImpl$Variables$Query$CalendarSchedule(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Variables$Query$CalendarSchedule(this._instance, this._then);
 
   final Variables$Query$CalendarSchedule _instance;
 
@@ -119,15 +107,13 @@ class _CopyWithImpl$Variables$Query$CalendarSchedule<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? start = _undefined,
-    Object? end = _undefined,
-  }) =>
-      _then(Variables$Query$CalendarSchedule._({
-        ..._instance._$data,
-        if (start != _undefined) 'start': (start as int?),
-        if (end != _undefined) 'end': (end as int?),
-      }));
+  TRes call({Object? start = _undefined, Object? end = _undefined}) => _then(
+    Variables$Query$CalendarSchedule._({
+      ..._instance._$data,
+      if (start != _undefined) 'start': (start as int?),
+      if (end != _undefined) 'end': (end as int?),
+    }),
+  );
 }
 
 class _CopyWithStubImpl$Variables$Query$CalendarSchedule<TRes>
@@ -136,18 +122,11 @@ class _CopyWithStubImpl$Variables$Query$CalendarSchedule<TRes>
 
   TRes _res;
 
-  call({
-    int? start,
-    int? end,
-  }) =>
-      _res;
+  call({int? start, int? end}) => _res;
 }
 
 class Query$CalendarSchedule {
-  Query$CalendarSchedule({
-    this.Page,
-    this.$__typename = 'Query',
-  });
+  Query$CalendarSchedule({this.Page, this.$__typename = 'Query'});
 
   factory Query$CalendarSchedule.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
@@ -156,7 +135,8 @@ class Query$CalendarSchedule {
       Page: l$Page == null
           ? null
           : Query$CalendarSchedule$Page.fromJson(
-              (l$Page as Map<String, dynamic>)),
+              (l$Page as Map<String, dynamic>),
+            ),
       $__typename: (l$$__typename as String),
     );
   }
@@ -178,10 +158,7 @@ class Query$CalendarSchedule {
   int get hashCode {
     final l$Page = Page;
     final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
+    return Object.hashAll([l$Page, l$$__typename]);
   }
 
   @override
@@ -208,10 +185,7 @@ class Query$CalendarSchedule {
 
 extension UtilityExtension$Query$CalendarSchedule on Query$CalendarSchedule {
   CopyWith$Query$CalendarSchedule<Query$CalendarSchedule> get copyWith =>
-      CopyWith$Query$CalendarSchedule(
-        this,
-        (i) => i,
-      );
+      CopyWith$Query$CalendarSchedule(this, (i) => i);
 }
 
 abstract class CopyWith$Query$CalendarSchedule<TRes> {
@@ -223,19 +197,13 @@ abstract class CopyWith$Query$CalendarSchedule<TRes> {
   factory CopyWith$Query$CalendarSchedule.stub(TRes res) =
       _CopyWithStubImpl$Query$CalendarSchedule;
 
-  TRes call({
-    Query$CalendarSchedule$Page? Page,
-    String? $__typename,
-  });
+  TRes call({Query$CalendarSchedule$Page? Page, String? $__typename});
   CopyWith$Query$CalendarSchedule$Page<TRes> get Page;
 }
 
 class _CopyWithImpl$Query$CalendarSchedule<TRes>
     implements CopyWith$Query$CalendarSchedule<TRes> {
-  _CopyWithImpl$Query$CalendarSchedule(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$CalendarSchedule(this._instance, this._then);
 
   final Query$CalendarSchedule _instance;
 
@@ -243,25 +211,26 @@ class _CopyWithImpl$Query$CalendarSchedule<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$CalendarSchedule(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as Query$CalendarSchedule$Page?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  TRes call({Object? Page = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+        Query$CalendarSchedule(
+          Page: Page == _undefined
+              ? _instance.Page
+              : (Page as Query$CalendarSchedule$Page?),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String),
+        ),
+      );
 
   CopyWith$Query$CalendarSchedule$Page<TRes> get Page {
     final local$Page = _instance.Page;
     return local$Page == null
         ? CopyWith$Query$CalendarSchedule$Page.stub(_then(_instance))
         : CopyWith$Query$CalendarSchedule$Page(
-            local$Page, (e) => call(Page: e));
+            local$Page,
+            (e) => call(Page: e),
+          );
   }
 }
 
@@ -271,143 +240,152 @@ class _CopyWithStubImpl$Query$CalendarSchedule<TRes>
 
   TRes _res;
 
-  call({
-    Query$CalendarSchedule$Page? Page,
-    String? $__typename,
-  }) =>
-      _res;
+  call({Query$CalendarSchedule$Page? Page, String? $__typename}) => _res;
 
   CopyWith$Query$CalendarSchedule$Page<TRes> get Page =>
       CopyWith$Query$CalendarSchedule$Page.stub(_res);
 }
 
-const documentNodeQueryCalendarSchedule = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'CalendarSchedule'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'start')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+const documentNodeQueryCalendarSchedule = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
+      type: OperationType.query,
+      name: NameNode(value: 'CalendarSchedule'),
+      variableDefinitions: [
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'start')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'end')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'end')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
         ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: IntValueNode(value: '1'),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: IntValueNode(value: '50'),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(
+        selections: [
           FieldNode(
-            name: NameNode(value: 'pageInfo'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'PageInfo'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'airingSchedules'),
+            name: NameNode(value: 'Page'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'airingAt_greater'),
-                value: VariableNode(name: NameNode(value: 'start')),
+                name: NameNode(value: 'page'),
+                value: IntValueNode(value: '1'),
               ),
               ArgumentNode(
-                name: NameNode(value: 'airingAt_lesser'),
-                value: VariableNode(name: NameNode(value: 'end')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'TIME')),
+                name: NameNode(value: 'perPage'),
+                value: IntValueNode(value: '50'),
               ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'episode'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'airingAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'media'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'MediaFragment'),
-                    directives: [],
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
+                  name: NameNode(value: 'pageInfo'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PageInfo'),
+                        directives: [],
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
+                ),
+                FieldNode(
+                  name: NameNode(value: 'airingSchedules'),
+                  alias: null,
+                  arguments: [
+                    ArgumentNode(
+                      name: NameNode(value: 'airingAt_greater'),
+                      value: VariableNode(name: NameNode(value: 'start')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'airingAt_lesser'),
+                      value: VariableNode(name: NameNode(value: 'end')),
+                    ),
+                    ArgumentNode(
+                      name: NameNode(value: 'sort'),
+                      value: EnumValueNode(name: NameNode(value: 'TIME')),
+                    ),
+                  ],
+                  directives: [],
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'episode'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'airingAt'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'media'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(
+                          selections: [
+                            FragmentSpreadNode(
+                              name: NameNode(value: 'MediaFragment'),
+                              directives: [],
+                            ),
+                            FieldNode(
+                              name: NameNode(value: '__typename'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null,
+                            ),
+                          ],
+                        ),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+                ),
+                FieldNode(
+                  name: NameNode(value: '__typename'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null,
+                ),
+              ],
+            ),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -416,20 +394,13 @@ const documentNodeQueryCalendarSchedule = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-        ]),
+        ],
       ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionPageInfo,
-  fragmentDefinitionMediaFragment,
-]);
+    ),
+    fragmentDefinitionPageInfo,
+    fragmentDefinitionMediaFragment,
+  ],
+);
 
 class Query$CalendarSchedule$Page {
   Query$CalendarSchedule$Page({
@@ -447,10 +418,13 @@ class Query$CalendarSchedule$Page {
           ? null
           : Fragment$PageInfo.fromJson((l$pageInfo as Map<String, dynamic>)),
       airingSchedules: (l$airingSchedules as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$CalendarSchedule$Page$airingSchedules.fromJson(
-                  (e as Map<String, dynamic>)))
+          ?.map(
+            (e) => e == null
+                ? null
+                : Query$CalendarSchedule$Page$airingSchedules.fromJson(
+                    (e as Map<String, dynamic>),
+                  ),
+          )
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -467,8 +441,9 @@ class Query$CalendarSchedule$Page {
     final l$pageInfo = pageInfo;
     _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$airingSchedules = airingSchedules;
-    _resultData['airingSchedules'] =
-        l$airingSchedules?.map((e) => e?.toJson()).toList();
+    _resultData['airingSchedules'] = l$airingSchedules
+        ?.map((e) => e?.toJson())
+        .toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -530,10 +505,7 @@ class Query$CalendarSchedule$Page {
 extension UtilityExtension$Query$CalendarSchedule$Page
     on Query$CalendarSchedule$Page {
   CopyWith$Query$CalendarSchedule$Page<Query$CalendarSchedule$Page>
-      get copyWith => CopyWith$Query$CalendarSchedule$Page(
-            this,
-            (i) => i,
-          );
+  get copyWith => CopyWith$Query$CalendarSchedule$Page(this, (i) => i);
 }
 
 abstract class CopyWith$Query$CalendarSchedule$Page<TRes> {
@@ -552,19 +524,20 @@ abstract class CopyWith$Query$CalendarSchedule$Page<TRes> {
   });
   CopyWith$Fragment$PageInfo<TRes> get pageInfo;
   TRes airingSchedules(
-      Iterable<Query$CalendarSchedule$Page$airingSchedules?>? Function(
-              Iterable<
-                  CopyWith$Query$CalendarSchedule$Page$airingSchedules<
-                      Query$CalendarSchedule$Page$airingSchedules>?>?)
-          _fn);
+    Iterable<Query$CalendarSchedule$Page$airingSchedules?>? Function(
+      Iterable<
+        CopyWith$Query$CalendarSchedule$Page$airingSchedules<
+          Query$CalendarSchedule$Page$airingSchedules
+        >?
+      >?,
+    )
+    _fn,
+  );
 }
 
 class _CopyWithImpl$Query$CalendarSchedule$Page<TRes>
     implements CopyWith$Query$CalendarSchedule$Page<TRes> {
-  _CopyWithImpl$Query$CalendarSchedule$Page(
-    this._instance,
-    this._then,
-  );
+  _CopyWithImpl$Query$CalendarSchedule$Page(this._instance, this._then);
 
   final Query$CalendarSchedule$Page _instance;
 
@@ -576,19 +549,20 @@ class _CopyWithImpl$Query$CalendarSchedule$Page<TRes>
     Object? pageInfo = _undefined,
     Object? airingSchedules = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$CalendarSchedule$Page(
-        pageInfo: pageInfo == _undefined
-            ? _instance.pageInfo
-            : (pageInfo as Fragment$PageInfo?),
-        airingSchedules: airingSchedules == _undefined
-            ? _instance.airingSchedules
-            : (airingSchedules
+  }) => _then(
+    Query$CalendarSchedule$Page(
+      pageInfo: pageInfo == _undefined
+          ? _instance.pageInfo
+          : (pageInfo as Fragment$PageInfo?),
+      airingSchedules: airingSchedules == _undefined
+          ? _instance.airingSchedules
+          : (airingSchedules
                 as List<Query$CalendarSchedule$Page$airingSchedules?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
@@ -598,18 +572,23 @@ class _CopyWithImpl$Query$CalendarSchedule$Page<TRes>
   }
 
   TRes airingSchedules(
-          Iterable<Query$CalendarSchedule$Page$airingSchedules?>? Function(
-                  Iterable<
-                      CopyWith$Query$CalendarSchedule$Page$airingSchedules<
-                          Query$CalendarSchedule$Page$airingSchedules>?>?)
-              _fn) =>
-      call(
-          airingSchedules: _fn(_instance.airingSchedules?.map((e) => e == null
-              ? null
-              : CopyWith$Query$CalendarSchedule$Page$airingSchedules(
-                  e,
-                  (i) => i,
-                )))?.toList());
+    Iterable<Query$CalendarSchedule$Page$airingSchedules?>? Function(
+      Iterable<
+        CopyWith$Query$CalendarSchedule$Page$airingSchedules<
+          Query$CalendarSchedule$Page$airingSchedules
+        >?
+      >?,
+    )
+    _fn,
+  ) => call(
+    airingSchedules: _fn(
+      _instance.airingSchedules?.map(
+        (e) => e == null
+            ? null
+            : CopyWith$Query$CalendarSchedule$Page$airingSchedules(e, (i) => i),
+      ),
+    )?.toList(),
+  );
 }
 
 class _CopyWithStubImpl$Query$CalendarSchedule$Page<TRes>
@@ -622,8 +601,7 @@ class _CopyWithStubImpl$Query$CalendarSchedule$Page<TRes>
     Fragment$PageInfo? pageInfo,
     List<Query$CalendarSchedule$Page$airingSchedules?>? airingSchedules,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$PageInfo<TRes> get pageInfo =>
       CopyWith$Fragment$PageInfo.stub(_res);
@@ -641,7 +619,8 @@ class Query$CalendarSchedule$Page$airingSchedules {
   });
 
   factory Query$CalendarSchedule$Page$airingSchedules.fromJson(
-      Map<String, dynamic> json) {
+    Map<String, dynamic> json,
+  ) {
     final l$id = json['id'];
     final l$episode = json['episode'];
     final l$airingAt = json['airingAt'];
@@ -740,11 +719,10 @@ class Query$CalendarSchedule$Page$airingSchedules {
 extension UtilityExtension$Query$CalendarSchedule$Page$airingSchedules
     on Query$CalendarSchedule$Page$airingSchedules {
   CopyWith$Query$CalendarSchedule$Page$airingSchedules<
-          Query$CalendarSchedule$Page$airingSchedules>
-      get copyWith => CopyWith$Query$CalendarSchedule$Page$airingSchedules(
-            this,
-            (i) => i,
-          );
+    Query$CalendarSchedule$Page$airingSchedules
+  >
+  get copyWith =>
+      CopyWith$Query$CalendarSchedule$Page$airingSchedules(this, (i) => i);
 }
 
 abstract class CopyWith$Query$CalendarSchedule$Page$airingSchedules<TRes> {
@@ -785,22 +763,23 @@ class _CopyWithImpl$Query$CalendarSchedule$Page$airingSchedules<TRes>
     Object? airingAt = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
-  }) =>
-      _then(Query$CalendarSchedule$Page$airingSchedules(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        episode: episode == _undefined || episode == null
-            ? _instance.episode
-            : (episode as int),
-        airingAt: airingAt == _undefined || airingAt == null
-            ? _instance.airingAt
-            : (airingAt as int),
-        media: media == _undefined
-            ? _instance.media
-            : (media as Fragment$MediaFragment?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  }) => _then(
+    Query$CalendarSchedule$Page$airingSchedules(
+      id: id == _undefined || id == null ? _instance.id : (id as int),
+      episode: episode == _undefined || episode == null
+          ? _instance.episode
+          : (episode as int),
+      airingAt: airingAt == _undefined || airingAt == null
+          ? _instance.airingAt
+          : (airingAt as int),
+      media: media == _undefined
+          ? _instance.media
+          : (media as Fragment$MediaFragment?),
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
 
   CopyWith$Fragment$MediaFragment<TRes> get media {
     final local$media = _instance.media;
@@ -822,8 +801,7 @@ class _CopyWithStubImpl$Query$CalendarSchedule$Page$airingSchedules<TRes>
     int? airingAt,
     Fragment$MediaFragment? media,
     String? $__typename,
-  }) =>
-      _res;
+  }) => _res;
 
   CopyWith$Fragment$MediaFragment<TRes> get media =>
       CopyWith$Fragment$MediaFragment.stub(_res);

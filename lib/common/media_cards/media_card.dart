@@ -17,10 +17,14 @@ class MediaCard extends StatelessWidget {
     this.chips,
     this.blur,
     required this.listType,
-  })  : assert((listType == ListType.simple && title != null) ||
-            listType != ListType.simple),
-        assert((listType != ListType.simple && image != null) ||
-            listType == ListType.simple);
+  }) : assert(
+         (listType == ListType.simple && title != null) ||
+             listType != ListType.simple,
+       ),
+       assert(
+         (listType != ListType.simple && image != null) ||
+             listType == ListType.simple,
+       );
 
   final ListType listType;
   final double? aspectRatio;
@@ -37,34 +41,31 @@ class MediaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (listType) {
       ListType.grid => GridCard(
-          image: image!,
-          aspectRatio: aspectRatio ?? GridCard.listRatio,
-          blur: blur ?? false,
-          chips: chips,
-          onDoubleTap: onDoubleTap,
-          onLongPress: onLongPress,
-          onTap: onTap,
-          title: title,
-          underTitle: underTitle,
-        ),
+        image: image!,
+        aspectRatio: aspectRatio ?? GridCard.listRatio,
+        blur: blur ?? false,
+        chips: chips,
+        onDoubleTap: onDoubleTap,
+        onLongPress: onLongPress,
+        onTap: onTap,
+        title: title,
+        underTitle: underTitle,
+      ),
       ListType.list => ListCard(
-          image: image!,
-          blur: blur ?? false,
-          onDoubleTap: onDoubleTap,
-          onLongPress: onLongPress,
-          onTap: onTap,
-          title: title,
-          underTitle: underTitle,
-        ),
+        image: image!,
+        blur: blur ?? false,
+        onDoubleTap: onDoubleTap,
+        onLongPress: onLongPress,
+        onTap: onTap,
+        title: title,
+        underTitle: underTitle,
+      ),
       ListType.simple => InkWell(
-          onTap: onTap,
-          onDoubleTap: onDoubleTap,
-          onLongPress: onLongPress,
-          child: ListTile(
-            title: Text(title!),
-            subtitle: underTitle,
-          ),
-        ),
+        onTap: onTap,
+        onDoubleTap: onDoubleTap,
+        onLongPress: onLongPress,
+        child: ListTile(title: Text(title!), subtitle: underTitle),
+      ),
     };
   }
 }
@@ -79,8 +80,10 @@ class MediaCards extends StatelessWidget {
     this.primary,
     this.padding,
     this.shrinkWrap,
-  }) : assert((listType == ListType.grid && gridDelegate != null) ||
-            listType != ListType.grid);
+  }) : assert(
+         (listType == ListType.grid && gridDelegate != null) ||
+             listType != ListType.grid,
+       );
 
   final Widget? Function(BuildContext context, int index) itemBuilder;
   final ListType listType;
@@ -94,27 +97,27 @@ class MediaCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (listType) {
       ListType.grid => GridView.builder(
-          shrinkWrap: shrinkWrap ?? false,
-          gridDelegate: gridDelegate!,
-          itemBuilder: itemBuilder,
-          itemCount: itemCount,
-          primary: primary,
-          padding: padding ?? EdgeInsets.zero,
-        ),
+        shrinkWrap: shrinkWrap ?? false,
+        gridDelegate: gridDelegate!,
+        itemBuilder: itemBuilder,
+        itemCount: itemCount,
+        primary: primary,
+        padding: padding ?? EdgeInsets.zero,
+      ),
       ListType.list => ListView.builder(
-          shrinkWrap: shrinkWrap ?? false,
-          itemBuilder: itemBuilder,
-          itemCount: itemCount,
-          primary: primary,
-          padding: padding ?? EdgeInsets.zero,
-        ),
+        shrinkWrap: shrinkWrap ?? false,
+        itemBuilder: itemBuilder,
+        itemCount: itemCount,
+        primary: primary,
+        padding: padding ?? EdgeInsets.zero,
+      ),
       ListType.simple => ListView.builder(
-          shrinkWrap: shrinkWrap ?? false,
-          itemBuilder: itemBuilder,
-          itemCount: itemCount,
-          primary: primary,
-          padding: padding ?? EdgeInsets.zero,
-        ),
+        shrinkWrap: shrinkWrap ?? false,
+        itemBuilder: itemBuilder,
+        itemCount: itemCount,
+        primary: primary,
+        padding: padding ?? EdgeInsets.zero,
+      ),
     };
   }
 }
