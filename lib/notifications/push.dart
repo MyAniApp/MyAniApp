@@ -14,7 +14,7 @@ class PushNotifications {
     var android = const AndroidInitializationSettings('notification_icon');
 
     _flutterLocalNotificationsPlugin.initialize(
-      InitializationSettings(android: android),
+      settings: InitializationSettings(android: android),
       onDidReceiveBackgroundNotificationResponse: notificationTap,
       onDidReceiveNotificationResponse: notificationTap,
     );
@@ -43,15 +43,18 @@ class PushNotifications {
     if (Platform.isAndroid) {
       _flutterLocalNotificationsPlugin
           .resolvePlatformSpecificImplementation<
-              AndroidFlutterLocalNotificationsPlugin>()
+            AndroidFlutterLocalNotificationsPlugin
+          >()
           ?.requestNotificationsPermission();
     }
   }
 
   Future<bool> hasPermission() async {
-    bool granted = await _flutterLocalNotificationsPlugin
+    bool granted =
+        await _flutterLocalNotificationsPlugin
             .resolvePlatformSpecificImplementation<
-                AndroidFlutterLocalNotificationsPlugin>()
+              AndroidFlutterLocalNotificationsPlugin
+            >()
             ?.areNotificationsEnabled() ??
         false;
 
@@ -68,18 +71,20 @@ class PushNotifications {
     if (!Platform.isAndroid) return Future.value();
 
     return _flutterLocalNotificationsPlugin.show(
-      id ?? Random.secure().nextInt(999),
-      title,
-      body,
-      details,
+      id: id ?? Random.secure().nextInt(999),
+      title: title,
+      body: body,
+      notificationDetails: details,
       payload: payload != null ? jsonEncode(payload) : null,
     );
   }
 
-  static Future<NotificationDetails> releaseDetails(
-      {String? bigPictureUrl}) async {
-    Uint8List? bigPicture =
-        bigPictureUrl != null ? await getByteArrayFromUrl(bigPictureUrl) : null;
+  static Future<NotificationDetails> releaseDetails({
+    String? bigPictureUrl,
+  }) async {
+    Uint8List? bigPicture = bigPictureUrl != null
+        ? await getByteArrayFromUrl(bigPictureUrl)
+        : null;
 
     BigPictureStyleInformation? bigPictureStyleInformation = bigPicture != null
         ? BigPictureStyleInformation(
@@ -101,8 +106,9 @@ class PushNotifications {
   }
 
   static Future<NotificationDetails> followingDetails({String? avatar}) async {
-    Uint8List? avatarPicture =
-        avatar != null ? await getByteArrayFromUrl(avatar) : null;
+    Uint8List? avatarPicture = avatar != null
+        ? await getByteArrayFromUrl(avatar)
+        : null;
 
     ByteArrayAndroidBitmap? largeIcon = avatarPicture != null
         ? ByteArrayAndroidBitmap.fromBase64String(base64Encode(avatarPicture))
@@ -121,8 +127,9 @@ class PushNotifications {
   }
 
   static Future<NotificationDetails> activityDetails({String? avatar}) async {
-    Uint8List? avatarPicture =
-        avatar != null ? await getByteArrayFromUrl(avatar) : null;
+    Uint8List? avatarPicture = avatar != null
+        ? await getByteArrayFromUrl(avatar)
+        : null;
 
     ByteArrayAndroidBitmap? largeIcon = avatarPicture != null
         ? ByteArrayAndroidBitmap.fromBase64String(base64Encode(avatarPicture))
@@ -185,8 +192,9 @@ class PushNotifications {
 void notificationTap(NotificationResponse notificationResponse) {
   // handle action
   if (notificationResponse.payload == null) return;
-  Map<String, dynamic>? decodePayload =
-      jsonDecode(notificationResponse.payload!);
+  Map<String, dynamic>? decodePayload = jsonDecode(
+    notificationResponse.payload!,
+  );
   if (decodePayload?['path'] != null) {
     try {
       // router.pushNamed(decodePayload!['path'] as String);

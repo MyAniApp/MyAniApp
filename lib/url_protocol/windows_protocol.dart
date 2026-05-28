@@ -5,7 +5,7 @@ import 'package:win32/win32.dart';
 
 import 'protocol.dart';
 
-const _hive = HKEY_CURRENT_USER;
+final _hive = HKEY_CURRENT_USER;
 
 class WindowsProtocolHandler extends ProtocolHandler {
   @override
@@ -23,7 +23,7 @@ class WindowsProtocolHandler extends ProtocolHandler {
 
   @override
   void unregister(String scheme) {
-    final txtKey = TEXT(_regPrefix(scheme));
+    final txtKey = _regPrefix(scheme).toPcwstr();
     try {
       RegDeleteTree(HKEY_CURRENT_USER, txtKey);
     } finally {
@@ -33,16 +33,21 @@ class WindowsProtocolHandler extends ProtocolHandler {
 
   String _regPrefix(String scheme) => 'SOFTWARE\\Classes\\$scheme';
 
-  int _regCreateStringKey(int hKey, String key, String valueName, String data) {
-    final txtKey = TEXT(key);
-    final txtValue = TEXT(valueName);
-    final txtData = TEXT(data);
+  int _regCreateStringKey(
+    HKEY hKey,
+    String key,
+    String valueName,
+    String data,
+  ) {
+    final txtKey = key.toPcwstr();
+    final txtValue = valueName.toPcwstr();
+    final txtData = data.toPcwstr();
     try {
       return RegSetKeyValue(
         hKey,
         txtKey,
         txtValue,
-        REG_VALUE_TYPE.REG_SZ,
+        REG_SZ,
         txtData,
         txtData.length * 2 + 2,
       );

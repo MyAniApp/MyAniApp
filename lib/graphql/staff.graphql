@@ -1,4 +1,4 @@
-query Staff($id: Int, $onList: Boolean, $characterPage: Int, $staffPage: Int) {
+query Staff($id: Int, $onList: Boolean, $characterPage: Int, $staffPage: Int, $sort: [MediaSort]) {
     Staff(id: $id) {
         ...StaffFragment
         description
@@ -20,7 +20,7 @@ query Staff($id: Int, $onList: Boolean, $characterPage: Int, $staffPage: Int) {
         characterMedia(
             page: $characterPage
             onList: $onList
-            sort: [START_DATE_DESC]
+            sort: $sort
         ) {
             pageInfo {
                 ...PageInfo
@@ -37,7 +37,7 @@ query Staff($id: Int, $onList: Boolean, $characterPage: Int, $staffPage: Int) {
                 }
             }
         }
-        staffMedia(page: $staffPage, onList: $onList, sort: [START_DATE_DESC]) {
+        staffMedia(page: $staffPage, onList: $onList, sort: $sort) {
             pageInfo {
                 ...PageInfo
             }

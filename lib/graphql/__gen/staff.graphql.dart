@@ -12,11 +12,13 @@ class Variables$Query$Staff {
     bool? onList,
     int? characterPage,
     int? staffPage,
+    List<Enum$MediaSort?>? sort,
   }) => Variables$Query$Staff._({
     if (id != null) r'id': id,
     if (onList != null) r'onList': onList,
     if (characterPage != null) r'characterPage': characterPage,
     if (staffPage != null) r'staffPage': staffPage,
+    if (sort != null) r'sort': sort,
   });
 
   Variables$Query$Staff._(this._$data);
@@ -39,6 +41,14 @@ class Variables$Query$Staff {
       final l$staffPage = data['staffPage'];
       result$data['staffPage'] = (l$staffPage as int?);
     }
+    if (data.containsKey('sort')) {
+      final l$sort = data['sort'];
+      result$data['sort'] = (l$sort as List<dynamic>?)
+          ?.map(
+            (e) => e == null ? null : fromJson$Enum$MediaSort((e as String)),
+          )
+          .toList();
+    }
     return Variables$Query$Staff._(result$data);
   }
 
@@ -51,6 +61,8 @@ class Variables$Query$Staff {
   int? get characterPage => (_$data['characterPage'] as int?);
 
   int? get staffPage => (_$data['staffPage'] as int?);
+
+  List<Enum$MediaSort?>? get sort => (_$data['sort'] as List<Enum$MediaSort?>?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -69,6 +81,12 @@ class Variables$Query$Staff {
     if (_$data.containsKey('staffPage')) {
       final l$staffPage = staffPage;
       result$data['staffPage'] = l$staffPage;
+    }
+    if (_$data.containsKey('sort')) {
+      final l$sort = sort;
+      result$data['sort'] = l$sort
+          ?.map((e) => e == null ? null : toJson$Enum$MediaSort(e))
+          .toList();
     }
     return result$data;
   }
@@ -118,6 +136,25 @@ class Variables$Query$Staff {
     if (l$staffPage != lOther$staffPage) {
       return false;
     }
+    final l$sort = sort;
+    final lOther$sort = other.sort;
+    if (_$data.containsKey('sort') != other._$data.containsKey('sort')) {
+      return false;
+    }
+    if (l$sort != null && lOther$sort != null) {
+      if (l$sort.length != lOther$sort.length) {
+        return false;
+      }
+      for (int i = 0; i < l$sort.length; i++) {
+        final l$sort$entry = l$sort[i];
+        final lOther$sort$entry = lOther$sort[i];
+        if (l$sort$entry != lOther$sort$entry) {
+          return false;
+        }
+      }
+    } else if (l$sort != lOther$sort) {
+      return false;
+    }
     return true;
   }
 
@@ -127,11 +164,17 @@ class Variables$Query$Staff {
     final l$onList = onList;
     final l$characterPage = characterPage;
     final l$staffPage = staffPage;
+    final l$sort = sort;
     return Object.hashAll([
       _$data.containsKey('id') ? l$id : const {},
       _$data.containsKey('onList') ? l$onList : const {},
       _$data.containsKey('characterPage') ? l$characterPage : const {},
       _$data.containsKey('staffPage') ? l$staffPage : const {},
+      _$data.containsKey('sort')
+          ? l$sort == null
+                ? null
+                : Object.hashAll(l$sort.map((v) => v))
+          : const {},
     ]);
   }
 }
@@ -145,7 +188,13 @@ abstract class CopyWith$Variables$Query$Staff<TRes> {
   factory CopyWith$Variables$Query$Staff.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$Staff;
 
-  TRes call({int? id, bool? onList, int? characterPage, int? staffPage});
+  TRes call({
+    int? id,
+    bool? onList,
+    int? characterPage,
+    int? staffPage,
+    List<Enum$MediaSort?>? sort,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$Staff<TRes>
@@ -163,6 +212,7 @@ class _CopyWithImpl$Variables$Query$Staff<TRes>
     Object? onList = _undefined,
     Object? characterPage = _undefined,
     Object? staffPage = _undefined,
+    Object? sort = _undefined,
   }) => _then(
     Variables$Query$Staff._({
       ..._instance._$data,
@@ -170,6 +220,7 @@ class _CopyWithImpl$Variables$Query$Staff<TRes>
       if (onList != _undefined) 'onList': (onList as bool?),
       if (characterPage != _undefined) 'characterPage': (characterPage as int?),
       if (staffPage != _undefined) 'staffPage': (staffPage as int?),
+      if (sort != _undefined) 'sort': (sort as List<Enum$MediaSort?>?),
     }),
   );
 }
@@ -180,7 +231,13 @@ class _CopyWithStubImpl$Variables$Query$Staff<TRes>
 
   TRes _res;
 
-  call({int? id, bool? onList, int? characterPage, int? staffPage}) => _res;
+  call({
+    int? id,
+    bool? onList,
+    int? characterPage,
+    int? staffPage,
+    List<Enum$MediaSort?>? sort,
+  }) => _res;
 }
 
 class Query$Staff {
@@ -327,6 +384,18 @@ const documentNodeQueryStaff = DocumentNode(
         VariableDefinitionNode(
           variable: VariableNode(name: NameNode(value: 'staffPage')),
           type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(name: NameNode(value: 'sort')),
+          type: ListTypeNode(
+            type: NamedTypeNode(
+              name: NameNode(value: 'MediaSort'),
+              isNonNull: false,
+            ),
+            isNonNull: false,
+          ),
           defaultValue: DefaultValueNode(value: null),
           directives: [],
         ),
@@ -478,13 +547,7 @@ const documentNodeQueryStaff = DocumentNode(
                     ),
                     ArgumentNode(
                       name: NameNode(value: 'sort'),
-                      value: ListValueNode(
-                        values: [
-                          EnumValueNode(
-                            name: NameNode(value: 'START_DATE_DESC'),
-                          ),
-                        ],
-                      ),
+                      value: VariableNode(name: NameNode(value: 'sort')),
                     ),
                   ],
                   directives: [],
@@ -618,13 +681,7 @@ const documentNodeQueryStaff = DocumentNode(
                     ),
                     ArgumentNode(
                       name: NameNode(value: 'sort'),
-                      value: ListValueNode(
-                        values: [
-                          EnumValueNode(
-                            name: NameNode(value: 'START_DATE_DESC'),
-                          ),
-                        ],
-                      ),
+                      value: VariableNode(name: NameNode(value: 'sort')),
                     ),
                   ],
                   directives: [],

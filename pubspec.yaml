@@ -1,7 +1,7 @@
 name: myaniapp
 description: "An unofficial Anilist app."
 publish_to: "none"
-version: 0.5.23
+version: 0.5.24
 
 environment:
   sdk: ">3.10.0 <4.0.0"
@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
   flutter_animate: ^4.5.0
   flutter_hooks: ^0.21.2
-  flutter_local_notifications: ^19.2.0
+  flutter_local_notifications: ^21.0.0
   flutter_riverpod: ^3.0.3
   gql: ^1.0.0+1
   gql_exec: ^1.0.0+1
@@ -24,11 +24,11 @@ dependencies:
   intl: ^0.20.2
   markdown: ^7.2.2
   markdown_widget: ^2.3.2+6
-  package_info_plus: ^9.0.0
+  package_info_plus: ^10.1.0
   relative_time: ^5.0.0
   shared_preferences: ^2.3.4
   url_launcher: ^6.2.5
-  win32: ^5.5.1
+  win32: ^6.3.0
   workmanager:
     git:
       url: https://github.com/fluttercommunity/flutter_workmanager.git
@@ -46,6 +46,7 @@ dependencies:
   go_router: ^17.0.0
   hive_ce: ^2.11.3
   hive_ce_flutter: ^2.3.1
+  google_mobile_ads: ^8.0.0
 dev_dependencies:
   graphql_codegen: ^3.0.0
   flutter_test:

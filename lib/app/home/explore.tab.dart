@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myaniapp/app/home/screen.dart';
+import 'package:myaniapp/common/banner_ad.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/text_viewall_button.dart';
@@ -50,6 +53,7 @@ class ExploreTab extends HookWidget {
           onRefresh: refetch,
           child: ListView(
             children: [
+              if (Platform.isAndroid) BannerAdWidget(),
               Padding(
                 padding: const EdgeInsets.only(left: 8, top: 8),
                 child: Align(

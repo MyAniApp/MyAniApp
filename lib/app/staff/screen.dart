@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:myaniapp/app/settings/widgets.dart';
 import 'package:myaniapp/app/staff/production.screen.dart';
 import 'package:myaniapp/app/staff/roles.screen.dart';
 import 'package:myaniapp/common/cached_image.dart';
@@ -16,14 +17,24 @@ import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/fragments/staff.graphql.dart';
 import 'package:myaniapp/graphql/__gen/media.graphql.dart';
+import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/graphql/__gen/staff.graphql.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/list_settings.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:mygraphql/graphql.dart';
 
 final _extractInfo = RegExp(r"^((?:(?:\*\*)|(?:__))[^]*?\n\n)");
+final staffSortFilters = {
+  Enum$MediaSort.START_DATE_DESC: "Newest",
+  Enum$MediaSort.START_DATE: "Oldest",
+  Enum$MediaSort.TITLE_NATIVE: "Title",
+  Enum$MediaSort.POPULARITY_DESC: "Popularity",
+  Enum$MediaSort.FAVOURITES_DESC: "Favourites",
+  Enum$MediaSort.SCORE_DESC: "Average Score",
+};
 
 class StaffScreen extends HookConsumerWidget {
   const StaffScreen({super.key, required this.id, this.placeholder});
@@ -33,11 +44,16 @@ class StaffScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
-      staffQuery,
-      variables: Variables$Query$Staff(id: id).toJson(),
-      parseData: Query$Staff.fromJson,
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        staffQuery,
+        variables: Variables$Query$Staff(
+          id: id,
+          sort: [.START_DATE_DESC],
+        ).toJson(),
+        parseData: Query$Staff.fromJson,
+      ),
+    );
 
     return GQLWidget(
       response: snapshot,
@@ -54,9 +70,7 @@ class StaffScreen extends HookConsumerWidget {
         if (snapshot.loading == true && placeholder == null) {
           return Scaffold(
             appBar: AppBar(),
-            body: const Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
+            body: const Center(child: CircularProgressIndicator.adaptive()),
           );
         }
 
@@ -121,8 +135,8 @@ class _StaffViewState extends ConsumerState<StaffView>
     var index = hasTabs(widget.staff!)
         ? 0
         : widget.staff!.staffMedia!.edges!.isNotEmpty == true
-            ? 1
-            : 0;
+        ? 1
+        : 0;
     currentIndex = index;
     tabController.animateTo(index);
     done = true;
@@ -158,14 +172,16 @@ class _StaffViewState extends ConsumerState<StaffView>
           onPressed: widget.staff!.isFavouriteBlocked
               ? null
               : () => gqlClient
-                  .query(GQLRequest(
-                    toggleFavoriteQuery,
-                    variables: Variables$Mutation$ToggleFavorite(
-                      staffId: widget.staff!.id,
-                    ).toJson(),
-                  ))
-                  .last
-                  .then((_) => widget.refetch()),
+                    .query(
+                      GQLRequest(
+                        toggleFavoriteQuery,
+                        variables: Variables$Mutation$ToggleFavorite(
+                          staffId: widget.staff!.id,
+                        ).toJson(),
+                      ),
+                    )
+                    .last
+                    .then((_) => widget.refetch()),
           label: Row(
             children: [
               Icon(
@@ -198,87 +214,42 @@ class _StaffViewState extends ConsumerState<StaffView>
                 // expandedHeight: 182,
                 // snap: true,
                 actions: [
+                  IconButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (context) => StaffFilters(
+                          request: widget.request,
+                          fetchMore: widget.fetchMore,
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.filter_alt),
+                  ),
+                  const SizedBox(width: 5),
                   if (widget.staff != null &&
                       widget.staff!.characterMedia!.edges!.isNotEmpty &&
                       (!hasTabs(widget.staff!) || tabController.index == 0))
                     ListSettingButton(
                       type: listSettings.staffVA,
-                      onUpdate: (type) =>
-                          ref.read(listSettingsProvider.notifier).update(
-                                listSettings.copyWith(staffVA: type),
-                              ),
+                      onUpdate: (type) => ref
+                          .read(listSettingsProvider.notifier)
+                          .update(listSettings.copyWith(staffVA: type)),
                     ),
                   if (widget.staff != null &&
                       widget.staff!.staffMedia!.edges!.isNotEmpty &&
                       (!hasTabs(widget.staff!) || tabController.index == 1))
                     ListSettingButton(
                       type: listSettings.staffProduction,
-                      onUpdate: (type) =>
-                          ref.read(listSettingsProvider.notifier).update(
-                                listSettings.copyWith(staffProduction: type),
-                              ),
+                      onUpdate: (type) => ref
+                          .read(listSettingsProvider.notifier)
+                          .update(listSettings.copyWith(staffProduction: type)),
                     ),
-                  const SizedBox(width: 5),
                 ],
-                // flexibleSpace: FlexibleSpaceBar(
-                //   background: SafeArea(
-                //     child: Row(
-                //       crossAxisAlignment: CrossAxisAlignment.start,
-                //       children: [
-                //         Padding(
-                //           padding: const EdgeInsets.only(
-                //             top: 16,
-                //             right: 8,
-                //             left: 8,
-                //           ),
-                //           child: InkWellImage(
-                //             onTap: () => ImageViewer.showImage(
-                //               context,
-                //               (widget.staff ?? widget.placeholder)!
-                //                   .image!
-                //                   .large!,
-                //               tag: (widget.staff ?? widget.placeholder)!.id,
-                //             ),
-                //             borderRadius: imageRadius,
-                //             child: ClipRRect(
-                //               borderRadius: imageRadius,
-                //               child: Hero(
-                //                 tag: (widget.staff ?? widget.placeholder)!.id,
-                //                 child: CachedImage(
-                //                   (widget.staff ?? widget.placeholder)!
-                //                       .image!
-                //                       .large!,
-                //                   height: 150,
-                //                   width: 106,
-                //                   fit: BoxFit.fill,
-                //                 ),
-                //               ),
-                //             ),
-                //           ),
-                //         ),
-                //         Expanded(
-                //           child: Padding(
-                //             padding: const EdgeInsets.only(top: 20),
-                //             child: Text(
-                //               (widget.staff ?? widget.placeholder)!
-                //                   .name!
-                //                   .userPreferred!,
-                //               style: context.theme.textTheme.titleMedium,
-                //               overflow: TextOverflow.ellipsis,
-                //               maxLines: 5,
-                //             ),
-                //           ),
-                //         )
-                //       ],
-                //     ),
-                //   ),
-                // ),
               ),
               Show(
                 when: widget.staff != null,
-                fallback: const SliverToBoxAdapter(
-                  child: SizedBox(),
-                ),
+                fallback: const SliverToBoxAdapter(child: SizedBox()),
                 child: () {
                   var metadata = _extractInfo
                       .firstMatch(widget.staff!.description ?? "")
@@ -347,9 +318,9 @@ class _StaffViewState extends ConsumerState<StaffView>
                                         ),
                                       if (widget.staff!.age != null)
                                         _InfoText(
-                                            title: "Age:",
-                                            text:
-                                                widget.staff!.age!.toString()),
+                                          title: "Age:",
+                                          text: widget.staff!.age!.toString(),
+                                        ),
                                       if (widget.staff!.homeTown != null)
                                         _InfoText(
                                           title: "Hometown:",
@@ -361,7 +332,9 @@ class _StaffViewState extends ConsumerState<StaffView>
                                           text: widget.staff!.gender!,
                                         ),
                                       if (widget
-                                              .staff!.yearsActive?.isNotEmpty ==
+                                              .staff!
+                                              .yearsActive
+                                              ?.isNotEmpty ==
                                           true)
                                         _InfoText(
                                           title: "Year Active:",
@@ -376,7 +349,7 @@ class _StaffViewState extends ConsumerState<StaffView>
                                     ],
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           if (metadata != null)
@@ -397,24 +370,20 @@ class _StaffViewState extends ConsumerState<StaffView>
               ),
               Show(
                 when: widget.staff != null && hasTabs(widget.staff!),
-                fallback: const SliverToBoxAdapter(
-                  child: SizedBox(),
-                ),
+                fallback: const SliverToBoxAdapter(child: SizedBox()),
                 child: () => SliverPersistentHeader(
                   delegate: SliverTabBarViewDelegate(
                     child: TabBar(
                       controller: tabController,
                       isScrollable: true,
                       tabs: const [
-                        Tab(
-                          text: "VA Roles",
-                        ),
-                        Tab(text: "Staff")
+                        Tab(text: "VA Roles"),
+                        Tab(text: "Staff"),
                       ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
             body: Show(
               when: widget.staff != null,
@@ -422,8 +391,9 @@ class _StaffViewState extends ConsumerState<StaffView>
                 child: CircularProgressIndicator.adaptive(),
               ),
               child: () => ScrollConfiguration(
-                behavior:
-                    ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                behavior: ScrollConfiguration.of(
+                  context,
+                ).copyWith(scrollbars: false),
                 child: GraphqlPagination(
                   pageInfo: tabController.index == 0
                       ? widget.staff!.characterMedia!.pageInfo!
@@ -434,21 +404,21 @@ class _StaffViewState extends ConsumerState<StaffView>
                     if (isCharacter) {
                       return widget.fetchMore(
                         variables: Variables$Query$Staff.fromJson(
-                                widget.request.variables)
-                            .copyWith(characterPage: nextPage)
-                            .toJson(),
-                        mergeResults:
-                            defaultMergeResults("Staff.characterMedia.edges"),
+                          widget.request.variables,
+                        ).copyWith(characterPage: nextPage).toJson(),
+                        mergeResults: defaultMergeResults(
+                          "Staff.characterMedia.edges",
+                        ),
                       );
                     }
 
                     return widget.fetchMore(
                       variables: Variables$Query$Staff.fromJson(
-                              widget.request.variables)
-                          .copyWith(staffPage: nextPage)
-                          .toJson(),
-                      mergeResults:
-                          defaultMergeResults("Staff.staffMedia.edges"),
+                        widget.request.variables,
+                      ).copyWith(staffPage: nextPage).toJson(),
+                      mergeResults: defaultMergeResults(
+                        "Staff.staffMedia.edges",
+                      ),
                     );
                   },
                   child: TabBarView(
@@ -459,6 +429,9 @@ class _StaffViewState extends ConsumerState<StaffView>
                     children: [
                       StaffVARolesScreen(
                         medias: widget.staff!.characterMedia!,
+                        sort: fromJson$Enum$MediaSort(
+                          widget.request.variables["sort"]?[0] ?? '',
+                        ),
                       ),
                       StaffProductionRolesScreen(
                         staffRoles: widget.staff!.staffMedia!,
@@ -480,11 +453,97 @@ class _StaffViewState extends ConsumerState<StaffView>
   }
 }
 
-class _InfoText extends StatelessWidget {
-  const _InfoText({
-    required this.title,
-    required this.text,
+class StaffFilters extends ConsumerStatefulWidget {
+  const StaffFilters({
+    super.key,
+    required this.request,
+    required this.fetchMore,
   });
+
+  final GQLRequest request;
+  final QueryHookFetchMore fetchMore;
+
+  @override
+  ConsumerState<StaffFilters> createState() => _StaffFiltersState();
+}
+
+class _StaffFiltersState extends ConsumerState<StaffFilters> {
+  late Variables$Query$Staff vars = .fromJson(widget.request.variables);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        CheckboxSettingsTile(
+          title: "On My List",
+          value: vars.onList ?? false,
+          onChanged: (value) {
+            setState(() {
+              vars = vars.copyWith(onList: value == true ? true : null);
+            });
+            widget.fetchMore(
+              variables: {
+                "id": vars.id,
+                "onList": value == true ? true : null,
+                "sort": [
+                  toJson$Enum$MediaSort(
+                    vars.sort?.firstOrNull ?? Enum$MediaSort.START_DATE_DESC,
+                  ),
+                ],
+              },
+            );
+          },
+        ),
+        PopupSettingsTile(
+          title: "Sort",
+          subtitle: vars.sort?.isNotEmpty == true
+              ? Text(vars.sort!.first!.name.capitalize())
+              : null,
+          value: vars.sort?.firstOrNull,
+          onSelected: (value) {
+            setState(() {
+              final userTitleLang = ref.read(
+                userProvider.select(
+                  (s) => s.value?.parsedData?.Viewer?.options?.titleLanguage,
+                ),
+              );
+              if (value == .TITLE_NATIVE && userTitleLang != null) {
+                vars = vars.copyWith(
+                  sort: switch (userTitleLang!) {
+                    .ROMAJI || .ROMAJI_STYLISED => [.TITLE_ROMAJI],
+                    .ENGLISH || .ENGLISH_STYLISED => [.TITLE_ENGLISH],
+                    .NATIVE || .NATIVE_STYLISED => [.TITLE_NATIVE],
+                    _ => [.TITLE_NATIVE],
+                  },
+                );
+              } else {
+                vars = vars.copyWith(sort: [value]);
+              }
+            });
+            widget.fetchMore(
+              variables: {
+                "id": vars.id,
+                "onList": vars.onList == true ? true : null,
+                "sort": [
+                  toJson$Enum$MediaSort(
+                    vars.sort?.firstOrNull ?? Enum$MediaSort.START_DATE_DESC,
+                  ),
+                ],
+              },
+            );
+          },
+          items: [
+            for (var entry in staffSortFilters.entries)
+              PopupSettingItem(label: entry.value, value: entry.key),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _InfoText extends StatelessWidget {
+  const _InfoText({required this.title, required this.text});
 
   final String title;
   final String text;
@@ -496,11 +555,9 @@ class _InfoText extends StatelessWidget {
         children: [
           TextSpan(
             text: "$title ",
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-          TextSpan(text: text)
+          TextSpan(text: text),
         ],
       ),
     );

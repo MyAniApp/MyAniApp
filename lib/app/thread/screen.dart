@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/app/home/forum/screen.dart';
+import 'package:myaniapp/common/banner_ad.dart';
 import 'package:myaniapp/common/comment.dart';
 import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
@@ -188,6 +191,7 @@ class ThreadScreen extends HookConsumerWidget {
                 ),
               ),
             ),
+            if (Platform.isAndroid) SliverToBoxAdapter(child: BannerAdWidget()),
             if (threadData?.isLocked == false)
               SliverAppBar(
                 primary: false,

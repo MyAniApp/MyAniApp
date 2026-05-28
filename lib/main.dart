@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:gql_http_link/gql_http_link.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:myaniapp/background.dart';
@@ -51,6 +52,7 @@ void main() async {
   }
 
   if (!kIsWeb && Platform.isAndroid) {
+    MobileAds.instance.initialize();
     Workmanager().initialize(callbackDispatcher);
     Workmanager().registerPeriodicTask(
       'background-notifs',

@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/common/activity_card.dart';
+import 'package:myaniapp/common/banner_ad.dart';
 import 'package:myaniapp/common/comment.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/common/markdown_editor.dart';
@@ -142,6 +145,7 @@ class ActivityScreen extends HookConsumerWidget {
                 ),
               ),
             ),
+            if (Platform.isAndroid) SliverToBoxAdapter(child: BannerAdWidget()),
             Show(
               when: data != null,
               fallback: const SliverFillRemaining(

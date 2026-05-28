@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:myaniapp/common/banner_ad.dart';
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/image_viewer.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
@@ -29,11 +32,13 @@ class ReviewScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
-      reviewQuery,
-      variables: Variables$Query$Review(id: id).toJson(),
-      parseData: Query$Review.fromJson,
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        reviewQuery,
+        variables: Variables$Query$Review(id: id).toJson(),
+        parseData: Query$Review.fromJson,
+      ),
+    );
 
     return GQLWidget(
       loading: null,
@@ -50,9 +55,7 @@ class ReviewScreen extends HookConsumerWidget {
         if (snapshot.loading == true && placeholder == null) {
           return Scaffold(
             appBar: AppBar(),
-            body: const Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
+            body: const Center(child: CircularProgressIndicator.adaptive()),
           );
         }
 
@@ -64,10 +67,7 @@ class ReviewScreen extends HookConsumerWidget {
               SliverAppBar(
                 pinned: true,
                 title: InvisibleExpandedTitle(
-                  child: Text(
-                    (data ?? placeholder)!.summary!,
-                    maxLines: 2,
-                  ),
+                  child: Text((data ?? placeholder)!.summary!, maxLines: 2),
                 ),
                 expandedHeight: 160,
                 flexibleSpace: FlexibleSpaceBar(
@@ -76,15 +76,14 @@ class ReviewScreen extends HookConsumerWidget {
                       SizedBox(
                         height: 160,
                         child: WidgetGradient(
-                          child: (data ?? placeholder)?.media?.bannerImage ==
-                                  null
+                          child:
+                              (data ?? placeholder)?.media?.bannerImage == null
                               ? Container(
                                   height: 210,
                                   color: data != null ? Colors.grey : null,
                                   child: Center(
                                     child: data == null
-                                        ? const CircularProgressIndicator
-                                            .adaptive()
+                                        ? const CircularProgressIndicator.adaptive()
                                         : null,
                                   ),
                                 )
@@ -127,8 +126,11 @@ class ReviewScreen extends HookConsumerWidget {
                                 maxLines: 3,
                               ),
                               GestureDetector(
-                                onTap: () => context.push(Routes.media(
-                                    (data ?? placeholder)!.media!.id)),
+                                onTap: () => context.push(
+                                  Routes.media(
+                                    (data ?? placeholder)!.media!.id,
+                                  ),
+                                ),
                                 child: Text(
                                   "A review of ${(data ?? placeholder)!.media!.title!.userPreferred}",
                                   style: context.theme.textTheme.labelMedium
@@ -138,11 +140,13 @@ class ReviewScreen extends HookConsumerWidget {
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
               ),
+              if (Platform.isAndroid)
+                SliverToBoxAdapter(child: BannerAdWidget()),
               SliverToBoxAdapter(
                 child: ListTile(
                   onTap: () => context.push(
@@ -151,13 +155,17 @@ class ReviewScreen extends HookConsumerWidget {
                   ),
                   title: Text((data ?? placeholder)!.user!.name),
                   subtitle: data != null
-                      ? Text(data.createdAt
-                          .dateFromTimestamp()
-                          .relativeTime(context))
+                      ? Text(
+                          data.createdAt.dateFromTimestamp().relativeTime(
+                            context,
+                          ),
+                        )
                       : null,
                   leading: ConstrainedBox(
-                    constraints:
-                        const BoxConstraints(maxHeight: 50, maxWidth: 50),
+                    constraints: const BoxConstraints(
+                      maxHeight: 50,
+                      maxWidth: 50,
+                    ),
                     child: ListTileCircleAvatar(
                       url: (data ?? placeholder)!.user!.avatar!.large!,
                     ),
@@ -166,9 +174,7 @@ class ReviewScreen extends HookConsumerWidget {
               ),
               if (data == null)
                 const SliverToBoxAdapter(
-                  child: Center(
-                    child: CircularProgressIndicator.adaptive(),
-                  ),
+                  child: Center(child: CircularProgressIndicator.adaptive()),
                 )
               else
                 SliverToBoxAdapter(
@@ -195,7 +201,7 @@ class ReviewScreen extends HookConsumerWidget {
                                 style: context.theme.textTheme.titleLarge,
                               ),
                               const TextSpan(text: " / "),
-                              const TextSpan(text: "100")
+                              const TextSpan(text: "100"),
                             ],
                           ),
                         ),
@@ -209,16 +215,19 @@ class ReviewScreen extends HookConsumerWidget {
                               ref,
                               "to rate a review",
                               () => gqlClient
-                                  .query(GQLRequest(
-                                    rateReviewQuery,
-                                    variables: Variables$Mutation$RateReview(
-                                            id: data.id,
-                                            rating: data.userRating ==
-                                                    Enum$ReviewRating.UP_VOTE
-                                                ? Enum$ReviewRating.NO_VOTE
-                                                : Enum$ReviewRating.UP_VOTE)
-                                        .toJson(),
-                                  ))
+                                  .query(
+                                    GQLRequest(
+                                      rateReviewQuery,
+                                      variables: Variables$Mutation$RateReview(
+                                        id: data.id,
+                                        rating:
+                                            data.userRating ==
+                                                Enum$ReviewRating.UP_VOTE
+                                            ? Enum$ReviewRating.NO_VOTE
+                                            : Enum$ReviewRating.UP_VOTE,
+                                      ).toJson(),
+                                    ),
+                                  )
                                   .last
                                   .then(
                                     (value) => refetch(FetchPolicy.cacheFirst),
@@ -236,16 +245,19 @@ class ReviewScreen extends HookConsumerWidget {
                               ref,
                               "to rate a review",
                               () => gqlClient
-                                  .query(GQLRequest(
-                                    rateReviewQuery,
-                                    variables: Variables$Mutation$RateReview(
-                                            id: data.id,
-                                            rating: data.userRating ==
-                                                    Enum$ReviewRating.DOWN_VOTE
-                                                ? Enum$ReviewRating.NO_VOTE
-                                                : Enum$ReviewRating.DOWN_VOTE)
-                                        .toJson(),
-                                  ))
+                                  .query(
+                                    GQLRequest(
+                                      rateReviewQuery,
+                                      variables: Variables$Mutation$RateReview(
+                                        id: data.id,
+                                        rating:
+                                            data.userRating ==
+                                                Enum$ReviewRating.DOWN_VOTE
+                                            ? Enum$ReviewRating.NO_VOTE
+                                            : Enum$ReviewRating.DOWN_VOTE,
+                                      ).toJson(),
+                                    ),
+                                  )
                                   .last
                                   .then(
                                     (value) => refetch(FetchPolicy.cacheFirst),
@@ -254,17 +266,18 @@ class ReviewScreen extends HookConsumerWidget {
                             icon: const Icon(Icons.thumb_down),
                             color:
                                 data.userRating == Enum$ReviewRating.DOWN_VOTE
-                                    ? Colors.red
-                                    : null,
+                                ? Colors.red
+                                : null,
                             iconSize: 30,
                           ),
                         ],
                       ),
                       Text(
-                          "${data.rating} out of ${data.ratingAmount} liked this review."),
+                        "${data.rating} out of ${data.ratingAmount} liked this review.",
+                      ),
                     ],
                   ),
-                )
+                ),
             ],
           ),
         );

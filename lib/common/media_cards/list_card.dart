@@ -31,6 +31,7 @@ class ListCard extends StatelessWidget {
         onDoubleTap: onDoubleTap,
         onLongPress: onLongPress,
         onTap: onTap,
+        borderRadius: imageRadius,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,10 +40,7 @@ class ListCard extends StatelessWidget {
               width: 85,
               child: ClipRRect(
                 borderRadius: imageRadius,
-                child: CachedImage(
-                  image,
-                  fit: BoxFit.fill,
-                ),
+                child: CachedImage(image, fit: BoxFit.fill),
               ),
             ),
             Expanded(
@@ -65,7 +63,7 @@ class ListCard extends StatelessWidget {
                     ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
