@@ -1,8 +1,22 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+enum BannerAdLocations { thread, activity, review, explore }
+
+final Map<BannerAdLocations, String> unitIds = {
+  BannerAdLocations.thread: "ca-app-pub-7032560703864826/9667422868",
+  BannerAdLocations.activity: "ca-app-pub-7032560703864826/5972608484",
+  BannerAdLocations.review: "ca-app-pub-7032560703864826/6821140350",
+  BannerAdLocations.explore: "ca-app-pub-7032560703864826/4659526814",
+};
+
 class BannerAdWidget extends StatefulWidget {
-  const BannerAdWidget({super.key});
+  const BannerAdWidget({super.key, required this.location});
+
+  final BannerAdLocations location;
 
   @override
   State<BannerAdWidget> createState() => _BannerAdWidgetState();
@@ -19,18 +33,19 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     });
   }
 
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
+  }
+
   void _loadAd() async {
-    final size = AdSize.getInlineAdaptiveBannerAdSize(
-      MediaQuery.sizeOf(context).width.truncate(),
-      200,
-    );
-
-    if (size == null) return;
-
+    if (!(!kIsWeb && Platform.isAndroid)) return;
     BannerAd(
-      adUnitId: "ca-app-pub-7032560703864826/9667422868",
+      adUnitId:
+          unitIds[widget.location] ?? "ca-app-pub-7032560703864826/1568813679",
       request: const AdRequest(),
-      size: AdSize.banner,
+      size: .largeBanner,
       listener: BannerAdListener(
         onAdLoaded: (ad) {
           // Called when an ad is successfully received.

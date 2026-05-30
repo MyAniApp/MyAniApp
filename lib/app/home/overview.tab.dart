@@ -128,6 +128,8 @@ class InProgress extends ConsumerWidget {
     var user = ref.watch(userProvider);
     var settings = ref.watch(listSettingsProvider);
 
+    if (list.isEmpty) return SizedBox();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

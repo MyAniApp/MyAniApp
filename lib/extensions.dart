@@ -1,16 +1,16 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:myaniapp/graphql/__gen/fragments/fuzzy_date.graphql.dart';
+import 'package:myaniapp/graphql/__gen/fragments/media.graphql.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 
 extension Capitalize on String {
   String capitalize() {
     return replaceAll('_', " ")
         .split(' ')
-        .map(
-          (element) => toBeginningOfSentenceCase(element.toLowerCase()),
-        )
+        .map((element) => toBeginningOfSentenceCase(element.toLowerCase()))
         .join(' ');
   }
 }
@@ -26,7 +26,8 @@ extension HexColor on Color {
   }
 
   /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
-  String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
+  String toHex({bool leadingHashSign = true}) =>
+      '${leadingHashSign ? '#' : ''}'
       '${alpha.toRadixString(16).padLeft(2, '0')}'
       '${red.toRadixString(16).padLeft(2, '0')}'
       '${green.toRadixString(16).padLeft(2, '0')}'

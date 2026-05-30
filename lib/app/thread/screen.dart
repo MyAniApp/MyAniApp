@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
@@ -191,7 +192,7 @@ class ThreadScreen extends HookConsumerWidget {
                 ),
               ),
             ),
-            if (Platform.isAndroid) SliverToBoxAdapter(child: BannerAdWidget()),
+            SliverToBoxAdapter(child: BannerAdWidget(location: .thread)),
             if (threadData?.isLocked == false)
               SliverAppBar(
                 primary: false,

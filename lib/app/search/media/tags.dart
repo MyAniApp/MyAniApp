@@ -8,24 +8,30 @@ import 'package:myaniapp/main.dart';
 import 'package:mygraphql/graphql.dart';
 
 class TagsEditorSheet extends StatefulHookWidget {
-  const TagsEditorSheet(
-      {super.key,
-      required this.whitelistedTags,
-      required this.blacklistedTags,
-      required this.onChanged});
+  const TagsEditorSheet({
+    super.key,
+    required this.whitelistedTags,
+    required this.blacklistedTags,
+    required this.onChanged,
+  });
 
   final List<Query$GenreCollection$tags?> whitelistedTags;
   final List<Query$GenreCollection$tags?> blacklistedTags;
-  final void Function(List<Query$GenreCollection$tags> whitelistedTags,
-      List<Query$GenreCollection$tags> blacklistedTags) onChanged;
+  final void Function(
+    List<Query$GenreCollection$tags> whitelistedTags,
+    List<Query$GenreCollection$tags> blacklistedTags,
+  )
+  onChanged;
 
   static void show(
     BuildContext context, {
     required List<Query$GenreCollection$tags?> whitelistedTags,
     required List<Query$GenreCollection$tags?> blacklistedTags,
-    required void Function(List<Query$GenreCollection$tags> whitelistedTags,
-            List<Query$GenreCollection$tags> blacklistedTags)
-        onChanged,
+    required void Function(
+      List<Query$GenreCollection$tags> whitelistedTags,
+      List<Query$GenreCollection$tags> blacklistedTags,
+    )
+    onChanged,
   }) {
     showModalBottomSheet(
       context: context,
@@ -44,18 +50,20 @@ class TagsEditorSheet extends StatefulHookWidget {
 }
 
 class _TagsEditorSheetState extends State<TagsEditorSheet> {
-  late List<Query$GenreCollection$tags> whitelistedTags =
-      widget.whitelistedTags.cast<Query$GenreCollection$tags>();
-  late List<Query$GenreCollection$tags> blacklistedTags =
-      widget.blacklistedTags.cast<Query$GenreCollection$tags>();
+  late List<Query$GenreCollection$tags> whitelistedTags = widget.whitelistedTags
+      .cast<Query$GenreCollection$tags>();
+  late List<Query$GenreCollection$tags> blacklistedTags = widget.blacklistedTags
+      .cast<Query$GenreCollection$tags>();
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
-      genreCollectionQuery,
-      parseData: Query$GenreCollection.fromJson,
-      fetchPolicy: FetchPolicy.cacheOnly,
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        genreCollectionQuery,
+        parseData: Query$GenreCollection.fromJson,
+        fetchPolicy: FetchPolicy.cacheOnly,
+      ),
+    );
 
     return DraggableScrollableSheet(
       expand: false,
@@ -65,24 +73,32 @@ class _TagsEditorSheetState extends State<TagsEditorSheet> {
         builder: () {
           return HookBuilder(
             builder: (context) {
-              var tags = useMemoized(() => Tag.sort(snapshot.parsedData!.tags!),
-                  [snapshot.parsedData!.tags!]);
+              var tags = useMemoized(
+                () => Tag.sort(snapshot.parsedData!.tags!),
+                [snapshot.parsedData!.tags!],
+              );
               var textEditingController = useTextEditingController();
               var notifier = useValueListenable(textEditingController);
 
               var sortedTags = useMemoized(
-                () => tags.where((element) {
-                  return element.tags.any((element) => element.name
-                      .toLowerCase()
-                      .contains(textEditingController.text.toLowerCase()));
-                }).map((e) {
-                  return Tag(category: e.category)
-                    ..tags = e.tags
-                        .where((element) => element.name
-                            .toLowerCase()
-                            .contains(textEditingController.text.toLowerCase()))
-                        .toList();
-                }),
+                () => tags
+                    .where((element) {
+                      return element.tags.any(
+                        (element) => element.name.toLowerCase().contains(
+                          textEditingController.text.toLowerCase(),
+                        ),
+                      );
+                    })
+                    .map((e) {
+                      return Tag(category: e.category)
+                        ..tags = e.tags
+                            .where(
+                              (element) => element.name.toLowerCase().contains(
+                                textEditingController.text.toLowerCase(),
+                              ),
+                            )
+                            .toList();
+                    }),
                 [notifier, tags],
               );
 
@@ -121,8 +137,8 @@ class _TagsEditorSheetState extends State<TagsEditorSheet> {
                               value: whitelistedTags.contains(tag) == true
                                   ? true
                                   : blacklistedTags.contains(tag) == true
-                                      ? null
-                                      : false,
+                                  ? null
+                                  : false,
                               tristate: true,
                               onChanged: (value) {
                                 if (value == null) {
@@ -136,7 +152,9 @@ class _TagsEditorSheetState extends State<TagsEditorSheet> {
                                   setState(() => blacklistedTags.remove(tag));
                                 }
                                 widget.onChanged(
-                                    whitelistedTags, blacklistedTags);
+                                  whitelistedTags,
+                                  blacklistedTags,
+                                );
                               },
                             );
                           },
@@ -164,6 +182,7 @@ class Tag {
     List<Tag> lists = [];
 
     for (var tag in tags) {
+      if (hideAdultContent && tag?.isAdult == true) continue;
       var category = tag!.category!.replaceAll('-', ' / ');
       var o = lists.indexWhere((element) => element.category == category);
       if (o == -1) {
@@ -173,9 +192,6 @@ class Tag {
       }
     }
 
-    return lists
-      ..sort(
-        (a, b) => a.category.compareTo(b.category),
-      );
+    return lists..sort((a, b) => a.category.compareTo(b.category));
   }
 }

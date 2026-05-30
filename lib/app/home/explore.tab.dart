@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
@@ -53,7 +54,7 @@ class ExploreTab extends HookWidget {
           onRefresh: refetch,
           child: ListView(
             children: [
-              if (Platform.isAndroid) BannerAdWidget(),
+              BannerAdWidget(location: .explore),
               Padding(
                 padding: const EdgeInsets.only(left: 8, top: 8),
                 child: Align(

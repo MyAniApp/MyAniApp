@@ -72,7 +72,7 @@ class HomeScreen extends ConsumerWidget {
               ],
             ),
           ),
-          drawer: Drawer(),
+          drawer: Drawer(shell: child),
           bottomNavigationBar: Show(
             when: orientation == Orientation.portrait,
             child: () => NavigationBar(
@@ -100,7 +100,9 @@ class HomeScreen extends ConsumerWidget {
 }
 
 class Drawer extends ConsumerWidget {
-  const Drawer({super.key});
+  const Drawer({super.key, required this.shell});
+
+  final StatefulNavigationShell shell;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -163,7 +165,10 @@ class Drawer extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.logout, color: Colors.red),
             title: const Text("Logout"),
-            onTap: () => ref.read(settingsProvider.notifier).updateToken(null),
+            onTap: () {
+              ref.read(settingsProvider.notifier).updateToken(null);
+              shell.goBranch(0);
+            },
           ),
       ],
     );

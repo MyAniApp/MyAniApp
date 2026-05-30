@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/app/home/screen.dart';
@@ -5,6 +6,7 @@ import 'package:myaniapp/common/activity_card.dart';
 import 'package:myaniapp/common/hiding_floating_button.dart';
 import 'package:myaniapp/common/markdown_editor.dart';
 import 'package:myaniapp/common/pagination.dart';
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql/__gen/home_activities.graphql.dart';
 import 'package:myaniapp/graphql/mutations.dart';
 import 'package:myaniapp/graphql/queries.dart';
@@ -42,7 +44,27 @@ class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
           hasReplies: !isFollowing,
           isFollowing: isFollowing,
         ).toJson(),
-        parseData: Query$HomeActivities.fromJson,
+        parseData: (json) {
+          var list = Query$HomeActivities.fromJson(json);
+          if (hideAdultContent) {
+            return list.copyWith(
+              Page: list?.Page?.copyWith(
+                activities: [
+                  ...?list?.Page?.activities?.whereNot((m) {
+                    return m?.when(
+                          textActivity: (t) => false,
+                          listActivity: (l) => l.media?.isAdult == true,
+                          messageActivity: (m) => false,
+                          orElse: () => false,
+                        ) ==
+                        true;
+                  }),
+                ],
+              ),
+            );
+          }
+          return list;
+        },
         mergeResults: defaultMergeResults("Page.activities"),
       ),
     );

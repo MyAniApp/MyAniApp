@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -145,7 +146,7 @@ class ActivityScreen extends HookConsumerWidget {
                 ),
               ),
             ),
-            if (Platform.isAndroid) SliverToBoxAdapter(child: BannerAdWidget()),
+            SliverToBoxAdapter(child: BannerAdWidget(location: .activity)),
             Show(
               when: data != null,
               fallback: const SliverFillRemaining(

@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -38,7 +39,23 @@ class _RecommendationsStatePage extends ConsumerState<RecommendationsScreen> {
           onList: onMyList,
           sort: [sort],
         ).toJson(),
-        parseData: Query$Recommendations.fromJson,
+        parseData: (json) {
+          final recs = Query$Recommendations.fromJson(json);
+          if (hideAdultContent) {
+            return recs.copyWith(
+              Page: recs.Page?.copyWith(
+                recommendations: recs.Page?.recommendations
+                    ?.whereNot(
+                      (r) =>
+                          r?.media?.isAdult == true ||
+                          r?.mediaRecommendation?.isAdult == true,
+                    )
+                    .toList(),
+              ),
+            );
+          }
+          return recs;
+        },
         mergeResults: defaultMergeResults("Page.recommendations"),
       ),
     );

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/providers/shared_prefs.dart';
+import 'package:myaniapp/providers/user.dart';
+import 'package:mygraphql/graphql.dart';
 
 class _Settings {
   final String? token;
@@ -28,18 +30,22 @@ class _SettingsNotifier extends Notifier<_Settings> {
 
     return _Settings(
       token: sharedPrefs.getString("token"),
-      themeMode: ThemeMode.values.firstWhere((element) =>
-          element.name ==
-          (sharedPrefs.getString("themeMode") ?? ThemeMode.system.name)),
+      themeMode: ThemeMode.values.firstWhere(
+        (element) =>
+            element.name ==
+            (sharedPrefs.getString("themeMode") ?? ThemeMode.system.name),
+      ),
       primaryColor: sharedPrefs.containsKey("themeColor")
           ? Color(sharedPrefs.getInt("themeColor")!)
           : null,
       blurCovers: sharedPrefs.getBool("blurCovers") ?? false,
       showEmbedMediaCard: sharedPrefs.getBool("showEmbedMediaCard") ?? false,
-      defaultHomeList: Enum$MediaType.values.firstWhere((element) =>
-          element.name ==
-          (sharedPrefs.getString("defaultHomeList") ??
-              Enum$MediaType.ANIME.name)),
+      defaultHomeList: Enum$MediaType.values.firstWhere(
+        (element) =>
+            element.name ==
+            (sharedPrefs.getString("defaultHomeList") ??
+                Enum$MediaType.ANIME.name),
+      ),
     );
   }
 
@@ -117,6 +123,9 @@ class _SettingsNotifier extends Notifier<_Settings> {
 
     if (token == null) {
       await ref.read(sharedPrefsProvider).remove("token");
+      userProvider.overrideWithValue(
+        AsyncData(GQLResponse(response: {}, request: null)),
+      );
       // ref.invalidate(userProvider);
       // ref.(userProvider);
     } else {

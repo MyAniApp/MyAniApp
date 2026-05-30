@@ -6,6 +6,7 @@ import 'package:myaniapp/app/search/media/tags.dart';
 import 'package:myaniapp/app/settings/widgets.dart';
 import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/show.dart';
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/graphql/__gen/search_media.graphql.dart';
@@ -34,9 +35,7 @@ class MediaSearchEditor extends ConsumerStatefulWidget {
       context: context,
       showDragHandle: true,
       isScrollControlled: true,
-      builder: (context) => MediaSearchEditor(
-        oldQuery: query,
-      ),
+      builder: (context) => MediaSearchEditor(oldQuery: query),
     );
   }
 
@@ -91,8 +90,10 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
               Expanded(
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(
-                          context.theme.colorScheme.surfaceContainer)),
+                    backgroundColor: WidgetStatePropertyAll(
+                      context.theme.colorScheme.surfaceContainer,
+                    ),
+                  ),
                   onPressed: () {
                     if (query.genres?.contains("Hentai") == true) {
                       query.isAdult = true;
@@ -108,16 +109,13 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
               const SizedBox(width: 5),
               ListSettingButton(
                 type: listSettings.search,
-                onUpdate: (type) =>
-                    ref.read(listSettingsProvider.notifier).update(
-                          listSettings.copyWith(search: type),
-                        ),
+                onUpdate: (type) => ref
+                    .read(listSettingsProvider.notifier)
+                    .update(listSettings.copyWith(search: type)),
               ),
             ],
           ),
-          const SizedBox(
-            height: 5,
-          ),
+          const SizedBox(height: 5),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SettingsSection(
@@ -148,7 +146,8 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                   ],
                   onClear: () => setState(() => query.sort = null),
                   onSaved: (values) => setState(
-                      () => query.sort = values.isEmpty ? null : values),
+                    () => query.sort = values.isEmpty ? null : values,
+                  ),
                 ),
                 GenresButton(
                   onChanged: (genres) => setState(() => query.genres = genres),
@@ -158,7 +157,8 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                   title: "Format",
                   initialValues: query.format,
                   onSaved: (values) => setState(
-                      () => query.format = values.isEmpty ? null : values),
+                    () => query.format = values.isEmpty ? null : values,
+                  ),
                   items: [
                     for (var format in Enum$MediaFormat.values)
                       PopupSettingCheckbox(
@@ -236,10 +236,7 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                   value: query.countryOfOrigin,
                   items: [
                     for (var season in countries.entries)
-                      PopupSettingItem(
-                        value: season.value,
-                        label: season.key,
-                      ),
+                      PopupSettingItem(value: season.value, label: season.key),
                   ],
                   onClear: () => setState(() => query.countryOfOrigin = null),
                   onSelected: (value) =>
@@ -250,7 +247,8 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                   value: false,
                   groupValue: query.onList,
                   onChanged: (value) => setState(
-                      () => query.onList = value == false ? false : null),
+                    () => query.onList = value == false ? false : null,
+                  ),
                 ),
                 RadioSettingsTile(
                   title: "Only From My List",
@@ -280,8 +278,9 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                               label: Text(tag.name),
                               side: const BorderSide(color: Colors.red),
                               onDeleted: () => setState(
-                                  () => query.withoutTags!.remove(tag)),
-                            )
+                                () => query.withoutTags!.remove(tag),
+                              ),
+                            ),
                         ],
                       ),
                     ],
@@ -324,13 +323,18 @@ class GenresButton extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var displayAdultContent = ref.watch(userProvider.select(
-      (value) => value.value?.parsedData?.Viewer?.options?.displayAdultContent,
-    ));
-    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
-      genreCollectionQuery,
-      parseData: Query$GenreCollection.fromJson,
-    ));
+    var displayAdultContent = ref.watch(
+      userProvider.select(
+        (value) =>
+            value.value?.parsedData?.Viewer?.options?.displayAdultContent,
+      ),
+    );
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        genreCollectionQuery,
+        parseData: Query$GenreCollection.fromJson,
+      ),
+    );
 
     return GQLWidget(
       refetch: refetch,
@@ -338,14 +342,15 @@ class GenresButton extends HookConsumerWidget {
       loading: SettingsTile(
         title: Text(
           "Fetching Genres...",
-          style: context.theme.textTheme.bodyMedium
-              ?.copyWith(color: context.theme.disabledColor),
+          style: context.theme.textTheme.bodyMedium?.copyWith(
+            color: context.theme.disabledColor,
+          ),
         ),
       ),
       builder: () {
         var genresList = snapshot.parsedData!.genres!.toList();
 
-        if ((displayAdultContent ?? true) == false) {
+        if ((displayAdultContent ?? true) == false || hideAdultContent) {
           genresList.remove("Hentai");
         }
 
@@ -390,10 +395,7 @@ class YearButton extends StatelessWidget {
       value: year,
       items: [
         for (var year in years.reversed)
-          PopupSettingItem(
-            value: year,
-            label: year.toString(),
-          ),
+          PopupSettingItem(value: year, label: year.toString()),
       ],
       onClear: () => onChanged(null),
       onSelected: onChanged,

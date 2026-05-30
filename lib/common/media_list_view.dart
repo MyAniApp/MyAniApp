@@ -93,13 +93,24 @@ class _MediaListViewState extends ConsumerState<MediaListView>
     var user = widget.response.parsedData?.MediaListCollection?.user;
     if (user == null) return;
     if (groups.isNotEmpty) groups.clear();
+
+    if (hideAdultContent) {
+      for (var (index, group) in listGroups.indexed) {
+        listGroups[index] = group.copyWith(
+          entries: [
+            ...?group?.entries?.whereNot((e) => e?.media?.isAdult == true),
+          ],
+        );
+      }
+    }
+
     if (widget.type == Enum$MediaType.ANIME) {
       for (var section in user.mediaListOptions!.animeList!.sectionOrder!) {
         var entry = listGroups.firstWhereOrNull(
           (element) => element.name! == section,
         );
 
-        if (entry != null) groups.add(entry);
+        if (entry?.entries?.isNotEmpty == true) groups.add(entry!);
       }
       if (listGroups.length != groups.length) {
         var leftover = listGroups.where(
@@ -115,7 +126,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
           (element) => element.name! == section,
         );
 
-        if (entry != null) groups.add(entry);
+        if (entry?.entries?.isNotEmpty == true) groups.add(entry!);
       }
       if (listGroups.length != groups.length) {
         var leftover = listGroups.where(

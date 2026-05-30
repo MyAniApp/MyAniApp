@@ -5,6 +5,7 @@ import 'package:app_links/app_links.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:gql_http_link/gql_http_link.dart';
@@ -45,10 +46,8 @@ void main() async {
     ).concat(HttpLink("https://graphql.anilist.co")),
   );
 
-  if (!kIsWeb) {
-    if (Platform.isWindows) {
-      registerProtocolHandler("myaniapp");
-    }
+  if (!kIsWeb && Platform.isWindows) {
+    registerProtocolHandler("myaniapp");
   }
 
   if (!kIsWeb && Platform.isAndroid) {
