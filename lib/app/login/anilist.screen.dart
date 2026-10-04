@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:myaniapp/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AnilistLoginScreen extends StatefulWidget {
@@ -35,6 +37,7 @@ class _AnilistLoginPageState extends State<AnilistLoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
+            spacing: 10,
             children: [
               SizedBox(
                 width: double.maxFinite,
@@ -44,9 +47,16 @@ class _AnilistLoginPageState extends State<AnilistLoginScreen> {
                   ),
                   onPressed: () => launchUrl(authUri),
                   child: const Text(
-                    "Login with Anilist",
+                    "Open Anilist Auth",
                     style: TextStyle(color: Colors.black),
                   ),
+                ),
+              ),
+              SizedBox(
+                width: double.maxFinite,
+                child: ElevatedButton(
+                  onPressed: () => context.push(Routes.tokenLogin),
+                  child: Text("Not working? Try using a pin"),
                 ),
               ),
             ],

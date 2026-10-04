@@ -16,21 +16,16 @@ class _LoginScreenState extends State<LoginScreen> {
   int currentPage = 0;
   late final pageController = PageController(initialPage: currentPage);
 
-  final pages = [
-    FirstOnboard(),
-    LastOnboard(),
-  ];
+  final pages = [FirstOnboard(), LastOnboard()];
 
   @override
   void initState() {
     super.initState();
-    pageController.addListener(
-      () {
-        if (currentPage != (pageController.page?.round() ?? 0)) {
-          setState(() => currentPage = pageController.page?.round() ?? 0);
-        }
-      },
-    );
+    pageController.addListener(() {
+      if (currentPage != (pageController.page?.round() ?? 0)) {
+        setState(() => currentPage = pageController.page?.round() ?? 0);
+      }
+    });
   }
 
   @override
@@ -47,10 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Positioned.fill(
             bottom: 40,
             // top: 0,
-            child: PageView(
-              controller: pageController,
-              children: pages,
-            ),
+            child: PageView(controller: pageController, children: pages),
           ),
           Positioned(
             bottom: 0,
@@ -69,10 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   )
                 else
-                  SizedBox(
-                    width: 55,
-                    height: 40,
-                  ),
+                  SizedBox(width: 55, height: 40),
                 DotsIndicator(
                   dotsCount: pages.length,
                   position: currentPage.toDouble(),
@@ -80,17 +69,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 if (currentPage != pages.length - 1)
                   IconButton(
-                      onPressed: () => pageController.nextPage(
-                          curve: Curves.bounceIn, duration: Durations.short3),
-                      icon: Icon(Icons.arrow_forward))
-                else
-                  SizedBox(
-                    width: 40,
-                    height: 40,
+                    onPressed: () => pageController.nextPage(
+                      curve: Curves.bounceIn,
+                      duration: Durations.short3,
+                    ),
+                    icon: Icon(Icons.arrow_forward),
                   )
+                else
+                  SizedBox(width: 40, height: 40),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -107,7 +96,8 @@ class FirstOnboard extends StatelessWidget {
       children: [
         Expanded(child: Image.asset("assets/tracking.png")),
         Expanded(
-            child: const Text("Track your favorite Anime and Manga with ease"))
+          child: const Text("Track your favorite Anime and Manga with ease"),
+        ),
       ],
     );
   }
@@ -135,18 +125,14 @@ class LastOnboard extends ConsumerWidget {
                 onPressed: () => ref
                     .read(sharedPrefsProvider)
                     .setBool("seenOnboard", true)
-                    .then(
-                      (d) => context.push(Routes.anilistLogin),
-                    ),
+                    .then((d) => context.push(Routes.anilistLogin)),
                 child: const Text(
-                  "Login with Anilist",
+                  "Login with Anilist OAuth",
                   style: TextStyle(color: Colors.black),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             SizedBox(
               width: double.maxFinite,
               child: ElevatedButton(
@@ -154,12 +140,10 @@ class LastOnboard extends ConsumerWidget {
                     .read(sharedPrefsProvider)
                     .setBool("seenOnboard", true)
                     .then((d) => context.push(Routes.tokenLogin)),
-                child: const Text("Login with Token"),
+                child: const Text("Login with Pin"),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             SizedBox(
               width: double.maxFinite,
               child: ElevatedButton(
@@ -171,7 +155,7 @@ class LastOnboard extends ConsumerWidget {
                 },
                 child: const Text("Continue without logging in"),
               ),
-            )
+            ),
           ],
         ),
       ),
