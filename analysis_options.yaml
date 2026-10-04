@@ -1,6 +1,15 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
-  exclude: [build/**, lib/**.graphql.dart, lib/**.gr.dart]
+  exclude:
+    - build/**
+    - lib/**.graphql.dart
+    - lib/**.gr.dart
+    - android/**
+    - ios/**
+    - web/**
+    - windows/**
+    - macos/**
+    - linux/**
   plugins:
     - custom_lint
