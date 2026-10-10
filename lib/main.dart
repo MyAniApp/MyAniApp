@@ -4,10 +4,8 @@ import 'dart:io';
 import 'package:app_links/app_links.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:gql_http_link/gql_http_link.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:myaniapp/background.dart';
@@ -50,14 +48,13 @@ void main() async {
     registerProtocolHandler("myaniapp");
   }
 
-  if (!kIsWeb && Platform.isAndroid) {
-    MobileAds.instance.initialize();
+  if (!kIsWeb && (Platform.isAndroid || Platform.isLinux)) {
     Workmanager().initialize(callbackDispatcher);
     Workmanager().registerPeriodicTask(
       'background-notifs',
       'simpleNotifsFetch',
       constraints: Constraints(networkType: NetworkType.connected),
-      existingWorkPolicy: ExistingWorkPolicy.append,
+      existingWorkPolicy: .update,
     );
 
     PushNotifications().requestPermission();
@@ -156,6 +153,7 @@ class _MainAppState extends ConsumerState<MainApp> {
       theme: AppTheme.light(color),
       darkTheme: AppTheme.dark(color),
       scrollBehavior: _ScrollBehavior(),
+      builder: (context, child) => MaterialUiCompatibilityBridge(child: child!),
     );
   }
 }

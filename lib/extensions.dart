@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
+import 'package:gql_exec/gql_exec.dart' show GraphQLError;
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:myaniapp/graphql/__gen/fragments/fuzzy_date.graphql.dart';
@@ -138,4 +139,8 @@ extension PopFromBranches on StatefulNavigationShell {
       context.pop();
     }
   }
+}
+
+extension GQLErrorNotFound on GraphQLError {
+  bool get notFound => message == 'Not Found';
 }

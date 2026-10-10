@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:myaniapp/app/user/activities.tab.dart';
 import 'package:myaniapp/app/user/info.tab.dart';
@@ -35,16 +35,20 @@ class _UserScreenState extends State<UserScreen>
     with SingleTickerProviderStateMixin {
   List<(Widget, String)> tabs = [];
 
-  late final TabController _tabController =
-      TabController(vsync: this, length: 5);
+  late final TabController _tabController = TabController(
+    vsync: this,
+    length: 5,
+  );
 
   @override
   Widget build(BuildContext context) {
-    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(GQLRequest(
-      userQuery,
-      variables: Variables$Query$User(name: widget.name).toJson(),
-      parseData: Query$User.fromJson,
-    ));
+    var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+      GQLRequest(
+        userQuery,
+        variables: Variables$Query$User(name: widget.name).toJson(),
+        parseData: Query$User.fromJson,
+      ),
+    );
 
     useEffect(() {
       if (snapshot.parsedData != null) _buildTabs(snapshot.parsedData!.User!);
@@ -66,9 +70,7 @@ class _UserScreenState extends State<UserScreen>
         if (snapshot.loading == true && widget.placeholder == null) {
           return Scaffold(
             appBar: AppBar(),
-            body: const Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
+            body: const Center(child: CircularProgressIndicator.adaptive()),
           );
         }
 
@@ -77,22 +79,14 @@ class _UserScreenState extends State<UserScreen>
         return Scaffold(
           body: NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
-              UserAppBar(
-                data: data,
-                placeholderData: widget.placeholder,
-              ),
+              UserAppBar(data: data, placeholderData: widget.placeholder),
               if (tabs.isNotEmpty)
                 SliverPersistentHeader(
                   delegate: SliverTabBarViewDelegate(
                     child: TabBar(
                       controller: _tabController,
                       isScrollable: true,
-                      tabs: [
-                        for (var tab in tabs)
-                          Tab(
-                            text: tab.$2,
-                          ),
-                      ],
+                      tabs: [for (var tab in tabs) Tab(text: tab.$2)],
                     ),
                   ),
                 ),
@@ -103,8 +97,9 @@ class _UserScreenState extends State<UserScreen>
                 child: CircularProgressIndicator.adaptive(),
               ),
               child: () => TabBarView(
-                  controller: _tabController,
-                  children: [for (var tab in tabs) tab.$1]),
+                controller: _tabController,
+                children: [for (var tab in tabs) tab.$1],
+              ),
             ),
           ),
         );
@@ -135,11 +130,7 @@ class _UserScreenState extends State<UserScreen>
 }
 
 class UserAppBar extends StatelessWidget {
-  const UserAppBar({
-    super.key,
-    this.placeholderData,
-    this.data,
-  });
+  const UserAppBar({super.key, this.placeholderData, this.data});
 
   final Fragment$UserFragment? placeholderData;
   final Query$User$User? data;
@@ -150,10 +141,7 @@ class UserAppBar extends StatelessWidget {
       expandedHeight: 180,
       pinned: true,
       title: InvisibleExpandedTitle(
-        child: Text(
-          (data ?? placeholderData)!.name,
-          maxLines: 2,
-        ),
+        child: Text((data ?? placeholderData)!.name, maxLines: 2),
       ),
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -233,21 +221,21 @@ class UserAppBar extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 10,
-                    ),
+                    const SizedBox(width: 10),
                     Flexible(
                       child: SelectableText((data ?? placeholderData)!.name),
                     ),
                     if (data != null) ...[
                       if (data!.moderatorRoles?.isNotEmpty == true)
                         CommentBadge(
-                            text: data!.moderatorRoles!.fold(
-                                [],
-                                (previousValue, element) => [
-                                      ...previousValue,
-                                      element!.name.capitalize()
-                                    ])),
+                          text: data!.moderatorRoles!.fold(
+                            [],
+                            (previousValue, element) => [
+                              ...previousValue,
+                              element!.name.capitalize(),
+                            ],
+                          ),
+                        ),
                       if (data!.donatorTier != 0)
                         CommentBadge(text: [data!.donatorBadge!]),
                     ],

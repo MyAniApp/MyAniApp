@@ -1,31 +1,22 @@
-import 'package:flutter/material.dart';
-import 'package:markdown/markdown.dart' as m;
-import 'package:markdown_widget/markdown_widget.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart'
+    show MarkdownElementBuilder;
+import 'package:markdown/markdown.dart' as md;
+import 'package:material_ui/material_ui.dart' hide Theme;
+import 'package:myaniapp/common/markdown/markdown.dart' show MarkdownWidget;
 
-SpanNodeGeneratorWithTag centerGenerator = SpanNodeGeneratorWithTag(
-  tag: "center",
-  generator: (e, config, visitor) => CenterNode(e, config.p, visitor),
-);
-
-class CenterNode extends ElementNode {
-  CenterNode(this.element, this.pConfig, this.visitor);
-
-  final PConfig pConfig;
-  final m.Element element;
-  final WidgetVisitor visitor;
-
+class CenterNode extends MarkdownElementBuilder {
   @override
-  TextStyle get style =>
-      parentStyle?.merge(pConfig.textStyle) ?? pConfig.textStyle;
-
-  @override
-  InlineSpan build() {
-    return WidgetSpan(
-      child: Center(
-        child: Text.rich(
-          childrenSpan,
-          style: style,
-        ),
+  Widget? visitElementAfterWithContext(
+    BuildContext context,
+    md.Element element,
+    TextStyle? preferredStyle,
+    TextStyle? parentStyle,
+  ) {
+    return Center(
+      child: MarkdownWidget(
+        data: element.textContent,
+        body: true,
+        padding: .zero,
       ),
     );
   }

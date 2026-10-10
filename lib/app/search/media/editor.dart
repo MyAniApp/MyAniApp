@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
+
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/app/search/media/query.dart';
@@ -14,6 +16,7 @@ import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/list_settings.dart';
+import 'package:myaniapp/providers/shared_prefs.dart';
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
@@ -100,6 +103,18 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                     } else {
                       query.isAdult = null;
                     }
+
+                    print(jsonEncode(query.toJson()));
+                    ref.read(sharedPrefsProvider).setStringList(
+                      "mediaSearches",
+                      [
+                        // ...?ref
+                        //     .read(sharedPrefsProvider)
+                        //     .getStringList("mediaSearches"),
+                        jsonEncode(query.toJson()),
+                      ],
+                    );
+
                     context.replace(Routes.searchMedia(query.toString()));
                     context.pop();
                   },
@@ -168,38 +183,6 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                   ],
                   onClear: () => setState(() => query.format = null),
                 ),
-                // PopupSettingsTile(
-                //   title: "Format",
-                //   value: query.format?.firstOrNull,
-                //   subtitle: Show(
-                //     when: query.format != null,
-                //     child: () => Text(
-                //       query.format!.fold(
-                //         "",
-                //         (str, element) => str.isEmpty
-                //             ? element.name.capitalize()
-                //             : "$str, ${element.name.capitalize()}",
-                //       ),
-                //     ),
-                //   ),
-                //   items: [
-                //     for (var format in GMediaFormat.values)
-                //       CheckedPopupMenuItem(
-                //         value: format,
-                //         checked: query.format?.contains(format) == true,
-                //         child: Text(format.name.capitalize()),
-                //       ),
-                //   ],
-                //   onSelected: (value) {
-                //     if (query.format?.contains(value) == true) {
-                //       setState(() => query.format?.remove(value));
-                //     } else if (query.format == null) {
-                //       setState(() => query.format = [value]);
-                //     } else {
-                //       setState(() => query.format?.add(value));
-                //     }
-                //   },
-                // ),
                 PopupSettingsTile(
                   title: "Season",
                   value: query.season,
@@ -217,20 +200,6 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                   onChanged: (year) => setState(() => query.year = year),
                   year: query.year,
                 ),
-                // PopupSettingsTile(
-                //   title: "Country",
-                //   value: query.countryOfOrigin,
-                //   items: [
-                //     for (var season in countries.entries)
-                //       PopupMenuItem(
-                //         value: season.value,
-                //         child: Text(season.key),
-                //       ),
-                //   ],
-                //   onClear: () => setState(() => query.countryOfOrigin = null),
-                //   onSelected: (value) =>
-                //       setState(() => query.countryOfOrigin = value),
-                // ),
                 PopupSettingsTile(
                   title: "Country",
                   value: query.countryOfOrigin,

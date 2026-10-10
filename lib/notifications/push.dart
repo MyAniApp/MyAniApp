@@ -5,6 +5,8 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:http/http.dart' as http;
+import 'package:myaniapp/routes.dart';
+
 // import 'package:myaniapp/router.dart';
 
 class PushNotifications {
@@ -12,9 +14,13 @@ class PushNotifications {
 
   PushNotifications._private() {
     var android = const AndroidInitializationSettings('notification_icon');
+    final linux = LinuxInitializationSettings(
+      defaultActionName: "Open notification",
+      defaultIcon: AssetsLinuxIcon("assets_icon.png"),
+    );
 
     _flutterLocalNotificationsPlugin.initialize(
-      settings: InitializationSettings(android: android),
+      settings: InitializationSettings(android: android, linux: linux),
       onDidReceiveBackgroundNotificationResponse: notificationTap,
       onDidReceiveNotificationResponse: notificationTap,
     );
@@ -56,7 +62,7 @@ class PushNotifications {
               AndroidFlutterLocalNotificationsPlugin
             >()
             ?.areNotificationsEnabled() ??
-        false;
+        true;
 
     return granted;
   }
@@ -197,7 +203,7 @@ void notificationTap(NotificationResponse notificationResponse) {
   );
   if (decodePayload?['path'] != null) {
     try {
-      // router.pushNamed(decodePayload!['path'] as String);
+      goRouter.push(decodePayload!['path'] as String);
     } catch (e) {}
   }
 }

@@ -1,24 +1,20 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import "package:markdown/markdown.dart" as md2;
-import 'package:markdown_widget/markdown_widget.dart' as md;
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart'
+    show MarkdownElementBuilder;
+import 'package:material_ui/material_ui.dart';
+import "package:markdown/markdown.dart" as md;
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/routes.dart';
 
-md.SpanNodeGeneratorWithTag spoilerGenerator = md.SpanNodeGeneratorWithTag(
-  tag: "spoiler",
-  generator: (e, config, visitor) => SpoilerNode(e.textContent, config.a),
-);
-
-class SpoilerSyntax extends md2.InlineSyntax {
+class SpoilerSyntax extends md.InlineSyntax {
   SpoilerSyntax() : super(r"~!([^]*?)!~");
 
   @override
-  bool onMatch(md2.InlineParser parser, Match match) {
+  bool onMatch(md.InlineParser parser, Match match) {
     var spoiler = match.group(1);
 
     if (spoiler != null) {
-      md2.Element el = md2.Element.text(spoilerGenerator.tag, spoiler);
+      md.Element el = md.Element.text("spoiler", spoiler);
       parser.addNode(el);
     }
 
@@ -26,56 +22,35 @@ class SpoilerSyntax extends md2.InlineSyntax {
   }
 }
 
-class SpoilerBlockSyntax extends md2.BlockSyntax {
+class SpoilerBuilder extends MarkdownElementBuilder {
   @override
-  get pattern => RegExp(r'^~!([\s\S]+?)!~$', multiLine: true);
-  SpoilerBlockSyntax() : super();
-
-  @override
-  bool canParse(md2.BlockParser parser) {
-    // print(parser.);
-    return super.canParse(parser);
-  }
-
-  @override
-  md2.Node? parse(md2.BlockParser parser) {
-    var text = pattern.firstMatch(parser.current.content)!.group(1)!;
-
-    var element = md2.Element.text(spoilerGenerator.tag, text);
-
-    return element;
-  }
-}
-
-class SpoilerNode extends md.ElementNode {
-  final String spoiler;
-  final md.LinkConfig linkConfig;
-
-  SpoilerNode(this.spoiler, this.linkConfig);
-
-  @override
-  TextStyle get style =>
-      parentStyle?.merge(linkConfig.style) ?? linkConfig.style;
-
-  @override
-  InlineSpan build() {
-    return TextSpan(
-      text: "[Spoiler]",
-      style: style,
-      recognizer: TapGestureRecognizer()
-        ..onTap = () => showDialog(
-              context: goRouter.configuration.navigatorKey.currentContext!,
-              builder: (context) => Dialog(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
-                  child: MarkdownWidget(
-                    data: spoiler,
-                    shrinkWrap: true,
-                  ),
+  Widget? visitElementAfterWithContext(
+    BuildContext context,
+    md.Element element,
+    TextStyle? preferredStyle,
+    TextStyle? parentStyle,
+  ) {
+    return RichText(
+      text: TextSpan(
+        text: "[Spoiler]",
+        style: (preferredStyle ?? TextStyle()).copyWith(color: Colors.blue),
+        recognizer: TapGestureRecognizer()
+          ..onTap = () => showDialog(
+            context: goRouter.configuration.navigatorKey.currentContext!,
+            builder: (context) => Dialog(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 50,
+                ),
+                child: MarkdownWidget(
+                  data: element.textContent,
+                  shrinkWrap: true,
                 ),
               ),
             ),
+          ),
+      ),
     );
   }
 }

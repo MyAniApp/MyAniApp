@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 // this is doesnt nothing special is similar to the Show component in solidjs https://docs.solidjs.com/reference/components/show
 // doing "condition ? Widget : Widget" is kinda ugly to me

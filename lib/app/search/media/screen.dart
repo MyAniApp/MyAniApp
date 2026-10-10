@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
+
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -14,6 +16,7 @@ import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/graphql/__gen/search_media.graphql.dart';
 import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/list_settings.dart';
+import 'package:myaniapp/providers/shared_prefs.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
 
@@ -39,7 +42,8 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
   void postFrameThings() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       query = await MediaSearchQuery.from(
-          GoRouterState.of(context).uri.queryParametersAll);
+        GoRouterState.of(context).uri.queryParametersAll,
+      );
 
       if (widget.autofocus == true) {
         _focusNode.requestFocus();
@@ -59,11 +63,14 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
     super.didUpdateWidget(oldWidget);
 
     if (query != null &&
-        !jsonMapEquals(GoRouterState.of(context).uri.queryParametersAll,
-            query!.rawQuery)) {
+        !jsonMapEquals(
+          GoRouterState.of(context).uri.queryParametersAll,
+          query!.rawQuery,
+        )) {
       Future(() async {
         query = await MediaSearchQuery.from(
-            GoRouterState.of(context).uri.queryParametersAll);
+          GoRouterState.of(context).uri.queryParametersAll,
+        );
         setState(() {});
       });
     }
@@ -71,9 +78,9 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var listSetting = ref.watch(listSettingsProvider.select(
-      (value) => value.search,
-    ));
+    var listSetting = ref.watch(
+      listSettingsProvider.select((value) => value.search),
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -118,9 +125,12 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
       ),
       body: Show(
         when: !(query?.isEmpty ?? true),
+        fallback: RecentMediaSearch(),
         child: () => HookBuilder(
           builder: (context) {
-            var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(query!.toReq());
+            var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
+              query!.toReq(),
+            );
 
             return RefreshIndicator.adaptive(
               onRefresh: refetch,
@@ -131,21 +141,22 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
                 builder: () => GraphqlPagination(
                   pageInfo: snapshot.parsedData!.Page!.pageInfo!,
                   req: (nextPage) => fetchMore(
-                      variables: Variables$Query$Search.fromJson(
-                              snapshot.request!.variables)
-                          .copyWith(page: nextPage)
-                          .toJson()),
+                    variables: Variables$Query$Search.fromJson(
+                      snapshot.request!.variables,
+                    ).copyWith(page: nextPage).toJson(),
+                  ),
                   child: MediaCards(
                     listType: listSetting,
-                    padding:
-                        EdgeInsets.all(listSetting == ListType.grid ? 8 : 0),
+                    padding: EdgeInsets.all(
+                      listSetting == ListType.grid ? 8 : 0,
+                    ),
                     gridDelegate:
                         const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 150,
-                      childAspectRatio: GridCard.listRatio,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                    ),
+                          maxCrossAxisExtent: 150,
+                          childAspectRatio: GridCard.listRatio,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 10,
+                        ),
                     itemBuilder: (context, index) {
                       var media = snapshot.parsedData!.Page!.media![index]!;
 
@@ -155,8 +166,10 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
                         title: media.title!.userPreferred!,
                         blur: media.isAdult!,
                         onLongPress: () => MediaSheet.show(context, media),
-                        onTap: () => context.push(Routes.media(media.id),
-                            extra: {"placeholder": media}),
+                        onTap: () => context.push(
+                          Routes.media(media.id),
+                          extra: {"placeholder": media},
+                        ),
                       );
                     },
                     itemCount: snapshot.parsedData!.Page!.media!.length,
@@ -167,6 +180,54 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
           },
         ),
       ),
+    );
+  }
+}
+
+class RecentMediaSearch extends ConsumerWidget {
+  const RecentMediaSearch({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final mediaSearches = [
+      ...?ref.read(sharedPrefsProvider).getStringList("mediaSearches"),
+    ];
+
+    return FutureBuilder(
+      future: Future(() async {
+        final h = [
+          for (var i in mediaSearches)
+            await MediaSearchQuery.fromJson(jsonDecode(i)),
+        ];
+        return h;
+      }),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return ListView(
+            children: [
+              for (MediaSearchQuery query in snapshot.requireData)
+                ListTile(
+                  onTap: () =>
+                      context.replace(Routes.searchMedia(query.toString())),
+                  title: Column(
+                    crossAxisAlignment: .start,
+                    children: [
+                      if (query.search != null) Text("\"${query.search!}\""),
+                      if (query.sort?.isNotEmpty == true)
+                        Text(
+                          query.sort!
+                              .map((s) => s.name.capitalize())
+                              .join(", "),
+                        ),
+                      // if (query.genres?.isNotEmpty == true) Text(query.genres!)
+                    ],
+                  ),
+                ),
+            ],
+          );
+        }
+        return Text("Fetching...");
+      },
     );
   }
 }

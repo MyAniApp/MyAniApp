@@ -1,0 +1,53 @@
+diff --git a/lib/src/widget.dart b/lib/src/widget.dart
+index 5f2dfec..68635fd 100644
+--- a/lib/src/widget.dart
++++ b/lib/src/widget.dart
+@@ -226,6 +226,8 @@ abstract class MarkdownWidget extends StatefulWidget {
+     this.fitContent = false,
+     this.listItemCrossAxisAlignment = MarkdownListItemCrossAxisAlignment.baseline,
+     this.softLineBreak = false,
++    this.withDefaultBlockSyntaxes = true,
++    this.withDefaultInlineSyntaxes = true,
+   });
+ 
+   /// The Markdown to display.
+@@ -341,6 +343,12 @@ abstract class MarkdownWidget extends StatefulWidget {
+   /// specification on soft line breaks when lines of text are joined.
+   final bool softLineBreak;
+ 
++  /// Whether to use default block syntaxes.
++  final bool withDefaultBlockSyntaxes;
++
++  /// Whether to use default inline syntaxes.
++  final bool withDefaultInlineSyntaxes;
++
+   /// Subclasses should override this function to display the given children,
+   /// which are the parsed representation of [data].
+   @protected
+@@ -385,6 +393,8 @@ class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuil
+       inlineSyntaxes: widget.inlineSyntaxes,
+       extensionSet: widget.extensionSet ?? md.ExtensionSet.gitHubFlavored,
+       encodeHtml: false,
++      withDefaultBlockSyntaxes: widget.withDefaultBlockSyntaxes,
++      withDefaultInlineSyntaxes: widget.withDefaultInlineSyntaxes,
+     );
+ 
+     // Parse the source Markdown data into nodes of an Abstract Syntax Tree.
+@@ -485,6 +495,8 @@ class MarkdownBody extends MarkdownWidget {
+     this.shrinkWrap = true,
+     super.fitContent = true,
+     super.softLineBreak,
++    super.withDefaultBlockSyntaxes,
++    super.withDefaultInlineSyntaxes
+   });
+ 
+   /// If [shrinkWrap] is `true`, [MarkdownBody] will take the minimum height
+@@ -543,6 +555,8 @@ class Markdown extends MarkdownWidget {
+     this.shrinkWrap = false,
+     this.noScroll = false,
+     super.softLineBreak,
++    super.withDefaultBlockSyntaxes,
++    super.withDefaultInlineSyntaxes,
+   });
+ 
+   /// The amount of space by which to inset the children.

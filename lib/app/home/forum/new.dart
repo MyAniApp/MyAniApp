@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/common/thread_card.dart';

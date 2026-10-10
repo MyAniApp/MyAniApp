@@ -1,10 +1,6 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp/common/banner_ad.dart';
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/image_viewer.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
@@ -146,7 +142,6 @@ class ReviewScreen extends HookConsumerWidget {
                   ),
                 ),
               ),
-              SliverToBoxAdapter(child: BannerAdWidget(location: .review)),
               SliverToBoxAdapter(
                 child: ListTile(
                   onTap: () => context.push(

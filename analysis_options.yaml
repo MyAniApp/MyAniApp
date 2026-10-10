@@ -5,6 +5,7 @@ analyzer:
     - build/**
     - lib/**.graphql.dart
     - lib/**.gr.dart
+    - packages/flutter_markdown_plus/**
     - android/**
     - ios/**
     - web/**

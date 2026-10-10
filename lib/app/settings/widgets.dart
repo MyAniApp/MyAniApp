@@ -1,16 +1,12 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 
 class SettingsSection extends StatelessWidget {
-  const SettingsSection({
-    super.key,
-    required this.title,
-    required this.tiles,
-  });
+  const SettingsSection({super.key, required this.title, required this.tiles});
 
   final List<Widget> tiles;
   final String? title;
@@ -29,8 +25,9 @@ class SettingsSection extends StatelessWidget {
             ),
           ),
         Material(
-          color:
-              context.theme.colorScheme.surfaceContainerHighest.withOpacity(.3),
+          color: context.theme.colorScheme.surfaceContainerHighest.withOpacity(
+            .3,
+          ),
           borderRadius: imageRadius,
           borderOnForeground: true,
           child: ListView.separated(
@@ -40,10 +37,7 @@ class SettingsSection extends StatelessWidget {
             itemBuilder: (context, index) => tiles[index],
             separatorBuilder: (context, index) => const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Divider(
-                height: 1,
-                thickness: 2,
-              ),
+              child: Divider(height: 1, thickness: 2),
             ),
           ),
         ),
@@ -76,7 +70,11 @@ class SettingsTile extends StatelessWidget {
       onTap: enabled == false ? null : onTap,
       child: Padding(
         padding: const EdgeInsetsDirectional.only(
-            start: 24, end: 20, top: 10, bottom: 10),
+          start: 24,
+          end: 20,
+          top: 10,
+          bottom: 10,
+        ),
         child: Row(
           children: [
             if (icon != null)
@@ -99,21 +97,21 @@ class SettingsTile extends StatelessWidget {
                   ),
                   if (subtitle != null)
                     DefaultTextStyle(
-                      style: (context.theme.primaryTextTheme.bodyMedium ??
-                              const TextStyle())
-                          .copyWith(
-                              color: context.theme.hintColor,
-                              overflow: TextOverflow.ellipsis),
+                      style:
+                          (context.theme.primaryTextTheme.bodyMedium ??
+                                  const TextStyle())
+                              .copyWith(
+                                color: context.theme.hintColor,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                       maxLines: 1,
                       child: subtitle!,
-                    )
+                    ),
                 ],
               ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
-            if (child != null) child!,
+            const SizedBox(width: 10),
+            ?child,
           ],
         ),
       ),
@@ -131,13 +129,13 @@ class SwitchSettingsTile extends SettingsTile {
     super.subtitle,
     super.enabled,
   }) : super(
-          child: Switch.adaptive(
-            value: value,
-            onChanged: enabled == false ? null : onChanged,
-          ),
-          onTap: () => onChanged(!value),
-          title: Text(title),
-        );
+         child: Switch.adaptive(
+           value: value,
+           onChanged: enabled == false ? null : onChanged,
+         ),
+         onTap: () => onChanged(!value),
+         title: Text(title),
+       );
 
   final void Function(bool value) onChanged;
   final bool value;
@@ -153,13 +151,13 @@ class CheckboxSettingsTile extends SettingsTile {
     super.subtitle,
     super.enabled,
   }) : super(
-          child: Checkbox.adaptive(
-            value: value,
-            onChanged: enabled == false ? null : onChanged,
-          ),
-          onTap: () => onChanged(!value),
-          title: Text(title),
-        );
+         child: Checkbox.adaptive(
+           value: value,
+           onChanged: enabled == false ? null : onChanged,
+         ),
+         onTap: () => onChanged(!value),
+         title: Text(title),
+       );
 
   final void Function(bool? value) onChanged;
   final bool value;
@@ -176,15 +174,15 @@ class RadioSettingsTile extends SettingsTile {
     super.subtitle,
     super.enabled,
   }) : super(
-          child: Radio.adaptive(
-            value: value,
-            groupValue: groupValue,
-            onChanged: enabled == false ? null : onChanged,
-            toggleable: true,
-          ),
-          onTap: () => onChanged(value == groupValue ? null : value),
-          title: Text(title),
-        );
+         child: Radio.adaptive(
+           value: value,
+           groupValue: groupValue,
+           onChanged: enabled == false ? null : onChanged,
+           toggleable: true,
+         ),
+         onTap: () => onChanged(value == groupValue ? null : value),
+         title: Text(title),
+       );
 
   final void Function(bool? value) onChanged;
   final bool value;
@@ -300,34 +298,37 @@ class PopupSettingsTile<T> extends StatelessWidget {
         builder: (context) => AlertDialog.adaptive(
           title: Text(title),
           contentPadding: const EdgeInsets.only(top: 10, bottom: 20),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                for (var item in items)
-                  ListTile(
-                    title: item.label != null ? Text(item.label!) : item.child,
-                    onTap: () {
-                      onSelected?.call(item.value);
-                      context.pop();
-                    },
-                    trailing: Radio.adaptive(
-                      value: item.value,
-                      groupValue: value,
-                      onChanged: (value) => onSelected?.call(item.value),
+          content: RadioGroup(
+            groupValue: value,
+            onChanged: (value) {
+              if (value != null) onSelected?.call(value);
+              context.pop();
+            },
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (var item in items)
+                    ListTile(
+                      title: item.label != null
+                          ? Text(item.label!)
+                          : item.child,
+                      onTap: () {
+                        onSelected?.call(item.value);
+                        context.pop();
+                      },
+                      trailing: Radio.adaptive(value: item.value),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
       ),
       child: Show(
         when: value != null && onClear != null,
-        child: () => IconButton(
-          icon: const Icon(Icons.clear),
-          onPressed: onClear!,
-        ),
+        child: () =>
+            IconButton(icon: const Icon(Icons.clear), onPressed: onClear!),
       ),
     );
   }
@@ -361,11 +362,7 @@ class MultiPopupSettingsTile<T> extends StatelessWidget {
     if (subtitle == null && initialValues?.isNotEmpty == true) {
       var text = (items.where(
         (element) => initialValues!.contains(element.value),
-      ))
-          .map(
-            (e) => e.label,
-          )
-          .join(", ");
+      )).map((e) => e.label).join(", ");
       if (text.isNotEmpty) s = Text(text);
     }
 
@@ -386,10 +383,8 @@ class MultiPopupSettingsTile<T> extends StatelessWidget {
       ),
       child: Show(
         when: initialValues?.isNotEmpty == true && onClear != null,
-        child: () => IconButton(
-          icon: const Icon(Icons.clear),
-          onPressed: onClear!,
-        ),
+        child: () =>
+            IconButton(icon: const Icon(Icons.clear), onPressed: onClear!),
       ),
     );
   }
@@ -428,14 +423,16 @@ class __MultiPopupMenuState<T> extends State<_MultiPopupMenu<T>> {
           },
           style: ButtonStyle(
             backgroundColor: WidgetStatePropertyAll(
-                context.theme.colorScheme.primaryContainer),
+              context.theme.colorScheme.primaryContainer,
+            ),
           ),
           child: Text(
             "Save",
-            style:
-                TextStyle(color: context.theme.colorScheme.onPrimaryContainer),
+            style: TextStyle(
+              color: context.theme.colorScheme.onPrimaryContainer,
+            ),
           ),
-        )
+        ),
       ],
       actionsPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       contentPadding: const EdgeInsets.only(top: 10),
@@ -482,8 +479,11 @@ abstract class PopupSettingEntry<T> {
   final Widget? child;
   final T value;
 
-  const PopupSettingEntry(
-      {required this.label, required this.value, this.child});
+  const PopupSettingEntry({
+    required this.label,
+    required this.value,
+    this.child,
+  });
 }
 
 class PopupSettingItem<T> extends PopupSettingEntry<T> {
@@ -491,8 +491,5 @@ class PopupSettingItem<T> extends PopupSettingEntry<T> {
 }
 
 class PopupSettingCheckbox<T> extends PopupSettingEntry<T> {
-  PopupSettingCheckbox({
-    required super.label,
-    required super.value,
-  });
+  PopupSettingCheckbox({required super.label, required super.value});
 }

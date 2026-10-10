@@ -16,7 +16,6 @@ class MediaSearchQuery {
     this.format,
     this.genres,
     this.season,
-    // this.seasonYear,
     this.year,
     this.startDate,
     this.endDate,
@@ -52,64 +51,76 @@ class MediaSearchQuery {
     List<String>? genre0;
     List<Query$GenreCollection$tags>? withTag0;
     List<Query$GenreCollection$tags>? withoutTag0;
-    Enum$MediaType? type0 = Enum$MediaType.values
-        .firstWhereOrNull((element) => element.name == query["type"]?.first);
-    Enum$MediaSeason? season0 = Enum$MediaSeason.values
-        .firstWhereOrNull((element) => element.name == query["season"]?.first);
+    Enum$MediaType? type0 = Enum$MediaType.values.firstWhereOrNull(
+      (element) => element.name == query["type"]?.first,
+    );
+    Enum$MediaSeason? season0 = Enum$MediaSeason.values.firstWhereOrNull(
+      (element) => element.name == query["season"]?.first,
+    );
 
     Query$GenreCollection? collection;
 
     if (query["withTags"] != null ||
         query["withoutTags"] != null ||
         query["genre"] != null) {
-      collection = (await gqlClient
-              .query(GQLRequest(genreCollectionQuery,
-                  fetchPolicy: FetchPolicy.cacheFirst,
-                  parseData: Query$GenreCollection.fromJson))
-              .last)
-          .parsedData;
+      collection =
+          (await gqlClient
+                  .query(
+                    GQLRequest(
+                      genreCollectionQuery,
+                      fetchPolicy: FetchPolicy.cacheFirst,
+                      parseData: Query$GenreCollection.fromJson,
+                    ),
+                  )
+                  .last)
+              .parsedData;
     }
 
     if (query["sort"] != null) {
-      var s = Enum$MediaSort.values
-          .where((element) => query["sort"].contains(element.name));
+      var s = Enum$MediaSort.values.where(
+        (element) => query["sort"].contains(element.name),
+      );
       if (s.isNotEmpty) {
         sort0 = s.toList();
       }
     }
 
     if (query["genre"] != null) {
-      var g = collection!.genres!
-          .where((element) => query["genre"].contains(element));
+      var g = collection!.genres!.where(
+        (element) => query["genre"].contains(element),
+      );
       if (g.isNotEmpty) {
         genre0 = g.cast<String>().toList();
       }
     }
 
     if (query["withTags"] != null) {
-      var t = collection!.tags!
-          .where((element) => query["withTags"].contains(element!.name));
+      var t = collection!.tags!.where(
+        (element) => query["withTags"].contains(element!.name),
+      );
       if (t.isNotEmpty) {
         withTag0 = t.cast<Query$GenreCollection$tags>().toList();
       }
     }
 
     if (query["withoutTags"] != null) {
-      var t = collection!.tags!
-          .where((element) => query["withoutTags"].contains(element!.name));
+      var t = collection!.tags!.where(
+        (element) => query["withoutTags"].contains(element!.name),
+      );
       if (t.isNotEmpty == true) {
         withoutTag0 = t.cast<Query$GenreCollection$tags>().toList();
       }
     }
 
     if (query["format"] != null) {
-      var f = Enum$MediaFormat.values
-          .where((element) => query["format"].contains(element.name));
+      var f = Enum$MediaFormat.values.where(
+        (element) => query["format"].contains(element.name),
+      );
       if (f.isNotEmpty) {
         format0 = f.toList();
       }
     }
-    // print(query);
+
     return MediaSearchQuery(
       query,
       search: query["search"]?[0],
@@ -144,37 +155,32 @@ class MediaSearchQuery {
       searchQuery,
       parseData: Query$Search.fromJson,
       mergeResults: defaultMergeResults("Page.media"),
-      variables: _removeNulls(Variables$Query$Search(
-        format: format,
-        sort: sort,
-        countryOfOrigin: countryOfOrigin,
-        genres: genres,
-        isAdult: isAdult,
-        onList: onList,
-        search: search,
-        season: season,
-        seasonYear: (year != null && season != null) ? year : null,
-        type: type,
-        with_tags: withTags
-            ?.map(
-              (e) => e.name,
-            )
-            .toList(),
-        without_tags: withoutTags
-            ?.map(
-              (e) => e.name,
-            )
-            .toList(),
-        year: (year != null && season == null) ? "$year%" : null,
-        yearGreater: endDate.toString(),
-        yearLesser: startDate.toString(),
-      )).toJson(),
+      variables: _removeNulls(
+        Variables$Query$Search(
+          format: format,
+          sort: sort,
+          countryOfOrigin: countryOfOrigin,
+          genres: genres,
+          isAdult: isAdult,
+          onList: onList,
+          search: search,
+          season: season,
+          seasonYear: (year != null && season != null) ? year : null,
+          type: type,
+          with_tags: withTags?.map((e) => e.name).toList(),
+          without_tags: withoutTags?.map((e) => e.name).toList(),
+          year: (year != null && season == null) ? "$year%" : null,
+          yearGreater: endDate.toString(),
+          yearLesser: startDate.toString(),
+        ),
+      ).toJson(),
     );
   }
 
   Variables$Query$Search _removeNulls(Variables$Query$Search vars) {
     return Variables$Query$Search.fromJson(
-        vars.toJson()..removeWhere((key, value) => value == 'null'));
+      vars.toJson()..removeWhere((key, value) => value == 'null'),
+    );
   }
 
   @override
@@ -203,5 +209,55 @@ class MediaSearchQuery {
     ]);
 
     return '?${query.join('&')}';
+  }
+
+  Map toJson() {
+    final p = {
+      if (search?.isNotEmpty == true) 'search': search,
+      if (sort?.isNotEmpty == true)
+        'sort': [for (Enum$MediaSort s in sort!) toJson$Enum$MediaSort(s)],
+      if (type != null) 'type': toJson$Enum$MediaType(type!),
+      if (format?.isNotEmpty == true)
+        'format': [
+          for (Enum$MediaFormat f in format!) toJson$Enum$MediaFormat(f),
+        ],
+      if (genres?.isNotEmpty == true) 'genres': genres,
+      if (season != null) 'season': toJson$Enum$MediaSeason(season!),
+      if (endDate != null) 'endDate': endDate,
+      if (startDate != null) 'startDate': startDate,
+      if (isAdult != null) 'isAdult': isAdult,
+      if (onList != null) 'onList': onList,
+      if (year != null) 'year': year,
+      if (withTags?.isNotEmpty == true)
+        'withTags': [
+          for (Query$GenreCollection$tags tag in withTags!) tag.name,
+        ],
+      if (withoutTags?.isNotEmpty == true)
+        'withoutTags': [
+          for (Query$GenreCollection$tags tag in withoutTags!) tag.name,
+        ],
+      if (countryOfOrigin != null) 'countryOfOrigin': countryOfOrigin,
+    };
+    return p;
+  }
+
+  static Future<MediaSearchQuery> fromJson(Map<String, dynamic> json) {
+    //return MediaSearchQuery.from(json);
+    return MediaSearchQuery.from({
+      'search': [json['search']],
+      'sort': json['sort'],
+      'format': json['format'],
+      'type': [json['type']],
+      'genres': json['genres'],
+      'season': [json['season']],
+      'endDate': [json['endDate']],
+      'startDate': [json['startDate']],
+      'isAdult': [json['isAdult']],
+      'onList': [json['onList']],
+      'year': [json['year']],
+      'withTags': json['withTags'],
+      'withoutTags': json['withoutTags'],
+      'countryOfOrigin': [json['countryOfOrigin']],
+    });
   }
 }

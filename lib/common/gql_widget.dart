@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gql_exec/gql_exec.dart' show GraphQLError;
@@ -13,9 +13,7 @@ class GQLWidget<T> extends StatelessWidget {
     super.key,
     required this.response,
     required this.refetch,
-    this.loading = const Center(
-      child: CircularProgressIndicator.adaptive(),
-    ),
+    this.loading = const Center(child: CircularProgressIndicator.adaptive()),
     this.error,
     required this.builder,
     this.errorWidget = true,
@@ -33,7 +31,8 @@ class GQLWidget<T> extends StatelessWidget {
     if (loading == null) {
       return Show(
         when: response.errors == null && response.linkError == null,
-        fallback: error ??
+        fallback:
+            error ??
             GraphqlError<T>(
               exception: (response.errors, response.linkError),
               refetch: refetch,
@@ -46,9 +45,11 @@ class GQLWidget<T> extends StatelessWidget {
       when: !response.loading,
       fallback: loading,
       child: () => Show(
-        when: (response.errors == null && response.linkError == null) ||
+        when:
+            (response.errors == null && response.linkError == null) ||
             !errorWidget,
-        fallback: error ??
+        fallback:
+            error ??
             GraphqlError<T>(
               exception: (response.errors, response.linkError),
               refetch: refetch,
@@ -129,44 +130,42 @@ class GraphqlError<T> extends ConsumerWidget {
       var e = exception.$2 as ServerException;
       if (e.parsedResponse?.errors?.first.message == "Invalid token") {
         ref.read(settingsProvider.notifier).updateToken(null);
-        WidgetsBinding.instance.addPostFrameCallback(
-          (timeStamp) {
-            showDialog(
-              context: context,
-              builder: (context) => Dialog(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Text("Login in information invalid"),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextButton(
-                            onPressed: () => context.pop(),
-                            child: const Text("Don't log in"),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          ElevatedButton(
-                            onPressed: () => context.push(Routes.login),
-                            child: const Text("Log in"),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+          showDialog(
+            context: context,
+            builder: (context) => Dialog(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 8,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text("Login in information invalid"),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () => context.pop(),
+                          child: const Text("Don't log in"),
+                        ),
+                        const SizedBox(width: 5),
+                        ElevatedButton(
+                          onPressed: () => context.push(Routes.login),
+                          child: const Text("Log in"),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            );
-          },
-        );
+            ),
+          );
+        });
+      } else if (e.parsedResponse?.errors?.first.message == "Not Found.") {
+        return Center(child: Text("Not Found"));
       }
     }
 
@@ -179,10 +178,7 @@ class GraphqlError<T> extends ConsumerWidget {
         children: [
           SelectableText(exception.toString()),
           if (refetch != null)
-            TextButton(
-              onPressed: refetch,
-              child: const Text("Retry"),
-            ),
+            TextButton(onPressed: refetch, child: const Text("Retry")),
         ],
       ),
     );

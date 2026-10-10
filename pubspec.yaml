@@ -4,7 +4,7 @@ publish_to: "none"
 version: 0.5.25
 
 environment:
-  sdk: ">3.10.0 <4.0.0"
+  sdk: ">3.12.0 <4.0.0"
 
 dependencies:
   app_links: ^7.0.0
@@ -23,18 +23,11 @@ dependencies:
   http: ^1.2.1
   intl: ^0.20.2
   markdown: ^7.2.2
-  markdown_widget: ^2.3.2+6
   package_info_plus: ^10.1.0
   relative_time: ^5.0.0
   shared_preferences: ^2.3.4
   url_launcher: ^6.2.5
   win32: ^6.3.0
-  workmanager:
-    git:
-      url: https://github.com/fluttercommunity/flutter_workmanager.git
-      path: workmanager
-      ref: 4ce065135dc1b91fee918f81596b42a56850391d
-
   mygraphql:
     path: "./packages/mygraphql"
   hooks_riverpod: ^3.0.3
@@ -46,7 +39,10 @@ dependencies:
   go_router: ^18.0.2
   hive_ce: ^2.11.3
   hive_ce_flutter: ^2.3.1
-  google_mobile_ads: ^9.1.0
+  material_ui: any
+  flutter_markdown_plus:
+    path: "./packages/flutter_markdown_plus"
+  workmanager: ^0.10.10
 dev_dependencies:
   graphql_codegen: ^3.0.0
   flutter_test:

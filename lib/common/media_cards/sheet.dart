@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/constants.dart';

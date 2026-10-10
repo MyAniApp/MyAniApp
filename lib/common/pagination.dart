@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:myaniapp/graphql/__gen/fragments/page_info.graphql.dart';
 
 class GraphqlPagination extends StatefulWidget {

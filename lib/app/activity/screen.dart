@@ -1,11 +1,7 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/common/activity_card.dart';
-import 'package:myaniapp/common/banner_ad.dart';
 import 'package:myaniapp/common/comment.dart';
 import 'package:myaniapp/common/markdown/markdown.dart';
 import 'package:myaniapp/common/markdown_editor.dart';
@@ -16,8 +12,6 @@ import 'package:myaniapp/graphql/__gen/activity.graphql.dart';
 import 'package:myaniapp/graphql/__gen/fragments/list_activity.graphql.dart';
 import 'package:myaniapp/graphql/__gen/fragments/message_activity.graphql.dart';
 import 'package:myaniapp/graphql/__gen/fragments/text_activity.graphql.dart';
-import 'package:myaniapp/graphql/__gen/home_activities.graphql.dart';
-import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/graphql/mutations.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/common/gql_widget.dart';
@@ -146,7 +140,6 @@ class ActivityScreen extends HookConsumerWidget {
                 ),
               ),
             ),
-            SliverToBoxAdapter(child: BannerAdWidget(location: .activity)),
             Show(
               when: data != null,
               fallback: const SliverFillRemaining(
