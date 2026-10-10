@@ -1,0 +1,3 @@
+[submodule "packages/flutter_markdown_plus"]
+	path = packages/flutter_markdown_plus
+	url = https://github.com/foresightmobile/flutter_markdown_plus
