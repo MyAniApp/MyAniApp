@@ -19,6 +19,7 @@ import 'package:myaniapp/main.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:myaniapp/utils.dart';
 import 'package:mygraphql/graphql.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ActivityScreen extends HookConsumerWidget {
   const ActivityScreen({super.key, required this.id, this.placeholder});
@@ -90,7 +91,20 @@ class ActivityScreen extends HookConsumerWidget {
 
         var view = CustomScrollView(
           slivers: [
-            const SliverAppBar(pinned: true),
+            SliverAppBar(
+              pinned: true,
+              actions: [
+                if (data?.activity != null)
+                  IconButton(
+                    onPressed: () async {
+                      final url =
+                          "https://anilist.co/activity/${((data!.activity! as dynamic).id)}";
+                      if (await canLaunchUrlString(url)) launchUrlString(url);
+                    },
+                    icon: Icon(Icons.open_in_browser),
+                  ),
+              ],
+            ),
             SliverToBoxAdapter(
               child: ActivityCard(
                 activity: data?.activity ?? placeholder,

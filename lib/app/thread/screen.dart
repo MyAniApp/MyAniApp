@@ -21,6 +21,7 @@ import 'package:myaniapp/main.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:myaniapp/utils.dart';
 import 'package:mygraphql/graphql.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ThreadScreen extends HookConsumerWidget {
   ThreadScreen({super.key, required this.id, this.placeholder});
@@ -67,6 +68,16 @@ class ThreadScreen extends HookConsumerWidget {
             SliverAppBar(
               pinned: true,
               title: Text((threadData ?? placeholder)!.title!),
+              actions: [
+                if (threadData != null)
+                  IconButton(
+                    onPressed: () async {
+                      if (await canLaunchUrlString(threadData!.siteUrl!))
+                        launchUrlString(threadData!.siteUrl!);
+                    },
+                    icon: Icon(Icons.open_in_browser),
+                  ),
+              ],
             ),
             SliverToBoxAdapter(
               child: Card(

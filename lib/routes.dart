@@ -96,6 +96,7 @@ final goRouter = GoRouter(
                 category: int.tryParse(
                   state.uri.queryParameters["category"] ?? "",
                 ),
+                search: state.uri.queryParameters['search'],
               ),
             ),
           ],
@@ -322,7 +323,7 @@ final class Routes {
       .replaceFirst(":commentId", "$commentId");
   static String activity(int id) => _activity.replaceFirst(":id", "$id");
   static String forums(ForumTabs tab, {String? search, int? category}) =>
-      "${_forums.replaceFirst(":tab", tab.name)}?search=$search&category=$category";
+      "${_forums.replaceFirst(":tab", tab.name)}?${[if (search?.isNotEmpty == true) "search=$search", if (category != null) "category=$category"].join("&")}";
   static String searchStaff(String? search) =>
       "$_searchStaff${search != null ? "?search=$search" : ""}";
   static String searchCharacter(String? search) =>
