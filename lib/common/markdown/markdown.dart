@@ -107,7 +107,11 @@ markdownConfig = (
     const md2.LinkReferenceDefinitionSyntax(),
     const md2.ParagraphSyntax(),
   ],
-  builders: {'center': CenterNode(), 'spoiler': SpoilerBuilder()},
+  builders: {
+    'center': CenterNode(),
+    'spoiler': SpoilerBuilder(),
+    'img': ImageBuilder(),
+  },
 );
 
 class MarkdownWidget extends StatelessWidget {
@@ -137,6 +141,10 @@ class MarkdownWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final markdownStylesheet = md3.MarkdownStyleSheet.fromTheme(
+      Theme.of(context),
+    );
+
     // wrap error most likely from html parsing...
     if (body) {
       return MarkdownErrorBoundary(
@@ -146,11 +154,11 @@ class MarkdownWidget extends StatelessWidget {
             data: data,
             selectable: selectable ?? false,
             shrinkWrap: shrinkWrap ?? false,
-            styleSheet: md3.MarkdownStyleSheet.fromTheme(Theme.of(context)),
+            styleSheet: markdownStylesheet,
             extensionSet: markdownConfig.extensionSet,
             inlineSyntaxes: markdownConfig.inlineSyntaxNoHtml,
-            blockSyntaxes: [...markdownConfig.blockSyntax],
-            builders: {...markdownConfig.builders, 'img': ImageBuilder()},
+            blockSyntaxes: markdownConfig.blockSyntax,
+            builders: markdownConfig.builders,
             withDefaultBlockSyntaxes: false,
             withDefaultInlineSyntaxes: false,
             onTapLink: (text, href, title) =>
@@ -163,11 +171,11 @@ class MarkdownWidget extends StatelessWidget {
             data: data,
             selectable: selectable ?? false,
             shrinkWrap: shrinkWrap ?? false,
-            styleSheet: md3.MarkdownStyleSheet.fromTheme(Theme.of(context)),
+            styleSheet: markdownStylesheet,
             extensionSet: markdownConfig.extensionSet,
             inlineSyntaxes: markdownConfig.inlineSynyax,
-            blockSyntaxes: [...markdownConfig.blockSyntax],
-            builders: {...markdownConfig.builders, 'img': ImageBuilder()},
+            blockSyntaxes: markdownConfig.blockSyntax,
+            builders: markdownConfig.builders,
             withDefaultBlockSyntaxes: false,
             withDefaultInlineSyntaxes: false,
             onTapLink: (text, href, title) =>
@@ -183,11 +191,11 @@ class MarkdownWidget extends StatelessWidget {
         shrinkWrap: shrinkWrap ?? false,
         padding: padding,
         noScroll: body,
-        styleSheet: md3.MarkdownStyleSheet.fromTheme(Theme.of(context)),
+        styleSheet: markdownStylesheet,
         extensionSet: markdownConfig.extensionSet,
         inlineSyntaxes: markdownConfig.inlineSyntaxNoHtml,
-        blockSyntaxes: [...markdownConfig.blockSyntax],
-        builders: {...markdownConfig.builders, 'img': ImageBuilder()},
+        blockSyntaxes: markdownConfig.blockSyntax,
+        builders: markdownConfig.builders,
         withDefaultBlockSyntaxes: false,
         withDefaultInlineSyntaxes: false,
         onTapLink: (text, href, title) => onTapLink(context, text, href, title),
@@ -198,11 +206,11 @@ class MarkdownWidget extends StatelessWidget {
         shrinkWrap: shrinkWrap ?? false,
         padding: padding,
         noScroll: body,
-        styleSheet: md3.MarkdownStyleSheet.fromTheme(Theme.of(context)),
+        styleSheet: markdownStylesheet,
         extensionSet: markdownConfig.extensionSet,
         inlineSyntaxes: markdownConfig.inlineSynyax,
-        blockSyntaxes: [...markdownConfig.blockSyntax],
-        builders: {...markdownConfig.builders, 'img': ImageBuilder()},
+        blockSyntaxes: markdownConfig.blockSyntax,
+        builders: markdownConfig.builders,
         withDefaultBlockSyntaxes: false,
         withDefaultInlineSyntaxes: false,
         onTapLink: (text, href, title) => onTapLink(context, text, href, title),

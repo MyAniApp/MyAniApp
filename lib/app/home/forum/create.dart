@@ -344,33 +344,6 @@ class QuickMediaSearch extends HookWidget {
           }
         }
         return [];
-        // if (showMedia.value) {
-        // timer.value?.operation.cancel();
-        // timer.value.complete(Future.delayed(Duration(seconds: 2), () async {
-        //   return await fetchMedia(controller.text);
-        //   // showMedia.value = false;
-        //   // if (res.parsedData != null) {
-        //   //   return [
-        //   //     for (var media in res.parsedData!.Page!.media!)
-        //   //       ListTile(title: Text(media!.title!.userPreferred!))
-        //   //   ];
-        //   // }
-        // }));
-        // return [];
-        // return timer.value.operation.then();
-        // Future.delayed(Duration(seconds: 2), () async {
-        //   var res = await fetchMedia(controller.text);
-        //   showMedia.value = false;
-        //   if (res.parsedData != null) {
-        //     return [
-        //       for (var media in res.parsedData!.Page!.media!)
-        //         ListTile(title: Text(media!.title!.userPreferred!))
-        //     ];
-        //   }
-        // }).ignore();
-        // // }
-
-        // return [];
       },
     );
   }
@@ -439,4 +412,43 @@ class _PageButton extends HookWidget {
     }
     return IconButton(icon: Icon(Icons.send), onPressed: () {});
   }
+}
+
+// Remove when flutter_hooks updates to package:material_ui
+class TextArea extends StatefulWidget {
+  const TextArea({
+    super.key,
+    required this.focusNode,
+    required this.editingController,
+    this.hint,
+  });
+
+  final FocusNode focusNode;
+  final TextEditingController editingController;
+  final String? hint;
+
+  @override
+  State<TextArea> createState() => _TextAreaState();
+}
+
+class _TextAreaState extends State<TextArea>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+
+    return TextField(
+      focusNode: widget.focusNode,
+      controller: widget.editingController,
+      maxLines: null,
+      decoration: InputDecoration(
+        border: InputBorder.none,
+        contentPadding: const EdgeInsets.all(8),
+        hintText: widget.hint ?? "Type here",
+      ),
+    );
+  }
+
+  @override
+  bool get wantKeepAlive => true;
 }

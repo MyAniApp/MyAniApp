@@ -67,7 +67,7 @@ class MarkdownEditor extends HookConsumerWidget {
           ListView(
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (leading != null) leading!,
+              ?leading,
               Container(
                 color: context.theme.colorScheme.surfaceContainerHigh,
                 child: MarkdownToolbar(
@@ -112,7 +112,11 @@ class _Preview extends HookConsumerWidget {
           avatar:
               user?.avatar?.large ??
               'https://s4.anilist.co/file/anilistcdn/user/avatar/large/default.png',
-          body: MarkdownWidget.body(data: text.text, shrinkWrap: true),
+          body: MarkdownWidget.body(
+            data: text.text,
+            shrinkWrap: true,
+            selectable: true,
+          ),
           collapsible: false,
           createdAt: DateTime.now().millisecondsSinceEpoch ~/ 1000,
           username: user?.name ?? 'Test',
@@ -476,39 +480,48 @@ class MarkdownToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Wrap(
+      spacing: 5,
+      runSpacing: 5,
       children: [
         IconButton(
           onPressed: () {
-            replaceAround(getSelectedText(), "__", "__");
+            replaceAround(getSelectedTextRange(), "__", "__");
             focusNode.requestFocus();
           },
           icon: const Icon(Icons.format_bold),
         ),
         IconButton(
           onPressed: () {
-            replaceAround(getSelectedText(), "_", "_");
+            replaceAround(getSelectedTextRange(), "_", "_");
             focusNode.requestFocus();
           },
           icon: const Icon(Icons.format_italic),
         ),
         IconButton(
           onPressed: () {
-            replaceAround(getSelectedText(), "~~", "~~");
+            replaceAround(getSelectedTextRange(), "~~", "~~");
             focusNode.requestFocus();
           },
           icon: const Icon(Icons.format_strikethrough),
         ),
         IconButton(
           onPressed: () {
-            replaceAround(getSelectedText(), "\n> ", "");
+            replaceAround(getSelectedTextRange(), "~!", "!~");
+            focusNode.requestFocus();
+          },
+          icon: Icon(Icons.visibility_off),
+        ),
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedTextRange(), "\n> ", "");
             focusNode.requestFocus();
           },
           icon: const Icon(Icons.format_quote_sharp),
         ),
         IconButton(
           onPressed: () {
-            replaceAround(getSelectedText(), "\n# ", "");
+            replaceAround(getSelectedTextRange(), "\n# ", "");
             focusNode.requestFocus();
           },
           icon: Text(
@@ -519,11 +532,79 @@ class MarkdownToolbar extends StatelessWidget {
             ),
           ),
         ),
+        IconButton(onPressed: () => _addLink(context), icon: Icon(Icons.link)),
+        IconButton(
+          onPressed: () => _addImage(context),
+          icon: Icon(Icons.image),
+        ),
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedTextRange(), "\n- ", "");
+            focusNode.requestFocus();
+          },
+          icon: Icon(Icons.format_list_bulleted),
+        ),
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedTextRange(), "\n1. ", "");
+            focusNode.requestFocus();
+          },
+          icon: Icon(Icons.format_list_numbered),
+        ),
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedTextRange(), "\n~~~", "~~~");
+            focusNode.requestFocus();
+          },
+          icon: Icon(Icons.format_align_center),
+        ),
+        IconButton(
+          onPressed: () {
+            replaceAround(getSelectedTextRange(), "`", "`");
+            focusNode.requestFocus();
+          },
+          icon: Icon(Icons.code),
+        ),
       ],
     );
   }
 
-  (int start, int end) getSelectedText() {
+  void _addImage(BuildContext context) async {
+    final imageUrl = await showDialog<String>(
+      context: context,
+      builder: (context) => ImageDialog(),
+    );
+
+    if (imageUrl?.isNotEmpty == true) {
+      replaceAround(getSelectedTextRange(), "img220($imageUrl)", "");
+      focusNode.requestFocus();
+    }
+  }
+
+  void _addLink(BuildContext context) async {
+    final selectedText = controller.text.substring(
+      getSelectedTextRange().$1,
+      getSelectedTextRange().$2,
+    );
+    final linkData = await showDialog<List<String>?>(
+      context: context,
+      builder: (context) => LinkDialog(
+        defaultTitle: selectedText.isNotEmpty ? selectedText : null,
+      ),
+    );
+    if (linkData != null) {
+      if (linkData!.first.isNotEmpty) {
+        // print(getSelectedTextRange());
+        replaceRange(
+          getSelectedTextRange(),
+          "[${linkData.last.isNotEmpty ? linkData.last : 'link'}](${linkData.first})",
+        );
+        focusNode.requestFocus();
+      }
+    }
+  }
+
+  (int start, int end) getSelectedTextRange() {
     // print(_editingController.selection.extentOffset);
     int start =
         controller.selection.baseOffset < controller.selection.extentOffset
@@ -550,10 +631,129 @@ class MarkdownToolbar extends StatelessWidget {
       '$startStr$text$endStr',
     );
 
-    if (text.isEmpty) {
+    if (controller.text.isNotEmpty) {
       controller.selection = TextSelection.fromPosition(
         TextPosition(offset: range.$1 + startStr.length),
       );
     }
+  }
+
+  void replaceRange((int start, int end) range, String replacement) {
+    controller.text = controller.text.replaceRange(
+      range.$1,
+      range.$2,
+      replacement,
+    );
+
+    if (controller.text.isNotEmpty) {
+      controller.selection = TextSelection.fromPosition(
+        TextPosition(offset: range.$1 + replacement.length),
+      );
+    }
+  }
+}
+
+class ImageDialog extends HookWidget {
+  const ImageDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final textController = useTextEditingController();
+
+    return Dialog(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        child: Column(
+          mainAxisSize: .min,
+          children: [
+            Text(
+              "Add Image",
+              style: context.theme.primaryTextTheme.titleMedium,
+            ),
+            SizedBox(height: 10),
+            TextField(
+              controller: textController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "URL",
+              ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              spacing: 5,
+              mainAxisAlignment: .end,
+              children: [
+                OutlinedButton(
+                  onPressed: () => context.pop(),
+                  child: Text("Cancel"),
+                ),
+                ElevatedButton(
+                  onPressed: () => context.pop(textController.text),
+                  child: Text("Add"),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LinkDialog extends HookWidget {
+  const LinkDialog({super.key, this.defaultTitle});
+
+  final String? defaultTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    final linkController = useTextEditingController();
+    final linkTitleController = useTextEditingController(text: defaultTitle);
+
+    return Dialog(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        child: Column(
+          mainAxisSize: .min,
+          children: [
+            Text("Add Link", style: context.theme.primaryTextTheme.titleMedium),
+            SizedBox(height: 15),
+            TextField(
+              controller: linkController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Link URL",
+              ),
+            ),
+            SizedBox(height: 15),
+            TextField(
+              controller: linkTitleController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Link Text (Optional)",
+              ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              spacing: 5,
+              mainAxisAlignment: .end,
+              children: [
+                OutlinedButton(
+                  onPressed: () => context.pop(),
+                  child: Text("Cancel"),
+                ),
+                ElevatedButton(
+                  onPressed: () => context.pop([
+                    linkController.text,
+                    linkTitleController.text,
+                  ]),
+                  child: Text("Add"),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
