@@ -18,7 +18,6 @@ import 'package:myaniapp/url_protocol/web_url_protocol.dart'
     if (dart.library.io) 'package:myaniapp/url_protocol/api.dart';
 import 'package:mygraphql/graphql.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:relative_time/relative_time.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
 
@@ -142,12 +141,6 @@ class _MainAppState extends ConsumerState<MainApp> {
 
     return MaterialApp.router(
       routerConfig: goRouter,
-      // routeInformationParser: QRouteInformationParser(),
-      // routerDelegate: QRouterDelegate(
-      //   QAppRouter().routes,
-      //   withWebBar: kDebugMode,
-      // ),
-      localizationsDelegates: const [RelativeTimeLocalizations.delegate],
       themeMode: themeMode,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(color),

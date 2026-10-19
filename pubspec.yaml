@@ -24,7 +24,6 @@ dependencies:
   intl: ^0.20.2
   markdown: ^7.2.2
   package_info_plus: ^10.1.0
-  relative_time: ^5.0.0
   shared_preferences: ^2.3.4
   url_launcher: ^6.2.5
   win32: ^6.3.0
@@ -43,6 +42,7 @@ dependencies:
   flutter_markdown_plus:
     path: "./packages/flutter_markdown_plus"
   workmanager: ^0.10.10
+  timeago: ^3.7.1
 dev_dependencies:
   graphql_codegen: ^3.0.0
   flutter_test:

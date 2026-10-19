@@ -1059,14 +1059,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
-  relative_time:
-    dependency: "direct main"
-    description:
-      name: relative_time
-      sha256: "4e6c3b27d98ff6af5061b6dbaca178b5aa2607b7a7c2a77e6cae1d32b2759893"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.0.0"
   riverpod:
     dependency: transitive
     description:
@@ -1344,6 +1336,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.18"
+  timeago:
+    dependency: "direct main"
+    description:
+      name: timeago
+      sha256: b05159406a97e1cbb2b9ee4faa9fb096fe0e2dfcd8b08fcd2a00553450d3422e
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.7.1"
   timezone:
     dependency: transitive
     description:

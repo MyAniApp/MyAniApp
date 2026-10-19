@@ -12,7 +12,6 @@ import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/main.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
-import 'package:relative_time/relative_time.dart';
 
 class Comment extends StatefulWidget {
   const Comment({
@@ -102,9 +101,7 @@ class _CommentState extends State<Comment> {
                             ...widget.badge!,
                           const SizedBox(width: 5),
                           Text(
-                            widget.createdAt.dateFromTimestamp().relativeTime(
-                              context,
-                            ),
+                            widget.createdAt.dateFromTimestamp().relativeTime(),
                             style: context.theme.textTheme.labelSmall?.copyWith(
                               color: context.theme.hintColor,
                             ),

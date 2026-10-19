@@ -5,7 +5,6 @@ import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/fragments/thread.graphql.dart';
 import 'package:myaniapp/routes.dart';
-import 'package:relative_time/relative_time.dart';
 
 class ThreadCard extends StatelessWidget {
   const ThreadCard({super.key, required this.thread});
@@ -103,11 +102,11 @@ class ThreadCard extends StatelessWidget {
                   SizedBox(width: 5),
                   if (thread.replyUser != null)
                     Text(
-                      '${thread.replyUser!.name} replied ${thread.repliedAt!.dateFromTimestamp().relativeTime(context)}',
+                      '${thread.replyUser!.name} replied ${thread.repliedAt!.dateFromTimestamp().relativeTime()}',
                     )
                   else
                     Text(
-                      '${thread.user!.name} created ${thread.repliedAt!.dateFromTimestamp().relativeTime(context)}',
+                      '${thread.user!.name} created ${thread.repliedAt!.dateFromTimestamp().relativeTime()}',
                     ),
                 ],
               ),

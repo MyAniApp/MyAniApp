@@ -19,7 +19,6 @@ import 'package:myaniapp/main.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:myaniapp/utils.dart';
 import 'package:mygraphql/graphql.dart';
-import 'package:relative_time/relative_time.dart';
 
 class ReviewScreen extends HookConsumerWidget {
   const ReviewScreen({super.key, required this.id, this.placeholder});
@@ -150,11 +149,7 @@ class ReviewScreen extends HookConsumerWidget {
                   ),
                   title: Text((data ?? placeholder)!.user!.name),
                   subtitle: data != null
-                      ? Text(
-                          data.createdAt.dateFromTimestamp().relativeTime(
-                            context,
-                          ),
-                        )
+                      ? Text(data.createdAt.dateFromTimestamp().relativeTime())
                       : null,
                   leading: ConstrainedBox(
                     constraints: const BoxConstraints(

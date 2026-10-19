@@ -1,11 +1,10 @@
-import 'package:collection/collection.dart';
 import 'package:gql_exec/gql_exec.dart' show GraphQLError;
 import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:myaniapp/graphql/__gen/fragments/fuzzy_date.graphql.dart';
-import 'package:myaniapp/graphql/__gen/fragments/media.graphql.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 extension Capitalize on String {
   String capitalize() {
@@ -143,4 +142,8 @@ extension PopFromBranches on StatefulNavigationShell {
 
 extension GQLErrorNotFound on GraphQLError {
   bool get notFound => message == 'Not Found';
+}
+
+extension TimeAgoDate on DateTime {
+  String relativeTime() => timeago.format(this);
 }

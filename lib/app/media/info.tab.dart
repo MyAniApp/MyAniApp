@@ -10,7 +10,6 @@ import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/media.graphql.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/routes.dart';
-import 'package:relative_time/relative_time.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 var startEndDate = DateFormat('MMM d, yyyy');
@@ -22,7 +21,6 @@ class MediaInfoTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return ListView(
       padding: const EdgeInsets.all(0),
       children: [
@@ -33,7 +31,7 @@ class MediaInfoTab extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Episode ${media.nextAiringEpisode!.episode} Airing ${media.nextAiringEpisode!.airingAt.dateFromTimestamp().relativeTime(context)}",
+                "Episode ${media.nextAiringEpisode!.episode} Airing ${media.nextAiringEpisode!.airingAt.dateFromTimestamp().relativeTime()}",
                 style: const TextStyle(color: Colors.white),
               ),
             ),

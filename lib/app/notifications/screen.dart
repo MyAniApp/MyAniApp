@@ -14,7 +14,6 @@ import 'package:myaniapp/main.dart';
 import 'package:myaniapp/notifications/notifications.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
-import 'package:relative_time/relative_time.dart';
 
 var notificationSelection = {
   "Airing": [Enum$NotificationType.AIRING],
@@ -200,7 +199,7 @@ class NotificationScreen extends HookWidget {
                               Text(
                                 (n.createdAt as int)
                                     .dateFromTimestamp()
-                                    .relativeTime(context),
+                                    .relativeTime(),
                                 style: context.theme.textTheme.labelLarge
                                     ?.copyWith(color: context.theme.hintColor),
                                 maxLines: 2,
