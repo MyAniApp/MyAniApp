@@ -6,16 +6,16 @@ import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/fragments/media.graphql.dart';
 
 class MediaSheet extends StatelessWidget {
-  static void show(BuildContext context, Fragment$MediaFragment media,
-      {Widget? leading}) {
+  static void show(
+    BuildContext context,
+    Fragment$MediaFragment media, {
+    Widget? leading,
+  }) {
     showModalBottomSheet(
       context: context,
       showDragHandle: true,
       isScrollControlled: true,
-      builder: (context) => MediaSheet(
-        media: media,
-        leading: leading,
-      ),
+      builder: (context) => MediaSheet(media: media, leading: leading),
     );
   }
 
@@ -47,9 +47,7 @@ class MediaSheet extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
               ),
-              const SizedBox(
-                width: 10,
-              ),
+              const SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,23 +66,19 @@ class MediaSheet extends StatelessWidget {
                     else
                       Text(media.type!.name.capitalize()),
                     if (media.genres?.isNotEmpty == true)
-                      Text(
-                        media.genres!.join(", "),
-                        maxLines: 3,
-                      )
+                      Text(media.genres!.join(", "), maxLines: 3),
                   ],
                 ),
               ),
             ],
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 10),
           if (leading != null) leading!,
           MarkdownWidget.body(
             data: media.description ?? "*No Description*",
             padding: const EdgeInsets.all(0),
-          )
+            selectable: true,
+          ),
         ],
       ),
     );

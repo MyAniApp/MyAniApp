@@ -26,6 +26,8 @@ final allCategories = [
   ForumCategory(id: 2, name: "Manga"),
   ForumCategory(id: 5, name: "Release Discussion"),
   ForumCategory(id: 8, name: "News"),
+  ForumCategory(id: 13, name: "Site Announcements"),
+  ForumCategory(id: 19, name: "Events"),
   ForumCategory(id: 9, name: "Music"),
   ForumCategory(id: 10, name: "Gaming"),
   ForumCategory(id: 4, name: "Visual Novels"),
@@ -35,16 +37,11 @@ final allCategories = [
   ForumCategory(id: 11, name: "Site Feedback"),
   ForumCategory(id: 12, name: "Bug Reports"),
   ForumCategory(id: 18, name: "AniList Apps"),
-  ForumCategory(id: 17, name: "Misc"),
+  // ForumCategory(id: 17, name: "Misc"), got removed
 ];
 
 class ForumScreen extends StatefulWidget {
-  const ForumScreen({
-    super.key,
-    this.search,
-    this.category,
-    required this.tab,
-  });
+  const ForumScreen({super.key, this.search, this.category, required this.tab});
 
   final String tab;
   final String? search;
@@ -59,10 +56,13 @@ class _ForumScreenState extends State<ForumScreen> {
 
   void goTo(ForumTabs tab, {int? category, String? search}) {
     // print([widget.category, ca])
-    context.go(Routes.forums(
+    context.go(
+      Routes.forums(
         category != null && tab == ForumTabs.overview ? ForumTabs.recent : tab,
         search: search,
-        category: category));
+        category: category,
+      ),
+    );
     // context.go(ForumRoute(
     //     tab: category != null && tab == ForumTabs.overview
     //         ? ForumTabs.recent.name
@@ -73,8 +73,9 @@ class _ForumScreenState extends State<ForumScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var tabEnum =
-        ForumTabs.values.firstWhere((element) => element.name == widget.tab);
+    var tabEnum = ForumTabs.values.firstWhere(
+      (element) => element.name == widget.tab,
+    );
 
     return HidingFloatingButton(
       button: FloatingActionButton(
@@ -88,14 +89,17 @@ class _ForumScreenState extends State<ForumScreen> {
         drawer: NavigationDrawer(
           selectedIndex: widget.category == null
               ? 0
-              : allCategories
-                      .indexWhere((element) => element.id == widget.category) +
-                  1,
+              : allCategories.indexWhere(
+                      (element) => element.id == widget.category,
+                    ) +
+                    1,
           onDestinationSelected: (index) => index == 0
               ? goTo(tabEnum, search: widget.search)
-              : goTo(tabEnum,
+              : goTo(
+                  tabEnum,
                   category: allCategories.elementAt(index - 1).id,
-                  search: widget.search),
+                  search: widget.search,
+                ),
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -127,13 +131,16 @@ class _ForumScreenState extends State<ForumScreen> {
                 constraints: const BoxConstraints(maxWidth: 130),
                 child: SheetDropdownMenu(
                   key: Key(widget.tab),
-                  value: ForumTabs.values
-                      .firstWhere((element) => element.name == widget.tab),
-                  onChanged: (values) => goTo(values.first,
-                      category: values.first == ForumTabs.overview
-                          ? null
-                          : widget.category,
-                      search: widget.search),
+                  value: ForumTabs.values.firstWhere(
+                    (element) => element.name == widget.tab,
+                  ),
+                  onChanged: (values) => goTo(
+                    values.first,
+                    category: values.first == ForumTabs.overview
+                        ? null
+                        : widget.category,
+                    search: widget.search,
+                  ),
                   items: ForumTabs.values.map(
                     (e) => DropdownMenuEntry(
                       value: e,
@@ -147,20 +154,16 @@ class _ForumScreenState extends State<ForumScreen> {
         ),
         body: switch (tabEnum) {
           ForumTabs.overview => const ForumOverviewTab(),
-          ForumTabs.recent => ForumRecentTab(
-              categoryId: widget.category,
-            ),
-          ForumTabs.$new => ForumNewTab(
-              categoryId: widget.category,
-            ),
+          ForumTabs.recent => ForumRecentTab(categoryId: widget.category),
+          ForumTabs.$new => ForumNewTab(categoryId: widget.category),
           ForumTabs.subscribed => ForumSubscribedTab(
-              categoryId: widget.category,
-            ),
+            categoryId: widget.category,
+          ),
           ForumTabs.search => ForumSearchTab(
-              search: widget.search,
-              onChange: (search) =>
-                  goTo(tabEnum, category: widget.category, search: search),
-            ),
+            search: widget.search,
+            onChange: (search) =>
+                goTo(tabEnum, category: widget.category, search: search),
+          ),
         },
       ),
     );
