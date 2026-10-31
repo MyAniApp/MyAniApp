@@ -5,13 +5,16 @@ import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
+import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/pagination.dart';
+import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/graphql/__gen/studio.graphql.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/list_settings.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
 
@@ -29,7 +32,12 @@ class StudioScreen extends HookConsumerWidget {
           id: id,
           sort: [Enum$MediaSort.START_DATE_DESC],
         ).toJson(),
-        parseData: Query$Studio.fromJson,
+        parseData: (json) {
+          if (json['Studio']?['media']?['nodes'] is List) {
+            (json['Studio']['media']['nodes'] as List).unique((e) => e['id']);
+          }
+          return Query$Studio.fromJson(json);
+        },
         mergeResults: defaultMergeResults("Studio.media.nodes"),
       ),
     );
@@ -90,7 +98,13 @@ class StudioScreen extends HookConsumerWidget {
                 Routes.media(anime.id),
                 extra: {"placeholder": anime},
               ),
-              onLongPress: () => MediaSheet.show(context, anime),
+              overlayItems: OverlayMenuItem.defaultMediaItem(
+                context: context,
+                media: anime,
+                refetch: refetch,
+                userId: ref.read(userProvider).value?.parsedData?.Viewer?.id,
+              ),
+              // onLongPress: () => MediaSheet.show(context, anime),
             );
           },
           itemCount: snapshot.parsedData!.Studio!.media!.nodes!.length,

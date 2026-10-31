@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/list_card.dart';
+import 'package:myaniapp/common/overlay/menu.dart';
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/providers/list_settings.dart';
 
 class MediaCard extends StatelessWidget {
@@ -17,6 +19,7 @@ class MediaCard extends StatelessWidget {
     this.chips,
     this.blur,
     required this.listType,
+    this.overlayItems,
   }) : assert(
          (listType == ListType.simple && title != null) ||
              listType != ListType.simple,
@@ -24,6 +27,10 @@ class MediaCard extends StatelessWidget {
        assert(
          (listType != ListType.simple && image != null) ||
              listType == ListType.simple,
+       ),
+       assert(
+         !(overlayItems != null && onLongPress != null),
+         "Only one can be defined at a time",
        );
 
   final ListType listType;
@@ -36,6 +43,7 @@ class MediaCard extends StatelessWidget {
   final GestureDoubleTapCallback? onDoubleTap;
   final List<Widget>? chips;
   final bool? blur;
+  final List<OverlayMenuItem>? overlayItems;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +58,7 @@ class MediaCard extends StatelessWidget {
         onTap: onTap,
         title: title,
         underTitle: underTitle,
+        overlayItems: overlayItems,
       ),
       ListType.list => ListCard(
         image: image!,
@@ -59,12 +68,15 @@ class MediaCard extends StatelessWidget {
         onTap: onTap,
         title: title,
         underTitle: underTitle,
+        overlayItems: overlayItems,
       ),
-      ListType.simple => InkWell(
+      ListType.simple => CompactListCard(
         onTap: onTap,
         onDoubleTap: onDoubleTap,
         onLongPress: onLongPress,
-        child: ListTile(title: Text(title!), subtitle: underTitle),
+        title: title,
+        underTitle: underTitle,
+        overlayItems: overlayItems,
       ),
     };
   }

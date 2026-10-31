@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
+import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/graphql/__gen/media_similar.graphql.dart';
@@ -11,6 +12,7 @@ import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/common/gql_widget.dart';
 import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/list_settings.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
 
@@ -67,7 +69,13 @@ class MediaSimilarTab extends HookConsumerWidget {
                   Routes.media(media.id),
                   extra: {"placeholder": media},
                 ),
-                onLongPress: () => MediaSheet.show(context, media),
+                // onLongPress: () => MediaSheet.show(context, media),
+                overlayItems: OverlayMenuItem.defaultMediaItem(
+                  context: context,
+                  media: media,
+                  refetch: refetch,
+                  userId: ref.read(userProvider).value?.parsedData?.Viewer?.id,
+                ),
               );
             },
             itemCount:
@@ -106,7 +114,13 @@ class MediaSimilarTab extends HookConsumerWidget {
                   Routes.media(media.id),
                   extra: {"placeholder": media},
                 ),
-                onLongPress: () => MediaSheet.show(context, media),
+                // onLongPress: () => MediaSheet.show(context, media),
+                overlayItems: OverlayMenuItem.defaultMediaItem(
+                  context: context,
+                  media: media,
+                  refetch: refetch,
+                  userId: ref.read(userProvider).value?.parsedData?.Viewer?.id,
+                ),
               );
             },
             itemCount:

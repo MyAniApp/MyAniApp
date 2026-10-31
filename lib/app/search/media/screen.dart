@@ -9,6 +9,7 @@ import 'package:myaniapp/app/search/media/query.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
+import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/extensions.dart';
@@ -17,6 +18,7 @@ import 'package:myaniapp/graphql/__gen/search_media.graphql.dart';
 import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/list_settings.dart';
 import 'package:myaniapp/providers/shared_prefs.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
 
@@ -165,7 +167,18 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
                         image: media.coverImage!.extraLarge!,
                         title: media.title!.userPreferred!,
                         blur: media.isAdult!,
-                        onLongPress: () => MediaSheet.show(context, media),
+                        overlayItems: OverlayMenuItem.defaultMediaItem(
+                          context: context,
+                          media: media,
+                          refetch: refetch,
+                          userId: ref
+                              .read(userProvider)
+                              .value
+                              ?.parsedData
+                              ?.Viewer
+                              ?.id,
+                        ),
+                        // onLongPress: () => MediaSheet.show(context, media),
                         onTap: () => context.push(
                           Routes.media(media.id),
                           extra: {"placeholder": media},

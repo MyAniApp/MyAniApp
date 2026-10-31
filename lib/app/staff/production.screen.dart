@@ -4,10 +4,12 @@ import 'package:go_router/go_router.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
+import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/staff.graphql.dart';
 import 'package:myaniapp/providers/list_settings.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.dart';
 
 class StaffProductionRolesScreen extends ConsumerStatefulWidget {
@@ -26,9 +28,9 @@ class _StaffProductionRolesScreenState
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    var listSetting = ref.watch(listSettingsProvider.select(
-      (value) => value.staffProduction,
-    ));
+    var listSetting = ref.watch(
+      listSettingsProvider.select((value) => value.staffProduction),
+    );
 
     return MediaCards(
       listType: listSetting,
@@ -47,9 +49,17 @@ class _StaffProductionRolesScreenState
           image: media.node!.coverImage!.extraLarge!,
           title: media.node!.title!.userPreferred,
           blur: media.node!.isAdult ?? false,
-          onTap: () => context.push(Routes.media(media.node!.id),
-              extra: {"placeholder": media.node}),
-          onLongPress: () => MediaSheet.show(context, media.node!),
+          onTap: () => context.push(
+            Routes.media(media.node!.id),
+            extra: {"placeholder": media.node},
+          ),
+          // onLongPress: () => MediaSheet.show(context, media.node!),
+          overlayItems: OverlayMenuItem.defaultMediaItem(
+            context: context,
+            media: media.node!,
+            refetch: () {},
+            userId: ref.read(userProvider).value?.parsedData?.Viewer?.id,
+          ),
           underTitle: Show(
             when: media.staffRole != null,
             child: () => Text(

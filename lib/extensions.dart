@@ -147,3 +147,10 @@ extension GQLErrorNotFound on GraphQLError {
 extension TimeAgoDate on DateTime {
   String relativeTime() => timeago.format(this);
 }
+
+extension Unique<E, Id> on List<E> {
+  void unique(Id Function(E element) id) {
+    final ids = <Id>{};
+    retainWhere((x) => ids.add(id(x)));
+  }
+}

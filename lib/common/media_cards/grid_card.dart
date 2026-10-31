@@ -5,6 +5,8 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
+import 'package:myaniapp/common/media_cards/sheet.dart';
+import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/providers/settings.dart';
@@ -24,6 +26,7 @@ class GridCard extends StatelessWidget {
     this.chips,
     this.blur = false,
     this.onDoubleTap,
+    this.overlayItems,
   });
 
   // final GMediaFragment media;
@@ -35,26 +38,12 @@ class GridCard extends StatelessWidget {
   final GestureLongPressCallback? onLongPress;
   final GestureDoubleTapCallback? onDoubleTap;
   final List<Widget>? chips;
+  final List<OverlayMenuItem>? overlayItems;
   final bool blur;
 
   @override
   Widget build(BuildContext context) {
-    // return InkWellImage(
-    //   onTap: () => QR.to('/media/1'),
-    //   child: AspectRatio(
-    //     aspectRatio: aspectRatio,
-    //     child: Column(
-    //       children: [
-    //         Expanded(
-    //           child: CachedImage(image, fit: .cover, width: double.maxFinite),
-    //         ),
-    //         if (title != null) Text(title!, maxLines: 1),
-    //       ],
-    //     ),
-    //   ),
-    // );
-
-    return AspectRatio(
+    card(VoidCallback? onLongPress) => AspectRatio(
       aspectRatio: aspectRatio,
       child: Stack(
         children: [
@@ -94,52 +83,27 @@ class GridCard extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context).textTheme.labelMedium,
                           ),
-                          if (underTitle != null) underTitle!,
+                          ?underTitle,
                         ],
                       ),
                     ),
                 ],
               ),
-              // child: CachedImage(
-              //   image,
-              //   imageBuilder: (context, imageProvider) => Column(
-              //     children: [
-              //       Expanded(
-              //         child: ClipRRect(
-              //           borderRadius: imageRadius,
-              //           child: BlurImage(
-              //             enabled: blur,
-              //             child: Image(
-              //               image: imageProvider,
-              //               fit: BoxFit.fill,
-              //               width: double.maxFinite,
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //       if (title != null)
-              //         Padding(
-              //           padding: const EdgeInsets.symmetric(horizontal: 5),
-              //           child: Column(
-              //             children: [
-              //               Text(
-              //                 title!,
-              //                 overflow: TextOverflow.ellipsis,
-              //                 style: Theme.of(context).textTheme.labelMedium,
-              //               ),
-              //               if (underTitle != null) underTitle!,
-              //             ],
-              //           ),
-              //         ),
-              //     ],
-              //   ),
-              // ),
             ),
           ),
           ...?chips,
         ],
       ),
     );
+
+    if (overlayItems != null) {
+      return OverlayMenu(
+        builder: ((context, showOverlay) => card(showOverlay)),
+        items: overlayItems!,
+      );
+    }
+
+    return card(onLongPress);
   }
 }
 

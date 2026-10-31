@@ -9,6 +9,7 @@ import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/media_editor/media_editor.dart';
+import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/review_card.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/common/text_viewall_button.dart';
@@ -173,31 +174,12 @@ class InProgress extends ConsumerWidget {
                     Routes.media(entry.mediaId),
                     extra: {"placeholder": entry.media},
                   ),
-                  onLongPress: () => MediaSheet.show(context, entry.media!),
-                  chips: [
-                    GridChip(
-                      left: 5,
-                      top: 5,
-                      padding: EdgeInsets.zero,
-                      child: InkWellImage(
-                        borderRadius: imageRadius,
-                        onTap: () => MediaEditorDialog.show(
-                          context,
-                          entry.media!,
-                          user.value!.parsedData!.Viewer!.id,
-                          onSave: refetch,
-                          onDelete: refetch,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          child: Icon(Icons.edit, size: 15),
-                        ),
-                      ),
-                    ),
-                  ],
+                  overlayItems: OverlayMenuItem.defaultMediaItem(
+                    context: context,
+                    media: entry.media!,
+                    userId: user.value?.parsedData?.Viewer?.id,
+                    refetch: refetch,
+                  ),
                 );
               },
               itemCount: list.length,
@@ -241,17 +223,6 @@ class InProgress extends ConsumerWidget {
                         "${entry.progress} / ${entry.media!.chapters ?? entry.media!.episodes}",
                         style: context.theme.textTheme.labelMedium,
                       ),
-                      IconButton(
-                        visualDensity: .compact,
-                        icon: Icon(Icons.edit),
-                        onPressed: () => MediaEditorDialog.show(
-                          context,
-                          entry.media!,
-                          user.value!.parsedData!.Viewer!.id,
-                          onSave: refetch,
-                          onDelete: refetch,
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -260,7 +231,13 @@ class InProgress extends ConsumerWidget {
                   Routes.media(entry.mediaId),
                   extra: {"placeholder": entry.media},
                 ),
-                onLongPress: () => MediaSheet.show(context, entry.media!),
+                // onLongPress: () => MediaSheet.show(context, entry.media!),
+                overlayItems: OverlayMenuItem.defaultMediaItem(
+                  context: context,
+                  media: entry.media!,
+                  userId: user.value?.parsedData?.Viewer?.id,
+                  refetch: refetch,
+                ),
               );
             },
             itemCount: list.length,
@@ -274,26 +251,16 @@ class InProgress extends ConsumerWidget {
 
               return MediaCard(
                 listType: settings.inProgress,
-                onLongPress: () => MediaSheet.show(context, entry.media!),
                 onTap: () => context.push(
                   Routes.media(entry.mediaId),
                   extra: {"placeholder": entry.media},
                 ),
                 title: entry.media!.title!.userPreferred!,
-                underTitle: Row(
-                  children: [
-                    IconButton(
-                      visualDensity: .compact,
-                      icon: Icon(Icons.edit),
-                      onPressed: () => MediaEditorDialog.show(
-                        context,
-                        entry.media!,
-                        user.value!.parsedData!.Viewer!.id,
-                        onSave: refetch,
-                        onDelete: refetch,
-                      ),
-                    ),
-                  ],
+                overlayItems: OverlayMenuItem.defaultMediaItem(
+                  context: context,
+                  media: entry.media!,
+                  userId: user.value?.parsedData?.Viewer?.id,
+                  refetch: refetch,
                 ),
               );
             },

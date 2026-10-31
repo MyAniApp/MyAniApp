@@ -15,6 +15,27 @@ List<m.Node> markdownText(String text) {
   return _doc.parse(text);
 }
 
+final List<String> _kBlockTags = <String>[
+  'p',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'li',
+  'blockquote',
+  'pre',
+  'ol',
+  'ul',
+  'hr',
+  'table',
+  'thead',
+  'tbody',
+  'tr',
+  'section',
+];
+
 ///see this issue: https://github.com/dart-lang/markdown/issues/284#event-3216258013
 ///use [htmlToMarkdown] to convert HTML in [m.Text] to [m.Node]
 void htmlToMarkdown(
@@ -25,13 +46,25 @@ void htmlToMarkdown(
 ) {
   if (node == null) return;
   if (node is h.Text) {
-    // add a space
-    // for text as "<p>hello <i>world</i>!"
-    // would be rendered as one word
-    // but it still adds space to the <p> text
     mNodes.addAll(parser.document.parseInline(node.text.trim()));
   } else if (node is h.Element) {
     final tag = node.localName;
+    bool isBlock =
+        _kBlockTags.contains(tag) ||
+        (markdownConfig.builders.containsKey(tag) &&
+            markdownConfig.builders[tag]!.isBlockElement());
+    if (isBlock && node?.parent != null && node.parent!.localName != null) {
+      bool isParentBlock =
+          _kBlockTags.contains(node.parent!.localName) ||
+          (markdownConfig.builders.containsKey(node.parent!.localName) &&
+              markdownConfig.builders[node.parent!.localName]!
+                  .isBlockElement());
+      if (!isParentBlock) {
+        mNodes.add(m.Text(node.outerHtml));
+        return;
+      }
+    }
+    // parser.document.parse(text)
     List<m.Node> children = [];
     for (var e in node.nodes) {
       htmlToMarkdown(e, deep + 1, children, parser);

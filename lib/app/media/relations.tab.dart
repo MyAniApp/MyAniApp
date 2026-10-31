@@ -4,11 +4,13 @@ import 'package:go_router/go_router.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
+import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/media.graphql.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/providers/list_settings.dart';
+import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.dart';
 
 var _mediaRelations = Enum$MediaRelation.values.toList();
@@ -20,9 +22,9 @@ class MediaRelationsTab extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var listSetting = ref.watch(listSettingsProvider.select(
-      (value) => value.mediaRelations,
-    ));
+    var listSetting = ref.watch(
+      listSettingsProvider.select((value) => value.mediaRelations),
+    );
 
     var sorted = media.relations!.edges!.toList()
       ..sort(
@@ -57,9 +59,17 @@ class MediaRelationsTab extends ConsumerWidget {
               style: context.theme.textTheme.labelMedium,
             ),
           ),
-          onTap: () => context.push(Routes.media(media.node!.id),
-              extra: {"placeholder": media.node}),
-          onLongPress: () => MediaSheet.show(context, media.node!),
+          onTap: () => context.push(
+            Routes.media(media.node!.id),
+            extra: {"placeholder": media.node},
+          ),
+          // onLongPress: () => MediaSheet.show(context, media.node!),
+          overlayItems: OverlayMenuItem.defaultMediaItem(
+            context: context,
+            media: media.node!,
+            refetch: () {},
+            userId: ref.read(userProvider).value?.parsedData?.Viewer?.id,
+          ),
         );
       },
       itemCount: sorted.length,
