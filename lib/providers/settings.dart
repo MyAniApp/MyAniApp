@@ -74,7 +74,7 @@ class _SettingsNotifier extends Notifier<_Settings> {
       defaultHomeList: state.defaultHomeList,
     );
 
-    ref.read(sharedPrefsProvider).setInt("themeColor", color.value);
+    ref.read(sharedPrefsProvider).setInt("themeColor", color.toARGB32());
 
     ref.notifyListeners();
   }

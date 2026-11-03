@@ -125,7 +125,9 @@ class LastOnboard extends ConsumerWidget {
                 onPressed: () => ref
                     .read(sharedPrefsProvider)
                     .setBool("seenOnboard", true)
-                    .then((d) => context.push(Routes.anilistLogin)),
+                    .then((d) {
+                      if (context.mounted) context.push(Routes.anilistLogin);
+                    }),
                 child: const Text(
                   "Login with Anilist OAuth",
                   style: TextStyle(color: Colors.black),
@@ -139,7 +141,9 @@ class LastOnboard extends ConsumerWidget {
                 onPressed: () => ref
                     .read(sharedPrefsProvider)
                     .setBool("seenOnboard", true)
-                    .then((d) => context.push(Routes.tokenLogin)),
+                    .then((d) {
+                      if (context.mounted) context.push(Routes.tokenLogin);
+                    }),
                 child: const Text("Login with Pin"),
               ),
             ),
@@ -151,7 +155,9 @@ class LastOnboard extends ConsumerWidget {
                   ref
                       .read(sharedPrefsProvider)
                       .setBool("seenOnboard", true)
-                      .then((d) => context.go(Routes.home));
+                      .then((d) {
+                        if (context.mounted) context.go(Routes.home);
+                      });
                 },
                 child: const Text("Continue without logging in"),
               ),

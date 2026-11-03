@@ -3,7 +3,6 @@ import 'package:material_ui/material_ui.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/list_card.dart';
 import 'package:myaniapp/common/overlay/menu.dart';
-import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/providers/list_settings.dart';
 
 class MediaCard extends StatelessWidget {

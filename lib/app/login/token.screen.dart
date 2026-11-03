@@ -40,10 +40,11 @@ class _TokenLoginScreenState extends ConsumerState<TokenLoginScreen> {
               decoration: const InputDecoration(border: OutlineInputBorder()),
               onSubmitted: (value) {
                 if (value.isNotEmpty) {
-                  ref
-                      .read(settingsProvider.notifier)
-                      .updateToken(value)
-                      .then((value) => context.go(Routes.home));
+                  ref.read(settingsProvider.notifier).updateToken(value).then((
+                    value,
+                  ) {
+                    if (context.mounted) context.go(Routes.home);
+                  });
                 }
               },
             ),

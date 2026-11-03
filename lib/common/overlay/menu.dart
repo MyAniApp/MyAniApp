@@ -116,8 +116,9 @@ class _OverlayMenuState extends State<OverlayMenu> {
                       .animate(
                         target: value,
                         onComplete: (controller) {
-                          if (controller.isCompleted && value == 0)
+                          if (controller.isCompleted && value == 0) {
                             removeOverlay();
+                          }
                         },
                       )
                       .fadeIn(duration: 250.ms, curve: Curves.easeOut)
@@ -159,7 +160,7 @@ class OverlayMenuItem {
       OverlayMenuItem(
         onTap: (closeOverlay) {
           closeOverlay();
-          MediaSheet.show(context, media!);
+          MediaSheet.show(context, media);
         },
         child: const Text("Preview"),
         icon: const Icon(Icons.remove_red_eye),

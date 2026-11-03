@@ -25,8 +25,8 @@ class SettingsSection extends StatelessWidget {
             ),
           ),
         Material(
-          color: context.theme.colorScheme.surfaceContainerHighest.withOpacity(
-            .3,
+          color: context.theme.colorScheme.surfaceContainerHighest.withValues(
+            alpha: .3,
           ),
           borderRadius: imageRadius,
           borderOnForeground: true,

@@ -31,7 +31,7 @@ void main(List<String> args) {
       .where((element) => element.path.endsWith(".graphql"))
       .toList();
 
-  var queryFile = "";
+  var queryFile = StringBuffer();
 
   Map<String, String> fragments = {};
 
@@ -68,22 +68,24 @@ void main(List<String> args) {
         var name = inlineFragmentMatch.group(1)!;
         if (query.contains('fragment $name')) continue;
 
-        if (fragments.containsKey(name))
+        if (fragments.containsKey(name)) {
           query += fragments[name]!;
-        else if (fileFragments.containsKey(name))
+        } else if (fileFragments.containsKey(name)) {
           query += fileFragments[name]!;
+        }
       }
 
       query = Set.from(
         query.split("fragment").map((e) => e.trim()),
       ).join('fragment ');
 
-      queryFile +=
-          "\nvar ${toLowerCamelCase(match.group(1)!)}Query = r\"$query\";";
+      queryFile.write(
+        "\nvar ${toLowerCamelCase(match.group(1)!)}Query = r\"$query\";",
+      );
     }
   }
 
-  File("./lib/graphql/queries.dart").writeAsString(queryFile.trim());
+  File("./lib/graphql/queries.dart").writeAsString(queryFile.toString().trim());
 }
 
 void handleInlines(Map<String, String> fragmentList) {

@@ -1,5 +1,4 @@
 import 'package:gql_http_link/gql_http_link.dart';
-import 'package:intl/intl.dart';
 import 'package:myaniapp/graphql/__gen/notifications.graphql.dart';
 import 'package:myaniapp/graphql/__gen/viewer.graphql.dart';
 import 'package:myaniapp/graphql/queries.dart';
@@ -9,8 +8,6 @@ import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
-
-var _dateFormat = DateFormat('MM/dd/yyyy hh:mm:ss a');
 
 @pragma('vm:entry-point')
 void callbackDispatcher() {

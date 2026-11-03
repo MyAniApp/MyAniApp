@@ -20,6 +20,7 @@ class ThreadCard extends StatelessWidget {
             Routes.thread(thread.id),
             extra: {'placeholder': thread},
           ),
+          borderRadius: imageRadius,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -58,6 +59,7 @@ class ThreadCard extends StatelessWidget {
 
     return Card(
       child: InkWell(
+        borderRadius: imageRadius,
         onTap: () => context.push(
           Routes.thread(thread.id),
           extra: {'placeholder': thread},

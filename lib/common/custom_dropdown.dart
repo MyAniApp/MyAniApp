@@ -1,5 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 
 class SheetDropdownMenu<T> extends StatefulWidget {
@@ -15,8 +16,8 @@ class SheetDropdownMenu<T> extends StatefulWidget {
     this.onClear,
     this.label,
     this.enabled = true,
-  })  : values = [value],
-        isMulti = false;
+  }) : values = [value],
+       isMulti = false;
 
   const SheetDropdownMenu.multi({
     super.key,
@@ -59,52 +60,55 @@ class _SheetDropdownMenuState<T> extends State<SheetDropdownMenu<T>> {
     return InkWell(
       onTap: widget.enabled
           ? () => showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                builder: (context) => StatefulBuilder(
-                  builder: (context, inSetState) => DraggableScrollableSheet(
-                    expand: false,
-                    builder: (context, scrollController) => ListView(
-                      padding: const EdgeInsets.only(top: 25),
-                      controller: scrollController,
-                      children: [
-                        for (var item in widget.items)
-                          ListTile(
-                            title: Text(item.label),
-                            selected: selectedValues.contains(item.value),
-                            onTap: () {
-                              var newValues = widget.isMulti
-                                  ? selectedValues.contains(item.value)
+              context: context,
+              isScrollControlled: true,
+              builder: (context) => StatefulBuilder(
+                builder: (context, inSetState) => DraggableScrollableSheet(
+                  expand: false,
+                  builder: (context, scrollController) => ListView(
+                    padding: const EdgeInsets.only(top: 25),
+                    controller: scrollController,
+                    children: [
+                      for (var item in widget.items)
+                        ListTile(
+                          title: Text(item.label),
+                          selected: selectedValues.contains(item.value),
+                          onTap: () {
+                            var newValues = widget.isMulti
+                                ? selectedValues.contains(item.value)
                                       ? selectedValues.where(
-                                          (element) => element != item.value)
+                                          (element) => element != item.value,
+                                        )
                                       : ([
                                           ...selectedValues.where(
-                                              (element) => element != null),
-                                          item.value
+                                            (element) => element != null,
+                                          ),
+                                          item.value,
                                         ])
-                                  : ([item.value]);
+                                : ([item.value]);
 
-                              if (selectedValues != newValues) {
-                                widget.onChanged?.call(newValues);
-                                setState(() => selectedValues = newValues);
-                                // values = newValues;
-                                if (!widget.isMulti) {
-                                  context.pop();
-                                } else {
-                                  inSetState(() {});
-                                }
+                            if (selectedValues != newValues) {
+                              widget.onChanged?.call(newValues);
+                              setState(() => selectedValues = newValues);
+                              // values = newValues;
+                              if (!widget.isMulti) {
+                                context.pop();
+                              } else {
+                                inSetState(() {});
                               }
-                            },
-                            trailing: selectedValues.contains(item.value)
-                                ? const Icon(Icons.check)
-                                : null,
-                          ),
-                      ],
-                    ),
+                            }
+                          },
+                          trailing: selectedValues.contains(item.value)
+                              ? const Icon(Icons.check)
+                              : null,
+                        ),
+                    ],
                   ),
                 ),
-              )
+              ),
+            )
           : null,
+      borderRadius: imageRadius,
       child: InputDecorator(
         decoration: InputDecoration(
           enabled: widget.enabled,
@@ -112,13 +116,13 @@ class _SheetDropdownMenuState<T> extends State<SheetDropdownMenu<T>> {
           label: widget.hint != null ? Text(widget.hint!) : null,
           labelText: widget.label,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(
-              color: Theme.of(context).hintColor,
-            ),
+            borderRadius: imageRadius,
+            borderSide: BorderSide(color: Theme.of(context).hintColor),
           ),
-          constraints:
-              BoxConstraints(maxWidth: widget.maxWidth ?? 250, maxHeight: 50),
+          constraints: BoxConstraints(
+            maxWidth: widget.maxWidth ?? 250,
+            maxHeight: 50,
+          ),
           // isDense: true,
 
           suffixIcon: Padding(
@@ -126,23 +130,15 @@ class _SheetDropdownMenuState<T> extends State<SheetDropdownMenu<T>> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(
-                  Icons.arrow_drop_down,
-                  size: 24,
-                ),
+                const Icon(Icons.arrow_drop_down, size: 24),
                 if (selectedValues.firstOrNull != null &&
                     widget.onClear != null)
                   GestureDetector(
                     onTap: () {
                       widget.onClear?.call();
-                      setState(
-                        () => selectedValues = [],
-                      );
+                      setState(() => selectedValues = []);
                     },
-                    child: const Icon(
-                      Icons.clear,
-                      size: 24,
-                    ),
+                    child: const Icon(Icons.clear, size: 24),
                   ),
               ],
             ),

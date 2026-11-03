@@ -21,7 +21,7 @@ import 'package:myaniapp/main.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:myaniapp/utils.dart';
 import 'package:mygraphql/graphql.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ThreadScreen extends HookConsumerWidget {
   ThreadScreen({super.key, required this.id, this.placeholder});
@@ -72,8 +72,10 @@ class ThreadScreen extends HookConsumerWidget {
                 if (threadData != null)
                   IconButton(
                     onPressed: () async {
-                      if (await canLaunchUrlString(threadData!.siteUrl!))
-                        launchUrlString(threadData!.siteUrl!);
+                      final uri = Uri.tryParse(threadData.siteUrl!);
+                      if (uri != null) {
+                        launchUrl(uri);
+                      }
                     },
                     icon: Icon(Icons.open_in_browser),
                   ),
@@ -389,8 +391,8 @@ class ThreadComment extends HookConsumerWidget {
     this.modRoles,
     String? avatar,
     int? depth,
-  }) : this.avatar = avatar ?? anilistDefaultImage,
-       this.depth = depth ?? 1;
+  }) : avatar = avatar ?? anilistDefaultImage,
+       depth = depth ?? 1;
 
   final int id;
   final int parentId;

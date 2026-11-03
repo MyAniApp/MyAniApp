@@ -199,7 +199,6 @@ class ActivityCard extends StatelessWidget {
 
 class _ActivityCardFooter extends ConsumerWidget {
   const _ActivityCardFooter({
-    super.key,
     required this.replyCount,
     required this.likeCount,
     required this.isLiked,

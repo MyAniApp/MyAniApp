@@ -72,6 +72,7 @@ class _CommentState extends State<Comment> {
 
     return InkWell(
       onTap: widget.onTap,
+      borderRadius: imageRadius,
       child: Container(
         margin: widget.isReply ? const EdgeInsets.only(left: 5) : null,
         decoration: decoration,
@@ -217,7 +218,7 @@ class LikesSheet extends HookWidget {
           final like = snapshot.parsedData!.Page!.likes![index]!;
 
           return ListTile(
-            title: Text(like.name!),
+            title: Text(like.name),
             leading: ListTileCircleAvatar(url: like.avatar!.large!),
             onTap: () => context.push(Routes.user(like.name)),
           );

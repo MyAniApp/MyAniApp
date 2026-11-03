@@ -148,23 +148,7 @@ class MarkdownWidget extends StatelessWidget {
     // wrap error most likely from html parsing...
     if (body) {
       return MarkdownErrorBoundary(
-        fallback: () => Padding(
-          padding: padding,
-          child: md3.MarkdownBody(
-            data: data,
-            selectable: selectable ?? false,
-            shrinkWrap: shrinkWrap ?? false,
-            styleSheet: markdownStylesheet,
-            extensionSet: markdownConfig.extensionSet,
-            inlineSyntaxes: markdownConfig.inlineSyntaxNoHtml,
-            blockSyntaxes: markdownConfig.blockSyntax,
-            builders: markdownConfig.builders,
-            withDefaultBlockSyntaxes: false,
-            withDefaultInlineSyntaxes: false,
-            onTapLink: (text, href, title) =>
-                onTapLink(context, text, href, title),
-          ),
-        ),
+        fallback: () => SizedBox(),
         child: Padding(
           padding: padding,
           child: md3.MarkdownBody(
@@ -185,21 +169,7 @@ class MarkdownWidget extends StatelessWidget {
       );
     }
     return MarkdownErrorBoundary(
-      fallback: () => md3.Markdown(
-        data: data,
-        selectable: selectable ?? false,
-        shrinkWrap: shrinkWrap ?? false,
-        padding: padding,
-        noScroll: body,
-        styleSheet: markdownStylesheet,
-        extensionSet: markdownConfig.extensionSet,
-        inlineSyntaxes: markdownConfig.inlineSyntaxNoHtml,
-        blockSyntaxes: markdownConfig.blockSyntax,
-        builders: markdownConfig.builders,
-        withDefaultBlockSyntaxes: false,
-        withDefaultInlineSyntaxes: false,
-        onTapLink: (text, href, title) => onTapLink(context, text, href, title),
-      ),
+      fallback: () => SizedBox(),
       child: md3.Markdown(
         data: data,
         selectable: selectable ?? false,

@@ -216,7 +216,7 @@ class MediaAppBar extends StatelessWidget {
 }
 
 class _MediaTitleDialog extends StatelessWidget {
-  const _MediaTitleDialog({super.key, required this.titles});
+  const _MediaTitleDialog({required this.titles});
 
   final Query$Media$Media$title titles;
 
@@ -296,7 +296,7 @@ class _MediaListSettingState extends ConsumerState<MediaListSetting> {
     } else if (show == false) {
       return Container(
         decoration: BoxDecoration(
-          color: Colors.black.withOpacity(.4),
+          color: Colors.black.withValues(alpha: .4),
           borderRadius: const BorderRadius.all(Radius.circular(30)),
         ),
         child: ListSettingButton(

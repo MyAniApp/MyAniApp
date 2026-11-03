@@ -48,9 +48,9 @@ class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
           var list = Query$HomeActivities.fromJson(json);
           if (hideAdultContent) {
             return list.copyWith(
-              Page: list?.Page?.copyWith(
+              Page: list.Page?.copyWith(
                 activities: [
-                  ...?list?.Page?.activities?.whereNot((m) {
+                  ...?list.Page?.activities?.whereNot((m) {
                     return m?.when(
                           textActivity: (t) => false,
                           listActivity: (l) => l.media?.isAdult == true,

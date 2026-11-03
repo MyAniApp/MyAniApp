@@ -21,9 +21,10 @@ class _AuthPageState extends ConsumerState<AuthScreen> {
       if (widget.accessToken == null) context.go(Routes.home);
       var settings = ref.read(settingsProvider.notifier);
       // var instance = await SharedPreferences.getInstance();
-      settings
-          .updateToken(widget.accessToken!)
-          .then((value) => context.go(Routes.home));
+      settings.updateToken(widget.accessToken!).then((value) {
+        // ignore: use_build_context_synchronously
+        if (context.mounted) context.go(Routes.home);
+      });
     });
   }
 

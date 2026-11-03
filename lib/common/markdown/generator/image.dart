@@ -47,7 +47,7 @@ class ImageBuilder extends MarkdownElementBuilder {
     final height = double.tryParse(
       element.attributes['height']?.replaceAll("px", "") ?? "",
     );
-    final heightPercent = element.attributes['heightPercent'];
+    // final heightPercent = element.attributes['heightPercent'];
     // return Text('dsfh');
     final key = UniqueKey();
     return InkWellImage(

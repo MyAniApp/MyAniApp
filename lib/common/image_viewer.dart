@@ -13,10 +13,8 @@ class ImageViewer extends StatefulWidget {
     Navigator.of(context).push(
       PageRouteBuilder(
         opaque: false,
-        pageBuilder: (_, __, ___) => ImageViewer(
-          tag: tag,
-          child: CachedImage(url),
-        ),
+        pageBuilder: (_, _, _) =>
+            ImageViewer(tag: tag, child: CachedImage(url)),
       ),
     );
   }
@@ -42,15 +40,16 @@ class _ImageViewerState extends State<ImageViewer> {
     // final horizontalPosition = 0 + max(_positionYDelta, -_positionYDelta) / 15;
 
     return Scaffold(
-      backgroundColor: Colors.black.withOpacity(_opacity),
+      backgroundColor: Colors.black.withValues(alpha: _opacity),
       body: Stack(
         fit: StackFit.expand,
         children: [
           Dismissible(
             resizeDuration: null,
             key: const Key("was upp"),
-            direction:
-                _block ? DismissDirection.none : DismissDirection.vertical,
+            direction: _block
+                ? DismissDirection.none
+                : DismissDirection.vertical,
             onDismissed: (direction) {
               context.pop();
             },
@@ -92,17 +91,14 @@ class _ImageViewerState extends State<ImageViewer> {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: .2),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
-                    Icons.clear,
-                    color: Colors.grey,
-                  ),
+                  child: const Icon(Icons.clear, color: Colors.grey),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

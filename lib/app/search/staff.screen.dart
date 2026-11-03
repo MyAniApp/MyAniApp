@@ -26,16 +26,15 @@ class StaffSearchScreen extends HookWidget {
         staffSearchQuery,
         parseData: Query$StaffSearch.fromJson,
         variables: Variables$Query$StaffSearch(
-                isBirthday: search == null,
-                search: search,
-                sort: search?.isNotEmpty == true
-                    ? [Enum$StaffSort.SEARCH_MATCH]
-                    : [Enum$StaffSort.FAVOURITES_DESC, Enum$StaffSort.ID_DESC])
-            .toJson(),
+          isBirthday: search == null,
+          search: search,
+          sort: search?.isNotEmpty == true
+              ? [Enum$StaffSort.SEARCH_MATCH]
+              : [Enum$StaffSort.FAVOURITES_DESC, Enum$StaffSort.ID_DESC],
+        ).toJson(),
         mergeResults: defaultMergeResults("Page.staff"),
       ),
     );
-    print([snapshot.request!.variables]);
 
     return Scaffold(
       appBar: AppBar(
@@ -76,10 +75,10 @@ class StaffSearchScreen extends HookWidget {
         builder: () => GraphqlPagination(
           pageInfo: snapshot.parsedData!.Page!.pageInfo!,
           req: (nextPage) => fetchMore(
-              variables: Variables$Query$StaffSearch.fromJson(
-                      snapshot.request!.variables)
-                  .copyWith(page: nextPage)
-                  .toJson()),
+            variables: Variables$Query$StaffSearch.fromJson(
+              snapshot.request!.variables,
+            ).copyWith(page: nextPage).toJson(),
+          ),
           child: CustomScrollView(
             slivers: [
               if (search == null)
@@ -108,13 +107,15 @@ class StaffSearchScreen extends HookWidget {
                       listType: ListType.grid,
                       image: staff.image!.large,
                       title: staff.name!.userPreferred,
-                      onTap: () => context.push(Routes.staff(staff.id),
-                          extra: {"placeholder": staff}),
+                      onTap: () => context.push(
+                        Routes.staff(staff.id),
+                        extra: {"placeholder": staff},
+                      ),
                     );
                   },
                   itemCount: snapshot.parsedData!.Page!.staff!.length,
                 ),
-              )
+              ),
             ],
           ),
         ),

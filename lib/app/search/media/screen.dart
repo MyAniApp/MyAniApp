@@ -8,7 +8,6 @@ import 'package:myaniapp/app/search/media/editor.dart';
 import 'package:myaniapp/app/search/media/query.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
-import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/common/show.dart';
@@ -70,9 +69,12 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
           query!.rawQuery,
         )) {
       Future(() async {
-        query = await MediaSearchQuery.from(
-          GoRouterState.of(context).uri.queryParametersAll,
-        );
+        if (context.mounted) {
+          query = await MediaSearchQuery.from(
+            // ignore: use_build_context_synchronously
+            GoRouterState.of(context).uri.queryParametersAll,
+          );
+        }
         setState(() {});
       });
     }

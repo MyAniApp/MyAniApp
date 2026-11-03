@@ -1,5 +1,3 @@
-// TODO: Put public facing types in this file.
-
 import 'dart:async';
 
 import 'package:flutter_hooks/flutter_hooks.dart';

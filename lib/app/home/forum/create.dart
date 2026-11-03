@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_hooks/flutter_hooks.dart' hide useSearchController;
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:myaniapp/app/home/forum/screen.dart';
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/comment.dart';
@@ -16,6 +16,7 @@ import 'package:myaniapp/graphql/__gen/search_media.graphql.dart';
 import 'package:myaniapp/graphql/__gen/thread.graphql.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/main.dart';
+import 'package:myaniapp/providers/search.dart' show useSearchController;
 import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/routes.dart';
 import 'package:mygraphql/graphql.dart';
@@ -197,14 +198,13 @@ class CreateThread extends HookConsumerWidget {
 }
 
 class _ThreadPreview extends StatelessWidget {
-  const _ThreadPreview({super.key, required this.mockThread});
+  const _ThreadPreview({required this.mockThread});
 
   final Query$Thread$thread? mockThread;
 
   @override
   Widget build(BuildContext context) {
     if (mockThread == null) return SizedBox();
-    print(mockThread?.categories);
     return ListView(
       children: [
         Padding(
@@ -274,6 +274,9 @@ class QuickMediaSearch extends HookWidget {
     final showMedia = useState(false);
     final searchController = useSearchController();
     var fetchMedia = useCallback((String search) async {
+      if (search.isEmpty) {
+        return GQLResponse<Query$Search>(response: {}, request: null);
+      }
       var s = gqlClient.query(
         GQLRequest(
           searchQuery,
@@ -299,7 +302,9 @@ class QuickMediaSearch extends HookWidget {
         if (showMedia.value && controller.text.isNotEmpty) {
           var res = await fetchMedia(controller.text);
           showMedia.value = false;
-          if (res.parsedData != null) {
+          if (res.parsedData?.Page?.media?.isEmpty == true) {
+            return [Center(child: Text("No result found"))];
+          } else if (res.parsedData != null) {
             return [
               for (var media in res.parsedData!.Page!.media!)
                 ListTile(
@@ -334,6 +339,8 @@ class QuickMediaSearch extends HookWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                             Text(media.type!.name.capitalize()),
+                            if (media.format != null)
+                              Text(media.format!.name.capitalize()),
                           ],
                         ),
                       ),
@@ -350,7 +357,7 @@ class QuickMediaSearch extends HookWidget {
 }
 
 class _BackButton extends HookWidget {
-  const _BackButton(this.pageController, {super.key});
+  const _BackButton(this.pageController);
 
   final PageController pageController;
 
@@ -381,7 +388,6 @@ class _BackButton extends HookWidget {
 class _PageButton extends HookWidget {
   const _PageButton(
     this.pageController, {
-    super.key,
     required this.onPreviewPress,
     required this.onSend,
   });

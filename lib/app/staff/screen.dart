@@ -509,7 +509,7 @@ class _StaffFiltersState extends ConsumerState<StaffFilters> {
               );
               if (value == .TITLE_NATIVE && userTitleLang != null) {
                 vars = vars.copyWith(
-                  sort: switch (userTitleLang!) {
+                  sort: switch (userTitleLang) {
                     .ROMAJI || .ROMAJI_STYLISED => [.TITLE_ROMAJI],
                     .ENGLISH || .ENGLISH_STYLISED => [.TITLE_ENGLISH],
                     .NATIVE || .NATIVE_STYLISED => [.TITLE_NATIVE],

@@ -17,15 +17,18 @@ class TextViewAllButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Row(
-        children: [
-          Text(
-            title,
-            style: style ?? context.theme.textTheme.titleLarge?.bold,
-          ),
-          Spacer(),
-          Icon(Icons.keyboard_arrow_right),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Text(
+              title,
+              style: style ?? context.theme.textTheme.titleLarge?.bold,
+            ),
+            Spacer(),
+            Icon(Icons.keyboard_arrow_right),
+          ],
+        ),
       ),
     );
   }

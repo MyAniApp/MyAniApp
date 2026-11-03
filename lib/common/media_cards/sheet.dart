@@ -73,7 +73,7 @@ class MediaSheet extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          if (leading != null) leading!,
+          ?leading,
           MarkdownWidget.body(
             data: media.description ?? "*No Description*",
             padding: const EdgeInsets.all(0),

@@ -95,7 +95,7 @@ class MarkdownEditor extends HookConsumerWidget {
 }
 
 class _Preview extends HookConsumerWidget {
-  const _Preview({super.key, required this.bodyController});
+  const _Preview({required this.bodyController});
 
   final TextEditingController bodyController;
 
@@ -127,7 +127,7 @@ class _Preview extends HookConsumerWidget {
 }
 
 class _BackButton extends HookWidget {
-  const _BackButton(this.pageController, {super.key});
+  const _BackButton(this.pageController);
 
   final PageController pageController;
 
@@ -156,15 +156,9 @@ class _BackButton extends HookWidget {
 }
 
 class _PageButton extends HookWidget {
-  const _PageButton(
-    this.pageController, {
-    super.key,
-    this.onPreviewPress,
-    this.onSave,
-  });
+  const _PageButton(this.pageController, {this.onSave});
 
   final PageController pageController;
-  final VoidCallback? onPreviewPress;
   final VoidCallback? onSave;
 
   @override
@@ -182,7 +176,6 @@ class _PageButton extends HookWidget {
             duration: Durations.medium2,
             curve: Curves.easeIn,
           );
-          onPreviewPress?.call();
         },
         child: Text('Preview'),
       );
@@ -195,199 +188,6 @@ class _PageButton extends HookWidget {
     );
   }
 }
-
-// class MarkdownEditor extends StatefulWidget {
-//   const MarkdownEditor(
-//       {super.key, this.text, required this.onSave, this.hint, this.leading});
-
-//   final String? text;
-//   final String? hint;
-//   final Function(String text) onSave;
-//   final Widget? leading;
-
-//   static void show(BuildContext context,
-//       {String? text,
-//       required Function(String text) onSave,
-//       String? hint,
-//       Widget? leading}) {
-//     showDialog(
-//       context: context,
-//       useSafeArea: false,
-//       builder: (context) => Dialog.fullscreen(
-//         child: MarkdownEditor(
-//           onSave: onSave,
-//           text: text,
-//           hint: hint,
-//           leading: leading,
-//         ),
-//       ),
-//     );
-//   }
-
-//   @override
-//   State<MarkdownEditor> createState() => _MarkdownEditorState();
-// }
-
-// class _MarkdownEditorState extends State<MarkdownEditor> {
-//   late final PageController _pageController = PageController(
-//     onAttach: (position) => Future(() => setState(
-//           () {},
-//         )),
-//   );
-//   late final TextEditingController _editingController =
-//       TextEditingController(text: widget.text);
-//   final FocusNode _focusNode = FocusNode();
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     _pageController.addListener(() => setState(() {}));
-//     _focusNode.requestFocus();
-//   }
-
-//   @override
-//   void dispose() {
-//     super.dispose();
-//     _pageController.dispose();
-//     _editingController.dispose();
-//     _focusNode.dispose();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return PopScope(
-//       canPop: _pageController.positions.isNotEmpty &&
-//           (_pageController.page == _pageController.initialPage),
-//       child: Scaffold(
-//         appBar: AppBar(
-//           automaticallyImplyLeading: false,
-//           leading:
-//               _pageController.positions.isNotEmpty && _pageController.page == 0
-//                   ? IconButton(
-//                       onPressed: () => context.pop(),
-//                       icon: const Icon(Icons.cancel),
-//                     )
-//                   : IconButton(
-//                       onPressed: () => _pageController.animateToPage(
-//                         0,
-//                         duration: const Duration(milliseconds: 200),
-//                         curve: Curves.easeIn,
-//                       ),
-//                       icon: const Icon(Icons.arrow_back),
-//                     ),
-//           actions: [
-//             if (_pageController.positions.isNotEmpty &&
-//                 _pageController.page == 0)
-//               _PreviewButton(
-//                 editingController: _editingController,
-//                 onPressed: () => _pageController.animateToPage(
-//                   1,
-//                   duration: const Duration(milliseconds: 200),
-//                   curve: Curves.easeOut,
-//                 ),
-//               )
-//             else
-//               IconButton(
-//                 onPressed: () {
-//                   widget.onSave(_editingController.text);
-//                   context.pop();
-//                 },
-//                 icon: const Icon(Icons.send),
-//               ),
-//             const SizedBox(
-//               width: 10,
-//             ),
-//           ],
-//         ),
-//         body: PageView(
-//           controller: _pageController,
-//           physics: const NeverScrollableScrollPhysics(),
-//           children: [
-//             Stack(
-//               children: [
-//                 Padding(
-//                   padding: const EdgeInsets.only(bottom: 40),
-//                   child: SingleChildScrollView(
-//                     child: Column(
-//                       children: [
-//                         if (widget.leading != null) widget.leading!,
-//                         TextArea(
-//                           focusNode: _focusNode,
-//                           editingController: _editingController,
-//                           hint: widget.hint,
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//                 SafeArea(
-//                   bottom: true,
-//                   child: Align(
-//                     alignment: Alignment.bottomCenter,
-//                     child: Container(
-//                       color: context.theme.colorScheme.surfaceContainerHighest,
-//                       width: double.maxFinite,
-//                       child: MarkdownToolbar(
-//                         controller: _editingController,
-//                         focusNode: _focusNode,
-//                       ),
-//                     ),
-//                   ),
-//                 )
-//               ],
-//             ),
-//             MarkdownWidget(
-//               data: _editingController.text,
-//               selectable: true,
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-
-//   bool onWillPop() {
-//     if (_pageController.page == _pageController.initialPage) {
-//       return true;
-//     } else {
-//       _pageController.previousPage(
-//         duration: const Duration(milliseconds: 200),
-//         curve: Curves.linear,
-//       );
-//       return false;
-//     }
-//   }
-
-//   (int start, int end) getSelectedText() {
-//     // print(_editingController.selection.extentOffset);
-//     int start = _editingController.selection.baseOffset <
-//             _editingController.selection.extentOffset
-//         ? _editingController.selection.baseOffset
-//         : _editingController.selection.extentOffset;
-
-//     var end = _editingController.selection.baseOffset >
-//             _editingController.selection.extentOffset
-//         ? _editingController.selection.baseOffset
-//         : _editingController.selection.extentOffset;
-
-//     return (
-//       start == -1 ? 0 : start,
-//       end == -1 ? 0 : end,
-//     );
-//   }
-
-//   void replaceAround(
-//       (int start, int end) range, String startStr, String endStr) {
-//     var text = _editingController.text.substring(range.$1, range.$2);
-//     _editingController.text = _editingController.text
-//         .replaceRange(range.$1, range.$2, '$startStr$text$endStr');
-
-//     if (text.isEmpty) {
-//       _editingController.selection = TextSelection.fromPosition(
-//           TextPosition(offset: range.$1 + startStr.length));
-//     }
-//   }
-// }
 
 class TextArea extends StatefulWidget {
   const TextArea({
@@ -592,15 +392,12 @@ class MarkdownToolbar extends StatelessWidget {
         defaultTitle: selectedText.isNotEmpty ? selectedText : null,
       ),
     );
-    if (linkData != null) {
-      if (linkData!.first.isNotEmpty) {
-        // print(getSelectedTextRange());
-        replaceRange(
-          getSelectedTextRange(),
-          "[${linkData.last.isNotEmpty ? linkData.last : 'link'}](${linkData.first})",
-        );
-        focusNode.requestFocus();
-      }
+    if (linkData != null && linkData.first.isNotEmpty) {
+      replaceRange(
+        getSelectedTextRange(),
+        "[${linkData.last.isNotEmpty ? linkData.last : 'link'}](${linkData.first})",
+      );
+      focusNode.requestFocus();
     }
   }
 

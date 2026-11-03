@@ -27,6 +27,5 @@ class CenterBlockSyntax extends BlockSyntax {
   }
 
   @override
-  // TODO: implement pattern
   RegExp get pattern => RegExp(r"^~~~([\s\S]*?)~~~$");
 }

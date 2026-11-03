@@ -104,7 +104,6 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                       query.isAdult = null;
                     }
 
-                    print(jsonEncode(query.toJson()));
                     ref.read(sharedPrefsProvider).setStringList(
                       "mediaSearches",
                       [

@@ -5,7 +5,6 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myaniapp/common/cached_image.dart';
 import 'package:myaniapp/common/ink_well_image.dart';
-import 'package:myaniapp/common/media_cards/sheet.dart';
 import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';

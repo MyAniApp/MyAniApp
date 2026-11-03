@@ -54,7 +54,7 @@ class MediaCharactersTab extends HookWidget {
     }, [snapshot.parsedData]);
     var charactersMemo =
         useMemoized<
-          Iterable<
+          List<
             ({
               Query$MediaCharacters$Media$characters$edges character,
               Query$MediaCharacters$Media$characters$edges$voiceActorRoles? va,
@@ -77,10 +77,13 @@ class MediaCharactersTab extends HookWidget {
                   '${element!.voiceActor!.languageV2!}${element.dubGroup != null ? ' (${element.dubGroup})' : ''}' ==
                   selectedLang.value,
             );
-            if (filtered == null || filtered.isEmpty == true)
+            if (filtered == null || filtered.isEmpty == true) {
               list.add((character: c, va: null));
+            }
 
-            for (var p in filtered!) list.add((character: c, va: p));
+            for (var p in filtered!) {
+              list.add((character: c, va: p));
+            }
           }
 
           return list;
@@ -103,7 +106,7 @@ class MediaCharactersTab extends HookWidget {
               snapshot.request!.variables,
             ).copyWith(page: nextPage).toJson(),
           ),
-          trailing: availableLangs.isNotEmpty
+          trailing: availableLangs.length > 1
               ? SliverPadding(
                   padding: const EdgeInsets.all(8.0),
                   sliver: SliverToBoxAdapter(
@@ -122,7 +125,7 @@ class MediaCharactersTab extends HookWidget {
               : null,
           itemCount: charactersMemo.length,
           itemBuilder: (context, index) {
-            var (:character, :va) = charactersMemo.elementAt(index);
+            var (:character, :va) = charactersMemo[index];
 
             return Card(
               child: InkWell(

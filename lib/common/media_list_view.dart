@@ -4,12 +4,9 @@ import 'package:collection/collection.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/list_setting_button.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
-import 'package:myaniapp/common/media_cards/sheet.dart';
-import 'package:myaniapp/common/media_editor/media_editor.dart';
 import 'package:myaniapp/common/overlay/menu.dart';
 import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/constants.dart';
@@ -100,7 +97,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
       for (var (index, group) in listGroups.indexed) {
         listGroups[index] = group.copyWith(
           entries: [
-            ...?group?.entries?.whereNot((e) => e?.media?.isAdult == true),
+            ...?group.entries?.whereNot((e) => e?.media?.isAdult == true),
           ],
         );
       }
@@ -139,7 +136,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
         groups.addAll(leftover);
       }
     }
-    if (_tabController?.length != groups.length) {
+    if (_tabController.length != groups.length) {
       _tabController = TabController(length: groups.length, vsync: this);
     }
     sort = switch (widget
@@ -161,7 +158,7 @@ class _MediaListViewState extends ConsumerState<MediaListView>
   @override
   void dispose() {
     super.dispose();
-    _tabController?.dispose();
+    _tabController.dispose();
   }
 
   void sortEntries() {
@@ -246,23 +243,25 @@ class _MediaListViewState extends ConsumerState<MediaListView>
                 isScrollControlled: true,
                 builder: (context) => DraggableScrollableSheet(
                   expand: false,
-                  builder: (context, scrollController) => ListView(
-                    controller: scrollController,
-                    children: [
-                      for (var e in (listSortingOptions.entries))
-                        RadioListTile<Enum$MediaListSort>.adaptive(
-                          value: e.key,
-                          groupValue: sort,
-                          title: Text(e.value),
-                          onChanged: (value) {
-                            sort =
-                                value ?? Enum$MediaListSort.UPDATED_TIME_DESC;
-                            sortEntries();
-                            context.pop();
-                          },
+                  builder: (context, scrollController) =>
+                      RadioGroup<Enum$MediaListSort>(
+                        groupValue: sort,
+                        onChanged: (value) {
+                          sort = value ?? Enum$MediaListSort.UPDATED_TIME_DESC;
+                          sortEntries();
+                          context.pop();
+                        },
+                        child: ListView(
+                          controller: scrollController,
+                          children: [
+                            for (var e in (listSortingOptions.entries))
+                              RadioListTile<Enum$MediaListSort>.adaptive(
+                                value: e.key,
+                                title: Text(e.value),
+                              ),
+                          ],
                         ),
-                    ],
-                  ),
+                      ),
                 ),
               ),
               icon: const Icon(Icons.sort),

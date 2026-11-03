@@ -2,12 +2,9 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myaniapp/common/cached_image.dart';
-import 'package:myaniapp/common/ink_well_image.dart';
 import 'package:myaniapp/common/media_cards/grid_card.dart';
-import 'package:myaniapp/common/media_cards/list_card.dart';
 import 'package:myaniapp/common/media_cards/media_card.dart';
 import 'package:myaniapp/common/media_cards/sheet.dart';
-import 'package:myaniapp/common/show.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
@@ -215,10 +212,11 @@ class _Media {
       }
     }
 
-    if (unknownAtStart && tbas.medias.isNotEmpty)
+    if (unknownAtStart && tbas.medias.isNotEmpty) {
       list.insert(0, tbas);
-    else if (tbas.medias.isNotEmpty)
+    } else if (tbas.medias.isNotEmpty) {
       list.add(tbas);
+    }
 
     return list;
   }

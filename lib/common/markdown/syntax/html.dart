@@ -1,4 +1,5 @@
 import 'package:markdown/markdown.dart';
+// ignore: implementation_imports
 import 'package:markdown/src/util.dart';
 import 'package:myaniapp/common/markdown/generator/html.dart';
 import 'package:html/dom.dart' as h;
@@ -19,7 +20,7 @@ class HTMLInlineSynyax extends InlineHtmlSyntax {
     // Before matching with the regular expression [pattern], which can be
     // expensive on some platforms, check if even the first character matches
     // this syntax.
-    if ($lt != null && parser.source.codeUnitAt(startMatchPos) != $lt) {
+    if (parser.source.codeUnitAt(startMatchPos) != $lt) {
       return false;
     }
 
@@ -30,8 +31,9 @@ class HTMLInlineSynyax extends InlineHtmlSyntax {
     // Write any existing plain text up to this point.
     parser.writeText();
 
-    if (onMatch(parser, allMatches.last))
+    if (onMatch(parser, allMatches.last)) {
       parser.consume(allMatches.last.end - allMatches.first.start);
+    }
     return true;
   }
 

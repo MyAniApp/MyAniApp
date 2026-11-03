@@ -149,7 +149,7 @@ class UserAppBar extends StatelessWidget {
           child: BackButton(
             style: ButtonStyle(
               backgroundColor: WidgetStatePropertyAll<Color?>(
-                context.theme.colorScheme.surface.withOpacity(.3),
+                context.theme.colorScheme.surface.withValues(alpha: .3),
               ),
               iconColor: WidgetStatePropertyAll(
                 context.theme.colorScheme.onSurface,

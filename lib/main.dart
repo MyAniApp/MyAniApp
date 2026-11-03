@@ -100,13 +100,9 @@ class _MainAppState extends ConsumerState<MainApp> {
     // Check initial link if app was in cold state (terminated)
     final appLink = await _appLinks.getInitialLink();
     if (appLink != null) {
-      print('getInitialAppLink: $appLink');
       openAppLink(appLink);
     }
 
-    // if (!kIsWeb) return;5
-
-    print('listening...');
     _linkSubscription = _appLinks.uriLinkStream.listen((uri) {
       if (uri.scheme == "myaniapp" &&
           uri.host == "ani" &&

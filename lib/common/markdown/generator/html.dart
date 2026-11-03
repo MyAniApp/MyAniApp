@@ -53,7 +53,7 @@ void htmlToMarkdown(
         _kBlockTags.contains(tag) ||
         (markdownConfig.builders.containsKey(tag) &&
             markdownConfig.builders[tag]!.isBlockElement());
-    if (isBlock && node?.parent != null && node.parent!.localName != null) {
+    if (isBlock && node.parent != null && node.parent!.localName != null) {
       bool isParentBlock =
           _kBlockTags.contains(node.parent!.localName) ||
           (markdownConfig.builders.containsKey(node.parent!.localName) &&
@@ -95,7 +95,7 @@ List<h.Node> parseHtml(m.Text node, {TextStyle? parentStyle}) {
     h.DocumentFragment document = parseFragment(text);
     return document.nodes.toList();
   } catch (e) {
-    print(e);
+    debugPrint(e.toString());
     return [h.Text(node.text)];
   }
 }
