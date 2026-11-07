@@ -1,4 +1,6 @@
 import 'package:collection/collection.dart';
+import 'package:flutter_hooks/flutter_hooks.dart' show useState;
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:myaniapp/app/home/screen.dart';
@@ -8,6 +10,7 @@ import 'package:myaniapp/common/markdown_editor.dart';
 import 'package:myaniapp/common/pagination.dart';
 import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/graphql/__gen/home_activities.graphql.dart';
+import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/graphql/mutations.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/common/gql_widget.dart';
@@ -16,15 +19,10 @@ import 'package:myaniapp/providers/user.dart';
 import 'package:myaniapp/utils.dart';
 import 'package:mygraphql/graphql.dart';
 
-class HomeActivitiesTab extends StatefulHookConsumerWidget {
+enum ActivityFilter { all, text, list }
+
+class HomeActivitiesTab extends HookConsumerWidget {
   const HomeActivitiesTab({super.key});
-
-  @override
-  ConsumerState<HomeActivitiesTab> createState() => _HomeActivitiesTabState();
-}
-
-class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
-  bool isFollowing = false;
 
   Icon getThumbIcon(Set<WidgetState> state) {
     if (state.contains(WidgetState.selected)) {
@@ -35,18 +33,30 @@ class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isFollowing = useState(false);
+    final activityFilter = useState(ActivityFilter.all);
+
     var user = ref.watch(userProvider);
     var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
       GQLRequest(
         homeActivitiesQuery,
         variables: Variables$Query$HomeActivities(
-          hasReplies: !isFollowing,
-          isFollowing: isFollowing,
+          hasReplies: !isFollowing.value,
+          isFollowing: isFollowing.value,
+          activityType: activityFilter.value == .all
+              ? null
+              : activityFilter.value == .list
+              ? .MEDIA_LIST
+              : activityFilter.value == .text
+              ? .TEXT
+              : null,
         ).toJson(),
         parseData: (json) {
           var list = Query$HomeActivities.fromJson(json);
-          if (hideAdultContent) {
+          if (hideAdultContent ||
+              user.value?.parsedData?.Viewer?.options?.displayAdultActivities ==
+                  false) {
             return list.copyWith(
               Page: list.Page?.copyWith(
                 activities: [
@@ -76,15 +86,13 @@ class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
           "send a post",
           () => MarkdownEditor.show(
             context,
-            onSave: (text) => mutationSaveTextActivity(text).then(
-              (value) => setState(() {
-                if (!isFollowing) {
-                  isFollowing = true;
-                } else {
-                  refetch();
-                }
-              }),
-            ),
+            onSave: (text) => mutationSaveTextActivity(text).then((value) {
+              if (!isFollowing.value) {
+                isFollowing.value = true;
+              } else {
+                refetch();
+              }
+            }),
             hint: "Write a post",
           ),
         ),
@@ -94,12 +102,43 @@ class _HomeActivitiesTabState extends ConsumerState<HomeActivitiesTab> {
         appBar: AppBar(
           leading: const HomeLeadingIcon(),
           actions: [
+            IconButton(
+              onPressed: () => showModalBottomSheet(
+                context: context,
+                showDragHandle: true,
+                enableDrag: true,
+                builder: (context) => RadioGroup<ActivityFilter>(
+                  groupValue: activityFilter.value,
+                  onChanged: (value) {
+                    activityFilter.value = value ?? .all;
+                    context.pop();
+                  },
+                  child: ListView(
+                    children: [
+                      RadioListTile<ActivityFilter>.adaptive(
+                        title: Text("All"),
+                        value: .all,
+                      ),
+                      RadioListTile<ActivityFilter>.adaptive(
+                        title: Text("Text"),
+                        value: .text,
+                      ),
+                      RadioListTile<ActivityFilter>.adaptive(
+                        title: Text("List Progress"),
+                        value: .list,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              icon: Icon(Icons.filter_alt_outlined),
+            ),
             if (user.value?.data != null)
               Switch.adaptive(
-                value: isFollowing,
+                value: isFollowing.value,
                 thumbIcon: WidgetStateProperty.resolveWith(getThumbIcon),
                 onChanged: (value) {
-                  setState(() => isFollowing = !isFollowing);
+                  isFollowing.value = !isFollowing.value;
                   Future.delayed(
                     const Duration(milliseconds: 100),
                     () => refetch(),

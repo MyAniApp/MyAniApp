@@ -23,7 +23,7 @@ query Search(
     $genres: [String]
     $with_tags: [String]
     $without_tags: [String]
-    $isAdult: Boolean = false
+    $isAdult: Boolean
     $onList: Boolean
     $countryOfOrigin: CountryCode
 ) {

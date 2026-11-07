@@ -33,6 +33,6 @@ Some commands to run.
 
 When added/editing `.graphql` files && to add new routes run `dart run build_runner watch --delete-conflicting-outputs`
 
-Also run dart run ./scripts/graphql.dart for `.graphql` files
+Also run dart run ./scripts/graphql.dart for new queries and mutation `.graphql` files
 
 run with flag `--dart-define=hideAdultContent=true` in `flutter run` or `flutter build [x]` to remove 18+ content.

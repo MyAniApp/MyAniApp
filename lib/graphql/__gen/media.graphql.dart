@@ -1,6 +1,8 @@
 import 'fragments/fuzzy_date.graphql.dart';
 import 'fragments/media.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Variables$Query$Media {
@@ -1200,6 +1202,7 @@ class Query$Media$Media implements Fragment$MediaFragment {
 
   final bool isFavouriteBlocked;
 
+  @Deprecated('Use weightedScore')
   final int? averageScore;
 
   final int? duration;

@@ -24,15 +24,18 @@ class SettingsSection extends StatelessWidget {
               style: context.theme.textTheme.titleMedium?.bold,
             ),
           ),
-        Material(
-          color: context.theme.colorScheme.surfaceContainerHighest.withValues(
-            alpha: .3,
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.colorScheme.surfaceContainerHighest.withValues(
+              alpha: .3,
+            ),
+            borderRadius: imageRadius,
           ),
-          borderRadius: imageRadius,
-          borderOnForeground: true,
+          // borderOnForeground: true,
           child: ListView.separated(
             shrinkWrap: true,
             primary: false,
+            padding: EdgeInsets.zero,
             itemCount: tiles.length,
             itemBuilder: (context, index) => tiles[index],
             separatorBuilder: (context, index) => const Padding(
@@ -145,22 +148,33 @@ class CheckboxSettingsTile extends SettingsTile {
   CheckboxSettingsTile({
     super.key,
     required String title,
-    required this.value,
+    this.value,
     required this.onChanged,
     super.icon,
     super.subtitle,
     super.enabled,
+    this.tristate = false,
   }) : super(
          child: Checkbox.adaptive(
            value: value,
            onChanged: enabled == false ? null : onChanged,
+           tristate: tristate,
          ),
-         onTap: () => onChanged(!value),
+         onTap: () => onChanged(
+           value == false
+               ? true
+               : value == true
+               ? tristate
+                     ? null
+                     : false
+               : false,
+         ),
          title: Text(title),
        );
 
   final void Function(bool? value) onChanged;
-  final bool value;
+  final bool? value;
+  final bool tristate;
 }
 
 class RadioSettingsTile extends SettingsTile {

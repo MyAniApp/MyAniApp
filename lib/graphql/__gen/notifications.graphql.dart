@@ -1,7 +1,9 @@
 import 'fragments/media.graphql.dart';
 import 'fragments/page_info.graphql.dart';
 import 'fragments/user.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Variables$Query$Notifications {
@@ -2160,6 +2162,21 @@ class Query$Notifications$Page$notifications {
           json,
         );
 
+      case "MediaSubmissionUpdateNotification":
+        return Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification.fromJson(
+          json,
+        );
+
+      case "StaffSubmissionUpdateNotification":
+        return Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification.fromJson(
+          json,
+        );
+
+      case "CharacterSubmissionUpdateNotification":
+        return Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification.fromJson(
+          json,
+        );
+
       default:
         final l$$__typename = json['__typename'];
         return Query$Notifications$Page$notifications(
@@ -2278,6 +2295,18 @@ extension UtilityExtension$Query$Notifications$Page$notifications
       Query$Notifications$Page$notifications$$MediaDeletionNotification,
     )
     mediaDeletionNotification,
+    required _T Function(
+      Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification,
+    )
+    mediaSubmissionUpdateNotification,
+    required _T Function(
+      Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification,
+    )
+    staffSubmissionUpdateNotification,
+    required _T Function(
+      Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification,
+    )
+    characterSubmissionUpdateNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
@@ -2381,6 +2410,24 @@ extension UtilityExtension$Query$Notifications$Page$notifications
               as Query$Notifications$Page$notifications$$MediaDeletionNotification,
         );
 
+      case "MediaSubmissionUpdateNotification":
+        return mediaSubmissionUpdateNotification(
+          this
+              as Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification,
+        );
+
+      case "StaffSubmissionUpdateNotification":
+        return staffSubmissionUpdateNotification(
+          this
+              as Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification,
+        );
+
+      case "CharacterSubmissionUpdateNotification":
+        return characterSubmissionUpdateNotification(
+          this
+              as Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification,
+        );
+
       default:
         return orElse();
     }
@@ -2447,6 +2494,18 @@ extension UtilityExtension$Query$Notifications$Page$notifications
       Query$Notifications$Page$notifications$$MediaDeletionNotification,
     )?
     mediaDeletionNotification,
+    _T Function(
+      Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification,
+    )?
+    mediaSubmissionUpdateNotification,
+    _T Function(
+      Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification,
+    )?
+    staffSubmissionUpdateNotification,
+    _T Function(
+      Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification,
+    )?
+    characterSubmissionUpdateNotification,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
@@ -2614,6 +2673,36 @@ extension UtilityExtension$Query$Notifications$Page$notifications
           return mediaDeletionNotification(
             this
                 as Query$Notifications$Page$notifications$$MediaDeletionNotification,
+          );
+        } else {
+          return orElse();
+        }
+
+      case "MediaSubmissionUpdateNotification":
+        if (mediaSubmissionUpdateNotification != null) {
+          return mediaSubmissionUpdateNotification(
+            this
+                as Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification,
+          );
+        } else {
+          return orElse();
+        }
+
+      case "StaffSubmissionUpdateNotification":
+        if (staffSubmissionUpdateNotification != null) {
+          return staffSubmissionUpdateNotification(
+            this
+                as Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification,
+          );
+        } else {
+          return orElse();
+        }
+
+      case "CharacterSubmissionUpdateNotification":
+        if (characterSubmissionUpdateNotification != null) {
+          return characterSubmissionUpdateNotification(
+            this
+                as Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification,
           );
         } else {
           return orElse();
@@ -8248,4 +8337,385 @@ class _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaDeletionNot
     int? createdAt,
     String? $__typename,
   }) => _res;
+}
+
+class Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification
+    implements Query$Notifications$Page$notifications {
+  Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification({
+    this.$__typename = 'MediaSubmissionUpdateNotification',
+  });
+
+  factory Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    final l$$__typename = json['__typename'];
+    return Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification(
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other
+            is! Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification
+    on Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification {
+  CopyWith$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification<
+    Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification<
+  TRes
+> {
+  factory CopyWith$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification(
+    Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification
+    instance,
+    TRes Function(
+      Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification,
+    )
+    then,
+  ) = _CopyWithImpl$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification;
+
+  factory CopyWith$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification.stub(
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification;
+
+  TRes call({String? $__typename});
+}
+
+class _CopyWithImpl$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification<
+  TRes
+>
+    implements
+        CopyWith$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification<
+          TRes
+        > {
+  _CopyWithImpl$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification(
+    this._instance,
+    this._then,
+  );
+
+  final Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification
+  _instance;
+
+  final TRes Function(
+    Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification,
+  )
+  _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
+}
+
+class _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification<
+  TRes
+>
+    implements
+        CopyWith$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification<
+          TRes
+        > {
+  _CopyWithStubImpl$Query$Notifications$Page$notifications$$MediaSubmissionUpdateNotification(
+    this._res,
+  );
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
+}
+
+class Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification
+    implements Query$Notifications$Page$notifications {
+  Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification({
+    this.$__typename = 'StaffSubmissionUpdateNotification',
+  });
+
+  factory Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    final l$$__typename = json['__typename'];
+    return Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification(
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other
+            is! Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification
+    on Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification {
+  CopyWith$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification<
+    Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification<
+  TRes
+> {
+  factory CopyWith$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification(
+    Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification
+    instance,
+    TRes Function(
+      Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification,
+    )
+    then,
+  ) = _CopyWithImpl$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification;
+
+  factory CopyWith$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification.stub(
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification;
+
+  TRes call({String? $__typename});
+}
+
+class _CopyWithImpl$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification<
+  TRes
+>
+    implements
+        CopyWith$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification<
+          TRes
+        > {
+  _CopyWithImpl$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification(
+    this._instance,
+    this._then,
+  );
+
+  final Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification
+  _instance;
+
+  final TRes Function(
+    Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification,
+  )
+  _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
+}
+
+class _CopyWithStubImpl$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification<
+  TRes
+>
+    implements
+        CopyWith$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification<
+          TRes
+        > {
+  _CopyWithStubImpl$Query$Notifications$Page$notifications$$StaffSubmissionUpdateNotification(
+    this._res,
+  );
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
+}
+
+class Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification
+    implements Query$Notifications$Page$notifications {
+  Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification({
+    this.$__typename = 'CharacterSubmissionUpdateNotification',
+  });
+
+  factory Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    final l$$__typename = json['__typename'];
+    return Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification(
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other
+            is! Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification
+    on Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification {
+  CopyWith$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification<
+    Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification
+  >
+  get copyWith =>
+      CopyWith$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification<
+  TRes
+> {
+  factory CopyWith$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification(
+    Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification
+    instance,
+    TRes Function(
+      Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification,
+    )
+    then,
+  ) = _CopyWithImpl$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification;
+
+  factory CopyWith$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification.stub(
+    TRes res,
+  ) = _CopyWithStubImpl$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification;
+
+  TRes call({String? $__typename});
+}
+
+class _CopyWithImpl$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification<
+  TRes
+>
+    implements
+        CopyWith$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification<
+          TRes
+        > {
+  _CopyWithImpl$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification(
+    this._instance,
+    this._then,
+  );
+
+  final Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification
+  _instance;
+
+  final TRes Function(
+    Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification,
+  )
+  _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? $__typename = _undefined}) => _then(
+    Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification(
+      $__typename: $__typename == _undefined || $__typename == null
+          ? _instance.$__typename
+          : ($__typename as String),
+    ),
+  );
+}
+
+class _CopyWithStubImpl$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification<
+  TRes
+>
+    implements
+        CopyWith$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification<
+          TRes
+        > {
+  _CopyWithStubImpl$Query$Notifications$Page$notifications$$CharacterSubmissionUpdateNotification(
+    this._res,
+  );
+
+  TRes _res;
+
+  call({String? $__typename}) => _res;
 }

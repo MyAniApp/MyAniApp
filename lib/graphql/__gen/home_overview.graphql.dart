@@ -5,7 +5,9 @@ import 'fragments/releasing_media.graphql.dart';
 import 'fragments/review.graphql.dart';
 import 'fragments/thread.graphql.dart';
 import 'fragments/user.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Variables$Query$HomeOverview {

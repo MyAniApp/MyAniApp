@@ -4,6 +4,7 @@ import 'package:myaniapp/graphql/__gen/media.graphql.dart';
 import 'package:myaniapp/graphql/__gen/recommendations.graphql.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/graphql/__gen/thread.graphql.dart';
+import 'package:myaniapp/graphql/__gen/viewer.graphql.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/main.dart';
 import 'package:mygraphql/graphql.dart';
@@ -137,5 +138,13 @@ Future<GQLResponse> mutationSaveRecommendation(
           ).toJson(),
         ),
       )
+      .last;
+}
+
+Future<GQLResponse> mutationUpdateUser(
+  Variables$Mutation$UpdateUser variables,
+) {
+  return gqlClient
+      .query(GQLRequest(updateUserQuery, variables: variables.toJson()))
       .last;
 }

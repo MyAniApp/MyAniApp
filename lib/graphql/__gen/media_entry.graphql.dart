@@ -1,7 +1,9 @@
 import 'fragments/fuzzy_date.graphql.dart';
 import 'fragments/media.graphql.dart';
 import 'fragments/media_entry.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Variables$Query$MediaEntry {
@@ -963,6 +965,7 @@ class Query$MediaEntry$MediaList$media
 
   final Enum$MediaStatus? status;
 
+  @Deprecated('Use weightedScore')
   final int? averageScore;
 
   final int? popularity;

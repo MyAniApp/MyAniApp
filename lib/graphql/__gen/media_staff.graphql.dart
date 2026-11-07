@@ -1,5 +1,6 @@
 import 'fragments/page_info.graphql.dart';
 import 'fragments/staff.graphql.dart';
+
 import 'package:gql/ast.dart';
 
 class Variables$Query$MediaStaff {

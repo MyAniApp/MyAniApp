@@ -1,6 +1,8 @@
 import 'fragments/page_info.graphql.dart';
 import 'fragments/staff.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Variables$Query$StaffSearch {

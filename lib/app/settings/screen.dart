@@ -6,6 +6,7 @@ import 'package:myaniapp/constants.dart';
 import 'package:myaniapp/extensions.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/graphql/__gen/viewer.graphql.dart';
+import 'package:myaniapp/graphql/mutations.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/main.dart';
 import 'package:myaniapp/providers/settings.dart';
@@ -131,17 +132,9 @@ class SettingsScreen extends ConsumerWidget {
                       label: Enum$UserTitleLanguage.ENGLISH.name.capitalize(),
                     ),
                   ],
-                  onSelected: (value) => gqlClient
-                      .query(
-                        GQLRequest(
-                          updateUserQuery,
-                          variables: Variables$Mutation$UpdateUser(
-                            titleLanguage: value,
-                          ).toJson(),
-                        ),
-                      )
-                      .last
-                      .then((value) => ref.refresh(userProvider)),
+                  onSelected: (value) => mutationUpdateUser(
+                    Variables$Mutation$UpdateUser(titleLanguage: value),
+                  ).then((value) => ref.refresh(userProvider)),
                 ),
                 PopupSettingsTile(
                   title: "Staff & Character Name Language",
@@ -168,17 +161,9 @@ class SettingsScreen extends ConsumerWidget {
                           .capitalize(),
                     ),
                   ],
-                  onSelected: (value) => gqlClient
-                      .query(
-                        GQLRequest(
-                          updateUserQuery,
-                          variables: Variables$Mutation$UpdateUser(
-                            staffNameLanguage: value,
-                          ).toJson(),
-                        ),
-                      )
-                      .last
-                      .then((value) => ref.refresh(userProvider)),
+                  onSelected: (value) => mutationUpdateUser(
+                    Variables$Mutation$UpdateUser(staffNameLanguage: value),
+                  ).then((value) => ref.refresh(userProvider)),
                 ),
                 PopupSettingsTile(
                   title: "Activity Time",
@@ -211,17 +196,9 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                       )
                       .toList(),
-                  onSelected: (value) => gqlClient
-                      .query(
-                        GQLRequest(
-                          updateUserQuery,
-                          variables: Variables$Mutation$UpdateUser(
-                            activityMergeTime: value,
-                          ).toJson(),
-                        ),
-                      )
-                      .last
-                      .then((value) => ref.refresh(userProvider)),
+                  onSelected: (value) => mutationUpdateUser(
+                    Variables$Mutation$UpdateUser(activityMergeTime: value),
+                  ).then((value) => ref.refresh(userProvider)),
                 ),
                 SwitchSettingsTile(
                   title: "Airing Anime Notifications",
@@ -231,39 +208,40 @@ class SettingsScreen extends ConsumerWidget {
                       .Viewer!
                       .options!
                       .airingNotifications!,
-                  onChanged: (value) => gqlClient
-                      .query(
-                        GQLRequest(
-                          updateUserQuery,
-                          variables: Variables$Mutation$UpdateUser(
-                            airingNotifications: value,
-                          ).toJson(),
-                        ),
-                      )
-                      .last
-                      .then((value) => ref.refresh(userProvider)),
+                  onChanged: (value) => mutationUpdateUser(
+                    Variables$Mutation$UpdateUser(airingNotifications: value),
+                  ).then((value) => ref.refresh(userProvider)),
                 ),
-                if (!hideAdultContent)
+                if (!hideAdultContent) ...[
                   SwitchSettingsTile(
-                    title: "Adult Content",
+                    title: "Dsiplay 18+ Content",
                     value: user
                         .value!
                         .parsedData!
                         .Viewer!
                         .options!
                         .displayAdultContent!,
-                    onChanged: (value) => gqlClient
-                        .query(
-                          GQLRequest(
-                            updateUserQuery,
-                            variables: Variables$Mutation$UpdateUser(
-                              displayAdultContent: value,
-                            ).toJson(),
-                          ),
-                        )
-                        .last
-                        .then((value) => ref.refresh(userProvider)),
+                    onChanged: (value) => mutationUpdateUser(
+                      Variables$Mutation$UpdateUser(displayAdultContent: value),
+                    ).then((value) => ref.refresh(userProvider)),
                   ),
+                  SwitchSettingsTile(
+                    title: "Include 18+ Media on Browse Page by Default",
+                    value:
+                        user
+                            .value!
+                            .parsedData!
+                            .Viewer!
+                            .options!
+                            .includeAdultContentInSearch ??
+                        true,
+                    onChanged: (value) => mutationUpdateUser(
+                      Variables$Mutation$UpdateUser(
+                        includeAdultContentInSearch: value,
+                      ),
+                    ).then((_) => ref.refresh(userProvider)),
+                  ),
+                ],
               ],
             ),
           if (user.value?.parsedData?.Viewer != null)
@@ -297,17 +275,9 @@ class SettingsScreen extends ConsumerWidget {
                         },
                       ),
                   ],
-                  onSelected: (value) => gqlClient
-                      .query(
-                        GQLRequest(
-                          updateUserQuery,
-                          variables: Variables$Mutation$UpdateUser(
-                            scoreFormat: value,
-                          ).toJson(),
-                        ),
-                      )
-                      .last
-                      .then((value) => ref.refresh(userProvider)),
+                  onSelected: (value) => mutationUpdateUser(
+                    Variables$Mutation$UpdateUser(scoreFormat: value),
+                  ).then((value) => ref.refresh(userProvider)),
                 ),
                 PopupSettingsTile(
                   title: "Default List Order",
@@ -323,17 +293,9 @@ class SettingsScreen extends ConsumerWidget {
                     PopupSettingItem(value: "updatedAt", label: "Last Updated"),
                     PopupSettingItem(value: "id", label: "Last Added"),
                   ],
-                  onSelected: (value) => gqlClient
-                      .query(
-                        GQLRequest(
-                          updateUserQuery,
-                          variables: Variables$Mutation$UpdateUser(
-                            rowOrder: value,
-                          ).toJson(),
-                        ),
-                      )
-                      .last
-                      .then((value) => ref.refresh(userProvider)),
+                  onSelected: (value) => mutationUpdateUser(
+                    Variables$Mutation$UpdateUser(rowOrder: value),
+                  ).then((value) => ref.refresh(userProvider)),
                 ),
                 MultiPopupSettingsTile(
                   title: "Split Completed List Section By Format",
@@ -365,69 +327,51 @@ class SettingsScreen extends ConsumerWidget {
                   ],
                   onSaved: (values) {
                     if (values.contains("anime")) {
-                      gqlClient
-                          .query(
-                            GQLRequest(
-                              updateUserQuery,
-                              variables: Variables$Mutation$UpdateUser(
-                                animeListOptions: Input$MediaListOptionsInput(
-                                  splitCompletedSectionByFormat:
-                                      !(user
-                                              .value!
-                                              .parsedData!
-                                              .Viewer!
-                                              .mediaListOptions!
-                                              .animeList!
-                                              .splitCompletedSectionByFormat ??
-                                          false),
-                                ),
-                              ).toJson(),
-                            ),
-                          )
-                          .last
-                          .then((value) => ref.refresh(userProvider));
+                      mutationUpdateUser(
+                        Variables$Mutation$UpdateUser(
+                          animeListOptions: Input$MediaListOptionsInput(
+                            splitCompletedSectionByFormat:
+                                !(user
+                                        .value!
+                                        .parsedData!
+                                        .Viewer!
+                                        .mediaListOptions!
+                                        .animeList!
+                                        .splitCompletedSectionByFormat ??
+                                    false),
+                          ),
+                        ),
+                      ).then((value) => ref.refresh(userProvider));
                     }
                     if (values.contains("manga")) {
-                      gqlClient
-                          .query(
-                            GQLRequest(
-                              updateUserQuery,
-                              variables: Variables$Mutation$UpdateUser(
-                                mangaListOptions: Input$MediaListOptionsInput(
-                                  splitCompletedSectionByFormat:
-                                      !(user
-                                              .value!
-                                              .parsedData!
-                                              .Viewer!
-                                              .mediaListOptions!
-                                              .mangaList!
-                                              .splitCompletedSectionByFormat ??
-                                          false),
-                                ),
-                              ).toJson(),
-                            ),
-                          )
-                          .last
-                          .then((value) => ref.refresh(userProvider));
+                      mutationUpdateUser(
+                        Variables$Mutation$UpdateUser(
+                          mangaListOptions: Input$MediaListOptionsInput(
+                            splitCompletedSectionByFormat:
+                                !(user
+                                        .value!
+                                        .parsedData!
+                                        .Viewer!
+                                        .mediaListOptions!
+                                        .mangaList!
+                                        .splitCompletedSectionByFormat ??
+                                    false),
+                          ),
+                        ),
+                      ).then((value) => ref.refresh(userProvider));
                     }
 
                     if (values.length == 1 && values.first == null) {
-                      gqlClient
-                          .query(
-                            GQLRequest(
-                              updateUserQuery,
-                              variables: Variables$Mutation$UpdateUser(
-                                mangaListOptions: Input$MediaListOptionsInput(
-                                  splitCompletedSectionByFormat: false,
-                                ),
-                                animeListOptions: Input$MediaListOptionsInput(
-                                  splitCompletedSectionByFormat: false,
-                                ),
-                              ).toJson(),
-                            ),
-                          )
-                          .last
-                          .then((value) => ref.refresh(userProvider));
+                      mutationUpdateUser(
+                        Variables$Mutation$UpdateUser(
+                          mangaListOptions: Input$MediaListOptionsInput(
+                            splitCompletedSectionByFormat: false,
+                          ),
+                          animeListOptions: Input$MediaListOptionsInput(
+                            splitCompletedSectionByFormat: false,
+                          ),
+                        ),
+                      ).then((value) => ref.refresh(userProvider));
                     }
                   },
                 ),

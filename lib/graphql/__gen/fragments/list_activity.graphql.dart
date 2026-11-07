@@ -1,6 +1,8 @@
 import '../schema.graphql.dart';
 import 'media.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'user.graphql.dart';
 
 class Fragment$ListActivity {

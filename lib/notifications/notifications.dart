@@ -39,13 +39,13 @@ class AnilistNotification {
   }
 
   List<String> extractText() {
-    return notification.when(
+    return notification.maybeWhen(
       airingNotification: (n) => [
         n.contexts![0]!,
         n.episode.toString(),
         n.contexts![1]!,
         n.media!.title!.userPreferred!,
-        n.contexts![2]!
+        n.contexts![2]!,
       ],
       followingNotification: (n) => [n.user!.name, n.context!],
       activityMessageNotification: (n) => [n.user!.name, n.context!],
@@ -59,14 +59,18 @@ class AnilistNotification {
       threadCommentSubscribedNotification: (n) => [n.user!.name, n.context!],
       threadCommentLikeNotification: (n) => [n.user!.name, n.context!],
       threadLikeNotification: (n) => [n.user!.name, n.context!],
-      relatedMediaAdditionNotification: (n) =>
-          [n.media!.title!.userPreferred!, n.context!],
-      mediaDataChangeNotification: (n) =>
-          [n.media!.title!.userPreferred!, n.context!],
+      relatedMediaAdditionNotification: (n) => [
+        n.media!.title!.userPreferred!,
+        n.context!,
+      ],
+      mediaDataChangeNotification: (n) => [
+        n.media!.title!.userPreferred!,
+        n.context!,
+      ],
       mediaMergeNotification: (n) => [
         n.deletedMediaTitles!.join(', '),
         n.context!,
-        n.media!.title!.userPreferred!
+        n.media!.title!.userPreferred!,
       ],
       mediaDeletionNotification: (n) => [n.deletedMediaTitle!, n.context!],
       orElse: () => [],

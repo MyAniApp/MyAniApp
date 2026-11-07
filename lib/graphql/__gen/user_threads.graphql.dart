@@ -2,6 +2,7 @@ import 'fragments/media.graphql.dart';
 import 'fragments/page_info.graphql.dart';
 import 'fragments/thread.graphql.dart';
 import 'fragments/user.graphql.dart';
+
 import 'package:gql/ast.dart';
 
 class Variables$Query$UserThreads {

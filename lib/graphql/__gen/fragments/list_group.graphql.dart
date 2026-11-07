@@ -2,6 +2,7 @@ import '../schema.graphql.dart';
 import 'fuzzy_date.graphql.dart';
 import 'media.graphql.dart';
 import 'media_entry.graphql.dart';
+
 import 'package:gql/ast.dart';
 
 class Fragment$ListGroup {

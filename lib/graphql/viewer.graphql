@@ -28,6 +28,9 @@ fragment ThisUser on User {
   }
   options {
     displayAdultContent
+    includeAdultContentInSearch
+    includeAdultContentInQuickSearch
+    displayAdultActivities
     airingNotifications
     titleLanguage
     staffNameLanguage
@@ -73,6 +76,9 @@ mutation UpdateUser(
   $about: String
   $titleLanguage: UserTitleLanguage
   $displayAdultContent: Boolean
+  $includeAdultContentInSearch: Boolean
+  $includeAdultContentInQuickSearch: Boolean
+  $displayAdultActivities: Boolean
   $airingNotifications: Boolean
   $scoreFormat: ScoreFormat
   $rowOrder: String
@@ -91,6 +97,9 @@ mutation UpdateUser(
     about: $about
     titleLanguage: $titleLanguage
     displayAdultContent: $displayAdultContent
+    includeAdultContentInSearch: $includeAdultContentInSearch
+    includeAdultContentInQuickSearch: $includeAdultContentInQuickSearch
+    displayAdultActivities: $displayAdultActivities
     airingNotifications: $airingNotifications
     scoreFormat: $scoreFormat
     rowOrder: $rowOrder

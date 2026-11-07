@@ -1,5 +1,7 @@
 import 'fragments/user.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Fragment$ThisUser implements Fragment$UserFragment {
@@ -625,6 +627,27 @@ const fragmentDefinitionThisUser = FragmentDefinitionNode(
           selections: [
             FieldNode(
               name: NameNode(value: 'displayAdultContent'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'includeAdultContentInSearch'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'includeAdultContentInQuickSearch'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'displayAdultActivities'),
               alias: null,
               arguments: [],
               directives: [],
@@ -1509,6 +1532,9 @@ class _CopyWithStubImpl$Fragment$ThisUser$statistics$manga<TRes>
 class Fragment$ThisUser$options {
   Fragment$ThisUser$options({
     this.displayAdultContent,
+    this.includeAdultContentInSearch,
+    this.includeAdultContentInQuickSearch,
+    this.displayAdultActivities,
     this.airingNotifications,
     this.titleLanguage,
     this.staffNameLanguage,
@@ -1519,6 +1545,10 @@ class Fragment$ThisUser$options {
 
   factory Fragment$ThisUser$options.fromJson(Map<String, dynamic> json) {
     final l$displayAdultContent = json['displayAdultContent'];
+    final l$includeAdultContentInSearch = json['includeAdultContentInSearch'];
+    final l$includeAdultContentInQuickSearch =
+        json['includeAdultContentInQuickSearch'];
+    final l$displayAdultActivities = json['displayAdultActivities'];
     final l$airingNotifications = json['airingNotifications'];
     final l$titleLanguage = json['titleLanguage'];
     final l$staffNameLanguage = json['staffNameLanguage'];
@@ -1527,6 +1557,10 @@ class Fragment$ThisUser$options {
     final l$$__typename = json['__typename'];
     return Fragment$ThisUser$options(
       displayAdultContent: (l$displayAdultContent as bool?),
+      includeAdultContentInSearch: (l$includeAdultContentInSearch as bool?),
+      includeAdultContentInQuickSearch:
+          (l$includeAdultContentInQuickSearch as bool?),
+      displayAdultActivities: (l$displayAdultActivities as bool?),
       airingNotifications: (l$airingNotifications as bool?),
       titleLanguage: l$titleLanguage == null
           ? null
@@ -1544,6 +1578,12 @@ class Fragment$ThisUser$options {
 
   final bool? displayAdultContent;
 
+  final bool? includeAdultContentInSearch;
+
+  final bool? includeAdultContentInQuickSearch;
+
+  final bool? displayAdultActivities;
+
   final bool? airingNotifications;
 
   final Enum$UserTitleLanguage? titleLanguage;
@@ -1560,6 +1600,13 @@ class Fragment$ThisUser$options {
     final _resultData = <String, dynamic>{};
     final l$displayAdultContent = displayAdultContent;
     _resultData['displayAdultContent'] = l$displayAdultContent;
+    final l$includeAdultContentInSearch = includeAdultContentInSearch;
+    _resultData['includeAdultContentInSearch'] = l$includeAdultContentInSearch;
+    final l$includeAdultContentInQuickSearch = includeAdultContentInQuickSearch;
+    _resultData['includeAdultContentInQuickSearch'] =
+        l$includeAdultContentInQuickSearch;
+    final l$displayAdultActivities = displayAdultActivities;
+    _resultData['displayAdultActivities'] = l$displayAdultActivities;
     final l$airingNotifications = airingNotifications;
     _resultData['airingNotifications'] = l$airingNotifications;
     final l$titleLanguage = titleLanguage;
@@ -1582,6 +1629,9 @@ class Fragment$ThisUser$options {
   @override
   int get hashCode {
     final l$displayAdultContent = displayAdultContent;
+    final l$includeAdultContentInSearch = includeAdultContentInSearch;
+    final l$includeAdultContentInQuickSearch = includeAdultContentInQuickSearch;
+    final l$displayAdultActivities = displayAdultActivities;
     final l$airingNotifications = airingNotifications;
     final l$titleLanguage = titleLanguage;
     final l$staffNameLanguage = staffNameLanguage;
@@ -1590,6 +1640,9 @@ class Fragment$ThisUser$options {
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$displayAdultContent,
+      l$includeAdultContentInSearch,
+      l$includeAdultContentInQuickSearch,
+      l$displayAdultActivities,
       l$airingNotifications,
       l$titleLanguage,
       l$staffNameLanguage,
@@ -1611,6 +1664,24 @@ class Fragment$ThisUser$options {
     final l$displayAdultContent = displayAdultContent;
     final lOther$displayAdultContent = other.displayAdultContent;
     if (l$displayAdultContent != lOther$displayAdultContent) {
+      return false;
+    }
+    final l$includeAdultContentInSearch = includeAdultContentInSearch;
+    final lOther$includeAdultContentInSearch =
+        other.includeAdultContentInSearch;
+    if (l$includeAdultContentInSearch != lOther$includeAdultContentInSearch) {
+      return false;
+    }
+    final l$includeAdultContentInQuickSearch = includeAdultContentInQuickSearch;
+    final lOther$includeAdultContentInQuickSearch =
+        other.includeAdultContentInQuickSearch;
+    if (l$includeAdultContentInQuickSearch !=
+        lOther$includeAdultContentInQuickSearch) {
+      return false;
+    }
+    final l$displayAdultActivities = displayAdultActivities;
+    final lOther$displayAdultActivities = other.displayAdultActivities;
+    if (l$displayAdultActivities != lOther$displayAdultActivities) {
       return false;
     }
     final l$airingNotifications = airingNotifications;
@@ -1665,6 +1736,9 @@ abstract class CopyWith$Fragment$ThisUser$options<TRes> {
 
   TRes call({
     bool? displayAdultContent,
+    bool? includeAdultContentInSearch,
+    bool? includeAdultContentInQuickSearch,
+    bool? displayAdultActivities,
     bool? airingNotifications,
     Enum$UserTitleLanguage? titleLanguage,
     Enum$UserStaffNameLanguage? staffNameLanguage,
@@ -1686,6 +1760,9 @@ class _CopyWithImpl$Fragment$ThisUser$options<TRes>
 
   TRes call({
     Object? displayAdultContent = _undefined,
+    Object? includeAdultContentInSearch = _undefined,
+    Object? includeAdultContentInQuickSearch = _undefined,
+    Object? displayAdultActivities = _undefined,
     Object? airingNotifications = _undefined,
     Object? titleLanguage = _undefined,
     Object? staffNameLanguage = _undefined,
@@ -1697,6 +1774,16 @@ class _CopyWithImpl$Fragment$ThisUser$options<TRes>
       displayAdultContent: displayAdultContent == _undefined
           ? _instance.displayAdultContent
           : (displayAdultContent as bool?),
+      includeAdultContentInSearch: includeAdultContentInSearch == _undefined
+          ? _instance.includeAdultContentInSearch
+          : (includeAdultContentInSearch as bool?),
+      includeAdultContentInQuickSearch:
+          includeAdultContentInQuickSearch == _undefined
+          ? _instance.includeAdultContentInQuickSearch
+          : (includeAdultContentInQuickSearch as bool?),
+      displayAdultActivities: displayAdultActivities == _undefined
+          ? _instance.displayAdultActivities
+          : (displayAdultActivities as bool?),
       airingNotifications: airingNotifications == _undefined
           ? _instance.airingNotifications
           : (airingNotifications as bool?),
@@ -1727,6 +1814,9 @@ class _CopyWithStubImpl$Fragment$ThisUser$options<TRes>
 
   call({
     bool? displayAdultContent,
+    bool? includeAdultContentInSearch,
+    bool? includeAdultContentInQuickSearch,
+    bool? displayAdultActivities,
     bool? airingNotifications,
     Enum$UserTitleLanguage? titleLanguage,
     Enum$UserStaffNameLanguage? staffNameLanguage,
@@ -3105,6 +3195,9 @@ class Variables$Mutation$UpdateUser {
     String? about,
     Enum$UserTitleLanguage? titleLanguage,
     bool? displayAdultContent,
+    bool? includeAdultContentInSearch,
+    bool? includeAdultContentInQuickSearch,
+    bool? displayAdultActivities,
     bool? airingNotifications,
     Enum$ScoreFormat? scoreFormat,
     String? rowOrder,
@@ -3123,6 +3216,12 @@ class Variables$Mutation$UpdateUser {
     if (titleLanguage != null) r'titleLanguage': titleLanguage,
     if (displayAdultContent != null)
       r'displayAdultContent': displayAdultContent,
+    if (includeAdultContentInSearch != null)
+      r'includeAdultContentInSearch': includeAdultContentInSearch,
+    if (includeAdultContentInQuickSearch != null)
+      r'includeAdultContentInQuickSearch': includeAdultContentInQuickSearch,
+    if (displayAdultActivities != null)
+      r'displayAdultActivities': displayAdultActivities,
     if (airingNotifications != null)
       r'airingNotifications': airingNotifications,
     if (scoreFormat != null) r'scoreFormat': scoreFormat,
@@ -3159,6 +3258,22 @@ class Variables$Mutation$UpdateUser {
     if (data.containsKey('displayAdultContent')) {
       final l$displayAdultContent = data['displayAdultContent'];
       result$data['displayAdultContent'] = (l$displayAdultContent as bool?);
+    }
+    if (data.containsKey('includeAdultContentInSearch')) {
+      final l$includeAdultContentInSearch = data['includeAdultContentInSearch'];
+      result$data['includeAdultContentInSearch'] =
+          (l$includeAdultContentInSearch as bool?);
+    }
+    if (data.containsKey('includeAdultContentInQuickSearch')) {
+      final l$includeAdultContentInQuickSearch =
+          data['includeAdultContentInQuickSearch'];
+      result$data['includeAdultContentInQuickSearch'] =
+          (l$includeAdultContentInQuickSearch as bool?);
+    }
+    if (data.containsKey('displayAdultActivities')) {
+      final l$displayAdultActivities = data['displayAdultActivities'];
+      result$data['displayAdultActivities'] =
+          (l$displayAdultActivities as bool?);
     }
     if (data.containsKey('airingNotifications')) {
       final l$airingNotifications = data['airingNotifications'];
@@ -3257,6 +3372,15 @@ class Variables$Mutation$UpdateUser {
 
   bool? get displayAdultContent => (_$data['displayAdultContent'] as bool?);
 
+  bool? get includeAdultContentInSearch =>
+      (_$data['includeAdultContentInSearch'] as bool?);
+
+  bool? get includeAdultContentInQuickSearch =>
+      (_$data['includeAdultContentInQuickSearch'] as bool?);
+
+  bool? get displayAdultActivities =>
+      (_$data['displayAdultActivities'] as bool?);
+
   bool? get airingNotifications => (_$data['airingNotifications'] as bool?);
 
   Enum$ScoreFormat? get scoreFormat =>
@@ -3305,6 +3429,21 @@ class Variables$Mutation$UpdateUser {
     if (_$data.containsKey('displayAdultContent')) {
       final l$displayAdultContent = displayAdultContent;
       result$data['displayAdultContent'] = l$displayAdultContent;
+    }
+    if (_$data.containsKey('includeAdultContentInSearch')) {
+      final l$includeAdultContentInSearch = includeAdultContentInSearch;
+      result$data['includeAdultContentInSearch'] =
+          l$includeAdultContentInSearch;
+    }
+    if (_$data.containsKey('includeAdultContentInQuickSearch')) {
+      final l$includeAdultContentInQuickSearch =
+          includeAdultContentInQuickSearch;
+      result$data['includeAdultContentInQuickSearch'] =
+          l$includeAdultContentInQuickSearch;
+    }
+    if (_$data.containsKey('displayAdultActivities')) {
+      final l$displayAdultActivities = displayAdultActivities;
+      result$data['displayAdultActivities'] = l$displayAdultActivities;
     }
     if (_$data.containsKey('airingNotifications')) {
       final l$airingNotifications = airingNotifications;
@@ -3406,6 +3545,36 @@ class Variables$Mutation$UpdateUser {
       return false;
     }
     if (l$displayAdultContent != lOther$displayAdultContent) {
+      return false;
+    }
+    final l$includeAdultContentInSearch = includeAdultContentInSearch;
+    final lOther$includeAdultContentInSearch =
+        other.includeAdultContentInSearch;
+    if (_$data.containsKey('includeAdultContentInSearch') !=
+        other._$data.containsKey('includeAdultContentInSearch')) {
+      return false;
+    }
+    if (l$includeAdultContentInSearch != lOther$includeAdultContentInSearch) {
+      return false;
+    }
+    final l$includeAdultContentInQuickSearch = includeAdultContentInQuickSearch;
+    final lOther$includeAdultContentInQuickSearch =
+        other.includeAdultContentInQuickSearch;
+    if (_$data.containsKey('includeAdultContentInQuickSearch') !=
+        other._$data.containsKey('includeAdultContentInQuickSearch')) {
+      return false;
+    }
+    if (l$includeAdultContentInQuickSearch !=
+        lOther$includeAdultContentInQuickSearch) {
+      return false;
+    }
+    final l$displayAdultActivities = displayAdultActivities;
+    final lOther$displayAdultActivities = other.displayAdultActivities;
+    if (_$data.containsKey('displayAdultActivities') !=
+        other._$data.containsKey('displayAdultActivities')) {
+      return false;
+    }
+    if (l$displayAdultActivities != lOther$displayAdultActivities) {
       return false;
     }
     final l$airingNotifications = airingNotifications;
@@ -3557,6 +3726,9 @@ class Variables$Mutation$UpdateUser {
     final l$about = about;
     final l$titleLanguage = titleLanguage;
     final l$displayAdultContent = displayAdultContent;
+    final l$includeAdultContentInSearch = includeAdultContentInSearch;
+    final l$includeAdultContentInQuickSearch = includeAdultContentInQuickSearch;
+    final l$displayAdultActivities = displayAdultActivities;
     final l$airingNotifications = airingNotifications;
     final l$scoreFormat = scoreFormat;
     final l$rowOrder = rowOrder;
@@ -3575,6 +3747,15 @@ class Variables$Mutation$UpdateUser {
       _$data.containsKey('titleLanguage') ? l$titleLanguage : const {},
       _$data.containsKey('displayAdultContent')
           ? l$displayAdultContent
+          : const {},
+      _$data.containsKey('includeAdultContentInSearch')
+          ? l$includeAdultContentInSearch
+          : const {},
+      _$data.containsKey('includeAdultContentInQuickSearch')
+          ? l$includeAdultContentInQuickSearch
+          : const {},
+      _$data.containsKey('displayAdultActivities')
+          ? l$displayAdultActivities
           : const {},
       _$data.containsKey('airingNotifications')
           ? l$airingNotifications
@@ -3618,6 +3799,9 @@ abstract class CopyWith$Variables$Mutation$UpdateUser<TRes> {
     String? about,
     Enum$UserTitleLanguage? titleLanguage,
     bool? displayAdultContent,
+    bool? includeAdultContentInSearch,
+    bool? includeAdultContentInQuickSearch,
+    bool? displayAdultActivities,
     bool? airingNotifications,
     Enum$ScoreFormat? scoreFormat,
     String? rowOrder,
@@ -3648,6 +3832,9 @@ class _CopyWithImpl$Variables$Mutation$UpdateUser<TRes>
     Object? about = _undefined,
     Object? titleLanguage = _undefined,
     Object? displayAdultContent = _undefined,
+    Object? includeAdultContentInSearch = _undefined,
+    Object? includeAdultContentInQuickSearch = _undefined,
+    Object? displayAdultActivities = _undefined,
     Object? airingNotifications = _undefined,
     Object? scoreFormat = _undefined,
     Object? rowOrder = _undefined,
@@ -3669,6 +3856,13 @@ class _CopyWithImpl$Variables$Mutation$UpdateUser<TRes>
         'titleLanguage': (titleLanguage as Enum$UserTitleLanguage?),
       if (displayAdultContent != _undefined)
         'displayAdultContent': (displayAdultContent as bool?),
+      if (includeAdultContentInSearch != _undefined)
+        'includeAdultContentInSearch': (includeAdultContentInSearch as bool?),
+      if (includeAdultContentInQuickSearch != _undefined)
+        'includeAdultContentInQuickSearch':
+            (includeAdultContentInQuickSearch as bool?),
+      if (displayAdultActivities != _undefined)
+        'displayAdultActivities': (displayAdultActivities as bool?),
       if (airingNotifications != _undefined)
         'airingNotifications': (airingNotifications as bool?),
       if (scoreFormat != _undefined)
@@ -3707,6 +3901,9 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateUser<TRes>
     String? about,
     Enum$UserTitleLanguage? titleLanguage,
     bool? displayAdultContent,
+    bool? includeAdultContentInSearch,
+    bool? includeAdultContentInQuickSearch,
+    bool? displayAdultActivities,
     bool? airingNotifications,
     Enum$ScoreFormat? scoreFormat,
     String? rowOrder,
@@ -3878,6 +4075,39 @@ const documentNodeMutationUpdateUser = DocumentNode(
           directives: [],
         ),
         VariableDefinitionNode(
+          variable: VariableNode(
+            name: NameNode(value: 'includeAdultContentInSearch'),
+          ),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(
+            name: NameNode(value: 'includeAdultContentInQuickSearch'),
+          ),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
+          variable: VariableNode(
+            name: NameNode(value: 'displayAdultActivities'),
+          ),
+          type: NamedTypeNode(
+            name: NameNode(value: 'Boolean'),
+            isNonNull: false,
+          ),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
+        VariableDefinitionNode(
           variable: VariableNode(name: NameNode(value: 'airingNotifications')),
           type: NamedTypeNode(
             name: NameNode(value: 'Boolean'),
@@ -4019,6 +4249,24 @@ const documentNodeMutationUpdateUser = DocumentNode(
                 name: NameNode(value: 'displayAdultContent'),
                 value: VariableNode(
                   name: NameNode(value: 'displayAdultContent'),
+                ),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'includeAdultContentInSearch'),
+                value: VariableNode(
+                  name: NameNode(value: 'includeAdultContentInSearch'),
+                ),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'includeAdultContentInQuickSearch'),
+                value: VariableNode(
+                  name: NameNode(value: 'includeAdultContentInQuickSearch'),
+                ),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'displayAdultActivities'),
+                value: VariableNode(
+                  name: NameNode(value: 'displayAdultActivities'),
                 ),
               ),
               ArgumentNode(

@@ -2489,7 +2489,6 @@ Enum$MediaRankType fromJson$Enum$MediaRankType(String value) {
 }
 
 enum Enum$MediaRelation {
-  SOURCE,
   ADAPTATION,
   PREQUEL,
   SEQUEL,
@@ -2500,8 +2499,10 @@ enum Enum$MediaRelation {
   ALTERNATIVE,
   SPIN_OFF,
   OTHER,
+  SOURCE,
   COMPILATION,
   CONTAINS,
+  SAME_UNIVERSE,
   $unknown;
 
   factory Enum$MediaRelation.fromJson(String value) =>
@@ -2512,8 +2513,6 @@ enum Enum$MediaRelation {
 
 String toJson$Enum$MediaRelation(Enum$MediaRelation e) {
   switch (e) {
-    case Enum$MediaRelation.SOURCE:
-      return r'SOURCE';
     case Enum$MediaRelation.ADAPTATION:
       return r'ADAPTATION';
     case Enum$MediaRelation.PREQUEL:
@@ -2534,10 +2533,14 @@ String toJson$Enum$MediaRelation(Enum$MediaRelation e) {
       return r'SPIN_OFF';
     case Enum$MediaRelation.OTHER:
       return r'OTHER';
+    case Enum$MediaRelation.SOURCE:
+      return r'SOURCE';
     case Enum$MediaRelation.COMPILATION:
       return r'COMPILATION';
     case Enum$MediaRelation.CONTAINS:
       return r'CONTAINS';
+    case Enum$MediaRelation.SAME_UNIVERSE:
+      return r'SAME_UNIVERSE';
     case Enum$MediaRelation.$unknown:
       return r'$unknown';
   }
@@ -2545,8 +2548,6 @@ String toJson$Enum$MediaRelation(Enum$MediaRelation e) {
 
 Enum$MediaRelation fromJson$Enum$MediaRelation(String value) {
   switch (value) {
-    case r'SOURCE':
-      return Enum$MediaRelation.SOURCE;
     case r'ADAPTATION':
       return Enum$MediaRelation.ADAPTATION;
     case r'PREQUEL':
@@ -2567,10 +2568,14 @@ Enum$MediaRelation fromJson$Enum$MediaRelation(String value) {
       return Enum$MediaRelation.SPIN_OFF;
     case r'OTHER':
       return Enum$MediaRelation.OTHER;
+    case r'SOURCE':
+      return Enum$MediaRelation.SOURCE;
     case r'COMPILATION':
       return Enum$MediaRelation.COMPILATION;
     case r'CONTAINS':
       return Enum$MediaRelation.CONTAINS;
+    case r'SAME_UNIVERSE':
+      return Enum$MediaRelation.SAME_UNIVERSE;
     default:
       return Enum$MediaRelation.$unknown;
   }
@@ -3277,6 +3282,9 @@ enum Enum$NotificationType {
   MEDIA_DATA_CHANGE,
   MEDIA_MERGE,
   MEDIA_DELETION,
+  MEDIA_SUBMISSION_UPDATE,
+  STAFF_SUBMISSION_UPDATE,
+  CHARACTER_SUBMISSION_UPDATE,
   $unknown;
 
   factory Enum$NotificationType.fromJson(String value) =>
@@ -3321,6 +3329,12 @@ String toJson$Enum$NotificationType(Enum$NotificationType e) {
       return r'MEDIA_MERGE';
     case Enum$NotificationType.MEDIA_DELETION:
       return r'MEDIA_DELETION';
+    case Enum$NotificationType.MEDIA_SUBMISSION_UPDATE:
+      return r'MEDIA_SUBMISSION_UPDATE';
+    case Enum$NotificationType.STAFF_SUBMISSION_UPDATE:
+      return r'STAFF_SUBMISSION_UPDATE';
+    case Enum$NotificationType.CHARACTER_SUBMISSION_UPDATE:
+      return r'CHARACTER_SUBMISSION_UPDATE';
     case Enum$NotificationType.$unknown:
       return r'$unknown';
   }
@@ -3362,6 +3376,12 @@ Enum$NotificationType fromJson$Enum$NotificationType(String value) {
       return Enum$NotificationType.MEDIA_MERGE;
     case r'MEDIA_DELETION':
       return Enum$NotificationType.MEDIA_DELETION;
+    case r'MEDIA_SUBMISSION_UPDATE':
+      return Enum$NotificationType.MEDIA_SUBMISSION_UPDATE;
+    case r'STAFF_SUBMISSION_UPDATE':
+      return Enum$NotificationType.STAFF_SUBMISSION_UPDATE;
+    case r'CHARACTER_SUBMISSION_UPDATE':
+      return Enum$NotificationType.CHARACTER_SUBMISSION_UPDATE;
     default:
       return Enum$NotificationType.$unknown;
   }
@@ -3493,7 +3513,9 @@ enum Enum$ReviewSort {
   SCORE_DESC,
   RATING,
   RATING_DESC,
+  @Deprecated('Use ID instead')
   CREATED_AT,
+  @Deprecated('Use ID_DESC instead')
   CREATED_AT_DESC,
   UPDATED_AT,
   UPDATED_AT_DESC,
@@ -4011,7 +4033,9 @@ enum Enum$ThreadSort {
   ID_DESC,
   TITLE,
   TITLE_DESC,
+  @Deprecated('Use ID instead')
   CREATED_AT,
+  @Deprecated('Use ID_DESC instead')
   CREATED_AT_DESC,
   UPDATED_AT,
   UPDATED_AT_DESC,
@@ -4106,6 +4130,44 @@ Enum$ThreadSort fromJson$Enum$ThreadSort(String value) {
       return Enum$ThreadSort.SEARCH_MATCH;
     default:
       return Enum$ThreadSort.$unknown;
+  }
+}
+
+enum Enum$UserPrivacy {
+  PUBLIC,
+  SEMI_PUBLIC,
+  PRIVATE,
+  $unknown;
+
+  factory Enum$UserPrivacy.fromJson(String value) =>
+      fromJson$Enum$UserPrivacy(value);
+
+  String toJson() => toJson$Enum$UserPrivacy(this);
+}
+
+String toJson$Enum$UserPrivacy(Enum$UserPrivacy e) {
+  switch (e) {
+    case Enum$UserPrivacy.PUBLIC:
+      return r'PUBLIC';
+    case Enum$UserPrivacy.SEMI_PUBLIC:
+      return r'SEMI_PUBLIC';
+    case Enum$UserPrivacy.PRIVATE:
+      return r'PRIVATE';
+    case Enum$UserPrivacy.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$UserPrivacy fromJson$Enum$UserPrivacy(String value) {
+  switch (value) {
+    case r'PUBLIC':
+      return Enum$UserPrivacy.PUBLIC;
+    case r'SEMI_PUBLIC':
+      return Enum$UserPrivacy.SEMI_PUBLIC;
+    case r'PRIVATE':
+      return Enum$UserPrivacy.PRIVATE;
+    default:
+      return Enum$UserPrivacy.$unknown;
   }
 }
 
@@ -4539,5 +4601,8 @@ const possibleTypesMap = <String, Set<String>>{
     'MediaDataChangeNotification',
     'MediaMergeNotification',
     'MediaDeletionNotification',
+    'MediaSubmissionUpdateNotification',
+    'StaffSubmissionUpdateNotification',
+    'CharacterSubmissionUpdateNotification',
   },
 };

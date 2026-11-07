@@ -4,7 +4,9 @@ import 'fragments/message_activity.graphql.dart';
 import 'fragments/page_info.graphql.dart';
 import 'fragments/text_activity.graphql.dart';
 import 'fragments/user.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Variables$Query$Activity {

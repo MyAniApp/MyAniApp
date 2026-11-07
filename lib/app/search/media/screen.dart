@@ -133,7 +133,7 @@ class _MediaSearchScreenState extends ConsumerState<MediaSearchScreen> {
         child: () => HookBuilder(
           builder: (context) {
             var (:snapshot, :fetchMore, :refetch) = gqlClient.useQuery(
-              query!.toReq(),
+              query!.toReq(ref.read(userProvider).value?.parsedData?.Viewer),
             );
 
             return RefreshIndicator.adaptive(

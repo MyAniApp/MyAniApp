@@ -1,4 +1,5 @@
 import 'package:gql/ast.dart';
+
 import 'user.graphql.dart';
 
 class Fragment$ThreadComment {

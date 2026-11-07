@@ -1,6 +1,8 @@
 import 'fragments/media.graphql.dart';
 import 'fragments/page_info.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Query$GenreCollection {
@@ -1341,7 +1343,7 @@ const documentNodeQuerySearch = DocumentNode(
             name: NameNode(value: 'Boolean'),
             isNonNull: false,
           ),
-          defaultValue: DefaultValueNode(value: BooleanValueNode(value: false)),
+          defaultValue: DefaultValueNode(value: null),
           directives: [],
         ),
         VariableDefinitionNode(

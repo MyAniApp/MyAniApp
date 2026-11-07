@@ -3,7 +3,9 @@ import 'fragments/list_group.graphql.dart';
 import 'fragments/media.graphql.dart';
 import 'fragments/media_entry.graphql.dart';
 import 'fragments/media_list_option.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Variables$Query$MediaList {

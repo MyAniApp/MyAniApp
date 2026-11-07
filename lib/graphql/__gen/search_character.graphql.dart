@@ -1,6 +1,8 @@
 import 'fragments/character.graphql.dart';
 import 'fragments/page_info.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Variables$Query$CharacterSearch {

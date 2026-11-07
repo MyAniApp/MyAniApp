@@ -1,4 +1,5 @@
 import 'fragments/media.graphql.dart';
+
 import 'package:gql/ast.dart';
 
 class Variables$Query$EmbedMediaCard {

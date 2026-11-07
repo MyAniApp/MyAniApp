@@ -1,6 +1,8 @@
 import 'fragments/review.graphql.dart';
 import 'fragments/user.graphql.dart';
+
 import 'package:gql/ast.dart';
+
 import 'schema.graphql.dart';
 
 class Variables$Query$Review {

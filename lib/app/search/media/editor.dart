@@ -98,12 +98,6 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                     ),
                   ),
                   onPressed: () {
-                    if (query.genres?.contains("Hentai") == true) {
-                      query.isAdult = true;
-                    } else {
-                      query.isAdult = null;
-                    }
-
                     ref.read(sharedPrefsProvider).setStringList(
                       "mediaSearches",
                       [
@@ -223,6 +217,12 @@ class _MediaSearchEditorState extends ConsumerState<MediaSearchEditor> {
                   value: true,
                   groupValue: query.onList,
                   onChanged: (value) => setState(() => query.onList = value),
+                ),
+                CheckboxSettingsTile(
+                  title: "Show Adult",
+                  value: query.isAdult,
+                  tristate: true,
+                  onChanged: (value) => setState(() => query.isAdult = value),
                 ),
                 SettingsTile(
                   title: Column(

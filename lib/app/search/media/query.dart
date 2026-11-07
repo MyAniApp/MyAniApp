@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:myaniapp/graphql/__gen/schema.graphql.dart';
 import 'package:myaniapp/graphql/__gen/search_media.graphql.dart';
+import 'package:myaniapp/graphql/__gen/viewer.graphql.dart';
 import 'package:myaniapp/graphql/queries.dart';
 import 'package:myaniapp/main.dart';
 import 'package:mygraphql/graphql.dart';
@@ -150,7 +151,8 @@ class MediaSearchQuery {
     );
   }
 
-  GQLRequest<Query$Search> toReq() {
+  GQLRequest<Query$Search> toReq(Fragment$ThisUser? user) {
+    final includeAdult = user?.options?.includeAdultContentInSearch;
     return GQLRequest(
       searchQuery,
       parseData: Query$Search.fromJson,
@@ -161,7 +163,7 @@ class MediaSearchQuery {
           sort: sort,
           countryOfOrigin: countryOfOrigin,
           genres: genres,
-          isAdult: isAdult,
+          isAdult: isAdult ?? (includeAdult == true ? null : false),
           onList: onList,
           search: search,
           season: season,

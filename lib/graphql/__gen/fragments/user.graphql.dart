@@ -1,4 +1,5 @@
 import '../schema.graphql.dart';
+
 import 'package:gql/ast.dart';
 
 class Fragment$UserFragment {

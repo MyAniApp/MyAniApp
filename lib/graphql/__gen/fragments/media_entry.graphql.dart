@@ -1,6 +1,7 @@
 import '../schema.graphql.dart';
 import 'fuzzy_date.graphql.dart';
 import 'media.graphql.dart';
+
 import 'package:gql/ast.dart';
 
 class Fragment$MediaListEntry {
@@ -811,6 +812,7 @@ class Fragment$MediaListEntry$media implements Fragment$MediaFragment {
 
   final Enum$MediaStatus? status;
 
+  @Deprecated('Use weightedScore')
   final int? averageScore;
 
   final int? popularity;
